@@ -1,0 +1,397 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+<meta name="verify-v1" content="qLIlUXv7S0L6yiAxLJpOJiD7QYp2mFrujAKdor8rOiI=" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="Building Reports in SQL Server 2005,Building Reports in SQL Server 2005—Adding Interactivity,Building Reports in SQL Server 2005—Adding Subtotals,Building Reports in SQL Server 2005—Adding a Chart,Building Reports in SQL Server 2005—Adding the Final Touches,Building Reports in SQL Server 2005—Applying a Filter,Building Reports in SQL Server 2005—Building Reports from Scratch,Building Reports in SQL Server 2005—Creating a Report with the Report Wizard,Building Reports in SQL Server 2005—Formatting the Output,Building Reports in SQL Server 2005—Setting Report Parameters with Stored Procedures,Building Reports in SQL Server 2005—Summary" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="copyright" href="/CSharp-Online.NET:Copyright" />
+		<title>Building Reports in SQL Server 2005 at C# Online.NET (CSharp-Online.NET)</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "/skins/csobook/main.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins/csobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins/csobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins/csobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins/csobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'csobook';var stylepath = '/skins';</script>
+		<script type="text/javascript" src="/skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/index.php?title=-&amp;action=raw&amp;gen=js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/index.php?title=MediaWiki:Common.css&action=raw&ctype=text/css&smaxage=18000";
+@import "/index.php?title=MediaWiki:Csobook.css&action=raw&ctype=text/css&smaxage=18000";
+@import "/index.php?title=-&action=raw&gen=css&maxage=18000";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+				<script type="text/javascript" src="/js/previewbubble.js"></script>
+		<script type="text/javascript" src="/js/CSO.js"></script>
+        <link href="CSOmenu.css" type="text/css" rel="stylesheet" />
+</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Building Reports in SQL Server 2005</h1>
+		<div id="bodyContent">
+
+                  <font size=-1><script type="text/javascript"><!--
+google_ad_client = "pub-9095722307447682";
+/* enCSOBannerTagline */
+google_ad_slot = "7825658103";
+google_ad_width = 728;
+google_ad_height = 15;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></font>
+			<!-- h3 id="siteSub">Microsoft .NET Framework, ADO.NET, ASP.NET, SQL Server, Visual C#, Visual Studio Developer Training</h3 -->
+			<div id="contentSub"></div>
+<div align="center"><table bgcolor="#554a1c" cellpadding="0" cellspacing="0"><tr><td align="left"><script type="text/javascript"><!--
+google_ad_client = "pub-9095722307447682";
+google_ad_width = 468;
+google_ad_height = 60;
+google_ad_format = "468x60_as";
+google_ad_type = "text";
+//2006-11-01: enCSOBannerBU
+google_ad_channel = "6332880125";
+google_color_border = "BFBAA7";
+google_color_bg = "DFDCD1";
+google_color_link = "002BB8";
+google_color_text = "000000";
+google_color_url = "000000";
+//--></script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></td></tr></table></div><br />
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<table id="Article" style="margin: 0 0 1em 1em; font-size:90%; border: 1px solid gray; float:right; clear:right;">
+
+<tr style="background:#f2f2f2" align="center">
+<td style="border-bottom: 2px solid #ccf"> <b><a href="/CSharp-Online.NET:Articles" title="CSharp-Online.NET:Articles">CSharp-Online.NET:Articles</a></b>
+</td></tr>
+<tr style="background:#f2f2f2" align="center">
+<td style="border-bottom: 2px solid #ccf"> <b><a href="/Database_Articles" title="Database Articles">Database Articles</a></b>
+</td></tr>
+
+<tr style="background:#f2f2f2">
+<td style="border-bottom: 2px solid #ccf">
+<p><b><strong>Building Reports</strong></b>
+</p>
+<ul><li><a href="/Building_Reports_in_SQL_Server_2005%E2%80%94Creating_a_Report_with_the_Report_Wizard" title="Building Reports in SQL Server 2005—Creating a Report with the Report Wizard">Report Wizard</a>
+</li><li><a href="/Building_Reports_in_SQL_Server_2005%E2%80%94Building_Reports_from_Scratch" title="Building Reports in SQL Server 2005—Building Reports from Scratch">Build Report from Scratch</a>
+</li><li><a href="/Building_Reports_in_SQL_Server_2005%E2%80%94Formatting_the_Output" title="Building Reports in SQL Server 2005—Formatting the Output">Format the Output</a>
+</li><li><a href="/Building_Reports_in_SQL_Server_2005%E2%80%94Adding_Subtotals" title="Building Reports in SQL Server 2005—Adding Subtotals">Add Subtotals</a>
+</li><li><a href="/Building_Reports_in_SQL_Server_2005%E2%80%94Adding_Interactivity" title="Building Reports in SQL Server 2005—Adding Interactivity">Interactivity &sect;</a>
+</li><li><a href="/Building_Reports_in_SQL_Server_2005%E2%80%94Setting_Report_Parameters_with_Stored_Procedures" title="Building Reports in SQL Server 2005—Setting Report Parameters with Stored Procedures">Set Report Parameters</a>
+</li><li><a href="/Building_Reports_in_SQL_Server_2005%E2%80%94Applying_a_Filter" title="Building Reports in SQL Server 2005—Applying a Filter">Apply a Filter</a>
+</li><li><a href="/Building_Reports_in_SQL_Server_2005%E2%80%94Adding_a_Chart" title="Building Reports in SQL Server 2005—Adding a Chart">Add a Chart</a>
+</li><li><a href="/Building_Reports_in_SQL_Server_2005%E2%80%94Adding_the_Final_Touches" title="Building Reports in SQL Server 2005—Adding the Final Touches">Final Touches</a>
+</li><li><a href="/Building_Reports_in_SQL_Server_2005%E2%80%94Working_with_Multivalued_Parameters" title="Building Reports in SQL Server 2005—Working with Multivalued Parameters">Multivalued Parameters</a>
+</li><li><a href="/Building_Reports_in_SQL_Server_2005%E2%80%94Summary" title="Building Reports in SQL Server 2005—Summary">Summary</a>
+</li></ul>
+</td></tr>
+<tr align="center" style="background:#f2f2f2">
+<td><small>© 2006 R. Landrum, W. J. Voytek</small>
+</td></tr></table>
+<table cellpadding="5" cellspacing="5" style="border-width:1px;border-style:solid;border-color:gray;background:#f2f2f2">
+
+<tr valign="middle">
+<td> This article&mdash;<i>Building Reports in SQL Server 2005</i>&mdash;is from <a href="/Pro_SQL_Server_2005_Reporting_Services%2C_Apress" title="Pro SQL Server 2005 Reporting Services, Apress"><i>Pro SQL Server 2005 Reporting Services</i></a>, by Rodney Landrum, Walter J. Voytek II. Copyright &copy; 2006 Rodney Landrum, Walter J. Voytek II. All rights reserved. Reproduced by permission. This article has been edited especially for <i>C# Online.NET</i>. &nbsp;<b><a href="/Pro_SQL_Server_2005_Reporting_Services%2C_Apress" title="Pro SQL Server 2005 Reporting Services, Apress">Read the book review!</a></b>
+</td><td><span class="plainlinks"><a href="http://en.csharp-online.net/Pro_SQL_Server_2005_Reporting_Services%2C_Apress" title="http://en.csharp-online.net/Pro_SQL_Server_2005_Reporting_Services%2C_Apress" rel="nofollow"><img src="http://en.csharp-online.net/images/b/b8/ProSQLServerApress.jpg" alt="ProSQLServerApress.jpg" /></a></span>
+</td></tr></table>
+<p><br />
+</p>
+<a name="Building_Reports_in_SQL_Server_2005"></a><h2> Building Reports in SQL Server 2005</h2>
+<p>In the previous chapter, you laid the foundation for your first report by creating a query and
+subsequent stored procedure. You also learned about the fundamental elements used to build
+reports and are now familiar with the design environment. So, it is time to put all the pieces
+together and begin building reports. You can easily apply the concepts in this chapter to any
+company that uses SQL Server and relational database systems. This chapter will focus primarily
+on creating a reporting solution based on data from a SQL Server health-care database; it
+will use many of the available report elements in SSRS.
+</p><p>The report you will be creating in this chapter is called the Employee Service Cost report.
+This report will utilize the same query and stored procedure, <code>Emp_Svc_Cost</code>, that you have been
+working with since Chapter 2 to provide the report data. As a reminder, the query returns detail
+records that represent services, such as a skilled nurse or home health aide visit, performed for
+patients. Each type of service has an associated cost for the health-care company. This report,
+when complete, will show important cost points based on associated data provided by the
+query, such as the patient’s diagnosis, the employees who performed the services, the date of
+each service, and the branch location of the patient. By grouping and sorting the report at
+these cost points, the user will be able to see the cost of services from the individual patient all
+the way up to the branch location, which might serve hundreds of patients. You will group and
+calculate the cost amount at each level.
+</p><p>Specifically, in the following sections, you will create the Employee Service Cost report
+initially with the Report Wizard, which produces a report based on predefined selections, and
+then from scratch. We will show the process of using the wizard for demonstration purposes
+only and therefore will not continue with the report that it produces. For the report you build
+from scratch, you will add all the features that the Report Wizard can add plus much more. The
+following list highlights the design goals for the Employee Service Cost report:
+</p>
+<blockquote>
+<p>• Step through adding a base report that uses the Table data region based on the dataset you defined for the <code>Emp_Svc_Cost</code> query.</p>
+<p>• Add several basic formatting elements to the report.</p>
+<p>• Add interactivity to the report with document mapping, visibility, hyperlink actions, and
+interactive sorting, which is a new feature of SSRS for SQL Server 2005. Both document
+mapping and hyperlink actions allow the user to navigate to defined locations either
+within the report or outside the report, such as aWeb site. In this chapter, you will use
+visibility properties within your report to expand and collapse report items from summary
+to detail. Interactive sorting gives an SSRS report versatility by allowing it to be sorted,
+in much the same way Microsoft Outlook allows sorting by clicking column headers.</p>
+<p>• Add parameters to the report automatically by changing the dataset from a query to a parameterized stored procedure. You will also add other datasets to populate the parameters defined by the stored procedure.</p>
+<p>• Learn how to use multivalued parameters using amodified stored procedure and UDF.</p>
+<p>• Add a filter to the Table data region to show only service types that are visits.</p>
+<p>• Add a Chart data region for the top ten diagnoses to the report.</p>
+<p>• Add the final touches to the report, such as a page header and footer, title, and page
+numbers.</p>
+</blockquote>
+<p>In addition, as you begin to work more closely with report and query parameters, you
+will learn how to use a new feature of SSRS for SQL Server 2005: multivalued parameters. As
+mentioned in previous chapters, multivalued parameters require special consideration when
+designing the underlying query, so in this chapter you will use amodified version of your stored
+procedure that takes advantage of a UDF; this will teach you how to best utilize this new and
+much anticipated feature.
+</p><p>In the preceding chapters, we covered the steps for creating the solution, project, and data
+source that your report will use, so we will not cover these steps again here. We will, however,
+show how to use the same data source properties to connect to the health-care database where
+the data for your report resides. The same database also contains the stored procedure you
+created in Chapter 2, <code>Emp_Svc_Cost</code>, that you will use later in this chapter.
+</p><p><br />
+</p>
+<table align="center" style="border-color: transparent; border-width: 0px; background-color: transparent;">
+
+<tr>
+<td> <span class="plainlinks"><a href="http://en.csharp-online.net/Building_Reports_in_SQL_Server_2005%E2%80%94Summary" title="http://en.csharp-online.net/Building_Reports_in_SQL_Server_2005%E2%80%94Summary" rel="nofollow"><img src="http://en.csharp-online.net/images/c/cf/Previous_Page_.gif" alt="Previous_Page_.gif" /></a> <a href="http://en.csharp-online.net/Building_Reports_in_SQL_Server_2005%E2%80%94Creating_a_Report_with_the_Report_Wizard" title="http://en.csharp-online.net/Building_Reports_in_SQL_Server_2005%E2%80%94Creating_a_Report_with_the_Report_Wizard" rel="nofollow"><img src="http://en.csharp-online.net/images/9/9e/Next_Page_.gif" alt="Next_Page_.gif" /></a></span>
+</td></tr></table>
+
+<!-- Saved in parser cache with key csharpon_cswiki:pcache:idhash:2968-0!1!0!0!!en!2!edit=0 and timestamp 20100314134404 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.csharp-online.net/Building_Reports_in_SQL_Server_2005">http://en.csharp-online.net/Building_Reports_in_SQL_Server_2005</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/index.php?title=Special:Categories&amp;article=Building_Reports_in_SQL_Server_2005" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="/Category:CSharp-Online.NET_Articles" title="Category:CSharp-Online.NET Articles">CSharp-Online.NET Articles</a></span> | <span dir='ltr'><a href="/Category:Database_Articles" title="Category:Database Articles">Database Articles</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+
+<div class="visualClear"></div><br />
+<div align="center"><table bgcolor="#554a1c" cellpadding="0" cellspacing="0"><tr><td align="left"><script type="text/javascript"><!--
+google_ad_client = "pub-9095722307447682";
+google_ad_width = 468;
+google_ad_height = 60;
+google_ad_format = "468x60_as";
+google_ad_type = "text";
+//2006-11-01: enCSOBannerBL
+google_ad_channel = "4522375412";
+google_color_border = "BFBAA7";
+google_color_bg = "DFDCD1";
+google_color_link = "002BB8";
+google_color_text = "000000";
+google_color_url = "000000";
+//--></script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></td></tr></table></div>
+		</div>
+	</div>
+
+<div id="column-google">
+   <!-- Google AdSense -->
+   <script type="text/javascript"><!--
+google_ad_client = "pub-9095722307447682";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text";
+//2006-11-01: enCSOTowerR
+google_ad_channel = "4224729855";
+google_color_border = "554A1C";
+google_color_bg = "DFDCD1";
+google_color_link = "002BB8";
+google_color_text = "000000";
+google_color_url = "000000";
+//--></script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>   <br />
+   <iframe src="http://rcm.amazon.com/e/cm?t=edentoncom-20&o=1&p=8&l=st1&mode=books&search=C%23&fc1=000000&lt1=_blank&lc1=002BB8&bg1=DFDCD1&f=ifr" marginwidth="0" marginheight="0" width="120" height="240" border="0" frameborder="0" style="border:none;" scrolling="no"></iframe>   <!-- ?php include("includes/Performics/RandomPromo120x60.php") ? -->
+</div>
+
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="/Building_Reports_in_SQL_Server_2005">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="/index.php?title=Talk:Building_Reports_in_SQL_Server_2005&amp;action=edit">Discussion</a></li>
+				 <li id="ca-viewsource"><a href="/index.php?title=Building_Reports_in_SQL_Server_2005&amp;action=edit">View source</a></li>
+				 <li id="ca-history"><a href="/index.php?title=Building_Reports_in_SQL_Server_2005&amp;action=history">History</a></li>
+		</ul>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/index.php?title=Special:Userlogin&amp;returnto=Building_Reports_in_SQL_Server_2005">Log in / create account</a></li>
+&nbsp;&nbsp;<a href="javascript:location.href='http://del.icio.us/post?v=2&url='+encodeURIComponent(document.location.href)+'&title='+encodeURIComponent(document.title)+' '"><img src="grafx/delicious14x14.png" height="14" width="14" alt="del.icio.us C# Online.NET"></a>
+<a href="javascript:location.href='http://digg.com/submit?phase=2&title='+encodeURIComponent(document.title)+'&url='+encodeURIComponent(document.location.href)+' '"><img src="grafx/digg14x12.png" height="12" width="14" alt="digg C# Online.NET"></a>
+<a href="javascript:location.href='http://www.dotnetkicks.com/kick/?url='+encodeURIComponent(document.location.href)+'&title='+encodeURIComponent(document.title)+' '"><img src="grafx/dotnetkicks14x14.png" height="14" width="14" alt="kick C# Online.NET"></a>
+<a href="javascript:location.href='http://www.furl.net/storeIt.jsp?u='+encodeURIComponent(document.location.href)+'&t='+encodeURIComponent(document.title)+' '"><img src="grafx/furl14x14b.png" height="14" width="14" alt="furl C# Online.NET"></a>
+<a href="index.php?title=Social_bookmarking">?</a>
+<a href="http://toolbar.google.com/buttons/add?url=http://en.csharp-online.net/encsharponlinebutton.xml"><img src="grafx/GoogleToolbar14x14.jpg" height="14" width="14" alt="Get C# Online.NET Toolbar"></a>
+<a href="http://fusion.google.com/add?moduleurl=http%3A%2F%2Fwww.google.com%2Fcoop/api/015184517059031426848/cse/myxksvkpaf0/gadget"><img src="http://buttons.googlesyndication.com/fusion/add.gif" width="104" height="17" border="0" alt="Add C# Online Web Search" /></a>
+<a href="#bottom" title="Go to bottom of page">&#135;</a>
+</ul>
+		</div>
+	</div>
+	<!-- div class="portlet" id="p-logo" -->
+	<div id="p-logo">
+		<a style="background-image: url(/skins/common/images/CSOLogo4.gif);" href="/CSharp_Certification%2C_Development%2C_and_Training" title="CSharp Certification, Development, and Training"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+
+
+	<div class="portlet">
+	  <div>
+        <!-- Google Link Unit -->
+        <script type="text/javascript"><!--
+google_ad_client = "pub-9095722307447682";
+google_ad_width = 180;
+google_ad_height = 90;
+google_ad_format = "180x90_0ads_al";
+//2006-11-06: enCSOMenu
+google_ad_channel = "8093141770";
+google_color_border = "807960";
+google_color_bg = "DFDCD1";
+google_color_link = "002BB8";
+google_color_text = "000000";
+google_color_url = "000000";
+//--></script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>	  </div>
+	</div>
+
+	<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search me</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" value="Search me" />
+			</div></form>
+		</div>
+	</div>
+
+	<!-- div id="g-search" class="portlet" -->
+	   <!-- h5 --><!-- label for="searchInput">C# Online Web Search</label --><!-- /h5 -->
+		<!-- div class="pBody">
+	       <!-- ?php include("includes/Google/CSharpOnlineSearch.php") ? -->
+		<!-- /div -->
+	<!-- /div -->
+
+	<!-- div class="portlet" -->
+	  <div align="center">
+        <iframe src="http://rcm.amazon.com/e/cm?t=edentoncom-20&o=1&p=8&l=st1&mode=books&search=C%23&fc1=000000&lt1=_blank&lc1=002BB8&bg1=DFDCD1&f=ifr" marginwidth="0" marginheight="0" width="120" height="240" border="0" frameborder="0" style="border:none;" scrolling="no"></iframe><br /><br />
+	  </div>
+	<!-- /div -->
+
+		<div class='portlet' id='p-C# Csharp,C Sharp,C-Sharp'>
+		<h5>C# Csharp,C Sharp,C-Sharp</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-C#-Certification,-Development,-and-Training-(Home)"><a href="/CSharp_Certification%2C_Development%2C_and_Training">C# Certification, Development, and Training (Home)</a></li>
+				<li id="n-ASP.NET"><a href="/ASP.NET_Entry_Points">ASP.NET</a></li>
+				<li id="n-C#-and-Visual-C#"><a href="/CSharp_and_Visual_CSharp_Development">C# and Visual C#</a></li>
+				<li id="n-C#-.NET-Articles"><a href="/CSharp-Online.NET:Articles">C# .NET Articles</a></li>
+				<li id="n-C#-.NET-Glossary"><a href="/Glossary_of_.NET_/_CSharp_Terms">C# .NET Glossary</a></li>
+				<li id="n-C#-.NET-Resources"><a href="/CSharp-Online.NET:Resources">C# .NET Resources</a></li>
+				<li id="n-C#-.NET-Reviews"><a href="/CSharp-Online.NET:Reviews">C# .NET Reviews</a></li>
+				<li id="n-C#-.NET-Tutorials"><a href="/CSharp-Online.NET:Tutorials">C# .NET Tutorials</a></li>
+				<li id="n-C#-.NET-Videos"><a href="/CSharp-Online.NET:Videos">C# .NET Videos</a></li>
+				<li id="n-Microsoft-.NET-Framework"><a href="/.NET_Framework_and_CLR">Microsoft .NET Framework</a></li>
+				<li id="n-Microsoft-Visual-Studio-.NET"><a href="/Visual_Studio">Microsoft Visual Studio .NET</a></li>
+			</ul>
+		</div>
+	</div>
+	
+    <div class='portlet' id='p-C# Online.NET'>
+   <div class="mH" onclick="toggleClosedMenu('CSOmenu')"><h5>+ C# Online.NET</h5></div>
+      <div id="CSOmenu" class='mL pBody'>
+         <ul>
+         <li id="n-Categories"><a href="/Special:Categories">Categories</a></li>
+         <li id="n-portal"><a href="/CSharp-Online.NET:Community_Portal">Community portal</a></li>
+         <li id="n-currentevents"><a href="/Current_events">Current events</a></li>
+         <li id="n-Forums"><a href="http://forum.csharp-online.net/ ">Forums</a></li>
+         <li id="n-Getting-involved"><a href="/Getting_involved_with_CSharp-Online.NET">Getting involved</a></li>
+         <li id="n-help"><a href="/Help:Contents">Help</a></li>
+         <li id="n-Link-to-us"><a href="/Link_to_us">Link to us</a></li>
+         <li id="n-Newest-pages"><a href="/Special:Newestpages//">Newest pages</a></li>
+         <li id="n-Popular-pages"><a href="/Special:Popularpages">Popular pages</a></li>
+         <li id="n-Random-page"><a href="/Special:Random">Random page</a></li>
+         <li id="n-Sister-sites"><a href="/CSharp-Online.NET:Sister_Sites">Sister sites</a></li>
+         <li id="n-Weblog-(Blog)"><a href="http://blog.csharp-online.net/ ">Weblog (Blog)</a></li>
+         </ul>
+      </div>
+</div>
+
+	<div class="portlet" id="p-tb">
+	<div class="mH" onclick="toggleClosedMenu('toolmenu')">
+		<h5>+ Toolbox</h5></div>
+		<div id="toolmenu" class="mL pBody">
+			<ul>
+				<li class="mO" id="t-whatlinkshere"><a href="/Special:Whatlinkshere/Building_Reports_in_SQL_Server_2005">What links here</a></li>
+				<li class="mO" id="t-recentchangeslinked"><a href="/Special:Recentchangeslinked/Building_Reports_in_SQL_Server_2005">Related changes</a></li>
+<li class="mO" id="t-upload"><a href="/Special:Upload">Upload file</a></li>
+<li class="mO" id="t-specialpages"><a href="/Special:Specialpages">Special pages</a></li>
+				<li class="mO" id="t-print"><a href="/index.php?title=Building_Reports_in_SQL_Server_2005&amp;printable=yes">Printable version</a></li>				<li class="mO" id="t-permalink"><a href="/index.php?title=Building_Reports_in_SQL_Server_2005&amp;oldid=21999">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+
+	<div class="portlet">
+	  <div>
+        <!-- Google Link Unit -->
+        <script type="text/javascript"><!--
+google_ad_client = "pub-9095722307447682";
+google_ad_width = 180;
+google_ad_height = 90;
+google_ad_format = "180x90_0ads_al";
+//2007-09-10: enCSOMenuM
+google_ad_channel = "0500359493";
+google_color_border = "807960";
+google_color_bg = "DFDCD1";
+google_color_link = "002BB8";
+google_color_text = "000000";
+google_color_url = "000000";
+//-->
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>	  </div>
+	</div>
+
+		</div><!-- end of the left (by default at least) column -->
+
+			<div class="visualClear"></div>
+			<div id="footer">
+<a name="bottom" id="top"></a>
+<div align="center">
+<table bgcolor="#554a1c" cellpadding="0" cellspacing="0" border="0">
+<!-- tr --><!-- td bgcolor="#bfbaa7" valign="middle" align="center" --><!-- ?php include("includes/Google/enCSOMenuBL.php") ? --><!-- br /><br /></td --></tr -->
+  <tr><td bgcolor="#bfbaa7" valign="middle" align="center"><script type="text/javascript"><!--
+amazon_ad_tag = "edentoncom-20"; amazon_ad_width = "728"; amazon_ad_height = "90"; amazon_ad_logo = "hide"; amazon_ad_link_target = "new"; amazon_ad_discount = "remove"; amazon_color_border = "BFBAA7"; amazon_color_background = "DFDCD1"; amazon_color_link = "002BB8"; amazon_color_logo = "002BB8";//--></script>
+<script type="text/javascript" src="http://www.assoc-amazon.com/s/ads.js"></script><br /><br /></td></tr>
+  <tr><td bgcolor="#bfbaa7" colspan="2"><ul id="f-list">
+				<li id="about"><a href="/CSharp-Online.NET:About" title="CSharp-Online.NET:About">About CSharp-Online.NET</a></li>
+				<li id="disclaimer"><a href="/CSharp-Online.NET:General_disclaimer" title="CSharp-Online.NET:General disclaimer">Disclaimers</a></li>
+				<li id="privacy"><a href="/CSharp-Online.NET:Privacy_policy" title="CSharp-Online.NET:Privacy policy">Privacy policy</a></li>
+				<li id="copyright">&copy; <a href="/CSharp-Online.NET:Copyright" title="CSharp-Online.NET:Copyright">CSharp-Online.NET</a></li>
+<nobr>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:location.href='http://del.icio.us/post?v=2&url='+encodeURIComponent(document.location.href)+'&title='+encodeURIComponent(document.title)+' '"><img src="grafx/delicious14x14.png" height="14" width="14" alt="del.icio.us C# Online.NET"></a>
+<a href="javascript:location.href='http://digg.com/submit?phase=2&title='+encodeURIComponent(document.title)+'&url='+encodeURIComponent(document.location.href)+' '"><img src="grafx/digg14x12.png" height="12" width="14" alt="digg C# Online.NET"></a>
+<a href="javascript:location.href='http://www.dotnetkicks.com/kick/?url='+encodeURIComponent(document.location.href)+'&title='+encodeURIComponent(document.title)+' '"><img src="grafx/dotnetkicks14x14.png" height="14" width="14" alt="kick C# Online.NET"></a>
+<a href="javascript:location.href='http://www.furl.net/storeIt.jsp?u='+encodeURIComponent(document.location.href)+'&t='+encodeURIComponent(document.title)+' '"><img src="grafx/furl14x14b.png" height="14" width="14" alt="furl C# Online.NET"></a>
+<a href="index.php?title=Social_bookmarking">?</a>
+<a href="http://toolbar.google.com/buttons/add?url=http://en.csharp-online.net/encsharponlinebutton.xml"><img src="grafx/GoogleToolbar14x14.jpg" height="14" width="14" alt="Get C# Online.NET Toolbar"></a>
+<a href="http://fusion.google.com/add?moduleurl=http%3A%2F%2Fwww.google.com%2Fcoop/api/015184517059031426848/cse/myxksvkpaf0/gadget"><img src="http://buttons.googlesyndication.com/fusion/add.gif" width="104" height="17" border="0" alt="Add C# Online Web Search" /></a>
+<a href="#top" title="Go to top of page">&#134;</a></nobr>
+			</ul>
+</td></tr>
+</table></div>
+</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by host.siteground-vps68.com in 0.24 secs. --></body></html>

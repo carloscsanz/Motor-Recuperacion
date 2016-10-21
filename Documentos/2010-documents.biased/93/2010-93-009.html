@@ -1,0 +1,1783 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head id="ctl00_ctl00_ctl00"><meta name="GENERATOR" content="CommunityServer 2007 SP1 (Build: 20510.895)" />
+<link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
+<link rel="alternate" type="application/rss+xml" title="Forums RSS (RSS 2.0)" href="http://forums.asp.net/aggregaterss.aspx?Mode=0"  />
+<link rel="alternate" type="application/rss+xml" title="Data Presentation Controls (RSS 2.0)" href="http://forums.asp.net/rss.aspx?ForumID=24&amp;Mode=0"  />
+<link rel="alternate" type="application/rss+xml" title="How to retreive Commandfield Header Text in C# (RSS 2.0)" href="http://forums.asp.net/rss.aspx?ForumID=24&amp;PostID=3540630"  />
+
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <meta http-equiv="X-UA-Compatible" content="IE=7" /> 
+            
+                <link rel="stylesheet" href="http://i2.asp.net/common/forums-css/common.css?cdn_id=01112010_2" media="all" type="text/css" />      
+                <link rel="stylesheet" href="http://i1.asp.net/common/forums-css/common_print.css?cdn_id=01112010_2" media="print" type="text/css" />      
+                <link rel="stylesheet" href="http://i2.asp.net/common/forums-css/fan.css?cdn_id=01112010_2" media="screen" type="text/css" />      
+                <link rel="stylesheet" href="http://i3.asp.net/common/forums-css/fan_print.css?cdn_id=01112010_2" media="print" type="text/css" />      
+                <link rel="shortcut icon" href="http://i1.asp.net/common/www-css/i/favicon.ico?cdn_id=01112010_2" /> 
+                
+                <script type="text/javascript" src="http://i2.asp.net/script/forums.asp.net/forums-all.js?cdn_id=01112010_2" ></script>
+                <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery/jquery-1.3.2.min.js" ></script>
+                
+           
+            
+            
+    
+    
+       
+        
+    <!--[if lte IE 7]> <script language="javascript"> function fixIEPaintBug(){ var c = document.getElementById('CommonContent');  if (c) { c.style.height = "1%";} } attachEvent("onload", fixIEPaintBug); </script> <![endif]--> 
+        
+    <title>
+	How to retreive Commandfield Header Text in C# - ASP.NET Forums
+</title></head>    
+    
+	<body class="forum" >
+
+		<form name="aspnetForm" method="post" action="/t/1498826.aspx" id="aspnetForm">
+<div>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+
+<script src="/ScriptResource.axd?d=ujewXb1RkafGS8O5TIHXVcen1z7-c0eWoNMedUZc88nOY90xB3eDTFG5UouValtp-6Qu91Xec9dyOE_VMFiyB9-2K65Oqy-p5f0nucazwHQ1&amp;t=ffffffffa74340d0" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=ujewXb1RkafGS8O5TIHXVcen1z7-c0eWoNMedUZc88nOY90xB3eDTFG5UouValtp-6Qu91Xec9dBAi2uytwiw8kryRY0aejq0&amp;t=ffffffffa74340d0" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=HGB68otmMsAAmCzWoiidtHi3s9stakylnHh3fhr284MATMxUGzpDZAOlL_F-YzrZ_rpHRDg8VuRQ6qKBNAtfpVF_qDpeHQhB4OdfxTlXSSIWNEwLeLuV9GThtfPWWsxt0&amp;t=ffffffffb3b706d0" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=ujewXb1RkafGS8O5TIHXVcen1z7-c0eWoNMedUZc88nOY90xB3eDTFG5UouValtp-6Qu91Xec9ckNGoXOqsIPmjTU3qw29pMyLZfWkflQaE1&amp;t=ffffffffa74340d0" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=ujewXb1RkafGS8O5TIHXVcen1z7-c0eWoNMedUZc88nOY90xB3eDTFG5UouValtp-6Qu91Xec9ckNGoXOqsIPlJbu_9HFyHIov02M6QbbUc1&amp;t=ffffffffa74340d0" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=ujewXb1RkafGS8O5TIHXVcen1z7-c0eWoNMedUZc88nOY90xB3eDTFG5UouValtp-6Qu91Xec9d8z_DooPRVmVo_4mxq003L5q-IT-ROgb41&amp;t=ffffffffa74340d0" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=HCJUnBhvHpDajYT6Ana6x3k3FfaTGaRGrPd3Ou3bRLV30vlFuGrMWusd2b8oBVfGmZpfOcFSUWJRimUSR52SeILSiItL3De80&amp;t=ffffffff960c82b3" type="text/javascript"></script>
+			
+			
+			
+
+            <div class="content_container">
+		        
+					<div class="header_container">  
+                    
+                        <div class="header_top">
+                            <div class="header_top_right"></div>
+                        </div>
+                        <div class="header_content mix10">
+                            <div class="header_content_right">
+                            
+                            <!--Mixx-->
+                                <style>
+                                    .mix10 .logo {left:5px; position:absolute; top:-4px; z-index:20;}
+                                    .logo_mix_2010 {left:7px; position:absolute; top:-3px; z-index:20;}
+                                    .mix10 .header_content_right {background-position:right -28px; min-height:56px; padding:0 0 0 175px;}
+                                    .mix10 ul.nav_main {bottom:-5px; left:194px; margin:0; padding:0; position:absolute;}
+                                </style>
+								<a id="LogoLink" title="Home Page" href="http://asp.net/"><img class="logo" src="http://i1.asp.net/common/www-css/i/logo_mix.png?cdn_id=01112010_2" alt="Microsoft ASP.net" /></a>
+        <a href="http://live.visitmix.com/" title="Mix 2010"><img src="http://i1.asp.net/common/www-css/i/logo_mix_2010.png?cdn_id=01112010_2" alt="Mix 2010" class="logo_mix_2010" /></a>
+
+
+                                <ul class="nav_main">
+                                    <li class="first"><a href="http://www.asp.net">Home</a></li>
+                                    <li><a href="http://www.asp.net/get-started/">Get Started</a></li>
+                                    <li><a href="http://www.asp.net/downloads/">Downloads</a></li>
+                                    <li><a href="http://www.asp.net/web-forms/">Web Forms</a></li>
+					                <li><a href="http://www.asp.net/mvc/">MVC</a></li>
+					                <li><a href="http://www.asp.net/ajax/">AJAX</a></li>
+                                    <li><a href="http://www.asp.net/community/">Community</a></li>
+                                    <li><a href="http://wiki.asp.net/">Wiki</a></li>
+                                    <li class="active"><a href="http://forums.asp.net">Forums</a></li>
+                                    <li class="search">                                            
+                                            <div id="SearchBoxWrapper">
+                                                <input name="ctl00$ctl00$bhcr$SearchForm1$ctl00$TitleBarSearchText" type="text" maxlength="64" id="ctl00_ctl00_bhcr_SearchForm1_ctl00_TitleBarSearchText" class="search_box" onclick="if(this.defaultValue==this.value) this.value='';" onblur="if(this.value=='') this.value=this.defaultValue;" onkeydown="if( typeof(KeyDownHandlerctl00_ctl00_bhcr_SearchForm1_ctl00_TitleBarSearchButton) == 'undefined' || KeyDownHandlerctl00_ctl00_bhcr_SearchForm1_ctl00_TitleBarSearchButton == null) return false; else return KeyDownHandlerctl00_ctl00_bhcr_SearchForm1_ctl00_TitleBarSearchButton(event);" />
+                                            </div>                                            
+                                            <input type="submit" name="ctl00$ctl00$bhcr$SearchForm1$ctl00$TitleBarSearchButton" value="Search" id="ctl00_ctl00_bhcr_SearchForm1_ctl00_TitleBarSearchButton" class="search_button" />
+                                        </li>                                    
+                                </ul>                       
+                                <div class="nav_login_user">                                
+                                     
+        <p>
+            <a href="/login.aspx?ReturnUrl=%2ft%2f1498826.aspx">Sign in </a>
+             | <a href="/user/CreateUser.aspx?ReturnUrl=">Join</a>
+         </p>
+     
+
+
+
+		                        </div>
+		                    </div>
+                        </div>
+                        <div class="header_breadcrumb_top">
+                            <div class="header_breadcrumb_top_right"></div>
+                        </div>
+                        <div class="header_breadcrumb_content">
+                            <div class="header_breadcrumb_content_right"><a href="http://www.asp.net">Home</a> &#8250; 
+                                
+    
+    <div class="CommonBreadCrumbArea"><div class="Common"><a href="/">ASP.NET Forums</a> &raquo; <a href="/default.aspx?GroupID=7">General ASP.NET</a> &raquo; <a href="/24.aspx">Data Presentation Controls</a> &raquo; <a href="/t/1498826.aspx">How to retreive Commandfield Header Text in C#</a></div></div>
+
+                      
+                            </div>
+                        </div>
+                        <div class="header_breadcrumb_bottom">
+                            <div class="header_breadcrumb_bottom_right"></div>
+                        </div>                       
+                    </div>
+                    <!-- END HEADER & BREADCRUMB -->   
+		        
+		        <div class="advertisement">
+		            
+    <div class="adRegionSelector" align="center" style="padding-top:5px;padding-bottom:5px;height:90px;" adurl="http://forums.asp.net/a/CSFeaturedAd.ashx?ZoneID=6" adwidth="728" adheight="90">
+    </div>
+
+
+
+
+
+
+
+
+		        </div>
+                            
+		        <div id="CommonSidebarRight">
+		            
+    
+<div class="CommonSidebar">
+    
+
+
+
+
+
+
+    <div class="adRegionSelector" align="center" style="padding-top:5px;padding-bottom:5px;height:285px;" adurl="http://forums.asp.net/a/CSFeaturedAd.ashx?ZoneID=353" adwidth="300" adheight="285">
+    </div>
+
+
+    
+    <br />
+	    
+	            <div class="CommonSidebarArea">
+	                <div class="CommonSidebarRoundTop"><div class="r1"></div><div class="r2"></div><div class="r3"></div><div class="r4"></div></div>
+	                <div class="CommonSidebarInnerArea">
+			            <h4 class="CommonSidebarHeader">Shortcuts</h4>
+			            <div class="CommonSidebarContent">
+			                <ul class="CommonSidebarList">
+			                    
+			                
+			                    <li><a href="../../../TopicsActive.aspx" id="ctl00_ctl00_rcr_rcr_PlaceHolder6_ctl00_A1">Active Posts</a></li>
+			                    <li><a href="../../../TopicsNotAnswered.aspx" id="ctl00_ctl00_rcr_rcr_PlaceHolder6_ctl00_A2">Unanswered Posts</a></li>
+                                    
+                                        
+			                    <li><a href="/user/ViewOnline.aspx">Who is Online</a></li>
+			                    <li><a href="http://www.asp.net/resources/support/default.aspx?tabid=41">Support Options</a></li>
+			                    <li><a href="../../../search/" id="ctl00_ctl00_rcr_rcr_PlaceHolder6_ctl00_A3">Advanced Search</a></li>
+                            </ul>
+			            </div>
+			        </div>
+		            <div class="CommonSidebarRoundBottom"><div class="r1"></div><div class="r2"></div><div class="r3"></div><div class="r4"></div></div>
+                </div>
+            
+</div>
+
+
+		        </div>
+		        
+		        <div id="CommonSidebarLeft">
+			        
+			    </div>
+		        
+		        <div id="CommonContent">
+		            <div id="CommonContentInner">
+                        <div class="CommonContentArea">
+		                    
+    
+    
+
+
+<div class="CommonContentArea">
+
+
+	<div class="CommonContent">
+	
+	    <div style="text-align: right; font-size: 70%">
+	        <a class="CommonImageTextButton" href="/ThreadNavigation.aspx?PostID=3540630&amp;NavType=Previous"><span class="CommonPreviousButton">Previous</span></a>
+	        <a class="CommonImageTextButton" href="/ThreadNavigation.aspx?PostID=3540630&amp;NavType=Next"><span class="CommonNextButton">Next</span></a>
+	    </div>
+	
+        <div class="CommonInlineMessageTitle">
+            <div class="CommonInlineMessageTitleRight"></div>
+            <h2>How to retreive Commandfield Header Text in C#</h2>
+        </div>	
+	    <div class="CommonInlineMessageArea">
+            <div class="CommonInlineMessageTop"><span></span></div>
+            <div class="CommonInlineMessageContent">
+                <p style="float: right;">
+                    
+                </p>
+                <p>Last post 12-02-2009 9:40 PM by <a href="/members/decker-dong-_2D00_-msft.aspx">decker dong - msft</a>. 10 replies.</p>
+                <p>
+                    
+		            
+                    
+		                    Sort Posts:
+		                    <select name="ctl00$ctl00$bcr$bcr$ctl00$ctl05$ctl00$SortOrder" id="ctl00_ctl00_bcr_bcr_ctl00_ctl05_ctl00_SortOrder" onchange="window.setTimeout('__doPostBack(\'ctl00$ctl00$bcr$bcr$ctl00$ctl05\',\'\')',0)">
+	<option selected="selected" value="0">Oldest to newest</option>
+	<option value="1">Newest to oldest</option>
+
+</select>
+		                
+		        </p>
+            </div>
+            <div class="CommonInlineMessageBottom"><span></span></div>
+        </div>
+        
+        <ul class="ForumPostList">
+			    <li>
+			        <a name="3540630"></a>
+			        <div class="ForumPostHeader">
+                        <div class="ForumPostHeaderRight"></div>
+                        <h2> How to retreive Commandfield Header Text in C#</h2><div style="clear: both" />                     
+                        <table width="100%" class="ForumPostHeaderAction" cellpadding="5" cellspacing="0">
+                            <tr>
+                                <td width="20%" style="padding-left: 8px;" valign="top" nowrap="nowrap">
+                                    11-30-2009, 9:27 PM                                
+        						    
+                                    
+                                </td>
+                                
+                                <td width="80%" align="right" valign="middle">
+
+                                    
+                                    
+                                    
+                                    
+				                                                        
+                                
+				                    
+			                                <div style="float: right; height: 27px; padding-right:5px  ">        
+			                            <a class="CommonImageTextButton" onclick="return window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01_ClientPopulatedPopupMenu.LoadMenu(this,event,['881684','TamilSelvi','0','1','','','','/search/SearchResults.aspx?q=userid%3a881684&amp;o=DateDescending'],null);" href="#"><span class="CommonContactButton">Contact</span></a>
+                                            </div>				                            
+			                            
+                                                                
+                                    
+				                                                        
+			                        
+                                
+ 
+			                       
+
+				                    
+
+                                                                    
+                                    
+		                                    <div style="float: right; height: 27px;  padding-right:5px ">        
+		                                <a class="CommonImageTextButton" href="/AddPost.aspx?ReplyToPostID=3540630&amp;Quote=False">
+				                            <span class="CommonReplyButton">Reply</span>
+			                            </a>
+                                            </div>				                            
+		                                
+    
+    
+				                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>	
+                    
+				    <div class="ForumPostArea" style="margin-top: 0px; background-color: white">
+					    <table id="tbl0" cellspacing="0" cellpadding="0" border="0" width="100%">
+						    <tr valign=top>
+							    <td rowspan="2" class="ForumPostUserArea">
+								    <div class="ForumPostUserContent">
+								    <ul class="ForumPostUserPropertyList">
+									    <li class="ForumPostUserAvatar"><img src="http://i1.asp.net/avatar/TamilSelvi.jpg?forceidenticon=True&amp;dt=634041567000000000&amp;cdn_id=01112010_2" alt="" style="border-width:0px;" /></li>
+								        <li class="ForumPostUserAttribute">
+									        <div class="reputation-user-level"><img alt="Member" src="http://i3.asp.net/asp.net/images/rs/level-Member.gif?cdn_id=01112010_2"/></div>
+									        <div class="reputation-user-points">274 point <b>Member</b></div>
+        								</li>
+									    <li class="ForumPostUserName">
+									        
+									                
+									            
+									        <a href="/members/TamilSelvi.aspx">TamilSelvi</a>
+									    </li>
+									    
+								                <li class="ForumPostUserAttribute">Member since 07-18-2009, 6:25 AM</li>
+								                
+								                <li class="ForumPostUserAttribute">Posts <a href="/search/SearchResults.aspx?q=userid%3a881684&amp;o=DateDescending">66</a></li>
+								                
+                                                
+                                            
+								    </ul>
+								    </div>
+							    </td>
+							    <td class="ForumPostContentArea">
+    							    <table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" style="table-layout: fixed;">
+									    <tr>
+									        <td>
+									            <div class="ForumPostBodyArea">
+									                <div class="ForumPostContentText">
+										                <p>&nbsp;Hi,</p>
+<p>Pls help me. In&nbsp;my gridview i used two select commandfield&nbsp;but i changed header text (i.e select, change) that has highlighted below.&nbsp;How to get the command field header text value&nbsp;while gridview fires the&nbsp;GridView1_SelectedIndexChanged event.</p>
+<p><font color="#800000" size="2">&lt;asp</font><font color="#0000ff" size="2">:</font><font color="#800000" size="2">GridView</font><font size="2"> </font><font color="#ff0000" size="2">id</font><font color="#0000ff" size="2">=&quot;GridView1&quot;</font><font size="2"> </font><font color="#ff0000" size="2">runat</font><font color="#0000ff" size="2">=&quot;server&quot;</font><font size="2">&nbsp;</font><font size="2"> </font><font color="#ff0000" size="2">DataKeyNames</font><font color="#0000ff" size="2">=&quot;reqid&quot;</font><font size="2"> </font><font color="#ff0000" size="2">OnSelectedIndexChanged</font><font color="#0000ff" size="2">=&quot;GridView1_SelectedIndexChanged&quot;</font><font size="2">&nbsp;</font><font size="2"> </font><font color="#ff0000" size="2">DataSourceID</font><font color="#0000ff" size="2">=&quot;gvStatus&quot;</font><font size="2">&nbsp;</font><font size="2"> </font><font color="#ff0000" size="2">AutoGenerateColumns</font><font color="#0000ff" size="2">=&quot;False&quot;</font><font size="2"> </font><font color="#0000ff" size="2">&gt;</font></p>
+<p><font size="2"><font color="#0000ff">&lt;</font><font color="#800000">Columns</font><font color="#0000ff">&gt;</font></font></p>
+<p><font size="2"><font color="#0000ff">&lt;</font><font color="#800000">asp</font><font color="#0000ff">:</font><font color="#800000">BoundField</font> <font color="#ff0000">DataField</font><font color="#0000ff">=&quot;nvrempcode&quot;</font> <font color="#ff0000">HeaderText</font><font color="#0000ff">=&quot;Emp_ID&quot;</font> <font color="#ff0000">SortExpression</font><font color="#0000ff">=&quot;nvrempcode&quot; /&gt;</font></font></p>
+<p><font size="2"><font color="#0000ff">&lt;</font><font color="#800000">asp</font><font color="#0000ff">:</font><font color="#800000">BoundField</font> <font color="#ff0000">DataField</font><font color="#0000ff">=&quot;nvrempname&quot;</font> <font color="#ff0000">HeaderText</font><font color="#0000ff">=&quot;Emp_Name&quot;</font> <font color="#ff0000">SortExpression</font><font color="#0000ff">=&quot;nvrempname&quot;/&gt;</font></font></p>
+<p><font size="2"><font color="#0000ff">&lt;</font><font color="#800000">asp</font><font color="#0000ff">:</font><font color="#800000">CommandField</font> <font color="#ff0000">ShowSelectButton</font><font color="#0000ff">=&quot;True&quot; </font><span style="BACKGROUND-COLOR:#ffff99;"><font color="#ff0000">HeaderText</font><font color="#0000ff">=&quot;Select&quot;</font></span><font color="#0000ff"><span style="BACKGROUND-COLOR:#ffff99;">&gt;</span> &lt;/</font><font color="#800000">asp</font><font color="#0000ff">:</font><font color="#800000">CommandField</font><font color="#0000ff">&gt;</font></font></p>
+<p><font size="2"><font color="#800000">&lt;</font><font color="#800000">asp</font><font color="#0000ff">:</font><font color="#800000">CommandField</font> <font color="#ff0000">ShowSelectButton</font><font color="#0000ff">=&quot;True&quot; </font><span style="BACKGROUND-COLOR:#ffff99;"><font color="#ff0000">HeaderText</font><font color="#0000ff">=&quot;Change&quot;</font>&nbsp;</span> <font color="#0000ff">/&gt;</font></font></p>
+<p><font size="2"><font color="#0000ff">&lt;/</font><font color="#800000">asp</font><font color="#0000ff">:</font><font color="#800000">GridView</font><font color="#0000ff">&gt;</font></font></p>
+<p><font color="#0000ff" size="2">C# coding:</font></p>
+<p><font color="#0000ff" size="2">protected</font><font size="2"> </font><font color="#0000ff" size="2">void</font><font size="2"> GridView1_SelectedIndexChanged(</font><font color="#0000ff" size="2">object</font><font size="2"> sender, </font><font color="#008080" size="2">EventArgs</font><font size="2"> e)</font></p>
+<p><font size="2">{&nbsp; </font></p>
+<p><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (headertext == &quot;Select&quot;) </font></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { //some code here}</p>
+<p><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else</font></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { //some code here}</p>
+<p><font size="2">}</font></p>
+<p>How to achieve this task???</p>
+										                <span class="ForumPostContentScrollbarCorrector"></span>
+										                
+            									    </div>
+			            						    <div class="ForumPostSignature">Thanks,<br />Tamil Selvi E<br />MCTS,MCPD<br /><br />Remember to click “Mark as Answer” on the post, if it helps you.</div>
+						        			    </div>
+									        </td>
+									    </tr>
+								    </table>
+							    </td>
+						    </tr>
+						    <tr valign="bottom">
+							    <td class="ForumPostFooterArea">	
+								    <div><span id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl01"></span><input type="hidden" name="ctl00$ctl00$bcr$bcr$ctl00$PostList$ctl02$ctl07$ctl01" id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl01_State" value="nochange" /></div>
+								    <ul class="ForumPostStatistics CommonPrintHidden" style="clear: both;">
+								        <li></li>
+								        
+									    
+									    
+									    
+								    </ul>
+							    </td>
+						    </tr>
+					    </table>
+				    </div>
+			    </li>
+            
+			    <li>
+			        <a name="3540741"></a>
+			        <div class="ForumPostHeader">
+                        <div class="ForumPostHeaderRight"></div>
+                        <h2> Re: How to retreive Commandfield Header Text in C#</h2><div style="clear: both" />                     
+                        <table width="100%" class="ForumPostHeaderAction" cellpadding="5" cellspacing="0">
+                            <tr>
+                                <td width="20%" style="padding-left: 8px;" valign="top" nowrap="nowrap">
+                                    11-30-2009, 11:08 PM                                
+        						    
+                                    
+                                </td>
+                                
+                                <td width="80%" align="right" valign="middle">
+
+                                    
+                                    
+                                    
+                                    
+				                                                        
+                                
+				                    
+			                                <div style="float: right; height: 27px; padding-right:5px  ">        
+			                            <a class="CommonImageTextButton" onclick="return window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01_ClientPopulatedPopupMenu.LoadMenu(this,event,['889660','rivdiv','0','1','','','','/search/SearchResults.aspx?q=userid%3a889660&amp;o=DateDescending'],null);" href="#"><span class="CommonContactButton">Contact</span></a>
+                                            </div>				                            
+			                            
+                                                                
+                                    
+				                                                        
+			                        
+                                
+ 
+			                       
+
+				                    
+
+                                                                    
+                                    
+		                                    <div style="float: right; height: 27px;  padding-right:5px ">        
+		                                <a class="CommonImageTextButton" href="/AddPost.aspx?ReplyToPostID=3540741&amp;Quote=False">
+				                            <span class="CommonReplyButton">Reply</span>
+			                            </a>
+                                            </div>				                            
+		                                
+    
+    
+				                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>	
+                    
+				    <div class="ForumPostArea" style="margin-top: 0px; background-color: white">
+					    <table id="tbl1" cellspacing="0" cellpadding="0" border="0" width="100%">
+						    <tr valign=top>
+							    <td rowspan="2" class="ForumPostUserArea">
+								    <div class="ForumPostUserContent">
+								    <ul class="ForumPostUserPropertyList">
+									    <li class="ForumPostUserAvatar"><img src="http://i1.asp.net/avatar/rivdiv.jpg?forceidenticon=True&amp;dt=634041567000000000&amp;cdn_id=01112010_2" alt="" style="border-width:0px;" /></li>
+								        <li class="ForumPostUserAttribute">
+									        <div class="reputation-user-level"><img alt="Contributor" src="http://i2.asp.net/asp.net/images/rs/level-Contributor.gif?cdn_id=01112010_2"/></div>
+									        <div class="reputation-user-points">4,962 point <b>Contributor</b></div>
+        								</li>
+									    <li class="ForumPostUserName">
+									        
+									                
+									            
+									        <a href="/members/rivdiv.aspx">rivdiv</a>
+									    </li>
+									    
+								                <li class="ForumPostUserAttribute">Member since 09-01-2009, 5:53 PM</li>
+								                
+								                <li class="ForumPostUserAttribute">Posts <a href="/search/SearchResults.aspx?q=userid%3a889660&amp;o=DateDescending">962</a></li>
+								                
+                                                
+                                            
+								    </ul>
+								    </div>
+							    </td>
+							    <td class="ForumPostContentArea">
+    							    <table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" style="table-layout: fixed;">
+									    <tr>
+									        <td>
+									            <div class="ForumPostBodyArea">
+									                <div class="ForumPostContentText">
+										                <p>I would do this: &lt;asp:ButtonField CommandName=&quot;Change&quot; Text=&quot;Change&quot; /&gt; </p><p>In the Row_Command event of the gridview do:</p><p>if (e.CommandName == &quot;Change&quot;)</p><p>{</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //Code here<br /></p><p>}</p><p><br /></p>
+										                <span class="ForumPostContentScrollbarCorrector"></span>
+										                
+            									    </div>
+			            						    <div class="ForumPostSignature"><span style="color:Red;">*</span>&nbsp;&nbsp;<span style="color:#0066FF;">foreach</span> (<span style="color:#33CCCC;">Post</span> <span style="color:#0066FF;">myPost</span> in Forums.asp.net){ <span style="color:#0066FF;">if</span>(myPost.Helped == <span style="color:#0066FF;">true</span>){ myPost.MarkAsAnswer(); } }&nbsp; <span style="color:Red;">*</span><br /><span style="color:#00FF00;">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span></div>
+						        			    </div>
+									        </td>
+									    </tr>
+								    </table>
+							    </td>
+						    </tr>
+						    <tr valign="bottom">
+							    <td class="ForumPostFooterArea">	
+								    <div><span id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl03_ctl07_ctl01"></span><input type="hidden" name="ctl00$ctl00$bcr$bcr$ctl00$PostList$ctl03$ctl07$ctl01" id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl03_ctl07_ctl01_State" value="nochange" /></div>
+								    <ul class="ForumPostStatistics CommonPrintHidden" style="clear: both;">
+								        <li></li>
+								        
+									    
+									    
+									    
+								    </ul>
+							    </td>
+						    </tr>
+					    </table>
+				    </div>
+			    </li>
+            
+			    <li>
+			        <a name="3540825"></a>
+			        <div class="ForumPostHeader">
+                        <div class="ForumPostHeaderRight"></div>
+                        <h2> Re: How to retreive Commandfield Header Text in C#</h2><div style="clear: both" />                     
+                        <table width="100%" class="ForumPostHeaderAction" cellpadding="5" cellspacing="0">
+                            <tr>
+                                <td width="20%" style="padding-left: 8px;" valign="top" nowrap="nowrap">
+                                    12-01-2009, 12:07 AM                                
+        						    
+                                    
+                                </td>
+                                
+                                <td width="80%" align="right" valign="middle">
+
+                                    
+                                    
+                                    
+                                    
+				                                                        
+                                
+				                    
+			                                <div style="float: right; height: 27px; padding-right:5px  ">        
+			                            <a class="CommonImageTextButton" onclick="return window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01_ClientPopulatedPopupMenu.LoadMenu(this,event,['881684','TamilSelvi','0','1','','','','/search/SearchResults.aspx?q=userid%3a881684&amp;o=DateDescending'],null);" href="#"><span class="CommonContactButton">Contact</span></a>
+                                            </div>				                            
+			                            
+                                                                
+                                    
+				                                                        
+			                        
+                                
+ 
+			                       
+
+				                    
+
+                                                                    
+                                    
+		                                    <div style="float: right; height: 27px;  padding-right:5px ">        
+		                                <a class="CommonImageTextButton" href="/AddPost.aspx?ReplyToPostID=3540825&amp;Quote=False">
+				                            <span class="CommonReplyButton">Reply</span>
+			                            </a>
+                                            </div>				                            
+		                                
+    
+    
+				                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>	
+                    
+				    <div class="ForumPostArea" style="margin-top: 0px; background-color: white">
+					    <table id="tbl2" cellspacing="0" cellpadding="0" border="0" width="100%">
+						    <tr valign=top>
+							    <td rowspan="2" class="ForumPostUserArea">
+								    <div class="ForumPostUserContent">
+								    <ul class="ForumPostUserPropertyList">
+									    <li class="ForumPostUserAvatar"><img src="http://i1.asp.net/avatar/TamilSelvi.jpg?forceidenticon=True&amp;dt=634041567000000000&amp;cdn_id=01112010_2" alt="" style="border-width:0px;" /></li>
+								        <li class="ForumPostUserAttribute">
+									        <div class="reputation-user-level"><img alt="Member" src="http://i3.asp.net/asp.net/images/rs/level-Member.gif?cdn_id=01112010_2"/></div>
+									        <div class="reputation-user-points">274 point <b>Member</b></div>
+        								</li>
+									    <li class="ForumPostUserName">
+									        
+									                
+									            
+									        <a href="/members/TamilSelvi.aspx">TamilSelvi</a>
+									    </li>
+									    
+								                <li class="ForumPostUserAttribute">Member since 07-18-2009, 6:25 AM</li>
+								                
+								                <li class="ForumPostUserAttribute">Posts <a href="/search/SearchResults.aspx?q=userid%3a881684&amp;o=DateDescending">66</a></li>
+								                
+                                                
+                                            
+								    </ul>
+								    </div>
+							    </td>
+							    <td class="ForumPostContentArea">
+    							    <table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" style="table-layout: fixed;">
+									    <tr>
+									        <td>
+									            <div class="ForumPostBodyArea">
+									                <div class="ForumPostContentText">
+										                <p>Suppose if&nbsp;I changed to buttonfield, then i want to execute the selectedIndexChanged event also. So i&nbsp;write the below code. Again it shows an error&nbsp;</p>
+<p><font size="2">if (e.CommandName == </font><font color="#800000" size="2">&quot;Change&quot;</font><font size="2">) {&nbsp;</font><font size="2">GridView1_SelectedIndexChanged(sender,&nbsp;</font><font size="2">(</font><font color="#008080" size="2">EventArgs</font><font size="2">)</font><font size="2">e); } </font></p>
+<p></p>
+<p><font size="2">
+<p>}</p>
+<p>SelectedIndexChangedEvent Coding:</p></p>
+<p><font size="2">
+<p></font></p></p>
+<p><font color="#008080" size="2"><font size="2">
+<p></font><font color="#0000ff" size="2">protected</font><font size="2"> </font><font color="#0000ff" size="2">void</font><font size="2"> GridView1_SelectedIndexChanged(</font><font color="#0000ff" size="2">object</font><font size="2"> sender, </font><font color="#008080" size="2">EventArgs</font><font size="2"> e)</p>
+<p>{ </p>
+<p></font></font><font color="#008080" size="2">GridViewRow</font><font size="2"> gvRow = GridView1.SelectedRow; </font></p>
+<p>string StrVal = GridView1.DataKeys[gvRow.RowIndex].Value.ToString() <span style="COLOR:#ff0000;"><strong>//&nbsp; NullReferenceException handled by user code</strong></span></p>
+<p>}</p></p>
+<p><font size="2">Pls tel me the solution for this...</p></font></font>
+										                <span class="ForumPostContentScrollbarCorrector"></span>
+										                
+            									    </div>
+			            						    <div class="ForumPostSignature">Thanks,<br />Tamil Selvi E<br />MCTS,MCPD<br /><br />Remember to click “Mark as Answer” on the post, if it helps you.</div>
+						        			    </div>
+									        </td>
+									    </tr>
+								    </table>
+							    </td>
+						    </tr>
+						    <tr valign="bottom">
+							    <td class="ForumPostFooterArea">	
+								    <div><span id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl04_ctl07_ctl01"></span><input type="hidden" name="ctl00$ctl00$bcr$bcr$ctl00$PostList$ctl04$ctl07$ctl01" id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl04_ctl07_ctl01_State" value="nochange" /></div>
+								    <ul class="ForumPostStatistics CommonPrintHidden" style="clear: both;">
+								        <li></li>
+								        
+									    
+									    
+									    
+								    </ul>
+							    </td>
+						    </tr>
+					    </table>
+				    </div>
+			    </li>
+            
+			    <li>
+			        <a name="3540830"></a>
+			        <div class="ForumPostHeader">
+                        <div class="ForumPostHeaderRight"></div>
+                        <h2> Re: How to retreive Commandfield Header Text in C#</h2><div style="clear: both" />                     
+                        <table width="100%" class="ForumPostHeaderAction" cellpadding="5" cellspacing="0">
+                            <tr>
+                                <td width="20%" style="padding-left: 8px;" valign="top" nowrap="nowrap">
+                                    12-01-2009, 12:13 AM                                
+        						    
+                                    
+                                </td>
+                                
+                                <td width="80%" align="right" valign="middle">
+
+                                    
+                                    
+                                    
+                                    
+				                                                        
+                                
+				                    
+			                                <div style="float: right; height: 27px; padding-right:5px  ">        
+			                            <a class="CommonImageTextButton" onclick="return window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01_ClientPopulatedPopupMenu.LoadMenu(this,event,['889660','rivdiv','0','1','','','','/search/SearchResults.aspx?q=userid%3a889660&amp;o=DateDescending'],null);" href="#"><span class="CommonContactButton">Contact</span></a>
+                                            </div>				                            
+			                            
+                                                                
+                                    
+				                                                        
+			                        
+                                
+ 
+			                       
+
+				                    
+
+                                                                    
+                                    
+		                                    <div style="float: right; height: 27px;  padding-right:5px ">        
+		                                <a class="CommonImageTextButton" href="/AddPost.aspx?ReplyToPostID=3540830&amp;Quote=False">
+				                            <span class="CommonReplyButton">Reply</span>
+			                            </a>
+                                            </div>				                            
+		                                
+    
+    
+				                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>	
+                    
+				    <div class="ForumPostArea" style="margin-top: 0px; background-color: white">
+					    <table id="tbl3" cellspacing="0" cellpadding="0" border="0" width="100%">
+						    <tr valign=top>
+							    <td rowspan="2" class="ForumPostUserArea">
+								    <div class="ForumPostUserContent">
+								    <ul class="ForumPostUserPropertyList">
+									    <li class="ForumPostUserAvatar"><img src="http://i1.asp.net/avatar/rivdiv.jpg?forceidenticon=True&amp;dt=634041567000000000&amp;cdn_id=01112010_2" alt="" style="border-width:0px;" /></li>
+								        <li class="ForumPostUserAttribute">
+									        <div class="reputation-user-level"><img alt="Contributor" src="http://i2.asp.net/asp.net/images/rs/level-Contributor.gif?cdn_id=01112010_2"/></div>
+									        <div class="reputation-user-points">4,962 point <b>Contributor</b></div>
+        								</li>
+									    <li class="ForumPostUserName">
+									        
+									                
+									            
+									        <a href="/members/rivdiv.aspx">rivdiv</a>
+									    </li>
+									    
+								                <li class="ForumPostUserAttribute">Member since 09-01-2009, 5:53 PM</li>
+								                
+								                <li class="ForumPostUserAttribute">Posts <a href="/search/SearchResults.aspx?q=userid%3a889660&amp;o=DateDescending">962</a></li>
+								                
+                                                
+                                            
+								    </ul>
+								    </div>
+							    </td>
+							    <td class="ForumPostContentArea">
+    							    <table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" style="table-layout: fixed;">
+									    <tr>
+									        <td>
+									            <div class="ForumPostBodyArea">
+									                <div class="ForumPostContentText">
+										                <p>Try it on Row_Command event, I&#39;m telling you it works.<br /></p>
+										                <span class="ForumPostContentScrollbarCorrector"></span>
+										                
+            									    </div>
+			            						    <div class="ForumPostSignature"><span style="color:Red;">*</span>&nbsp;&nbsp;<span style="color:#0066FF;">foreach</span> (<span style="color:#33CCCC;">Post</span> <span style="color:#0066FF;">myPost</span> in Forums.asp.net){ <span style="color:#0066FF;">if</span>(myPost.Helped == <span style="color:#0066FF;">true</span>){ myPost.MarkAsAnswer(); } }&nbsp; <span style="color:Red;">*</span><br /><span style="color:#00FF00;">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span></div>
+						        			    </div>
+									        </td>
+									    </tr>
+								    </table>
+							    </td>
+						    </tr>
+						    <tr valign="bottom">
+							    <td class="ForumPostFooterArea">	
+								    <div><span id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl05_ctl07_ctl01"></span><input type="hidden" name="ctl00$ctl00$bcr$bcr$ctl00$PostList$ctl05$ctl07$ctl01" id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl05_ctl07_ctl01_State" value="nochange" /></div>
+								    <ul class="ForumPostStatistics CommonPrintHidden" style="clear: both;">
+								        <li></li>
+								        
+									    
+									    
+									    
+								    </ul>
+							    </td>
+						    </tr>
+					    </table>
+				    </div>
+			    </li>
+            
+			    <li>
+			        <a name="3540880"></a>
+			        <div class="ForumPostHeader">
+                        <div class="ForumPostHeaderRight"></div>
+                        <h2> Re: How to retreive Commandfield Header Text in C#</h2><div style="clear: both" />                     
+                        <table width="100%" class="ForumPostHeaderAction" cellpadding="5" cellspacing="0">
+                            <tr>
+                                <td width="20%" style="padding-left: 8px;" valign="top" nowrap="nowrap">
+                                    12-01-2009, 12:43 AM                                
+        						    
+                                    
+                                </td>
+                                
+                                <td width="80%" align="right" valign="middle">
+
+                                    
+                                    
+                                    
+                                    
+				                                                        
+                                
+				                    
+			                                <div style="float: right; height: 27px; padding-right:5px  ">        
+			                            <a class="CommonImageTextButton" onclick="return window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01_ClientPopulatedPopupMenu.LoadMenu(this,event,['881684','TamilSelvi','0','1','','','','/search/SearchResults.aspx?q=userid%3a881684&amp;o=DateDescending'],null);" href="#"><span class="CommonContactButton">Contact</span></a>
+                                            </div>				                            
+			                            
+                                                                
+                                    
+				                                                        
+			                        
+                                
+ 
+			                       
+
+				                    
+
+                                                                    
+                                    
+		                                    <div style="float: right; height: 27px;  padding-right:5px ">        
+		                                <a class="CommonImageTextButton" href="/AddPost.aspx?ReplyToPostID=3540880&amp;Quote=False">
+				                            <span class="CommonReplyButton">Reply</span>
+			                            </a>
+                                            </div>				                            
+		                                
+    
+    
+				                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>	
+                    
+				    <div class="ForumPostArea" style="margin-top: 0px; background-color: white">
+					    <table id="tbl4" cellspacing="0" cellpadding="0" border="0" width="100%">
+						    <tr valign=top>
+							    <td rowspan="2" class="ForumPostUserArea">
+								    <div class="ForumPostUserContent">
+								    <ul class="ForumPostUserPropertyList">
+									    <li class="ForumPostUserAvatar"><img src="http://i1.asp.net/avatar/TamilSelvi.jpg?forceidenticon=True&amp;dt=634041567000000000&amp;cdn_id=01112010_2" alt="" style="border-width:0px;" /></li>
+								        <li class="ForumPostUserAttribute">
+									        <div class="reputation-user-level"><img alt="Member" src="http://i3.asp.net/asp.net/images/rs/level-Member.gif?cdn_id=01112010_2"/></div>
+									        <div class="reputation-user-points">274 point <b>Member</b></div>
+        								</li>
+									    <li class="ForumPostUserName">
+									        
+									                
+									            
+									        <a href="/members/TamilSelvi.aspx">TamilSelvi</a>
+									    </li>
+									    
+								                <li class="ForumPostUserAttribute">Member since 07-18-2009, 6:25 AM</li>
+								                
+								                <li class="ForumPostUserAttribute">Posts <a href="/search/SearchResults.aspx?q=userid%3a881684&amp;o=DateDescending">66</a></li>
+								                
+                                                
+                                            
+								    </ul>
+								    </div>
+							    </td>
+							    <td class="ForumPostContentArea">
+    							    <table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" style="table-layout: fixed;">
+									    <tr>
+									        <td>
+									            <div class="ForumPostBodyArea">
+									                <div class="ForumPostContentText">
+										                <p><font size="2"></font></p>
+<p>
+<p>Ya...Its works correctly. First i execute it as per your suggestion, then i want too&nbsp;call selectedindexchanged event. That why i&nbsp;wrote that code</p>
+<p><font color="#0000ff" size="2">
+<p>protected </font><font color="#0000ff" size="2">void</font><font size="2"> GridView1_RowCommand(</font><font color="#0000ff" size="2">object</font><font size="2"> sender, </font><font color="#008080" size="2">GridViewCommandEventArgs</font><font size="2"> e)</font></p></p>
+<p><font size="2">{ </font><font color="#0000ff" size="2">if</font><font size="2"> (e.CommandName == </font><font color="#800000" size="2">&quot;Change&quot;</font><font size="2">)&nbsp;</font><font size="2">GridView1_SelectedIndexChanged(sender,&nbsp; (</font><font color="#008080" size="2">EventArgs</font><font size="2">)e); //here i call selectedindex event code&nbsp;}</font><font size="2">&nbsp;</p></font><font size="2">
+<p></font><font color="#0000ff" size="2">protected</font><font size="2"> </font><font color="#0000ff" size="2">void</font><font size="2"> GridView1_SelectedIndexChanged(</font><font color="#0000ff" size="2">object</font><font size="2"> sender, </font><font color="#008080" size="2">EventArgs</font><font size="2"> e)</font></p>
+<p><font size="2">{</font></p><font color="#008080" size="2">
+<p>GridViewRow </font><font size="2">gvRow = GridView1.SelectedRow;</font></p></p>
+<p><font size="2">
+<p>string StrVal = GridView1.DataKeys[gvRow.RowIndex].Value.ToString();</p>
+<p>//Some coding ....</p>
+<p>}</p></font></p>
+										                <span class="ForumPostContentScrollbarCorrector"></span>
+										                
+            									    </div>
+			            						    <div class="ForumPostSignature">Thanks,<br />Tamil Selvi E<br />MCTS,MCPD<br /><br />Remember to click “Mark as Answer” on the post, if it helps you.</div>
+						        			    </div>
+									        </td>
+									    </tr>
+								    </table>
+							    </td>
+						    </tr>
+						    <tr valign="bottom">
+							    <td class="ForumPostFooterArea">	
+								    <div><span id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl06_ctl07_ctl01"></span><input type="hidden" name="ctl00$ctl00$bcr$bcr$ctl00$PostList$ctl06$ctl07$ctl01" id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl06_ctl07_ctl01_State" value="nochange" /></div>
+								    <ul class="ForumPostStatistics CommonPrintHidden" style="clear: both;">
+								        <li></li>
+								        
+									    
+									    
+									    
+								    </ul>
+							    </td>
+						    </tr>
+					    </table>
+				    </div>
+			    </li>
+            
+			    <li>
+			        <a name="3540894"></a>
+			        <div class="ForumPostHeader">
+                        <div class="ForumPostHeaderRight"></div>
+                        <h2> Re: How to retreive Commandfield Header Text in C#</h2><div style="clear: both" />                     
+                        <table width="100%" class="ForumPostHeaderAction" cellpadding="5" cellspacing="0">
+                            <tr>
+                                <td width="20%" style="padding-left: 8px;" valign="top" nowrap="nowrap">
+                                    12-01-2009, 12:49 AM                                
+        						    
+                                    
+                                </td>
+                                
+                                <td width="80%" align="right" valign="middle">
+
+                                    
+                                    
+                                    
+                                    
+				                                                        
+                                
+				                    
+			                                <div style="float: right; height: 27px; padding-right:5px  ">        
+			                            <a class="CommonImageTextButton" onclick="return window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01_ClientPopulatedPopupMenu.LoadMenu(this,event,['889660','rivdiv','0','1','','','','/search/SearchResults.aspx?q=userid%3a889660&amp;o=DateDescending'],null);" href="#"><span class="CommonContactButton">Contact</span></a>
+                                            </div>				                            
+			                            
+                                                                
+                                    
+				                                                        
+			                        
+                                
+ 
+			                       
+
+				                    
+
+                                                                    
+                                    
+		                                    <div style="float: right; height: 27px;  padding-right:5px ">        
+		                                <a class="CommonImageTextButton" href="/AddPost.aspx?ReplyToPostID=3540894&amp;Quote=False">
+				                            <span class="CommonReplyButton">Reply</span>
+			                            </a>
+                                            </div>				                            
+		                                
+    
+    
+				                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>	
+                    
+				    <div class="ForumPostArea" style="margin-top: 0px; background-color: white">
+					    <table id="tbl5" cellspacing="0" cellpadding="0" border="0" width="100%">
+						    <tr valign=top>
+							    <td rowspan="2" class="ForumPostUserArea">
+								    <div class="ForumPostUserContent">
+								    <ul class="ForumPostUserPropertyList">
+									    <li class="ForumPostUserAvatar"><img src="http://i1.asp.net/avatar/rivdiv.jpg?forceidenticon=True&amp;dt=634041567000000000&amp;cdn_id=01112010_2" alt="" style="border-width:0px;" /></li>
+								        <li class="ForumPostUserAttribute">
+									        <div class="reputation-user-level"><img alt="Contributor" src="http://i2.asp.net/asp.net/images/rs/level-Contributor.gif?cdn_id=01112010_2"/></div>
+									        <div class="reputation-user-points">4,962 point <b>Contributor</b></div>
+        								</li>
+									    <li class="ForumPostUserName">
+									        
+									                
+									            
+									        <a href="/members/rivdiv.aspx">rivdiv</a>
+									    </li>
+									    
+								                <li class="ForumPostUserAttribute">Member since 09-01-2009, 5:53 PM</li>
+								                
+								                <li class="ForumPostUserAttribute">Posts <a href="/search/SearchResults.aspx?q=userid%3a889660&amp;o=DateDescending">962</a></li>
+								                
+                                                
+                                            
+								    </ul>
+								    </div>
+							    </td>
+							    <td class="ForumPostContentArea">
+    							    <table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" style="table-layout: fixed;">
+									    <tr>
+									        <td>
+									            <div class="ForumPostBodyArea">
+									                <div class="ForumPostContentText">
+										                <p>Oh, so what are you trying to do in the selected index changed event now?<br /></p><p><br /></p>
+										                <span class="ForumPostContentScrollbarCorrector"></span>
+										                
+            									    </div>
+			            						    <div class="ForumPostSignature"><span style="color:Red;">*</span>&nbsp;&nbsp;<span style="color:#0066FF;">foreach</span> (<span style="color:#33CCCC;">Post</span> <span style="color:#0066FF;">myPost</span> in Forums.asp.net){ <span style="color:#0066FF;">if</span>(myPost.Helped == <span style="color:#0066FF;">true</span>){ myPost.MarkAsAnswer(); } }&nbsp; <span style="color:Red;">*</span><br /><span style="color:#00FF00;">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span></div>
+						        			    </div>
+									        </td>
+									    </tr>
+								    </table>
+							    </td>
+						    </tr>
+						    <tr valign="bottom">
+							    <td class="ForumPostFooterArea">	
+								    <div><span id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl07_ctl07_ctl01"></span><input type="hidden" name="ctl00$ctl00$bcr$bcr$ctl00$PostList$ctl07$ctl07$ctl01" id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl07_ctl07_ctl01_State" value="nochange" /></div>
+								    <ul class="ForumPostStatistics CommonPrintHidden" style="clear: both;">
+								        <li></li>
+								        
+									    
+									    
+									    
+								    </ul>
+							    </td>
+						    </tr>
+					    </table>
+				    </div>
+			    </li>
+            
+			    <li>
+			        <a name="3540925"></a>
+			        <div class="ForumPostHeader">
+                        <div class="ForumPostHeaderRight"></div>
+                        <h2> Re: How to retreive Commandfield Header Text in C#</h2><div style="clear: both" />                     
+                        <table width="100%" class="ForumPostHeaderAction" cellpadding="5" cellspacing="0">
+                            <tr>
+                                <td width="20%" style="padding-left: 8px;" valign="top" nowrap="nowrap">
+                                    12-01-2009, 1:07 AM                                
+        						    
+                                    
+                                </td>
+                                
+                                <td width="80%" align="right" valign="middle">
+
+                                    
+                                    
+                                    
+                                    
+				                                                        
+                                
+				                    
+			                                <div style="float: right; height: 27px; padding-right:5px  ">        
+			                            <a class="CommonImageTextButton" onclick="return window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01_ClientPopulatedPopupMenu.LoadMenu(this,event,['881684','TamilSelvi','0','1','','','','/search/SearchResults.aspx?q=userid%3a881684&amp;o=DateDescending'],null);" href="#"><span class="CommonContactButton">Contact</span></a>
+                                            </div>				                            
+			                            
+                                                                
+                                    
+				                                                        
+			                        
+                                
+ 
+			                       
+
+				                    
+
+                                                                    
+                                    
+		                                    <div style="float: right; height: 27px;  padding-right:5px ">        
+		                                <a class="CommonImageTextButton" href="/AddPost.aspx?ReplyToPostID=3540925&amp;Quote=False">
+				                            <span class="CommonReplyButton">Reply</span>
+			                            </a>
+                                            </div>				                            
+		                                
+    
+    
+				                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>	
+                    
+				    <div class="ForumPostArea" style="margin-top: 0px; background-color: white">
+					    <table id="tbl6" cellspacing="0" cellpadding="0" border="0" width="100%">
+						    <tr valign=top>
+							    <td rowspan="2" class="ForumPostUserArea">
+								    <div class="ForumPostUserContent">
+								    <ul class="ForumPostUserPropertyList">
+									    <li class="ForumPostUserAvatar"><img src="http://i1.asp.net/avatar/TamilSelvi.jpg?forceidenticon=True&amp;dt=634041567000000000&amp;cdn_id=01112010_2" alt="" style="border-width:0px;" /></li>
+								        <li class="ForumPostUserAttribute">
+									        <div class="reputation-user-level"><img alt="Member" src="http://i3.asp.net/asp.net/images/rs/level-Member.gif?cdn_id=01112010_2"/></div>
+									        <div class="reputation-user-points">274 point <b>Member</b></div>
+        								</li>
+									    <li class="ForumPostUserName">
+									        
+									                
+									            
+									        <a href="/members/TamilSelvi.aspx">TamilSelvi</a>
+									    </li>
+									    
+								                <li class="ForumPostUserAttribute">Member since 07-18-2009, 6:25 AM</li>
+								                
+								                <li class="ForumPostUserAttribute">Posts <a href="/search/SearchResults.aspx?q=userid%3a881684&amp;o=DateDescending">66</a></li>
+								                
+                                                
+                                            
+								    </ul>
+								    </div>
+							    </td>
+							    <td class="ForumPostContentArea">
+    							    <table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" style="table-layout: fixed;">
+									    <tr>
+									        <td>
+									            <div class="ForumPostBodyArea">
+									                <div class="ForumPostContentText">
+										                <p>In&nbsp;selected index changed event, i fetch&nbsp;some data from database using selected row datakey value.</p>
+										                <span class="ForumPostContentScrollbarCorrector"></span>
+										                
+            									    </div>
+			            						    <div class="ForumPostSignature">Thanks,<br />Tamil Selvi E<br />MCTS,MCPD<br /><br />Remember to click “Mark as Answer” on the post, if it helps you.</div>
+						        			    </div>
+									        </td>
+									    </tr>
+								    </table>
+							    </td>
+						    </tr>
+						    <tr valign="bottom">
+							    <td class="ForumPostFooterArea">	
+								    <div><span id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl08_ctl07_ctl01"></span><input type="hidden" name="ctl00$ctl00$bcr$bcr$ctl00$PostList$ctl08$ctl07$ctl01" id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl08_ctl07_ctl01_State" value="nochange" /></div>
+								    <ul class="ForumPostStatistics CommonPrintHidden" style="clear: both;">
+								        <li></li>
+								        
+									    
+									    
+									    
+								    </ul>
+							    </td>
+						    </tr>
+					    </table>
+				    </div>
+			    </li>
+            
+			    <li>
+			        <a name="3540966"></a>
+			        <div class="ForumPostHeader">
+                        <div class="ForumPostHeaderRight"></div>
+                        <h2> Re: How to retreive Commandfield Header Text in C#</h2><div style="clear: both" />                     
+                        <table width="100%" class="ForumPostHeaderAction" cellpadding="5" cellspacing="0">
+                            <tr>
+                                <td width="20%" style="padding-left: 8px;" valign="top" nowrap="nowrap">
+                                    12-01-2009, 1:26 AM                                
+        						    
+                                    
+                                </td>
+                                
+                                <td width="80%" align="right" valign="middle">
+
+                                    
+                                    
+                                    
+                                    
+				                                                        
+                                
+				                    
+			                                <div style="float: right; height: 27px; padding-right:5px  ">        
+			                            <a class="CommonImageTextButton" onclick="return window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01_ClientPopulatedPopupMenu.LoadMenu(this,event,['889660','rivdiv','0','1','','','','/search/SearchResults.aspx?q=userid%3a889660&amp;o=DateDescending'],null);" href="#"><span class="CommonContactButton">Contact</span></a>
+                                            </div>				                            
+			                            
+                                                                
+                                    
+				                                                        
+			                        
+                                
+ 
+			                       
+
+				                    
+
+                                                                    
+                                    
+		                                    <div style="float: right; height: 27px;  padding-right:5px ">        
+		                                <a class="CommonImageTextButton" href="/AddPost.aspx?ReplyToPostID=3540966&amp;Quote=False">
+				                            <span class="CommonReplyButton">Reply</span>
+			                            </a>
+                                            </div>				                            
+		                                
+    
+    
+				                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>	
+                    
+				    <div class="ForumPostArea" style="margin-top: 0px; background-color: white">
+					    <table id="tbl7" cellspacing="0" cellpadding="0" border="0" width="100%">
+						    <tr valign=top>
+							    <td rowspan="2" class="ForumPostUserArea">
+								    <div class="ForumPostUserContent">
+								    <ul class="ForumPostUserPropertyList">
+									    <li class="ForumPostUserAvatar"><img src="http://i1.asp.net/avatar/rivdiv.jpg?forceidenticon=True&amp;dt=634041567000000000&amp;cdn_id=01112010_2" alt="" style="border-width:0px;" /></li>
+								        <li class="ForumPostUserAttribute">
+									        <div class="reputation-user-level"><img alt="Contributor" src="http://i2.asp.net/asp.net/images/rs/level-Contributor.gif?cdn_id=01112010_2"/></div>
+									        <div class="reputation-user-points">4,962 point <b>Contributor</b></div>
+        								</li>
+									    <li class="ForumPostUserName">
+									        
+									                
+									            
+									        <a href="/members/rivdiv.aspx">rivdiv</a>
+									    </li>
+									    
+								                <li class="ForumPostUserAttribute">Member since 09-01-2009, 5:53 PM</li>
+								                
+								                <li class="ForumPostUserAttribute">Posts <a href="/search/SearchResults.aspx?q=userid%3a889660&amp;o=DateDescending">962</a></li>
+								                
+                                                
+                                            
+								    </ul>
+								    </div>
+							    </td>
+							    <td class="ForumPostContentArea">
+    							    <table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" style="table-layout: fixed;">
+									    <tr>
+									        <td>
+									            <div class="ForumPostBodyArea">
+									                <div class="ForumPostContentText">
+										                <p>Try this</p><p>int selectedRowIndex = GridView1.SelectedIndex;<br />
+int ID = (int)GridView1.DataKeys[selectedRowIndex].Value;</p>
+
+<p><br /></p>
+										                <span class="ForumPostContentScrollbarCorrector"></span>
+										                
+            									    </div>
+			            						    <div class="ForumPostSignature"><span style="color:Red;">*</span>&nbsp;&nbsp;<span style="color:#0066FF;">foreach</span> (<span style="color:#33CCCC;">Post</span> <span style="color:#0066FF;">myPost</span> in Forums.asp.net){ <span style="color:#0066FF;">if</span>(myPost.Helped == <span style="color:#0066FF;">true</span>){ myPost.MarkAsAnswer(); } }&nbsp; <span style="color:Red;">*</span><br /><span style="color:#00FF00;">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span></div>
+						        			    </div>
+									        </td>
+									    </tr>
+								    </table>
+							    </td>
+						    </tr>
+						    <tr valign="bottom">
+							    <td class="ForumPostFooterArea">	
+								    <div><span id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl09_ctl07_ctl01"></span><input type="hidden" name="ctl00$ctl00$bcr$bcr$ctl00$PostList$ctl09$ctl07$ctl01" id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl09_ctl07_ctl01_State" value="nochange" /></div>
+								    <ul class="ForumPostStatistics CommonPrintHidden" style="clear: both;">
+								        <li></li>
+								        
+									    
+									    
+									    
+								    </ul>
+							    </td>
+						    </tr>
+					    </table>
+				    </div>
+			    </li>
+            
+			    <li>
+			        <a name="3541009"></a>
+			        <div class="ForumPostHeader">
+                        <div class="ForumPostHeaderRight"></div>
+                        <h2> Re: How to retreive Commandfield Header Text in C#</h2><div style="clear: both" />                     
+                        <table width="100%" class="ForumPostHeaderAction" cellpadding="5" cellspacing="0">
+                            <tr>
+                                <td width="20%" style="padding-left: 8px;" valign="top" nowrap="nowrap">
+                                    12-01-2009, 1:54 AM                                
+        						    
+                                    
+                                </td>
+                                
+                                <td width="80%" align="right" valign="middle">
+
+                                    
+                                    
+                                    
+                                    
+				                                                        
+                                
+				                    
+			                                <div style="float: right; height: 27px; padding-right:5px  ">        
+			                            <a class="CommonImageTextButton" onclick="return window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01_ClientPopulatedPopupMenu.LoadMenu(this,event,['881684','TamilSelvi','0','1','','','','/search/SearchResults.aspx?q=userid%3a881684&amp;o=DateDescending'],null);" href="#"><span class="CommonContactButton">Contact</span></a>
+                                            </div>				                            
+			                            
+                                                                
+                                    
+				                                                        
+			                        
+                                
+ 
+			                       
+
+				                    
+
+                                                                    
+                                    
+		                                    <div style="float: right; height: 27px;  padding-right:5px ">        
+		                                <a class="CommonImageTextButton" href="/AddPost.aspx?ReplyToPostID=3541009&amp;Quote=False">
+				                            <span class="CommonReplyButton">Reply</span>
+			                            </a>
+                                            </div>				                            
+		                                
+    
+    
+				                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>	
+                    
+				    <div class="ForumPostArea" style="margin-top: 0px; background-color: white">
+					    <table id="tbl8" cellspacing="0" cellpadding="0" border="0" width="100%">
+						    <tr valign=top>
+							    <td rowspan="2" class="ForumPostUserArea">
+								    <div class="ForumPostUserContent">
+								    <ul class="ForumPostUserPropertyList">
+									    <li class="ForumPostUserAvatar"><img src="http://i1.asp.net/avatar/TamilSelvi.jpg?forceidenticon=True&amp;dt=634041567000000000&amp;cdn_id=01112010_2" alt="" style="border-width:0px;" /></li>
+								        <li class="ForumPostUserAttribute">
+									        <div class="reputation-user-level"><img alt="Member" src="http://i3.asp.net/asp.net/images/rs/level-Member.gif?cdn_id=01112010_2"/></div>
+									        <div class="reputation-user-points">274 point <b>Member</b></div>
+        								</li>
+									    <li class="ForumPostUserName">
+									        
+									                
+									            
+									        <a href="/members/TamilSelvi.aspx">TamilSelvi</a>
+									    </li>
+									    
+								                <li class="ForumPostUserAttribute">Member since 07-18-2009, 6:25 AM</li>
+								                
+								                <li class="ForumPostUserAttribute">Posts <a href="/search/SearchResults.aspx?q=userid%3a881684&amp;o=DateDescending">66</a></li>
+								                
+                                                
+                                            
+								    </ul>
+								    </div>
+							    </td>
+							    <td class="ForumPostContentArea">
+    							    <table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" style="table-layout: fixed;">
+									    <tr>
+									        <td>
+									            <div class="ForumPostBodyArea">
+									                <div class="ForumPostContentText">
+										                Again it shows an error
+
+int intR = GridView1.SelectedIndex; // Index was out of range. Must be non-negative and less than the size of the collection. Parameter name: index
+										                <span class="ForumPostContentScrollbarCorrector"></span>
+										                
+            									    </div>
+			            						    <div class="ForumPostSignature">Thanks,<br />Tamil Selvi E<br />MCTS,MCPD<br /><br />Remember to click “Mark as Answer” on the post, if it helps you.</div>
+						        			    </div>
+									        </td>
+									    </tr>
+								    </table>
+							    </td>
+						    </tr>
+						    <tr valign="bottom">
+							    <td class="ForumPostFooterArea">	
+								    <div><span id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl10_ctl07_ctl01"></span><input type="hidden" name="ctl00$ctl00$bcr$bcr$ctl00$PostList$ctl10$ctl07$ctl01" id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl10_ctl07_ctl01_State" value="nochange" /></div>
+								    <ul class="ForumPostStatistics CommonPrintHidden" style="clear: both;">
+								        <li></li>
+								        
+									    
+									    
+									    
+								    </ul>
+							    </td>
+						    </tr>
+					    </table>
+				    </div>
+			    </li>
+            
+			    <li>
+			        <a name="3542248"></a>
+			        <div class="ForumPostHeader">
+                        <div class="ForumPostHeaderRight"></div>
+                        <h2> Re: How to retreive Commandfield Header Text in C#</h2><div style="clear: both" />                     
+                        <table width="100%" class="ForumPostHeaderAction" cellpadding="5" cellspacing="0">
+                            <tr>
+                                <td width="20%" style="padding-left: 8px;" valign="top" nowrap="nowrap">
+                                    12-01-2009, 2:08 PM                                
+        						    
+                                    
+                                </td>
+                                
+                                <td width="80%" align="right" valign="middle">
+
+                                    
+                                    
+                                    
+                                    
+				                                                        
+                                
+				                    
+			                                <div style="float: right; height: 27px; padding-right:5px  ">        
+			                            <a class="CommonImageTextButton" onclick="return window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01_ClientPopulatedPopupMenu.LoadMenu(this,event,['889660','rivdiv','0','1','','','','/search/SearchResults.aspx?q=userid%3a889660&amp;o=DateDescending'],null);" href="#"><span class="CommonContactButton">Contact</span></a>
+                                            </div>				                            
+			                            
+                                                                
+                                    
+				                                                        
+			                        
+                                
+ 
+			                       
+
+				                    
+
+                                                                    
+                                    
+		                                    <div style="float: right; height: 27px;  padding-right:5px ">        
+		                                <a class="CommonImageTextButton" href="/AddPost.aspx?ReplyToPostID=3542248&amp;Quote=False">
+				                            <span class="CommonReplyButton">Reply</span>
+			                            </a>
+                                            </div>				                            
+		                                
+    
+    
+				                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>	
+                    
+				    <div class="ForumPostArea" style="margin-top: 0px; background-color: white">
+					    <table id="tbl9" cellspacing="0" cellpadding="0" border="0" width="100%">
+						    <tr valign=top>
+							    <td rowspan="2" class="ForumPostUserArea">
+								    <div class="ForumPostUserContent">
+								    <ul class="ForumPostUserPropertyList">
+									    <li class="ForumPostUserAvatar"><img src="http://i1.asp.net/avatar/rivdiv.jpg?forceidenticon=True&amp;dt=634041567000000000&amp;cdn_id=01112010_2" alt="" style="border-width:0px;" /></li>
+								        <li class="ForumPostUserAttribute">
+									        <div class="reputation-user-level"><img alt="Contributor" src="http://i2.asp.net/asp.net/images/rs/level-Contributor.gif?cdn_id=01112010_2"/></div>
+									        <div class="reputation-user-points">4,962 point <b>Contributor</b></div>
+        								</li>
+									    <li class="ForumPostUserName">
+									        
+									                
+									            
+									        <a href="/members/rivdiv.aspx">rivdiv</a>
+									    </li>
+									    
+								                <li class="ForumPostUserAttribute">Member since 09-01-2009, 5:53 PM</li>
+								                
+								                <li class="ForumPostUserAttribute">Posts <a href="/search/SearchResults.aspx?q=userid%3a889660&amp;o=DateDescending">962</a></li>
+								                
+                                                
+                                            
+								    </ul>
+								    </div>
+							    </td>
+							    <td class="ForumPostContentArea">
+    							    <table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" style="table-layout: fixed;">
+									    <tr>
+									        <td>
+									            <div class="ForumPostBodyArea">
+									                <div class="ForumPostContentText">
+										                <p>Try a different way- Take out the DataKeyNames=&quot;requid&quot; and put this in the &lt;columns&gt; tag.</p><p>&lt;asp:TemplateField&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;ItemTemplate&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;asp:HiddenField ID=&quot;HiddenField1&quot; runat=&quot;server&quot; Value=&#39;&lt;%# Bind(&quot;reqid&quot;) %&gt;&#39; /&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/ItemTemplate&gt;<br />&lt;/asp:TemplateField&gt;</p><p>In selectedindexchange event do: </p><p>string reqID = ((HiddenField)GridView1.SelectedRow.Cells[1].FindControl(&quot;HiddenField1&quot;)).Value;</p>
+										                <span class="ForumPostContentScrollbarCorrector"></span>
+										                
+            									    </div>
+			            						    <div class="ForumPostSignature"><span style="color:Red;">*</span>&nbsp;&nbsp;<span style="color:#0066FF;">foreach</span> (<span style="color:#33CCCC;">Post</span> <span style="color:#0066FF;">myPost</span> in Forums.asp.net){ <span style="color:#0066FF;">if</span>(myPost.Helped == <span style="color:#0066FF;">true</span>){ myPost.MarkAsAnswer(); } }&nbsp; <span style="color:Red;">*</span><br /><span style="color:#00FF00;">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span></div>
+						        			    </div>
+									        </td>
+									    </tr>
+								    </table>
+							    </td>
+						    </tr>
+						    <tr valign="bottom">
+							    <td class="ForumPostFooterArea">	
+								    <div><span id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl11_ctl07_ctl01"></span><input type="hidden" name="ctl00$ctl00$bcr$bcr$ctl00$PostList$ctl11$ctl07$ctl01" id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl11_ctl07_ctl01_State" value="nochange" /></div>
+								    <ul class="ForumPostStatistics CommonPrintHidden" style="clear: both;">
+								        <li></li>
+								        
+									    
+									    
+									    
+								    </ul>
+							    </td>
+						    </tr>
+					    </table>
+				    </div>
+			    </li>
+            
+			    <li>
+			        <a name="3544841"></a>
+			        <div class="ForumPostHeader">
+                        <div class="ForumPostHeaderRight"></div>
+                        <h2> Re: How to retreive Commandfield Header Text in C#</h2><div style="clear: both" />                     
+                        <table width="100%" class="ForumPostHeaderAction" cellpadding="5" cellspacing="0">
+                            <tr>
+                                <td width="20%" style="padding-left: 8px;" valign="top" nowrap="nowrap">
+                                    12-02-2009, 9:40 PM                                
+        						    
+                                    
+                                </td>
+                                
+                                <td width="80%" align="right" valign="middle">
+
+                                    
+                                    
+                                    
+                                    
+				                                                        
+                                
+				                    
+			                                <div style="float: right; height: 27px; padding-right:5px  ">        
+			                            <a class="CommonImageTextButton" onclick="return window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01_ClientPopulatedPopupMenu.LoadMenu(this,event,['882610','decker dong - msft','0','1','','','','/search/SearchResults.aspx?q=userid%3a882610&amp;o=DateDescending'],null);" href="#"><span class="CommonContactButton">Contact</span></a>
+                                            </div>				                            
+			                            
+                                                                
+                                    
+				                                                        
+			                        
+		                                    <div style="float: right; height: 27px;  padding-right:5px ">        
+		                                
+		                                    <span class="CommonAnsweredButton" style="">Answer</span>
+		                                
+                                            </div>				                            
+	                                    
+                                
+ 
+			                       
+
+				                    
+
+                                                                    
+                                    
+		                                    <div style="float: right; height: 27px;  padding-right:5px ">        
+		                                <a class="CommonImageTextButton" href="/AddPost.aspx?ReplyToPostID=3544841&amp;Quote=False">
+				                            <span class="CommonReplyButton">Reply</span>
+			                            </a>
+                                            </div>				                            
+		                                
+    
+    
+				                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>	
+                    
+				    <div class="ForumPostArea" style="margin-top: 0px; background-color: white">
+					    <table id="tbl10" cellspacing="0" cellpadding="0" border="0" width="100%">
+						    <tr valign=top>
+							    <td rowspan="2" class="ForumPostUserArea">
+								    <div class="ForumPostUserContent">
+								    <ul class="ForumPostUserPropertyList">
+									    <li class="ForumPostUserAvatar"><img src="http://i1.asp.net/avatar/decker%20dong%20-%20msft.jpg?forceidenticon=True&amp;dt=634041567000000000&amp;cdn_id=01112010_2" alt="" style="border-width:0px;" /></li>
+								        <li class="ForumPostUserAttribute">
+									        <div class="reputation-user-level"><img alt="All-Star" src="http://i3.asp.net/asp.net/images/rs/level-All-Star.gif?cdn_id=01112010_2"/></div>
+									        <div class="reputation-user-points">23,904 point <b>All-Star</b></div>
+        								</li>
+									    <li class="ForumPostUserName">
+									        
+									                
+									            
+									        <a href="/members/decker-dong-_2D00_-msft.aspx">decker dong - msft</a>
+									    </li>
+									    
+								                <li class="ForumPostUserAttribute">Member since 07-23-2009, 2:44 AM</li>
+								                
+								                <li class="ForumPostUserAttribute">Posts <a href="/search/SearchResults.aspx?q=userid%3a882610&amp;o=DateDescending">3,099</a></li>
+								                
+                                                
+                                            
+								    </ul>
+								    </div>
+							    </td>
+							    <td class="ForumPostContentArea">
+    							    <table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" style="table-layout: fixed;">
+									    <tr>
+									        <td>
+									            <div class="ForumPostBodyArea">
+									                <div class="ForumPostContentText">
+										                <p>So first I&#39;ll&nbsp; say that CommandName cannot be used in CommandField, So use CommandName in Row_Command is failing (because every showSelectButton = true in CommandField will get the same CommandName in default called &quot;Select&quot;).</p>
+<p>And You can do like this:</p><pre class="xhtml" name="code">&lt;%@ Page Language=&quot;C#&quot; AutoEventWireup=&quot;true&quot; CodeBehind=&quot;WebForm1.aspx.cs&quot; Inherits=&quot;GridViewDemo.WebForm1&quot; %&gt;
+
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+&lt;head runat=&quot;server&quot;&gt;
+    &lt;title&gt;&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;form id=&quot;form1&quot; runat=&quot;server&quot;&gt;
+    &lt;div&gt;
+        &lt;asp:GridView ID=&quot;GridView1&quot; runat=&quot;server&quot; AutoGenerateColumns=&quot;False&quot; Width=&quot;100%&quot;
+            DataKeyNames=&quot;Id&quot; OnRowCommand=&quot;GridView1_RowCommand&quot; 
+            onselectedindexchanged=&quot;GridView1_SelectedIndexChanged&quot;&gt;
+            &lt;Columns&gt;
+                &lt;asp:TemplateField HeaderText=&quot;Field&quot;&gt;
+                    &lt;ItemTemplate&gt;
+                        &lt;asp:Label ID=&quot;Label1&quot; runat=&quot;server&quot; Text=&#39;&lt;%#Eval(&quot;Id&quot;) %&gt;&#39;&gt;&lt;/asp:Label&gt;
+                    &lt;/ItemTemplate&gt;
+                &lt;/asp:TemplateField&gt;
+                &lt;asp:CommandField HeaderText=&quot;Select&quot; ShowSelectButton=&quot;true&quot;  /&gt;
+                &lt;asp:TemplateField HeaderText=&quot;Change&quot; ShowHeader=&quot;False&quot;&gt;
+                    &lt;ItemTemplate&gt;
+                        &lt;asp:LinkButton ID=&quot;LinkButton1&quot; runat=&quot;server&quot; CausesValidation=&quot;False&quot; 
+                            CommandName=&quot;Select&quot; Text=&quot;Change&quot;&gt;&lt;/asp:LinkButton&gt;
+                    &lt;/ItemTemplate&gt;
+                &lt;/asp:TemplateField&gt;
+            &lt;/Columns&gt;
+        &lt;/asp:GridView&gt;
+    &lt;/div&gt;
+    &lt;asp:Label ID=&quot;Label2&quot; runat=&quot;server&quot; Text=&quot;Label&quot;&gt;&lt;/asp:Label&gt;
+    &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p><br />&nbsp;</p>
+<p>This is the cs codes:</p><pre class="c-sharp" name="code">using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Text;
+using System.Data;
+
+
+namespace GridViewDemo
+{
+    public class MyClass
+    {
+        public int Id { get; set; }
+    }
+    public partial class WebForm1 : System.Web.UI.Page
+    {
+        
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                List&lt;MyClass&gt; classes = new List&lt;MyClass&gt;();
+
+                for (int i = 1; i &lt; 11; ++i)
+                {
+                    classes.Add(new MyClass() { Id = i });
+                }
+
+                GridView1.DataSource = classes;
+                GridView1.DataBind();
+            }
+        }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Label2.Text = e.ToString();
+            if (ViewState[&quot;name&quot;].ToString() == &quot;Change&quot;)
+            {
+                string value = (GridView1.SelectedRow.FindControl(&quot;Label1&quot;) as Label).Text;
+                Label2.Text = &quot;Your Selected Value is:&quot; + value;
+            }
+        }
+
+        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            ViewState[&quot;name&quot;] = (e.CommandSource as LinkButton).Text;
+        }
+
+      
+
+       
+    }
+}</pre>
+<p><br />&nbsp;</p>
+										                <span class="ForumPostContentScrollbarCorrector"></span>
+										                
+            									    </div>
+			            						    <div class="ForumPostSignature">I&#39;ll be very glad to be here to answer different kinds of questions though I&#39;m new here. And please mark the answer as &quot;Answered&quot; --no matter who made the answer to you. Let&#39;s hand in hand to create a wonderful world of coding!<br /><hr /><br />Lanugate Conversion: http://www.developerfusion.com/tools/convert/csharp-to-vb/</div>
+						        			    </div>
+									        </td>
+									    </tr>
+								    </table>
+							    </td>
+						    </tr>
+						    <tr valign="bottom">
+							    <td class="ForumPostFooterArea">	
+								    <div><span id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl12_ctl07_ctl01"></span><input type="hidden" name="ctl00$ctl00$bcr$bcr$ctl00$PostList$ctl12$ctl07$ctl01" id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl12_ctl07_ctl01_State" value="nochange" /></div>
+								    <ul class="ForumPostStatistics CommonPrintHidden" style="clear: both;">
+								        <li></li>
+								        
+									    
+									    
+									    
+								    </ul>
+							    </td>
+						    </tr>
+					    </table>
+				    </div>
+			    </li>
+            
+		        </ul>
+		    
+        
+        <table cellpadding="0" cellspacing="0" width="100%" border="0">
+		    <tr>
+			    <td valign="top" align="left">
+			    </td>	
+			    <td valign="top">
+				    
+                     <div class="CommonPagingArea" align="right">Page 1 of 1 (11 items) </div>
+			    </td> 
+		    </tr>
+	    </table>
+        
+               
+        
+                <div class="CommonFeedArea" align="right">
+            <a class="rssplain" href="/rss.aspx?ForumID=24&amp;PostID=3540630"><img src="/utility/images/feedicon.png" alt="" style="border-width:0px;" /> RSS Available</a>
+                </div>
+            						
+	
+	</div>
+
+</div>
+
+<link rel="stylesheet" href="http://i1.asp.net/common/forums-css/SyntaxHighlighter.css?cdn_id=01112010_2" media="all" type="text/css" />     
+<script language="javascript" src="/script.ashx?resource=js-shCombined"></script>
+
+
+
+
+
+                        </div>
+		            </div>
+		        </div>
+		        
+		        <div class="advertisement">
+		            
+
+
+
+
+    <div class="adRegionSelector" align="center" style="padding-top:5px;padding-bottom:5px;" adurl="http://forums.asp.net/a/CSFeaturedAd.ashx?ZoneID=388" adwidth="728" adheight="90">
+    </div>
+
+
+
+
+		        </div>
+
+		        <div style="clear:both;"><!-- clear --></div>
+		        <div style="clear:both;"><!-- clear --></div>
+                    
+                
+                <div class="footer_container">
+                    <div class="footer_content">
+                    <p class="footer_links">
+                        <a href="http://www.asp.net/feedback/">Contact</a> | 
+                        <a href="http://www.neudesicmediagroup.com/Advertising.aspx">Advertise</a> | 
+                        
+                        <a href="http://www.axosoft.com">Issue Management by Axosoft's OnTime</a> | 
+                        <a href="http://www.iis.net/">Running IIS7</a><br />
+                        All Rights Reserved. | 
+                        <a href="http://www.asp.net/Terms-Of-Use">Terms of Use</a> | 
+                        <a href="http://www.microsoft.com/library/toolbar/3.0/trademarks/en-us.mspx">Trademarks</a> | 
+                        <a href="http://www.asp.net/privacy/">Privacy Statement</a><br />
+                        &copy; 2010 Microsoft Corporation.
+                    </p>
+                    <ul class="footer_site_logos">
+                        <li class="footer_site_logos"><a href="http://www.asp.net/"  class="footer_site_logos logo-footer-asp" ></a></li>
+                        <li class="footer_site_logos"><a href="http://www.silverlight.net/"  class="footer_site_logos logo-footer-silverlight" ></a></li>
+                        <li class="footer_site_logos"><a href="http://channel9.msdn.com/"  class="footer_site_logos logo-footer-ch9" ></a></li>
+                        <li class="footer_site_logos"><a href="http://edge.technet.com/"  class="footer_site_logos logo-footer-technet" ></a></li>
+                        <li class="footer_site_logos"><a href="http://www.iis.net/"  class="footer_site_logos logo-footer-iis" ></a></li>
+                        <li class="footer_site_logos"><a href="http://visitmix.com/"  class="footer_site_logos logo-footer-mix" ></a></li>
+                        <li class="footer_site_logos"><a href="http://msdn.microsoft.com/"  class="footer_site_logos logo-footer-msdn" ></a></li>           
+                        <li class="footer_site_logos"><a href="http://windowsclient.net/"  class="footer_site_logos logo-footer-wc" ></a></li>                    
+                    </ul>
+                  </div>
+                </div>
+            </div>
+            
+            
+            <script type="text/javascript">try { $(document).ready(function() { ShowAds(); }); } catch (ex) { } </script>
+            
+            <script type="text/javascript" src="http://i1.asp.net/script/omniture/omniture_all.js?cdn_id=01112010_2"></script>
+            <noscript><a href="http://www.omniture.com" title="Web Analytics"><img
+            src="http://msstonojsaspnet.112.2O7.net/b/ss/msstonojsaspnet/1/H.20.2--NS/0"
+            height="1" width="1" border="0" alt="" /></a></noscript>
+            
+            
+		
+<script type="text/javascript">
+// <![CDATA[
+Telligent_Modal.Configure('/utility/loading.htm',['CommonModal','CommonModal1','CommonModal2','CommonModal3','CommonModal4','CommonModal5'],['CommonModalTitle'],['CommonModalClose'],['CommonModalContent'],['CommonModalFooter'],['CommonModalResize'],['CommonModalMask'],100);
+// ]]>
+</script><script type="text/javascript">
+<!--
+function KeyDownHandlerctl00_ctl00_bhcr_SearchForm1_ctl00_TitleBarSearchButton(event)
+{
+	if (event.keyCode == 13)
+	{
+		event.returnValue = false;
+		event.cancel = true;
+     __doPostBack('ctl00$ctl00$bhcr$SearchForm1$ctl00$TitleBarSearchButton','')
+   return false;
+	}
+}
+
+//-->
+</script>
+<script type="text/javascript">
+// <![CDATA[
+window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01_ClientPopulatedPopupMenu = new ClientPopulatedPopupMenu('ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01_ClientPopulatedPopupMenu','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01','CommonImageTextButton','CommonImageTextButtonHighlight',[[new Function('parms', 'return parms[4];'),'View {1}\'s home page','/Themes/fan/images/common/homepage.gif','{4}','_blank',null],[new Function('parms', 'return parms[5];'),'View {1}\'s weblog','/Themes/fan/images/common/weblog.gif','{5}','_blank',null],[new Function('parms', 'return parms[6];'),'View {1}\'s gallery','/Themes/fan/images/common/webgallery.gif','{6}','_blank',null],[new Function('parms', 'return true;'),'View {1}\'s profile','/Themes/fan/images/common/profile.gif','/user/Profile.aspx?UserID={0}',null,null],[new Function('parms', 'return true;'),'Find posts by {1}','/Themes/fan/images/common/search.gif','{7}',null,null]]);
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl01 = new Telligent_InlineEditorPanel('ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl01_State','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl00',false,null,null,null);
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl03_ctl07_ctl01 = new Telligent_InlineEditorPanel('ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl03_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl03_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl03_ctl07_ctl01_State','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl00',false,null,null,null);
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl04_ctl07_ctl01 = new Telligent_InlineEditorPanel('ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl04_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl04_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl04_ctl07_ctl01_State','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl00',false,null,null,null);
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl05_ctl07_ctl01 = new Telligent_InlineEditorPanel('ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl05_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl05_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl05_ctl07_ctl01_State','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl00',false,null,null,null);
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl06_ctl07_ctl01 = new Telligent_InlineEditorPanel('ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl06_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl06_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl06_ctl07_ctl01_State','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl00',false,null,null,null);
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl07_ctl07_ctl01 = new Telligent_InlineEditorPanel('ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl07_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl07_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl07_ctl07_ctl01_State','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl00',false,null,null,null);
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl08_ctl07_ctl01 = new Telligent_InlineEditorPanel('ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl08_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl08_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl08_ctl07_ctl01_State','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl00',false,null,null,null);
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl09_ctl07_ctl01 = new Telligent_InlineEditorPanel('ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl09_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl09_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl09_ctl07_ctl01_State','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl00',false,null,null,null);
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl10_ctl07_ctl01 = new Telligent_InlineEditorPanel('ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl10_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl10_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl10_ctl07_ctl01_State','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl00',false,null,null,null);
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl11_ctl07_ctl01 = new Telligent_InlineEditorPanel('ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl11_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl11_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl11_ctl07_ctl01_State','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl00',false,null,null,null);
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl12_ctl07_ctl01 = new Telligent_InlineEditorPanel('ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl12_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl12_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl12_ctl07_ctl01_State','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl00',false,null,null,null);
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01 = new Telligent_PopupMenu('ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01','CommonContextMenuGroup','CommonContextMenuItem','CommonContextMenuItemHover','CommonContextMenuItemExpanded','',0,0,20,14,'updown',0,null,null,null,[],false);
+// ]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+Sys.Application.initialize();
+//]]>
+</script>
+</form>
+		
+		
+	</body>
+</html>

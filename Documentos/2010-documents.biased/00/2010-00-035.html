@@ -1,0 +1,475 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head><script src="http://www.google-analytics.com/urchin.js" type="text/javascript"> 
+</script> 
+<script type="text/javascript">
+_uacct = "UA-290307-7";
+urchinTracker();
+</script>
+<title>Page 4 - Hotmail Exposed: Access Hotmail using C#</title><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /><meta name="description" content="Page 4 - Hotmail Exposed: Access Hotmail using C#" /><meta name="keywords" content="Page 4, Hotmail, Exposed:, Access, Hotmail, using, C#" /><base href="http://www.devarticles.com/" /><script language="JavaScript1.2" src="http://www.devarticles.com/includes/js/rollover.js" type="text/javascript"></script>
+<script language="JavaScript1.2" src="http://www.devarticles.com/includes/js/mambojavascript.js" type="text/javascript"></script>
+<link href="/templates/devshed/css/fpstyles.css" rel="stylesheet" type="text/css"><link rel="alternate" type="application/rss+xml" title="Dev Articles RSS" href="http://www.devarticles.com/index2.php?option=mos_rss&no_html=1" /><!--<link rel="alternate" type="application/rss+xml" title="Blog RSS" href="http://www.aspfree.com/index2.php?option=mos_rssblog&no_html=1" />--><link rel="alternate" type="application/rss+xml" title="Dev Articles Forum RSS" href="http://forums.devarticles.com/external.php" /></head><body bgcolor="#EFEFEF" link="#000000" vlink="#000000" alink="#000000" leftmargin="0" topmargin="0"><script language="text/javascript">
+window.google_analytics_uacct = "UA-290307-7";
+</script>
+<SCRIPT language=JavaScript1.2>
+<!--
+// Explorer Bookmark and Mozilla Side Panel Script
+var url = "http://www.devarticles.com";
+var moz_url = url + "/index2.php?option=com_mozilla_panel&no_html=1";
+var who = "devarticles.com - Dev Articles";
+var moz_who = "devarticles.com - Side Panel";
+function addMozillaPanel() { 
+if ((typeof window.sidebar == "object") && (typeof window.sidebar.addPanel == "function")) 
+{ 
+window.sidebar.addPanel (moz_who, moz_url,""); 
+} else { 
+var rv = window.confirm ("This feature is only available for the Mozilla browser. " + "Would you like to download Mozilla now?"); 
+if (rv) 
+document.location.href = "http://www.mozilla.org";
+} 
+} 
+function BookMark()
+{
+var ver = navigator.appName;
+var num = parseInt(navigator.appVersion);
+if ((ver == "Microsoft Internet Explorer")&&(num >= 4)) {
+window.external.AddFavorite(url,who);
+} else {
+alert("To Bookmark : CTRL + D");
+}
+}
+//-->
+</SCRIPT>
+<div align=center><table width="1003" height="18" border="0" cellpadding="0" cellspacing="0"> <tr> <td bgcolor="#FFFFFF"> <table width="730" border="0" align="right" cellpadding="0" cellspacing="0"> <tr> <td width="20"><img src="http://images.devshed.com/da/devarticles-01.jpg" width="20" height="21" /></td> <td width="35" bgcolor="#FE9900">&nbsp;</td><td width="675" valign="middle" bgcolor="#FE9900"><center><style type="text/css">
+<!--
+#topnavbox { 
+clear: both;
+text-align:center;
+font-size: 0.8em;
+font-family:Arial, Helvetica, sans-serif;
+}
+.topnavtxt {
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 11px;
+text-decoration: normal;
+padding: 0;
+margin: 0;
+color: #ffffff;\n}
+-->
+</style>
+<div id="topnavbox" align=center> <div class="topnavtxt"><script type="text/javascript" language="JavaScript">
+<!--
+function ttgo1(url)
+{
+if (url.length > 1)
+{
+document.location.href = "http://" + url + "/";
+}
+}
+function ttfstart1(name)
+{
+document.write('<div style="display: inline; top: 0; padding:0; border: 0px;"><B>' + name + '</b> <form style="display: inline; margin: 0;" name="jumptt"><select style="font-size: 10px; font-family: Verdana, Arial;" name="menutt" onChange="javascript:ttgo(this.options[this.selectedIndex].value);">');
+document.write('<option value="" selected> - Select - </option>'); 
+}
+function ttfend1()
+{
+document.write('</select></form></div>');
+}
+function ttfadd1(name, val)
+{
+document.write('<option value="' + val + '">' + name + '</option>');
+}
+function ttspace1()
+{
+document.write('&nbsp;&nbsp;&nbsp;');
+}
+ttfstart1('Tutorials:');
+ttfadd1('Dev Shed', 'www.devshed.com');
+ttfadd1('ASP Free', 'www.aspfree.com');
+ttfadd1('Dev Articles', 'www.devarticles.com');
+ttfadd1('Dev Hardware', 'www.devhardware.com');
+ttfadd1('SEO Chat', 'www.seochat.com');
+ttfadd1('Web Hosting', 'webhosting.devshed.com');
+ttfadd1('Codewalkers', 'www.codewalkers.com');
+ttfend1();
+ttspace1();
+ttfstart1('Resources:');
+ttfadd1('Scripts', 'www.scripts.com');
+ttfadd1('Tutorialized', 'www.tutorialized.com');
+ttfadd1('Dev Mechanic', 'tools.devshed.com');
+//ttfadd1('iWatchIT', 'www.iwatchit.com');
+//ttfadd1('IT Marketplace', 'www.itmarketplace.com');
+//ttfadd1('igrep', 'www.igrep.com');
+ttfend1();
+ttspace1();
+ttfstart1('Forums:');
+ttfadd1('Dev Shed Forums', 'forums.devshed.com');
+ttfadd1('ASP Free Forums', 'forums.aspfree.com');
+ttfadd1('Dev Articles Forums', 'forums.devarticles.com');
+ttfadd1('Dev Hardware Forums', 'www.devhardware.com/forums');
+ttfadd1('SEO Chat Forums', 'forums.seochat.com');
+ttfadd1('Codewalkers Forums', 'forums.codewalkers.com');
+ttfadd1('Tutorialized Forums', 'forums.tutorialized.com');
+ttfadd1('Dev Archives Forums', 'archives.devshed.com/forums');
+ttfend1();
+//-->
+</script>
+ </div></div></center></td> </tr> </table> <div align="right"></div> </td> </tr> <tr> <td valign="top" background="http://images.devshed.com/da/current/devarticles.jpg"> <table width="1003" border="0" cellspacing="0" cellpadding="0"><tr><td height="20" colspan="3" align=right><table cellpadding=0 cellspacing=0><tr><td><script type='text/javascript'><!--//<![CDATA[
+var m3_u = (location.protocol=='https:'?'https://zde.am.affinity.com/www/delivery/ajs.php':'http://zde.am.affinity.com/www/delivery/ajs.php');
+var m3_r = Math.floor(Math.random()*99999999999);
+if (!document.MAX_used) document.MAX_used = ',';
+document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+document.write ("?zoneid=392");
+document.write ('&amp;cb=' + m3_r);
+if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+document.write ("&amp;loc=" + escape(window.location));
+if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+if (document.context) document.write ("&context=" + escape(document.context));
+if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+document.write ("'><\/scr"+"ipt>");
+//]]>--></script><noscript><a rel=nofollow href='http://zde.am.affinity.com/www/delivery/ck.php?n=a72b9207&amp;cb=211398509' target='_blank'><img src='http://zde.am.affinity.com/www/delivery/avw.php?zoneid=392&amp;cb=211398509&amp;n=a72b9207' border='0' alt='' /></a></noscript></td></tr></table></td></tr>
+ <tr> <td width="120" height="50">&nbsp;</td> <td valign="middle" class="pagename"> <table cellpadding=0 cellpadding=0> <tr> <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a rel="nofollow" href="/" class=title title="Dev Articles"></a><a rel="nofollow" href="/" class=smalltitle title='C#'><nobr>C#</nobr></a> </td> <td valign=top class=trademark></td> </tr> </table> </td> <td width="409" valign="top"> </td> </tr> </table> </td> </tr> <tr> <td bgcolor="#FFFFFF"> <table width="848" border="0" align="right" cellpadding="0" cellspacing="0"> <tr> <td width="20"><img src="http://images.devshed.com/da/devarticles-02.gif" width="20" height="28" /></td> <td width="1" bgcolor="#FE9900">&nbsp;</td> <td width="545" bgcolor="#FE9900"><nobr><span class="pathwaybg"><a rel=nofollow href="http://www.devarticles.com/" class="pathwaybg"><span class=pathwaybg><u>Home</u></span></a> <img src="images/M_images/arrow_black.png" border="0" alt="arrow" /> <a rel=nofollow href="http://www.devarticles.com/c/b/C-Sharp/" class="pathwaybg"><span class=pathwaybg><u>C#</u></span></a> <img src="images/M_images/arrow_black.png" border="0" alt="arrow" /> Page 4 - Hotmail Exposed: Access Hotmail using C# </span></nobr></td> <td height="25" width="362" bgcolor="#FE9900"> <table width="100%" border="0" cellspacing="0" cellpadding="0"> <tr> <td height='25' align='right' style='float:right;width:210px;_width:210px;padding-right:3px;padding-top:3px;_padding-right:3px;_padding-top:2px;'><form style='display:inline;' action='http://www.devarticles.com/googlecse.html' id='cse-search-box'><input type='hidden' name='cx' value='partner-pub-6422417422167576:16y8lrhaz0i' /><input type='hidden' name='cof' value='FORID:11' /><input type='hidden' name='ie' value='ISO-8859-1' /><input type='text' name='q' size='20' /> <input type='image' style='margin-top: -3px;_margin-top:0px;' align='absmiddle' src='http://www.devshed.com/components/com_googlecse/google_search.gif' height='20' width='56' name='sa' value='Search' /><script type='text/javascript' src='http://www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en'></script></form></td>
+ </tr> </table> </td> </tr> </table> </td> </tr></table></div><table align=center width="1003" border="0" cellspacing="0" cellpadding="0"> <tr valign="top">  <td width=158 bgcolor="#FFFFFF"> <div align=center> <table cellpadding=1> <tr><td align="center"><script type='text/javascript'><!--//<![CDATA[
+var m3_u = (location.protocol=='https:'?'https://zde.am.affinity.com/www/delivery/ajs.php':'http://zde.am.affinity.com/www/delivery/ajs.php');
+var m3_r = Math.floor(Math.random()*99999999999);
+if (!document.MAX_used) document.MAX_used = ',';
+document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+document.write ("?zoneid=428");
+document.write ('&amp;cb=' + m3_r);
+if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+document.write ("&amp;loc=" + escape(window.location));
+if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+if (document.context) document.write ("&context=" + escape(document.context));
+if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+document.write ("'><\/scr"+"ipt>");
+//]]>--></script><noscript><a rel=nofollow href='http://zde.am.affinity.com/www/delivery/ck.php?n=a72b9207&amp;cb=140550515' target='_blank'><img src='http://zde.am.affinity.com/www/delivery/avw.php?zoneid=428&amp;cb=140550515&amp;n=a72b9207' border='0' alt='' /></a></noscript></td>
+ </tr> </table> </div> </td> <td align=center height="115" bgcolor="#FFFFFF"> <table width=100% cellpadding=0 cellspacing=0> <tr valign="middle"><td align=center height="115" background="http://images.devshed.com/common/bckg-topbanner.gif"><script type='text/javascript'><!--//<![CDATA[
+var m3_u = (location.protocol=='https:'?'https://zde.am.affinity.com/www/delivery/ajs.php':'http://zde.am.affinity.com/www/delivery/ajs.php');
+var m3_r = Math.floor(Math.random()*99999999999);
+if (!document.MAX_used) document.MAX_used = ',';
+document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+document.write ("?zoneid=684");
+document.write ('&amp;cb=' + m3_r);
+if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+document.write ("&amp;loc=" + escape(window.location));
+if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+if (document.context) document.write ("&context=" + escape(document.context));
+if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+document.write ("'><\/scr"+"ipt>");
+//]]>--></script><noscript><a rel=nofollow href='http://zde.am.affinity.com/www/delivery/ck.php?n=a72b9207&amp;cb=2036674449' target='_blank'><img src='http://zde.am.affinity.com/www/delivery/avw.php?zoneid=684&amp;cb=2036674449&amp;n=a72b9207' border='0' alt='' /></a></noscript>
+</td></tr> <tr><td></td></tr> </table> </td> </tr></table><div background="#ffffff" align=center> <div id=resultframe> <div id=resultleft bgcolor="#ffffff"> <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center"> <tr> <td> </td> </tr> </table> <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center"> <tr> <td> <table class="shrink_td" cellspacing="0" cellpadding="0" width="150"><tr><td class="sidenavgray"><a class="sidenavtxtgray" href="http://forums.devarticles.com/">Dev Articles Forums</a></td><td width="8">&nbsp;</td></tr></table> </td> </tr> </table> <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center"> <tr> <td> <table width="150" border="0" cellpadding="0" cellspacing="0" class="shrink_td"> <!--  <tr>  <td width="8">&nbsp;</td> <td class="txtblack"><b>Programming Help</b></td> <td width="8">&nbsp;</td> </tr> -->  <tr>  <td class="sidenavgray"><a class="sidenavtxtgray" href="http://www.devarticles.com/c/b/ADO.NET/">ADO.NET</a></td> <td width="8">&nbsp;</td> </tr> <tr>  <td class="sidenavgray"><a class="sidenavtxtgray" href="http://www.devarticles.com/c/b/Apache/">Apache</a></td> <td width="8">&nbsp;</td> </tr> <tr>  <td class="sidenavgray"><a class="sidenavtxtgray" href="http://www.devarticles.com/c/b/ASP/">ASP</a></td> <td width="8">&nbsp;</td> </tr> <tr>  <td class="sidenavgray"><a class="sidenavtxtgray" href="http://www.devarticles.com/c/b/ASP.NET/">ASP.NET</a></td> <td width="8">&nbsp;</td> </tr> <tr>  <td class="sidenavgray"><a class="sidenavtxtgray" href="http://www.devarticles.com/c/b/C-Sharp/">C#</a></td> <td width="8">&nbsp;</td> </tr> <tr>  <td class="sidenavgray"><a class="sidenavtxtgray" href="http://www.devarticles.com/c/b/Cplusplus/">C++</a></td> <td width="8">&nbsp;</td> </tr> <tr>  <td class="sidenavgray"><a class="sidenavtxtgray" href="http://www.devarticles.com/c/b/ColdFusion/">ColdFusion</a></td> <td width="8">&nbsp;</td> </tr> <tr>  <td class="sidenavgray"><a class="sidenavtxtgray" href="http://www.devarticles.com/c/b/COM/">COM/COM+</a></td> <td width="8">&nbsp;</td> </tr> <tr>  <td class="sidenavgray"><a class="sidenavtxtgray" href="http://www.devarticles.com/c/b/Delphi-Kylix/">Delphi-Kylix</a></td> <td width="8">&nbsp;</td> </tr> <tr>  <td class="sidenavgray"><a class="sidenavtxtgray" href="http://www.devarticles.com/c/b/Web-Design-Usability/">Design Usability</a></td> <td width="8">&nbsp;</td> </tr> <tr>  <td class="sidenavgray"><a class="sidenavtxtgray" href="http://www.devarticles.com/c/b/Development-Cycles/">Development Cycles</a></td> <td width="8">&nbsp;</td> </tr> <tr>  <td class="sidenavgray"><a class="sidenavtxtgray" href="http://www.devarticles.com/c/b/DHTML/">DHTML</a></td> <td width="8">&nbsp;</td> </tr> <tr>  <td class="sidenavgray"><a class="sidenavtxtgray" href="http://www.devarticles.com/c/b/Embedded-Tools/">Embedded Tools</a></td> <td width="8">&nbsp;</td> </tr> <tr>  <td class="sidenavgray"><a class="sidenavtxtgray" href="http://www.devarticles.com/c/b/Flash/">Flash</a></td> <td width="8">&nbsp;</td> </tr> <tr>  <td class="sidenavgray"><a class="sidenavtxtgray" href="http://www.devarticles.com/c/b/Web-Graphic-Design/">Graphic Design</a></td> <td width="8">&nbsp;</td> </tr> <tr>  <td class="sidenavgray"><a class="sidenavtxtgray" href="http://www.devarticles.com/c/b/HTML/">HTML</a></td> <td width="8">&nbsp;</td> </tr> <tr>  <td class="sidenavgray"><a class="sidenavtxtgray" href="http://www.devarticles.com/c/b/IIS/">IIS</a></td> <td width="8">&nbsp;</td> </tr> <tr>  <td class="sidenavgray"><a class="sidenavtxtgray" href="http://www.devarticles.com/c/b/Interviews/">Interviews</a></td> <td width="8">&nbsp;</td> </tr> <tr>  <td class="sidenavgray"><a class="sidenavtxtgray" href="http://www.devarticles.com/c/b/Java/">Java</a></td> <td width="8">&nbsp;</td> </tr> <tr>  <td class="sidenavgray"><a class="sidenavtxtgray" href="http://www.devarticles.com/c/b/JavaScript/">JavaScript</a></td> <td width="8">&nbsp;</td> </tr> <tr>  <td class="sidenavgray"><a class="sidenavtxtgray" href="http://www.devarticles.com/c/b/MySQL/">MySQL</a></td> <td width="8">&nbsp;</td> </tr> <tr>  <td class="sidenavgray"><a class="sidenavtxtgray" href="http://www.devarticles.com/c/b/Oracle/">Oracle</a></td> <td width="8">&nbsp;</td> </tr> <tr>  <td class="sidenavgray"><a class="sidenavtxtgray" href="http://www.devarticles.com/c/b/Photoshop/">Photoshop</a></td> <td width="8">&nbsp;</td> </tr> <tr>  <td class="sidenavgray"><a class="sidenavtxtgray" href="http://www.devarticles.com/c/b/PHP/">PHP</a></td> <td width="8">&nbsp;</td> </tr> <tr>  <td class="sidenavgray"><a class="sidenavtxtgray" href="http://www.devarticles.com/c/b/Reviews/">Reviews</a></td> <td width="8">&nbsp;</td> </tr> <tr>  <td class="sidenavgray"><a class="sidenavtxtgray" href="http://www.devarticles.com/c/b/Ruby-on-Rails/">Ruby-on-Rails</a></td> <td width="8">&nbsp;</td> </tr> <tr>  <td class="sidenavgray"><a class="sidenavtxtgray" href="http://www.devarticles.com/c/b/SQL/">SQL</a></td> <td width="8">&nbsp;</td> </tr> <tr>  <td class="sidenavgray"><a class="sidenavtxtgray" href="http://www.devarticles.com/c/b/SQL-Server/">SQL Server</a></td> <td width="8">&nbsp;</td> </tr> <tr>  <td class="sidenavgray"><a class="sidenavtxtgray" href="http://www.devarticles.com/c/b/Web-Style-Sheets/">Style Sheets</a></td> <td width="8">&nbsp;</td> </tr> <tr>  <td class="sidenavgray"><a class="sidenavtxtgray" href="http://www.devarticles.com/c/b/VB.Net/">VB.Net</a></td> <td width="8">&nbsp;</td> </tr> <tr>  <td class="sidenavgray"><a class="sidenavtxtgray" href="http://www.devarticles.com/c/b/Visual-Basic/">Visual Basic</a></td> <td width="8">&nbsp;</td> </tr> <tr>  <td class="sidenavgray"><a class="sidenavtxtgray" href="http://www.devarticles.com/c/b/Web-Authoring/">Web Authoring</a></td> <td width="8">&nbsp;</td> </tr> <tr>  <td class="sidenavgray"><a class="sidenavtxtgray" href="http://www.devarticles.com/c/b/Web-Services/">Web Services</a></td> <td width="8">&nbsp;</td> </tr> <tr>  <td class="sidenavgray"><a class="sidenavtxtgray" href="http://www.devarticles.com/c/b/Web-Design-Standards/">Web Standards</a></td> <td width="8">&nbsp;</td> </tr> <tr>  <td class="sidenavgray"><a class="sidenavtxtgray" href="http://www.devarticles.com/c/b/XML/">XML</a></td> <td width="8">&nbsp;</td> </tr> </table> </td> </tr> </table> <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center"> <tr> <td> <table class="shrink_td" cellspacing="0" cellpadding="0" width="150" border="0"><tbody><tr><td class="sidenavgray"><a class="sidenavtxtgray" href="http://www.devshed.com/mobile-linux/">Mobile Linux</a></td><td width="8">&nbsp;</td></tr><tr><td class="sidenavgray"><a class="sidenavtxtgray" href="http://www.devshed.com/case-studies/">App Generation ROI</a></td><td width="8">&nbsp;</td></tr><tr><td class="sidenavgray"><a class="sidenavtxtgray" href="http://www.devshed.com/ibm-developerworks/" rel="nofollow">IBM� developerWorks</a></td><td width="8">&nbsp;</td></tr></tbody></table> </td> </tr> </table> <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center"> <tr> <td><script type="text/javascript"><!--
+google_ad_client = "pub-6422417422167576";
+/* DevArticles Article Pages, 120x600, created 1/30/09 */
+google_ad_slot = "2520989064";
+google_ad_width = 120;
+google_ad_height = 600;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>     </td>
+ </tr> </table> <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center"> <tr> <td> <table class="shrink_td" cellspacing="0" cellpadding="0" width="150" border="0"><tbody><form name="wfrmSS" onsubmit="return CheckwSS()" action="http://newsletter.developershed.com/sendstudio/users/form.php?FormID=4" method="post"><tr><td class="sidenavgray" valign="top" height="36"><b><a class="sidenavtxtgray" href="http://www.developershed.com/newsletter.php" rel="nofollow">Weekly Newsletter</a></b> <br /><input style="background-color: #ffffa0;" class="form" onblur="if (this.value=='') {this.value='Your E-mail';}" title="Your Google Toolbar can fill this in for you. Select AutoFill" onfocus="if ((this.value=='') || (this.value=='Your E-mail')) {this.value='';};" type="text" size="16" value="Your E-mail" name="Email" autocomplete="OFF" /><input type="hidden" value="YES" name="SelectLists[4]" /><input type="hidden" value="2" name="Format" /><input type="hidden" value="ed2d31d9cdcac5a40f6ff626f4acefa3" name="FormCode" /><input class="form" type="submit" value="GO" name="Submit" /></td><td width="8">&nbsp;</td></tr></form><tr><td class="sidenavgray"><a class="sidenavtxtgray" href="http://www.developershed.com/devalert.php" rel="nofollow">Developer Updates</a> </td><td width="8">&nbsp;</td></tr><tr><td class="sidenavgray"><a class="sidenavtxtgray" href="http://www.developershed.com/devtext.php" rel="nofollow">Free Website Content</a></td><td width="8">&nbsp;</td></tr></tbody></table><script language="JavaScript">
+function CheckwSS()
+{
+theFrm = document.wfrmSS;
+hasDot = theFrm.Email.value.indexOf(".");
+hasAt = theFrm.Email.value.indexOf("@");
+if (hasDot == -1 || hasAt == -1)
+{
+alert("Please enter a valid email address.");
+theFrm.Email.focus();
+theFrm.Email.select();
+return false;
+}
+return true;
+}
+</script>     </td>
+ </tr> </table> <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center"> <tr> <td> <table cellspacing="0" cellpadding="0" width="150" border="0"><tbody><tr><td><div align="center" style="margin-top:6px; margin-right:0px; margin-left:0px; margin-bottom:6px;"><script type='text/javascript'><!--//<![CDATA[
+var m3_u = (location.protocol=='https:'?'https://zde.am.affinity.com/www/delivery/ajs.php':'http://zde.am.affinity.com/www/delivery/ajs.php');
+var m3_r = Math.floor(Math.random()*99999999999);
+if (!document.MAX_used) document.MAX_used = ',';
+document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+document.write ("?zoneid=121");
+document.write ('&amp;cb=' + m3_r);
+if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+document.write ("&amp;loc=" + escape(window.location));
+if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+if (document.context) document.write ("&context=" + escape(document.context));
+if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+document.write ("'></scr"+"ipt>");
+//]]>--></script><noscript><a rel=nofollow href='http://zde.am.affinity.com/www/delivery/ck.php?n=a72b9207&amp;cb=650173391' target='_blank'><img src='http://zde.am.affinity.com/www/delivery/avw.php?zoneid=121&amp;cb=650173391&amp;n=a72b9207' border='0' alt='' /></a></noscript></div></td></tr></tbody></table>
+ </td> </tr> </table> <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center"> <tr> <td> <table cellspacing="0" cellpadding="0" width="150" border="0"><tbody><tr valign="middle"><td class="sidenavgray2"><table cellspacing="0" cellpadding="0" width="150" border="0"><tr valign="middle"><td align="left">&nbsp;<a class="sidenavtxtgray" href="/rss-feeds.html" rel="nofollow"><img width="15" height="14" border="0" alt="RSS" src="http://images.devshed.com/common/rss.gif" /></a>&nbsp;&nbsp;<a class="sidenavtxtgray" href="/rss-feeds.html" rel="nofollow">Articles</a></td></tr></table></td></tr><tr valign="middle"><td class="sidenavgray2"><table cellspacing="0" cellpadding="0" width="150" border="0"><tr valign="middle"><td align="left">&nbsp;<a class="sidenavtxtgray" href="http://forums.codewalkers.com/rss/" rel="nofollow"><img width="15" height="14" border="0" alt="RSS" src="http://images.devshed.com/common/rss.gif" /></a>&nbsp;&nbsp;<a class="sidenavtxtgray" href="http://forums.devarticles.com/rss/" rel="nofollow">Forums</a></td></tr></table></td></tr><tr valign="middle"><td class="sidenavgray"><table cellspacing="0" cellpadding="0" width="150" border="0"><tr valign="middle"><td align="left">&nbsp;<a class="sidenavtxtgray" href="/rss-reader.html" rel="nofollow"><img width="15" height="14" border="0" alt="RSS" src="http://images.devshed.com/common/rss.gif" /></a>&nbsp;&nbsp;<a class="sidenavtxtgray" href="/rss-reader.html" rel="nofollow">All Feeds</a></td></tr></table></td></tr></table> </td> </tr> </table> <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center"> <tr> <td> <table class="shrink_td" cellspacing="0" cellpadding="0" width="150"><tbody><tr><td class=sidenavgray><a class="sidenavtxtgray" href="http://www.developershed.com/writers.php" rel="nofollow">Write For Us Get Paid</a></td><td width="8">&nbsp;</td></tr></tbody></table> </td> </tr> </table> <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center"> <tr> <td> <table class="shrink_td" cellspacing="0" cellpadding="0" width="150" border="0"><tbody><tr><td class=sidenavgray><a class="sidenavtxtgray" href="http://www.developershed.com/advertise.php" rel="nofollow">Request Media Kit</a></a /></td></tr></tbody></table> </td> </tr> </table> <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center"> <tr> <td> <table class="shrink_td" cellspacing="0" cellpadding="0" width="150"><tbody><tr><td class=sidenavgray><a class="sidenavtxtgray" href="http://www.developershed.com/contact.php" rel="nofollow">Contact Us</a></td><td width="8">&nbsp;</td></tr></tbody></table> </td> </tr> </table> <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center"> <tr> <td> <table class="shrink_td" cellspacing="0" border="0" cellpadding="0" width="150"><tbody><tr><td class=sidenavgray><a class="sidenavtxtgray" href="/sitemap.html">Site Map</a></td><td width="8">&nbsp;</td></tr></tbody></table> </td> </tr> </table> <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center"> <tr> <td> <table class="shrink_td" cellspacing="0" cellpadding="0" width="150" border="0"><tbody><tr><td class=sidenavgray><a class="sidenavtxtgray" href="http://www.developershed.com/privacy.php" rel="nofollow">Privacy Policy</a></td><td width="8">&nbsp;</td></tr><tr><td class=sidenavgray><a class="sidenavtxtgray" href="http://www.developershed.com/esupport/" rel="nofollow">Support</a></td><td width="8">&nbsp;</td></tr></tbody></table> </td> </tr> </table> <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center"> <tr> <td> <table width="150" border="0" cellpadding="0" cellspacing="0"> <tr>  <TD> <table width="150" border="0" cellspacing="0" cellpadding="0" align="center" class=txtblack> <form action="http://www.devarticles.com/index.php?option=login" method="post" name="login"> <tr> <td class=sidenavgray2>&nbsp;USERNAME</td> </tr> <tr> <td class=sidenavgray2>&nbsp;<input type="text" name="username" class="sidenavtxtgray" size="12" /></td> </tr> <tr>  <td class=sidenavgray2>&nbsp;PASSWORD</td> </tr> <tr>  <td class=sidenavgray2>&nbsp;<input type="password" name="passwd" class="sidenavtxtgray" size="12" /></td> </tr> <tr> <td class=sidenavgray2><input type="hidden" name="op2" value="login" /> <input type="hidden" name="lang" value="english" />  &nbsp;<input type="submit" name="Submit" class="button" value="GO" />  </td> </tr> <tr> <td class=sidenavgray2>&nbsp;&nbsp;<font color=blue>>>></font> <a rel=nofollow class=bot3 href="/index.php?option=com_registration&task=register"><font color=blue><b>SIGN  UP!</b></font></a>&nbsp;&nbsp;</td> </tr> <tr>  <td class=sidenavgray2>&nbsp;&nbsp;<a rel=nofollow class=bot3 href="/index.php?option=com_registration&task=lostPassword"><font color=blue>Lost  Password?</font></a>&nbsp;</td> </tr> <!-- <tr align="right">  <td width="8">&nbsp;</td>  <td class=sidenavgray2 colspan="4" valign=middle><a rel=nofollow class=bot3 href="/past-technology-news/"><font color="blue">Past  Technology News</font></a>&nbsp;&nbsp;</td> </tr>--> </form> </table></td></tr></table> </td> </tr> </table> </div> <div id=resultcontent> <table width=100% cellpadding=0 cellspacing=0> <tr><td valign=top><table align="center" width="98%" bgcolor="#FFFFFF" cellpadding="0" cellspacing="0"><TR><TD class="whitebg"><script language="JavaScript" type="text/javascript">
+var addtoMethod=1;
+var AddURL = document.location.href;
+var AddTitle = escape(document.title);
+</script>
+<script language="JavaScript" src="/includes/js/add2.js" type="text/javascript"></script>
+<style type="text/css">
+<!--
+.add2small {
+font-size: 11px;
+cursor:pointer;
+}
+.add2head {
+font-size: 11px;
+font-weight: bold;
+}
+-->
+</style> 
+ <table cellpadding="0" cellspacing="1" border="0" width="100%"> <tr> <td width=100% valign=top> <table cellspacing="0" cellpadding="0" width="100%"> <tr> <td class="site-bckgtit"> <table cellspacing="0" cellpadding="0" width="332" border="0"> <tr> <td style="font-size:11px;">C#</td> <td width="34"> <div align="right"><a class="sidenav" href="/rss-feeds.html">RSS</a></div></td> <td width="27"> <div align="center"><a href="/rss-feeds.html"><img height="28" alt="" src="http://images.devshed.com/da/rss.gif" width="27" border="0" /></a></div> </td> </tr> </table> </td> </tr> </table><br> <a class='site-tit1' rel=nofollow href="http://www.devarticles.com/c/a/C-Sharp/Hotmail-Exposed-Access-Hotmail-using-C-sharp/">Hotmail Exposed: Access Hotmail using C#</a> <BR> <table width=100% cellpading=0 cellspacing=0> <tr><td width=50%> <span class="subtitblack">By: <a href="http://www.devarticles.com/cp/bio/Wouter-van-Vugt/">Wouter van Vugt</a></span> </td><td rowspan=3> <li class ="txtplain"><a rel=nofollow href='http://www.devarticles.com/googlecse.html?cx=partner-pub-6422417422167576%3A16y8lrhaz0i&cof=FORID%3A11&ie=ISO-8859-1&q=search+now#1383'>Search For More Articles!</a></li><li class ="txtplain"><a rel=nofollow href="javascript:void window.open('/html_templates/disclaimer.html', 'win2', 'status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=800,height=210,directories=no,location=no');">Disclaimer</a></li><li class ="txtplain"><a rel=nofollow href='http://www.developershed.com/terms.php'>Author Terms</a></li> </td> </tr> <tr> <td width=50%> <span class="subtitblack"> Rating: <img src="http://images.devshed.com/da/M_images/newstar.gif" width="11" height="10" border="0" alt="4 stars" valign="middle" /><img src="http://images.devshed.com/da/M_images/newstar.gif" width="11" height="10" border="0" alt="4 stars" valign="middle" /><img src="http://images.devshed.com/da/M_images/newstar.gif" width="11" height="10" border="0" alt="4 stars" valign="middle" /><img src="http://images.devshed.com/da/M_images/newstar.gif" width="11" height="10" border="0" alt="4 stars" valign="middle" /><img src="http://images.devshed.com/da/M_images/rating_star_blank.png" width="11" height="10" border="0" alt="4 stars" valign="middle" />&nbsp;/&nbsp;83 </span> </td> </tr> <tr> <td width=50%>  <span class="subtitblack"> 2003-10-23</span> </td> </tr> </table> <br> <table width="332" border="0" cellspacing="0" cellpadding="0"> <tr>  <td width="100%" height="20" align="left" class="article_toc"> Table of Contents:<br /> </td> </tr> <tr>  <td class="site-index" valign="top" align=left>  <li class="txt"><a href="http://www.devarticles.com/c/a/C-Sharp/Hotmail-Exposed-Access-Hotmail-using-C-sharp/" class="site-index">Hotmail Exposed: Access Hotmail using C#</a></li><li class="txt"><a href="http://www.devarticles.com/c/a/C-Sharp/Hotmail-Exposed-Access-Hotmail-using-C-sharp/1/" class="site-index">Building the Client</a></li><li class="txt"><a href="http://www.devarticles.com/c/a/C-Sharp/Hotmail-Exposed-Access-Hotmail-using-C-sharp/2/" class="site-index">HotmailProxy</a></li><li class="txt"><a href="http://www.devarticles.com/c/a/C-Sharp/Hotmail-Exposed-Access-Hotmail-using-C-sharp/3/" class="site-index">HotmailClient</a></li><li class="txt"><a href="http://www.devarticles.com/c/a/C-Sharp/Hotmail-Exposed-Access-Hotmail-using-C-sharp/4/" class="site-index">Conclusion</a></li> </td> </tr> </table><br> <table width="322" height="155" border="0" cellpadding="0" cellspacing="0" background="http://images.devshed.com/common/bckg-table1.gif"> <tr> <td height="26" colspan="2"><div align="center" class="footergray"> <table> <form method="post" action="http://www.devarticles.com/"> <tr><td class=footerblack>Rate this Article: Poor <input type="radio" name="user_rating" value="1" /><input type="radio" name="user_rating" value="2"/><input type="radio" name="user_rating" value="3"/><input type="radio" name="user_rating" value="4"/><input type="radio" name="user_rating" value="5" checked /> Best&nbsp;<input type="submit" class=footerblack name="submit_vote" value="Rate" /><input type="hidden" name="task" value="vote" /> <input type="hidden" name="pop" value="0" /><input type="hidden" name="option" value="content" /><input type="hidden" name="Itemid" value="2" /><input type="hidden" name="cid" value="670" /><input type="hidden" name="url" value="/index.php?option=content&task=view&id=670&Itemid=2&limit=1&limitstart=3" /> </td></tr> </form> </table></div></td> </tr> <tr> <td width="170" valign="top"><table width="170" border="0" cellspacing="0" cellpadding="0"> <tr> <td>&nbsp;</td> <td height="30" colspan=2 class="footerblack">ADD THIS ARTICLE TO:</td> </tr> <tr> <td width="6">&nbsp;</td> <td width="87"><span class="add2small" title="Add this page to Delicious" onclick="addto(2)"><img align="absmiddle" src="http://images.devshed.com/cmn/add2/AddTo_Delicious.gif" width="16" height="16" border="0" /> <span class=footergray>Del.ici.ous</span></span></td> <td width="67"><span class="add2small" title="Add this page to Digg" onclick="addto(3)"><img align="absmiddle" src="http://images.devshed.com/cmn/add2/AddTo_Digg.gif" width="16" height="16" border="0" /> <span class=footergray>Digg</span></span></td> </tr> <tr> <td width="6">&nbsp;</td> <td width="87"><span class="add2small" title="Add this page to Blink" onclick="addto(1)"><img align="absmiddle" src="http://images.devshed.com/cmn/add2/AddTo_Blink.gif" width="16" height="16" border="0" /> <span class=footergray>Blink</span></span></td> <td width="67"><span class="add2small" title="Add this page to Simpy" onclick="addto(6)"><img align="absmiddle" src="http://images.devshed.com/cmn/add2/AddTo_Simpy.gif" width="16" height="16" border="0" /> <span class=footergray>Simpy</span></span></td> </tr> <tr> <td width="6">&nbsp;</td> <td width="87"><span class="add2small" title="Add this page to Google" onclick="addto(5)"><img align="absmiddle" src="http://images.devshed.com/cmn/add2/AddTo_Google.gif" width="16" height="16" border="0" /> <span class=footergray>Google</span></span></td> <td width="67"><span class="add2small" title="Add this page to Spurl" onclick="addto(8)"><img align="absmiddle" src="http://images.devshed.com/cmn/add2/AddTo_Spurl.gif" width="16" height="16" border="0" /> <span class=footergray>Spurl</span></span></td> </tr> <tr> <td width="6">&nbsp;</td> <td width="87"><span class="add2small" title="Add this page to Yahoo! MyWeb" onclick="addto(7)" ><img align="absmiddle" src="http://images.devshed.com/cmn/add2/AddTo_Yahoo.gif" width="16" height="16" border="0" /> <span class=footergray>Y! MyWeb</span></span></td> <td width="67"><span class="add2small" title="Add this page to Furl" onclick="addto(4)"><img align="absmiddle" src="http://images.devshed.com/cmn/add2/AddTo_Furl.gif" width="16" height="16" border="0" /> <span class=footergray>Furl</span></span></td> </tr> </table></td> <td width="162" valign=top><table width="100%" border="0" cellspacing="0" cellpadding="0"> <tr> <td height="30"><a rel="nofollow" href="http://www.developershed.com/devalert.php" target="_blank" class="footergray">Email Me Similar Content When Posted</a><br></td> </tr> <tr> <td height="30"><a rel="nofollow" href="http://www.developershed.com/devtext.php" target="_blank" class="footergray">Add Developer Shed Article Feed To Your Site</a></td> </tr> <tr> <td height="18"><a rel=nofollow href="javascript:void window.open('http://www.devarticles.com/index2.php?option=content&task=emailform&id= 670', 'win2', 'status=no,toolbar=no,scrollbars=no,titlebar=no,menubar=no,resizable=yes,width=400,height=200,directories=no,location=no');" class="footergray">Email Article To Friend</a></td> </tr> <tr> <td height="18"><a rel=nofollow href="javascript:void window.open('http://www.devarticles.com/index2.php?option=content&task=view&id=670&pop=1&hide_ads=1&page=3&hide_js=1', 'win2', 'status=no,toolbar=yes,scrollbars=yes,titlebar=no,menubar=yes,resizable=yes,width=640,height=480,directories=no,location=no');" class="footergray">Print Version Of Article</a></td> </tr> <tr> <td height="18"><a rel=nofollow href="javascript:void window.open('http://www.devarticles.com/index2.php?option=content&do_pdf=1&id=670', 'win2', 'status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=640,height=480,directories=no,location=no');" class="footergray">PDF Version Of Article</a></td> </tr> </table> </td> </tr> </table><!-- <table width="300" border="0" cellspacing="0" cellpadding="0"> <tr>  <td colspan="4" class="add2head" bgcolor="#FFCC66" height="20">&nbsp;Add This Article To:</td> </tr> <tr bgcolor="#FFFFCC">  <td height="20" valign="middle">&nbsp;<span class="add2small" title="Add this page to Delicious" onclick="addto(2)"><img align="absmiddle" src="http://images.devshed.com/cmn/add2/AddTo_Delicious.gif" width="16" height="16" border="0" /> <u>Del.icio.us</u></span></td> <td valign="middle">&nbsp;<span class="add2small" title="Add this page to Digg" onclick="addto(3)"><img align="absmiddle" src="http://images.devshed.com/cmn/add2/AddTo_Digg.gif" width="16" height="16" border="0" /> <u>Digg</u></span></td> <td valign="middle">&nbsp;<span class="add2small" title="Add this page to Google" onclick="addto(5)"><img align="absmiddle" src="http://images.devshed.com/cmn/add2/AddTo_Google.gif" width="16" height="16" border="0" /> <u>Google</u></span></td> <td valign="middle">&nbsp;<span class="add2small" title="Add this page to Spurl" onclick="addto(8)"><img align="absmiddle" src="http://images.devshed.com/cmn/add2/AddTo_Spurl.gif" width="16" height="16" border="0" /> <u>Spurl</u></span></td> </tr> <tr bgcolor="#FFFFCC">  <td height="20" valign="middle">&nbsp;<span class="add2small" title="Add this page to Blink" onclick="addto(1)"><img align="absmiddle" src="http://images.devshed.com/cmn/add2/AddTo_Blink.gif" width="16" height="16" border="0" /> <u>Blink</u></span></td> <td valign="middle">&nbsp;<span class="add2small" title="Add this page to Furl" onclick="addto(4)"><img align="absmiddle" src="http://images.devshed.com/cmn/add2/AddTo_Furl.gif" width="16" height="16" border="0" /> <u>Furl</u></span></td> <td valign="middle">&nbsp;<span class="add2small" title="Add this page to Simpy" onclick="addto(6)"><img align="absmiddle" src="http://images.devshed.com/cmn/add2/AddTo_Simpy.gif" width="16" height="16" border="0" /> <u>Simpy</u></span></td> <td valign="middle">&nbsp;<span class="add2small" title="Add this page to Yahoo! MyWeb" onclick="addto(7)" ><img align="absmiddle" src="http://images.devshed.com/cmn/add2/AddTo_Yahoo.gif" width="16" height="16" border="0" /> <u>Y! MyWeb</u></span>&nbsp;</td> </tr> </table> <br /> &nbsp;&diams;&nbsp;<a rel="nofollow" href="http://www.developershed.com/devalert.php" target="_blank">Email Me Similar Content When Posted</a><br /> &nbsp;&diams;&nbsp;<a rel="nofollow" href="http://www.developershed.com/devtext.php" target="_blank">Add Developer Shed Article Feed To Your Site</a><br /> &nbsp;&diams;&nbsp;<a rel=nofollow href="javascript:void window.open('http://www.devarticles.com/index2.php?option=content&task=emailform&id= 670', 'win2', 'status=no,toolbar=no,scrollbars=no,titlebar=no,menubar=no,resizable=yes,width=400,height=200,directories=no,location=no');">Email Article To Friend</a><br /> &nbsp;&diams;&nbsp;<a rel=nofollow href="javascript:void window.open('http://www.devarticles.com/index2.php?option=content&task=view&id=670&pop=1&hide_ads=1&page=3&hide_js=1', 'win2', 'status=no,toolbar=yes,scrollbars=yes,titlebar=no,menubar=yes,resizable=yes,width=640,height=480,directories=no,location=no');">Print Version Of Article</a><br /> &nbsp;&diams;&nbsp;<a rel=nofollow href="javascript:void window.open('http://www.devarticles.com/index2.php?option=content&do_pdf=1&id=670', 'win2', 'status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=640,height=480,directories=no,location=no');">PDF Version Of Article</a><br /> <br /> --> </td> <td width=16>&nbsp</td> <td width=336 valign=top> <table width=100% cellpadding=0 cellspacing=0 border=0> <tr> <td><script type='text/javascript'><!--//<![CDATA[
+var m3_u = (location.protocol=='https:'?'https://zde.am.affinity.com/www/delivery/ajs.php':'http://zde.am.affinity.com/www/delivery/ajs.php');
+var m3_r = Math.floor(Math.random()*99999999999);
+if (!document.MAX_used) document.MAX_used = ',';
+document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+document.write ("?zoneid=687");
+document.write ('&amp;cb=' + m3_r);
+if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+document.write ("&amp;loc=" + escape(window.location));
+if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+if (document.context) document.write ("&context=" + escape(document.context));
+if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+document.write ("'><\/scr"+"ipt>");
+//]]>--></script><noscript><a rel=nofollow href='http://zde.am.affinity.com/www/delivery/ck.php?n=a72b9207&amp;cb=2135499706' target='_blank'><img src='http://zde.am.affinity.com/www/delivery/avw.php?zoneid=687&amp;cb=2135499706&amp;n=a72b9207' border='0' alt='' /></a></noscript><!-- End Article Box -->
+</td> </tr> <tr> <td height="4">&nbsp;</td> </tr> <tr> <td> <table width="336" border="0" cellspacing="0" cellpadding="0"> <tr> <td><img src="http://images.devshed.com/common/ad-top.gif" width="336" height="8" /></td> </tr> <tr> <td background="http://images.devshed.com/common/ad-bckg.gif"> <table><tr><td> <span class="ad">ADVERTISEMENT<br/><br/> <span class="abblue"><script type='text/javascript'><!--//<![CDATA[
+var m3_u = (location.protocol=='https:'?'https://zde.am.affinity.com/www/delivery/ajs.php':'http://zde.am.affinity.com/www/delivery/ajs.php');
+var m3_r = Math.floor(Math.random()*99999999999);
+if (!document.MAX_used) document.MAX_used = ',';
+document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+document.write ("?zoneid=688");
+document.write ('&amp;cb=' + m3_r);
+if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+document.write ("&amp;loc=" + escape(window.location));
+if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+if (document.context) document.write ("&context=" + escape(document.context));
+if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+document.write ("'><\/scr"+"ipt>");
+//]]>--></script><noscript><a rel=nofollow href='http://zde.am.affinity.com/www/delivery/ck.php?n=a72b9207&amp;cb=1065233077' target='_blank'><img src='http://zde.am.affinity.com/www/delivery/avw.php?zoneid=688&amp;cb=1065233077&amp;n=a72b9207' border='0' alt='' /></a></noscript><!-- End Article paragraph -->
+</span> </span></td></tr></table> </td> </tr> <tr> <td><img src="http://images.devshed.com/common/ad-bottom.gif" width="336" height="8" /></td> </tr> </table></td> </tr> </table> </td> </tr> <tr>  <td height="1"><img src="/images/frontpage/spacer.gif" width="1" height="2"></td> </tr></table><br /><table cellpadding=0 cellspacing=0 border=0><tr><td valign=top> <span class="txtplain1"> <div class="intel" id='intelliTxt'>  <div id="related-content"> <div id="related-content-header"> <h4> </h4> <div id="related-content-body"> <div> <ol style="visibility: visible;" id="articles_579"> <li><div><span><a href="http://www.devarticles.com/c/a/C-Sharp/Hotmail-using-C-sharp-A-HTTPMail-client-under-.NET/"><img title="Dev Articles News: Hotmail using C# A HTTPMail client under .NET" src="http://images.devshed.com/cmn/devarticles_2.png" height="20" border="0" /></a></span><a href="http://www.devarticles.com/c/a/C-Sharp/Hotmail-using-C-sharp-A-HTTPMail-client-under-.NET/" title="Hotmail using C# A HTTPMail client under .NET">Hotmail using C# A HTTPMail client under .NET<br/>(2003-03-20)</a></div></li> <li><div><span><a href="http://www.devsource.com/c/a/Techniques/NET-Tools-for-Working-With-XML/"><img title="DevSource News: .NET Tools for Working With XML" src="http://images.devshed.com/cmn/devsource_2.png" height="20" border="0" /></a></span><a href="http://www.devsource.com/c/a/Techniques/NET-Tools-for-Working-With-XML/" title=".NET Tools for Working With XML">.NET Tools for Working With XML<br/>(2004-03-21)</a></div></li> <li><div><span><a href="http://www.devsource.com/c/a/Using-VS/Accessing-Web-Sites-Using-Desktop-Applications/"><img title="DevSource News: Accessing Web Sites Using Desktop Applications" src="http://images.devshed.com/cmn/devsource_2.png" height="20" border="0" /></a></span><a href="http://www.devsource.com/c/a/Using-VS/Accessing-Web-Sites-Using-Desktop-Applications/" title="Accessing Web Sites Using Desktop Applications">Accessing Web Sites Using Desktop Applications<br/>(2004-02-21)</a></div></li> <li><div><span><a href="http://www.aspfree.com/c/a/Windows-Scripting/Exploring-the-SoapEnvelope-Class-in-WSE20/"><img title="ASP Free News: Exploring the SoapEnvelope Class in WSE2.0" src="http://images.devshed.com/cmn/aspfree_2.png" height="20" border="0" /></a></span><a href="http://www.aspfree.com/c/a/Windows-Scripting/Exploring-the-SoapEnvelope-Class-in-WSE20/" title="Exploring the SoapEnvelope Class in WSE2.0">Exploring the SoapEnvelope Class in WSE2.0<br/>(2007-01-19)</a></div></li> <li><div><span><a href="http://www.devarticles.com/c/a/C-Sharp/Build-a-C-sharp-Stock-Quote-WebService-Part-1/"><img title="Dev Articles News: Build a C# Stock Quote WebService Part 1/2" src="http://images.devshed.com/cmn/devarticles_2.png" height="20" border="0" /></a></span><a href="http://www.devarticles.com/c/a/C-Sharp/Build-a-C-sharp-Stock-Quote-WebService-Part-1/" title="Build a C# Stock Quote WebService Part 1/2">Build a C# Stock Quote WebService Part 1/2<br/>(2004-03-09)</a></div></li> <li><div><span><a href="http://www.devarticles.com/c/a/ASP/HTTP-Tunneling-Revealed-Part-2/"><img title="Dev Articles News: HTTP Tunneling Revealed: Part 2/3" src="http://images.devshed.com/cmn/devarticles_2.png" height="20" border="0" /></a></span><a href="http://www.devarticles.com/c/a/ASP/HTTP-Tunneling-Revealed-Part-2/" title="HTTP Tunneling Revealed: Part 2/3">HTTP Tunneling Revealed: Part 2/3<br/>(2004-03-09)</a></div></li> <li><div><span><a href="http://www.aspfree.com/c/a/XML/Creating-XML-Trees-with-the-XmlTextWriter-and-XmlDocument-Objects/"><img title="ASP Free News: Creating XML Trees with the XmlTextWriter and XmlDocument Objects" src="http://images.devshed.com/cmn/aspfree_2.png" height="20" border="0" /></a></span><a href="http://www.aspfree.com/c/a/XML/Creating-XML-Trees-with-the-XmlTextWriter-and-XmlDocument-Objects/" title="Creating XML Trees with the XmlTextWriter and XmlDocument Objects">Creating XML Trees with the XmlTextWriter and XmlDocument Objects<br/>(2004-04-21)</a></div></li> <li><div><span><a href="http://www.aspfree.com/c/a/ASP.NET-Code/How-to-Load-XML-Documents-in-ASP-NET-2-0/"><img title="ASP Free News: How to Load XML Documents in ASP.NET 2.0" src="http://images.devshed.com/cmn/aspfree_2.png" height="20" border="0" /></a></span><a href="http://www.aspfree.com/c/a/ASP.NET-Code/How-to-Load-XML-Documents-in-ASP-NET-2-0/" title="How to Load XML Documents in ASP.NET 2.0">How to Load XML Documents in ASP.NET 2.0<br/>(2007-02-20)</a></div></li> </ol> </div> </div></div></div><span class="contentpagetitle"><h1 class=contentpagetitle><B>Hotmail Exposed: Access Hotmail using C# - HotmailClient</b></h1></span> <BR>(Page 4 of 5 )<BR><BR> <P>Now for implementing a class that provides access to Hotmail. The following example will show how to connect to Hotmail using the proxy, get the msgfolderroot and request some information about mailboxes. The msgfolderroot can be queried for information such as mailbox names, message count and unread count. This will allow clients to determine how many messages are new, without having to download all the messages (this would be a stupid method to implement such behavior).</P><P>Using this example and the webpage provided at the top of this document, it will be easy to implement the rest of the email client (it was for me!). </P><P>First let�s begin again with the class framework:</P><FONT style="BACKGROUND-COLOR: #ffff00"><SPAN class=bodyCode><P><FONT style="BACKGROUND-COLOR: #ffff00">&nbsp;public class HotmailClient<BR>&nbsp;{<BR>&nbsp;&nbsp;private HotmailProxy hHttp = null;<BR>&nbsp;&nbsp;<BR>&nbsp;&nbsp;public HotmailClient()<BR>&nbsp;&nbsp;{<BR>}&nbsp;<BR>}<BR>Connect()</FONT></P><P></SPAN></FONT>Now for the only public method, Connect(). This method will connect to Hotmail using HTTP authentication, it will parse the response to obtain the Url of the msgfolderroot. Next this Url will be used to determine some mailbox information.</P><P>First of all the proxy class and credentials needed for authentication are built:</P><P><FONT style="BACKGROUND-COLOR: #ffff00"><SPAN class=bodyCode><FONT style="BACKGROUND-COLOR: #ffff00">&nbsp;public void Connect(string username, string password)<BR>&nbsp;{<BR>&nbsp;&nbsp;hHttp = new HotmailHttp();<BR>&nbsp;NetworkCredential credentials = <BR>new NetworkCredential(username,password,null);</FONT></SPAN></FONT></P><P>Phew, that was hard, one complete line of code. :)&nbsp; Easy enough as you can see! The next job will be to build the XML query for the msgfolderroot. (XmlHttp will return all kinds of nonsense about the inbox, advertisements and others, while as you can see only the msgfolderroot is requested). </P><FONT style="BACKGROUND-COLOR: #ffff00"><SPAN class=bodyCode><P><FONT style="BACKGROUND-COLOR: #ffff00">&nbsp;&nbsp;string query = "&lt;?xml version='1.0'?&gt;" +<BR>&nbsp;&nbsp;"&lt;D:propfind xmlns:D='DAV:' " + <BR>&nbsp;&nbsp;"xmlns:h='http://schemas.microsoft.com/hotmail/' " + <BR>&nbsp;&nbsp;"xmlns:hm='urn:schemas:httpmail:'&gt;" + <BR>&nbsp;&nbsp;"&lt;D:prop&gt;"&nbsp;&nbsp;&nbsp;&nbsp;+ <BR>&nbsp;&nbsp;&nbsp;&nbsp;hm:msgfolderroot/&gt;"&nbsp;+<BR>&nbsp;&nbsp;"&lt;/D:prop&gt;"&nbsp;&nbsp;&nbsp;&nbsp;+ <BR>&nbsp;&nbsp;"&lt;/D:propfind&gt;";</FONT></P><P></SPAN></FONT>&nbsp;<BR>The query and the credentials can be used to get a response from the Hotmail gateway located at http://services.msn.com/svcs/hotmail/httpmail.asp. This will cause several redirections and cause the HTTP authentication to take place. All can be done with just a single line of code.</P><P><FONT style="BACKGROUND-COLOR: #ffff00"><SPAN class=bodyCode><FONT style="BACKGROUND-COLOR: #ffff00">&nbsp;&nbsp;try<BR>&nbsp;&nbsp;{<BR>&nbsp;&nbsp;string hotmailEntryPoint = <BR>"</FONT><FONT style="BACKGROUND-COLOR: #ffff00">http://services.msn.com/svcs/hotmail/httpmail.asp</FONT><BR><FONT style="BACKGROUND-COLOR: #ffff00">string response = hHttp.SendRequest(query, <BR>new Uri(hotmailEntryPoint),credentials);<BR>&nbsp;&nbsp;&nbsp;// Verify response<BR>&nbsp;&nbsp;&nbsp;if (response == null || response.Trim().Length == 0)<BR>&nbsp;&nbsp;&nbsp;&nbsp;throw new Exception();</FONT></SPAN></FONT></P><P>The Hotmail server will respond with the Url of the msgfolderroot. This Url is placed in the XML based response, so it can be found using Xpath. Another method has been built to do just that.</P><FONT style="BACKGROUND-COLOR: #ffff00"><SPAN class=bodyCode><P><FONT style="BACKGROUND-COLOR: #ffff00">&nbsp;&nbsp;&nbsp;// Parse the response, further verifying it.<BR>&nbsp;&nbsp;&nbsp;Uri folderRootUri = ParseConnectResponse(response);</FONT></P><P></SPAN></FONT>With the now obtained Url, information about all the mailboxes on the server can be retrieved.</P><P><FONT style="BACKGROUND-COLOR: #ffff00"><SPAN class=bodyCode><FONT style="BACKGROUND-COLOR: #ffff00">&nbsp;&nbsp;&nbsp;// Obtain available folders using folderRootUrl<BR>&nbsp;&nbsp;&nbsp;RetrieveMailboxes(folderRootUri);<BR>&nbsp;&nbsp;}<BR>&nbsp;catch(Exception e)<BR>&nbsp;&nbsp;{<BR>&nbsp;&nbsp;&nbsp;// Something went wrong.<BR>&nbsp;&nbsp;throw new MailException("Exception occured while <BR>connecting to remote host.",e);<BR>&nbsp;&nbsp;}</FONT></SPAN></FONT></P><P>This completes our first method. As you can see it calls two other methods, which we will now construct.&nbsp; These two contain the interesting parts: parsing the response! But first an important helper method needs to be built; without it all XPath queries fail.</P><P><SPAN class=headBlueSmall>CreateNamespaceManager (XmlNameTable table)</SPAN></P><P>To obtain the Url of the folder root we will use XPath. The problem lies in the fact that XPath will not return results for nodes that are declared in a namespace. It is able to do so, but information about namespaces needs to be stated with the XPath query. This can be done by constructing an XmlNamespaceManager that knows about the namespaces in the Hotmail responses. As these namespaces appear to be really constant, a special method can be built to construct the necessary object. </P><P><FONT style="BACKGROUND-COLOR: #ffff00"><SPAN class=bodyCode><FONT style="BACKGROUND-COLOR: #ffff00">&nbsp;private XmlNamespaceManager CreateNamespaceManager(<BR>XmlNameTable table)<BR>&nbsp;{<BR>&nbsp;&nbsp;XmlNamespaceManager m = new XmlNamespaceManager(table);<BR>&nbsp;&nbsp;m.AddNamespace("hm","urn:schemas:httpmail:");<BR>&nbsp;&nbsp;m.AddNamespace("D","DAV:");<BR>&nbsp;&nbsp;m.AddNamespace("m","urn:schemas:mailheader:");<BR>&nbsp;&nbsp;m.AddNamespace("c","urn:schemas:contacts:");<BR>&nbsp;&nbsp;m.AddNamespace("h","</FONT><FONT style="BACKGROUND-COLOR: #ffff00">http://schemas.microsoft.com/hotmail/</FONT><FONT style="BACKGROUND-COLOR: #ffff00">");<BR>&nbsp;&nbsp;return m;</FONT></SPAN></FONT><BR>&nbsp;<BR><SPAN class=headBlueSmall>ParseConnectResponse(string response)</SPAN></P><P>To parse the response there are a two things that need to be done: place the returned response in an XmlDocument, and parse the document using XPath to obtain the Url of the msgfolderroot.</P><P><FONT style="BACKGROUND-COLOR: #ffff00"><SPAN class=bodyCode><FONT style="BACKGROUND-COLOR: #ffff00">&nbsp;private Uri ParseConnectResponse(string response)<BR>&nbsp;{<BR>&nbsp;&nbsp;try<BR>&nbsp;&nbsp;{<BR>&nbsp;&nbsp;&nbsp;// Load response into XmlDocument<BR>&nbsp;&nbsp;&nbsp;XmlDocument dom = new XmlDocument();<BR>&nbsp;&nbsp;&nbsp;dom.LoadXml(response);<BR>&nbsp;&nbsp;&nbsp;// Query XmlDocument for msgfolderroot node.<BR>&nbsp;&nbsp;&nbsp;string xpath = "//hm:msgfolderroot";<BR>&nbsp;&nbsp;&nbsp;XmlNamespaceManager context = <BR>CreateNamespaceManager(dom.NameTable);<BR>&nbsp;&nbsp;&nbsp;XmlNode folderRoot = dom.SelectSingleNode(xpath,context);<BR>&nbsp;&nbsp;&nbsp;// Verify node<BR>&nbsp;&nbsp;&nbsp;if (folderRoot == null)<BR>&nbsp;&nbsp;&nbsp;&nbsp;throw new Exception("Node '" + xpath + <BR>"' not found.");<BR>&nbsp;&nbsp;&nbsp;// Get node text and verify,<BR>&nbsp;&nbsp;&nbsp;string folderRootUrl = folderRoot.InnerText;<BR>&nbsp;&nbsp;&nbsp;if ((folderRootUrl == null) || <BR>(folderRootUrl.Trim().Length == 0))<BR>&nbsp;&nbsp;&nbsp;&nbsp;throw new MailException("No url found in node '" + <BR>xpath + "'.");<BR>&nbsp;&nbsp;&nbsp;try<BR>&nbsp;&nbsp;&nbsp;{<BR>&nbsp;&nbsp;&nbsp;&nbsp;// Return the uri, this may result in a <BR>// UriFormatException<BR>&nbsp;&nbsp;&nbsp;&nbsp;return new Uri(folderRootUrl);<BR>&nbsp;&nbsp;&nbsp;}<BR>&nbsp;&nbsp;&nbsp;catch<BR>&nbsp;&nbsp;&nbsp;{<BR>&nbsp;&nbsp;&nbsp;&nbsp;throw new MailException("Url found in node '" + <BR>xpath + "' is invalid:" + folderRootUrl);<BR>&nbsp;&nbsp;&nbsp;}<BR>&nbsp;&nbsp;}<BR>&nbsp;&nbsp;catch(Exception e)<BR>&nbsp;&nbsp;{<BR>&nbsp;&nbsp;&nbsp;// Something went wrong.<BR>&nbsp;&nbsp;&nbsp;throw new MailException("Error occured while parsing " +<BR>"connect response.",e);<BR>&nbsp;&nbsp;}<BR>&nbsp;}</FONT></SPAN></FONT></P><P>The way this method works is pretty basic now. The correct query to make can be determined using the webpage stated in the introduction.&nbsp; It�s also possible to use a network analyzer for this purpose. You will probably need to use both. To parse the response, the XmlNamespaceManager is built, and XPath is used.&nbsp;</P><P><SPAN class=headBlueSmall>RetrieveMailboxes(Uri folderRootUrl)</SPAN></P><P>The last method in this example will retrieve information about all mailboxes on the server. Basically it does the same thing as the first two methods combined, so you should already be able to build it yourself. The method is shown here for completion sake. It will build a query and send it to the Url of the now determined msgfolderroot. </P><FONT style="BACKGROUND-COLOR: #ffff00"><SPAN class=bodyCode><P><FONT style="BACKGROUND-COLOR: #ffff00">&nbsp;private void RetrieveMailboxes(Uri folderRootUrl)<BR>&nbsp;{<BR>&nbsp;&nbsp;try<BR>&nbsp;&nbsp;{<BR>&nbsp;&nbsp;&nbsp;// Build the needed query<BR>&nbsp;&nbsp;&nbsp;string query =&nbsp;"&lt;?xml version='1.0'?&gt;" + <BR>&nbsp;&nbsp;&nbsp;"&lt;D:propfind xmlns:D='DAV:' " +<BR>xmlns:hm='urn:schemas:httpmail:'&gt;" + <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&lt;D:prop&gt;"&nbsp;&nbsp;&nbsp;&nbsp;+ <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&lt;D:displayname/&gt;"&nbsp;+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&lt;hm:special/&gt;"&nbsp;&nbsp;+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&lt;hm:unreadcount/&gt;" +<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&lt;D:visiblecount/&gt;" +<BR>&nbsp;&nbsp;&nbsp;&nbsp;"&lt;/D:prop&gt;"&nbsp;&nbsp;&nbsp;&nbsp;+ <BR>&nbsp;&nbsp;&nbsp;&nbsp;"&lt;/D:propfind&gt;";<BR>&nbsp;&nbsp;&nbsp;// Get a response from server No Credentials are used!<BR>&nbsp;&nbsp;&nbsp;string response = hHttp.SendRequest(query,folderRootUrl);<BR>&nbsp;&nbsp;&nbsp;// Verify response<BR>&nbsp;&nbsp;&nbsp;if (response == null || response.Trim().Length == 0)<BR>&nbsp;&nbsp;&nbsp;&nbsp;throw new ApplicationException<BR>("No response received from host.");&nbsp;<BR>&nbsp;&nbsp;&nbsp;// Load response into XmlDocument<BR>&nbsp;&nbsp;&nbsp;XmlDocument dom = new XmlDocument();<BR>&nbsp;&nbsp;&nbsp;dom.LoadXml(response);<BR>&nbsp;&nbsp;&nbsp;// Query XmlDocument for all mailboxes using XPath<BR>&nbsp;&nbsp;&nbsp;string xpath = "//D:response";<BR>&nbsp;&nbsp;&nbsp;XmlNamespaceManager context = <BR>CreateNamespaceManager(dom.NameTable);<BR>&nbsp;&nbsp;&nbsp;XmlNodeList mailBoxNodes = <BR>dom.SelectNodes(xpath,context);<BR>&nbsp;&nbsp;&nbsp;// Parse each node found<BR>&nbsp;&nbsp;&nbsp;foreach(XmlNode mailBoxNode in mailBoxNodes)<BR>&nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;try<BR>&nbsp;&nbsp;&nbsp;&nbsp;{<BR>// Direct mapping using XPath, should not <BR>// result in any errors<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// as long as Hotmail keeps it protocol <BR>// the same.<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string type = mailBoxNode.SelectSingleNode(<BR>&nbsp;"descendant::hm:special",context).InnerText;<BR>string nameUrl = mailBoxNode.SelectSingleNode(<BR>&nbsp;"descendant::D:href",context).InnerText;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int visibleCount = Int32.Parse(mailBoxNode.<BR>&nbsp;SelectSingleNode("descendant::D<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :visiblecount",context).InnerText);<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int unreadCount = Int32.Parse(mailBoxNode.<BR>&nbsp;SelectSingleNode("descendant::hm<BR>&nbsp;:unreadcount",context).InnerText);</FONT></P><P><FONT style="BACKGROUND-COLOR: #ffff00">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine("MailBox found: " + <BR>type + "\r\n" + "\turl: " + <BR>nameUrl + "\r\n" + "\tVisible: " + <BR>visibleCount + "\r\n" + "\tUnread: " + <BR>unreadCount + "\r\n");</FONT></P><P><FONT style="BACKGROUND-COLOR: #ffff00">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;catch(Exception e)<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine("Exception occured <BR>while obtaining mailbox info: " + e.Message);<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<BR>&nbsp;&nbsp;&nbsp;&nbsp;}<BR>&nbsp;&nbsp;&nbsp;}<BR>&nbsp;&nbsp;&nbsp;catch(Exception e)<BR>&nbsp;&nbsp;&nbsp;{<BR>&nbsp;&nbsp;&nbsp;&nbsp;// Something went wrong.<BR>throw new ApplicationException("Error occured while retrieving available mailboxes.",e);<BR>&nbsp;&nbsp;&nbsp;}<BR>&nbsp;&nbsp;}</FONT></P></SPAN></FONT><p class="pagenavbar"><a rel=nofollow class="morearticles" rel=nofollow href="http://www.devarticles.com/c/a/C-Sharp/Hotmail-Exposed-Access-Hotmail-using-C-sharp/4/">Next: Conclusion &gt;&gt;</a><br/>&nbsp;<br/><p align="right" class="totalarticles"><a rel=nofollow class="totalarticles" rel=nofollow href=http://www.devarticles.com/c/b/C-Sharp/>More C# Articles</a><br/><a rel=nofollow class="totalarticles" rel=nofollow href='http://www.devarticles.com/cp/bio/Wouter-van-Vugt/'>More By Wouter van Vugt</a></p></p><BR><p class="comments_block"><table width="99%" cellspacing="0" cellpadding="0" bordercolor="#edf0f7" border="1" align="center"><tr><td height="24" bgcolor="#f5f5f5"><div align="center"><a rel=nofollow rel="nofollow" class="art_titblack" href="/showblog/36192/Hotmail-Exposed-Access-Hotmail-using-C#/">Comments On: Hotmail Exposed: Access Hotmail using C#</a></div></td></tr><tr><td height="40" bgcolor="#ffffff" class="txtplain1"><table width="99%" border="0" align="center"><tr><td>�</td></tr><tr><td><div align="left" class="txtplain1">>>> <a rel=nofollow rel="nofollow" class="txtplain1" href="/showblog/36192/Hotmail-Exposed-Access-Hotmail-using-C#/"><u><strong>Be the FIRST to comment on this article!</strong></u></a></div></td></tr><tr><td></td></tr></table></td></tr></table></p>  </div> </span></td></tr></table><table width="668" border="0" cellspacing="0" cellpadding="0"> <tr>  <td width="334" height="1" valign="top" bgcolor="#FFFFFF"></td> <td height="1" bgcolor="#FFFFFF"></td> <td width="333" height="1" valign="top" bgcolor="#FFFFFF"></td> </tr> <tr>  <td width="334" valign="top"></td> <td bgcolor="#FFFFFF"></td> <td width="333" valign="top"></td> </tr> <tr>  <td width="334" valign="top"> <table width="95%" border="0" cellspacing="0" cellpadding="0" align="center"> <tr> <td> <p class="comments_block"><table width="99%" cellspacing="3" cellpadding="0" bordercolor="#edf0f7" border="0" align="center" class="site-moreart"><tr><td height="24" class="site-bckgtit">C# ARTICLES</a></td></tr><tr><td bgcolor="#ffffff" class="txtplain1"><br/><table width="99%" border="0" align="center"><td><a href='http://www.devarticles.com/c/a/C-Sharp/Introduction-to-Objects-and-Classes-in-C-Sharp-Part-2/' class='linkscolor'>- Introduction to Objects and Classes in C#, P...</a><BR><a href='http://www.devarticles.com/c/a/C-Sharp/Visual-C-Sharp.NET-Part-1-Introduction-to-Programming-Languages/' class='linkscolor'>- Visual C#.NET, Part 1: Introduction to Progr...</a><BR><a href='http://www.devarticles.com/c/a/C-Sharp/Csharp-Introduction/' class='linkscolor'>- C# - An Introduction</a><BR><a href='http://www.devarticles.com/c/a/C-Sharp/Hotmail-Exposed-Access-Hotmail-using-C-sharp/' class='linkscolor'>- Hotmail Exposed: Access Hotmail using C#</a><BR><a href='http://www.devarticles.com/c/a/C-Sharp/Razor-Sharp-C-sharp/' class='linkscolor'>- Razor Sharp C#</a><BR><a href='http://www.devarticles.com/c/a/C-Sharp/Introduction-to-Objects-and-Classes-in-C-sharp/' class='linkscolor'>- Introduction to Objects and Classes in C#</a><BR><a href='http://www.devarticles.com/c/a/C-Sharp/Making-Your-Code-CLS-Compliant/' class='linkscolor'>- Making Your Code CLS Compliant</a><BR><a href='http://www.devarticles.com/c/a/C-Sharp/Programming-with-MySQL-and-.NET-Technologies/' class='linkscolor'>- Programming with MySQL and .NET Technologies</a><BR><a href='http://www.devarticles.com/c/a/C-Sharp/Socket-Programming-in-C-sharp-Part-II/' class='linkscolor'>- Socket Programming in C# - Part II</a><BR><a href='http://www.devarticles.com/c/a/C-Sharp/Socket-Programming-in-C-Part-I/' class='linkscolor'>- Socket Programming in C# - Part I</a><BR><a href='http://www.devarticles.com/c/a/C-Sharp/Creational-Patterns-in-C-sharp/' class='linkscolor'>- Creational Patterns in C#</a><BR><a href='http://www.devarticles.com/c/a/C-Sharp/Type-Conversions/' class='linkscolor'>- Type Conversions</a><BR><a href='http://www.devarticles.com/c/a/C-Sharp/Creating-Custom-Delegates-and-Events-in-C-sharp/' class='linkscolor'>- Creating Custom Delegates and Events in C#</a><BR><a href='http://www.devarticles.com/c/a/C-Sharp/Inheritance-and-Polymorphism/' class='linkscolor'>- Inheritance and Polymorphism</a><BR><a href='http://www.devarticles.com/c/a/C-Sharp/Understanding-Properties-in-C-Sharp/' class='linkscolor'>- Understanding Properties in C#</a><BR></tr></table><div class="moreart_span"><a href='http://www.devarticles.com/c/b/C-Sharp/'>Find More C# Articles</a></div></td></tr></table> </td> </tr> </table> </td> <td width="1" bgcolor="#FFFFFF"><img src="images/spacer.gif" width="1" height="10"></td> <td width="333" valign="top"> <div align="right">  <table width="95%" border="0" cellspacing="0" cellpadding="0" align="center"> <tr> <td><div align="center"><script type='text/javascript'><!--//<![CDATA[
+var m3_u = (location.protocol=='https:'?'https://zde.am.affinity.com/www/delivery/ajs.php':'http://zde.am.affinity.com/www/delivery/ajs.php');
+var m3_r = Math.floor(Math.random()*99999999999);
+if (!document.MAX_used) document.MAX_used = ',';
+document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+document.write ("?zoneid=742");
+document.write ('&amp;cb=' + m3_r);
+if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+document.write ("&amp;loc=" + escape(window.location));
+if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+if (document.context) document.write ("&context=" + escape(document.context));
+if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+document.write ("'></scr"+"ipt>");
+//]]>--></script><noscript><a rel=nofollow href='http://zde.am.affinity.com/www/delivery/ck.php?n=a72b9207&amp;cb=1266862656' target='_blank'><img src='http://zde.am.affinity.com/www/delivery/avw.php?zoneid=742&amp;cb=1266862656&amp;n=a72b9207' border='0' alt='' /></a></noscript></div><br />     </td>
+ </tr> </table> </td> </tr> </table></TD></TR></table> </td></tr> </table> </div> <div id=resultright> <table width="95%" border="0" cellspacing="0" cellpadding="0" align="center"> <tr> <td> <table cellspacing="0" cellpadding="0" width="160" align="center" border="0"><tbody><tr><td><!-- Skyscraper --><script type='text/javascript'><!--//<![CDATA[
+var m3_u = (location.protocol=='https:'?'https://zde.am.affinity.com/www/delivery/ajs.php':'http://zde.am.affinity.com/www/delivery/ajs.php');
+var m3_r = Math.floor(Math.random()*99999999999);
+if (!document.MAX_used) document.MAX_used = ',';
+document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+document.write ("?zoneid=685");
+document.write ('&amp;cb=' + m3_r);
+if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+document.write ("&amp;loc=" + escape(window.location));
+if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+if (document.context) document.write ("&context=" + escape(document.context));
+if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+document.write ("'></scr"+"ipt>");
+//]]>--></script><noscript><a rel=nofollow href='http://zde.am.affinity.com/www/delivery/ck.php?n=a72b9207&amp;cb=1030999854' target='_blank'><img src='http://zde.am.affinity.com/www/delivery/avw.php?zoneid=685&amp;cb=1030999854&amp;n=a72b9207' border='0' alt='' /></a></noscript></td></tr></tbody></table>     </td>
+ </tr> </table> <table width="95%" border="0" cellspacing="0" cellpadding="0" align="center"> <tr> <td><script type="text/javascript"
+src="http://www.dinclinx.com/?s=1469&e=0&t=1001&f=javascript"></script>     </td>
+ </tr> </table> <table width="95%" border="0" cellspacing="0" cellpadding="0" align="center"> <tr> <td><script type="text/javascript">
+// Ad Setting, Mandatory
+_ad_custkey      = "wls17";
+_ad_siteid       = "57653";
+_ad_format       = "C_160_x_400";
+//Optional Parameters
+_ad_color_link   = "053962";
+_ad_color_text   = "5D5D5D";
+_ad_color_url    = "4C7B07";
+_ad_color_border = "B5B5B5";
+_ad_color_bg     = "F3F3F3";
+_ad_font_names   = "Arial,Sans-serif,Verdana";
+</script>
+<script src="http://js.syn.affinity.com/jsc/show_ads_c.js" type="text/javascript" ></script>     </td>
+ </tr> </table> <table width="95%" border="0" cellspacing="0" cellpadding="0" align="center"> <tr> <td> <table cellspacing="0" cellpadding="0" width="100%" border="0"><tbody><tr><td><script type='text/javascript'><!--//<![CDATA[
+var m3_u = (location.protocol=='https:'?'https://zde.am.affinity.com/www/delivery/ajs.php':'http://zde.am.affinity.com/www/delivery/ajs.php');
+var m3_r = Math.floor(Math.random()*99999999999);
+if (!document.MAX_used) document.MAX_used = ',';
+document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+document.write ("?zoneid=368");
+document.write ('&amp;cb=' + m3_r);
+if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+document.write ("&amp;loc=" + escape(window.location));
+if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+if (document.context) document.write ("&context=" + escape(document.context));
+if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+document.write ("'></scr"+"ipt>");
+//]]>--></script><noscript><a rel=nofollow href='http://zde.am.affinity.com/www/delivery/ck.php?n=a72b9207&amp;cb=98825257' target='_blank'><img src='http://zde.am.affinity.com/www/delivery/avw.php?zoneid=368&amp;cb=98825257&amp;n=a72b9207' border='0' alt='' /></a></noscript></td></tr></tbody></table>     </td>
+ </tr> </table> <table width="95%" border="0" cellspacing="0" cellpadding="0" align="center"> <tr> <td> <BR> </td> </tr> </table> </div> </div></div><div id=clear></div> <table width="100%" border="0" cellspacing="0" cellpadding="0"> <tr>  <td bgcolor="#FE9900"><BR></td> </tr> </table></div><BR><style type="text/css">
+<!--
+#botfooter { 
+clear: both;
+text-align:center;
+font-size: 0.8em;
+background-color:#f1f1f1;
+font-family:Arial, Helvetica, sans-serif;
+width: 100%;
+}
+.bottxt {
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 11px;
+color: #333333;
+text-decoration: none;
+line-height: 20px;
+padding: 0;
+margin: 0;
+}
+A.botnetwork:link, A.botnetwork:visited, A.botnetwork:active { 
+font-family: Verdana,Arial,Helvetica; 
+font-size: 9px; 
+color: #000000; 
+text-decoration: none;
+}
+A.botnetwork:hover { 
+color:blue; 
+text-decoration: underline;
+}
+.botoverlink {
+cursor:pointer; 
+cursor:hand;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 10px;
+color: #FFFFFF;
+text-decoration: underline;
+}
+-->
+</style>
+<br/><div id="botfooter" align=center><table width="100%" class=contentpaneopen cellpadding=3 cellspacing=0 border=0><tr><td width="50"></td><div class="bottxt"><script type="text/javascript" language="JavaScript">
+<!--
+function ttgo(url)
+{
+if (url.length > 1)
+{
+document.location.href = "http://" + url + "/";
+}
+}
+function ttfstart(name)
+{
+document.write('<td width=\'125\'><div style="display: inline;"><b>' + name + '</b></div></td><td width=\'40\'><div style="display: inline;"><form style="display: inline; margin: 0;" name="jumptt"><select style="font-size: 10px;font-family: Verdana, Arial;" name="menutt" onChange="javascript:ttgo(this.options[this.selectedIndex].value);">');
+document.write('<option value="" selected> - Select - </option>'); 
+}
+function ttfend()
+{
+document.write('</select></form></div></td>');
+}
+function ttfadd(name, val)
+{
+document.write('<option value="' + val + '">' + name + '</option>');
+}
+function ttspace()
+{
+document.write('&nbsp;&nbsp;&nbsp;');
+}
+ttfstart('Developer&nbsp;Tutorials:');
+ttfadd('Dev Shed', 'www.devshed.com');
+ttfadd('ASP Free', 'www.aspfree.com');
+ttfadd('Dev Articles', 'www.devarticles.com');
+ttfadd('Dev Hardware', 'www.devhardware.com');
+ttfadd('SEO Chat', 'www.seochat.com');
+ttfadd('Web Hosting', 'webhosting.devshed.com');
+ttfadd('Codewalkers', 'www.codewalkers.com');
+ttfend();
+//ttspace();
+ttfstart('Developer&nbsp;Resources:');
+ttfadd('Scripts', 'www.scripts.com');
+ttfadd('Tutorialized', 'www.tutorialized.com');
+ttfadd('Dev Mechanic', 'tools.devshed.com');
+//ttfadd('iWatchIT', 'www.iwatchit.com');
+//ttfadd('IT Marketplace', 'www.itmarketplace.com');
+//ttfadd('igrep', 'www.igrep.com');
+ttfend();
+//ttspace();
+ttfstart('Developer&nbsp;Forums:');
+ttfadd('Dev Shed Forums', 'forums.devshed.com');
+ttfadd('ASP Free Forums', 'forums.aspfree.com');
+ttfadd('Dev Articles Forums', 'forums.devarticles.com');
+ttfadd('Dev Hardware Forums', 'www.devhardware.com/forums');
+ttfadd('SEO Chat Forums', 'forums.seochat.com');
+ttfadd('Codewalkers Forums', 'forums.codewalkers.com');
+ttfadd('Tutorialized Forums', 'forums.tutorialized.com');
+ttfadd('Dev Archives Forums', 'archives.devshed.com/forums');
+ttfend();
+//-->
+</script>
+</tr><tr><td width="50"></td><div class="bottxt"><script type="text/javascript" language="JavaScript">
+<!--
+function ttgo(url)
+{
+if (url.length > 1)
+{
+document.location.href = "http://" + url + "/";
+}
+}
+function ttfstart(name)
+{
+document.write('<td width=\'125\'><div style="display: inline;"><b>' + name + '</b></div></td><td width=\'40\'><div style="display: inline;"><form style="display: inline; margin: 0;" name="jumptt"><select style="font-size: 10px;font-family: Verdana, Arial;" name="menutt" onChange="javascript:ttgo(this.options[this.selectedIndex].value);"><option value="" selected> - Select - </option>'); 
+}
+function ttfend()
+{
+document.write('</select></form></div></td>');
+}
+function ttfadd(name, val)
+{
+document.write('<option value="' + val + '">' + name + '</option>');
+}
+function ttspace()
+{
+document.write('&nbsp;&nbsp;&nbsp;');
+}
+ttfstart('IT Professionals:');
+ttfadd('Baseline', 'www.baselinemag.com');
+ttfadd('Careers', 'careers.eweek.com');
+ttfadd('CIO Insight', 'www.cioinsight.com');
+ttfadd('eWeek', 'www.eweek.com');
+ttfadd('Networking', 'networking.eweek.com');
+ttfadd('Publish', 'www.publish.com');
+ttfadd('Security IT Hub', 'security.ithub.com');
+ttfadd('Web Buyers Guide', 'www.webbuyersguide.com');
+ttfend();
+//ttspace();
+ttfstart('IT Marketing:');
+ttfadd('Channel Insider', 'www.channelinsider.com');
+ttfadd('eSeminars', 'www.eseminarslive.com');
+ttfadd('Mid-market', 'midmarket.eweek.com');
+ttfadd('Strategic Partner', 'esp.eweek.com');
+ttfend();
+//ttspace();
+ttfstart('Open&nbsp;Source&nbsp;/&nbsp;Microsoft:');
+ttfadd('Desktoplinux', 'www.desktoplinux.com');
+ttfadd('DeviceForge', 'www.deviceforge.com');
+ttfadd('DevSource', 'www.devsource.com');
+ttfadd('LinuxDevices', 'www.linuxdevices.com');
+ttfadd('Linux Watch', 'www.linux-watch.com');
+ttfadd('Microsoft Watch', 'www.microsoft-watch.com');
+ttfadd('PDF Zone', 'www.pdfzone.com');
+ttfadd('Windows for Devices', 'www.windowsfordevices.com');
+ttfend();
+//-->
+</script><td width="50"></td></tr></table><br>
+<span class="bottxt">&copy; 2003-2010 by <a href="http://www.developershed.com"><font color=blue>Developer Shed</font></a>. All rights reserved. DS Cluster 11 <a class="botoverlink" href="http://www.hostway.com"><font color=blue>Hosted by Hostway</font></a>.&nbsp;<br/>For more <a href="http://www.eweek.com/c/s/Enterprise-Applications/" target="_blank">Enterprise Application Development</a> news, visit <a href="http://www.eweek.com/" target="_blank">eWeek</a></span> </div></div><script type='text/javascript' src='http://static.fmpub.net/site/devshed'></script>
+<STYLE type="text/css">
+.iTt{
+FONT-FAMILY:       Verdana, Arial, Helvetica;
+FONT-SIZE:         11px;
+FONT-STYLE:        normal;
+FONT-WEIGHT:       normal;
+COLOR:             black;
+BACKGROUND-COLOR:  lightyellow;
+BORDER:            black 1px solid;
+PADDING:           2px;
+}
+</STYLE>
+<SCRIPT language="javascript" src="http://devshed.us.intellitxt.com/intellitxt/front.asp?IPID=194&MK=6&FG=blue"></SCRIPT>
+</body></html>
+
+
+<!-- Generated by new in 2.238391 sec. --> 
+
+
+
+

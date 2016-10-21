@@ -1,0 +1,206 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<head>
+<title>C# Verify SSL Server Certificate</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="/css/detail.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body bgcolor="#FFFFFF">
+
+
+<table width="100%" cellspacing="0" cellpadding="0" background="images/bg.GIF">
+  <tr> 
+    <td><a href="default.asp"><img src="images/banner.GIF" width="446" height="66" border="0" alt="C# Examples"></a></td>
+  </tr>
+</table>
+
+<p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+<a href="http://www.chilkatsoft.com">Chilkat</a> &#149; 
+<a href="http://www.example-code.com/">HOME</a> &#149; 
+<a href="http://www.example-code.com/asp/default.asp">ASP</a> &#149; 
+<a href="http://www.example-code.com/vb/default.asp">Visual Basic</a> &#149; 
+<a href="http://www.example-code.com/vbdotnet/default.asp">VB.NET</a> &#149; 
+<a href="http://www.example-code.com/csharp/default.asp">C#</a> &#149; 
+<a href="http://www.example-code.com/vcpp/default.asp">Visual C++</a> &#149; 
+<a href="http://www.example-code.com/c/default.asp">C</a> &#149; 
+<a href="http://www.example-code.com/mfc/default.asp">MFC</a> &#149; 
+<a href="http://www.example-code.com/delphi/default.asp">Delphi</a> &#149; 
+<a href="http://www.example-code.com/foxpro/default.asp">FoxPro</a> &#149; 
+<a href="http://www.example-code.com/java/default.asp">Java</a> &#149; 
+<a href="http://www.example-code.com/perl/default.asp">Perl</a> &#149; 
+<a href="http://www.example-code.com/php/default.asp">PHP</a> &#149; 
+<a href="http://www.example-code.com/python/default.asp">Python</a> &#149; 
+<a href="http://www.example-code.com/ruby/default.asp">Ruby</a> &#149; 
+<a href="http://www.example-code.com/sql/default.asp">SQL Server</a> &#149; 
+<a href="http://www.example-code.com/vbscript/default.asp">VBScript</a>
+</font>
+</p>
+ 
+<table width="100%" cellspacing="0" cellpadding="3">
+  <tr> 
+    <td width="160" valign="top">      
+<table width="160" border="1" cellspacing="0" cellpadding="5" bgcolor="#FFFFFF" bordercolor="#F7FF00" align="left">
+  <tr valign="top" bgcolor="#FFFF00"> 
+    <td> 
+      <div align="center"><font face="Verdana" size="2" color="#FFFFFF"><b><font color="#333333">C# Examples</font> </b></font></div>
+          </td>
+        </tr>
+        
+  <tr valign="top"> 
+    <td> 
+<p><font face="Verdana" color="#333333" size="2"><b> 
+<a href="bounce.asp">Bounced Mail</a><br>
+<a href="bz2.asp">Bz2</a><br>
+<a href="encoding.asp">Character Encoding</a><br>
+<a href="csv.asp">CSV</a><br>
+<a href="certs.asp">Digital Certificates</a><br>
+<a href="sig.asp">Digital Signatures</a><br>
+<a href="email.asp">Email</a><br>
+<a href="ftp.asp">FTP</a><br>
+<a href="html2xml.asp">HTML to XML</a><br>
+<a href="http.asp">HTTP</a><br>
+<a href="imap.asp">IMAP</a><br>
+<a href="encryption.asp">Encryption</a><br>
+<a href="mht.asp">MHT / HTML Email</a><br>
+<a href="mime.asp">MIME</a><br>
+<a href="pop3.asp">POP3</a><br>
+<a href="rsa.asp">RSA</a><br>
+<a href="smime.asp">S/MIME</a><br>
+<a href="smtp.asp">SMTP</a><br>
+<a href="socket.asp">Socket</a><br>
+<a href="spider.asp">Spider</a><br>
+<a href="ssh.asp">SSH</a><br> 
+<a href="ssh-tunnel.asp">SSH Tunnel</a><br> 
+<a href="sshkey.asp">SSH Key</a><br> 
+<a href="sftp.asp">SFTP</a><br> 
+<a href="tar.asp">Tar Archive</a><br>
+<a href="upload.asp">Upload</a><br>
+<a href="xml.asp">XML</a><br>
+<a href="xmp.asp">XMP</a><br>
+<a href="zip.asp">Zip Compression</a><br><br>
+<br>
+<font color="#444444">More Examples...</font><br>
+<a href="emailObject.asp">Email Object</a><br>
+<a href="dkim.asp">DKIM / DomainKey</a><br>
+<a href="ntlm.asp">NTLM</a><br>
+<a href="fileAccess.asp">FileAccess</a><br> 
+<a href="rss.asp">RSS</a><br>
+<a href="atom.asp">Atom</a><br>
+<a href="string.asp">String</a><br>
+<a href="bytearray.asp">Byte Array</a><br>
+<a href="self-extractor.asp">Self-Extractor</a><br> 
+<a href="service.asp">Service</a><br>
+<a href="ppmd.asp">PPMD</a><br>
+<a href="deflate.asp">Deflate</a><br>
+<a href="dh.asp">DH Key Exchange</a><br>
+<a href="dsa.asp">DSA</a><br> 
+<a href="bzip2.asp">Bzip2</a><br>
+<a href="lzw.asp">LZW</a><br>
+<br>
+</b></font></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+          </td>
+        </tr>
+      </table>
+</td>
+    <td valign="top"> 
+      <h1><b>Verify SSL Server Certificate</b></h1>
+      <p>Demonstrates how to connect to an SSL server and verify its SSL certificate.</p>
+      <p><a title="Chilkat .NET Download for 2.0 / 3.5 Framework" id="dwnLink" href="http://www.chilkatsoft.com/download/ChilkatDotNet2.msi"><img src="/images/down.gif" border=0></a> Download Chilkat .NET for 2.0 / 3.5 Framework</p>
+<p><a title="Chilkat .NET 64-bit Download for 2.0 / 3.5 Framework" id="dwnLink" href="http://www.chilkatsoft.com/x64_components.asp"><img src="/images/down.gif" border=0></a> Download Chilkat .NET for 64-bit 2.0 / 3.5 Framework (x64)</p>
+<p><a title="Chilkat .NET Download for 1.0 / 1.1 Framework" id="dwnLink" href="http://www.chilkatsoft.com/download/ChilkatDotNet.msi"><img src="/images/down.gif" border=0></a> Download Chilkat .NET for 1.0 / 1.1 Framework</p>
+
+
+      <pre id="exCode"><span id="dtyp">Chilkat.<a target="_top" href="http://www.chilkatsoft.com/refdoc/csSocketRef.html">Socket</a></span> socket = <span id="keyw">new</span> <span id="dtyp">Chilkat.<a target="_top" href="http://www.chilkatsoft.com/refdoc/csSocketRef.html">Socket</a></span>();
+
+bool success;
+success = socket.<span id="dtyp">UnlockComponent</span>(<span id="lit">&quot;Anything for 30-day trial&quot;</span>);
+<span id="keyw">if</span> (success != <span id="lit">true</span>) {
+    MessageBox.Show(<span id="lit">&quot;Failed to unlock component&quot;</span>);
+    <span id="keyw">return</span>;
+}
+
+bool ssl;
+ssl = <span id="lit">true</span>;
+int maxWaitMillisec;
+maxWaitMillisec = <span id="lit">20000</span>;
+
+<span id="cmt">//  The SSL server hostname may be an IP address, a domain name,</span>
+<span id="cmt">//  or &quot;localhost&quot;.</span>
+string sslServerHost;
+sslServerHost = <span id="lit">&quot;www.paypal.com&quot;</span>;
+int sslServerPort;
+sslServerPort = <span id="lit">443</span>;
+
+<span id="cmt">//  Connect to the SSL server:</span>
+success = socket.<span id="dtyp">Connect</span>(sslServerHost,sslServerPort,ssl,maxWaitMillisec);
+<span id="keyw">if</span> (success != <span id="lit">true</span>) {
+    MessageBox.Show(socket.<span id="dtyp">LastErrorText</span>);
+    <span id="keyw">return</span>;
+}
+
+<span id="dtyp">Chilkat.<a target="_top" href="http://www.chilkatsoft.com/refdoc/csCertRef.html">Cert</a></span> cert = <span id="lit">null</span>;
+
+bool bExpired;
+bool bRevoked;
+bool bSignatureVerified;
+bool bTrustedRoot;
+
+cert = socket.<span id="dtyp">GetSslServerCert</span>();
+<span id="keyw">if</span> (!(cert == <span id="keyw">null</span> )) {
+
+    textBox1.Text += <span id="lit">&quot;Server Certificate:&quot;</span> + &quot;\r\n&quot;;
+    textBox1.Text += <span id="lit">&quot;Distinguished Name: &quot;</span> + cert.<span id="dtyp">SubjectDN</span> + &quot;\r\n&quot;;
+    textBox1.Text += <span id="lit">&quot;Common Name: &quot;</span> + cert.<span id="dtyp">SubjectCN</span> + &quot;\r\n&quot;;
+    textBox1.Text += <span id="lit">&quot;Issuer Distinguished Name: &quot;</span>
+         + cert.<span id="dtyp">IssuerDN</span> + &quot;\r\n&quot;;
+    textBox1.Text += <span id="lit">&quot;Issuer Common Name: &quot;</span> + cert.<span id="dtyp">IssuerCN</span> + &quot;\r\n&quot;;
+
+    bExpired = cert.<span id="dtyp">IsExpired</span>();
+    bRevoked = cert.<span id="dtyp">Revoked</span>;
+    bSignatureVerified = cert.<span id="dtyp">SignatureVerified</span>;
+    bTrustedRoot = cert.<span id="dtyp">TrustedRoot</span>;
+
+    textBox1.Text += <span id="lit">&quot;Expired: &quot;</span> + bExpired + &quot;\r\n&quot;;
+    textBox1.Text += <span id="lit">&quot;Revoked: &quot;</span> + bRevoked + &quot;\r\n&quot;;
+    textBox1.Text += <span id="lit">&quot;Signature Verified: &quot;</span> + bSignatureVerified + &quot;\r\n&quot;;
+    textBox1.Text += <span id="lit">&quot;Trusted Root: &quot;</span> + bTrustedRoot + &quot;\r\n&quot;;
+
+}
+
+<span id="cmt">//  Close the connection with the server</span>
+<span id="cmt">//  Wait a max of 20 seconds (20000 millsec)</span>
+socket.<span id="dtyp">Close</span>(<span id="lit">20000</span>);
+
+
+</pre>
+    </td>
+  </tr>
+</table>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="3" bgcolor="#F7FF00">
+  <tr>
+    <td>&nbsp; </td>
+  </tr>
+</table>
+<p align="center"><b><font size="2" face="Verdana">Need 
+  a specific example? Send a request to support@chilkatsoft.com</font></b></p>
+<p align="center"><font face="Verdana" size="1" color="#999999">&copy; 
+  2000-2010 Chilkat Software, Inc. All Rights Reserved.</font></p>
+<p align="center"><font face="Verdana" size="1" color="#999999"><a href="http://chilkatsoft.com/email-dotnet.asp">Email Component</a>
+  &middot; <a href="http://www.xml-parser.com">XML Parser</a> </font></p>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-3063833-1";
+urchinTracker();
+</script> 
+</body>
+</html>

@@ -1,0 +1,1152 @@
+
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+	<head>
+
+		<title>Wicket: Let Components Contribute to the Header Section</title>
+        <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+        <link rel="stylesheet" type="text/css" href="/forums/style.jsp">
+<link href="/css/jl.css" rel="stylesheet" type="text/css" />
+<link href="/css/jlJive.css" rel="stylesheet" type="text/css" />
+<link href="/css/navmenu.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+		<link rel="top" href="/" title="Javalobby Home Page">
+		<link rel="up" href="/java/forums/f18032.html" title="Up to thread list">
+
+		
+		
+				<link rel="prev"
+							href="/java/forums/t17453.html"
+							title="Previous thread" >
+		
+
+		
+		
+				<link rel="next"
+							href="/java/forums/t53333.html"
+							title="Next thread" >
+		
+
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS"
+         href="http://www.javalobby.org/rss/rssmessages.jspa?threadID=61002">
+
+<script type="text/javascript"><!--//--><![CDATA[//><!--
+sfHover = function() {
+	var sfEls = document.getElementById("nav").getElementsByTagName("LI");
+	for (var i=0; i<sfEls.length; i++) {
+		sfEls[i].onmouseover=function() {
+			this.className+=" sfhover";
+		}
+		sfEls[i].onmouseout=function() {
+			this.className=this.className.replace(new RegExp(" sfhover\\b"), "");
+		}
+	}
+}
+if (document.all) { //MS IE
+	if (window.attachEvent) window.attachEvent("onload", sfHover);
+	else { //IE 5.2 Mac does not support attachEvent
+		var old = window.onload;
+		window.onload = function() { if (old) old(); sfHover(); }
+	}
+}
+//--><!]]></script>
+<!--[if IE]>
+<style>
+body {
+  height: 100%;
+  overflow: hidden;
+  font-size: 100%;
+  }
+div#wrap_outer {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  }
+div#glideDiv0 {
+  position: absolute;
+}
+#comments dd pre {
+	width: 100%;
+	overflow: scroll;
+}
+</style>
+<script type="text/javascript">
+onload = function() { wrap_outer.focus() }
+</script>
+<![endif]-->
+</head>
+    <body >
+    
+
+<div id="wrap_outer">
+<!-- TOP LEADERBOARD GOES HERE -->
+
+<div id="wrap_inner">
+<div id="header">
+	<div class="netbar">
+		<a href="http://www.javalobby.org/" title="Java & J2EE Programming community with Java forums, Java blogs, Java news & Java tutorials">Javalobby</a> |
+        <a href="http://www.eclipsezone.com/" title="Eclipse Developer and User Community">EclipseZone</a> |
+        <a href="http://www.javaforge.com/" title="Open Source Java Project Hosting">JavaForge</a> |
+		<a href="http://www.jroller.com/" title="Free Java Blogging community for Java & J2EE Developer blogs">JRoller</a> |
+		<a href="http://www.javablackbelt.com/" title="Java skill evaluation platform">JavaBlackBelt</a> |
+		<a href="http://www.jdocs.com/" title="Javadoc API docs for over 130 Java & J2EE libraries">JDocs</a> |
+        <a href="http://www.javacrawl.com/" title="RSS Portal for Java news & J2EE news">Javacrawl</a> |		
+        <a href="http://www.jugcentral.com/" title="Java User Group hosting & services for JUGs">JUGCentral</a> |
+		<a href="http://www.myjavaserver.com/" title="Free Java JSP & J2EE hosting for developers learning Java">MyJavaServer</a> |
+		<a href="http://www.dzone.com/advertise.jsp" title="Promote your products & services to Java developers"><b>ADVERTISE</b></a>
+	</div>
+	<div class="welcomebar">
+		
+				<form action="/forums/login.jspa" method="post" name="loginform">
+				Username/Email: <input type="text" name="username" size="20" maxlength="150" value="" tabindex="1" id="username01" />
+				Password: <input type="password" name="password" size="20" maxlength="150" value="" tabindex="2" id="password01" />
+				<input type="hidden" name="autoLogin" id="autoLogin01" value="true" />
+				<input type="hidden" name="successURL" id="successURL01" value="http://www.javalobby.org/java/forums/t61002.html" />
+
+				<a href="javascript:document.loginform.submit()">SIGN IN</a> | <a href="/account!default.jspa">JOIN NOW!</a>
+				</form>
+		
+	</div>
+	</div>
+<div id="navcontainer">
+	<ul id="nav">
+		<li><a href="/">Home</a></li>
+		<li><a href="#">Features</a>
+			<ul>
+				<li><a href="/forums/post!default.jspa?forumID=61">Submit&nbsp;an&nbsp;article</a></li>
+				<li><a href="/spotlights.jsp?view=all">Presentations and Articles</a></li>
+				<li><a href="/av/javapolis/">JavaPolis 2004 Online</a></li>
+                <li><a href="/av/javazone/">JavaZone 2005</a></li>
+
+				<li><a href="/java/forums/f17.html">Announcements</a></li>
+				<li><a href="/nl/index.jsp">Newsletters</a></li>
+
+			</ul>
+		</li>
+		<li><a href="/java/forums/c5601.html">Forums</a>
+			<ul>
+				<li><a href="/java/forums/c5601.html">Overview</a></li>
+				<li><a href="/forums/help.jspa">Help&nbsp;&amp;&nbsp;FAQ</a></li>
+				<li><a href="/notyet.jsp">Posting&nbsp;guidelines</a></li>
+				<li><a href="/notyet.jsp">Recent&nbsp;postings</a></li>
+				<li><a href="/notyet.jsp">Popular&nbsp;discussions</a></li>
+				
+				<li><a href="/forums/online.jspa">Who's&nbsp;online</a></li>
+			</ul>
+		</li>
+		<li><a href="#">Blogs</a>
+			<ul>
+				<li><a href="http://www.jroller.com/">Popular&nbsp;blogs</a></li>
+				<li><a href="http://www.jroller.com/user.do?method=registerUser">Start&nbsp;your&nbsp;free&nbsp;blog</a></li>
+				<li><a href="http://www.jroller.com/">Recent&nbsp;blog&nbsp;entries</a></li>
+			</ul>
+		</li>
+		<li><a href="#">JL Network</a>
+			<ul>
+				<li><a href="http://www.javalobby.org/" title="Java J2SE J2EE Programming community with Java forums, Java blogs, Java news & Java tutorials">Javalobby.org</a></li>
+        <li><a href="http://www.javacrawl.com/" title="RSS Portal for Java news & J2EE news">Javacrawl.com</a></li>
+				<li><a href="http://www.jdocs.com/" title="Javadoc API docs for over 130 Java & J2EE libraries">JDocs.com</a></li>
+				<li><a href="http://www.jroller.com/" title="Free Java blog network for over 7,000 Java & J2EE Developer blogs">JRoller.com</a></li>
+				<li><a href="http://www.jugcentral.com/" title="Java User Group hosting & services for JUGs">JUGCentral.com</a></li>
+				<li><a href="http://www.myjavaserver.com/" title="Free Java JSP & J2EE hosting for developers learning Java">MyJavaServer.com</a></li>
+				<li><a href="#">Friends&nbsp;&amp;&nbsp;Partners</a></li>
+			</ul>
+		</li>
+		<li><a href="#">Members&nbsp;Only</a>
+			<ul>
+				<li><a href="/forums/usersettings!default.jspa">Control&nbsp;Panel</a></li>
+				
+				<li><a href="/forums/accountEditNewsletter!default.jspa">Subscriptions</a></li>
+				<li><a href="/notyet.jsp">Downloads</a></li>
+				<li><a href="/notyet.jsp">Benefits</a></li>
+				<li><a href="/notyet.jsp">Special&nbsp;Offers</a></li>
+			</ul>
+		</li>
+		<li><a href="#">About JL</a>
+			<ul>
+				<li><a href="/about.jsp">Our&nbsp;story</a></li>
+				<li><a href="/network.jsp">Sites&nbsp;&amp;&nbsp;Services</a></li>
+				<li><a href="/notyet.jsp">In&nbsp;the&nbsp;News</a></li>
+				<li><a href="/privacy.jsp">Privacy&nbsp;policy</a></li>
+				<li><a href="/contact.jsp">Contact&nbsp;us</a></li>
+				<li><a href="/advertise.jsp">Advertising&nbsp;info</a></li>
+				<li><a href="/forums/help.jspa">FAQ</a></li>
+			</ul>
+		</li>
+	</ul>
+	<div style="clear: both;"> </div>
+</div>
+<div id="topLeaderboard">
+<!-- BEGIN ADVERTPRO ADVANCED CODE BLOCK -->
+
+<SCRIPT language="JavaScript" src="http://avpa.javalobby.org/servlet/view/javascript/zone?zid=32&pid=0&random=92375684" type="text/javascript"></SCRIPT>
+<NOSCRIPT>
+<IFRAME src="http://avpa.javalobby.org/servlet/view/html/zone?zid=32&pid=0&random=92375684" height="90" width="728" hspace="0" vspace="0" frameborder="0" marginwidth="0" marginheight="0" scrolling="no">
+<A href="http://avpa.javalobby.org/servlet/click/zone?zid=32&pid=0&lookup=true&random=92375684" target="_top">
+<IMG src="http://avpa.javalobby.org/servlet/view/image/zone?zid=32&pid=0&random=92375684" height="90" width="728" hspace="0" vspace="0" border="0" alt="Click Here!">
+</A>
+</IFRAME>
+</NOSCRIPT>
+
+<!-- END ADVERTPRO ADVANCED CODE BLOCK -->
+</div>
+    
+<div id="rightColumn">
+
+
+<div class="jljive-portlet">
+  <div class="header">
+
+    <h1>Popular @ <a href="http://www.dzone.com">
+      <img src="/images/std/dzone_130x24.gif" alt="dzone.com: fresh links for developers"
+           title="dzone.com: fresh links for developers"
+           style="border:none;vertical-align:text-top;padding-top:2px;"></a></h1></div>
+  <ul class="dzone">
+    
+    
+      <li>
+        <a href="http://www.dzone.com/links/rss/10_things_i_wish_i_new_as_a_web_programmer_10_yea.html" title="10 Things I Wish I New as a Web Programmer 10 Years Ago">
+        10 Things I Wish I New as a Web Programmer...</a>
+        </li>
+    
+      <li>
+        <a href="http://www.dzone.com/links/rss/a_day_in_the_life_of_a_programmer_comic.html" title="A day in the life of a programmer (comic)">
+        A day in the life of a programmer (comic)</a>
+        </li>
+    
+      <li>
+        <a href="http://www.dzone.com/links/rss/20_most_popular_open_source_software_ever_2.html" title="20 Most Popular Open Source Software Ever">
+        20 Most Popular Open Source Software Ever</a>
+        </li>
+    
+      <li>
+        <a href="http://www.dzone.com/links/rss/programming_youre_doing_it_wrong.html" title="Programming: youre doing it wrong">
+        Programming: youre doing it wrong</a>
+        </li>
+    
+      <li>
+        <a href="http://www.dzone.com/links/rss/can_you_name_the_most_popular_programming_languag.html" title="Can you name the most popular programming languages?">
+        Can you name the most popular programming...</a>
+        </li>
+    
+      <li>
+        <a href="http://www.dzone.com/links/rss/9_jquery_plugins_you_probably_havent_seen.html" title="9 jquery plugins you probably havent seen">
+        9 jquery plugins you probably havent seen</a>
+        </li>
+    
+      <li class="last">
+        <a href="http://www.dzone.com/links/rss/oop_is_much_better_in_theory_than_in_practice.html" title="OOP Is Much Better in Theory Than in Practice">
+        OOP Is Much Better in Theory Than in...</a>
+        </li>
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </ul>
+
+  <div class="footer">
+    <img src="/images/std/icons/write_16x16.gif" hspace="0" vspace="0" align="texttop"/>
+    <a href="http://www.dzone.com/links/add.html" class="post">Submit a story</a>
+    &nbsp;<img src="/images/std/icons/check_16x16.gif" hspace="0" vspace="0" align="texttop"/>
+    <a href="http://www.dzone.com/links/queue.html" class="post">Vote on new stories</a>
+  </div>
+</div>
+
+
+<div id="mpu">
+  <!-- BEGIN ADVERTPRO ADVANCED CODE BLOCK -->
+   <SCRIPT language="JavaScript" src="http://avpa.javalobby.org/servlet/view/javascript/zone?zid=33&pid=0&random=68480092" type="text/javascript"></SCRIPT>
+<NOSCRIPT>
+<IFRAME src="http://avpa.javalobby.org/servlet/view/html/zone?zid=33&pid=0&random=68480092" height="250" width="300" hspace="4" vspace="4" frameborder="0" marginwidth="0" marginheight="0" scrolling="no">
+<A href="http://avpa.javalobby.org/servlet/click/zone?zid=33&pid=0&lookup=true&random=68480092" target="_top">
+<IMG src="http://avpa.javalobby.org/servlet/view/image/zone?zid=33&pid=0&random=68480092" height="250" width="300" hspace="4" vspace="4" border="0" alt="Support Javalobby, visit our sponsors">
+</A>
+</IFRAME>
+</NOSCRIPT>
+
+   <!-- END ADVERTPRO ADVANCED CODE BLOCK -->
+  </div> <!-- end mpu DIV -->
+
+<div class="jljive-portlet">
+	<div class="header">Forum Controls</div>
+		
+		
+
+		
+		
+
+		
+			
+		
+	<ul>
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="/forums/post!reply.jspa?threadID=61002"
+	class="noborder"><img src="/images/std/icons/write_16x16.gif"
+	width="16" height="16" border="0"
+	alt="Reply to this Thread"></a> 
+<a href="/forums/post!reply.jspa?threadID=61002">Reply to this Thread</a></li>
+
+
+  
+
+<li><a href="/forums/search!default.jspa?objID=f18032"
+	class="noborder"><img src="images/search-16x16.gif" width="16"
+	height="16" border="0" alt="Search Forum"></a>
+ <a
+	href="/forums/search!default.jspa?objID=f18032">Search Forum</a></li>
+
+
+
+
+
+
+
+        <li>
+            <a href="/java/forums/f18032.html" class="noborder"
+             ><img src="images/arrow-left-16x16.gif" width="16" height="16" border="0" alt="Back to Thread List"></a>
+            
+            <a href="/java/forums/f18032.html"
+             >Back to Thread List</a></li>
+
+
+
+	</ul>
+              <div class="footer">
+                
+                Whos Online:
+
+                
+
+                
+                
+                        
+                        
+                157 guest(s), 0 user(s).
+
+                
+                <a href="/forums/online.jspa">More info &raquo;</a>
+            </div>
+
+</div>
+
+
+	
+
+
+
+
+		<div class="jljive-portlet">
+		<div class="header">Spotlight Features</div>
+		
+
+
+
+
+<div class="spotlight">
+
+
+</div>
+
+
+        <div class="footer"><a href="/spotlights.jsp">Read the Spotlight Archives</a></div>
+		</div>
+
+<!-- end rightColumn div --></div>
+
+<div id="leftColumn">
+     
+    
+		<span class="jljive-paginator">
+		
+		Replies:
+		2 -
+		
+		Pages:
+		1 &nbsp;
+
+		
+		</span>
+	
+	<br>
+	
+		<span class="jljive-paginator">
+			
+					
+					Threads:
+					[
+					
+							
+							<a href="/java/forums/t17453.html"
+							 >Previous</a>
+					
+					|
+					
+							
+							<a href="/java/forums/t53333.html"
+							 >Next</a>
+					
+					]
+			
+		</span>
+	
+    
+    <div id="comments">
+	<dl>
+		
+
+			
+				
+
+
+
+
+
+
+
+
+
+
+
+    
+
+		<div class="rootmsg">
+			<div class="rm_header">
+				<a name="91979477"></a>
+				<div class="msgControls">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        
+
+                        
+                        
+                        
+                        
+
+                            <td>&nbsp;</td>
+                            <td class="jive-icon">
+                                <a href="/forums/post!reply.jspa?messageID=91979477" title="Click to reply to this thread"
+                                 ><img src="/images/std/icons/write_16x16.gif" width="16" height="16" border="0" alt="Click to reply to this thread"></a>
+                            </td>
+                            <td class="jive-icon-label">
+                                <a href="/forums/post!reply.jspa?messageID=91979477"
+                                 title="Click to reply to this thread"
+                                 >Reply</a>
+                            </td>
+
+                        
+                    </tr>
+                    </table>
+        </div><h1>Wicket: Let Components Contribute to the Header Section
+</h1>
+			
+				<h4>At 8:14 PM
+				on Jan 5, 2006, <a href="/forums/profile.jspa?userID=58312" class="author">R.J. Lorimer</a>  wrote:</h4>
+			</div>
+			<style type="text/css">
+        div#smalljobs a.post {
+            font-size: 70%;
+            margin-left: 1em;
+            color: #933;
+        }
+             div#smalljobs ul {
+       margin: 0;
+                 padding: 0;
+                 list-style: none;
+     }
+     div#smalljobs li {
+       border-bottom: none;
+         margin: 0px 0.0em 0px 1.5em;
+         line-height: 140%;
+         overflow: hidden;
+         height: 1.4em;
+       padding: 0;
+     }
+     div#smalljobs {
+         padding-left: 1em;
+         padding-bottom: 0.5em;
+         padding-right: 1em;
+         margin-bottom: 1em;
+         clear: both;
+         background-color: #f8f8f8;
+     }
+    </style>
+     <div id="smalljobs" class="thread">
+       <h3><a href="http://jobs.dzone.com">Fresh Jobs for Developers</a> <a href="https://jobs.dzone.com/jobs/new" class="post">Post a job opportunity</a></h3>
+       <ul>
+      
+         
+         
+           <li><nobr>&raquo; <a href="http://jobs.dzone.com/id/391?ref=jlthread" title="View full details at jobs.dzone.com"><b>Digital Visitor</b> seeks a Web Manager /Developer</a> in Bristol, UK</nobr></li>
+         
+           <li><nobr>&raquo; <a href="http://jobs.dzone.com/id/393?ref=jlthread" title="View full details at jobs.dzone.com"><b>Rails TEam</b> seeks a Ruby on Rails Developer</a> in S.G. Road, Ahmedabad, Gujarat, India </nobr></li>
+         
+           <li class="last"><nobr>&raquo; <a href="http://jobs.dzone.com/id/389?ref=jlthread" title="View full details at jobs.dzone.com"><b>Brunel London Hotel UK </b> seeks a HOTEL JOB AVAILABLE IN LONDON</a> in united kingdom london</nobr></li>
+         
+       
+       </ul>
+   </div>
+                    
+                    
+                        <img class="jive-avatar" src="avatar-display.jspa?avatarID=3&file=av.png" align="right" hspace="4" vspace="4" border="0" alt="" />
+                    
+                 <div id="dzone_vote_widget" style="float: left; margin-right: 8px;">
+                <script language="javascript" src="http://www.dzone.com/widgets/zoneit.js"></script></div><p>
+Welcome to the third article in my 
+<a href="http://wicket.sourceforge.net">Wicket
+</a> series. 
+If you haven't read the first two, I would recommend that you do:
+</p><p>
+<ul>
+<li><a href="http://www.javalobby.org/java/forums/t60786.html">A Little Bit About Wicket
+</a></li>
+<li><a href="http://www.javalobby.org/java/forums/t60926.html">Reusable Panels
+</a></li>
+</ul>
+</p><p>
+Last time, in the 'Reusable Panels' article, I discussed the ability to make a component that showed 
+a table of user information, and we could reuse that component inside any page/container-style component 
+we wanted to (it could be put inside another panel for instance!).
+</p><p>
+Certainly, we could achieve something similar using JSP includes and some request attribute, or even page-context 
+attribute. Now, let's say we wanted to make the table in that result sortable using ECMAScript (*cough* 
+JavaScript *cough*). We could use something like this straightforward MIT licensed library: 
+<a href="http://www.kryogenix.org/code/browser/sorttable/">sorttable: Make all your tables sortable
+</a>.
+</p><p>
+This table sorting JavaScript is very easy to integrate - from the site:
+</p><p>
+<blockquote>
+<ol>
+<li>
+Include the Javascript library, by putting a link to it in the HEAD of your page, like so:
+<pre>
+&lt;script src="sorttable.js"&gt;&lt;/script&gt;
+</pre>
+</li>
+<li>
+Mark your table as a sortable one by giving it a class of "sortable":
+<pre>
+&lt;table class="sortable"&gt;
+</pre>
+</li>
+<li>
+Ensure that your table has an ID:
+<pre>
+&lt;table class="sortable" id="unique_id"&gt;
+</pre>
+</li>
+</ol>
+</blockquote>
+</p><p>
+Ahh, but in the JSP world now we have a problem. Now we have to do more than just add the JSP include to 
+our page; we also have to add a script import to the 
+<code>HEAD
+</code> section of our overall JSP page. 
+The same would be true if the JSP fragment we were including required some custom CSS as well, or needed 
+some code to be run 
+<code>onLoad()
+</code>. This can become a major frustration in more complicated cases, 
+as you'd like to turn on and off certain parts of the JavaScript/CSS if you aren't using it, but the only 
+way to know is whether or not you included the JSP that requires it - which is often times very far away 
+from the code that renders the 
+<code>HEAD
+</code> (particularly if your site is themed by a technology such 
+as 
+<a href="http://struts.apache.org/struts-tiles/index.html">Tiles
+</a> - but theme-ing in Wicket is a topic 
+for another day).
+</p><p>
+Wicket takes a novel approach to solving this problem. Unlike JSP includes, a Wicket panel is a full-blown 
+Java object - because of that, it is allowed to participate in all kinds of things a JSP include may not be 
+able to.
+</p><p>
+Remember our 
+<code>PersonPanel
+</code> from the last Wicket tip? Well, let's make it sortable. First, let's 
+handle the cases we already know - that includes tagging the various parts of the table with the CSS class and 
+ID attributes recommended by the library above:
+</p><p>
+<pre>
+...
+&lt;table class="sortable" id="personTable"&gt;
+...
+</pre>
+</p><p>
+Now, to make this work well, there are two things we'd like to add to the HEAD of the owning page - the JavaScript 
+tag that will import the 'sorttable' library, and the CSS that will make the columns appear like clickable buttons 
+that support sorting. Here is the contents we'd like to add to our HEAD:
+</p><p>
+<pre>
+&lt;script language="JavaScript" src="scripts/sorttable.js"&gt;&lt;/script&gt;
+&lt;style type="text/css"&gt;
+	table.sortable a.sortheader {
+	    background-color:#eee;
+	    color:#666666;
+	    font-weight: bold;
+	    text-decoration: none;
+	    display: block;
+	}
+	table.sortable span.sortarrow {
+	    color: black;
+	    text-decoration: none;
+	}
+&lt;/style&gt;
+</pre>
+</p><p>
+So, how do we tell Wicket that our 
+<code>PersonPanel
+</code> needs these new chunks of code? Well, we tell it 
+using the 
+<code>&lt;wicket:head&gt;
+</code> tag. This tag is a special wicket tag (typically at the top of a the markup 
+for a component, or in the regular 
+<code>&lt;head&gt;
+</code> tag), and it tells wicket that the contents are a contribution 
+of this component to the owning page's HEAD section. Here is how our 
+<code>PersonPanel
+</code>'s markup looks with 
+these two new additions:
+</p><p>
+<pre>
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+    
+&lt;html 
+	xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:wicket="http://wicket.sourceforge.net/" 
+	xml:lang="en" 
+	lang="en"&gt;
+	
+<b>
+&lt;wicket:head&gt;
+	&lt;script language="JavaScript" src="scripts/sorttable.js"&gt;&lt;/script&gt;
+	&lt;style type="text/css"&gt;
+		table.sortable a.sortheader {
+		    background-color:#eee;
+		    color:#666666;
+		    font-weight: bold;
+		    text-decoration: none;
+		    display: block;
+		}
+		table.sortable span.sortarrow {
+		    color: black;
+		    text-decoration: none;
+		}
+	&lt;/style&gt;
+&lt;/wicket:head&gt;
+	
+</b>
+&lt;body&gt;
+	&lt;wicket:panel&gt;
+		&lt;h3&gt;This is the BEGINNING of the Person Panel&lt;/h3&gt;
+		&lt;table class="sortable" id="personTable"&gt;
+			&lt;thead&gt;
+				&lt;tr&gt;
+					&lt;th&gt;First Name&lt;/th&gt;
+					&lt;th&gt;Last Name&lt;/th&gt;
+					&lt;th&gt;Email Address&lt;/th&gt;
+				&lt;/tr&gt;
+			&lt;/thead&gt;
+			&lt;tbody&gt;
+				&lt;tr wicket:id="people"&gt;
+					&lt;td wicket:id="firstName"&gt;[First Name]&lt;/td&gt;
+					&lt;td wicket:id="lastName"&gt;[Last Name]&lt;/td&gt;
+					&lt;td wicket:id="email"&gt;[Email]&lt;/td&gt;
+				&lt;/tr&gt;
+			&lt;/tbody&gt;
+		&lt;/table&gt;
+		&lt;h3&gt;This is the END of the Person Panel&lt;/h3&gt;
+	&lt;/wicket:panel&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+</p><p>
+That's it! At this point, the owning 
+<code>Page
+</code> will get these new HEAD contributions, and will 
+render them like they were its own.
+</p><p>
+Here is a snippet of the finished HTML source on my workstation:
+</p><p>
+<pre>
+...
+&lt;head&gt;
+	&lt;title wicket:id="pageTitle"&gt;Aloha - The Time is: Thu Jan 05 18:41:50 CST 2006&lt;/title&gt;
+
+	&lt;script language="JavaScript" src="scripts/sorttable.js"&gt;&lt;/script&gt;
+	&lt;style type="text/css"&gt;
+		table.sortable a.sortheader {
+		    background-color:#eee;
+		    color:#666666;
+		    font-weight: bold;
+		    text-decoration: none;
+		    display: block;
+		}
+		table.sortable span.sortarrow {
+		    color: black;
+		    text-decoration: none;
+		}
+	&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;h1&gt;This is the BEGINNING of the Aloha Page&lt;/h1&gt;
+
+...
+</pre>
+</p><p>
+Here is a picture of it in action:
+</p><p>
+<img src="http://www.javalobby.org/images/postings/rj/wicket_header_sections/1.gif"/>
+</p><p>
+I'd like to note especially that we only touched the 
+<code>PersonPanel
+</code> class, and didn't have to touch the 
+<code>AlohaPage
+</code> at all - this is key to reusable components in Wicket. Here is what our source tree looks like now:
+</p><p>
+</p><p>
+<pre>
+/
+|
+*---scripts/
+|   |
+|   *--- sorttable.js - The sorttable library.
+|
+*-- WEB-INF/
+    |
+    *---classes/
+    |   |
+    |   *---com/javalobby/tnt/wicket/aloha/
+    |   |   |
+    |   |   *--- AlohaApplication.class - Application definition
+    |   |   | 
+    |   |   *--- AlohaPage.class - AlohaPage component definition
+    |   |   |
+    |   |   *--- AlohaPage.html - Associatied HTML markup for aloha page.
+    |   |   |
+    |   |   *--- PersonPanel.class - PersonPanel component definition
+    |   |   |
+    |   |   *--- PersonPanel.html - Associated HTML markup for PersonPanel
+    |   |
+    |   *--- log4j.properties - log4j properties of your making (or java.util.logging properties)
+    |
+    *--- web.xml - The web.xml file.
+</pre>
+</p><p>
+Oh, and by the way, Wicket also handles the 
+<code>onload
+</code> attribute of the 
+<code>body
+</code> tag. For instance, if you 
+had this in your 
+<code>AlohaPage
+</code>
+</p><p>
+<pre>
+&lt;body onload="fromAlohaPage();"&gt;
+</pre>
+</p><p>
+... and you had this in your 
+<code>PersonPanel
+</code>
+</p><p>
+<pre>
+&lt;body onload="fromPersonPanel();"&gt;
+</pre>
+</p><p>
+... the final markup would be like this:
+</p><p>
+<pre>
+&lt;body onload="fromAlohaPage();fromPersonPanel();"&gt;
+</pre>
+</p><p>
+Finally, for those Wicket familiars who will say at this point 'actually, you can ship sorttable.js as a resource with the component, and 
+don't have to include it separately' or [insert other cool thing here] I will say - I know, but let's tackle one-thing-at-a-time <img class="jive-emoticon" border="0" src="images/emoticons/happy.gif" alt=":)">.
+</p><p>
+Until next time,
+</p><p>
+R.J. Lorimer
+<br/>
+<code>Contributing Editor - 
+</code><a href="#">rj -at- javalobby.org
+</a><br/>
+<code>Author&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 
+</code><a href="http://www.coffee-bytes.com" target="_blank">http://www.coffee-bytes.com</a>
+<br/>
+<code>Software Consultant - 
+</code><a href="http://www.numbersix.com" target="_blank">http://www.numbersix.com</a>
+</p>
+      <div class="rm_footer">
+         <!-- BEGIN ADVERTPRO ADVANCED CODE BLOCK -->
+          <span style="float:right"> <SCRIPT language="JavaScript" src="http://avpa.javalobby.org/servlet/view/javascript/zone?zid=71&pid=0&random=59720893" type="text/javascript"></SCRIPT>
+<NOSCRIPT>
+<IFRAME src="http://avpa.javalobby.org/servlet/view/html/zone?zid=71&pid=0&random=59720893" height="60" width="234" hspace="4" vspace="4" frameborder="0" align="right" marginwidth="0" marginheight="0" scrolling="no">
+<A href="http://avpa.javalobby.org/servlet/click/zone?zid=71&pid=0&lookup=true&random=59720893" target="_top">
+<IMG src="http://avpa.javalobby.org/servlet/view/image/zone?zid=71&pid=0&random=59720893" height="60" width="234" hspace="4" vspace="4" border="0" alt="Support Javalobby, visit our sponsors" align="right">
+</A>
+</IFRAME>
+</NOSCRIPT>
+</span>
+          <!--<a href="http://avpa.javalobby.org/servlet/click/zone?zid=71&pid=0&lookup=true&position=1" target="_top">
+<img src="http://avpa.javalobby.org/servlet/view/banner/image/zone?zid=71&pid=0&position=1" height="60" width="234" hspace="0" vspace="4" align="right" border="0" alt="Click Here!">
+</a>-->   <!-- END ADVERTPRO ADVANCED CODE BLOCK -->
+
+				
+				<h3>2 replies
+					
+							 so far
+							
+							<span class="postYours">(<a href="/forums/post!reply.jspa?threadID=61002" style="border:none"
+							 ><img src="/images/std/icons/write_16x16.gif" title="Reply to this Thread"
+							 width="16" height="16" ></a>
+							<a href="/forums/post!reply.jspa?threadID=61002"
+							 >Post your own</a>)</span>
+					
+				</h3>
+				
+		</div>
+		</div>
+
+
+                <!-- Text ad at top of right column -->
+                
+	
+
+            
+
+		
+
+			
+				
+
+
+
+
+
+
+
+
+
+
+<a name="91979499"></a>
+<dt id="reply1" class="alt"><a href="#91979499"
+																				class="postno"
+																				title="Permlink to this reply">1
+	.</a>
+		<span class="replyInfo">At 2:30 AM
+		on Jan 6, 2006, <a
+				href="/forums/profile.jspa?userID=162167"
+				class="author">Martijn Dashorst</a> <img
+				src="/images/std/dz100.gif" height="16" width="50" border="0" alt="DeveloperZone Top 100"
+				title="DeveloperZone Top 100 Posters"/> 
+
+
+            
+ wrote:</span>
+</dt>
+<dd class="alt">
+	<div class="msgControls">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        
+
+                        
+                        
+                        
+                        
+
+                            <td>&nbsp;</td>
+                            <td class="jive-icon">
+                                <a href="/forums/post!reply.jspa?messageID=91979499" title="Click to reply to this thread"
+                                 ><img src="/images/std/icons/write_16x16.gif" width="16" height="16" border="0" alt="Click to reply to this thread"></a>
+                            </td>
+                            <td class="jive-icon-label">
+                                <a href="/forums/post!reply.jspa?messageID=91979499"
+                                 title="Click to reply to this thread"
+                                 >Reply</a>
+                            </td>
+
+                        
+                    </tr>
+                    </table>
+        </div>
+	<h3>Re: Wicket: Let Components Contribute to the Header Section
+</h3>
+	<blockquote>Finally, for those Wicket familiars who will say at this point 'actually, you can ship sorttable.js as a resource with the component, and don't have to include it separately' or [insert other cool thing here] I will say - I know, but let's tackle one-thing-at-a-time
+</blockquote><br><br>When you don't need to build a component that is used across applications, then this is by far the most easy way to work with JavaScript that doesn't need to be altered, such as third party javascript files.
+<br><br>I use this technique for doing prototype.js and scriptaculous.js work and it works great.
+<br><br>When building a reusable component that is shipped to third parties, then you  should load it from the classpath and include it in your jar, or tell your customers to put the javascript in the afore mentioned directory in the webapp folder. The former is by far the most user friendly, the latter shifts the problem to documentation ('don't forget to put foo.js in the scripts/ subdirectory of your webapp') and distribution (now you have to ship the javascript seperately).
+<br><br>Can't wait til the next tip!
+
+
+	
+</dd>
+
+
+
+
+
+
+			
+
+		
+
+			
+				
+
+
+
+
+
+
+
+
+
+
+<a name="92228899"></a>
+<dt id="reply2" class="alt2"><a href="#92228899"
+																				class="postno"
+																				title="Permlink to this reply">2
+	.</a>
+		<span class="replyInfo">At 9:48 AM
+		on Mar 10, 2008, <a
+				href="/forums/profile.jspa?userID=183661"
+				class="author">Eyal Golan</a>
+
+
+            
+ wrote:</span>
+</dt>
+<dd class="alt2">
+	<div class="msgControls">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        
+
+                        
+                        
+                        
+                        
+
+                            <td>&nbsp;</td>
+                            <td class="jive-icon">
+                                <a href="/forums/post!reply.jspa?messageID=92228899" title="Click to reply to this thread"
+                                 ><img src="/images/std/icons/write_16x16.gif" width="16" height="16" border="0" alt="Click to reply to this thread"></a>
+                            </td>
+                            <td class="jive-icon-label">
+                                <a href="/forums/post!reply.jspa?messageID=92228899"
+                                 title="Click to reply to this thread"
+                                 >Reply</a>
+                            </td>
+
+                        
+                    </tr>
+                    </table>
+        </div>
+	<h3>Re: Wicket: Let Components Contribute to the Header Section
+</h3>
+	wicket has SortableDataProvider which this is what I'm using. My question is, how can I integrate the JavaScript and this? when I use your example with the wicket's sorting provider, I see the arrow just for a brief second and it disappears. I am not a JS expert (at all) and I was wondering if there is a way of combining a nice arrow with the SortableDataProvider. And I really like your tips and tricks <img class="jive-emoticon" border="0" src="images/emoticons/happy.gif" alt=":)">
+
+
+	
+</dd>
+
+
+
+
+
+
+			
+
+		
+	</dl>
+	</div>
+
+</div>
+
+<div class="jive-message-list-footer">
+	
+		<span class="jljive-paginator">
+		
+		Replies:
+		2 -
+		
+		Pages:
+		1 &nbsp;
+
+		
+		</span>
+	
+	
+		<span class="jljive-paginator">
+			
+					
+					Threads:
+					[
+					
+							
+							<a href="/java/forums/t17453.html"
+							 >Previous</a>
+					
+					|
+					
+							
+							<a href="/java/forums/t53333.html"
+							 >Next</a>
+					
+					]
+			
+		</span>
+	
+</div>
+
+
+    <br>
+    <a href="/rss/rssmessages.jspa?threadID=61002"
+    title="Point your RSS reader here for a feed of the latest messages in this thread"><img src="images/rss-24x16.gif"
+    width="24" height="14" border="0" alt="thread.rss_message"></a>
+
+
+<!-- layers that slide go here.
+		 Be sure to include id for each layer in style sheet in head -->
+<div id="glideDiv0">
+	
+			
+			<a href="/forums/post!reply.jspa?threadID=61002"
+			 ><img src="/images/std/icons/write.gif" title="Reply to this Thread"
+			 width="24" height="24" align="right"></a>
+	
+
+	
+	<a href="/"
+	><img src="/images/std/icons/home.gif" title="Home"
+		width="24" height="24" align="right"></a>
+
+	
+	<a href="/java/forums/f18032.html"
+	><img src="/images/std/icons/folder_up.gif" title="Up to Thread List"
+		width="24" height="24" align="right"></a>
+
+	
+	
+			
+			<a href="/java/forums/t53333.html"
+			 ><img src="/images/std/icons/next_thread.gif" title="Next Thread" width="24" height="24" align="right"></a>
+	
+
+	
+	
+			<img src="/images/std/icons/next_messages_off.gif" title="No Additional Replies" width="24" height="24" align="right">
+	
+
+	
+	
+			<img src="/images/std/icons/prev_messages_off.gif" title="No Previous Replies" width="24" height="24" align="right">
+	
+
+	
+	
+			<a href="/java/forums/t17453.html"
+			 ><img src="/images/std/icons/prev_thread.gif" title="Previous Thread" width="24" height="24" align="right"></a>
+	
+
+	
+	
+			<img src="/images/std/icons/write_off.gif" title="No Email this thread to a friend" width="24" height="24" align="right">
+	
+
+</div>
+<br/><br/>
+<div id="footer">
+	<!-- BEGIN ADVERTPRO ADVANCED CODE BLOCK -->
+ <SCRIPT language="JavaScript" src="http://avpa.javalobby.org/servlet/view/javascript/zone?zid=24&pid=0&random=40330659" type="text/javascript"></SCRIPT>
+<NOSCRIPT>
+<IFRAME src="http://avpa.javalobby.org/servlet/view/html/zone?zid=24&pid=0&random=40330659" height="60" width="468" hspace="0" vspace="0" frameborder="0" marginwidth="0" marginheight="0" scrolling="no">
+<A href="http://avpa.javalobby.org/servlet/click/zone?zid=24&pid=0&lookup=true&random=40330659" target="_top">
+<IMG src="http://avpa.javalobby.org/servlet/view/image/zone?zid=24&pid=0&random=40330659" height="60" width="468" hspace="0" vspace="0" border="0" alt="Click Here!">
+</A>
+</IFRAME>
+</NOSCRIPT>
+
+ <!-- END ADVERTPRO ADVANCED CODE BLOCK -->
+<a href="http://www.spreadfirefox.com/?q=affiliates&amp;id=29092&amp;t=64" class="noborder"><img border="0" alt="Get Firefox!" title="Get Firefox!" src="/images/logos/get_firefox.gif"/></a>
+&nbsp;<a href="http://www.jivesoftware.com/poweredby?src=javalobby" style="font-size: 11px">Powered by Jive Software</a> <a href="http://www.caucho.com"><img border="0"
+                             alt="Powered by Caucho Resin!"
+                             title="Powed by Caucho Resin!"
+                             src="/images/logos/resin-powered.gif"/></a>
+<!-- end footer div--></div>
+
+<!-- end wrap_inner div--></div>
+<!-- end wrap_outer div--></div>
+	<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-410289-4";
+urchinTracker();
+</script>
+    <!-- Start Quantcast tag -->
+    <script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+    <script type="text/javascript">
+    _qacct="p-ebK_XdQH1HeLo";quantserve();</script>
+    <noscript>
+    <img src="http://pixel.quantserve.com/pixel/p-ebK_XdQH1HeLo.gif" style="display: none" height="1" width="1" alt="Quantcast"/></noscript>
+    <!-- End Quantcast tag -->
+    
+</body>
+</html>

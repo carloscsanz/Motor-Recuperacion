@@ -1,0 +1,191 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- -->
+<html>
+<head>
+<title> Larry's Ramblings </title>
+<link rel="stylesheet" type="text/css" href="../../cssxhtml.css" />
+<script type="text/javascript" language="JavaScript"> <!--
+  function gotoNext () {}
+  function doneLoading () {}
+  function GenFooter () {}
+  function genHtml () {}
+  function preloadImg () { return null; }
+  function swapImg () { return false; }
+//--> </script>
+<script type="text/javascript" language="JavaScript" src="../../maina.js"></script>
+</head>
+<body onload="doneLoading('tbl12.html');">
+<a name="top" id="top"></a>
+
+<!-- Link bar -->
+<table border="3" bgcolor="#ffffcc" cellpadding="4" cellspacing="0"><tr>
+<td class="lbar" bgcolor="#7cfc00">
+  <a href="../../main.htm">Home</a> &nbsp;
+  <a href="../web.htm">Web</a>
+</td>
+<td class="lbar">
+  <a href="#top">Top</a> &nbsp;
+  <a href="#bottom">Bottom</a>
+</td><td class="lbar" bgcolor="#ffb6c1">
+  <a href="aa.html">Contents</a> &nbsp;
+  <a href="tbl10.html">Prev</a> &nbsp;
+  <a href="tbl12.html" onclick="gotoNext('tbl12.html');return false;">Next</a>
+</td></tr></table>
+
+<h2 align="center"> &lt;thead>, &lt;tfoot> and &lt;tbody> </h2>
+
+<h3> Topics on This Page </h3>
+
+<blockquote><p>
+  <a href="#hfb">&lt;thead>, &lt;tfoot> and &lt;tbody></a> <br />
+  <a href="#exa">Example</a>
+</p></blockquote>
+
+<hr />
+<a name="hfb" id="hfb"></a>
+<h3> &lt;thead>, &lt;tfoot> and &lt;tbody> </h3>
+
+<p>
+  &lt;thead>, &lt;tfoot> and &lt;tbody> were introduced in IE&nbsp;4, before the HTML&nbsp;4.0 specification
+  was adopted. These tags were found useful and were adopted into HTML&nbsp;4.0. Since Netscape&nbsp;4
+  predates IE&nbsp;4 and HTML&nbsp;4.0, Netscape&nbsp;4 and earlier do not recognize these tags.
+</p><p>
+  The idea behind these tags is to eventually support a <i>scrolling table</i>. Zero or more
+  rows can be designated as heading rows, and zero or more can be designated as footing rows. The
+  remaining rows are designated as the body of the table. The heading and/or footing rows would be
+  displayed as fixed rows, while the body rows would be displayed between them in a scrollable area.
+  As of yet, no browsers support scrollable tables, but the &lt;thead>, &lt;tfoot> and &lt;tbody> tags
+  can be useful for other purposes.
+</p><p>
+  As you will recall, a table consists of rows (defined with &lt;tr>) that in turn consist of cells
+  (defined with &lt;td> or &lt;th>). When you use &lt;thead>, &lt;tfoot> and &lt;tbody>, you place
+  these around one or more rows like so:
+</p>
+
+<pre>
+&lt;table>
+&lt;thead>
+  &lt;tr> ... &lt;/tr>
+  &lt;tr> ... &lt;/tr>
+  ...
+&lt;/thead>
+&lt;tfoot>
+  &lt;tr> ... &lt;/tr>
+  &lt;tr> ... &lt;/tr>
+  ...
+&lt;/tfoot>
+&lt;tbody>
+  &lt;tr> ... &lt;/tr>
+  &lt;tr> ... &lt;/tr>
+  ...
+&lt;/tbody>
+&lt;/table>
+</pre>
+
+<p>
+  When you use these tags, <i>all</i> of the rows should be placed within one of these
+  tags. You can have at most one &lt;thead> (though it can contain more than one row),
+  and it must appear first. You can have at most one &lt;tfoot>, and it must appear
+  after &lt;thead> (if there is one) and <i>before</i> any &lt;tbody> tags. Finally
+  are the &lt;tbody> tags. You can have more than one of these if you want to divide
+  the body rows into more than one group. When we talk about frames and rules shortly,
+  you'll see why you might want to do this.
+</p><p>
+  The reason for placing &lt;tfoot> before &lt;tbody> is that, if and when scrollable
+  tables ever get supported, that the browser first encounter the fixed rows for the
+  table. It can immediately display those before reading all of the rows for the
+  scrollable part of the table. Unfortunately, this means that in browsers such as
+  Netscape&nbsp;4 and earlier and IE&nbsp;3 and earlier, the header and footer rows
+  are both displayed before the body rows. Largely for this reason, very little use
+  has been made of &lt;tfoot> in most web pages today.
+</p><p>
+  Since no existing browsers support scrollable tables, simply including &lt;thead>,
+  &lt;tfoot> and/or &lt;tbody> makes no difference to the appearance of the table.
+  However, these tags do support the <tt>align</tt> and <tt>valign</tt> properties,
+  and apply them to all cells within the row group. These can be used as attributes
+  within the tag, or applied via CSS.
+</p><p>
+  IE also recognizes <tt>bgcolor</tt> in these tags, either as an attribute or as
+  a CSS property. This is proprietary: HTML&nbsp;4.0 does NOT include background
+  color for these tags either as an attribute or via CSS. Netscape&nbsp;6 does
+  not support it.
+</p><p>
+  In general, it's better to place these attributes within the
+  &lt;tr> tags rather than in &lt;thead>, &lt;tfoot> and &lt;tbody> so that they'll
+  be recognized and acted on by browsers that don't recognize the newer tags.
+  But if you have a number of rows within one of these tags and if you're not
+  concerned whether Netscape&nbsp;4 and other browsers don't recognize the attributes,
+  you can save coding by placing these in the &lt;thead>/&lt;tfoot>/&lt;tbody> tag
+  rather than in each of the &lt;tr> tags.
+</p>
+
+<hr />
+<a name="exa" id="exa"></a>
+<h3> Example </h3>
+
+<p>
+  Here's a table that includes one heading row, one footing row, and a set of body rows.
+</p><p>
+  CSS is used to specify background colors for the row groups. Note that IE supports this,
+  but Netscape&nbsp;6 does not.
+</p><p>
+  CSS is used to apply <tt>text-align:&nbsp;center;</tt> to <tt>tfoot</tt>. Both IE and
+  Netscape&nbsp;6 support this.
+</p><p>
+  If you can view this in Netscape&nbsp;4 or another browser that doesn't recognize the new tags, you'll
+  see that the footing row appears <i>above</i> the body rows, and you'll see that none of the
+  formatting attributes for the row groups are applied. In these older browsers,
+  it's just as if the &lt;thead>, &lt;tfoot> and &lt;tbody> tags aren't even there.
+</p>
+
+<script type="text/javascript" language="JavaScript"> <!--
+var s = '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">\n' +
+        '<html>\n<head>\n<title>Headings</title>\n' +
+        '<style type="text/css"> <!--\n' +
+        '  thead { background: #ccffff; }\n' +
+        '  tfoot { background: #ffccff; text-align: center; }\n' +
+        '  tbody { background: #ffffcc; }\n' +
+        '--> <\/style>\n' +
+        '<\/head>\n<body>\n\n<center>\n' +
+        '<table border="3" cellpadding="5" cellspacing="10"\n' +
+        '       width="100%">\n<thead>\n' +
+        '  <tr>\n' +
+        '    <td> Heading cell #1 <\/td>\n' +
+        '    <td> Heading cell #2 <\/td>\n' +
+        '  <\/tr>\n<\/thead>\n<tfoot>\n  <tr>\n' +
+        '    <td colspan="2"> Footing cell <\/td>\n' +
+        '  <\/tr>\n<\/tfoot>\n<tbody align="right">\n  <tr>\n' +
+        '    <td> Body cell #1 <\/td>\n' +
+        '    <td> Body cell #2 <\/td>\n' +
+        '  <\/tr>\n  <tr>\n' +
+        '    <td> Body cell #3 <\/td>\n' +
+        '    <td> Body cell #4 <\/td>\n' +
+        '  <\/tr>\n<\/tbody><\/table>\n<\/center>\n' +
+        '\n<\/body>\n<\/html>';
+genHtml ("fm1", "tx1", 22, s, "s");
+//--> </script>
+
+<!-- Link bar -->
+<br />
+<a name="bottom"></a>
+<table border="3" bgcolor="#ffffcc" cellpadding="4" cellspacing="0"><tr>
+<td class="lbar" bgcolor="#7cfc00">
+  <a href="../../main.htm">Home</a> &nbsp;
+  <a href="../web.htm">Web</a>
+</td>
+<td class="lbar">
+  <a href="#top">Top</a> &nbsp;
+  <a href="#bottom">Bottom</a>
+</td><td class="lbar" bgcolor="#ffb6c1">
+  <a href="aa.html">Contents</a> &nbsp;
+  <a href="tbl10.html">Prev</a> &nbsp;
+  <a href="tbl12.html" onclick="gotoNext('tbl12.html');return false;">Next</a>
+</td></tr></table>
+
+<!-- Email, validate button, date updated -->
+<script type="text/javascript" language="JavaScript"> <!--
+  GenFooter ("../../");
+//--> </script>
+
+</body>
+</html>

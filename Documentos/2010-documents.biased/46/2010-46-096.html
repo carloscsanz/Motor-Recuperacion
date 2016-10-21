@@ -1,0 +1,645 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Workflow Tutorial: C# Scripting | Symantec Connect</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+var cookies = document.cookie.split(';');
+for (var i=0; i < cookies.length; i++) {
+  var cookie = cookies[i].split('=');
+  if (cookie[0].match('li') && cookie[1] == 'T') {
+    window.location.replace("https://www-secure.symantec.com/connect/blogs/workflow-tutorial-c-scripting");
+  }
+}
+</script>
+
+<meta name="connect_context_js" content="14083_14113_0_0_0_0_0" />
+<meta name="nid" content="3468" />
+<meta name="lang" content="English" />
+<meta name="generator" content="Lithium" />
+<meta name="doctype" content="forum" />
+<meta name="PRODUCT_ENTITY" content="56410" />
+<meta name="om.environment" content="prod" />
+<meta name="om.site_country" content="us" />
+<meta name="om.site_language" content="en" />
+<meta name="om.visitor_segment" content="Business" />
+<meta name="om.site_section_us" content="Connect" />
+<meta name="om.site_section" content="Connect" />
+<meta name="om.site_sub_section_us" content="Endpoint Management &amp;amp; Virtualization" />
+<meta name="om.site_sub_section" content="Endpoint Management &amp;amp; Virtualization" />
+<meta name="om.content_format" content="html" />
+<meta name="om.content_title" content="Workflow Tutorial: C# Scripting" />
+<meta name="om.content_type" content="page" />
+<meta name="om.product_name" content="Workflow Solution" />
+<meta name="om.product_id" content="" />
+<meta name="om.page_name" content="en/us: biz: connect: endptmgt: blogs: workflow tutorial: c# scripting" />
+<meta name="om.connect_community" content="Endpoint Management &amp;amp; Virtualization" />
+<meta name="om.connect_utility" content="connect_utility: blogs" />
+<meta name="om.connect_product" content="Workflow Solution" />
+<meta name="om.user_id" content="0" />
+<link rel="shortcut icon" href="/connect/sites/default/themes/connect/images/favicon.ico" type="image/x-icon" />
+  <link type="text/css" rel="stylesheet" media="all" href="/connect/sites/default/modules/contrib/views/css/views.css?5" />
+<link type="text/css" rel="stylesheet" media="all" href="/connect/sites/default/files/css/css_66e769df1e88dd1604a58945bda28a00.css" />
+<link type="text/css" rel="stylesheet" media="print" href="/connect/sites/default/files/css/css_96986575bc804319b006ee207f064a23.css" />
+
+    <!--[if lt IE 7]>
+      <link type="text/css" rel="stylesheet" media="all" href="/connect/sites/default/themes/connect/style-ie6.css" />
+    <![endif]-->
+
+ 	  <!--[if IE 7]>
+      <link type="text/css" rel="stylesheet" media="all" href="//connect/sites/default/themes/connect/style-ie7.css">
+	  <![endif]-->
+
+    <!--[if gte IE 8]>
+      <link type="text/css" rel="stylesheet" media="all" href="//connect/sites/default/themes/connect/style-ie8.css">
+	  <![endif]-->
+
+
+  <script type="text/javascript" src="/connect/sites/default/files/js/js_6e57b343c32eccc15a2ae5f1438a4458.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/connect/", "googleanalytics": { "trackOutgoing": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|avi|csv|doc|exe|flv|gif|gz|jpe?g|js|mp(3|4|e?g)|mov|pdf|phps|png|ppt|rar|sit|tar|torrent|txt|wma|wmv|xls|xml|zip" }, "symantec": { "context_content_type": "blog", "context_community_tid": "731" } });
+//--><!]]>
+</script>
+  <script type="text/javascript" src="/lib/jsp/socialbookmarkingjs.jsp?lg=en&amp;ct=us&amp;segment=business"></script>
+  <script src="/script/omniture/om_code.js" type="text/javascript"></script>
+  <script src="/script/omniture/s_code.js" type="text/javascript"></script>
+</head>
+
+<body id="symantec" class="not-logged-in not-front full-node node-type-blog layout-main browser-ie clearfix">
+  <div id="header">
+    <div class="fluid-container">
+      <div id="header-inner" class="clearfix">
+
+        <a id="logo" href="/connect/" title="Home"><span>Symantec Connect</span></a>
+        <div id="eyelid-bar">
+          <div id="eyelid-bar-right"></div>
+          
+                              <div id="eyelid-usermenu"><ul class="menu"><li class="leaf first"><a href="/connect/user/login?destination=node%2F3468" title="">Login</a></li>
+<li class="leaf last"><a href="/connect/user/login?destination=node%2F3468" title="">Register</a></li>
+</ul></div>                                          <div id="search-box">
+  <form action="/connect/search-connect" method="post" id="custom-search">
+    <div id="search-input">
+        <input id="search-header-terms" name="keys" class="form-text" value="Search Symantec Connect"/>
+    </div>
+    
+    <div id="search-button">
+      <input type="image" value="search" src="/connect/sites/default/themes/connect/images/search-button.png"  alt="Search" />
+    </div>
+  
+  </form>
+</div>        </div>
+
+      </div><!-- /header-inner -->
+    </div><!-- fluid-container -->
+  </div><!-- /header -->
+
+
+  
+  <div class="fluid-container">
+    <div class="page community-utility-nav clearfix">
+
+              <div id="community-menu">
+          <ul id="community-ul">
+            <li id="community-name"><a id="community" href="#" onclick="return false;">Endpoint Management & Virtualization</a>
+              <ul class="menu"><li class="first"><a href="/connect/">All of Connect</a></li><li ><a href="/connect/backup-and-archiving/blogs">Backup and Archiving</a></li><li ><a href="/connect/endpoint-management-virtualization/blogs">Endpoint Management &amp; Virtualization</a></li><li ><a href="/connect/storage-management/blogs">Storage and Clustering</a></li><li ><a href="/connect/security/blogs">Security</a></li><li ><a href="/connect/inside-symantec/blogs">Inside Symantec</a></li><li ><a href="/connect/vision/blogs">Vision User Conference</a></li><li ><a href="/connect/partners/blogs">Partners</a></li><li ><a href="/connect/developers/blogs">Developers</a></li><li id="community-menu-bottom" class="last">&nbsp;</li></ul>            </li>
+          </ul>
+        </div>
+
+        <div id="utility-tabs">
+          <ul class="menu"><li class="first"><a href="/connect/endpoint-management-virtualization">Overview</a></li><li class=""><a href="/connect/endpoint-management-virtualization/forums">Forums</a></li><li class=""><a href="/connect/endpoint-management-virtualization/articles">Articles</a></li><li class="active"><a href="/connect/endpoint-management-virtualization/blogs" class="active">Blogs</a></li><li class=""><a href="/connect/endpoint-management-virtualization/downloads">Downloads</a></li><li class=""><a href="/connect/endpoint-management-virtualization/events">Events</a></li><li class=""><a href="/connect/endpoint-management-virtualization/videos">Videos</a></li><li class=""><a href="/connect/endpoint-management-virtualization/groups">Groups</a></li><li class="last"><a href="/connect/endpoint-management-virtualization/ideas">Ideas</a></li></ul>        </div>
+      
+      <div id="page-corners-top-left"></div>
+      <div id="page-corners-top-right"></div>
+      <div id="page-corners-bottom-left"></div>
+      <div id="page-corners-bottom-right"></div>
+
+
+      <div id="main" class="clearfix">
+        
+        
+        <div id="fluid-content">
+          <div id="content-wrapper" class="clearfix">
+            <div class="main-corner-tl corners-6x6 ctl"></div>
+            <div class="main-corner-tr corners-6x6 ctr"></div>
+            <div class="main-corner-bl corners-6x6 cbl"></div>
+            <div class="main-corner-br corners-6x6 cbr"></div>
+
+          <div id="sidebar-blog-shoehorn">
+            <div id="content-inner" class="clearfix">
+
+              
+              
+              
+                                          
+              
+              <div id="content-content"><!-- node-blog.tpl.php -->
+
+<div class="node-header">
+  
+<div id="search-box-inline">
+  <form action="/connect/search-connect?filters=type%3Ablog%20tid%3A731&newsearch=1" method="post" id="custom-search-inline">
+    <div id="search-input-inline">
+        <input id="search-inline-terms" name="keys" class="form-text" value="search blogs"/>
+    </div>
+    
+    <div id="search-button-inline">
+      <input type="image" value="search" src="/connect/sites/default/themes/connect/images/search-button-inline.gif"  alt="Search" />
+    </div>
+    <div>
+        <input id="search-utility-type" type="hidden" name="utility_id" value="blog" />
+        <input id="search-community-type" type="hidden" name="community_id" value="731" />
+    </div>  
+  </form>
+</div>      <a class="action-link" href="/connect/user/login?destination=node%2F3468"><span>Login to participate</span></a>
+    <div id="context-title"><a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog">Endpoint Management &amp; Virtualization Community Blog</a><a href="/connect/item-feeds/blog/2721/feed/all/all" class="links-rss-icon">RSS</a></div>
+
+</div>
+
+
+<div id="node-3468" class="clearfix node node-container node-type-blog">
+  <div class="node-inner">
+    <div class="node-corner-tl corners-4x4 ctl"></div>
+    <div class="node-corner-tr corners-4x4 ctr"></div>
+    <div class="node-corner-links-bl corners-4x4 cbl"></div>
+    <div class="node-corner-links-br corners-4x4 cbr"></div>
+
+    <h1>Workflow Tutorial: C# Scripting</h1>
+          <div class="node-meta clearfix">
+        <div class="picture">
+  <a href="/connect/user/craig-walker" title="View user profile."><img src="http://www.symantec.com/connect/sites/default/files/imagecache/32x32/default_user.png" alt="Craig Walker&#039;s picture" title="View user profile."  class="imagecache imagecache-32x32" width="32" height="32" /></a></div>
+                  <div class="submitted">
+            <a href="/connect/user/craig-walker" class="user-level user-level-1">Craig Walker</a>            <div class="user-badge user-role-symantec-employee"></div>            <div class="date-posted">March 17th, 2008</div>
+          </div>
+              </div>
+
+            <div class="terms terms-ontop">
+        <div class="terms-inline">Filed under: <a href="/connect/products/workflow-solution" rel="tag" title="">Workflow Solution</a>, <a href="/connect/blog-tags/basics" rel="tag" title="">Basics</a>, <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog" rel="tag" title="">Endpoint Management &amp; Virtualization Community Blog</a>, <a href="/connect/communities/endpoint-management-and-virtualization" rel="tag" title="">Endpoint Management and Virtualization</a></div>
+              </div>
+          
+        
+    <div class="content clearfix">
+            <span class='print-link'></span><div class="clear-block">
+<div class="img-shadow"><a href="/connect/node/3468"><img src="/connect/sites/default/files/img/3468.jpg" alt="" /></a></div>
+<p>Time to look sharp if you want to C#! Impress your friends by throwing in a little code into your project! The purpose of this tutorial is to learn how to include C# code in your projects using the <b>Scripting</b> component.</p>
+</div>
+<p><b>Prerequisites:</b> None</p>
+<p><b>Objective:</b> To create a project which imports workable C# code using the <b>Scripting</b> component.</p>
+<p><b>Estimated time to complete:</b> 30 minutes</p>
+<p><b>Step 1:</b> Create a New Project</p>
+<p>To begin, create a new <b>Decision Only</b> project. The composer project can be selected from the main page when you first run <b>Workflow Designer</b>.</p>
+<div class="clear-block">
+<div class="img-shadow"><a href="/connect/sites/default/files/u14532/3347-01.jpg"><img src="/connect/sites/default/files/u14532/3347-01_0.jpg" alt="" /></a></div>
+<p><a href="/connect/sites/default/files/u14532/3347-01.jpg">Click to view</a>.</p>
+</div>
+<p><b>Step 2:</b> Add Necessary Components</p>
+<p>To begin, click the <b>Import Components</b> button, located under your toolbox. In the window which appears, select <b>Scripting.dll</b> from the list. Click the <b>Add</b> button to select this library for inclusion. Click the <b>OK</b> button to perform the import.</p>
+<div class="clear-block">
+<div class="img-shadow"><a href="/connect/sites/default/files/u14532/3468-02.jpg"><img src="/connect/sites/default/files/u14532/3468-02_0.jpg" alt="" /></a></div>
+<p><a href="/connect/sites/default/files/u14532/3468-02.jpg">Click to view</a>.</p>
+</div>
+<p>Drag-and-drop a <b>ScriptedComponent</b> to your project model. This component is located under the <b>Infrastructure / Scripting</b> category within your toolbox. Connect your <b>ScriptedComponent</b> to your <b>StartComponent</b> and <b>EndComponent</b>.</p>
+<p>Your model should initially look like the one displayed below:</p>
+<div class="clear-block">
+<div class="img-shadow"><a href="/connect/sites/default/files/u14532/3468-03.jpg"><img src="/connect/sites/default/files/u14532/3468-03_0.jpg" alt="" /></a></div>
+<p><a href="/connect/sites/default/files/u14532/3468-03.jpg">Click to view</a>.</p>
+</div>
+<p><b>Step 3:</b> Setting Input and Output Data</p>
+<p>For your project to work properly, you must set input and output variables. To begin, click the <b>Input Data</b> entry in the <b>Project Info</b> box on the left-hand side of your window.</p>
+<p>In the window which appears, click the <b>Add</b> button to create a variable:</p>
+<div class="clear-block">
+<div class="img-shadow"><a href="/connect/sites/default/files/u14532/3468-04.jpg"><img src="/connect/sites/default/files/u14532/3468-04_0.jpg" alt="" /></a></div>
+<p><a href="/connect/sites/default/files/u14532/3468-04.jpg">Click to view</a>.</p>
+</div>
+<p>Set the new variable's name to "inputTxtNameArray", its type to "Text," and check the <b>Array</b> checkbox.</p>
+<p>Click on the <b>Output Data</b> entry in the <b>Project Info</b> box. In the window which appears, click the <b>Add</b> button to create an output variable:</p>
+<div class="clear-block">
+<div class="img-shadow"><a href="/connect/sites/default/files/u14532/3468-05.jpg"><img src="/connect/sites/default/files/u14532/3468-05_0.jpg" alt="" /></a></div>
+<p><a href="/connect/sites/default/files/u14532/3468-05.jpg">Click to view</a>.</p>
+</div>
+<p>Set the new variable's name to "outputTxtEmailArray", its type to "Text," and check the <b>Array</b> checkbox.</p>
+<p><b>Step 4:</b> Complete Project Setup</p>
+<p>Return to your main project's model by clicking on the <b>Model: Primary</b> tab at the top of the screen. Double-click on your <b>Scripted Component</b>. The <b>Edit Scripted Component</b> window should appear:</p>
+<div class="clear-block">
+<div class="img-shadow"><a href="/connect/sites/default/files/u14532/3468-06.jpg"><img src="/connect/sites/default/files/u14532/3468-06_0.jpg" alt="" /></a></div>
+<p><a href="/connect/sites/default/files/u14532/3468-06.jpg">Click to view</a>.</p>
+</div>
+<p>Click the <b>Add</b> button to create a new input parameter for your <b>Scripted Component</b>. Set the input parameter's name as "inScrTxtName", set its type to "Text", and check the <b>Array</b> checkbox.</p>
+<p>Click the <b>Edit Parameter Mappings</b> button. In the window which appeats, select the <b>Value from Data</b> field, and click the <b>...</b> button to the right of the <b>Value from Data</b> field. In the window which appears, select teh "inputTxtnameArray" variable, and click the <b>OK</b> button.</p>
+<div class="clear-block">
+<div class="img-shadow"><a href="/connect/sites/default/files/u14532/3468-07.jpg"><img src="/connect/sites/default/files/u14532/3468-07_0.jpg" alt="" /></a></div>
+<p><a href="/connect/sites/default/files/u14532/3468-07.jpg">Click to view</a>.</p>
+</div>
+<p>Click the <b>OK</b> button twice to accept changes. In the <b>Edit Scripted Component</b> window, click the <b>Next&gt;&gt;</b> button to continue in your specifications.</p>
+<p>In the second step, enter "outputTxtEmailArray" into the <b>Result Variable Name</b> field, and select the <b>Data Type</b> as "Text." Also, check the <b>Is Array</b> checkbox:</p>
+<div class="clear-block">
+<div class="img-shadow"><a href="/connect/sites/default/files/u14532/3468-08.jpg"><img src="/connect/sites/default/files/u14532/3468-08_0.jpg" alt="" /></a></div>
+<p><a href="/connect/sites/default/files/u14532/3468-08.jpg">Click to view</a>.</p>
+</div>
+<p>Click the <b>Next&gt;&gt;</b> button to continue. In the third step, <b>Source Code</b>, enter the following snippet of code:</p>
+<pre>int i = 0;
+
+foreach (String a in inScrTxtName) {
+
+  inScrTxtName[i] = a + "@transparentlogic.com";
+  i = i + 1;
+
+}
+return inScrTxtName;
+
+</pre><p>Click the <b>Next&gt;&gt;</b> button to continue.</p>
+<p>In the final step, step four, you may wish to test your code. To test your code, simply click on the <b>run test</b> button. If you wish to make sure you entered your code correctly, you may view it by clicking the <b>view full source code</b> button. To finish specifying your <b>Scripted Component</b>, simply click the <b>Finish</b> button.</p>
+<div class="clear-block">
+<div class="img-shadow"><a href="/connect/sites/default/files/u14532/3468-09.jpg"><img src="/connect/sites/default/files/u14532/3468-09_0.jpg" alt="" /></a></div>
+<p><a href="/connect/sites/default/files/u14532/3468-09.jpg">Click to view</a>.</p>
+</div>
+<p><b>Step 5:</b> Edit the EndComponent</p>
+<p>In the main model, right-click on the <b>EndComponent</b> and select <b>Edit Component</b>. In the <b>Edit Component</b> window, click on the <b>...</b> button to the right of the <b>Mapping</b> field.</p>
+<p>In the <b>Edit Data Mapping</b> window, select <b>Value from Data</b> and click the <b>...</b> button to the right of the <b>Value from Data</b> field.</p>
+<p>Select the variable "outputTxtEmailArray" from the <b>Select Variable Name</b> window, and click the <b>OK</b> button:</p>
+<div class="clear-block">
+<div class="img-shadow"><a href="/connect/sites/default/files/u14532/3468-10.jpg"><img src="/connect/sites/default/files/u14532/3468-10_0.jpg" alt="" /></a></div>
+<p><a href="/connect/sites/default/files/u14532/3468-10.jpg">Click to view</a>.</p>
+</div>
+<p><b>Step 6:</b> Run and Test Your Project</p>
+<p>Run your project by clicking on the <b>Debug</b> button on the toolbar. The <b>Debug</b> button appears as a bug with a green arrow over it.</p>
+<p>In the window which appears, double-click on the blue <b>Execute</b> link.</p>
+<p>Your project will initially ask you for input data:</p>
+<div class="clear-block">
+<div class="img-shadow"><a href="/connect/sites/default/files/u14532/3468-11.jpg"><img src="/connect/sites/default/files/u14532/3468-11_0.jpg" alt="" /></a></div>
+<p><a href="/connect/sites/default/files/u14532/3468-11.jpg">Click to view</a>.</p>
+</div>
+<p>Enter a name in the <b>Value</b> field, and click the <b>OK</b> button. Your project will execute. The results of your project will be displayed in the <b>Execution</b> log once execution is complete:</p>
+<div class="clear-block">
+<div class="img-shadow"><a href="/connect/sites/default/files/u14532/3468-12.jpg"><img src="/connect/sites/default/files/u14532/3468-12_0.jpg" alt="" /></a></div>
+<p><a href="/connect/sites/default/files/u14532/3468-12.jpg">Click to view</a>.</p>
+</div>
+<p><b>Finished!</b></p>
+    </div>
+
+  </div><!-- /node-inner -->
+
+
+    <div class="links-bar">
+      <div class="voting-box">
+        <span id="vote_points_3468" class="vote-points">0 votes</span>        <div class="vote-up-down-widget">
+      <span id="vote_up_3468" class="up-inact" title="You must login to vote!"></span>
+    <span id="vote_down_3468" class="down-inact" title="You must login to vote!"></span>
+  </div>
+      </div>
+      <ul class="links"><li class="blog_usernames_blog first"><a href="/connect/blogs/craig-walker" title="Read Craig Walker&#039;s latest blog entries."><span>Craig Walker's blog</span></a></li>
+<li class="comment_forbidden"><span><a href="https://www-secure.symantec.com/connect/user/login?destination=node%2F3468%23comment-form">Login</a> or <a href="https://www-secure.symantec.com/connect/user/register?destination=node%2F3468%23comment-form">register</a> to post comments</span></li>
+<li class="0 last"><a href="/connect/comments-rss/3468" class="links-rss-icon"><span>Comments RSS Feed</span></a></li>
+</ul>    </div>
+</div><!-- /node-container -->
+
+</div>              
+            </div><!-- /content-inner -->
+
+          </div><!-- /sidebar-blog-shoehorn --><div id="sidebar-blog" class="clearfix"><!-- start block.tpl.php -->
+<div class="block-wrapper odd clearfix">
+  <div id="block-symantec_blogs-blog_about" class="block block-symantec_blogs block-order-5">
+    <div class="block-inner">
+            <h2 class="title block-title">About Endpoint Management and Virtualization Community Blog</h2>
+            <div class="content clearfix">
+          <img src="http://www.symantec.com/connect/sites/default/files/imagecache/about-blog-block/blog_images/connnect-welcome-art14529F_5.jpg" alt="" title=""  class="imagecache imagecache-about-blog-block" width="76" height="60" />  
+  The Endpoint Management & Virtualization Community Blog is the perfect place to share short, timely insights including product tips, news and other information relevant to the Endpoint Management & Virtualization community. Any authenticated Connect member can contribute to this blog.      </div>
+    </div><!-- /block-inner -->
+  </div>
+</div>
+<!-- /end block.tpl.php --><!-- start block.tpl.php -->
+<div class="block-wrapper even clearfix">
+  <div id="block-symantec_blogs-detail_page_facets" class="block block-symantec_blogs block-order-6">
+    <div class="block-inner">
+            <div class="content clearfix">
+        
+  <div class="facet-title">
+    Filter by:  </div>
+  
+  <div class="tagcloud-wrapper">
+    <div class="tagcloud-corner-tl corners-4x4 ctl"></div>
+    <div class="tagcloud-corner-tr corners-4x4 ctr"></div>
+    <div class="tagcloud-corner-bl corners-4x4 cbl"></div>
+    <div class="tagcloud-corner-br corners-4x4 cbr"></div>
+    
+          <div class="blog-detail-facet">
+        <select class="blog-detail-facet-select">
+          <option value="">Author</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/Admin/all">Admin</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/Virtualized%20App%20Guy/all">Virtualized App Guy</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/WiseUser/all">WiseUser</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/riva11/all">riva11</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/erikw/all">erikw</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/BRING/all">BRING</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/R-Vijay/all">R-Vijay</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/ludovic_ferre/all">ludovic_ferre</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/Terry%20Cutler/all">Terry Cutler</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/Craig%20Walker/all">Craig Walker</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/trb48/all">trb48</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/CondorMan/all">CondorMan</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/piyushnasa/all">piyushnasa</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/AndyN/all">AndyN</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/Screenbert/all">Screenbert</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/Jordan/all">Jordan</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/Brad/all">Brad</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/SK/all">SK</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/Scott%20Jones/all">Scott Jones</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/cnpalmer75/all">cnpalmer75</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/jjesse/all">jjesse</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/adtlink/all">adtlink</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/Randall%20Newnham/all">Randall Newnham</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/Antonp/all">Antonp</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/Eshwar/all">Eshwar</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/Nelo/all">Nelo</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/marcoads/all">marcoads</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/dfrancis/all">dfrancis</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/sfletcher/all">sfletcher</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/MaggieH/all">MaggieH</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/Joel%20Smith/all">Joel Smith</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/FrankB/all">FrankB</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/Scot%20Curry/all">Scot Curry</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/TilakGovind/all">TilakGovind</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/George%20Wagner/all">George Wagner</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/eorme/all">eorme</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/dougj/all">dougj</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/MBHarmon/all">MBHarmon</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/ohzone/all">ohzone</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/claytonblackham/all">claytonblackham</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/PRASANNA%20KUMAR%20RAJA/all">PRASANNA KUMAR RAJA</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/haim96/all">haim96</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/vortex0007/all">vortex0007</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/tfronza/all">tfronza</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/AndyDrew/all">AndyDrew</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/Andrew%20Souter/all">Andrew Souter</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/networkchic/all">networkchic</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/robertser/all">robertser</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/B_Raj/all">B_Raj</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/trentraley/all">trentraley</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/rglauser/all">rglauser</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/Raman/all">Raman</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/johnquinn/all">johnquinn</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/Jared%20Payne/all">Jared Payne</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/Harsh/all">Harsh</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/Mohammad%20Bamya/all">Mohammad Bamya</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/Ram%20Champion/all">Ram Champion</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/Jeremy_Hurren/all">Jeremy_Hurren</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/Shadrocks/all">Shadrocks</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/Martin%20Charker/all">Martin Charker</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/Sidd/all">Sidd</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/Deepanshu/all">Deepanshu</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/John%20Doyle/all">John Doyle</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/savnhga/all">savnhga</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/ianatkin/all">ianatkin</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/RichC/all">RichC</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/stebro/all">stebro</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/nravenscroft/all">nravenscroft</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/daggy_b/all">daggy_b</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/Spencer%20Parkinson/all">Spencer Parkinson</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/DaveDurkee/all">DaveDurkee</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/Richard%20Jeffrey/all">Richard Jeffrey</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/dfnkt_/all">dfnkt_</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/jnaef/all">jnaef</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/nac/all">nac</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/Jamee%20McDonald/all">Jamee McDonald</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/scotthansenpaysoneast%40gmail.com/all">scotthansenpaysoneast@gmail.com</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/mocarski/all">mocarski</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/Pascal.KOTTE/all">Pascal.KOTTE</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/kbuller/all">kbuller</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/KSchroeder/all">KSchroeder</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/tech9/all">tech9</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/Dan%20Waksman/all">Dan Waksman</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/gravesg/all">gravesg</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/nrhudson/all">nrhudson</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/jperry933/all">jperry933</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/jsjj01/all">jsjj01</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/scottwed/all">scottwed</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/neil_rogers/all">neil_rogers</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/Wm%20Jesse%20Foster/all">Wm Jesse Foster</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/John%20Atkins/all">John Atkins</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/LNew/all">LNew</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/G%20Ross/all">G Ross</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/kewidogg/all">kewidogg</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/nmorea/all">nmorea</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/dale_hull/all">dale_hull</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/JeffDG/all">JeffDG</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/Global_Altiris/all">Global_Altiris</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/BBishop/all">BBishop</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/Jon%20Eyre/all">Jon Eyre</option>
+                  </select>
+      </div>
+        
+          <div class="blog-detail-facet facet-spacer">
+        <select class="blog-detail-facet-select">
+          <option value="">Language</option>    
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/all/en">English</option>
+                      <option value="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/all/all/all/all/fr">French</option>
+                  </select>
+      </div>
+      </div>
+      </div>
+    </div><!-- /block-inner -->
+  </div>
+</div>
+<!-- /end block.tpl.php --><!-- start block.tpl.php -->
+<div class="block-wrapper odd clearfix">
+  <div id="block-symantec_blogs-blog_latest_sidebar" class="block block-symantec_blogs block-order-7">
+    <div class="block-inner">
+            <h2 class="title block-title">Recent Blog Posts</h2>
+            <div class="content clearfix">
+        <div class="view view-blogs view-id-blogs view-display-id-block_3 view-dom-id-1">
+    
+  
+  
+      <div class="view-content">
+      <div class="item-list">
+    <ul >
+                <li class="views-row views-row-1 views-row-odd views-row-first ">  
+  <div class="views-field-title">
+                <span class="field-content"><a href="/connect/blogs/usb-swiss-army-knife-7-quick-fix">USB Swiss Army Knife: 7 Quick Fix</a></span>
+  </div>
+  
+  <span class="views-field-name">
+                <span class="field-content"><a href="/connect/user/riva11" title="View user profile.">riva11</a></span>
+  </span>
+      -  
+  <span class="views-field-created">
+                <span class="field-content">March 12, 2010</span>
+  </span>
+</li>
+                <li class="views-row views-row-2 views-row-even ">  
+  <div class="views-field-title">
+                <span class="field-content"><a href="/connect/blogs/cebit-over-what-will-be-our-next-big-show">Cebit is over. What will be our next big show?</a></span>
+  </div>
+  
+  <span class="views-field-name">
+                <span class="field-content"><a href="/connect/user/erikw" title="View user profile.">erikw</a></span>
+  </span>
+      -  
+  <span class="views-field-created">
+                <span class="field-content">March 12, 2010</span>
+  </span>
+</li>
+                <li class="views-row views-row-3 views-row-odd ">  
+  <div class="views-field-title">
+                <span class="field-content"><a href="/connect/blogs/will-intel-amt-and-intel-vpro-technology-appear-servers">Will Intel AMT and Intel vPro Technology appear on servers?</a></span>
+  </div>
+  
+  <span class="views-field-name">
+                <span class="field-content"><a href="/connect/user/terry-cutler" title="View user profile.">Terry Cutler</a></span>
+  </span>
+      -  
+  <span class="views-field-created">
+                <span class="field-content">March 10, 2010</span>
+  </span>
+</li>
+                <li class="views-row views-row-4 views-row-even ">  
+  <div class="views-field-title">
+                <span class="field-content"><a href="/connect/blogs/how-force-altiris-client-point-new-deployment-server">How to force the Altiris client to point to a new Deployment Server</a></span>
+  </div>
+  
+  <span class="views-field-name">
+                <span class="field-content"><a href="/connect/user/mark76" title="View user profile.">mark76</a></span>
+  </span>
+      -  
+  <span class="views-field-created">
+                <span class="field-content">March 10, 2010</span>
+  </span>
+</li>
+                <li class="views-row views-row-5 views-row-odd views-row-last ">  
+  <div class="views-field-title">
+                <span class="field-content"><a href="/connect/blogs/veeam-and-virtualstorm-swv-apps-action">Veeam and VirtualStorm. SWV Apps in Action</a></span>
+  </div>
+  
+  <span class="views-field-name">
+                <span class="field-content"><a href="/connect/user/erikw" title="View user profile.">erikw</a></span>
+  </span>
+      -  
+  <span class="views-field-created">
+                <span class="field-content">March 10, 2010</span>
+  </span>
+</li>
+      <ul>
+</div>    </div>
+  
+  
+  
+  
+  
+  
+</div>       </div>
+    </div><!-- /block-inner -->
+  </div>
+</div>
+<!-- /end block.tpl.php --><!-- start block.tpl.php -->
+<div class="block-wrapper even clearfix">
+  <div id="block-symantec_blogs-blog_tagcloud" class="block block-symantec_blogs block-order-8">
+    <div class="block-inner">
+            <h2 class="title block-title">Blog Tags</h2>
+            <div class="content clearfix">
+        <div class="tagcloud-wrapper">
+  <div class="tagcloud-corner-tl corners-4x4 ctl"></div>
+  <div class="tagcloud-corner-tr corners-4x4 ctr"></div>
+  <div class="tagcloud-corner-bl corners-4x4 cbl"></div>
+  <div class="tagcloud-corner-br corners-4x4 cbr"></div>
+  <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/5151/all/all/all/all" class="blog-tags-cloud-size-1">7.1</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/3051/all/all/all/all" class="blog-tags-cloud-size-3">Agents</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/1323/all/all/all/all" class="blog-tags-cloud-size-5">Altiris Client Management Suite</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/1333/all/all/all/all" class="blog-tags-cloud-size-5">Altiris Deployment Solution</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/1343/all/all/all/all" class="blog-tags-cloud-size-4">Altiris IT Asset Management</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/1363/all/all/all/all" class="blog-tags-cloud-size-5">Altiris Notification Server</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/2101/all/all/all/all" class="blog-tags-cloud-size-2">Altiris Recovery Solution</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/1373/all/all/all/all" class="blog-tags-cloud-size-5">Altiris Server Management Suite</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/4351/all/all/all/all" class="blog-tags-cloud-size-1">Asset Management Suite</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/1383/all/all/all/all" class="blog-tags-cloud-size-1">Backup Exec</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/1571/all/all/all/all" class="blog-tags-cloud-size-1">Backup Exec System Recovery</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/2771/all/all/all/all" class="blog-tags-cloud-size-5">Basics</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/2871/all/all/all/all" class="blog-tags-cloud-size-5">Best Practice</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/2811/all/all/all/all" class="blog-tags-cloud-size-2">Beta</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/3011/all/all/all/all" class="blog-tags-cloud-size-1">CIO Digest</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/3271/all/all/all/all" class="blog-tags-cloud-size-1">Case Study</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/2841/all/all/all/all" class="blog-tags-cloud-size-5">Compatibility</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/2781/all/all/all/all" class="blog-tags-cloud-size-6">Configuring</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/6171/all/all/all/all" class="blog-tags-cloud-size-1">Customer Preview</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/3021/all/all/all/all" class="blog-tags-cloud-size-1">Customer Reference</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/2891/all/all/all/all" class="blog-tags-cloud-size-3">Database</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/3221/all/all/all/all" class="blog-tags-cloud-size-1">Dell</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/1393/all/all/all/all" class="blog-tags-cloud-size-3">Dell Management Products</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/2991/all/all/all/all" class="blog-tags-cloud-size-2">Documentation</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/3131/all/all/all/all" class="blog-tags-cloud-size-1">Downloads</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/3071/all/all/all/all" class="blog-tags-cloud-size-2">Drivers</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/3241/all/all/all/all" class="blog-tags-cloud-size-1">Emerging Threats</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/731/all/all/all/all" class="blog-tags-cloud-size-7">Endpoint Management and Virtualization</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/1403/all/all/all/all" class="blog-tags-cloud-size-2">Endpoint Protection (AntiVirus)</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/1701/all/all/all/all" class="blog-tags-cloud-size-1">Enterprise Vault</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/3141/all/all/all/all" class="blog-tags-cloud-size-2">Error messages</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/3151/all/all/all/all" class="blog-tags-cloud-size-1">Evaluating</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/2851/all/all/all/all" class="blog-tags-cloud-size-4">Features</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/1531/all/all/all/all" class="blog-tags-cloud-size-2">General Symantec</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/1413/all/all/all/all" class="blog-tags-cloud-size-4">Ghost Solution Suite</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/1433/all/all/all/all" class="blog-tags-cloud-size-3">HP Management Products</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/1423/all/all/all/all" class="blog-tags-cloud-size-4">Helpdesk Solution</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/743/all/all/all/all" class="blog-tags-cloud-size-1">How to</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/4361/all/all/all/all" class="blog-tags-cloud-size-1">ITMS</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/3371/all/all/all/all" class="blog-tags-cloud-size-1">Industry Event</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/741/all/all/all/all" class="blog-tags-cloud-size-1">Inside Symantec</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/2821/all/all/all/all" class="blog-tags-cloud-size-4">Installing</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/2861/all/all/all/all" class="blog-tags-cloud-size-3">Licensing</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/2911/all/all/all/all" class="blog-tags-cloud-size-3">Linux</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/5191/all/all/all/all" class="blog-tags-cloud-size-1">Local DS GURU Email group</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/2951/all/all/all/all" class="blog-tags-cloud-size-2">Mac OS</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/3081/all/all/all/all" class="blog-tags-cloud-size-2">ManageFusion</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/3481/all/all/all/all" class="blog-tags-cloud-size-1">Mobile &amp; Wireless</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/1741/all/all/all/all" class="blog-tags-cloud-size-1">NetBackup</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/3731/all/all/all/all" class="blog-tags-cloud-size-1">New Release</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/793/all/all/all/all" class="blog-tags-cloud-size-1">News</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/2941/all/all/all/all" class="blog-tags-cloud-size-3">News</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/2801/all/all/all/all" class="blog-tags-cloud-size-4">Performance</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/753/all/all/all/all" class="blog-tags-cloud-size-1">Platforms &amp; Hardware</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/4971/all/all/all/all" class="blog-tags-cloud-size-1">Problem Management</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/3191/all/all/all/all" class="blog-tags-cloud-size-1">Recovering</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/2881/all/all/all/all" class="blog-tags-cloud-size-4">Reporting</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/3061/all/all/all/all" class="blog-tags-cloud-size-1">Restore</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/4331/all/all/all/all" class="blog-tags-cloud-size-1">SP2</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/1453/all/all/all/all" class="blog-tags-cloud-size-1">SecurityExpressions</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/4341/all/all/all/all" class="blog-tags-cloud-size-1">Service Pack 2</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/2331/all/all/all/all" class="blog-tags-cloud-size-3">ServiceDesk</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/1841/all/all/all/all" class="blog-tags-cloud-size-1">Storage Foundation</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/1521/all/all/all/all" class="blog-tags-cloud-size-1">Symantec Connect</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/3211/all/all/all/all" class="blog-tags-cloud-size-1">Symantec Event</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/4371/all/all/all/all" class="blog-tags-cloud-size-1">TMS</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/3181/all/all/all/all" class="blog-tags-cloud-size-1">TechTips</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/2931/all/all/all/all" class="blog-tags-cloud-size-5">Tip/How to</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/3311/all/all/all/all" class="blog-tags-cloud-size-1">Training</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/3711/all/all/all/all" class="blog-tags-cloud-size-2">Troubleshooting</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/2901/all/all/all/all" class="blog-tags-cloud-size-4">Upgrade</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/2961/all/all/all/all" class="blog-tags-cloud-size-3">User Group</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/6151/all/all/all/all" class="blog-tags-cloud-size-1">VDI</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/2921/all/all/all/all" class="blog-tags-cloud-size-3">VMware</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/973/all/all/all/all" class="blog-tags-cloud-size-1">Virtualization</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/2831/all/all/all/all" class="blog-tags-cloud-size-4">Virtualization</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/3531/all/all/all/all" class="blog-tags-cloud-size-1">Vision</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/2981/all/all/all/all" class="blog-tags-cloud-size-2">Vulnerabilities &amp; Exploits</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/1153/all/all/all/all" class="blog-tags-cloud-size-1">Windows</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/2791/all/all/all/all" class="blog-tags-cloud-size-4">Windows</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/1463/all/all/all/all" class="blog-tags-cloud-size-5">Wise Application Packaging</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/1473/all/all/all/all" class="blog-tags-cloud-size-2">Wise Installation Development</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/6191/all/all/all/all" class="blog-tags-cloud-size-1">Wise Virtual Composer</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/1353/all/all/all/all" class="blog-tags-cloud-size-4">Workflow Solution</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/1483/all/all/all/all" class="blog-tags-cloud-size-2">Workspace Corporate</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/2391/all/all/all/all" class="blog-tags-cloud-size-2">Workspace Profiles</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/1493/all/all/all/all" class="blog-tags-cloud-size-2">Workspace Remote</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/1503/all/all/all/all" class="blog-tags-cloud-size-2">Workspace Streaming</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/1513/all/all/all/all" class="blog-tags-cloud-size-6">Workspace Virtualization</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/6181/all/all/all/all" class="blog-tags-cloud-size-1">XPF</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/5181/all/all/all/all" class="blog-tags-cloud-size-1">baltimore</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/5131/all/all/all/all" class="blog-tags-cloud-size-1">deployment</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/5171/all/all/all/all" class="blog-tags-cloud-size-1">hugo</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/4631/all/all/all/all" class="blog-tags-cloud-size-1">known_issue</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/1443/all/all/all/all" class="blog-tags-cloud-size-2">pcAnywhere</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/5141/all/all/all/all" class="blog-tags-cloud-size-1">solution</a> <a href="/connect/symantec-blogs/endpoint-management-%2526-virtualization-community-blog/5161/all/all/all/all" class="blog-tags-cloud-size-1">webcast</a></div>      </div>
+    </div><!-- /block-inner -->
+  </div>
+</div>
+<!-- /end block.tpl.php --></div>
+          </div><!-- /content-wrapper -->
+        </div><!-- fluid-content -->
+
+         
+
+        
+      </div><!-- /main -->
+
+    </div><!-- /page -->
+  </div><!-- /fluid-container -->
+
+  <div class="fluid-container">
+    <div id="footer-menu" class="clearfix">
+      <div id="copyright">&copy; 2010 </div>
+      <div id="footer-menu-container"><ul class="menu"><li class="leaf first"><a href="/connect/legal" title="">Symantec Corporation</a></li>
+<li class="leaf"><a href="/connect/contact" title="">Contact Us</a></li>
+<li class="leaf"><a href="/connect/pages/get-4-1-1-rss" title="">Get RSS</a></li>
+<li class="leaf"><a href="http://www.symantec.com/about/profile/policies/privacy.jsp" title="">Privacy Policy</a></li>
+<li class="leaf last"><a href="http://www.symantec.com" title="">Symantec.com</a></li>
+</ul></div>    </div>
+
+            <div id="footer" class="clearfix fluid-wrapper">
+        <div id="footer-wrapper" class="clearfix">
+          <div id="closure"><script type="text/javascript" src="/connect/sites/default/files/js/js_0dce7c37ca77ad5ba9dd46276ea3e3f5.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+try{var pageTracker = _gat._getTracker("UA-189204-1");pageTracker._trackPageview();} catch(err) {}
+//--><!]]>
+</script>
+</div>        </div><!-- /footer-wrapper -->
+      </div><!-- /footer -->
+        </div><!-- /fluid-container -->
+
+    <!-- Functions required to be inline by Symantec Social Bookmarking widget-->
+    <script type="text/javascript">
+      function showSBWdgt(divId){
+        document.getElementById(divId).style.visibility = 'visible';
+      }
+      function hideSBWdgt(divId){
+        document.getElementById(divId).style.visibility = 'hidden';
+      }
+      function openSBWdgtLinks(socialUrl)
+      {
+        var sbLink = socialUrl.replace("THE_PAGE_URL",window.location.href);
+        sbLink = sbLink.replace("THE_PAGE_TITLE",document.title);
+        window.open(sbLink);
+      }
+    </script>
+
+    <!-- SiteCatalyst code. Copyright 1997-2008 Omniture, Inc. More info available at http://www.omniture.com -->
+    <script type="text/javascript"><!--
+    /* You may give each page an identifying name, server, and channel on the next lines. */
+    s.pageName=metaData['page_name'];
+    s.server="symantec"
+    s.channel=metaData['visitor_segment'] + ': ' + metaData['site_section']
+    s.pageType=metaData['page_type']
+    s.prop2=metaData['site_country']
+    s.prop3=metaData['site_language']
+    s.prop18=metaData['connect_utility']
+    s.prop25=metaData['error_url']
+    s.prop27=metaData['visitor_segment']
+    s.prop30=metaData['user_id']
+    s.prop33=metaData['page_url']
+    s.prop41=metaData['site_section']
+    s.prop42=metaData['product_name']
+    s.prop43=metaData['product_category_name']
+    s.prop44=metaData['product_sub_category_name']
+    s.prop45=metaData['product_version_name']
+    s.prop46=metaData['content_format']
+    s.prop47=metaData['content_type'];
+    s.prop48=metaData['content_title']
+    s.prop49=metaData['site_sub_section']
+    s.prop50=metaData['connect_topic_selected']
+    /* Conversion Variables */
+    s.products=metaData['products']
+    s.eVar27=metaData['site_country']
+    s.eVar28=metaData['site_language']
+    s.eVar29=metaData['visitor_segment'] + ': ' + metaData['site_section']
+    s.eVar32=metaData['user_id']
+    s.eVar33=metaData['connect_utility']
+    s.eVar41=metaData['site_section']
+    s.eVar42=metaData['product_name']
+    s.eVar43=metaData['product_category_name']
+    s.eVar48=metaData['site_sub_section']
+    s.eVar49=metaData['content_title']
+    s.eVar50=metaData['visitor_segment']
+        /************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+    var s_code=s.t();if(s_code)document.write(s_code)//--></script>
+    <script type="text/javascript"><!--
+    if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+    //--></script>
+    <!--/DO NOT REMOVE/-->
+    <!-- End SiteCatalyst code. -->
+</body>
+</html>

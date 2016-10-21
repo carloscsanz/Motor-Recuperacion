@@ -1,0 +1,828 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+  <title>Real time synchronization in C# - C# - Forums at ProgrammersHeaven.com</title>
+  <meta name="description" content="Real time synchronization in C#: Can I get some help or links on Real time synchronization in C#. 
+My Project is about the client test program shall detect when
+a change in a file..." />
+<meta name="keywords" content="File, Real Time, Time, and, program" />
+<meta name="Robots" content="noodp,all" />
+<link rel="meta" href="http://www.programmersheaven.com/labels.xml" type="application/rdf+xml" title="ICRA labels" />
+<meta content="TRUE" name="MSSmartTagsPreventParsing" />
+<meta content="general" name="rating" />
+
+  <link rel="alternate" type="application/rss+xml" title="Real time synchronization in C# Thread RSS Feed" href="http://www.programmersheaven.com/mb/csharp/366861/366861/rss.aspx" />
+  <style id="ctl00_ctl00_ctl00_StyleTag" type="text/css">@import url(/css/nav.css);
+@import url(/css/ph.css);
+@import url(/css/forum.css);
+</style>
+  <!--[if IE]>
+  <style type="text/css">
+    .NavSearchButton { top: 0px }
+  </style>
+  <![endif]-->
+  
+  <script type="text/javascript" src="/js/menu.js"></script>
+
+  <script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
+
+
+  <script type="text/javascript" src="http://ads.communityheaven.com/www/delivery/spcjs.php?id=1"></script> 
+
+  
+</head>
+<body>
+<div id="ctl00_ctl00_ctl00_HideTopBar">
+	
+  <table style="border-style: none" cellspacing="2" cellpadding="0">
+    <tr>
+      <td align="left"><span><script type='text/javascript'><!--//<![CDATA[
+   var m3_u = (location.protocol=='https:'?'https://ads.communityheaven.com/www/delivery/ajs.php':'http://ads.communityheaven.com/www/delivery/ajs.php');
+   var m3_r = Math.floor(Math.random()*99999999999);
+   if (!document.MAX_used) document.MAX_used = ',';
+   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+   document.write ("?zoneid=58");
+   document.write ('&amp;cb=' + m3_r);
+   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+   document.write (document.charset ? '&amp;charset='+document.charset : (document.characterSet ? '&amp;charset='+document.characterSet : ''));
+   document.write ("&amp;loc=" + escape(window.location));
+   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+   if (document.context) document.write ("&context=" + escape(document.context));
+   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+   document.write ("'><\/scr"+"ipt>");
+//]]>--></script><noscript><a href='http://ads.communityheaven.com/www/delivery/ck.php?n=acf2ff42&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://ads.communityheaven.com/www/delivery/avw.php?zoneid=58&amp;n=acf2ff42' border='0' alt='' /></a></noscript></span></td>
+      <td align="right"><span><script type='text/javascript'><!--//<![CDATA[
+   var m3_u = (location.protocol=='https:'?'https://ads.communityheaven.com/www/delivery/ajs.php':'http://ads.communityheaven.com/www/delivery/ajs.php');
+   var m3_r = Math.floor(Math.random()*99999999999);
+   if (!document.MAX_used) document.MAX_used = ',';
+   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+   document.write ("?zoneid=59");
+   document.write ('&amp;cb=' + m3_r);
+   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+   document.write (document.charset ? '&amp;charset='+document.charset : (document.characterSet ? '&amp;charset='+document.characterSet : ''));
+   document.write ("&amp;loc=" + escape(window.location));
+   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+   if (document.context) document.write ("&context=" + escape(document.context));
+   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+   document.write ("'><\/scr"+"ipt>");
+//]]>--></script><noscript><a href='http://ads.communityheaven.com/www/delivery/ck.php?n=acbfa939&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://ads.communityheaven.com/www/delivery/avw.php?zoneid=59&amp;n=acbfa939' border='0' alt='' /></a></noscript></span></td>
+    </tr>
+  </table>
+
+  <div class="topbar">
+    <div class="topbar_login">
+      
+          <form method="post" action="/Common/Login.aspx">
+            <input type="text" style="width: 105px" maxlength="60" name="LoginBar_Account"
+              value="Username" onclick="if(this.value=='Username')this.value=''" /><br />
+            <input type="password" style="width: 105px" maxlength="30" name="LoginBar_Password"
+              value="Password" onfocus="if(this.value=='Password')this.value=''" /><br />
+            <input type="checkbox" value="1" checked="checked" name="LoginBar_RememberMe" style="border: none; background-color: Transparent" />
+              <label for="LoginBar_RememberMe">Save</label>
+              <input type="submit" name="LoginBar_Submit" value="Sign In" /><br />
+            <a href="/Common/ForgotPassword.aspx">Forgot Password</a><br />
+            <a href="/Common/Register.aspx">Register Here</a>
+          </form>
+        
+    </div>
+    <div class="topad">
+      <span><script type='text/javascript'><!--// <![CDATA[
+    /* [id1] TopOfPage */
+    OA_show(1);
+// ]]> --></script><noscript><a href='http://ads1.communityheaven.com/www/delivery/ck.php?n=abb01b14&amp;cb=739122489' target='_blank'><img src='http://ads1.communityheaven.com/www/delivery/avw.php?zoneid=1&amp;cb=739122489&amp;n=abb01b14&amp;channel=35' border='0' alt='' /></a></noscript></span>
+    </div>
+    <div class="topbar_logo">
+      <a href="/"><img src="http://pheaven.cachefly.net/images/site/logo.png" width="158" height="59" alt="Programmer's Heaven" border="0" /></a>
+    </div>
+  </div>
+  <div class="action_call">
+    Looking for work? Check out our <a href="/Common/CallToAction.aspx?ID=6&URL=/jobs/">jobs area</a>.
+  </div>
+
+</div>
+<div id="ctl00_ctl00_ctl00_HideMiddleContent">
+	
+  <form action="/ph/Search/Search.aspx" method="get" style="margin: 0 0 0 0; padding: 0 0 0 0">
+    <div class="navbar">
+      
+      <div class="NavLinksContainer">
+        <ul id="qm0" class="qmmc">
+          <li><a class="qmparent" href="/tags/">Resources</a>
+            <ul>
+		      <li><a class="qmparent" href="javascript:void(0)">Applications</a>
+                <ul>
+                  <li><a href="/tags/AI/">AI</a></li><li><a href="/tags/Business/">Business</a></li><li><a href="/tags/Components+and+Libraries/">Components and Libraries</a></li><li><a href="/tags/Computer+Science/">Computer Science</a></li><li><a href="/tags/Database/">Database</a></li><li><a href="/tags/Documents+And+Specifications/">Documents And Specifications</a></li><li><a href="/tags/Enterprise+Application+Integration/">Enterprise Application Integration</a></li><li><a href="/tags/Game/">Game</a></li><li><a href="/tags/Hardware/">Hardware</a></li><li><a href="/tags/Multimedia/">Multimedia</a></li><li><a href="/tags/Network/">Network</a></li><li><a href="/tags/Security/">Security</a></li><li><a href="/tags/Tools+And+Utilities/">Tools And Utilities</a></li><li><a href="/tags/Training+And+Certification/">Training And Certification</a></li><li><a href="/tags/Web/">Web</a></li>
+                </ul>
+              </li>
+              <li><a class="qmparent" href="javascript:void(0)">Languages</a>
+                <ul>
+                  <li><a href="/tags/Assembly/">Assembly</a></li><li><a href="/tags/Basic/">Basic</a></li><li><a href="/tags/C/">C</a></li><li><a href="/tags/C%23/">C#</a></li><li><a href="/tags/C%2b%2b/">C++</a></li><li><a href="/tags/Delphi/">Delphi</a></li><li><a href="/tags/Java/">Java</a></li><li><a href="/tags/JavaScript/">JavaScript</a></li><li><a href="/tags/Other+Languages/">Other Languages</a></li><li><a href="/tags/Pascal/">Pascal</a></li><li><a href="/tags/Perl/">Perl</a></li><li><a href="/tags/PHP/">PHP</a></li><li><a href="/tags/Python/">Python</a></li><li><a href="/tags/Ruby/">Ruby</a></li><li><a href="/tags/VB-Script/">VB-Script</a></li><li><a href="/tags/Visual+Basic/">Visual Basic</a></li>
+                </ul>
+              </li>
+              <li><a class="qmparent" href="javascript:void(0);">Platforms</a>
+                <ul>
+                  <li><a href="/tags/.NET/">.NET</a></li><li><a href="/tags/Browser+Based/">Browser Based</a></li><li><a href="/tags/Consoles/">Consoles</a></li><li><a href="/tags/CPU/">CPU</a></li><li><a href="/tags/Embedded/">Embedded</a></li><li><a href="/tags/Java+Platform/">Java Platform</a></li><li><a href="/tags/Legacy+Platforms/">Legacy Platforms</a></li><li><a href="/tags/Linux/">Linux</a></li><li><a href="/tags/Macintosh/">Macintosh</a></li><li><a href="/tags/Mobile+Platforms/">Mobile Platforms</a></li><li><a href="/tags/MS-DOS/">MS-DOS</a></li><li><a href="/tags/Remotely+Hosted/">Remotely Hosted</a></li><li><a href="/tags/UNIX/">UNIX</a></li><li><a href="/tags/WEB+Service/">WEB Service</a></li><li><a href="/tags/Windows/">Windows</a></li>
+                </ul>
+              </li>
+		    </ul>
+          </li>
+          <li><a href="/mb/" class="qmparent">Forums</a>
+            <ul>
+              <li><a href="/mb/Latest.aspx?mode=unanswered">Unanswered Posts</a></li>
+              <li><a href="/mb/Latest.aspx?mode=threads">Latest Threads</a></li>
+              <li><a href="/mb/Latest.aspx?mode=posts">Latest Posts</a></li>
+              <li><span class="qmdivider qmdividerx" ></span></li>
+              <li><a href="javascript:void(0)" class="qmparent">Programming Languages</a><ul><li><a href="/mb/pharabee/Board.aspx">Assembler Developer</a></li><li><a href="/mb/basic/Board.aspx">Basic</a></li><li><a href="/mb/CandCPP/Board.aspx">C and C++</a></li><li><a href="/mb/csharp/Board.aspx">C#</a></li><li><a href="/mb/delphikylix/Board.aspx">Delphi and Kylix</a></li><li><a href="/mb/java/Board.aspx">Java</a></li><li><a href="/mb/pasprog/Board.aspx">Pascal</a></li><li><a href="/mb/perl/Board.aspx">Perl</a></li><li><a href="/mb/phpstuff/Board.aspx">PHP</a></li><li><a href="/mb/python/Board.aspx">Python</a></li><li><a href="/mb/ruby/Board.aspx">Ruby</a></li><li><a href="/mb/VBNET/Board.aspx">VB.NET</a></li><li><a href="/mb/vba/Board.aspx">VBA</a></li><li><a href="/mb/VBasic/Board.aspx">Visual Basic</a></li></ul></li><li><a href="javascript:void(0)" class="qmparent">Applications</a><ul><li><a href="/mb/graphics/Board.aspx">Computer Graphics</a></li><li><a href="/mb/hardware/Board.aspx">Computer Hardware</a></li><li><a href="/mb/database/Board.aspx">Database &amp; SQL</a></li><li><a href="/mb/electronics/Board.aspx">Electronics development</a></li><li><a href="/mb/game/Board.aspx">Game programming</a></li><li><a href="/mb/ctocplusplustomatlab/Board.aspx">Matlab</a></li><li><a href="/mb/sound/Board.aspx">Sound &amp; Music</a></li><li><a href="/mb/xml/Board.aspx">XML Development</a></li></ul></li><li><a href="javascript:void(0)" class="qmparent">Classifieds</a><ul><li><a href="/mb/coopprojects/Board.aspx">Co-operative Projects</a></li><li><a href="/mb/forsale/Board.aspx">For sale</a></li><li><a href="/mb/FreeLanceSoftCity/Board.aspx">FreeLance Software City</a></li><li><a href="/mb/jobs-available/Board.aspx">Jobs Available</a></li><li><a href="/mb/jobs-wanted/Board.aspx">Jobs Wanted</a></li><li><a href="/mb/wanted/Board.aspx">Wanted</a></li></ul></li><li><a href="javascript:void(0)" class="qmparent">Microsoft .NET</a><ul><li><a href="/mb/dotnet/Board.aspx">.NET General</a></li><li><a href="/mb/ASPNET/Board.aspx">ASP.NET</a></li></ul></li><li><a href="javascript:void(0)" class="qmparent">Miscellaneous</a><ul><li><a href="/mb/redesign/Board.aspx">Comments on the PH Re-design</a></li><li><a href="/mb/pheaven/Board.aspx">Comments on this site</a></li><li><a href="/mb/emulation/Board.aspx">Computer Emulators</a></li><li><a href="/mb/general/Board.aspx">General programming</a></li><li><a href="/mb/languages/Board.aspx">New programming languages</a></li><li><a href="/mb/offtopic/Board.aspx">Off topic board</a></li></ul></li><li><a href="javascript:void(0)" class="qmparent">Mobile &amp; Wireless</a><ul><li><a href="/mb/palm/Board.aspx">Palm Pilot</a></li></ul></li><li><a href="javascript:void(0)" class="qmparent">Multimedia</a><ul><li><a href="/mb/demo/Board.aspx">Demo programming</a></li><li><a href="/mb/MP3/Board.aspx">MP3 programming</a></li></ul></li><li><a href="javascript:void(0)" class="qmparent">Operating Systems &amp; Platforms</a><ul><li><a href="/mb/embedded/Board.aspx">Embedded / RTOS</a></li><li><a href="/mb/freeBSD/Board.aspx">FreeBSD</a></li><li><a href="/mb/Linux/Board.aspx">LINUX programming</a></li><li><a href="/mb/MS-DOS/Board.aspx">MS-DOS</a></li><li><a href="/mb/pocket-pc/Board.aspx">Windows CE &amp; Pocket PC</a></li><li><a href="/mb/windows/Board.aspx">Windows programming</a></li></ul></li><li><a href="javascript:void(0)" class="qmparent">Software Development</a><ul><li><a href="/mb/Algorithms/Board.aspx">Algorithms</a></li><li><a href="/mb/objects/Board.aspx">Object Orientation</a></li><li><a href="/mb/projects/Board.aspx">Project Management</a></li><li><a href="/mb/quality/Board.aspx">Quality &amp; Testing</a></li><li><a href="/mb/Security/Board.aspx">Security</a></li></ul></li><li><a href="javascript:void(0)" class="qmparent">WEB-Development</a><ul><li><a href="/mb/aspfaq/Board.aspx">Active Server Pages</a></li><li><a href="/mb/ajax/Board.aspx">AJAX</a></li><li><a href="/mb/CGI/Board.aspx">CGI Development</a></li><li><a href="/mb/ColdFusion/Board.aspx">ColdFusion</a></li><li><a href="/mb/flash/Board.aspx">Flash development</a></li><li><a href="/mb/html/Board.aspx">HTML &amp; WEB-Design</a></li><li><a href="/mb/internet/Board.aspx">Internet Development</a></li><li><a href="/mb/java-script/Board.aspx">JavaScript</a></li><li><a href="/mb/other-web-servers/Board.aspx">WEB Servers</a></li><li><a href="/mb/web-services/Board.aspx">WEB-Services / SOAP</a></li></ul></li>
+            </ul>
+          </li>
+          <li><a href="/blog/" class="qmparent">Blogs</a>
+            <ul>
+              <li><a href="/blog/">Blog Startpage</a></li>
+              
+              <li><a href="/blog/LatestBlogPosts.aspx">Latest Blog Posts</a></li>
+            </ul>
+          </li>
+          <li><a href="/submit/" class="qmparent">Submit</a>
+            <ul>
+              <li><a href="/submit/article/">Article</a></li>
+              <li><a href="/submit/book/">Book</a></li>
+              <li><a href="/submit/file/">File</a></li>
+              <li><a href="/submit/link/">Link</a></li>
+              <li><a href="/submit/news/">News</a></li>
+              <li><a href="/submit/pad/PADSubmission.aspx">PAD File</a></li>
+              <li><a href="/submit/wikiarticle/">Wiki Article</a></li>
+            </ul>
+          </li>
+          <li><a href="/jobs/" class="qmparent">Jobs</a></li>
+          <li><a href="http://tools.programmersheaven.com/" class="qmparent">Dev Tools</a></li>
+          <li><a href="/ph/" class="qmparent">PH</a>
+            <ul>
+              <li><a href="/ph/search/search.aspx">Search</a></li>
+              <li><a href="/ph/newsletter/newsletter.aspx">Newsletter</a></li>
+              <li><a href="http://www.bytelove.com/partners/programmers-heaven/cat_24.html?utm_source=PH&utm_medium=partner&utm_campaign=PH%2Bcategory" target="_blank">Merchandise</a></li>
+              <li><a href="/ph/TopUsers.aspx">Top User Lists</a></li>
+              <li><a href="/ph/GettingStarted.aspx">Getting Started Guide</a></li>
+              <li><a href="/2/ProgrammersHeaven_Help">Help</a></li>
+              <li><a href="/ph/advertise.aspx">Advertise</a></li>
+              <li><a href="/ph/contact.aspx">Contact Us</a></li>
+            </ul>
+          </li>
+          <li class="qmclear">&nbsp;</li>
+        </ul>
+      </div>
+
+      <div class="NavSearchContainer">
+        Search <input type="text" name="query" class="NavSearchInput" /><input type="image" style="vertical-align: text-top" src="/images/site/search_icon.png" width="21" height="20" border="0" class="NavSearchButton" />
+        <a href="/ph/search/search.aspx">(Advanced Search)</a>
+      </div>
+    </div>
+    <!-- Create Menu Settings: (Menu ID, Is Vertical, Show Timer, Hide Timer, On Click ('all', 'main' or 'lev2'), Right to Left, Horizontal Subs, Flush Left, Flush Top) -->
+    <script type="text/javascript">qm_create(0,false,100,400,false,false,false,false,false);</script>
+    
+    <div id="ctl00_ctl00_ctl00_BreadCrumbTrailDiv" class="BreadCrumbTrail" onclick="CloseAnyDD()">
+      
+          <a href="/">HOME</a>
+          
+          
+         &nbsp;&gt;&nbsp; 
+          <a href="/mb/">Forums</a>
+          
+          
+         &nbsp;&gt;&nbsp; 
+          <a href="/mb/csharp/Board.aspx?S=B20000">C#</a>
+          
+          
+         &nbsp;&gt;&nbsp; 
+          Real time synchronization in C#
+          
+          
+        
+    </div>
+  </form>
+
+</div>
+
+  <form action="ReadMessage.aspx" method="post" style="margin: 0 0 0 0; padding: 0 0 0 0" id="aspnetForm">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTU1NzMxNTUzN2QYAQUaY3RsMDAkY3RsMDAkY3RsMDAkTG9naW5CYXIPD2RmZLNV22glNp1K4J3s/Ul19EIZUif/" />
+
+
+    <div onclick="CloseAnyDD();">
+      
+  <div class="TwoColumnWrap">
+    <div class="TwoColumnInnerWrap">
+      <div class="LeftColumnWrap">
+        <div class="StandardLeftColumn">
+          <!--<div class="PageHeading">
+            <h1 id="ctl00_ctl00_ctl00_PageBody_PageHeadingTitle" class="PageTitle">Read Post</h1>
+          </div>-->
+          <div class="ContentBoxContent_leftcolumn">
+            <!-- google_ad_section_start -->
+            
+      
+  <div class="ForumTopAd">
+    <span><script type='text/javascript'><!--// <![CDATA[
+    /* [id4] ContentBox */
+    OA_show(4);
+// ]]> --></script><noscript><a href='http://ads1.communityheaven.com/www/delivery/ck.php?n=a5658636&amp;cb=739122489' target='_blank'><img src='http://ads1.communityheaven.com/www/delivery/avw.php?zoneid=4&amp;cb=739122489&amp;n=a5658636&amp;channel=35' border='0' alt='' /></a></noscript></span>
+  </div>
+  <div class="ForumNameArea">
+    <h2 class="ForumHeading">C#</h2>
+    Moderators: None (<a href="ModeratorsWanted.aspx">Apply&nbsp;to&nbsp;moderate&nbsp;this&nbsp;forum</a>)
+  </div>
+  <div>
+    Number of threads: <a>2458</a><br />
+    Number of posts: <a>5313</a><br />
+    <div id="ctl00_ctl00_ctl00_PageBody_Left_Main_RSSLinks">
+	
+      <a href="/mb/csharp/rss.aspx?AllPosts=1"><img alt="Programmers Heaven RSS Feed, including full replies" src="http://pheaven.cachefly.net/images/site/rss.jpg" width="16" height="16" border="0" /></a>
+        <a href="/mb/csharp/rss.aspx?AllPosts=1">With full replies</a><br />
+      <a href="/mb/csharp/rss.aspx?AllPosts=1"><img alt="Programmers Heaven RSS Feed, topics only" src="http://pheaven.cachefly.net/images/site/rss.jpg" width="16" height="16" border="0" /></a>
+        <a href="/mb/csharp/rss.aspx?AllPosts=1">Topics only</a>
+    
+</div>
+  </div>
+  <br />
+  <span id="ctl00_ctl00_ctl00_PageBody_Left_Main_Tabs"><div class="TabBar"><div style="float: left;"><img src="http://pheaven.cachefly.net/images/site/tab_start_s.png" /></div><div class="TabActive"><a href="/mb/csharp/Board.aspx?S=B20000">C#</a></div><div style="float: left"><img src="http://pheaven.cachefly.net/images/site/tab_sep_su.png" /></div><div class="TabInactive"><a href="/mb/csharp/BoardInfo.aspx?S=B20000">Forum Info</a></div><div style="float: left"><img src="http://pheaven.cachefly.net/images/site/tab_end_u.png" /></div></div></span>
+  <div class="ForumActionsArea">
+    <div class="ForumPostSearchArea">
+      <div style="float: right">
+        <input type="text" name="SearchTxt" class="ForumSearchBox" /><input type="image" name="msgsearch" value="Search" src="/images/forumgraphics/Search_icon.png" width="21" height="20" alt="Search" class="ForumSearchButton" />
+        <input type="checkbox" name="ForumID" checked="checked" value="37" style="vertical-align: top" />
+          This Forum Only
+      </div>
+      <div>
+        <a href="/mb/csharp/PostNew.aspx?S=B20000"><img src="http://pheaven.cachefly.net/images/forumgraphics/New_Thread.png" border="0" alt="Post New Thread" id="New_Thread" onmouseover="StartRO('New_Thread')" onmouseout="EndRO('New_Thread')" /></a>
+      </div>
+    </div>
+    <div class="ForumSettingsArea" style="padding-top: 3px; height: 19px">
+      <div style="float: right">
+        <a href="?S=B20000&amp;ReadPostMode=1">Single Post View</a>
+        &nbsp; &nbsp; &nbsp;
+        <a href="?S=B20000&amp;ReadPostMode=0">Linear View</a>
+        &nbsp; &nbsp; &nbsp;
+        <a href="?S=B20000&amp;ReadPostMode=2">Threaded View</a>
+        &nbsp; &nbsp; &nbsp;
+      </div>
+      <div style="width: 200px">
+        <a href="?S=B20000&pf=1" id="ctl00_ctl00_ctl00_PageBody_Left_Main_PrinterFriendlyLink">Printer Friendly</a>
+        &nbsp; &nbsp; &nbsp; 
+        <img src="http://pheaven.cachefly.net/images/site/rss.jpg" alt="RSS Feed" border="0" style="vertical-align: top" /> <a href="Rss.aspx">RSS Feed</a>
+      </div>
+    </div>
+    
+  </div>
+  <br />
+
+    
+
+  
+      <a name="366861"></a>
+      <div style="">
+      <div class="ForumPost" style="background-color: #F3F3F3; ">
+        <div class="ForumPostActions">
+          
+          <a href="/mb/csharp/366861/366861/ReportPost.aspx?S=B20000"><img src="http://pheaven.cachefly.net/images/forumgraphics/Report.png" border="0" alt="Report" id="Report366861" onmouseover="StartRO(this.id)" onmouseout="EndRO(this.id)" /></a>
+        </div>
+        <div class="ForumPostHeader">
+          <span class="ForumHeading">Real time synchronization in C#</span>
+          <span class="ForumPostInfo">
+            Posted by <a href="/user/karthiin/">karthiin</a>
+            on 29 Oct 2007 at 1:43 AM
+          </span>
+        </div>
+        
+        <div class="ForumPostBody" style="min-height: 280px">
+          <div>
+	
+            <div style="float: right">
+              <span><script type='text/javascript'><!--// <![CDATA[
+    /* [id36] Forum_LargeRect */
+    OA_show(36);
+// ]]> --></script><noscript><a href='http://ads.communityheaven.com/www/delivery/ck.php?n=acd41992&amp;cb=739122489' target='_blank'><img src='http://ads.communityheaven.com/www/delivery/avw.php?zoneid=36&amp;cb=739122489&amp;n=acd41992&amp;channel=35' border='0' alt='' /></a></noscript></span>
+            </div>
+          
+</div>
+          Can I get some help or links on Real time synchronization in C#. <br />
+My Project is about the client test program shall detect when<br />
+a change in a file is made automatically on the client computer and upload the file to a web server. Every 30 min the client sync program shall look for a newer version located on the server and if a newer file version is located then download the file <br />
+
+        </div>
+        
+        <div class="ForumPostReply">
+          <a href="/mb/csharp/366861/366861/PostReply.aspx?S=B20000"><img src="http://pheaven.cachefly.net/images/forumgraphics/Reply.png" style="border-style: none; position: relative; top: 4px" alt="Reply" id="Reply366861" onmouseover="StartRO('Reply366861')" onmouseout="EndRO('Reply366861')" /></a>
+          &nbsp;
+          
+<a href="/Common/ShareByEmail.aspx?type=6&group=37&id=366861">
+  <img src="/images/socialicons/email.gif" alt="Share By Email" style="border-style: none; vertical-align: bottom;" />
+</a>
+<a href="/Common/ShareByEmail.aspx?type=6&group=37&id=366861">
+  Share By Email
+</a>
+
+        </div>
+      </div>
+      </div>
+    
+      <a name="366871"></a>
+      <div style="padding-left: 16px;">
+      <div class="ForumPost" style="background-color: #FFFFFF;">
+        <div class="ForumPostActions">
+          
+          <a href="/mb/csharp/366861/366871/ReportPost.aspx?S=B20000"><img src="http://pheaven.cachefly.net/images/forumgraphics/Report.png" border="0" alt="Report" id="Report366871" onmouseover="StartRO(this.id)" onmouseout="EndRO(this.id)" /></a>
+        </div>
+        <div class="ForumPostHeader">
+          <span class="ForumHeading">Re: Real time synchronization in C#</span>
+          <span class="ForumPostInfo">
+            Posted by <a href="/user/WEBMASTER/">WEBMASTER</a>
+            on 29 Oct 2007 at 7:34 AM
+          </span>
+        </div>
+        
+        <div class="ForumPostBody">
+          
+          Use the file watcher event in .NET to get notified when files are changed in specific directories.<br />
+<br />
+Look at <a href="http://www.codersource.net/published/view/277/watching_file_in.aspx">http://www.codersource.net/published/view/277/watching_file_in.aspx</a><br />
+<br />
+<br />
+Tore Nestenius<br />
+<span style="color: Blue;"><em><strong>/WEBMASTER</strong></em></span> Programmers Heaven
+        </div>
+        
+        <div class="ForumPostReply">
+          <a href="/mb/csharp/366861/366871/PostReply.aspx?S=B20000"><img src="http://pheaven.cachefly.net/images/forumgraphics/Reply.png" style="border-style: none; position: relative; top: 4px" alt="Reply" id="Reply366871" onmouseover="StartRO('Reply366871')" onmouseout="EndRO('Reply366871')" /></a>
+          &nbsp;
+          
+<a href="/Common/ShareByEmail.aspx?type=6&group=37&id=366871">
+  <img src="/images/socialicons/email.gif" alt="Share By Email" style="border-style: none; vertical-align: bottom;" />
+</a>
+<a href="/Common/ShareByEmail.aspx?type=6&group=37&id=366871">
+  Share By Email
+</a>
+
+        </div>
+      </div>
+      </div>
+    
+      <a name="367573"></a>
+      <div style="padding-left: 32px;">
+      <div class="ForumPost" style="background-color: #F3F3F3; ">
+        <div class="ForumPostActions">
+          
+          <a href="/mb/csharp/366861/367573/ReportPost.aspx?S=B20000"><img src="http://pheaven.cachefly.net/images/forumgraphics/Report.png" border="0" alt="Report" id="Report367573" onmouseover="StartRO(this.id)" onmouseout="EndRO(this.id)" /></a>
+        </div>
+        <div class="ForumPostHeader">
+          <span class="ForumHeading">Re: Real time synchronization in C#</span>
+          <span class="ForumPostInfo">
+            Posted by <a href="/user/karthiin/">karthiin</a>
+            on 24 Nov 2007 at 10:25 PM
+          </span>
+        </div>
+        
+        <div class="ForumPostBody">
+          
+          Thanks for the link. Is it possible to watch a change in file in a webdav server when only the URL to that server is given.I am accessing the webdav server through a URL using HttpWebRequest. How can I know that afile is being changed in the server through my client application.  Please help me very urgent..<br />
+<br />
+<br />
+: Use the file watcher event in .NET to get notified when files are <br />
+: changed in specific directories.<br />
+: <br />
+: Look at <br />
+: <a href="http://www.codersource.net/published/view/277/watching_file_in.aspx">http://www.codersource.net/published/view/277/watching_file_in.aspx</a><br />
+: <br />
+: <br />
+: Tore Nestenius<br />
+: <span style="color: Blue;"><em><strong>/WEBMASTER</strong></em></span> Programmers Heaven<br />
+<br />
+
+        </div>
+        
+        <div class="ForumPostReply">
+          <a href="/mb/csharp/366861/367573/PostReply.aspx?S=B20000"><img src="http://pheaven.cachefly.net/images/forumgraphics/Reply.png" style="border-style: none; position: relative; top: 4px" alt="Reply" id="Reply367573" onmouseover="StartRO('Reply367573')" onmouseout="EndRO('Reply367573')" /></a>
+          &nbsp;
+          
+<a href="/Common/ShareByEmail.aspx?type=6&group=37&id=367573">
+  <img src="/images/socialicons/email.gif" alt="Share By Email" style="border-style: none; vertical-align: bottom;" />
+</a>
+<a href="/Common/ShareByEmail.aspx?type=6&group=37&id=367573">
+  Share By Email
+</a>
+
+        </div>
+      </div>
+      </div>
+    
+      <a name="367626"></a>
+      <div style="padding-left: 48px;">
+      <div class="ForumPost" style="background-color: #FFFFFF;">
+        <div class="ForumPostActions">
+          
+          <a href="/mb/csharp/366861/367626/ReportPost.aspx?S=B20000"><img src="http://pheaven.cachefly.net/images/forumgraphics/Report.png" border="0" alt="Report" id="Report367626" onmouseover="StartRO(this.id)" onmouseout="EndRO(this.id)" /></a>
+        </div>
+        <div class="ForumPostHeader">
+          <span class="ForumHeading">Re: Real time synchronization in C#</span>
+          <span class="ForumPostInfo">
+            Posted by <a href="/user/Jonathan/">Jonathan</a>
+            on 27 Nov 2007 at 1:33 AM
+          </span>
+        </div>
+        
+        <div class="ForumPostBody">
+          
+          If you do a HEAD request, one of the headers you get back in the response should be a Last-Modified header. You can look at that and compare it to the last date/time you saw there, and if it's changed you know there was an update to the file.<br />
+<br />
+I can't think of any way to get the server to push this information to you; you'd just have to poll it regularly. Unless WebDAV is just the protocol that something else is using, and you can get the something else to notify you. (For example, Subversion runs over WebDAV, and you can set up commit time hooks).<br />
+<br />
+Jonathan<br />
+###<br />
+for(74,117,115,116){$::a.=chr};(($_.='qwertyui')&amp;&amp;<br />
+(tr/yuiqwert/her anot/))for($::b);for($::c){$_.=$^X;<br />
+/(p.{2}l)/;$_=$1}$::b=~/(..)$/;print("$::a$::b $::c hack$1.");
+        </div>
+        
+        <div class="ForumPostReply">
+          <a href="/mb/csharp/366861/367626/PostReply.aspx?S=B20000"><img src="http://pheaven.cachefly.net/images/forumgraphics/Reply.png" style="border-style: none; position: relative; top: 4px" alt="Reply" id="Reply367626" onmouseover="StartRO('Reply367626')" onmouseout="EndRO('Reply367626')" /></a>
+          &nbsp;
+          
+<a href="/Common/ShareByEmail.aspx?type=6&group=37&id=367626">
+  <img src="/images/socialicons/email.gif" alt="Share By Email" style="border-style: none; vertical-align: bottom;" />
+</a>
+<a href="/Common/ShareByEmail.aspx?type=6&group=37&id=367626">
+  Share By Email
+</a>
+
+        </div>
+      </div>
+      </div>
+    
+      <a name="367649"></a>
+      <div style="padding-left: 64px;">
+      <div class="ForumPost" style="background-color: #F3F3F3; ">
+        <div class="ForumPostActions">
+          
+          <a href="/mb/csharp/366861/367649/ReportPost.aspx?S=B20000"><img src="http://pheaven.cachefly.net/images/forumgraphics/Report.png" border="0" alt="Report" id="Report367649" onmouseover="StartRO(this.id)" onmouseout="EndRO(this.id)" /></a>
+        </div>
+        <div class="ForumPostHeader">
+          <span class="ForumHeading">Re: Real time synchronization in C#</span>
+          <span class="ForumPostInfo">
+            Posted by <a href="/user/karthiin/">karthiin</a>
+            on 27 Nov 2007 at 11:46 PM
+          </span>
+        </div>
+        
+        <div class="ForumPostBody">
+          
+          If u give me some code samples of the HEAD request it will be more helpful to me...<br />
+<br />
+i did some sample code and it returned me only host name..<br />
+<br />
+HttpWebRequest req = (HttpWebRequest)WebRequest.Create("http://www.contoso.com");<br />
+HttpWebResponse resp = (HttpWebResponse)req.GetResponse();<br />
+Console.WriteLine(req.Headers);<br />
+<br />
+<br />
+this is from msdn.. please help me out in getting the last modified time ..<br />
+<br />
+karthiin<br />
+<br />
+<br />
+: If you do a HEAD request, one of the headers you get back in the <br />
+: response should be a Last-Modified header. You can look at that and <br />
+: compare it to the last date/time you saw there, and if it's changed <br />
+: you know there was an update to the file.<br />
+: <br />
+: I can't think of any way to get the server to push this information <br />
+: to you; you'd just have to poll it regularly. Unless WebDAV is just <br />
+: the protocol that something else is using, and you can get the <br />
+: something else to notify you. (For example, Subversion runs over <br />
+: WebDAV, and you can set up commit time hooks).<br />
+: <br />
+: Jonathan<br />
+: ###<br />
+: for(74,117,115,116){$::a.=chr};(($_.='qwertyui')&amp;&amp;<br />
+: (tr/yuiqwert/her anot/))for($::b);for($::c){$_.=$^X;<br />
+: /(p.{2}l)/;$_=$1}$::b=~/(..)$/;print("$::a$::b $::c hack$1.");<br />
+<br />
+
+        </div>
+        
+        <div class="ForumPostReply">
+          <a href="/mb/csharp/366861/367649/PostReply.aspx?S=B20000"><img src="http://pheaven.cachefly.net/images/forumgraphics/Reply.png" style="border-style: none; position: relative; top: 4px" alt="Reply" id="Reply367649" onmouseover="StartRO('Reply367649')" onmouseout="EndRO('Reply367649')" /></a>
+          &nbsp;
+          
+<a href="/Common/ShareByEmail.aspx?type=6&group=37&id=367649">
+  <img src="/images/socialicons/email.gif" alt="Share By Email" style="border-style: none; vertical-align: bottom;" />
+</a>
+<a href="/Common/ShareByEmail.aspx?type=6&group=37&id=367649">
+  Share By Email
+</a>
+
+        </div>
+      </div>
+      </div>
+    
+      <a name="368052"></a>
+      <div style="padding-left: 80px;">
+      <div class="ForumPost" style="background-color: #FFFFFF;">
+        <div class="ForumPostActions">
+          
+          <a href="/mb/csharp/366861/368052/ReportPost.aspx?S=B20000"><img src="http://pheaven.cachefly.net/images/forumgraphics/Report.png" border="0" alt="Report" id="Report368052" onmouseover="StartRO(this.id)" onmouseout="EndRO(this.id)" /></a>
+        </div>
+        <div class="ForumPostHeader">
+          <span class="ForumHeading">Re: Real time synchronization in C#</span>
+          <span class="ForumPostInfo">
+            Posted by <a href="/user/karthiin/">karthiin</a>
+            on 15 Dec 2007 at 10:22 PM
+          </span>
+        </div>
+        
+        <div class="ForumPostBody">
+          
+          Thanks a lot ..got an answer..<br />
+<br />
+karthiin<br />
+<br />
+: If u give me some code samples of the HEAD request it will be more <br />
+: helpful to me...<br />
+: <br />
+: i did some sample code and it returned me only host name..<br />
+: <br />
+: HttpWebRequest req = <br />
+: (HttpWebRequest)WebRequest.Create("http://www.contoso.com");<br />
+: HttpWebResponse resp = (HttpWebResponse)req.GetResponse();<br />
+: Console.WriteLine(req.Headers);<br />
+: <br />
+: <br />
+: this is from msdn.. please help me out in getting the last modified <br />
+: time ..<br />
+: <br />
+: karthiin<br />
+: <br />
+: <br />
+: : If you do a HEAD request, one of the headers you get back in the <br />
+: : response should be a Last-Modified header. You can look at that and <br />
+: : compare it to the last date/time you saw there, and if it's changed <br />
+: : you know there was an update to the file.<br />
+: : <br />
+: : I can't think of any way to get the server to push this information <br />
+: : to you; you'd just have to poll it regularly. Unless WebDAV is just <br />
+: : the protocol that something else is using, and you can get the <br />
+: : something else to notify you. (For example, Subversion runs over <br />
+: : WebDAV, and you can set up commit time hooks).<br />
+: : <br />
+: : Jonathan<br />
+: : ###<br />
+: : for(74,117,115,116){$::a.=chr};(($_.='qwertyui')&amp;&amp;<br />
+: : (tr/yuiqwert/her anot/))for($::b);for($::c){$_.=$^X;<br />
+: : /(p.{2}l)/;$_=$1}$::b=~/(..)$/;print("$::a$::b $::c hack$1.");<br />
+: <br />
+: <br />
+<br />
+
+        </div>
+        
+        <div class="ForumPostReply">
+          <a href="/mb/csharp/366861/368052/PostReply.aspx?S=B20000"><img src="http://pheaven.cachefly.net/images/forumgraphics/Reply.png" style="border-style: none; position: relative; top: 4px" alt="Reply" id="Reply368052" onmouseover="StartRO('Reply368052')" onmouseout="EndRO('Reply368052')" /></a>
+          &nbsp;
+          
+<a href="/Common/ShareByEmail.aspx?type=6&group=37&id=368052">
+  <img src="/images/socialicons/email.gif" alt="Share By Email" style="border-style: none; vertical-align: bottom;" />
+</a>
+<a href="/Common/ShareByEmail.aspx?type=6&group=37&id=368052">
+  Share By Email
+</a>
+
+        </div>
+      </div>
+      </div>
+    
+  <span id="ctl00_ctl00_ctl00_PageBody_Left_Main_PagingBar"></span>
+  
+      
+  <br />
+  
+  <br />
+  <br />
+  
+
+
+
+		
+            <!-- google_ad_section_end -->
+            <div style="clear: both">&nbsp;</div>
+
+		
+          </div>
+          <!--
+          <div class="ContentBoxBottom"><div class="ContentBoxBottomInner"><img src="http://pheaven.cachefly.net/images/site/edge_blue_r.png" alt="corner" height="8" width="8" /></div></div>
+          -->
+        </div>
+      </div>
+      <div class="StandardRightColumn">
+        
+    
+    
+
+        
+        <div style="text-align: center; border-style: none;">
+          <span><script type='text/javascript'><!--// <![CDATA[
+    /* [id2] LargeRectangle */
+    OA_show(2);
+// ]]> --></script><noscript><a href='http://ads1.communityheaven.com/www/delivery/ck.php?n=ac3d6a13&amp;cb=739122489' target='_blank'><img src='http://ads1.communityheaven.com/www/delivery/avw.php?zoneid=2&amp;cb=739122489&amp;n=ac3d6a13&amp;channel=35' border='0' alt='' /></a></noscript></span>
+        </div>
+        <table style="border: none 0 white; padding: 0 0 0 0; width: 336px">
+          <tr>
+            <td align="center"><span><script type='text/javascript'><!--// <![CDATA[
+    /* [id10] Button_1 */
+    OA_show(10);
+// ]]> --></script><noscript><a href='http://ads2.communityheaven.com/www/delivery/ck.php?n=a3282d70&amp;cb=739122489' target='_blank'><img src='http://ads2.communityheaven.com/www/delivery/avw.php?zoneid=10&amp;cb=739122489&amp;n=a3282d70&amp;channel=35' border='0' alt='' /></a></noscript></span></td>
+            <td align="center"><span><script type='text/javascript'><!--// <![CDATA[
+    /* [id13] Button_2 */
+    OA_show(13);
+// ]]> --></script><noscript><a href='http://ads2.communityheaven.com/www/delivery/ck.php?n=a81eea25&amp;cb=739122489' target='_blank'><img src='http://ads2.communityheaven.com/www/delivery/avw.php?zoneid=13&amp;cb=739122489&amp;n=a81eea25&amp;channel=35' border='0' alt='' /></a></noscript></span></td>
+          </tr>
+          <tr>
+            <td align="center"><span><script type='text/javascript'><!--// <![CDATA[
+    /* [id14] Button_3 */
+    OA_show(14);
+// ]]> --></script><noscript><a href='http://ads2.communityheaven.com/www/delivery/ck.php?n=a404fa54&amp;cb=739122489' target='_blank'><img src='http://ads2.communityheaven.com/www/delivery/avw.php?zoneid=14&amp;cb=739122489&amp;n=a404fa54&amp;channel=35' border='0' alt='' /></a></noscript></span></td>
+            <td align="center"><span><script type='text/javascript'><!--// <![CDATA[
+    /* [id15] Button_4 */
+    OA_show(15);
+// ]]> --></script><noscript><a href='http://ads3.communityheaven.com/www/delivery/ck.php?n=a690fc4d&amp;cb=739122489' target='_blank'><img src='http://ads3.communityheaven.com/www/delivery/avw.php?zoneid=15&amp;cb=739122489&amp;n=a690fc4d&amp;channel=35' border='0' alt='' /></a></noscript></span></td>
+          </tr>
+          <tr>
+            <td align="center"><span><script type='text/javascript'><!--// <![CDATA[
+    /* [id16] Button_5 */
+    OA_show(16);
+// ]]> --></script><noscript><a href='http://ads3.communityheaven.com/www/delivery/ck.php?n=a116290b&amp;cb=739122489' target='_blank'><img src='http://ads3.communityheaven.com/www/delivery/avw.php?zoneid=16&amp;cb=739122489&amp;n=a116290b&amp;channel=35' border='0' alt='' /></a></noscript></span></td>
+            <td align="center"><span><script type='text/javascript'><!--// <![CDATA[
+    /* [id17] Button_6 */
+    OA_show(17);
+// ]]> --></script><noscript><a href='http://ads3.communityheaven.com/www/delivery/ck.php?n=acebfb31&amp;cb=739122489' target='_blank'><img src='http://ads3.communityheaven.com/www/delivery/avw.php?zoneid=17&amp;cb=739122489&amp;n=acebfb31&amp;channel=35' border='0' alt='' /></a></noscript></span></td>
+          </tr>
+          <tr>
+            <td align="center"><span><script type='text/javascript'><!--// <![CDATA[
+    /* [id18] Button_7 */
+    OA_show(18);
+// ]]> --></script><noscript><a href='http://ads3.communityheaven.com/www/delivery/ck.php?n=a85b3341&amp;cb=739122489' target='_blank'><img src='http://ads3.communityheaven.com/www/delivery/avw.php?zoneid=18&amp;cb=739122489&amp;n=a85b3341&amp;channel=35' border='0' alt='' /></a></noscript></span></td>
+            <td align="center"><span><script type='text/javascript'><!--// <![CDATA[
+    /* [id19] Button_8 */
+    OA_show(19);
+// ]]> --></script><noscript><a href='http://ads4.communityheaven.com/www/delivery/ck.php?n=a23e7c8f&amp;cb=739122489' target='_blank'><img src='http://ads4.communityheaven.com/www/delivery/avw.php?zoneid=19&amp;cb=739122489&amp;n=a23e7c8f&amp;channel=35' border='0' alt='' /></a></noscript></span></td>
+          </tr>
+          <tr>
+            <td align="center"><span><script type='text/javascript'><!--// <![CDATA[
+    /* [id20] Button_9 */
+    OA_show(20);
+// ]]> --></script><noscript><a href='http://ads4.communityheaven.com/www/delivery/ck.php?n=aa5687bd&amp;cb=739122489' target='_blank'><img src='http://ads4.communityheaven.com/www/delivery/avw.php?zoneid=20&amp;cb=739122489&amp;n=aa5687bd&amp;channel=35' border='0' alt='' /></a></noscript></span></td>
+            <td align="center"><span><script type='text/javascript'><!--// <![CDATA[
+    /* [id21] Button_10 */
+    OA_show(21);
+// ]]> --></script><noscript><a href='http://ads4.communityheaven.com/www/delivery/ck.php?n=ac05192e&amp;cb=739122489' target='_blank'><img src='http://ads4.communityheaven.com/www/delivery/avw.php?zoneid=21&amp;cb=739122489&amp;n=ac05192e&amp;channel=35' border='0' alt='' /></a></noscript></span></td>
+          </tr>
+          <tr>
+            <td align="center"><span><script type='text/javascript'><!--// <![CDATA[
+    /* [id6] WideSkyscraper */
+    OA_show(6);
+// ]]> --></script><noscript><a href='http://ads2.communityheaven.com/www/delivery/ck.php?n=a2f8feff&amp;cb=739122489' target='_blank'><img src='http://ads2.communityheaven.com/www/delivery/avw.php?zoneid=6&amp;cb=739122489&amp;n=a2f8feff&amp;channel=35' border='0' alt='' /></a></noscript></span></td>
+            <td align="center"><span><script type='text/javascript'><!--// <![CDATA[
+    /* [id7] WideSkyscraper2 */
+    OA_show(7);
+// ]]> --></script><noscript><a href='http://ads3.communityheaven.com/www/delivery/ck.php?n=af319062&amp;cb=739122489' target='_blank'><img src='http://ads3.communityheaven.com/www/delivery/avw.php?zoneid=7&amp;cb=739122489&amp;n=af319062&amp;channel=35' border='0' alt='' /></a></noscript></span></td>
+          </tr>
+        </table>
+        <div style="text-align: center; margin-top: 4px; border-top: solid 1px #000000; padding-top: 4px">
+          <span><script type='text/javascript'><!--// <![CDATA[
+    /* [id23] LargeRectangle_2 */
+    OA_show(23);
+// ]]> --></script><noscript><a href='http://ads.communityheaven.com/www/delivery/ck.php?n=a51be0be&amp;cb=739122489' target='_blank'><img src='http://ads.communityheaven.com/www/delivery/avw.php?zoneid=23&amp;cb=739122489&amp;n=a51be0be&amp;channel=35' border='0' alt='' /></a></noscript></span>
+        </div>
+        <div style="text-align: center; border-style: none; margin-top: 4px">
+          <span><script type='text/javascript'><!--// <![CDATA[
+    /* [id24] LargeRectangle_3 */
+    OA_show(24);
+// ]]> --></script><noscript><a href='http://ads.communityheaven.com/www/delivery/ck.php?n=a8504fbf&amp;cb=739122489' target='_blank'><img src='http://ads.communityheaven.com/www/delivery/avw.php?zoneid=24&amp;cb=739122489&amp;n=a8504fbf&amp;channel=35' border='0' alt='' /></a></noscript></span>
+        </div>
+        <table style="border: none 0 white; padding: 0 0 0 0; width: 336px">
+          <tr>
+            <td align="center"><span><script type='text/javascript'><!--// <![CDATA[
+    /* [id25] Button_11 */
+    OA_show(25);
+// ]]> --></script><noscript><a href='http://ads.communityheaven.com/www/delivery/ck.php?n=ade50764&amp;cb=739122489' target='_blank'><img src='http://ads.communityheaven.com/www/delivery/avw.php?zoneid=25&amp;cb=739122489&amp;n=ade50764&amp;channel=35' border='0' alt='' /></a></noscript></span></td>
+            <td align="center"><span><script type='text/javascript'><!--// <![CDATA[
+    /* [id26] Button_12 */
+    OA_show(26);
+// ]]> --></script><noscript><a href='http://ads.communityheaven.com/www/delivery/ck.php?n=a6d76c6a&amp;cb=739122489' target='_blank'><img src='http://ads.communityheaven.com/www/delivery/avw.php?zoneid=26&amp;cb=739122489&amp;n=a6d76c6a&amp;channel=35' border='0' alt='' /></a></noscript></span></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+    </div>
+
+
+<div id="ctl00_ctl00_ctl00_HideBottomContent">
+	    
+
+    <div class="bottomlinks">
+      <a href="/">Home</a>
+      <a href="/ph/about.aspx">About PH</a>
+      <a href="/ph/privacy.aspx">Privacy Statement</a>
+      <a href="http://tools.programmersheaven.com/">Hosted SubVersion</a>
+      <a href="http://tools.programmersheaven.com/">Hosted Bugtracker</a>
+      <a href="/ph/contact.aspx">Contact Us</a>
+      <a href="/ph/advertise.aspx">Advertise Here</a>
+    </div>
+    
+    <div class="bottomjumps">
+
+      <b>Official Programmer's Heaven Blogs</b>	
+      <br/>
+      <a href="http://programmersheaven.com/web-hosting/">Web Hosting</a> |
+      <a href="http://programmersheaven.com/browser-games-social-gaming/">Browser and Social Games</a> |
+      <a href="http://programmersheaven.com/gadgets/">Gadgets</a>
+
+      <br/><br/>
+
+      Popular resources on Programmersheaven.com<br />
+      <a href="/tags/Assembly/">Assembly</a> |
+	  <a href="/tags/Basic/">Basic</a> |
+      <a href="/tags/C/">C</a> |
+      <a href="/tags/C%23/">C#</a> |
+      <a href="/tags/C%2b%2b/">C++</a> | 
+      <a href="/tags/Delphi/">Delphi</a> |
+      <a href="/tags/Java/">Java</a> |
+      <a href="/tags/JavaScript/">JavaScript</a> |
+      <a href="/tags/Pascal/">Pascal</a> |
+      <a href="/tags/Perl/">Perl</a> |
+      <a href="/tags/PHP/">PHP</a> |
+      <a href="/tags/Python/">Python</a> |
+      <a href="/tags/Ruby/">Ruby</a> |
+      <a href="/tags/Visual+Basic/">Visual Basic</a>
+
+
+    </div>
+    
+    
+    <div class="legaltext">
+      &copy; Copyright 2010 Programmersheaven.com - All rights reserved.<br />
+        Reproduction in whole or in part, in any form or medium without express written
+        permission is prohibited.<br />
+        Violators of this policy may be subject to legal action. Please read our
+        <a href="/ph/tos.aspx">Terms Of Use</a> and <a href="/ph/privacy.aspx">Privacy
+        Statement</a> for more information.
+        <br />
+
+      <img src="/images/site/boostraplabs-icon.png" style="width: 16px; height: 14" alt="bootstrapLabs Logo" />
+        A <a href="http://bootstraplabs.com/">BootstrapLabs</a> project.
+    </div>
+
+</div>
+  </form>
+  
+  <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  <script type="text/javascript">
+    var pageTracker = _gat._getTracker("UA-260649-1");
+    pageTracker._initData();
+    pageTracker._trackPageview();
+    
+  </script>
+
+  <script type="text/javascript" src="http://track.netshelter.net/js/sites/programmersheaven.com.js"></script>
+  
+
+  <span><script type='text/javascript'><!--// <![CDATA[
+    /* [id11] INTERSTITIAL_1 */
+    OA_show(11);
+// ]]> --></script></span>
+  <span><script type='text/javascript'><!--// <![CDATA[
+    /* [id12] POPUP_1 */
+    OA_showpop(12);
+// ]]> --></script></span>
+  <span><script type='text/javascript'><!--// <![CDATA[
+    /* [id22] POPUNDER_1 */
+    OA_showpop(22);
+// ]]> --></script></span>
+
+  <script type='text/javascript'><!--// <![CDATA[
+    /* [id71] BEFORE_END_BODY */
+    OA_show(71);
+// ]]> --></script><noscript><a target='_blank' href='http://ads.communityheaven.com/www/delivery/ck.php?n=9339838'><img border='0' alt='' src='http://ads.communityheaven.com/www/delivery/avw.php?zoneid=71&amp;n=9339838' /></a></noscript>
+  
+<!-- Kontera ContentLink(TM);-->
+<script type='text/javascript'>
+var dc_AdLinkColor = '#0000ff' ; 
+var dc_PublisherID = 124766 ; 
+</script>
+<script type='text/javascript' src='http://kona.kontera.com/javascript/lib/KonaLibInline.js'>
+</script>
+
+  
+</body>
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>How to mail HTML contents from C# windows forms ?</title>
+  <link rel="stylesheet" href="main.css" media="screen">
+  <link rel="contents" href="index.html#05991">
+  <link rel="index" href="maillist.html#05991">
+  <link rel="prev" href="msg05983.html">
+  <link rel="next" href="msg05992.html">
+  <link rel="alternate" title="bdotnet RSS" href="//www.mail-archive.com/bdotnet@groups.msn.com/maillist.xml" TYPE="application/rss+xml">
+  
+</head>
+<body id="msg">
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<!--htdig_noindex-->
+<div id="msgcontainer">
+	<a id="mail-archive-logo" href="/"></a>
+<h1>
+	<span id="listlink"><a href="/bdotnet@groups.msn.com/info.html">bdotnet</a></span> &nbsp;
+</h1>
+	<form action="/search" method=get>
+		<ul id="topLinks">
+			<li class="topThreadNav"><span class="msglink"><a href="msg05983.html" accesskey="p" title="Earlier messages"><img src="/leftarrow.png" border="0" height="22" width="20" align="top" alt="left arrow"></a></span> <span class="threadlink"><a href="index.html#05991" title="Messages by Thread" accesskey="c">Thread</a></span> <span class="msglink"><a href="msg05992.html" accesskey="n" title="Later messages"><img src="/rightarrow.png" border="0" height="22" width="20" align="top" alt="right arrow"></a></span></li>
+			<li class="topDateNav"><span class="msglink"><a href="msg05990.html" accesskey="b" title="Earlier messages"><img src="/leftarrow.png" border="0" height="22" width="20" align="top" alt="left arrow"></a></span> <span class="chronologicallink"><a href="maillist.html#05991" title="Messages by Date" accesskey="i">Date</a></span> <span class="msglink"><a href="msg05992.html" accesskey="f" title="Later messages"><img src="/rightarrow.png" border="0" height="22" width="20" align="top" alt="right arrow"></a></span></li>
+			<li>
+				<input type="hidden" name="l" value="bdotnet@groups.msn.com">Find <input type=text name="q" value="" size=18>
+			</li>
+		</ul>
+	</form>
+</div>
+
+<div id="msgcontainer2">
+	<div id="corner1"></div>
+	<div id="corner2"></div>
+	<div id="msgcontent">
+<!--/htdig_noindex-->
+
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+		<div class="msgHead">
+			<h1><span class="subject">How to mail HTML contents from C# windows forms ?</span></h1>
+			<p><span class="sender">DotNetSaavy \(Mr.BabuRaj\)</span><br>
+			<span class="date">Sun, 16 Nov 2003 22:37:02 -0800</span></p>
+		</div>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<div class="msgBody">
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>-----------------------------------------------------------
+
+New Message on BDOTNET
+
+-----------------------------------------------------------
+From: DotNetSaavy (Mr.BabuRaj)
+Message 1 in Discussion
+
+Hi all,
+&gt;From my C# windows application , on click of a button I'm sending a mail using the 
+&gt;following code.
+Inspite after setting the BodyFormat to HTML as below, I still get the HTML tags in 
+the mail body.
+How to I get rid of this and display the contents underlined in bold.Please reply 
+MailMessage mailmessage=new MailMessage();
+mailmessage.Body=&quot;&lt;html&gt;&lt;u&gt;&lt;b&gt;This is a mail with HTML content&lt;/b&gt;&lt;/u&gt;&lt;/html&gt;&quot;;
+mailmessage.Subject=subject;
+mailmessage.BodyFormat=MailFormat.Html;
+mailmessage.From=&quot;AHMS Mail Administrator&quot;;
+Send(mailmessage);  
+public static bool Send(MailMessage message)
+  {
+   IPHostEntry IPhst = Dns.Resolve(ConfigVO.getStngsMailSvr());
+   IPEndPoint endPt = new IPEndPoint(IPhst.AddressList[0], 25);
+   Socket s= new Socket(endPt.AddressFamily, SocketType.Stream,ProtocolType.Tcp);
+   s.Connect(endPt);    if(!Check_Response(s, SMTPResponse.CONNECT_SUCCESS))
+   { 
+    s.Close();
+    return false;
+   }    Senddata(s, string.Format(&quot;HELO {0}\r\n&quot;, Dns.GetHostName() ));
+   if(!Check_Response(s, SMTPResponse.GENERIC_SUCCESS))
+   {
+    s.Close();
+    return false;
+   }    Senddata(s, string.Format(&quot;MAIL From: {0}\r\n&quot;, message.From ));
+   if(!Check_Response(s, SMTPResponse.GENERIC_SUCCESS))
+   {
+    s.Close();
+    return false;
+   }    string _To = message.To;
+   string[] Tos= _To.Split(new char[] {';'});
+   foreach (string To in Tos)
+   {
+    Senddata(s, string.Format(&quot;RCPT TO: {0}\r\n&quot;, To));
+    if(!Check_Response(s, SMTPResponse.GENERIC_SUCCESS))
+    { 
+     s.Close();
+     return false;
+    }
+   }    if(message.Cc!=null)
+   {
+    Tos= message.Cc.Split(new char[] {';'});
+    foreach (string To in Tos)
+    {
+     Senddata(s, string.Format(&quot;RCPT TO: {0}\r\n&quot;, To));
+     if(!Check_Response(s, SMTPResponse.GENERIC_SUCCESS))
+     { 
+      s.Close();
+      return false;
+     }
+    }
+   }    StringBuilder Header=new StringBuilder();
+   Header.Append(&quot;From: &quot; + message.From + &quot;\r\n&quot;);
+   Tos= message.To.Split(new char[] {';'});
+   Header.Append(&quot;To: &quot;);
+   for( int i=0; i&lt; Tos.Length; i++)
+   {
+    Header.Append( i &gt; 0 ? &quot;,&quot; : &quot;&quot; );
+    Header.Append(Tos[i]);
+   }
+   Header.Append(&quot;\r\n&quot;);
+   if(message.Cc!=null)
+   {
+    Tos= message.Cc.Split(new char[] {';'});
+    Header.Append(&quot;Cc: &quot;);
+    for( int i=0; i&lt; Tos.Length; i++)
+    {
+     Header.Append( i &gt; 0 ? &quot;,&quot; : &quot;&quot; );
+     Header.Append(Tos[i]);
+    }
+    Header.Append(&quot;\r\n&quot;);
+   }
+   Header.Append( &quot;Date: &quot; );
+   Header.Append(DateTime.Now.ToString(&quot;ddd, d M y H:m:s z&quot; ));
+   Header.Append(&quot;\r\n&quot;);
+   Header.Append(&quot;Subject: &quot; + message.Subject+ &quot;\r\n&quot;);
+   Header.Append( &quot;X-Mailer: SMTPDirect v1\r\n&quot; );
+   string MsgBody = message.Body;
+   if(!MsgBody.EndsWith(&quot;\r\n&quot;))
+    MsgBody+=&quot;\r\n&quot;;
+   if(message.Attachments.Count&gt;0)
+   {
+    Header.Append( &quot;MIME-Version: 1.0\r\n&quot; );
+    Header.Append( &quot;Content-Type: multipart/mixed; boundary=unique-boundary-1\r\n&quot; );
+    Header.Append(&quot;\r\n&quot;);
+    Header.Append( &quot;This is a multi-part message in MIME format.\r\n&quot; );
+    StringBuilder sb = new StringBuilder();
+    sb.Append(&quot;--unique-boundary-1\r\n&quot;);
+    sb.Append(&quot;Content-Type: text/plain\r\n&quot;);
+    sb.Append(&quot;Content-Transfer-Encoding: 7Bit\r\n&quot;);
+    sb.Append(&quot;\r\n&quot;);
+    sb.Append(MsgBody + &quot;\r\n&quot;);
+    sb.Append(&quot;\r\n&quot;);     foreach(object o in message.Attachments)
+    {
+     MailAttachment a = o as MailAttachment;
+     byte[] binaryData;
+     if(a!=null)
+     {
+      FileInfo f = new FileInfo(a.Filename);
+      sb.Append(&quot;--unique-boundary-1\r\n&quot;);
+      sb.Append(&quot;Content-Type: application/octet-stream; file=&quot; + f.Name + &quot;\r\n&quot;);
+      sb.Append(&quot;Content-Transfer-Encoding: base64\r\n&quot;);
+      sb.Append(&quot;Content-Disposition: attachment; filename=&quot; + f.Name + &quot;\r\n&quot;);
+      sb.Append(&quot;\r\n&quot;);
+      FileStream fs = f.OpenRead();
+      binaryData = new Byte[fs.Length];
+      long bytesRead = fs.Read(binaryData, 0, (int)fs.Length);
+      fs.Close();
+      string base64String = 
+System.Convert.ToBase64String(binaryData,0,binaryData.Length);       for(int i=0; i&lt; 
+base64String.Length ; )
+      {
+       int nextchunk=100;
+       if(base64String.Length - (i + nextchunk ) &lt;0)
+        nextchunk = base64String.Length -i;
+       sb.Append(base64String.Substring(i, nextchunk));
+       sb.Append(&quot;\r\n&quot;);
+       i+=nextchunk; 
+      }
+      sb.Append(&quot;\r\n&quot;); 
+     }
+    }
+    MsgBody=sb.ToString();
+   }    Senddata(s, (&quot;DATA\r\n&quot;));
+   if(!Check_Response(s, SMTPResponse.DATA_SUCCESS))
+   { 
+    s.Close();
+    return false;
+   }
+   Header.Append( &quot;\r\n&quot; );
+   Header.Append( MsgBody );
+   Header.Append( &quot;.\r\n&quot; );
+   Header.Append( &quot;\r\n&quot; );
+   Header.Append( &quot;\r\n&quot; );
+   Senddata(s, Header.ToString());
+   if(!Check_Response(s, SMTPResponse.GENERIC_SUCCESS ))
+   { 
+    s.Close();
+    return false;
+   }     Senddata(s, &quot;QUIT\r\n&quot;);
+   Check_Response(s, SMTPResponse.QUIT_SUCCESS );
+   s.Close(); 
+   return true;
+  }     Thanks BabuRaj  
+
+-----------------------------------------------------------
+
+To stop getting this e-mail, or change how often it arrives, go to your E-mail 
+Settings.
+<a  href="http://groups.msn.com/BDotNet/_emailsettings.msnw">http://groups.msn.com/BDotNet/_emailsettings.msnw</a>
+
+Need help? If you've forgotten your password, please go to Passport Member Services.
+<a  href="http://groups.msn.com/_passportredir.msnw?ppmprop=help">http://groups.msn.com/_passportredir.msnw?ppmprop=help</a>
+
+For other questions or feedback, go to our Contact Us page.
+<a  href="http://groups.msn.com/contact">http://groups.msn.com/contact</a>
+
+If you do not want to receive future e-mail from this MSN group, or if you received 
+this message by mistake, please click the &quot;Remove&quot; link below. On the pre-addressed 
+e-mail message that opens, simply click &quot;Send&quot;. Your e-mail address will be deleted 
+from this group's mailing list.
+<a  href="mailto:[EMAIL">mailto:[EMAIL</a> PROTECTED]
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+</div> <!-- end of msgBody class -->
+
+<!--htdig_noindex-->
+
+<div id="adbox">
+
+</div>
+
+<div class="tSliceList">
+<ul>
+<li class="sliceCur">
+<span class="subject">How to mail HTML contents from C# windows forms ?</span>
+<span class="sender">DotNetSaavy \(Mr.BabuRaj\)</span>
+</ul>
+
+</div> <!-- end of tSliceList class -->
+<!--/htdig_noindex-->
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<!--htdig_noindex-->
+  <ul id="botLinks">
+  <li><div class="reply">
+<FORM METHOD="POST" ACTION="/mailto.php">
+
+
+<INPUT TYPE="HIDDEN" NAME="subject" VALUE="How to mail HTML contents from C# windows forms ?">
+<INPUT TYPE="HIDDEN" NAME="msgid" VALUE="BDotNet-8456@groups.msn.com">
+Reply via email to<br>
+<INPUT TYPE="SUBMIT" VALUE=" DotNetSaavy \(Mr.BabuRaj\) ">
+</FORM>
+</div>
+  </li>
+  </ul>
+<!--/htdig_noindex-->
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</div> <!-- end of msgcontent class -->
+</div> <!-- end of msgcontainer2 class -->
+
+<!-- These extra divs/spans may be used as catch-alls to add extra imagery. -->
+<div id="extraDiv1"><span></span></div><div id="extraDiv2"><span></span></div><div id="extraDiv3"><span></span></div>
+<div id="extraDiv4"><span></span></div><div id="extraDiv5"><span></span></div><div id="extraDiv6"><span></span></div>
+
+</body>
+</html>

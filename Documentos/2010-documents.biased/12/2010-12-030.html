@@ -1,0 +1,1226 @@
+<html>
+
+<!-- #BeginTemplate "sitetemplate/elder_geek_1.dwt" -->
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="description" content="Useful information about Windows XP including tweaks, guides, installation tips, registry edits, pagefile sizing, updates, and an XP Forum.">
+<meta name="keywords" content="Windows XP, windows, windowsxp, winxp, Service Pack 2, SP2, tweaks, tips, registry, performance, features, screenshots, maintenance, group policy, clean install, update, professional, help, firewall, knowledge base, shutdown, installation, file sharing, xp power toys, upgrade, microsoft, theme, setup, fat32, ntfs, slipstream, messenger removal, XP forum, forum.">
+<meta name="robots" content="index,follow">
+<!-- #BeginEditable "doctitle" -->
+<title>Create A Bootable/Slipstreamed Windows XP Installation CD</title>
+<!-- #EndEditable -->
+</head>
+
+<body style="text-align: center">
+
+<table cellpadding="0" cellspacing="0" width="100%" height="74">
+	<!-- MSTableType="layout" -->
+	<tr>
+		<td width="100%" height="74" valign="top">
+		<table border="0" width="100%" id="table1">
+			<tr>
+				<td width="53%" valign="top">
+				<img border="0" src="siteimages/TEGWebLogoA.gif" width="350" height="60"></td>
+				<td width="34%" align="center" valign="top">
+				<!-- SiteSearch Google -->
+<form method="get" action="http://www.google.com/custom" target="_top">
+<table border="0" bgcolor="#ffffff">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+<a href="http://www.google.com/">
+<img src="http://www.google.com/logos/Logo_25wht.gif"
+border="0" alt="Google"></img></a>
+</td>
+<td nowrap="nowrap">
+<input type="hidden" name="domains" value="www.theeldergeek.com"></input>
+<input type="text" name="q" size="31" maxlength="255" value=""></input>
+<input type="submit" name="sa" value="Search"></input>
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td nowrap="nowrap">
+<table>
+<tr>
+<td>
+<input type="radio" name="sitesearch" value=""></input>
+<font size="-1" color="#000000">Web</font>
+</td>
+<td>
+<input type="radio" name="sitesearch" value="www.theeldergeek.com" checked="checked"></input>
+<font size="-1" color="#000000">www.theeldergeek.com</font>
+</td>
+</tr>
+</table>
+<input type="hidden" name="client" value="pub-5924540639026455"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:336699;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;FORID:1;"></input>
+<input type="hidden" name="hl" value="en"></input>
+
+</td></tr></table>
+</form>
+<!-- SiteSearch Google --></td>
+				<td width="12%" align="center" valign="top">
+				<!--webbot bot="HTMLMarkup" startspan --><script type="text/javascript"><!--
+google_ad_client = "pub-5924540639026455";
+google_ad_width = 125;
+google_ad_height = 125;
+google_ad_format = "125x125_as_rimg";
+google_cpa_choice = "CAAQweaZzgEaCA2ZyYC_NXeAKK2293M";
+//--></script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script><!--webbot bot="HTMLMarkup" endspan --></td>
+			</tr>
+			<tr>
+				<td colspan="3" bgcolor="#000080">
+				<p align="center"><font face="Tahoma" size="2" color="#FFFFFF">
+				<font color="#FFFFFF">
+				<a href="index.htm"><font color="#FFFFFF">
+				<span style="text-decoration: none">Home</span></font></a></font>&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.theeldergeek.com/forum"><font color="#FFFFFF"><span style="text-decoration: none"> Forum</span></font></a>&nbsp;&nbsp;&nbsp; 
+				&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; <a href="commentary.htm">
+				<font color="#FFFFFF"><span style="text-decoration: none">Commentary</span></font></a>&nbsp;&nbsp;&nbsp; &nbsp;|&nbsp;&nbsp;&nbsp; 
+				&nbsp;<a href="contact.htm"><font color="#FFFFFF"><span style="text-decoration: none">About TEG</span></font></a>&nbsp;&nbsp;&nbsp; &nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; 
+				<font color="#FFFFFF">
+				<a href="links.htm">
+				<span style="text-decoration: none"><font color="#FFFFFF">Links</font></span></a></font>&nbsp;&nbsp;&nbsp; 
+				&nbsp;|&nbsp;&nbsp;&nbsp; &nbsp;<a href="elder_geek_advertising_rate_card.htm"><font color="#FFFFFF"><span style="text-decoration: none">Advertise</span></font></a>&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; 
+				&nbsp;<a href="contact.htm"><font color="#FFFFFF"><span style="text-decoration: none">Contact TEG</span></font></a></font></td>
+			</tr>
+			<tr>
+				<td colspan="3" height="19">
+				<p align="center"><font size="2" face="Tahoma"> 
+              <font color="#000080">
+				<a href="mailto:notify@theeldergeek.com?subject=Subscribe to The Elder Geek Content Update Notification">
+				<span style="text-decoration: none"><font color="#000080">Subscribe to The Elder Geek Content Update 
+					Notification</font></span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+				|||&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font> 
+                    <span style="font-size: 10.0pt"> <a href="http://www.theeldergeek.com/forum">
+				<span style="text-decoration: none"><font color="#000080">The Elder Geek on Windows XP Forum Is Open for Posting !</font></span></a></span></font></td>
+			</tr>
+			<tr>
+				<td colspan="3" height="19">
+				<p align="center"><b><font face="Tahoma" size="2">
+				<font color="#000080">Index&nbsp;&nbsp; 
+				&gt;&gt;&gt;</font>&nbsp;&nbsp; <a href="a.htm">A</a> | 
+				<a href="b.htm">B</a> | <a href="c.htm">C</a> | 
+				<a href="d.htm">D</a> | <a href="e.htm">E</a> | 
+				<a href="f.htm">F</a> | <a href="g.htm">G</a> | 
+				<a href="h.htm">H</a> |<a href="i.htm"> I</a> | 
+				<a href="j.htm">J</a> | <a href="k.htm">K</a> | 
+				<a href="l.htm">L</a> | 
+				<a href="m.htm">M</a> | <a href="n.htm">N</a> | 
+				<a href="o.htm">O</a> | <a href="p.htm">P</a> | 
+				<a href="q.htm">Q</a> | <a href="r.htm">R</a> | 
+				<a href="s.htm">S</a> | <a href="t.htm">T</a> | 
+				<a href="u.htm">U</a> | <a href="v.htm">V</a> | 
+				<a href="w.htm">W</a> | <a href="x.htm">X</a> | 
+				<a href="y.htm">Y</a> | <a href="z.htm">Z</a>&nbsp;&nbsp; 
+				<font color="#000080">&lt;&lt;&lt;&nbsp;&nbsp; Index</font></font></b></td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+</table>
+
+<table cellpadding="0" cellspacing="0" width="100%" height="1745">
+	<!-- MSTableType="layout" -->
+	<tr>
+		<td valign="top" width="185">
+		<table cellpadding="0" cellspacing="0" width="185" height="75" id="table6">
+			<!-- MSCellFormattingTableID="3" -->
+			<tr>
+				<td height="75" width="185" valign="top">
+				<!-- MSCellFormattingType="content" -->
+				<table border="0" width="100%" id="table7" style="font-family: Tahoma; font-size: 10pt">
+					<tr>
+						<td>
+						<p align="center"><b><i><font size="2" color="#000080">Windows XP<br>
+						</font></i></b><font size="1" color="#FF0000">*SP2 = 
+						Item Updated w/SP2 Info</font></td>
+					</tr>
+					<tr>
+						<td style="border: 1px solid #000000">
+						<p align="center"><font color="#000080"><i>Install / Remove</i></font></td>
+					</tr>
+					<tr>
+						<td><font size="1">
+						<a href="bare_bones_troubleshooting_installation.htm">
+						<span style="text-decoration: none">Bare Bones Troubleshooting</span></a><br>
+						<a target="_blank" href="http://driveragent.com/?ref=167" style="text-decoration: none">
+						Driver Scan by Touchstone Software</a><br>
+						<a href="dual_and_multibooting_xp.htm">
+						<span style="text-decoration: none">Dual and MultiBooting XP</span></a><br>
+						<a href="backup_for_xp_home_edition.htm">
+						<span style="text-decoration: none">Install Backup for XP Home</span></a><br>
+						<a href="messenger_removal.htm">
+						<span style="text-decoration: none">Remove Microsoft Messenger</span></a><br>
+						<a href="slipstreamed_xpsp2_cd.htm">
+						<span style="text-decoration: none">Slipstreamed XP/SP2 
+						Bootable CD</span></a> <font color="#FF0000">*SP2</font><br>
+						<a href="slipstream_01.htm">
+						<span style="text-decoration: none">Slipstreamed XP/SP1a Install</span></a><br>
+						<a href="slipstream_06.htm">
+						<span style="text-decoration: none">Slipstreamed XP 
+						Update Rollup</span></a><br>
+						<a href="slipstreamed_xpsp3_cd.htm" style="text-decoration: none">
+						Slipstreamed XP/SP3 Bootable CD</a><br>
+						<a href="uninstall_xp_from_command_prompt.htm">
+						<span style="text-decoration: none">Uninstall via C:\ Prompt</span></a><br>
+						<a href="clean_installation_of_windows_xp.htm">
+						<span style="text-decoration: none">Use F5 to Specify ACPI BIOS</span></a><br>
+						<a href="xp_upgrade_paths.htm">
+						<span style="text-decoration: none">Windows XP Upgrade Paths</span></a><br>
+						<a href="xp_home_install_-_graphic.htm">
+						<span style="text-decoration: none">XP Home Clean Install - Graphic</span></a><br>
+						<a href="xp_pro_install_-_graphic.htm">
+						<span style="text-decoration: none">XP Pro Clean Install - Graphic</span></a><br>
+						<a href="clean_installation_of_windows_xp.htm">
+						<span style="text-decoration: none">XP Pro Clean Install - Text Version</span></a><br>
+						<a href="upgrading_to_windows_xp.htm">
+						<span style="text-decoration: none">XP Pro Upgrade Install -Text Version</span></a></font><br>
+						<font size="1">
+						<a target="_blank" href="http://www.windowsreinstall.com">
+						<span style="text-decoration: none">OS Guides from 
+						WindowsReinstall.com</span></a></font></td>
+					</tr>
+					<tr>
+						<td style="border: 1px solid #000000">
+						<p align="center"><font color="#000080"><i>Boot Disk 
+						Resources</i></font></td>
+					</tr>
+					<tr>
+						<td>
+						<font size="1">
+						<a target="_blank" href="http://www.bootdisk.com">
+						<span style="text-decoration: none">Bootdisk.com Main 
+						Page</span></a><br>
+						<a target="_blank" href="http://www.bootdisk.com/bootdisk.htm">
+						<span style="text-decoration: none">Bootdisk.com 
+						Downloads</span></a></font></td>
+					</tr>
+					<tr>
+						<td style="border-style:solid; border-width:1px; " bordercolor="#FFFFFF">
+						<p align="center">
+						<!--webbot bot="HTMLMarkup" startspan --><script type="text/javascript"><!--
+google_ad_client = "pub-5924540639026455";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_type = "text";
+google_ad_channel ="";
+google_color_border = "336699";
+google_color_bg = "FFFFFF";
+google_color_link = "0000FF";
+google_color_url = "008000";
+google_color_text = "000000";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script><!--webbot bot="HTMLMarkup" endspan --></td>
+					</tr>
+					<tr>
+						<td style="border: 1px solid #000000">
+						<p align="center"><font color="#000080"><i>Security and Updates</i></font></td>
+					</tr>
+					<tr>
+						<td><font size="1"><a href="automatic_updates.htm">
+						<span style="text-decoration: none">Automatic Update</span></a>&nbsp;
+						<font color="#FF0000">*SP2</font><br>
+						<a target="_blank" href="http://www.microsoft.com/technet/treeview/default.asp?url=/technet/security/current.asp?productid=119&servicepackid=0&submit1=go&isie=yes">
+						<span style="text-decoration: none">HotFix &amp; Security Bulletin Svc</span></a><br>
+						<a target="_blank" href="http://support.microsoft.com/default.aspx?scid=kb;en-us;q282784">
+						<span style="text-decoration: none">Hot-Fix Verifier</span></a><br>
+						<a target="_blank" href="http://support.microsoft.com/default.aspx?scid=kb;en-us;325192">
+						<span style="text-decoration: none">Issues After You Install Updates to Internet Explorer or 
+						Windows</span></a><br>
+						<a href="microsoft_update_01.htm">
+						<span style="text-decoration: none">Microsoft Update - 
+						Overview</span></a><br>
+						<a href="microsoft_update_02.htm">
+						<span style="text-decoration: none">Microsoft Update - 
+						Installing</span></a><br>
+						<a href="microsoft_update_03.htm">
+						<span style="text-decoration: none">Microsoft Update - 
+						Usage</span></a></font><p><font size="1">
+						<a href="windows_xp_updates.htm">
+						<span style="text-decoration: none">Search MS for Updates</span></a><br>
+						<a href="security_information.htm">
+						<span style="text-decoration: none">Security Information</span></a><br>
+						<a href="service_pack_1.htm">
+						<span style="text-decoration: none">Service Pack 1</span></a><br>
+						<a href="service_pack_2.htm">
+						<span style="text-decoration: none">Service Pack 2 Beta 
+						Release</span></a><br>
+						<a href="antispyware_1.htm">
+						<span style="text-decoration: none">Windows AntiSpyware 
+						(Beta)</span></a><br>
+						<a href="windows_firewall.htm">
+						<span style="text-decoration: none">Windows Firewall
+						</span></a>&nbsp; <font color="#FF0000">*SP2</font><br>
+						<a href="security_center.htm">
+						<span style="text-decoration: none">Windows Security 
+						Center</span></a>&nbsp; <font color="#FF0000">*SP2</font><br>
+						<a href="windows_update_catalog.htm">
+						<span style="text-decoration: none">Windows Update Catalog</span></a><br>
+						<a target="_blank" href="http://v4.windowsupdate.microsoft.com/troubleshoot/">
+						<span style="text-decoration: none">Windows Update Troubleshooter</span></a></font></td>
+					</tr>
+					<tr>
+						<td style="border: 1px solid #000000">
+						<p align="center"><font color="#000080"><i>Registry</i></font></td>
+					</tr>
+					<tr>
+						<td><font size="1"><a href="windows_xp_registry.htm">
+						<span style="text-decoration: none">Backing Up and Restoring</span></a><br>
+						<a target="_blank" href="http://support.microsoft.com/default.aspx?scid=kb;en-us;q307545">
+						<span style="text-decoration: none">Recover Corrupted Registry</span></a><br>
+						<a href="registry_edits.htm">
+						<span style="text-decoration: none">Registry Edits</span></a></font></td>
+					</tr>
+					<tr>
+						<td>
+						<p align="center">
+						<!--webbot bot="HTMLMarkup" startspan --><script type="text/javascript"><!--
+google_ad_client = "pub-5924540639026455";
+google_ad_width = 125;
+google_ad_height = 125;
+google_ad_format = "125x125_as_rimg";
+google_cpa_choice = "CAAQo-aZzgEaCM3CU97Siy5UKK2293M";
+//--></script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script><!--webbot bot="HTMLMarkup" endspan --></td>
+					</tr>
+					<tr>
+						<td>
+						<p align="center">
+						<!--webbot bot="HTMLMarkup" startspan --><a href="http://www.qksrv.net/click-1309656-5032687" target="_blank" onmouseover="window.status='http://www.crucial.com/index.asp';return true;" onmouseout="window.status=' ';return true;">
+<img src="http://www.qksrv.net/image-1309656-5032687" width="125" height="125" alt="DDR Memory at Crucial.com" border="0"></a><!--webbot bot="HTMLMarkup" endspan --></td>
+					</tr>
+					<tr>
+						<td style="border: 1px solid #000000">
+						<p align="center"><font color="#000080"><i>User Interface </i>
+						</font></td>
+					</tr>
+					<tr>
+						<td><font size="1">
+						<a href="windows_classic_start_menu.htm">
+						<span style="text-decoration: none">Classic Start Menu and Desktop</span></a><br>
+						<a href="create_shortcut_wizard.htm">
+						<span style="text-decoration: none">Create Shortcut Wizard</span></a><br>
+						<a href="customize_windows_explorer_views.htm">
+						<span style="text-decoration: none">Custom Win Explorer Views</span></a><br>
+						<a href="windows_xp_feature_guides.htm">
+						<span style="text-decoration: none">Feature Guides</span></a><br>
+						<a href="file_management_in_windows_xp.htm">
+						<span style="text-decoration: none">File Management Tips</span></a><br>
+						<a href="windows_classic.htm">
+						<span style="text-decoration: none">Windows Classic Interface</span></a><br>
+						<a href="windows_xp_power_toys.htm">
+						<span style="text-decoration: none">Windows XP Power Toys</span></a><br>
+						<a href="windows_xp_user_interface.htm">
+						<span style="text-decoration: none">Windows XP User Interface</span></a></font></td>
+					</tr>
+					<tr>
+						<td style="border: 1px solid #000000">
+						<p align="center"><font color="#000080"><i>Network and Internet</i></font></td>
+					</tr>
+					<tr>
+						<td><font size="1">
+						<a href="quick_guide_to_simple_file_sharing.htm">
+						<span style="text-decoration: none">Guide to Simple File Sharing</span></a><br>
+						<a href="internet_connection_firewall.htm">
+						<span style="text-decoration: none">Internet Connection Firewall</span></a><br>
+						<a href="repair_reinstall_ie_and_oe_6.htm">
+						<span style="text-decoration: none">Repair IE6 and OE6</span></a><br>
+						<a href="running_iis_on_xp_home_edition.htm">
+						<span style="text-decoration: none">Running IIS on XP Home</span></a></font></td>
+					</tr>
+					<tr>
+						<td style="border: 1px solid #000000">
+						<p align="center"><font color="#000080"><i>System</i></font></td>
+					</tr>
+					<tr>
+						<td><font size="1">
+						<a href="backup_using_advanced_mode.htm">
+						<span style="text-decoration: none">Back Up Using Advanced Mode</span></a><br>
+						<a href="backup_using_wizard.htm">
+						<span style="text-decoration: none">Back Up Using Backup Wizard</span></a><br>
+						<a href="baseline_security_analyzer.htm">
+						<span style="text-decoration: none">Baseline Security 
+						Analyzer v1.2</span></a><br>
+						<a href="use_compatibility_mode.htm">
+						<span style="text-decoration: none">Compatibility Mode</span></a><br>
+						<a href="control_panel.htm">
+						<span style="text-decoration: none">Control Panel</span></a><br>
+						<a href="protecting_the_system.htm">
+						<span style="text-decoration: none">Define A Backup Strategy</span></a><br>
+						<a href="disk_cleanup_utility.htm">
+						<span style="text-decoration: none">Disk Cleanup Utility</span></a><br>
+						<a href="disk_defragmenter_utility.htm">
+						<span style="text-decoration: none">Disk Defragmenter Utility</span></a><br>
+						<a href="disk_management.htm">
+						<span style="text-decoration: none">Disk Management 
+						Utility</span></a><br>
+						<a href="group_policy_editor.htm">
+						<span style="text-decoration: none">Group Policy Editor</span></a><br>
+						<a href="hard_drives.htm">
+						<span style="text-decoration: none">Hard Drive 
+						Partitioning</span></a><br>
+						<a href="recovery_console.htm">
+						<span style="text-decoration: none">Install/Use Recovery Console</span></a><br>
+						<a href="microsoft_management_console.htm">
+						<span style="text-decoration: none">Management Console</span></a><br>
+						<a href="paging_file.htm">
+						<span style="text-decoration: none">Paging File</span></a><br>
+						<a href="stop_error_messages.htm">
+						<span style="text-decoration: none">Stop Error Messages</span></a><br>
+						<a href="system_restore.htm">
+						<span style="text-decoration: none">System Restore</span></a><br>
+						<a href="re-enable_system_restore.htm">
+						<span style="text-decoration: none">Re-enable System Restore</span></a><br>
+						<a href="services_guide.htm">
+						<span style="text-decoration: none">System Services Guide</span></a><br>
+						<a href="system_volume_information_folder1.htm">
+						<span style="text-decoration: none">System Volume Info Folder</span></a><br>
+						<a href="shutdown_issues_in_xp.htm">
+						<span style="text-decoration: none">XP Shutdown Troubleshooting</span></a></font></td>
+					</tr>
+					<tr>
+						<td style="border: 1px solid #000000">
+						<p align="center"><font color="#000080"><i>Hardware</i></font></td>
+					</tr>
+					<tr>
+						<td>
+						<font size="1" face="Tahoma">
+						<a href="move_harddrive.htm">
+						<span style="text-decoration: none">Move Current XP Hard 
+						Drive</span></a></font><br>
+						<font size="1" face="Tahoma">
+						<a href="replace_motherboard.htm">
+						<span style="text-decoration: none">Replace XP System 
+						Motherboard</span></a></font></td>
+					</tr>
+					<tr>
+						<td style="border: 1px solid #000000">
+						<p align="center"><font color="#000080"><i>Miscellaneous</i></font></td>
+					</tr>
+					<tr>
+						<td><font size="1">
+						<a href="bill_gates_newsletter.htm">
+						<span style="text-decoration: none">Bill Gates Newsletter</span></a><br>
+						<a href="bits_to_exabytes_-_size_relationships.htm">
+						<span style="text-decoration: none">Bits to Exabytes</span></a><br>
+						<a href="longhorn_alpha_4015.htm">
+						<span style="text-decoration: none">Longhorn 4015 
+						Preview</span></a><br>
+						<a href="windows_timeline.htm">
+						<span style="text-decoration: none">Windows Timeline</span></a></font></td>
+					</tr>
+					<tr>
+						<td style="border: 1px solid #000000">
+						<p align="center"><font color="#000080"><i>
+						<a href="windows_xp_faq.htm">
+						<span style="text-decoration: none">Windows XP FAQ</span></a></i></font></td>
+					</tr>
+					<tr>
+						<td style="border: 1px solid #000000">
+						<p align="center"><font color="#000080"><i>Outlook Express 6</i></font></td>
+					</tr>
+					<tr>
+						<td><font size="1">
+						<a href="repair_reinstall_ie_and_oe_6.htm">
+						<span style="text-decoration: none">Repair IE6 and OE6</span></a><br>
+						<a href="oe_spellcheck.htm">
+						<span style="text-decoration: none">Repair Spell Check in OE6</span></a><br>
+						<a target="_blank" href="http://support.microsoft.com/default.aspx?scid=kb;EN-US;q304148">
+						<span style="text-decoration: none">Welcome Screen Mail Notification</span></a></font></td>
+					</tr>
+					<tr>
+						<td style="border: 1px solid #000000">
+						<p align="center"><font color="#000080"><i>Internet Explorer 6</i></font></td>
+					</tr>
+					<tr>
+						<td><font size="1">
+						<a target="_blank" href="http://support.microsoft.com/common/canned.aspx?R=d&H=List of Fixes in Microsoft Internet Explorer 6 SP1&LL=support&Sz=kbIE600sp1fix&Fr=&DU=&SD=GN&LN=EN-US&CND=1&VR=&CAT=&VRL=&SG=&MaxResults=150">
+						<span style="text-decoration: none">List of Fixes in IE6 SP1</span></a><br>
+						<a href="maximize_internet_explorer.htm">
+						<span style="text-decoration: none">Maximize IE6 On Opening</span></a><br>
+						<a href="repair_ie6.htm">
+						<span style="text-decoration: none">Repair Internet Explorer 6</span></a><br>
+						<a href="repair_reinstall_ie_and_oe_6.htm">
+						<span style="text-decoration: none">Repair or Reinstall IE6 and OE6</span></a></font></td>
+					</tr>
+					<tr>
+						<td style="border: 1px solid #000000">
+						<p align="center"><i>Virus/Spyware/Malware</i></td>
+					</tr>
+					<tr>
+						<td>
+						<font size="1"><a href="worms_and_cretins.htm">
+						<span style="text-decoration: none">Blaster and Sobig 
+						Worms</span></a></font><br>
+						<font size="1"><a href="download_ject_mess.htm">
+						<span style="text-decoration: none">The Download.Ject Mess</span></a></font><br>
+						<font size="1"><a href="spam_outlook_trick.htm">
+						<span style="text-decoration: none">Return Receipt 
+						Outlook Scam</span></a></font></td>
+					</tr>
+					<tr>
+						<td style="border: 1px solid #000000">
+						<p align="center"><font color="#000080"><i>Downloads</i></font></td>
+					</tr>
+					<tr>
+						<td><font size="1">
+						<a target="_blank" href="http://driveragent.com/?ref=167" style="text-decoration: none">
+						Driver Scan by Touchstone Software</a></font><br>
+						<font size="1">
+						<span style="text-decoration: none">
+						<a href="baseline_security_analyzer.htm" style="text-decoration: none">
+						Baseline Security 
+						Analyzer v1.2</a></span></font><br>
+						<font size="1">
+						<a target="_blank" href="http://www.microsoft.com/windows/windowsmedia/download/bonuspack.aspx">
+						<span style="text-decoration: none">XP Media Player 9</span></a><br>
+						<a target="_blank" href="http://www.microsoft.com/windows/windowsmedia/9series/player/readme.aspx">
+						<span style="text-decoration: none">Release Notes for WMP9</span></a><br>
+						<a target="_blank" href="http://www.microsoft.com/windowsxp/pro/downloads/default.asp">
+						<span style="text-decoration: none">XP Professional Downloads</span></a><br>
+						<a target="_blank" href="http://support.microsoft.com/default.aspx?scid=fh;EN-US;sp">
+						<span style="text-decoration: none">Recent MS Service Pack Listings</span></a></font><br>
+						<font size="1">
+						<a target="_blank" href="http://www.microsoft.com/downloads/details.aspx?FamilyID=321cd7a2-6a57-4c57-a8bd-dbf62eda9671&displaylang=en">
+						<span style="text-decoration: none">MS Windows 
+						AntiSpyware (Beta)</span></a></font></td>
+					</tr>
+					<tr>
+						<td>
+						<p align="center">
+						<!--webbot bot="HTMLMarkup" startspan --><a href="http://www.qksrv.net/click-1309656-5033231" target="_blank" onmouseover="window.status='http://www.crucial.com/index.asp';return true;" onmouseout="window.status=' ';return true;">
+<img src="http://www.qksrv.net/image-1309656-5033231" width="120" height="90" alt="Memory from Crucial.com" border="0"></a><!--webbot bot="HTMLMarkup" endspan --></td>
+					</tr>
+					<tr>
+						<td style="border: 1px solid #000000">
+						<p align="center"><font color="#000080"><i>Knowledge Base Articles</i></font></td>
+					</tr>
+					<tr>
+						<td><font size="1">
+						<a href="kbi_accessibility_options.htm">
+						<span style="text-decoration: none">Accessibility Options</span></a><br>
+						<a href="kbi_add_or_remove_programs.htm">
+						<span style="text-decoration: none">Add or Remove Programs</span></a><br>
+						<a href="kbi_appearance_and_themes.htm">
+						<span style="text-decoration: none">Appearance and Themes</span></a><br>
+						<a href="kbi_date_time_language_and_regional_options.htm">
+						<span style="text-decoration: none">Date Time Language Regional</span></a><br>
+						<span style="text-decoration: none">
+						<a href="kbi_network_and_internet_connections.htm">
+						<span style="text-decoration: none">Network and Internet</span></a> 
+						Connections</a></span></a><br>
+						<a href="kbi_performance_and_maintenance.htm">
+						<span style="text-decoration: none">Performance &amp; Maintenance</span></a><br>
+						<a href="kbi_printers_and_other_hardware.htm">
+						<span style="text-decoration: none">Printers and Other Hardware</span></a><br>
+						<a href="kbi_setup.htm">
+						<span style="text-decoration: none">Setup</span></a><br>
+						<a href="kbi_sounds_speech_and_audio_devices.htm">
+						<span style="text-decoration: none">Sounds Speech Audio Devices</span></a><br>
+						<a href="kbi_user_accounts.htm">
+						<span style="text-decoration: none">User Accounts</span></a></font></td>
+					</tr>
+					<tr>
+						<td style="border: 1px solid #000000">
+						<p align="center"><font color="#000080"><i>Microsoft Resources </i>
+						</font></td>
+					</tr>
+					<tr>
+						<td><font size="1">
+						<a target="_blank" href="http://www.microsoft.com/windowsxp/pro/default.asp">
+						<span style="text-decoration: none">Windows XP Professional</span></a><br>
+						<a target="_blank" href="http://www.microsoft.com/windowsxp/home/default.asp">
+						<span style="text-decoration: none">Windows XP Home Edition</span></a><br>
+						<a target="_blank" href="http://v4.windowsupdate.microsoft.com/en/default.asp">
+						<span style="text-decoration: none">Windows XP Update</span></a><br>
+						<a target="_blank" href="http://www.microsoft.com/windowsxp/expertzone/default.asp">
+						<span style="text-decoration: none">Windows XP Expert Zone</span></a><br>
+						<a target="_blank" href="http://www.microsoft.com/security/default.asp">
+						<span style="text-decoration: none">Microsoft Security</span></a><br>
+						<a target="_blank" href="http://www.microsoft.com/resources/desktop/">
+						<span style="text-decoration: none">Desktop Deployment Res. Ctr.</span></a><br>
+						<a target="_blank" href="http://www.microsoft.com/technet/default.asp">
+						<span style="text-decoration: none">Microsoft TechNet</span></a><br>
+						<a target="_blank" href="http://msdn.microsoft.com/default.aspx">
+						<span style="text-decoration: none">MSDN</span></a><br>
+						<a target="_blank" href="http://support.microsoft.com/default.aspx?scid=fh;en-us;winxp">
+						<span style="text-decoration: none">Product Support Services</span></a><br>
+						<a target="_blank" href="http://www.microsoft.com/downloads/search.aspx?displaylang=en">
+						<span style="text-decoration: none">Microsoft Download Center</span></a><br>
+						<a target="_blank" href="http://support.microsoft.com/default.aspx?scid=fh;EN-US;DOWNLOADOVER">
+						<span style="text-decoration: none">Guide to Downloads</span></a><br>
+						<a target="_blank" href="http://support.microsoft.com/default.aspx?scid=fh;en-us;winxp">
+						<span style="text-decoration: none">Windows XP Support Center</span></a><br>
+						<a target="_blank" href="http://www.microsoft.com/technet/prodtechnol/winxppro/evaluate/xptechov.mspx">
+						<span style="text-decoration: none">Windows XP Technical Overview</span></a><br>
+						<a target="_blank" href="http://support.microsoft.com/default.aspx?scid=/servicedesks/fileversion/dllinfo.asp&SD=TECH&FR=0">
+						<span style="text-decoration: none">DLL Help Database</span></a><br>
+						<span style="text-decoration: none">
+						<a target="_blank" href="http://www.theeldergeek.com/">
+						<span style="text-decoration: none">Windows Life-Cycle 
+						Policy</span></a></span><br>
+						<a target="_blank" href="http://register.microsoft.com/mswish/suggestion.asp?from=cu&fu=/isapi/gomscom.asp?target=/mswish/thanks.htm">
+						<span style="text-decoration: none">MS Product Feedback</span></a><br>
+						<a target="_blank" href="http://www.microsoft.com/technet/treeview/default.asp?url=/technet/prodtechnol/winxppro/reskit/prgg_det_qgtk.asp">
+						<span style="text-decoration: none">XP Pro Windows Folder Contents</span></a></font><br>
+						<font size="1">
+						<a target="_blank" href="http://www.microsoft.com/resources/documentation/WindowsServ/2003/datacenter/proddocs/en-us/Default.asp?url=/resources/documentation/windowsserv/2003/datacenter/proddocs/en-us/iisRG_overview.asp">
+						<span style="text-decoration: none">IIS 6.0 Resource 
+						Guide</span></a></font><br>
+						<font size="1">
+						<a target="_blank" href="http://www.microsoft.com/learning/assessment/">
+						<span style="text-decoration: none">Microsoft Skills 
+						Assessment</span></a></font></td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td style="border: 1px solid #000080">
+						<p align="center"><font color="#000080">Has The Elder Geek<br>
+						site been useful?<br>
+						<a href="donate_to_teg.htm">
+						<span style="text-decoration: none">
+						<!--webbot bot="HTMLMarkup" startspan --><form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="theeldergeek@theeldergeek.com">
+<input type="hidden" name="item_name" value="The Elder Geek on Windows XP">
+<input type="hidden" name="no_shipping" value="1">
+<input type="hidden" name="return" value="http://www.theeldergeek.com/thank_you.htm">
+<input type="hidden" name="cancel_return" value="http://www.theeldergeek.com/cancelled_donation.htm">
+<input type="hidden" name="cn" value="Your Comments Are Welcome">
+<input type="image" src="https://www.paypal.com/images/x-click-but04.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form><!--webbot bot="HTMLMarkup" endspan -->Consider A 
+						Donation</span></a></font></td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>
+						<p align="center"><i><a href="privacy_policy.htm">Privacy Policy</a></i></td>
+					</tr>
+					<tr>
+						<td>
+						<p align="center">&nbsp;</td>
+					</tr>
+					<tr>
+						<td>
+						<p align="center"><i>TEG is hosted by:<br>
+						</i>
+						<a target="_blank" href="http://www.hostmatters.com">Hosting Matters</a></td>
+					</tr>
+					<tr>
+						<td>
+						<p align="center">
+						<!--webbot bot="HTMLMarkup" startspan --><a href="http://www.jdoqocy.com/click-1309656-5835141" target="_blank" onmouseover="window.status='http://www.crucial.com/index.asp';return true;" onmouseout="window.status=' ';return true;">
+<img src="http://www.ftjcfx.com/image-1309656-5835141" width="120" height="600" alt="Crucial Memory Selector" border="0"/></a><!--webbot bot="HTMLMarkup" endspan --></td>
+					</tr>
+				</table>
+				</td>
+			</tr>
+		</table>
+		</td>
+		<td valign="top" width="100%">
+		<div align="center">
+			<p align="center"><br>
+			<!--webbot bot="HTMLMarkup" startspan --><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+<style type="text/css">
+<!--
+.style1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+.style2 {color: #CC6600}
+.style3 {color: #0000FF}
+-->
+</style>
+</head>
+
+<body>
+<span class="style1"><span class="style2">Recommended:</span> <a href="http://www.liutilities.com/affcb/?id=RBelder&aff=2026&xat=eldergRBL1"><span class="style3">Click here to run a FREE system scan</span></a><span class="style3"></span></span>
+</body>
+</html>
+<!--webbot bot="HTMLMarkup" endspan --></p>
+			<p align="center"><br>
+			<!--webbot bot="HTMLMarkup" startspan --><script type="text/javascript"><!--
+google_ad_client = "pub-5924540639026455";
+google_alternate_color = "003399";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_type = "text_image";
+google_ad_channel ="";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "0000FF";
+google_color_url = "003399";
+google_color_text = "000000";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script><!--webbot bot="HTMLMarkup" endspan --></p>
+			<table border="0" width="98%" id="table9">
+				<tr>
+					<td style="font-family: Tahoma; font-size: 10pt"><!-- #BeginEditable "content" -->
+				<h5 align="center">&nbsp;</h5>
+				<p><b><font face="Tahoma" size="2">Create A Bootable/Slipstreamed Windows XP 
+Installation CD</font></b></p>
+				<p><font face="Tahoma" size="1">Page Last Updated: 
+					11/05/2003<br>Original Page:
+					<a target="_blank" href="slipstreamed_xpsp1_cd.htm">Archived</a></font></p>
+					<p><font face="Tahoma" size="2">When this article first appeared it was 
+					based on the September 9, 2002 release of Service Pack 1 for 
+					Windows XP. Since that time SP1 has been eliminated and is 
+					no longer available for download. It was replaced by SP1a 
+					and that was followed by an additional Update Rollup in late October 
+					2003. I've reworked the article based on the current update 
+					offerings using an original XP Gold Edition CD. If you need 
+					the article as it originally appeared on the TEG site for 
+					reference, click the [Archived] link above.</font></p>
+					<div align="center">
+						<table border="1" width="95%" id="table19" cellpadding="3">
+							<tr>
+								<td><font size="2">11/05/03 - I was recently 
+								asked if slipstreaming is as viable today as it 
+								was back when SP1 for XP was first released. The 
+								question took me by surprise as I'd not really 
+								given it any thought. My initial inclination was 
+								to say yes, but after mulling it over while updating this section I'm inclined to change my 'yes' answer 
+								to a less enthusiastic 'maybe' response.</font><p><font size="2">As users adopted and 
+								migrated to the release of XP a multitude of errors and flaws 
+								were exposed. The 
+								critical updates flowed hot and heavy for the first year 
+								of XP's release. At the end of the first year of 
+								XP's release when SP1 appeared there was 
+								still a substantial user base that had XP CD's 
+								that didn't include the SP1 update and they were 
+								excellent candidates for slipstreaming. </font>
+								</p>
+								<p><font size="2">Of course once SP1 was 
+								released, Microsoft incorporated SP1, and later 
+								SP1a, into the released versions of the product. 
+								The later adopters didn't have to be concerned 
+								with slipstreaming as the service pack was 
+								incorporated into their CD's . In 
+								theory, a year after XP's release it would seem 
+								reasonable that the volume of critical updates 
+								and security patches would decline as problems 
+								were identified and addressed but this didn't 
+								seem to happen. To address the continuing flow 
+								of updates it was expected that SP2 would be 
+								released. Rather then release SP2 Microsoft 
+								decided to go with the Rollup Update that's 
+								discussed at
+								<a target="_blank" href="http://support.microsoft.com/default.aspx?scid=kb;en-us;826939&Product=winxp">
+								Update Rollup 1 for Windows XP Is Available</a>.</font></p>
+								<p><font size="2">So while it's possible to 
+								create a slipstreamed XP CD from either an 
+								original Gold (non-service pack included) or an 
+								XP1/XP1a CD that includes the service packs and 
+								rollups, is it worth the effort? Maybe, if you 
+								truly need a fresh installation with no 
+								applications installed, but most users don't 
+								fall into that category. For the majority, once 
+								the operating system has been installed and 
+								updated, it's about the applications and using 
+								them for business or leisure activities.</font></p>
+								<p><font size="2">Even if the system does crash 
+								and burn, you'll likely be more interested in 
+								restoring the entire system, including 
+								applications and whatever data is recoverable, 
+								rather than just re-installing the operating 
+								system and having to redo all the application 
+								installations. To accomplish the latter, more 
+								comprehensive goal, an imaging or backup program 
+								provides a far quicker and less stressful 
+								solution than using a slipstreamed CD.</font></p>
+								<p><font size="2">The choice is up to you, but 
+								with the proliferation of cable access to reduce 
+								download times of updates, the time and 
+								complexity involved with application 
+								installations, and the continued flow of updates 
+								that render a slipstreamed CD out of date within 
+								days of its creation, unless you're in a special 
+								circumstance that can truly benefit from 
+								slipstreaming I'd suggest investigating imaging 
+								and backup alternatives. Whatever you decide, 
+								this section has been updated and now includes 
+								the Update Rollup if you are so inclined.</font></td>
+							</tr>
+						</table>
+					</div>
+				<h5 align="left"><font size="2" face="Tahoma">What Is A Slipstreamed 
+			Installation CD?</font></h5>
+				<p align="left"><font size="2" face="Tahoma">Think of your 
+			installation CD as providing a stream of data to your computer to 
+			set up the operating system. On the day XP was released the data 
+			stream was up to date and current. As months have gone by, upgrades 
+			and fixes have been issued to make your system more stable and 
+			secure. SP1 is a compilation of those updates and fixes. 
+			Slipstreaming 'slips' these new bits of data from SP1 into the 
+			'stream' of data that the original CD provided, effectively merging 
+			the two into one XP Installation CD ROM. A slipstreamed CD is used 
+			just like any other Windows installation CD. Without a slipstreamed 
+			CD when you go to Windows Update you might find 15 - 20 Critical 
+			Updates are needed. The screen capture below was taken immediately 
+			after an installation of XP Pro made from a slipstreamed XP/SP1 
+			Installation CD created from the instructions contained in this 
+			article. As you can see, no Critical Updates or Service Packs (see 
+				side note below) are 
+			needed due to slipstreaming SP1 into XP.</font></p>
+					<div align="center">
+						<table border="1" width="95%" id="table20" cellpadding="3" bordercolor="#000000">
+							<tr>
+								<td><font size="2">Side note; if you were to do 
+								a clean install today [11/05/03] from a XP Gold 
+								CD and checked Windows Update immediately 
+								afterward you'd find 46 Critical Updates 
+								available.</font></td>
+							</tr>
+						</table>
+					</div>
+				<p align="center">
+				<img border="0" src="images/SlipStream/pic27.gif" width="521" height="264"></p>
+				<p align="center"><font size="2" face="Tahoma">
+				<!--webbot bot="Navigation" S-Orientation="vertical" S-Rendering="html" S-Bar="Bars" S-Btn-Nml="&lt;A HREF=&quot;#URL#&quot; TARGET=&quot;#TARGET#&quot; STYLE=&quot;{text-decoration: none;}&quot;&gt;#LABEL#&lt;/A&gt;" S-Btn-Sel="#LABEL#" S-Btn-Sep="&lt;br&gt;" S-Type="children" B-Include-Home="FALSE" B-Include-Up="TRUE" startspan --><nobr><A HREF="./" TARGET="" STYLE="{text-decoration: none;}">Up</A></nobr><br><nobr><A HREF="slipstream_02.htm" TARGET="" STYLE="{text-decoration: none;}">Step&nbsp;1&nbsp;-&nbsp;Gathering&nbsp;the&nbsp;Needed&nbsp;Parts&nbsp;and&nbsp;Pieces</A></nobr><br><nobr><A HREF="slipstream_03.htm" TARGET="" STYLE="{text-decoration: none;}">Step&nbsp;2&nbsp;-&nbsp;Building&nbsp;Directories</A></nobr><br><nobr><A HREF="slipstream_04.htm" TARGET="" STYLE="{text-decoration: none;}">Step&nbsp;3&nbsp;-&nbsp;Copying&nbsp;and&nbsp;Extracting&nbsp;Files</A></nobr><br><nobr><A HREF="slipstream_05.htm" TARGET="" STYLE="{text-decoration: none;}">Step&nbsp;4&nbsp;-&nbsp;Updating&nbsp;The&nbsp;Windows&nbsp;Share</A></nobr><br><nobr><A HREF="slipstream_06.htm" TARGET="" STYLE="{text-decoration: none;}">Slipstreaming&nbsp;the&nbsp;Microsoft&nbsp;Rollup&nbsp;Update</A></nobr><br><nobr><A HREF="slipstream_07.htm" TARGET="" STYLE="{text-decoration: none;}">Step&nbsp;5&nbsp;-&nbsp;Create&nbsp;New&nbsp;Folder&nbsp;and&nbsp;Copy&nbsp;Previously&nbsp;Slipstreamed&nbsp;CD</A></nobr><br><nobr><A HREF="slipstream_08.htm" TARGET="" STYLE="{text-decoration: none;}">Step&nbsp;6&nbsp;-&nbsp;Download&nbsp;and&nbsp;Extract&nbsp;the&nbsp;Update&nbsp;Rollup</A></nobr><br><nobr><A HREF="slipstream_09.htm" TARGET="" STYLE="{text-decoration: none;}">Step&nbsp;7&nbsp;-&nbsp;Create&nbsp;Svcpack&nbsp;Directory</A></nobr><br><nobr><A HREF="slipstream_10.htm" TARGET="" STYLE="{text-decoration: none;}">Step&nbsp;8&nbsp;-&nbsp;Modify&nbsp;Files&nbsp;in&nbsp;the&nbsp;I386&nbsp;Directory&nbsp;of&nbsp;C:\XP</A></nobr><br><nobr><A HREF="slipstream_11.htm" TARGET="" STYLE="{text-decoration: none;}">Step&nbsp;9&nbsp;-&nbsp;Modify&nbsp;the&nbsp;Svcpack.inf&nbsp;File</A></nobr><br><nobr><A HREF="slipstream_12.htm" TARGET="" STYLE="{text-decoration: none;}">Step&nbsp;10&nbsp;-&nbsp;Modify&nbsp;the&nbsp;Dosnet.inf&nbsp;File</A></nobr><br><nobr><A HREF="slipstream_13.htm" TARGET="" STYLE="{text-decoration: none;}">Step&nbsp;11&nbsp;&nbsp;-&nbsp;Extract&nbsp;the&nbsp;Imaging&nbsp;File</A></nobr><br><nobr><A HREF="slipstream_14.htm" TARGET="" STYLE="{text-decoration: none;}">Step&nbsp;12&nbsp;-&nbsp;Burn&nbsp;the&nbsp;New&nbsp;Slipstreamed&nbsp;CD</A></nobr><!--webbot bot="Navigation" i-checksum="13552" endspan --></font><!-- #EndEditable --></td>
+				</tr>
+			</table>
+		</div>
+		</td>
+		<td valign="top" height="1745" width="185">
+		<table cellpadding="0" cellspacing="0" width="185">
+			<!-- MSCellFormattingTableID="4" -->
+			<tr>
+				<td height="5" width="185">
+				<!-- MSCellFormattingType="content" -->
+				<table border="0" width="100%" id="table8" style="font-family: Tahoma; font-size: 10pt; border-collapse:collapse">
+					<tr>
+						<td>
+						<p align="center">
+						<font face="Tahoma" size="2" color="#000080">The 
+							Elder Geek on Windows XP Website CD ROM<br>
+							</font><font face="Tahoma" size="2">
+							<a href="tegwebsitecd.htm">Pricing
+							Information</a></font><br>
+&nbsp;</td>
+					</tr>
+					<tr>
+						<td>
+						<p align="center">
+						<!--webbot bot="HTMLMarkup" startspan --><script type="text/javascript"><!--
+google_ad_client = "pub-5924540639026455";
+google_alternate_color = "006699";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_channel ="";
+google_color_border = "336699";
+google_color_bg = "FFFFFF";
+google_color_link = "0000FF";
+google_color_url = "008000";
+google_color_text = "000000";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script><!--webbot bot="HTMLMarkup" endspan --></td>
+					</tr>
+					<tr>
+						<td>
+						&nbsp;</td>
+					</tr>
+					<tr>
+						<td>
+						<table border="1" width="100%" id="table11" bordercolor="#000080" cellpadding="3" style="border-collapse: collapse">
+							<tr>
+								<td>
+						<p align="center"><i>
+						<a href="slipstreamed_xpsp2_cd.htm"><font size="2">Slipstreamed 
+						XP/SP2 CD</font></a><br>
+						</i><font size="2" color="#000080">How to create including<br>
+						burning instructions for<br>
+						Nero and Roxio</font><p align="center"><i>
+						<font size="2" color="#000080">
+						<a href="slipstreamed_xpsp3_cd.htm">Slipstreamed 
+						XP/SP3 CD</a></font></i><p align="center"><i>
+						<font size="2" color="#000080">
+						<a href="service_pack_2_articles.htm">Service Pack 2<br>
+						Articles Archive</a></font></i><p align="center"><i>
+								<a href="quick_guide_to_simple_file_sharing.htm">
+								<font size="2">Guide to Simple File Sharing</font></a><font size="2"><br>
+								</font>
+						</i><font size="1" color="#000080">Share Folders, Files, and Printers in XP Home and 
+						Professional</font><p align="center">
+								<font color="#000080"><i>
+								<a href="paging_file.htm"><font size="2">Virtual Memory Paging File</font></a><font size="2"><br>
+								</font>
+						</i><font size="1">Size - Optimize<br>
+						Defragment - Monitor</font></font><p align="center"><i>
+						<a href="common_solutions.htm">
+								<font size="2">Common Solutions</font></a></i><p align="center"><i>
+								<font color="#000080" size="2">Has The Elder Geek site been useful?<br>
+						<!--webbot bot="HTMLMarkup" startspan --><form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="theeldergeek@theeldergeek.com">
+<input type="hidden" name="item_name" value="The Elder Geek on Windows XP">
+<input type="hidden" name="no_shipping" value="1">
+<input type="hidden" name="return" value="http://www.theeldergeek.com/thank_you.htm">
+<input type="hidden" name="cancel_return" value="http://www.theeldergeek.com/cancelled_donation.htm">
+<input type="hidden" name="cn" value="Your Comments Are Welcome">
+<input type="image" src="https://www.paypal.com/images/x-click-but04.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form><!--webbot bot="HTMLMarkup" endspan --><a href="donate_to_teg.htm">Consider A Donation</a></font></i></td>
+							</tr>
+						</table>
+						</td>
+					</tr>
+					<tr>
+						<td>
+						&nbsp;</td>
+					</tr>
+					<tr>
+						<td>
+						<p align="center">
+							&nbsp;</p>
+						<p align="center">
+							<!--webbot bot="HTMLMarkup" startspan --><a href="http://www.anrdoezrs.net/click-1309656-5033206" target="_blank" onmouseover="window.status='http://www.crucial.com/index.asp';return true;" onmouseout="window.status=' ';return true;">
+<img src="http://www.lduhtrp.net/image-1309656-5033206" width="88" height="31" alt="Crucial.com" border="0"/></a><!--webbot bot="HTMLMarkup" endspan --></p>
+						<p align="center">
+							<!--webbot bot="HTMLMarkup" startspan --><a href="http://www.anrdoezrs.net/click-1309656-10474264" target="_blank" onmouseover="window.status='http://www.crucial.com/index.asp';return true;" onmouseout="window.status=' ';return true;">
+<img src="http://www.tqlkg.com/image-1309656-10474264" width="120" height="300" alt="Crucial Memory Selector" border="0"/></a><!--webbot bot="HTMLMarkup" endspan --></td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>
+						<table border="1" width="100%" id="table12" cellpadding="3" style="border-collapse: collapse" bordercolor="#000080">
+							<tr>
+								<td>
+						<p align="center"><a href="teg_how_to_index.htm">
+						<span style="text-decoration: none"><font size="2">Basic 
+						How To Articles<br>
+						for XP Newbies</font></span></a><p align="left"><font size="1">
+						<a href="teg_how_to_index.htm">
+						<span style="text-decoration: none">&nbsp;- Managing Starting 
+								/ Stopping XP<br>
+								&nbsp;- Managing Basic Desktop Components<br>
+								&nbsp;- Managing Basic Hardware Settings<br>
+								&nbsp;- Managing Folders and Files<br>
+								&nbsp;- Managing Applications</span></a></font><p align="center"><i>
+						<a href="services_guide.htm">
+								<font size="2">System Services Guide</font></a></i><p align="center"><i>
+						<a href="shutdown_issues_in_xp.htm"><font size="2">
+								Troubleshooting Shutdown Issues</font></a></i><p align="center"><i>
+						<a href="file_management_in_windows_xp.htm">
+								<font size="2">XP File Management</font></a><br>
+						</i><font size="1" color="#000080">Tips to organize 
+								Quick Launch, Search, and Windows Explorer for 
+								easier, efficient use.</font><p align="center"><i>
+						<a href="protecting_the_system.htm"><font size="2">
+								Protecting System and Data Via NTBackup</font></a><br>
+						</i><a href="backup_using_wizard.htm"><font size="1">
+								Backup w/ Wizard</font></a><font size="1"><br>
+						</font><a href="backup_using_advanced_mode.htm">
+						<font size="1">Backup w/ Adv. Mode</font></a><p>&nbsp;</td>
+							</tr>
+						</table>
+						</td>
+					</tr>
+					<tr>
+						<td>
+						&nbsp;</td>
+					</tr>
+					<tr>
+						<td>
+						<table border="1" width="100%" id="table13" cellpadding="3" style="border-collapse: collapse" bordercolor="#000080">
+							<tr>
+						<td>
+						<p align="center"><i>
+						<a href="windows_update_catalog.htm"><font size="2">Windows Update Catalog</font></a><br>
+						</i><font size="1" color="#000080">Windows Update Catalog offers centralized XP and .NET 
+						Critical Updates, Service Pack, and Hardware Driver 
+						Downloads<br>
+						</font>
+						<br>
+						<i><a href="automatic_updates.htm"><font size="2">Automatic Update</font></a></i><p align="center"><i>
+						<a href="elder_geek_advertising_rate_card.htm">
+						<font size="2">Advertise with TEG<br>
+						Rate Card</font></a></i><p align="center"><i>
+						<a href="windows_xp_power_toys.htm"><font size="2">XP Power Toys</font></a><br>
+						</i>
+						<a target="_blank" href="http://www.microsoft.com/windowsxp/pro/downloads/powertoys.asp">
+						<font size="1">Power Toys Download</font></a><p align="center"><i>
+						<a href="upgrading_to_windows_xp.htm"><font size="2">Clean or Upgrade<br>
+						XP Installation?</font></a><br>
+						</i><font color="#000080" size="1">Which is better?</font><p align="center"><i>
+						<font color="#000080" size="2">Has The Elder Geek site been useful?<br>
+						<!--webbot bot="HTMLMarkup" startspan --><form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="theeldergeek@theeldergeek.com">
+<input type="hidden" name="item_name" value="The Elder Geek on Windows XP">
+<input type="hidden" name="no_shipping" value="1">
+<input type="hidden" name="return" value="http://www.theeldergeek.com/thank_you.htm">
+<input type="hidden" name="cancel_return" value="http://www.theeldergeek.com/cancelled_donation.htm">
+<input type="hidden" name="cn" value="Your Comments Are Welcome">
+<input type="image" src="https://www.paypal.com/images/x-click-but04.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form><!--webbot bot="HTMLMarkup" endspan --><a href="donate_to_teg.htm">Consider A Donation</a></font></i></td>
+							</tr>
+						</table>
+						</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>
+						<table border="1" width="100%" id="table14" cellpadding="3" style="border-collapse: collapse" bordercolor="#000080">
+							<tr>
+						<td>
+						<p align="center"><i>
+						<a href="bare_bones_troubleshooting_installation.htm">
+						<font size="2">Bare Bones Troubleshooting</font></a><br>
+						</i><font color="#000080" size="1">Tried everything and can't get XP to install? Take a 
+						look here.</font><p align="center"><i>
+						<a href="system_volume_information_folder1.htm">
+						<font size="2">The 'System Volume Information' Folder</font></a><br>
+						</i><font color="#000080" size="1">What is it and why is it taking up room on your hard 
+						drive(s)?</font><p align="center"><i>
+						<a href="microsoft_management_console.htm">
+						<font size="2">Microsoft Management Console</font></a></i><br>
+						<font color="#000080" size="1">A Guide to Understanding and Using This Often Overlooked 
+						but Useful XP Feature</font><p align="center"><i>
+						<a href="registry_edits.htm">
+						<font size="2">Registry Tweaks and Edits</font></a><br>
+						</i>
+						<br>
+						<i><a href="windows_xp_registry.htm"><font size="2">Backing Up and Restoring the XP Registry</font></a></i></td>
+							</tr>
+						</table>
+						</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>
+						<table border="1" width="100%" id="table15" cellpadding="3" style="border-collapse: collapse" bordercolor="#000080">
+							<tr>
+						<td>
+						<p align="center"><i>
+						<a href="repairing_windows_xp.htm"><font size="2">Accessing The Different Methods of 
+						Repair Available in Windows XP</font></a></i><p align="center"><i>
+						<a href="file_list_generator.htm"><font size="2">Generate File Listings from IE Context 
+						Menu</font></a></i><p align="center"><i>
+						<a href="send_to_menu_command.htm"><font size="2">The &quot;Send To&quot; Menu Command</font></a><br>
+						</i><font color="#000080" size="1">Add your own frequently accessed locations to make this 
+						context menu more useful.</font><p align="center"><i>
+						<font color="#000080" size="2">Has The Elder Geek site been useful?<br>
+						<!--webbot bot="HTMLMarkup" startspan --><form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="theeldergeek@theeldergeek.com">
+<input type="hidden" name="item_name" value="The Elder Geek on Windows XP">
+<input type="hidden" name="no_shipping" value="1">
+<input type="hidden" name="return" value="http://www.theeldergeek.com/thank_you.htm">
+<input type="hidden" name="cancel_return" value="http://www.theeldergeek.com/cancelled_donation.htm">
+<input type="hidden" name="cn" value="Your Comments Are Welcome">
+<input type="image" src="https://www.paypal.com/images/x-click-but04.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form><!--webbot bot="HTMLMarkup" endspan --><a href="donate_to_teg.htm">Consider A Donation</a></font></i></td>
+							</tr>
+						</table>
+						</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>
+						<p align="center">
+						<!--webbot bot="HTMLMarkup" startspan --><script type="text/javascript"><!--
+google_ad_client = "pub-5924540639026455";
+google_alternate_color = "006699";
+google_ad_width = 160;
+google_ad_height = 90;
+google_ad_format = "160x90_0ads_al_s";
+google_ad_channel ="";
+google_color_border = "2D5893";
+google_color_bg = "99AACC";
+google_color_link = "000000";
+google_color_url = "000099";
+google_color_text = "003366";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script><!--webbot bot="HTMLMarkup" endspan --></p>
+						</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>
+						<table border="1" width="100%" id="table16" cellpadding="3" style="border-collapse: collapse" bordercolor="#000080">
+							<tr>
+						<td>
+						<p align="center"><i><a href="boot_logo_01.htm">
+						<font size="2">Create A Personalized Boot Logo Screen</font></a></i><p align="center"><i>
+						<a href="disk_cleanup_utility.htm"><font size="2">Using XP Disk Cleanup Utility</font></a><br>
+						</i>
+						<br>
+						<i><a href="disk_defragmenter_utility.htm">
+						<font size="2">Using Disk Defragmenter Utility</font></a></i><p align="center"><i>
+						<a href="common_solutions.htm">
+						<font size="2">Common Solutions</font></a></i><p align="center"><i>
+						<a href="tips_and_solutions_arranged_by_x.htm">
+						<font size="2">Tips and Solutions Arranged by XP 
+						Control Panel Groupings</font></a></i></td>
+							</tr>
+						</table>
+						</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+				</table>
+				<p align="center">&nbsp;</td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+	<tr>
+		<td><img alt="" width="185" height="1" src="siteimages/MsSpacer.gif"></td>
+		<td></td>
+		<td><img alt="" width="185" height="1" src="siteimages/MsSpacer.gif"></td>
+	</tr>
+</table>
+<table cellpadding="0" cellspacing="0" width="100%" height="50">
+	<!-- MSTableType="layout" -->
+	<tr>
+		<td valign="top" height="50" width="100%">
+		<table border="0" width="100%" id="table10">
+			<tr>
+				<td>
+				<p align="center"><!-- SiteSearch Google -->
+<form method="get" action="http://www.google.com/custom" target="google_window">
+<table border="0" bgcolor="#ffffff" id="table17">
+<tr><td nowrap="nowrap" valign="top" align="center" height="32">
+<a href="http://www.google.com/">
+<img SRC="http://www.google.com/logos/Logo_25wht.gif"
+border="0" alt="Google"></img></a>
+</td>
+<td nowrap align="center">
+<input type="hidden" name="domains0" value="www.theeldergeek.com"></input>
+<input type="text" name="q0" size="31" maxlength="255" value=""></input>
+<input type="submit" name="sa0" value="Search"></input>
+</td></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td nowrap align="center">
+<font size="-1" color="#000000">
+<input type="radio" name="sitesearch" value=""></input> Web
+<input type="radio" name="sitesearch" value="www.theeldergeek.com" checked></input>www.theeldergeek.com
+</font>&nbsp;&nbsp;
+<input type="hidden" name="client0" value="pub-5924540639026455"></input>
+<input type="hidden" name="forid0" value="1"></input>
+<input type="hidden" name="ie0" value="ISO-8859-1"></input>
+<input type="hidden" name="oe0" value="ISO-8859-1"></input>
+<input type="hidden" name="safe0" value="active"> </input>
+<input type="hidden" name="cof0" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:336699;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;FORID:1;"></input>
+<input type="hidden" name="hl0" value="en"></input>
+
+</td></tr></table>
+</form>
+<!-- SiteSearch Google -->
+				<p align="center"></td>
+				<td>
+				<p align="center"><!--webbot bot="HTMLMarkup" startspan --><a href="http://www.dpbolvw.net/click-1309656-10371104" target="_top" >
+<img src="http://www.ftjcfx.com/image-1309656-10371104" width="468" height="60" alt="" border="0"></a><!--webbot bot="HTMLMarkup" endspan --></td>
+			</tr>
+		</table>
+		<div align="center">
+			<table border="1" width="60%" id="table18" cellpadding="3" bordercolor="#FF0000">
+				<tr>
+					<td>
+								<p align="center"><font face="Tahoma"><font color="#FF0000"><b>
+								<font size="2">-&nbsp; 
+								Important Information&nbsp; -</font></b></font><b><font size="2" color="#FF0000"><br>
+								</font></b><font color="#FF0000" size="1">The 
+								Elder Geek on Windows XP site contains many 
+								articles and suggestions for modifying the 
+								Windows XP operating system. I've tried these 
+								tweaks and tips on many systems. Sometimes they 
+								work, sometimes not. The point is, ensure you 
+								have a current, tested backup of all system and 
+								data files and understand how to restore the 
+								system in case something goes very wrong. You 
+								can still yell at me, but I assume no 
+								responsibility for your actions and use of the 
+								information and disclaim any legal 
+								responsibility for any consequences of such 
+								actions.</font></font></td>
+				</tr>
+			</table>
+		</div>
+		<p align="center">
+		<font face="Tahoma" size="1">Copyright � 2002/2003/2004/2005/2006/2007/2008, 
+		Jim Foley/The Elder Geek, All Rights Reserved Worldwide<br>
+		Reproduction, in any form, of information on this site is prohibited 
+		without express written permission.<br>
+		Microsoft is in no way affiliated with, nor offers endorsement of, this 
+		site.<br>
+&nbsp;</font><p align="center">
+		<!--webbot bot="HTMLMarkup" startspan --><script type="text/javascript"><!--
+google_ad_client = "pub-5924540639026455";
+google_ad_width = 468;
+google_ad_height = 60;
+google_ad_format = "468x60_as_rimg";
+google_cpa_choice = "CAAQq8WdzgEaCCQIMpsWzihvKNvD93M";
+//--></script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script><!--webbot bot="HTMLMarkup" endspan --></td>
+	</tr>
+</table>
+
+<!-- start Vibrant Media IntelliTXT Tooltip style sheet -->
+<style type="text/css">
+.iTt{
+    FONT-FAMILY:       Verdana, Arial, Helvetica;
+    FONT-SIZE:         11px;
+    FONT-STYLE:        normal;
+    FONT-WEIGHT:       normal;
+    COLOR:             black;
+    BACKGROUND-COLOR:  lightyellow;
+    BORDER:            black 1px solid;
+    PADDING:           2px;
+}
+</style>
+<!-- end Vibrant Media IntelliTXT style sheet -->
+<!-- start Vibrant Media IntelliTXT script section -->
+<script type="text/javascript" src="http://theeldergeek.us.intellitxt.com/intellitxt/front.asp?ipid=3304"></script>
+<!-- end Vibrant Media IntelliTXT script section -->
+
+</body>
+
+<!-- #EndTemplate -->
+
+</html>

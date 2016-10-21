@@ -1,0 +1,581 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>R and C# on Windows &laquo; Joachim Van den Bogaert&#8217;s Weblog</title>
+<link rel="stylesheet" href="http://s2.wp.com/wp-content/themes/pub/ocean-mist/style.css?m=1266776969g&amp;updated=friSep4" type="text/css" media="screen" />
+<!--[if IE 6]> 	<link rel="stylesheet" href="http://s2.wp.com/wp-content/themes/pub/ocean-mist/ie6.css?m=1246413671g" type="text/css" media="screen" /> <![endif]-->
+<link rel="alternate" type="application/rss+xml" title="Joachim Van den Bogaert&#8217;s Weblog RSS Feed" href="http://joachimvandenbogaert.wordpress.com/feed/" />
+<link rel="pingback" href="http://joachimvandenbogaert.wordpress.com/xmlrpc.php" />
+<link rel="alternate" type="application/rss+xml" title="Joachim Van den Bogaert&#039;s Weblog &raquo; R and C# on&nbsp;Windows Comments Feed" href="http://joachimvandenbogaert.wordpress.com/2009/03/26/r-and-c-on-windows/feed/" />
+<script type="text/javascript">
+/* <![CDATA[ */
+function addLoadEvent(func){var oldonload=window.onload;if(typeof window.onload!='function'){window.onload=func;}else{window.onload=function(){oldonload();func();}}}
+/* ]]> */
+</script>
+<link rel="stylesheet" href="http://s0.wp.com/wp-content/themes/h4/global.css?m=1256671583g" type="text/css" />
+<script type='text/javascript' src='http://s0.wp.com/wp-includes/js/comment-reply.js?ver=20090102'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://joachimvandenbogaert.wordpress.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://joachimvandenbogaert.wordpress.com/wp-includes/wlwmanifest.xml" /> 
+<link rel='index' title='Joachim Van den Bogaert&#039;s Weblog' href='http://joachimvandenbogaert.wordpress.com' />
+<link rel='prev' title='RCOM and C#:&nbsp;SafeArrayTypeMismatchException' href='http://joachimvandenbogaert.wordpress.com/2009/02/20/rcom-and-c-safearraytypemismatchexception/' />
+<link rel='next' title='Vista networking fails after connection to&nbsp;VPN' href='http://joachimvandenbogaert.wordpress.com/2009/04/01/vista-networking-fails-after-connection-to-vpn/' />
+<meta name="generator" content="WordPress.com" />
+<link rel='canonical' href='http://joachimvandenbogaert.wordpress.com/2009/03/26/r-and-c-on-windows/' />
+<link rel="shortcut icon" type="image/x-icon" href="http://www.gravatar.com/blavatar/e795a50da1a3d1dcd5335b21b2de8170?s=16&#038;d=http://s2.wp.com/i/favicon.ico" />
+<link rel="icon" type="image/x-icon" href="http://www.gravatar.com/blavatar/e795a50da1a3d1dcd5335b21b2de8170?s=16&#038;d=http://s2.wp.com/i/favicon.ico" />
+<link rel="apple-touch-icon" href="http://www.gravatar.com/blavatar/db1cbefcd96106603251837d65a0224e?s=158&#038;d=http://s0.wp.com/wp-content/themes/h4/i/webclip.png" />
+<link rel='openid.server' href='http://joachimvandenbogaert.wordpress.com/?openidserver=1' />
+<link rel='openid.delegate' href='http://joachimvandenbogaert.wordpress.com/' />
+<link rel="search" type="application/opensearchdescription+xml" href="http://wordpress.com/opensearch.xml" title="WordPress.com" />
+<link rel="search" type="application/opensearchdescription+xml" href="http://joachimvandenbogaert.wordpress.com/osd.xml" title="Joachim Van den Bogaert&#8217;s Weblog" />
+<link rel="shortlink" href="http://wp.me/pf5Nt-R" /><style type="text/css">
+#mainpic {
+	background: url(http://s2.wp.com/wp-content/themes/pub/ocean-mist/images/mainpic01.jpg) no-repeat;
+}
+</style>
+
+<script defer="defer" id="snap_preview_anywhere" type="text/javascript" src="http://spa.snap.com/snap_preview_anywhere.js?ap=0&amp;si=1&amp;sb=1&amp;key=e5a3c1e6dff5de35b1c6e7c470411886&amp;domain=&amp;fl=wordpress&amp;pub=pub-2311827-www.wordpress.com&amp;es=all&amp;lang=en"></script>
+
+</head>
+<body>
+
+<div id="page">
+  <div id="header">
+    <h1><a href="http://joachimvandenbogaert.wordpress.com/">Joachim Van den Bogaert&#8217;s Weblog</a></h1>
+    <div class="description">Development blog&nbsp;</div>
+    <div id="mainpic"></div>
+	<ul id="pagetabs">
+	  <li class="page_item page-item-2"><a href="http://joachimvandenbogaert.wordpress.com/about/" title="About">About</a></li>
+	</ul>
+  </div>
+
+	<div id="content">
+				
+  		<div class="postwrapper wideposts" id="post-53">
+			<div class="title">
+				<small>Posted by: <strong>joachimvandenbogaert</strong> | March 26, 2009 </small>
+				<h2>R and C# on&nbsp;Windows</h2>
+			</div>
+			<div class="post-53 post hentry category-development category-development-with-r category-windows-vista">
+				<div class="entry">
+			      		<div class='snap_preview'><p>The following page offers a good introduction, but some information is missing. So I thought it would be useful to add some more instructions, especially for deployment on client systems on which R has not been installed yet.</p>
+<p><a href="http://www.codeproject.com/KB/cs/RtoCSharp.aspx">http://www.codeproject.com/KB/cs/RtoCSharp.aspx</a></p>
+<p>Here&#8217;s a list of issues:</p>
+<ol>
+<li>R requires Administrator rights when you install it (as described in the R Administration guide). This also applies when you want to install add-ons. R itself does not have these permissions, so if you install an add-on from within R, you will get an &#8220;access denied&#8221; error (to install an add-on, you can use the R gui,  Packages-&gt;Install package(s) &#8230;). A workaround is to make the R program directory writable to everyone. Maybe you can also try to run R itself as administrator when you need to install a package, but I haven&#8217;t tried this yet. This would probably be a better solution.</li>
+<li>Anyway, on windows, the install procedure is not actually an install procedure. You only get a zip file in a temporary directory. So to really install an add-on, you need to copy the extracted add-on folder and copy it to the Rlibrary. Note that this also requires write access to the R installtion folder.</li>
+</ol>
+<p>Here&#8217;s a summary of what you need to do to get R working:</p>
+<ol>
+<li>Download the rscproxy package <a href="http://www.freestatistics.org/cran/bin/windows/contrib/r-release/rscproxy_1.2-0.zip">http://www.freestatistics.org/cran/bin/windows/contrib/r-release/rscproxy_1.2-0.zip</a>, unzip it and install the rscproxy directory in your Rlibrary directory.</li>
+<li>Download R_Scilab_DCOM3.0-1B5.exe from <a href="http://www.freestatistics.org/cran/contrib/extra/dcom/R_Scilab_DCOM3.0-1B5.exe">http://www.freestatistics.org/cran/contrib/extra/dcom/R_Scilab_DCOM3.0-1B5.exe</a> (you coulds also use another mirror), and install it.</li>
+<li>To use R, add a reference to your C# project to <span style="font-size:x-small;">STATCONNECTORCLNTLib, <span style="font-size:x-small;">StatConnectorCommonLib, and <span style="font-size:x-small;">STATCONNECTORSRVLib (this is to get full functionality, for the client to work, you only need STATCONNECTORSRVLib).</span></span></span></li>
+<li><span style="font-size:x-small;">Use the STATCONNECTORSRVLib.<span style="font-size:x-small;color:#2b91af;"><span style="font-size:x-small;color:#2b91af;">StatConnectorClass <span style="color:#000000;">to interface with R.</span></span></span></span></li>
+</ol>
+<p>Here&#8217;s some example code:</p>
+<p><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;">using </span></span></span></span><span style="font-size:x-small;">System;<br />
+</span><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;">using </span></span></span></span><span style="font-size:x-small;">System.Collections.Generic;<br />
+</span><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;">using </span></span></span></span><span style="font-size:x-small;">System.Linq;<br />
+</span><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;">using </span></span></span></span><span style="font-size:x-small;">System.Text;<br />
+</span><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;">using </span></span></span></span><span style="font-size:x-small;">NUnit.Framework;</span></p>
+<p><span style="font-size:x-small;color:#008000;"><span style="font-size:x-small;color:#008000;">//COM references<br />
+</span></span><span style="font-size:x-small;color:#008000;"><span style="font-size:x-small;color:#008000;"><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;">using </span></span></span></span></span></span><span style="font-size:x-small;">STATCONNECTORCLNTLib;<br />
+</span><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;">using </span></span></span></span><span style="font-size:x-small;">StatConnectorCommonLib;<br />
+</span><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;">using </span></span></span></span><span style="font-size:x-small;">STATCONNECTORSRVLib;<br />
+</span><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;">using </span></span></span></span><span style="font-size:x-small;">System.IO;</span></p>
+<p><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;">namespace </span></span></span></span><span style="font-size:x-small;">RConnector.Tests.Integration<br />
+</span><span style="font-size:x-small;">{<br />
+</span><span style="font-size:x-small;"><span style="font-size:x-small;">    [</span></span><span style="font-size:x-small;color:#2b91af;"><span style="font-size:x-small;color:#2b91af;">TestFixture</span></span><span style="font-size:x-small;">]<br />
+    </span><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;">public</span></span><span style="font-size:x-small;"> </span><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;">class</span></span><span style="font-size:x-small;"> </span><span style="font-size:x-small;color:#2b91af;"><span style="font-size:x-small;color:#2b91af;">TestConnectivityWithR<br />
+    </span></span><span style="font-size:x-small;">{</span></p>
+<p><span style="font-size:x-small;"><br />
+</span> <span style="font-size:x-small;">       <span style="font-size:x-small;">[</span></span><span style="font-size:x-small;color:#2b91af;"><span style="font-size:x-small;color:#2b91af;">Test</span></span><span style="font-size:x-small;">]<br />
+        </span><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;">public</span></span><span style="font-size:x-small;"> </span><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;">void </span></span><span style="font-size:x-small;">Open_Close()<br />
+        </span><span style="font-size:x-small;">{<br />
+            </span><span style="font-size:x-small;color:#2b91af;"><span style="font-size:x-small;color:#2b91af;">StatConnectorClass</span></span><span style="font-size:x-small;"> RConnector = </span><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;">new</span></span><span style="font-size:x-small;"> </span><span style="font-size:x-small;color:#2b91af;"><span style="font-size:x-small;color:#2b91af;">StatConnectorClass</span></span><span style="font-size:x-small;">();<br />
+            <span style="font-size:x-small;">RConnector.Init(</span></span><span style="font-size:x-small;color:#a31515;"><span style="font-size:x-small;color:#a31515;">&#8220;R&#8221;</span></span><span style="font-size:x-small;">);</span><span style="font-size:x-small;"><br />
+            RConnector.Close();<br />
+        }</span></p>
+<p>        [<span style="font-size:x-small;color:#2b91af;"><span style="font-size:x-small;color:#2b91af;">Test</span></span><span style="font-size:x-small;">]<br />
+        </span><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;">public</span></span><span style="font-size:x-small;"> </span><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;">void </span></span><span style="font-size:x-small;">Send_Receive_Data_()<br />
+        </span><span style="font-size:x-small;">{<br />
+<span style="font-size:x-small;">            </span></span><span style="font-size:x-small;color:#2b91af;"><span style="font-size:x-small;color:#2b91af;">StatConnectorClass</span></span><span style="font-size:x-small;"> RConnector = </span><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;">new</span></span><span style="font-size:x-small;"> </span><span style="font-size:x-small;color:#2b91af;"><span style="font-size:x-small;color:#2b91af;">StatConnectorClass</span></span><span style="font-size:x-small;">();<br />
+            <span style="font-size:x-small;">RConnector.Init(</span></span><span style="font-size:x-small;color:#a31515;"><span style="font-size:x-small;color:#a31515;">&#8220;R&#8221;</span></span><span style="font-size:x-small;">);<span style="font-size:x-small;"> <br />
+           </span></span><span style="font-size:x-small;color:#008000;"><span style="font-size:x-small;color:#008000;">// Data we are going to pass<br />
+<span style="font-size:x-small;"><span style="color:#000000;">            </span></span></span></span><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;">int </span></span><span style="font-size:x-small;">n = 20;<br />
+<span style="font-size:x-small;">            </span></span><span style="font-size:x-small;color:#008000;"><span style="font-size:x-small;color:#008000;">// Cast C# type to R type<br />
+<span style="font-size:x-small;"><span style="color:#000000;">            </span></span></span></span><span style="font-size:x-small;"><span style="font-size:x-small;">RConnector.SetSymbol(</span></span><span style="font-size:x-small;color:#a31515;"><span style="font-size:x-small;color:#a31515;">&#8220;n1&#8243;</span></span><span style="font-size:x-small;">, n);<span style="font-size:x-small;"> <br />
+<span style="font-size:x-small;">            </span></span></span><span style="font-size:x-small;color:#008000;"><span style="font-size:x-small;color:#008000;">// The cast value n to n1 is now being used in R<br />
+<span style="font-size:x-small;"><span style="color:#000000;">            </span></span></span></span><span style="font-size:x-small;"><span style="font-size:x-small;">RConnector.Evaluate(</span></span><span style="font-size:x-small;color:#a31515;"><span style="font-size:x-small;color:#a31515;">&#8220;x1 &lt;- rnorm(n1)&#8221;</span></span><span style="font-size:x-small;">);<span style="font-size:x-small;"> <br />
+<span style="font-size:x-small;">            </span></span></span><span style="font-size:x-small;color:#008000;"><span style="font-size:x-small;color:#008000;">// We get back the value of x1, but it needs to be cast<br />
+<span style="font-size:x-small;"><span style="color:#000000;">            </span></span></span></span><span style="font-size:x-small;color:#008000;"><span style="font-size:x-small;color:#008000;">// to an array of doubles<br />
+<span style="font-size:x-small;"><span style="color:#000000;">            </span></span></span></span><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;">object</span></span><span style="font-size:x-small;"> o = RConnector.GetSymbol(</span><span style="font-size:x-small;color:#a31515;"><span style="font-size:x-small;color:#a31515;">&#8220;x1&#8243;</span></span><span style="font-size:x-small;">);<br />
+<span style="font-size:x-small;">            </span></span><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;">double</span></span><span style="font-size:x-small;">[] random = (</span><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;">double</span></span><span style="font-size:x-small;">[])o;<br />
+<span style="font-size:x-small;">            </span></span><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;">foreach</span></span><span style="font-size:x-small;"> (</span><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;">double</span></span><span style="font-size:x-small;"> d </span><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;">in </span></span><span style="font-size:x-small;">random)<br />
+<span style="font-size:x-small;">            </span>{<br />
+<span style="font-size:x-small;">                </span></span><span style="font-size:x-small;color:#2b91af;"><span style="font-size:x-small;color:#2b91af;">Console</span></span><span style="font-size:x-small;">.WriteLine(d);<br />
+<span style="font-size:x-small;">            </span>}<br />
+        }</span></p>
+<div><span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;">    <span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;">    </span></span></span>[</span></span></span><span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;color:#2b91af;"><span style="font-size:x-small;color:#2b91af;">Test</span></span><span style="font-size:x-small;">]<br />
+<span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;"> <span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;">    </span></span></span>   </span></span></span></span><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;">public</span></span><span style="font-size:x-small;"> </span><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;">void</span></span><span style="font-size:x-small;"> Plot_CSharpInput_Simple()<br />
+<span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;">    </span></span></span>    </span></span></span>{<br />
+<span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;">    </span></span></span>    <span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;">    </span></span></span></span><span style="font-size:x-small;color:#2b91af;"><span style="font-size:x-small;color:#2b91af;">StatConnectorClass</span></span><span style="font-size:x-small;"> RConnector = </span><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;">new</span></span><span style="font-size:x-small;"> </span><span style="font-size:x-small;color:#2b91af;"><span style="font-size:x-small;color:#2b91af;">StatConnectorClass</span></span><span style="font-size:x-small;">();<br />
+<span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;">    </span></span></span>    </span></span></span>    RConnector.Init(</span><span style="font-size:x-small;color:#a31515;"><span style="font-size:x-small;color:#a31515;">&#8220;R&#8221;</span></span><span style="font-size:x-small;">);<br />
+<span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;">    </span></span></span>    <span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;">    </span></span></span></span><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;">double</span></span><span style="font-size:x-small;">[] input = </span><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;">new</span></span><span style="font-size:x-small;"> </span><span style="font-size:x-small;color:#0000ff;"><span style="font-size:x-small;color:#0000ff;">double</span></span><span style="font-size:x-small;">[] { 1.0, 2.0, 3.0, 2.0, 1.0};<br />
+<span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;">    <span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;">    </span></span></span><span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;">    </span></span></span></span></span></span><span style="font-size:x-small;">RConnector.SetSymbol(</span></span></span></span><span style="font-size:x-small;color:#a31515;"><span style="font-size:x-small;color:#a31515;">&#8220;input&#8221;</span></span><span style="font-size:x-small;">, input);<br />
+<span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;">    <span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;">    <span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;">    </span></span></span></span></span></span></span></span></span>RConnector.EvaluateNoReturn(</span><span style="font-size:x-small;color:#a31515;"><span style="font-size:x-small;color:#a31515;">&#8220;hist(input)&#8221;</span></span><span style="font-size:x-small;">);<br />
+<span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;">    </span></span></span>    <span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;">    </span></span></span></span></span></span>RConnector.EvaluateNoReturn(<br />
+<span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;">    <span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;">    </span></span></span><span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;">    <span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;">    </span></span></span></span></span></span></span></span></span></span><span style="font-size:x-small;color:#a31515;"><span style="font-size:x-small;color:#a31515;">&#8220;savePlot(filename = \&#8221;"</span></span><span style="font-size:x-small;"> +<br />
+<span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;">    <span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;">    <span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;">    </span></span></span><span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;">    </span></span></span></span></span></span></span></span></span></span><span style="font-size:x-small;color:#a31515;"><span style="font-size:x-small;color:#a31515;">@&#8221;C:\\Users\\Joachim\\Documents\\Debug\\Plot_CSharpInput.eps&#8221;</span></span><span style="font-size:x-small;"> + </span><span style="font-size:x-small;color:#a31515;"><span style="font-size:x-small;color:#a31515;">&#8220;\&#8221;, &#8221; </span></span><span style="font-size:x-small;">+<span style="font-size:x-small;"> <br />
+<span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;">    </span></span></span>    <span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;">    <span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;">    </span></span></span></span></span></span></span></span></span></span></span><span style="font-size:x-small;color:#a31515;"><span style="font-size:x-small;color:#a31515;">&#8220;type = \&#8221;eps\&#8221;, device = dev.cur(), restoreConsole = TRUE )&#8221;<br />
+<span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;"><span style="color:#000000;">    <span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;">    </span></span></span><span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;">    </span></span></span></span></span></span></span></span></span><span style="font-size:x-small;">);<span style="font-size:x-small;"> <br />
+<span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;">    <span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;">    <span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;">    </span></span></span></span></span></span></span></span></span></span></span><span style="font-size:x-small;color:#008000;"><span style="font-size:x-small;color:#008000;">//RConnector.Close();<br />
+<span style="font-size:x-small;"><span style="font-size:x-small;"><span style="font-size:x-small;"><span style="color:#000000;">    </span></span></span></span>    </span></span><span style="font-size:x-small;">}</span></span></div>
+<div><span style="font-size:x-small;"></span> </div>
+<div><span style="font-size:x-small;">        [<span style="color:#2b91af;"><span style="color:#2b91af;">Test</span></span>] <span style="color:#0000ff;"><span style="color:#0000ff;">public</span></span> <span style="color:#0000ff;"><span style="color:#0000ff;">void</span></span> Plot_CSharpInput_Simple_WithColors_Rainbow()<br />
+        {<br />
+<span style="color:#2b91af;"><span style="color:#2b91af;"><span style="color:#000000;">            </span>StatConnectorClass</span></span> RConnector = <span style="color:#0000ff;"><span style="color:#0000ff;">new</span></span> <span style="color:#2b91af;"><span style="color:#2b91af;">StatConnectorClass</span></span>();<br />
+            RConnector.Init(<span style="color:#a31515;"><span style="color:#a31515;">&#8220;R&#8221;</span></span>);<br />
+<span style="color:#0000ff;"><span style="color:#0000ff;"><span style="color:#000000;">            </span>double</span></span>[] input = <span style="color:#0000ff;"><span style="color:#0000ff;">new</span></span> <span style="color:#0000ff;"><span style="color:#0000ff;">double</span></span>[] {1.0, 2.0, 3.0, 2.0, 1.0};<br />
+            RConnector.SetSymbol(<span style="color:#a31515;"><span style="color:#a31515;">&#8220;input&#8221;</span></span>, input);<br />
+            RConnector.EvaluateNoReturn(<span style="color:#a31515;"><span style="color:#a31515;">&#8220;barplot(input, main=\&#8221;Foobar\&#8221;, xlab=\&#8221;Value\&#8221;, ylab=\&#8221;Frequency\&#8221;, col=rainbow(7))&#8221;</span></span>);<br />
+            RConnector.EvaluateNoReturn(<span style="color:#a31515;"><span style="color:#a31515;">&#8220;legend(\&#8221;topleft\&#8221;, c(\&#8221;Hello\&#8221;, \&#8221;World\&#8221;), cex=0.6, bty=\&#8221;n\&#8221;, fill=rainbow(5))&#8221;</span></span>);<br />
+            RConnector.EvaluateNoReturn(<br />
+<span style="color:#a31515;"><span style="color:#a31515;"><span style="color:#000000;">                </span>&#8220;savePlot(filename = \&#8221;"</span></span> +<br />
+<span style="color:#a31515;"><span style="color:#a31515;"><span style="color:#000000;">                </span>@&#8221;C:\\Users\\Joachim\\Documents\\Debug\\Plot_CSharpInput.eps&#8221;</span></span> + <span style="color:#a31515;"><span style="color:#a31515;">&#8220;\&#8221;, &#8220;</span></span> +<br />
+<span style="color:#a31515;"><span style="color:#a31515;"><span style="color:#000000;">                </span>&#8220;type = \&#8221;eps\&#8221;, device = dev.cur(), restoreConsole = TRUE )&#8221;</span></span>);<br />
+</span><span style="font-size:x-small;"><span style="color:#008000;"><span style="color:#008000;"><span style="color:#000000;">            </span>//RConnector.Close();<br />
+</span></span>        }</span></div>
+<div><span style="font-size:x-small;">    }</span><br />
+}</div>
+<div style="margin-top: 1em" class="possibly-related"><hr /><p><strong>Possibly related posts: (automatically generated)</strong></p><ul><li><a rel='related nofollow' href='http://allcarnews.wordpress.com/2009/09/21/video-volkswagen-golf-r-against-scirocco-r/'>Video: Volkswagen Golf R against Scirocco R</a></li><li><a rel='related nofollow' href='http://hide1713.wordpress.com/2009/05/10/output-eps-files-from-r/'>Output eps files from R</a></li><li><a rel='related nofollow' href='http://learnbayes.wordpress.com/2009/09/30/help-with-learnbayes/'>Help with LearnBayes?</a></li></ul></div></div>							        	</div>
+			    	<div class="postinfo">
+					<p>Posted in <a href="http://en.wordpress.com/tag/development/" title="View all posts in Development" rel="category tag">Development</a>,  <a href="http://en.wordpress.com/tag/development-with-r/" title="View all posts in Development with R" rel="category tag">Development with R</a>,  <a href="http://en.wordpress.com/tag/windows-vista/" title="View all posts in Windows Vista" rel="category tag">Windows Vista</a></p>
+			  	</div>
+			</div>
+			<div class="navigation">
+				<div class="alignleft">&laquo; <a href="http://joachimvandenbogaert.wordpress.com/2009/02/20/rcom-and-c-safearraytypemismatchexception/" rel="prev">RCOM and C#:&nbsp;SafeArrayTypeMismatchException</a></div>
+				<div class="alignright"><a href="http://joachimvandenbogaert.wordpress.com/2009/04/01/vista-networking-fails-after-connection-to-vpn/" rel="next">Vista networking fails after connection to&nbsp;VPN</a> &raquo;</div>
+			</div>
+			<br style="clear:both" />
+		</div>
+		
+	
+<!-- You can start editing here. -->
+
+		<div class="title">
+		<h2 id="comments">Responses</h2>
+		</div>
+		<ol class="commentlist snap_preview">
+				<li class="pingback even thread-even depth-1 archive" id="comment-44">			
+			    <div class="entry">
+							      <p>[...] ya estas en algo con todo esto debes entrar a ejemplos mas avanzado -&gt; <a href="http://joachimvandenbogaert.wordpress.com/2009/03/26/r-and-c-on-windows/" rel="nofollow">http://joachimvandenbogaert.wordpress.com/2009/03/26/r-and-c-on-windows/</a> [...]</p>
+				  <ul class="buttons">
+				    <li></li>
+				  </ul>
+		        </div>
+			    <div class="postinfo">
+				  <p>By: <strong><a href='http://geeks.ms/blogs/jojeda/archive/2009/07/30/r-project-for-statistical-computing-net-bi.aspx' rel='external nofollow' class='url'>R Project for Statistical Computing + .net + BI - Joga&#39;s Blog</a></strong> on August 1, 2009 <br /> at 1:14 am</p>
+				<p><a rel='nofollow' class='comment-reply-link' href='/2009/03/26/r-and-c-on-windows/?replytocom=44#respond' onclick='return addComment.moveForm("comment-44", "44", "respond", "53")'>Reply</a></p>
+			      <p></p>
+			    </div>
+</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1 archive" id="comment-45">			
+			    <div class="entry">
+				<img alt='' src='http://0.gravatar.com/avatar/47b54b20b1ea0949040392461c9080c7?s=48&amp;d=identicon&amp;r=G' class='avatar avatar-48' height='48' width='48' />			      <p>hey its not coming together. i have downloaded .net SDK 2.0 and R version 2.9.2  . the server file is R_Scilab_DCOM3.0-1B5.exe. but then when i try to use the classes as u have used they dont compile in c# giving error 0246: the type or namespace cannot be found. are u missing a using directive or an assembly reference ?</p>
+				  <ul class="buttons">
+				    <li></li>
+				  </ul>
+		        </div>
+			    <div class="postinfo">
+				  <p>By: <strong>sidmaestro</strong> on September 23, 2009 <br /> at 10:41 pm</p>
+				<p><a rel='nofollow' class='comment-reply-link' href='/2009/03/26/r-and-c-on-windows/?replytocom=45#respond' onclick='return addComment.moveForm("comment-45", "45", "respond", "53")'>Reply</a></p>
+			      <p></p>
+			    </div>
+</li>
+		<li class="comment byuser comment-author-joachimvandenbogaert bypostauthor even thread-even depth-1 archive" id="comment-46">			
+			    <div class="entry">
+				<img alt='' src='http://1.gravatar.com/avatar/daf5f9cd0872cf5e21562e9bff1fb557?s=48&amp;d=identicon&amp;r=G' class='avatar avatar-48' height='48' width='48' />			      <p>The example here uses NUnit as a a testing framework. Are you sure you added a reference to the nunit.framework.dll? If not, download NUnit, install it and add a reference to the framework dll (you will also need this for the [TestFixture] and [Test] attributes). Please let me know if this is not the problem, the I wil look into it.</p>
+				  <ul class="buttons">
+				    <li></li>
+				  </ul>
+		        </div>
+			    <div class="postinfo">
+				  <p>By: <strong>joachimvandenbogaert</strong> on September 24, 2009 <br /> at 8:54 am</p>
+				<p><a rel='nofollow' class='comment-reply-link' href='/2009/03/26/r-and-c-on-windows/?replytocom=46#respond' onclick='return addComment.moveForm("comment-46", "46", "respond", "53")'>Reply</a></p>
+			      <p></p>
+			    </div>
+<ul class='children'>
+		<li class="comment odd alt depth-2 archive" id="comment-48">			
+			    <div class="entry">
+				<img alt='' src='http://0.gravatar.com/avatar/47b54b20b1ea0949040392461c9080c7?s=48&amp;d=identicon&amp;r=G' class='avatar avatar-48' height='48' width='48' />			      <p>it still doesn&#8217;t work. in fact the other link which u have provided at the top has some simpler examples and even they dont work. i work with c# in the command prompt. is there anyway i can do it ? the basic question i guess is that i am not being able to link the library files that u have mentioned as i am not being able to find them. the samples work fine as provided by the (D)COM but its the linking part which is creating problems. please do help me out as i am in an urgent need . thnx</p>
+				  <ul class="buttons">
+				    <li></li>
+				  </ul>
+		        </div>
+			    <div class="postinfo">
+				  <p>By: <strong>sidharth</strong> on October 21, 2009 <br /> at 7:52 am</p>
+				<p><a rel='nofollow' class='comment-reply-link' href='/2009/03/26/r-and-c-on-windows/?replytocom=48#respond' onclick='return addComment.moveForm("comment-48", "48", "respond", "53")'>Reply</a></p>
+			      <p></p>
+			    </div>
+</li>
+</ul>
+</li>
+		<li class="comment even thread-odd thread-alt depth-1 archive" id="comment-49">			
+			    <div class="entry">
+				<img alt='' src='http://1.gravatar.com/avatar/76377bd8bf999920a8905c685b8c706c?s=48&amp;d=identicon&amp;r=G' class='avatar avatar-48' height='48' width='48' />			      <p>THANKS for the code! </p>
+<p>I needed to make a few changes but overall I would say that this is a nice demonstration of C# talking to R. Nice Histograms!</p>
+<p>Here is my altered code (using a Main()) entry point.<br />
+using System;<br />
+using System.Collections.Generic;<br />
+using System.Linq;<br />
+using System.Text;<br />
+using NUnit.Framework;</p>
+<p>//COM references<br />
+//using Interop.STATCONNECTORCLNTLib;<br />
+using StatConnectorCommonLib;<br />
+//using STATCONNECTORSRVLib;<br />
+using System.IO;<br />
+using Interop.STATCONNECTORSRVLib;</p>
+<p>namespace RConnector.Tests.Integration<br />
+{</p>
+<p>    //===============================================<br />
+    class MainEntryPoint<br />
+    {<br />
+        static void Main()<br />
+        {<br />
+            TestConnectivityWithR.Open_Close();<br />
+            TestConnectivityWithR.Send_Receive_Data_();<br />
+            TestConnectivityWithR.Plot_CSharpInput_Simple();<br />
+            TestConnectivityWithR.Plot_CSharpInput_Simple_WithColors_Rainbow();<br />
+        }</p>
+<p>    }</p>
+<p>}<br />
+//=========================================================<br />
+   // [TestFixture]<br />
+    public class TestConnectivityWithR<br />
+    {</p>
+<p>     //   [Test]</p>
+<p>     public static void Open_Close()<br />
+        {<br />
+            Interop.STATCONNECTORSRVLib.StatConnectorClass RConnector = new Interop.STATCONNECTORSRVLib.StatConnectorClass();<br />
+            RConnector.Init(&#8220;R&#8221;);<br />
+            RConnector.Close();<br />
+            Console.ReadLine();<br />
+        }</p>
+<p>      //  [Test]<br />
+      //      public static void Main()<br />
+        public static void Send_Receive_Data_()<br />
+        {<br />
+            Interop.STATCONNECTORSRVLib.StatConnectorClass RConnector = new Interop.STATCONNECTORSRVLib.StatConnectorClass();<br />
+            RConnector.Init(&#8220;R&#8221;);<br />
+           // Data we are going to pass<br />
+            int n = 20;<br />
+            // Cast C# type to R type<br />
+            RConnector.SetSymbol(&#8220;n1&#8243;,n);<br />
+            // The cast value n to n1 is now being used in R<br />
+            RConnector.Evaluate(&#8220;x1 &lt;- rnorm(n1)&quot;);<br />
+            // We get back the value of x1, but it needs to be cast<br />
+            // to an array of doubles<br />
+            object o = RConnector.GetSymbol(&quot;x1&quot;);<br />
+            double[] random = (double[])o;<br />
+            foreach (double d in random)<br />
+            {<br />
+                Console.WriteLine(d);<br />
+            }<br />
+            Console.ReadLine();<br />
+        }<br />
+     //   [Test]<br />
+        public static void Plot_CSharpInput_Simple()<br />
+        {<br />
+            Interop.STATCONNECTORSRVLib.StatConnectorClass RConnector = new Interop.STATCONNECTORSRVLib.StatConnectorClass();<br />
+            RConnector.Init(&quot;R&quot;);<br />
+            double[] input = new double[] { 1.0, 2.0, 3.0, 2.0, 1.0};<br />
+            RConnector.SetSymbol(&quot;input&quot;, input);<br />
+            RConnector.EvaluateNoReturn(&quot;hist(input)&quot;);<br />
+            RConnector.EvaluateNoReturn(<br />
+                &quot;savePlot(filename = \&quot;&quot; +<br />
+                @&quot;F:\\WEBSITE\\Plot_CSharpInput.eps&quot; + &quot;\&quot;, &quot; +<br />
+                &quot;type = \&quot;eps\&quot;, device = dev.cur(), restoreConsole = TRUE )&quot;<br />
+            );<br />
+            Console.ReadLine();<br />
+           RConnector.Close();<br />
+        }</p>
+<p>    //    [Test]<br />
+       // public static void Main()<br />
+        public static void Plot_CSharpInput_Simple_WithColors_Rainbow()<br />
+        {<br />
+            Interop.STATCONNECTORSRVLib.StatConnectorClass RConnector = new Interop.STATCONNECTORSRVLib.StatConnectorClass();<br />
+            RConnector.Init(&quot;R&quot;);<br />
+            double[] input = new double[] {1.0, 2.0, 3.0, 2.0, 1.0};<br />
+            RConnector.SetSymbol(&quot;input&quot;, input);<br />
+            RConnector.EvaluateNoReturn(&quot;barplot(input, main=\&quot;Foobar\&quot;, xlab=\&quot;Value\&quot;, ylab=\&quot;Frequency\&quot;, col=rainbow(7))&quot;);<br />
+            RConnector.EvaluateNoReturn(&quot;legend(\&quot;topleft\&quot;, c(\&quot;Hello\&quot;, \&quot;World\&quot;), cex=0.6, bty=\&quot;n\&quot;, fill=rainbow(5))&quot;);<br />
+            RConnector.EvaluateNoReturn(<br />
+                &quot;savePlot(filename = \&quot;&quot; +<br />
+                @&quot;F:\\WEBSITE\\Plot_CSharpInput.eps&quot; + &quot;\&quot;, &quot; +<br />
+                &quot;type = \&quot;eps\&quot;, device = dev.cur(), restoreConsole = TRUE )&quot;);</p>
+<p>            Console.ReadLine();<br />
+        RConnector.Close();<br />
+        }</p>
+<p>    }</p>
+				  <ul class="buttons">
+				    <li></li>
+				  </ul>
+		        </div>
+			    <div class="postinfo">
+				  <p>By: <strong>rwillia2001</strong> on December 5, 2009 <br /> at 8:16 pm</p>
+				<p><a rel='nofollow' class='comment-reply-link' href='/2009/03/26/r-and-c-on-windows/?replytocom=49#respond' onclick='return addComment.moveForm("comment-49", "49", "respond", "53")'>Reply</a></p>
+			      <p></p>
+			    </div>
+</li>
+		<li class="comment odd alt thread-even depth-1 archive" id="comment-50">			
+			    <div class="entry">
+				<img alt='' src='http://1.gravatar.com/avatar/9bd41678e71a5145acd38241dad8ceab?s=48&amp;d=identicon&amp;r=G' class='avatar avatar-48' height='48' width='48' />			      <p>Thanks for this code!</p>
+<p>I am new to C# and wanted to utilise my R code. This will really help!!!</p>
+				  <ul class="buttons">
+				    <li></li>
+				  </ul>
+		        </div>
+			    <div class="postinfo">
+				  <p>By: <strong>Matt P-H</strong> on December 10, 2009 <br /> at 9:32 am</p>
+				<p><a rel='nofollow' class='comment-reply-link' href='/2009/03/26/r-and-c-on-windows/?replytocom=50#respond' onclick='return addComment.moveForm("comment-50", "50", "respond", "53")'>Reply</a></p>
+			      <p></p>
+			    </div>
+</li>
+		<li class="comment even thread-odd thread-alt depth-1 archive" id="comment-51">			
+			    <div class="entry">
+				<img alt='' src='http://0.gravatar.com/avatar/6495dcfeff5f547725f406ecc52d8b51?s=48&amp;d=identicon&amp;r=G' class='avatar avatar-48' height='48' width='48' />			      <p>I&#8217;m recieving the following error</p>
+<p>Test method TestProject1.UnitTest1.Open_Close threw exception:  System.Runtime.InteropServices.COMException: Exception from HRESULT: 0&#215;80040013.</p>
+<p>It seams that C# can&#8217;t initialize R via the COM Interface. Do the C# binaries have to reside in the R path?</p>
+				  <ul class="buttons">
+				    <li></li>
+				  </ul>
+		        </div>
+			    <div class="postinfo">
+				  <p>By: <strong>GL</strong> on December 11, 2009 <br /> at 4:43 pm</p>
+				<p><a rel='nofollow' class='comment-reply-link' href='/2009/03/26/r-and-c-on-windows/?replytocom=51#respond' onclick='return addComment.moveForm("comment-51", "51", "respond", "53")'>Reply</a></p>
+			      <p></p>
+			    </div>
+</li>
+		<li class="comment odd alt thread-even depth-1 archive" id="comment-52">			
+			    <div class="entry">
+				<img alt='' src='http://1.gravatar.com/avatar/56105d032b821d4f70cf344269178913?s=48&amp;d=identicon&amp;r=G' class='avatar avatar-48' height='48' width='48' />			      <p>Hi there.<br />
+I&#8217;ve got it all working on Win XP, but I can&#8217;t get it to work on Windows 7. I&#8217;ve tried this and many other solutions given out there.<br />
+Do you know anything about it with Windows 7??<br />
+Thanks</p>
+				  <ul class="buttons">
+				    <li></li>
+				  </ul>
+		        </div>
+			    <div class="postinfo">
+				  <p>By: <strong>Caerolus</strong> on December 31, 2009 <br /> at 3:18 pm</p>
+				<p><a rel='nofollow' class='comment-reply-link' href='/2009/03/26/r-and-c-on-windows/?replytocom=52#respond' onclick='return addComment.moveForm("comment-52", "52", "respond", "53")'>Reply</a></p>
+			      <p></p>
+			    </div>
+<ul class='children'>
+		<li class="comment byuser comment-author-joachimvandenbogaert bypostauthor even depth-2 archive" id="comment-53">			
+			    <div class="entry">
+				<img alt='' src='http://1.gravatar.com/avatar/daf5f9cd0872cf5e21562e9bff1fb557?s=48&amp;d=identicon&amp;r=G' class='avatar avatar-48' height='48' width='48' />			      <p>Hi, it&#8217;s nice to hear that you got it working. I haven&#8217;t had the chance to install Windows 7 yet. But I&#8217;m expecting to do so by the end of this month. I&#8217;ll keep you posted.</p>
+				  <ul class="buttons">
+				    <li></li>
+				  </ul>
+		        </div>
+			    <div class="postinfo">
+				  <p>By: <strong>joachimvandenbogaert</strong> on January 7, 2010 <br /> at 9:38 am</p>
+				<p><a rel='nofollow' class='comment-reply-link' href='/2009/03/26/r-and-c-on-windows/?replytocom=53#respond' onclick='return addComment.moveForm("comment-53", "53", "respond", "53")'>Reply</a></p>
+			      <p></p>
+			    </div>
+</li>
+</ul>
+</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1 archive" id="comment-54">			
+			    <div class="entry">
+				<img alt='' src='http://1.gravatar.com/avatar/76377bd8bf999920a8905c685b8c706c?s=48&amp;d=identicon&amp;r=G' class='avatar avatar-48' height='48' width='48' />			      <p>It works fine on 64 bit win7. Visual Studio 2008 with C#.</p>
+				  <ul class="buttons">
+				    <li></li>
+				  </ul>
+		        </div>
+			    <div class="postinfo">
+				  <p>By: <strong>rwillia2001</strong> on January 8, 2010 <br /> at 10:56 pm</p>
+				<p><a rel='nofollow' class='comment-reply-link' href='/2009/03/26/r-and-c-on-windows/?replytocom=54#respond' onclick='return addComment.moveForm("comment-54", "54", "respond", "53")'>Reply</a></p>
+			      <p></p>
+			    </div>
+<ul class='children'>
+		<li class="comment even depth-2 archive" id="comment-55">			
+			    <div class="entry">
+				<img alt='' src='http://1.gravatar.com/avatar/56105d032b821d4f70cf344269178913?s=48&amp;d=identicon&amp;r=G' class='avatar avatar-48' height='48' width='48' />			      <p>Really? I also have the 64bits version of Win7 with VS2008 SP1.<br />
+When I try to connect it throws an Exception, some RPC error.<br />
+I noticed that, when opening the RDCOM Manager, no service is listed. However, a StatConnectorSrv.exe process shows up in the task manager, but whenever I try to connect or create a new one through the manager, it stops.<br />
+I have no idea <img src='http://s.wordpress.com/wp-includes/images/smilies/icon_sad.gif' alt=':(' class='wp-smiley' /> </p>
+				  <ul class="buttons">
+				    <li></li>
+				  </ul>
+		        </div>
+			    <div class="postinfo">
+				  <p>By: <strong>Caerolus</strong> on January 11, 2010 <br /> at 7:27 pm</p>
+				<p><a rel='nofollow' class='comment-reply-link' href='/2009/03/26/r-and-c-on-windows/?replytocom=55#respond' onclick='return addComment.moveForm("comment-55", "55", "respond", "53")'>Reply</a></p>
+			      <p></p>
+			    </div>
+</li>
+</ul>
+</li>
+	
+		</ol>
+		
+		<div class="navigation">
+			<div class="alignleft"></div>
+			<div class="alignright"></div>
+		</div>
+		<br />
+		
+
+<div id='respond'>
+	
+		<div class="title">
+		<h2>Leave a response</h2>
+		</div>
+		<div class="cancel-comment-reply">
+			<small><a rel="nofollow" id="cancel-comment-reply-link" href="/2009/03/26/r-and-c-on-windows/#respond" style="display:none;">Click here to cancel reply.</a></small>
+		</div>
+		<div class="post-53 post hentry category-development category-development-with-r category-windows-vista">
+
+    <form action="http://joachimvandenbogaert.wordpress.com/wp-comments-post.php" method="post" id="commentform">
+	<input type='hidden' name='comment_post_ID' value='53' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+  <div class="postinfo">
+  
+    	<p><label for="author">Name<span class="req">*</span></label><br />
+    <input type="text" name="author" id="author" value="" size="22" tabindex="1"  class="field"/><br />
+	<label for="email">Email<span class="req">*</span></label><br />
+    <input type="text" name="email" id="email" value="" size="22" tabindex="2" class="field" /><br />
+	<label for="url">Website</label><br />
+    <input type="text" name="url" id="url" value="" size="22" tabindex="3" class="field" /></p>
+
+      
+  </div>
+  <div class="entry">
+  <!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;pre&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+  <p>Your response:<br />
+  <textarea name="comment" id="comment" cols="100%" rows="10" tabindex="4"></textarea></p>
+
+  <p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+  <input type="hidden" name="comment_post_ID" value="53" />
+  </p>
+  
+<input type="hidden" name="genseq" value="1268573489" />
+		<p>
+			<input type="checkbox" name="subscribe" id="subscribe" value="subscribe" style="width: auto;" tabindex="6"/>
+			<label class="subscribe-label" id="subscribe-label" for="subscribe">Notify me of follow-up comments via email.</label>
+		</p>
+			<p>
+			<input type="checkbox" name="subscribe_blog" id="subscribe_blog" value="subscribe" style="width: auto;" tabindex="7"/>
+			<label class="subscribe-label" id="subscribe-blog-label" for="subscribe_blog">Notify me of new posts via email.</label>
+		</p>
+	  </div>
+  </form>
+  </div>
+  </div>
+	
+		
+	<div class="title">
+		<h2>Categories</h2>
+	</div>
+	<div class="post-53 post hentry category-development category-development-with-r category-windows-vista">
+	  <ul class="catlist">
+        	<li class="cat-item cat-item-780"><a href="http://joachimvandenbogaert.wordpress.com/category/development/" title="View all posts filed under Development">Development</a>
+<ul class='children'>
+	<li class="cat-item cat-item-17056675"><a href="http://joachimvandenbogaert.wordpress.com/category/development/development-with-r/" title="View all posts filed under Development with R">Development with R</a>
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-37184"><a href="http://joachimvandenbogaert.wordpress.com/category/localization/" title="View all posts filed under Localization">Localization</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="http://joachimvandenbogaert.wordpress.com/category/uncategorized/" title="View all posts filed under Uncategorized">Uncategorized</a>
+</li>
+	<li class="cat-item cat-item-6914914"><a href="http://joachimvandenbogaert.wordpress.com/category/windows-communication-foundation-c/" title="View all posts filed under Windows Communication Foundation C#">Windows Communication Foundation C#</a>
+</li>
+	<li class="cat-item cat-item-3003"><a href="http://joachimvandenbogaert.wordpress.com/category/windows-vista/" title="View all posts filed under Windows Vista">Windows Vista</a>
+</li>
+	
+	  </ul>
+	</div>
+	
+  </div>
+
+	<div id="sidebar">
+      		
+	  <div class="title">
+        <h2>Browse</h2>
+      </div>
+      <div class="post">
+        <select name="archivemenu" onchange="document.location.href=this.options[this.selectedIndex].value;">
+		<option value="">Monthly Archives</option>
+          	<option value='http://joachimvandenbogaert.wordpress.com/2009/06/'> June 2009 </option>
+	<option value='http://joachimvandenbogaert.wordpress.com/2009/04/'> April 2009 </option>
+	<option value='http://joachimvandenbogaert.wordpress.com/2009/03/'> March 2009 </option>
+	<option value='http://joachimvandenbogaert.wordpress.com/2009/02/'> February 2009 </option>
+	<option value='http://joachimvandenbogaert.wordpress.com/2008/11/'> November 2008 </option>
+	<option value='http://joachimvandenbogaert.wordpress.com/2008/10/'> October 2008 </option>
+	<option value='http://joachimvandenbogaert.wordpress.com/2008/09/'> September 2008 </option>
+	<option value='http://joachimvandenbogaert.wordpress.com/2008/06/'> June 2008 </option>
+	<option value='http://joachimvandenbogaert.wordpress.com/2008/05/'> May 2008 </option>
+	<option value='http://joachimvandenbogaert.wordpress.com/2008/04/'> April 2008 </option>
+	<option value='http://joachimvandenbogaert.wordpress.com/2007/10/'> October 2007 </option>
+	<option value='http://joachimvandenbogaert.wordpress.com/2007/09/'> September 2007 </option>
+	<option value='http://joachimvandenbogaert.wordpress.com/2006/04/'> April 2006 </option>
+	<option value='http://joachimvandenbogaert.wordpress.com/2006/03/'> March 2006 </option>
+        </select>		
+        <form method="get" id="searchform" action="http://joachimvandenbogaert.wordpress.com/">
+<div><input type="text" value="Search" name="s" id="s" onfocus="if (this.value == 'Search') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search';}" />
+<input type="image" src="http://s2.wp.com/wp-content/themes/pub/ocean-mist/images/button-search.gif" id="searchsubmit" value="Search" />
+</div>
+</form>
+	  </div>
+	  <div class="title">
+        <h2>Links</h2>
+      </div>
+	  <div class="post">
+	    <ul>
+          <li><a href="http://wordpress.com/">WordPress.com</a></li>
+<li><a href="http://wordpress.org/">WordPress.org</a></li>
+		</ul>
+      </div>
+	  <div class="title">
+        <h2>Subscribe</h2>
+      </div>
+	  <div class="post">
+	    <ul>
+		<li><a href="http://joachimvandenbogaert.wordpress.com/feed/">Entries (RSS)</a></li>
+		<li><a href="http://joachimvandenbogaert.wordpress.com/comments/feed/">Comments (RSS)</a></li>
+		</ul>
+      </div>
+</div>
+
+
+  <div id="footer">
+    <div id="footer-top"></div>
+	<p><a href='http://wordpress.com/' rel='generator'>Blog at WordPress.com</a>. | Theme: Ocean Mist by <a href="http://www.edmerritt.com/" rel="designer">Ed Merritt</a>	</p>
+  </div>
+</div>
+
+<script type="text/javascript" src="http://wordpresscom.skimlinks.com/api/wordpress.js"></script>
+<script type="text/javascript">
+var skimlinks_pub_id = "725X1342";
+var skimlinks_sitename = "joachimvandenbogaert.wordpress.com";
+var skimlinks_domain = "go2.wordpress.com";
+skimlinks();
+</script><script type="text/javascript" src="//secure.quantserve.com/quant.js"></script>
+<script type="text/javascript">_qoptions = { labels:"adt.0,language.en" };_qacct="p-18-mFEk4J448M";quantserve();</script>
+<noscript><p><img src="//secure.quantserve.com/pixel/p-18-mFEk4J448M.gif?labels=adt.0%2Clanguage.en" style="display: none" height="1" width="1" alt="" /></p></noscript>
+<script src="http://s.stats.wordpress.com/w.js?19" type="text/javascript"></script>
+<script type="text/javascript">
+st_go({'blog':'3597207','v':'wpcom','user_id':'0','post':'53','subd':'joachimvandenbogaert'});
+ex_go({'crypt':'RDZ8LFkxbXFSLkc/clU1dU9QbHcwd2hWbjcxMzZXSlVGK244N01hMiVQJld2Y2hkNFk0JTh+c1AsYWgud0EuTFQmNjJ1ckZXPU91M0srbFAldmU3SmVpQURxOGI0JUIlVkslVW9DdmNlTjlDQ2djMGddeSZNc2ZfcHRbVitQSTd4dnxWQk1jcitmRjRoTjlnbzdXQXU0PVMwRlAudWlMeFMtY0NKVVBKdWJwQ0FUWkZoN11UN2dUfnl1UDJvaEVBRUtsUjFqUi16MDQmQTM3Q3Q4K2hLOSZOMGplTkZTNldjd2UlY0dO'});
+re_go({'d[allcarnews.wordpress.com]':'1','d[hide1713.wordpress.com]':'1','d[learnbayes.wordpress.com]':'1','v':'sph','b':'3597207','p':'53'});
+addLoadEvent(function(){linktracker_init('3597207',53);});
+	</script>
+</body>
+</html>

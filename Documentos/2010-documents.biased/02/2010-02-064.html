@@ -1,0 +1,393 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head1"><title>
+	Using C# to Retrieve List of Emails via POP3
+</title><meta id="PageKeywords" name="Keywords" content="pop, pop3, pop 3, email, download, retrieve, emails, asp.net, .net, csharp, c sharp" /><meta id="PageDescription" name="Description" content="This tutorial will show you how to use ASP.NET and C# to download a list of emails using a POP3 server." /><link href="/global.css" rel="stylesheet" type="text/css" /><link rel="alternate" type="application/rss+xml" title="Asp Net Tutorials RSS Feed" href="http://www.aspnettutorials.com/feed" />
+<script language="JavaScript" src="/global.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+<!--
+    function popupform(windowname, emailAddress, postId) {
+        if (validEmailAddress(emailAddress)) {
+            if (!window.focus) return true;
+            window.open('http://www.aspnettutorials.com/DownloadEmail.aspx?tid=' + postId + '&email=' + emailAddress, windowname, 'location=0,height=175,width=420,scrollbars=no');
+            return true;
+        }
+        else {
+            alert("Please enter a valid email address.");
+            return false;
+        }
+    }
+
+    function validEmailAddress(theEmailAddress) {
+        if (theEmailAddress.indexOf("@") > -1 && theEmailAddress.lastIndexOf(".") > -1 && theEmailAddress.lastIndexOf(".") != (theEmailAddress.length - 1)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+//-->
+</script>
+
+</head>
+<body>
+<form name="form1" method="post" action="tutorial.aspx?category=email&amp;tutorial=retrieve-email-pop3-cs" id="form1">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTYwNjU0ODYxM2RkJ/4Uae5R7wH0gBgIytI0NwDgVM8=" />
+
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWAgLF7dekCALqzJSeAimIXaw4HqEIEISqupVsVEnpsgHo" />
+
+<table width="950" border="0" align="center" cellpadding="0" cellspacing="0">
+<tr>
+<td colspan="3" bgcolor="#5482FC"><img src="/media/spacer.gif" width="1" height="1" /></td>
+</tr>
+<tr>
+<td width="1" bgcolor="#5482FC"><img src="/media/spacer.gif" width="1" height="1" /></td>
+<td align="right" bgcolor="#eeeeee"><img src="/media/toprlogonum.gif" alt="Server Intellect" width="250" height="25" border="0" /></td>
+<td width="1" bgcolor="#5482FC"><img src="/media/spacer.gif" width="1" height="1" /></td>
+</tr>
+</table>
+<table width="950" border="0" align="center" cellpadding="0" cellspacing="0">
+<tr bgcolor="#5482FC">
+<td colspan="4"><img src="/media/spacer.gif" width="1" height="1" /></td>
+</tr>
+<tr>
+<td width="1" bgcolor="#5482FC"><img src="/media/spacer.gif" width="1" height="1" /></td>
+<td width="250"><a href="http://www.aspnettutorials.com"><img src="/media/logo.gif" width="250" height="75" border="0" /></a></td>
+<td width="700" bgcolor="#3399ff"><img src="/media/headerR1.gif" width="698" height="75" /></td>
+<td width="1" bgcolor="#5482FC"><img src="/media/spacer.gif" width="1" height="1" /></td>
+</tr>
+</table>
+<table width="950" border="0" align="center" cellpadding="0" cellspacing="0">
+<tr bgcolor="#5482FC">
+<td colspan="3"><img src="/media/spacer.gif" width="1" height="1" /></td>
+</tr>
+<tr bgcolor="#eeeeee" class="header1">
+<td width="152" background="/media/leftcolumnbg.gif">&nbsp;</td>
+<td><table border="0" align="center" cellpadding="0" cellspacing="0">
+<tr align="center" class="header1">
+<td><a href="http://www.aspnettutorials.com">Home</a></td>
+<td width="25">&nbsp;</td>
+<td nowrap="nowrap"><a href="/tutorials/">Asp.Net Tutorials</a></td>
+<td width="25">&nbsp;</td>
+<td nowrap="nowrap"><a href="/new.aspx">What's New</a></td>
+<td width="25">&nbsp;</td>
+<td nowrap="nowrap"><a href="/newsletter.aspx">Newsletter</a></td>
+<td width="25">&nbsp;</td>
+<td><a href="/resources.aspx">More Resources</a></td>
+</tr>
+</table></td>
+<td width="152" height="30" background="/media/rightcolumnbg.gif"><center><a href="/feed" title="ASP NET Tutorials RSS Feed"><img src="/media/feed.png" border=0 /></a> <a href="/feed" title="ASP NET Tutorials RSS Feed">Tutorial RSS</a></center></td>
+</tr>
+<tr bgcolor="#5482FC">
+<td colspan="3"><img src="/media/spacer.gif" width="1" height="1" /></td>
+</tr>
+</table>
+
+<table width="950" border="0" align="center" cellpadding="0" cellspacing="0">
+<tr>
+<td width="152" align="center" valign="top" background="/media/columnbackground.gif">
+
+<table width="150" border="0"  cellpadding="0" cellspacing="0">
+<tr>
+<td bgcolor="#FFFFFF">&nbsp;</td>
+</tr>
+</table>
+<table width="150" border="0" cellspacing="0" cellpadding="0">
+<tr bgcolor="#5482FC">
+<td colspan="3"><img src="/media/spacer.gif" width="1" height="1"></td>
+</tr>
+<tr>
+<td height="20" align="left" class="header1">&nbsp;&nbsp;Categories</td>
+</tr>
+<tr bgcolor="#5482FC">
+<td colspan="3"><img src="/media/spacer.gif" width="1" height="1"></td>
+</tr>
+<tr>
+<td bgcolor="#ffffff"><table width="140" border="0" align="center" cellpadding="3" cellspacing="0" class="basix">
+<tr>
+<td><img src="/media/spacer.gif" width="1" height="2"></td>
+</tr>
+
+
+<tr>
+<td align="left"><a href="/tutorials/advanced/">Advanced Technologies  </a></td>
+</tr>
+
+<tr>
+<td align="left"><a href="/tutorials/ajax/">AJAX</a></td>
+</tr>
+
+<tr>
+<td align="left"><a href="/tutorials/browsers/">Internet Browsers</a></td>
+</tr>
+
+<tr>
+<td align="left"><a href="/tutorials/charts/">Charts</a></td>
+</tr>
+
+<tr>
+<td align="left"><a href="/tutorials/controls/">Controls</a></td>
+</tr>
+
+<tr>
+<td align="left"><a href="/tutorials/database/">Database</a></td>
+</tr>
+
+<tr>
+<td align="left"><a href="/tutorials/email/">Email</a></td>
+</tr>
+
+<tr>
+<td align="left"><a href="/tutorials/errorhandling/">Error Handling</a></td>
+</tr>
+
+<tr>
+<td align="left"><a href="/tutorials/file/">File</a></td>
+</tr>
+
+<tr>
+<td align="left"><a href="/tutorials/graphics/">Graphics</a></td>
+</tr>
+
+<tr>
+<td align="left"><a href="/tutorials/navigation/">Website Navigation</a></td>
+</tr>
+
+<tr>
+<td align="left"><a href="/tutorials/network/">Network</a></td>
+</tr>
+
+<tr>
+<td align="left"><a href="/tutorials/performance/">Performance</a></td>
+</tr>
+
+<tr>
+<td align="left"><a href="/tutorials/themes/">User Interface and Themes</a></td>
+</tr>
+
+<tr>
+<td align="left"><a href="/tutorials/validation/">Validation</a></td>
+</tr>
+
+<tr>
+<td align="left"><a href="/tutorials/visualwebdeveloper/">Visual Web Developer</a></td>
+</tr>
+
+<tr>
+<td align="left"><a href="/tutorials/webservices/">Web Services</a></td>
+</tr>
+
+<tr>
+<td align="left"><a href="/tutorials/xml/">XML</a></td>
+</tr>
+
+
+<tr>
+<td align="left"><a href="/suggest.aspx">Suggest Tutorial </a></td>
+</tr>
+<tr>
+<td><img src="/media/spacer.gif" width="1" height="2"></td>
+</tr>
+</table></td>
+</tr>
+<tr bgcolor="#5482FC">
+<td colspan="3"><img src="/media/spacer.gif" width="1" height="1"></td>
+</tr>
+</table>
+<br>
+<br>
+
+</td>
+<td valign="top" bgcolor="#ffffff"><table width="615" border="0" align="center" cellpadding="5" cellspacing="0">
+<tr>
+<td width="604" height="30" class="basix"><strong>Navigator:</strong>
+
+<a href="http://www.aspnettutorials.com">Home</a> - <a href="http://www.aspnettutorials.com/tutorials/">Tutorials</a> - <a href="http://www.aspnettutorials.com/tutorials/email/">Email</a> - Using C# to Retrieve List of Emails via POP3</td>
+</tr>
+</table>
+<table width="600" border="0" align="center" cellpadding="5" cellspacing="1" bgcolor="#5482FC">
+<tr>
+<td height="50" align="center" class="lgHeader1">Using C# to Retrieve List of Emails via POP3</td>
+</tr>
+</table>
+<br />
+<table width="600" border="0" align="center" cellpadding="5" cellspacing="0">
+<tr>
+<td align="center"><a href="http://web.serverintellect.com/10082/10098/"><img src="/media/si-468x60-4.gif" width="468" height="60" border="0" /></a></td>
+</tr>
+</table>
+<br />
+<table width="600" border="0" align="center" cellpadding="5" cellspacing="1" bgcolor="#5482FC">
+<tr>
+<td bgcolor="#eeeeee" class="header1">ASP.NET Email Tutorial</td>
+</tr>
+<tr>
+<td bgcolor="#FFFFFF">
+<span class="basix">
+<br />
+This tutorial will show you how to use ASP.NET and C# to download a list of emails using a POP3 server.
+<br />
+<br />
+ <P>In this tutorial, we will give you an introduction into how to use ASP.NET to login to a POP3 server and check your email. We will be using the System.Net.Sockets namespace to utilize the TcpClient and NetworkStream classes for this example.</P>
+<P>The first thing we want to do is create our ASPX page. We will keep it simple and add TextBoxes, a button and a Literal control to the page:</P>
+<P>
+<TABLE width="90%">
+<TBODY>
+<TR>
+<TD style="BORDER-RIGHT: rgb(153,153,153) 1px solid; BORDER-TOP: rgb(153,153,153) 1px solid; BORDER-LEFT: rgb(153,153,153) 1px solid; WIDTH: 70%; BORDER-BOTTOM: rgb(153,153,153) 1px solid; BACKGROUND-COLOR: rgb(245,245,245)">&lt;table&gt;&lt;tr&gt;&lt;td&gt; 
+<DIV style="MARGIN-LEFT: 20px">POP3 Server: &lt;asp:TextBox ID="fld_Server" runat="server" /&gt;&lt;/td&gt;&lt;td&gt;Port: &lt;asp:TextBox ID="fld_Port" runat="server" Text="110" Columns="3" /&gt;&lt;/td&gt;&lt;/tr&gt;<BR>&lt;tr&gt;&lt;td&gt;Username: &lt;asp:TextBox ID="fld_Username" runat="server" /&gt;&lt;/td&gt;&lt;td&gt;Password: &lt;asp:TextBox ID="fld_Password" runat="server" TextMode="Password" /&gt;</DIV>&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;<BR>&lt;asp:Button ID="btn_Connect" runat="server" Text="Connect" OnClick="btn_Connect_OnClick" /&gt;&lt;br /&gt;<BR>&lt;asp:Literal ID="lit_Status" runat="server" /&gt; </TD></TR></TBODY></TABLE></P>
+<P>We are using <A href="http://web.serverintellect.com/10082/10098/" target=_blank>Server Intellect</A> and have found that by far, they are the most friendly, responsive, and knowledgeable support team we've ever dealt with!</P>
+<P>We are going to use the button to initiate the connection to the POP3 server. We give the user the ability to input their own server, and login credentials. Notice the method attached to the Click event of the button. We should have the following handler in the codebehind, along with the assembly reference:</P>
+<P>
+<TABLE width="90%">
+<TBODY>
+<TR>
+<TD style="BORDER-RIGHT: rgb(153,153,153) 1px solid; BORDER-TOP: rgb(153,153,153) 1px solid; BORDER-LEFT: rgb(153,153,153) 1px solid; WIDTH: 70%; BORDER-BOTTOM: rgb(153,153,153) 1px solid; BACKGROUND-COLOR: rgb(245,245,245)">using System.Net.Sockets;<BR>..<BR>protected void btn_Connect_OnClick(object sender, EventArgs e)<BR>{<BR><BR>} </TD></TR></TBODY></TABLE></P>
+<P>If you're looking for a really good web host, try <A href="http://web.serverintellect.com/10082/10098/" target=_blank>Server Intellect</A> - we found the setup procedure and control panel, very easy to adapt to and their IT team is awesome!</P>
+<P>We can use this handler for all of our code, seeing as we are just connecting to the server and checking messages for this example. In a real-world application, you may want to create a new class for the POP3 functionality.<BR>We start by first create a new instance of the TcpClient, and attempt to connect to the POP3 server. We also instantiate a NetworkStream object, then we output the server response to our Literal control:</P>
+<P>
+<TABLE width="90%">
+<TBODY>
+<TR>
+<TD style="BORDER-RIGHT: rgb(153,153,153) 1px solid; BORDER-TOP: rgb(153,153,153) 1px solid; BORDER-LEFT: rgb(153,153,153) 1px solid; WIDTH: 70%; BORDER-BOTTOM: rgb(153,153,153) 1px solid; BACKGROUND-COLOR: rgb(245,245,245)">TcpClient tcpClient = new TcpClient();<BR>tcpClient.Connect(fld_Server.Text, Convert.ToInt32(fld_Port.Text));<BR><BR>NetworkStream netStream = tcpClient.GetStream();<BR>System.IO.StreamReader strReader = new System.IO.StreamReader(netStream);<BR><BR>lit_Status.Text = strReader.ReadLine() + "&lt;br /&gt;"; </TD></TR></TBODY></TABLE></P>
+<P>We used over 10 web hosting companies before we found <A href="http://web.serverintellect.com/10082/10098/" target=_blank>Server Intellect</A>. Their <A href="http://web.serverintellect.com/10082/10098/" target=_blank>dedicated servers</A> and add-ons were setup swiftly, in less than 24 hours. We were able to confirm our order over the phone. They respond to our inquiries within an hour. <A href="http://web.serverintellect.com/10082/10098/" target=_blank>Server Intellect's</A> customer support and assistance are the best we've ever experienced.</P>
+<P>The next thing we will do is send our Username and Password to the server, and output the Server Response:</P>
+<P>
+<TABLE width="90%">
+<TBODY>
+<TR>
+<TD style="BORDER-RIGHT: rgb(153,153,153) 1px solid; BORDER-TOP: rgb(153,153,153) 1px solid; BORDER-LEFT: rgb(153,153,153) 1px solid; WIDTH: 70%; BORDER-BOTTOM: rgb(153,153,153) 1px solid; BACKGROUND-COLOR: rgb(245,245,245)">byte[] WriteBuffer = new byte[1024];<BR>ASCIIEncoding enc = new System.Text.ASCIIEncoding();<BR><BR>WriteBuffer = enc.GetBytes("USER " + fld_Username.Text + "\r\n");<BR>netStream.Write(WriteBuffer, 0, WriteBuffer.Length);<BR>lit_Status.Text += strReader.ReadLine() + "&lt;br /&gt;";<BR><BR>WriteBuffer = enc.GetBytes("PASS " + fld_Password.Text + "\r\n");<BR>netStream.Write(WriteBuffer, 0, WriteBuffer.Length);<BR>lit_Status.Text += strReader.ReadLine() + "&lt;br /&gt;"; </TD></TR></TBODY></TABLE></P>
+<P>If the Username and Password are correct and verified by the Server, we will get a response starting +OK.<BR>Now, to retrieve a list of messages from the server, we first request using the LIST command, and then we will want to loop through each message to output:</P>
+<P>
+<TABLE width="90%">
+<TBODY>
+<TR>
+<TD style="BORDER-RIGHT: rgb(153,153,153) 1px solid; BORDER-TOP: rgb(153,153,153) 1px solid; BORDER-LEFT: rgb(153,153,153) 1px solid; WIDTH: 70%; BORDER-BOTTOM: rgb(153,153,153) 1px solid; BACKGROUND-COLOR: rgb(245,245,245)">WriteBuffer = enc.GetBytes("LIST\r\n");<BR>netStream.Write(WriteBuffer, 0, WriteBuffer.Length);<BR><BR>String ListMessage;<BR>while (true)<BR>{ 
+<DIV style="MARGIN-LEFT: 20px">ListMessage = strReader.ReadLine();<BR>if (ListMessage == ".")<BR>{ 
+<DIV style="MARGIN-LEFT: 20px">break;</DIV>}<BR>else<BR>{ 
+<DIV style="MARGIN-LEFT: 20px">lit_Status.Text += ListMessage + "&lt;br /&gt;";<BR>continue;</DIV>}</DIV>} </TD></TR></TBODY></TABLE></P>
+<P>We chose <A href="http://web.serverintellect.com/10082/10098/" target=_blank>Server Intellect</A> for its <A href="http://web.serverintellect.com/10082/10098/" target=_blank>dedicated servers</A>, for our <A href="http://web.serverintellect.com/10082/10098/" target=_blank>web hosting</A>. They have managed to handle virtually everything for us, from start to finish. And their customer service is stellar.</P>
+<P>Finally, to close the connection to the server, we send the command QUIT, and again, output the server response:</P>
+<P>
+<TABLE width="90%">
+<TBODY>
+<TR>
+<TD style="BORDER-RIGHT: rgb(153,153,153) 1px solid; BORDER-TOP: rgb(153,153,153) 1px solid; BORDER-LEFT: rgb(153,153,153) 1px solid; WIDTH: 70%; BORDER-BOTTOM: rgb(153,153,153) 1px solid; BACKGROUND-COLOR: rgb(245,245,245)">WriteBuffer = enc.GetBytes("QUIT\r\n");<BR>netStream.Write(WriteBuffer, 0, WriteBuffer.Length);<BR>lit_Status.Text += strReader.ReadLine() + "&lt;br /&gt;"; </TD></TR></TBODY></TABLE></P>
+<P>The full code-behind for this examples looks something like this:</P>
+<P>
+<TABLE width="90%">
+<TBODY>
+<TR>
+<TD style="BORDER-RIGHT: rgb(153,153,153) 1px solid; BORDER-TOP: rgb(153,153,153) 1px solid; BORDER-LEFT: rgb(153,153,153) 1px solid; WIDTH: 70%; BORDER-BOTTOM: rgb(153,153,153) 1px solid; BACKGROUND-COLOR: rgb(245,245,245)">using System;<BR>using System.Collections.Generic;<BR>using System.Linq;<BR>using System.Web;<BR>using System.Web.UI;<BR>using System.Web.UI.WebControls;<BR>using System.Text;<BR><BR>using System.Net.Sockets;<BR><BR>public partial class _Default : System.Web.UI.Page<BR>{ 
+<DIV style="MARGIN-LEFT: 20px">protected void Page_Load(object sender, EventArgs e)<BR>{<BR><BR>}<BR><BR>protected void btn_Connect_OnClick(object sender, EventArgs e)<BR>{ 
+<DIV style="MARGIN-LEFT: 20px">TcpClient tcpClient = new TcpClient();<BR>tcpClient.Connect(fld_Server.Text, Convert.ToInt32(fld_Port.Text));<BR><BR>NetworkStream netStream = tcpClient.GetStream();<BR>System.IO.StreamReader strReader = new System.IO.StreamReader(netStream);<BR><BR>lit_Status.Text = strReader.ReadLine() + "&lt;br /&gt;";<BR><BR>byte[] WriteBuffer = new byte[1024];<BR>ASCIIEncoding enc = new System.Text.ASCIIEncoding();<BR><BR>WriteBuffer = enc.GetBytes("USER " + fld_Username.Text + "\r\n");<BR>netStream.Write(WriteBuffer, 0, WriteBuffer.Length);<BR>lit_Status.Text += strReader.ReadLine() + "&lt;br /&gt;";<BR><BR>WriteBuffer = enc.GetBytes("PASS " + fld_Password.Text + "\r\n");<BR>netStream.Write(WriteBuffer, 0, WriteBuffer.Length);<BR>lit_Status.Text += strReader.ReadLine() + "&lt;br /&gt;";<BR><BR>WriteBuffer = enc.GetBytes("LIST\r\n");<BR>netStream.Write(WriteBuffer, 0, WriteBuffer.Length);<BR><BR>String ListMessage;<BR>while (true)<BR>{ 
+<DIV style="MARGIN-LEFT: 20px">ListMessage = strReader.ReadLine();<BR>if (ListMessage == ".")<BR>{ 
+<DIV style="MARGIN-LEFT: 20px">break;</DIV>}<BR>else<BR>{ 
+<DIV style="MARGIN-LEFT: 20px">lit_Status.Text += ListMessage + "&lt;br /&gt;";<BR>continue;</DIV>}</DIV>}<BR><BR>WriteBuffer = enc.GetBytes("QUIT\r\n");<BR>netStream.Write(WriteBuffer, 0, WriteBuffer.Length);<BR>lit_Status.Text += strReader.ReadLine() + "&lt;br /&gt;";</DIV>}</DIV>} </TD></TR></TBODY></TABLE></P><P><A href="http://www.aspnettutorials.com/tutorials/" target=_self>Looking for more ASP.NET Tutorials? Click Here!</A></P>
+</span>
+
+<div id="panel_EmailFormDownload">
+	
+    
+    
+
+<div style="margin-left: auto; width: 100%; margin-right: auto; text-align: center">
+<table style="border-right: #e2e2e2 1px solid; font-size: 11px; border-top: #e2e2e2 1px solid; border-left: #e2e2e2 1px solid; border-bottom: #e2e2e2 1px solid; font-family: Verdana, Geneva, sans-serif; text-align: center" border="0" cellspacing="0" cellpadding="5" width="400">
+    <tbody>
+        <tr>
+            <td style="border-right: medium none; border-top: medium none; border-left: medium none; border-bottom: medium none; text-align: center" height="125" align="center">
+                <span class="Bold">Download Project Source</span> - Enter your Email to be emailed a link to download the Full Source Project used in this Tutorial!<br />
+                <br />
+                <input type="text" size="40" name="EmailAddress" id="EmailAddress" />
+                <input type="hidden" name="EmailFormDownload1$hid_PostID" id="EmailFormDownload1_hid_PostID" value="363" /><input type="hidden" name="PostID" value='363' />
+                <input type="button" value="Submit" onclick="return popupform('download', EmailAddress.value, PostID.value)" />
+                <br /><br />
+                <span class="Bold">100% SPAM FREE!</span> We will never sell or rent your email address!
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+    </div>
+
+</div>
+
+</td>
+</tr>
+</table>
+<br />
+<br />
+<br />
+</td>
+<td width="152" align="center" valign="top" background="/media/columnbackground.gif">
+
+<table width="150" border="0"  cellpadding="0" cellspacing="0">
+<tr>
+<td bgcolor="#FFFFFF">&nbsp;</td>
+</tr>
+</table>
+<table width="150" border="0" cellspacing="0" cellpadding="0">
+<tr bgcolor="#5482FC">
+<td colspan="3"><img src="/media/spacer.gif" width="1" height="1" /></td>
+</tr>
+<tr>
+<td height="20" align="left" class="header1">&nbsp;&nbsp;Developer Resources </td>
+</tr>
+<tr bgcolor="#5482FC">
+<td colspan="3"><img src="/media/spacer.gif" width="1" height="1" /></td>
+</tr>
+<tr>
+<td align="center" bgcolor="#ffffff"><br />
+<a href="http://www.411asp.net/"><img src="/media/411asp1202.gif" width="120" height="60" border="0" /></a><br />
+<br />
+<a href="http://www.123aspx.com/"><img src="/media/button123aspx_b.gif" width="100" height="30" border="0" /></a><br />
+<br />
+<a href="http://www.dotnetfreaks.com/"><img src="/media/logo100x30.gif" width="100" height="30" border="0" /></a><br />
+<br />
+<a href="http://web.serverintellect.com/10082/10098/"><img src="/media/si-120x600-3.gif" alt="Server Intellect Rocks" width="120" height="600" border="0"/></a><br />
+<br /></td>
+</tr>
+<tr bgcolor="#5482FC">
+<td colspan="3"><img src="/media/spacer.gif" width="1" height="1" /></td>
+</tr>
+</table>
+<br>
+<br>
+
+</td>
+</tr>
+<tr bgcolor="#6699ff">
+<td colspan="3" align="center" valign="top"><img src="/media/spacer.gif" width="1" height="1" /></td>
+</tr>
+</table>
+<table width="950" border="0" align="center" cellpadding="0" cellspacing="0">
+<tr>
+<td width="1" bgcolor="#5482FC"><img src="/media/spacer.gif" width="1" height="1" /></td>
+<td bgcolor="#6699ff"><img src="/media/spacer.gif" width="1" height="5" /></td>
+<td width="1" bgcolor="#5482FC"><img src="/media/spacer.gif" width="1" height="1" /></td>
+</tr>
+<tr>
+<td colspan="3" bgcolor="#5482FC"><img src="/media/spacer.gif" width="1" height="1" /></td>
+</tr>
+</table>
+<br />
+<table width="600" border="0" align="center" cellpadding="5" cellspacing="0">
+<tr>
+<td align="center">
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-4681091-10");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script></td>
+</tr>
+</table>
+</form>
+</body>
+</html>

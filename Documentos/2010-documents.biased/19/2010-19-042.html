@@ -1,0 +1,834 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+ <head>
+  <link rel="stylesheet" href="http://st.pimg.net/tucs/style.css" type="text/css" />
+<link rel="stylesheet" href="http://st.pimg.net/tucs/print.css" type="text/css" media="print" />
+  <link rel="alternate" type="application/rss+xml" title="RSS 1.0" href="http://search.cpan.org/uploads.rdf" />
+  <link rel="search" href="http://st.pimg.net/tucs/opensearch.xml" type="application/opensearchdescription+xml" title="SearchCPAN" />
+  <title>DBIx::XHTML_Table - search.cpan.org</title>
+ </head>
+ <body id="cpansearch">
+<center><div class="logo"><a href="/"><img src="http://st.pimg.net/tucs/img/cpan_banner.png" alt="CPAN"></a></div></center>
+<div class="menubar">
+ <a href="/">Home</a>
+&middot; <a href="/author/">Authors</a>
+&middot; <a href="/recent">Recent</a>
+&middot; <a href="http://log.perl.org/cpansearch/">News</a>
+&middot; <a href="/mirror">Mirrors</a>
+&middot; <a href="/faq.html">FAQ</a>
+&middot; <a href="/feedback">Feedback</a>
+</div>
+<form method="get" action="/search" name="f" class="searchbox">
+<input type="text" name="query" value="" size="35">
+<br>in <select name="mode">
+ <option value="all">All</option>
+ <option value="module" >Modules</option>
+ <option value="dist" >Distributions</option>
+ <option value="author" >Authors</option>
+</select>&nbsp;<input type="submit" value="CPAN Search">
+</form>
+
+
+ <a name="_top"></a>
+  <div class=path>
+<div id=permalink class="noprint"><a href="/perldoc?DBIx::XHTML_Table">permalink</a></div>
+  <a href="/~jeffa/">Jeffrey Hayes Anderson</a> &gt;
+  <a href="/~jeffa/DBIx-XHTML_Table-1.36/">DBIx-XHTML_Table-1.36</a> &gt;
+  DBIx::XHTML_Table
+ </div>
+
+<div class="noprint" style="float:right;align:left;width:19ex">
+<a href="http://hexten.net/cpan-faces/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=18e2531105443db0c846ed5255827da0&rating=G&size=80&default=http%3A%2F%2Fst.pimg.net%2Ftucs%2Fimg%2Fwho.png" width=80 height=80 
+style="float:right"
+/></a>
+<br style="clear:both"/>
+<p style="text-align:right">Download:<br/> <a href="/CPAN/authors/id/J/JE/JEFFA/DBIx-XHTML_Table-1.36.tar.gz">DBIx-XHTML_Table-1.36.tar.gz</a></p>
+<p style="text-align:right"><a href="http://deps.cpantesters.org/?module=DBIx::XHTML_Table;perl=latest">Dependencies</a></p>
+<p style="text-align:right"><a href="http://www.annocpan.org/~JEFFA/DBIx-XHTML_Table-1.36/XHTML_Table.pm">Annotate this POD
+</a></p>
+<div class=box style='width:150px; float: right'>
+<h1 class=t5>Related Modules</h1>
+<div style="margin:2px">
+<a href="/perldoc?HTML::Template">HTML::Template</a><br>
+<a href="/perldoc?DBIx::Simple">DBIx::Simple</a><br>
+<a href="/perldoc?HTML::Table">HTML::Table</a><br>
+<a href="/perldoc?Class::DBI">Class::DBI</a><br>
+<a href="/perldoc?Test::More">Test::More</a><br>
+<a href="/perldoc?Data::Dumper">Data::Dumper</a><br>
+<a href="/perldoc?SQL::Abstract">SQL::Abstract</a><br>
+<a href="/perldoc?Text::Table">Text::Table</a><br>
+<a href="/perldoc?HTML::Element">HTML::Element</a><br>
+<a href="/perldoc?DBIx::Abstract">DBIx::Abstract</a><br>
+<small>
+<a href="http://perlmonks.org/?node=cpan+module+search&pivot=1&module=DBIx::XHTML_Table">more...</a><br>
+By <a href="http://perlmonks.org/">perlmonks.org</a></small>
+</div>
+</div>
+
+<div style="float:right">
+<div class=box style='width:150px'>
+<h1 class=t5>CPAN RT</h1>
+<div style="margin:2px">
+<table style="margin-left:auto;margin-right:auto">
+<tr><td>New&nbsp;</td><td style="text-align:right"> 9</td></tr>
+<tr><td>Open&nbsp;</td><td style="text-align:right"> 0</td></tr>
+</table>
+<a href="https://rt.cpan.org/NoAuth/Bugs.html?Dist=DBIx-XHTML_Table">View Bugs</a><br/>
+<a href="https://rt.cpan.org/Public/Bug/Report.html?Queue=DBIx-XHTML_Table">Report a bug</a>
+</div>
+</div>
+
+</div>
+</div>
+  Module Version:  1.36 &nbsp;
+<span class="noprint">
+  <a href="/src/JEFFA/DBIx-XHTML_Table-1.36/XHTML_Table.pm">Source</a> &nbsp;
+</span>
+<a name="___top"></a>
+<div class=pod>
+<div class=toc>
+<div class='indexgroup'>
+<ul   class='indexList indexList1'>
+  <li class='indexItem indexItem1'><a href='#NAME'>NAME</a>
+  <li class='indexItem indexItem1'><a href='#SYNOPSIS'>SYNOPSIS</a>
+  <li class='indexItem indexItem1'><a href='#DESCRIPTION'>DESCRIPTION</a>
+  <li class='indexItem indexItem1'><a href='#HOME_PAGE'>HOME PAGE</a>
+  <li class='indexItem indexItem1'><a href='#CONSTRUCTOR'>CONSTRUCTOR</a>
+  <li class='indexItem indexItem1'><a href='#OBJECT_METHODS'>OBJECT METHODS</a>
+  <li class='indexItem indexItem1'><a href='#TAG_REFERENCE'>TAG REFERENCE</a>
+  <li class='indexItem indexItem1'><a href='#BUGS'>BUGS</a>
+  <li class='indexItem indexItem1'><a href='#ISSUES'>ISSUES</a>
+  <li class='indexItem indexItem1'><a href='#CREDITS'>CREDITS</a>
+  <li class='indexItem indexItem1'><a href='#SEE_ALSO'>SEE ALSO</a>
+  <li class='indexItem indexItem1'><a href='#AUTHOR'>AUTHOR</a>
+  <li class='indexItem indexItem1'><a href='#COPYRIGHT'>COPYRIGHT</a>
+</ul>
+</div>
+</div>
+
+<h1><a class='u' href='#___top' title='click to go to top of document'
+name="NAME"
+>NAME <img alt='^' src='http://st.pimg.net/tucs/img/up.gif'></a></h1>
+
+<p>DBIx::XHTML_Table - SQL query result set to XML-based HTML table.</p>
+
+<h1><a class='u' href='#___top' title='click to go to top of document'
+name="SYNOPSIS"
+>SYNOPSIS <img alt='^' src='http://st.pimg.net/tucs/img/up.gif'></a></h1>
+
+<pre>  use DBIx::XHTML_Table;
+
+  # database credentials - fill in the blanks
+  my ($data_source,$usr,$pass) = ();
+
+  my $table = DBIx::XHTML_Table-&#62;new($data_source,$usr,$pass);
+
+  $table-&#62;exec_query(&#34;
+      select foo from bar
+      where baz=&#39;qux&#39;
+      order by foo
+  &#34;);
+
+  print $table-&#62;output();
+
+  # stackable method calls:
+  print DBIx::XHTML_Table
+    -&#62;new($data_source,$usr,$pass)
+    -&#62;exec_query(&#39;select foo,baz from bar&#39;)
+    -&#62;output();
+
+  # and much more - read on ...</pre>
+
+<h1><a class='u' href='#___top' title='click to go to top of document'
+name="DESCRIPTION"
+>DESCRIPTION <img alt='^' src='http://st.pimg.net/tucs/img/up.gif'></a></h1>
+
+<p><b>DBIx::XHTML_Table</b> is a DBI extension that creates an XHTML table from a database query result set. It was created to fill the gap between fetching rows from a database and transforming them into a web browser renderable table. DBIx::XHTML_Table is intended for programmers who want the responsibility of presenting (decorating) data, easily. This module is meant to be used in situations where the concern for presentation and logic seperation is overkill. Providing logic or editable data is beyond the scope of this module, but it is capable of doing such.</p>
+
+<h1><a class='u' href='#___top' title='click to go to top of document'
+name="HOME_PAGE"
+>HOME PAGE <img alt='^' src='http://st.pimg.net/tucs/img/up.gif'></a></h1>
+
+<p>The DBIx::XHTML_Table homepage is now available, but still under construction. A partially complete FAQ and Cookbook are available there, as well as the Tutorial, Download and Support info:</p>
+
+<pre>  <a href="http://www.unlocalhost.com/XHTML_Table/" class="podlinkurl"
+>http://www.unlocalhost.com/XHTML_Table/</a>
+  <a href="http://jeffa.perlmonk.org/XHTML_Table/" class="podlinkurl"
+>http://jeffa.perlmonk.org/XHTML_Table/</a></pre>
+
+<h1><a class='u' href='#___top' title='click to go to top of document'
+name="CONSTRUCTOR"
+>CONSTRUCTOR <img alt='^' src='http://st.pimg.net/tucs/img/up.gif'></a></h1>
+
+<dl>
+<dt><a name="style_1"
+><b>style_1</b></a></dt>
+
+<dd>
+<pre>  $obj_ref = new DBIx::XHTML_Table(@credentials[,$attribs])</pre>
+
+<p>Note - all optional arguments are denoted inside brackets.</p>
+
+<p>The constructor will simply pass the credentials to the DBI::connect method - read the DBI documentation as well as the docs for your corresponding DBI driver module (DBD::Oracle, DBD::Sybase, DBD::mysql, etc).</p>
+
+<pre>  # MySQL example
+  my $table = DBIx::XHTML_Table-&#62;new(
+    &#39;DBI:mysql:database:host&#39;,   # datasource
+    &#39;user&#39;,                      # user name
+    &#39;password&#39;,                  # user password
+  ) or die &#34;couldn&#39;t connect to database&#34;;</pre>
+
+<p>The last argument, $attribs, is an optional hash reference and should not be confused with the DBI::connect method&#39;s similar &#39;attributes&#39; hash reference.&#39;</p>
+
+<pre>  # valid example for last argument
+  my $attribs = {
+    table =&#62; {
+      border      =&#62; 1,
+      cellspacing =&#62; 0,
+      rules       =&#62; &#39;groups&#39;,
+    },
+    caption =&#62; &#39;Example&#39;,
+    td =&#62; {
+      style =&#62; &#39;text-align: right&#39;,
+    },
+  };
+
+  my $table = DBIx::XHTML_Table-&#62;new(
+        $data_source,$user,$pass,$attribs
+  ) or die &#34;couldn&#39;t connect to database&#34;;</pre>
+
+<p>But it is still experimental and unpleasantly limiting. The purpose of $table_attribs is to bypass having to call modify() multiple times. However, if you find yourself calling modify() more than 4 or 5 times, then DBIx::XHTML_Table might be the wrong tool. I recommend HTML::Template or Template-Toolkit, both available at CPAN.</p>
+
+<dt><a name="style_2"
+><b>style_2</b></a></dt>
+
+<dd>
+<pre>  $obj_ref = new DBIx::XHTML_Table($DBH[,$attribs])</pre>
+
+<p>The first style will result in the database handle being created and destroyed &#39;behind the scenes&#39;. If you need to keep the database connection open after the XHTML_Table object is destroyed, then create one yourself and pass it to the constructor:</p>
+
+<pre>  my $dbh = DBI-&#62;connect(
+    $data_source,$usr,$passwd,
+    {RaiseError =&#62; 1},
+  );
+
+  my $table = DBIx::XHTML_Table-&#62;new($dbh);
+    # do stuff
+  $dbh-&#62;disconnect;</pre>
+
+<p>You can also use any class that isa() DBI::db object, such as Apache::DBI or DBIx::Password objects:</p>
+
+<pre>  my $dbh   = DBIx::Password-&#62;connect($user);
+  my $table = DBIx::XHTML_Table-&#62;new($dbh);</pre>
+
+<dt><a name="style_3"
+><b>style_3</b></a></dt>
+
+<dd>
+<pre>  $obj_ref = new DBIx::XHTML_Table($rows[,$headers])</pre>
+
+<p>The final style allows you to bypass a database altogether if need be. Simply pass a LoL (list of lists) such as the one passed back from the DBI method <code>selectall_arrayref()</code>. The first row will be treated as the table heading. You are responsible for supplying the column names. Here is one way to create a table after modifying the result set from a database query:</p>
+
+<pre>  my $dbh  = DBI-&#62;connect($dsource,$usr,$passwd);
+  my $sth = $dbh-&#62;prepare(&#39;select foo,baz from bar&#39;);
+  $sth-&#62;execute();
+
+  # order is essential here
+  my $headers = $sth-&#62;{&#39;NAME&#39;};
+  my $rows    = $sth-&#62;fetchall_arrayref();
+
+  # do something to $rows
+
+  my $table = DBIx::XHTML_Table-&#62;new($rows,$headers);</pre>
+
+<p>If $headers is not supplied, then the first row from the first argument will be shifted off and used instead. While obtaining the data from a database is the entire point of this module, there is nothing stopping you from simply hard coding it:</p>
+
+<pre>  my $rows = [
+     [ qw(Head1 Head2 Head3) ],
+     [ qw(foo bar baz)       ],
+     [ qw(one two three)     ],
+     [ qw(un deux trois)     ]
+  ];
+
+  my $table = DBIx::XHTML_Table-&#62;new($rows);</pre>
+
+<p>And that is why $headers is optional.</p>
+</dd>
+</dl>
+
+<h1><a class='u' href='#___top' title='click to go to top of document'
+name="OBJECT_METHODS"
+>OBJECT METHODS <img alt='^' src='http://st.pimg.net/tucs/img/up.gif'></a></h1>
+
+<dl>
+<dt><a name="exec_query"
+><b>exec_query</b></a></dt>
+
+<dd>
+<pre>  $table-&#62;exec_query($sql[,$bind_vars])</pre>
+
+<p>Pass the query off to the database with hopes that data will be returned. The first argument is scalar that contains the SQL code, the optional second argument can either be a scalar for one bind variable or an array reference for multiple bind vars:</p>
+
+<pre>  $table-&#62;exec_query(&#39;
+      select bar,baz from foo
+          where bar = ?
+          and   baz = ?
+  &#39;,[$foo,$bar]);</pre>
+
+<p>exec_query() also accepts a prepared DBI::st handle:</p>
+
+<pre>  my $sth = $dbh-&#62;prepare(&#39;
+      select bar,baz from foo
+          where bar = ?
+          and   baz = ?
+  &#39;);
+
+  $table-&#62;exec_query($sth,[$foo,$bar]);</pre>
+
+<p>Consult the DBI documentation for more details on bind vars.</p>
+
+<p>After the query successfully executes, the results will be stored interally as a 2-D array. The XHTML table tags will not be generated until the output() method is invoked.</p>
+
+<dt><a name="output"
+><b>output</b></a></dt>
+
+<dd>
+<pre>  $scalar = $table-&#62;output([$attribs])</pre>
+
+<p>Renders and returns the XHTML table. The only argument is an optional hash reference that can contain any combination of the following keys, set to a true value. Most of the time you will not want to use this argument, but there are three times when you will:</p>
+
+<pre>  # 1 - do not display a thead section
+  print $table-&#62;output({ no_head =&#62; 1 });</pre>
+
+<p>This will cause the thead section to be suppressed, but not the caption if you set one. The column foots can be suppressed by not calculating totals, and the body can be suppressed by an appropriate SQL query. The caption and colgroup cols can be suppressed by not modifying them. The column titles are the only section that has to be specifically &#39;told&#39; not to generate, and this is where you do that.</p>
+
+<pre>  # 2 - do not format the headers with ucfirst
+  print $table-&#62;output({ no_ucfirst =&#62; 1 });</pre>
+
+<p>This allows you to bypass the automatic upper casing of the first word in each of the column names in the table header. If you just wish to have them displayed as all lower case, then use this option, if you wish to use some other case, use map_head()</p>
+
+<pre>  # 3 - &#39;squash&#39; the output HTML table
+  print $table-&#62;output({ no_indent =&#62; 1 });</pre>
+
+<p>This will result in the output having no text aligning whitespace, that is no newline(\n) and tab(\t) characters. Useful for squashing the total number of bytes resulting from large return sets.</p>
+
+<p>You can combine these attributes, but there is no reason to use no_ucfirst in conjunction with no_head.</p>
+
+<p>Note: versions prior to 0.98 used a two argument form:</p>
+
+<pre>  $scalar = $table-&#62;output([$sans_title,$sans_whitespace])</pre>
+
+<p>You can still use this form to suppress titles and whitespace, but warnings will be generated.</p>
+
+<dt><a name="get_table"
+><b>get_table</b></a></dt>
+
+<dd>
+<pre>  $scalar = $table-&#62;get_table([ {attribs} ])</pre>
+
+<p>Deprecated - use output() instead.</p>
+
+<dt><a name="modify"
+><b>modify</b></a></dt>
+
+<dd>
+<pre>  $table-&#62;modify($tag,$attribs[,$cols])</pre>
+
+<p>This method will store a &#39;memo&#39; of what attributes you have assigned to various tags within the table. When the table is rendered, these memos will be used to create attributes. The first argument is the name of the tag you wish to modify the attributes of. You can supply any tag name you want without fear of halting the program, but the only tag names that are handled are &#60;table&#62; &#60;caption&#62; &#60;thead&#62; &#60;tfoot&#62; &#60;tbody&#62; &#60;colgroup&#62; &#60;col&#62; &#60;tr&#62; &#60;th&#62; and &#60;td&#62;. The tag name will be converted to lowercase, so you can practice safe case insensitivity.</p>
+
+<p>The next argument is a reference to a hash that contains the attributes you wish to apply to the tag. For example, this sets the attributes for the &#60;table&#62; tag:</p>
+
+<pre>  $table-&#62;modify(&#39;table&#39;,{
+     border =&#62; &#39;2&#39;,
+     width  =&#62; &#39;100%&#39;
+  });
+
+  # a more Perl-ish way
+  $table-&#62;modify(table =&#62; {
+     border =&#62; 2,
+     width  =&#62; &#39;100%&#39;,
+  });
+
+  # you can even specify CSS styles
+  $table-&#62;modify(td =&#62; {
+     style =&#62; &#39;color: blue; text-align: center&#39;,
+  });
+
+  # there is more than one way to do it
+  $table-&#62;modify(td =&#62; {
+     style =&#62; {
+        color        =&#62; &#39;blue&#39;,
+        &#39;text-align&#39; =&#62; &#39;center&#39;,
+     }
+  });</pre>
+
+<p>Each key in the hash ref will be lower-cased, and each value will be surrounded in quotes. Note that typos in attribute names will not be caught by this module. Any attribute can be used, valid XHTML attributes tend be more effective. And yes, JavaScript works too.</p>
+
+<p>You can even use an array reference as the key values:</p>
+
+<pre>  $table-&#62;modify(td =&#62; {
+     bgcolor =&#62; [qw(red purple blue green yellow orange)],
+  }),</pre>
+
+<p>As the table is rendered row by row, column by column, the elements of the array reference will be &#39;rotated&#39; across the &#60;td&#62; tags, causing different effects depending upon the number of elements supplied and the number of columns and rows in the table. The following is the preferred XHTML way with CSS styles:</p>
+
+<pre>  $table-&#62;modify(th =&#62; {
+     style =&#62; {
+        background =&#62; [&#39;#cccccc&#39;,&#39;#aaaaaa&#39;],
+     }
+  });</pre>
+
+<p>See the set_row_color() and set_col_color() methods for more info.</p>
+
+<p>The last argument to modify() is optional and can either be a scalar representing a single column or area, or an array reference containing multilple columns or areas. The columns will be the corresponding names of the columns from the SQL query, or their anticipated index number, starting at zero. The areas are one of three values: HEAD, BODY, or FOOT. The columns and areas you specify are case insensitive.</p>
+
+<pre>  # just modify the titles
+  $table-&#62;modify(th =&#62; {
+     bgcolor =&#62; &#39;#bacaba&#39;,
+  }, &#39;head&#39;);
+
+  # only &#60;td&#62; tags in column FOO will be set
+  $table-&#62;modify(td =&#62; {
+     style =&#62; &#39;text-align: center&#39;
+  },&#39;foo&#39;);
+
+  # &#60;td&#62; tags for the second and third columns (indexes 1 and 2)
+  $table-&#62;modify(td =&#62; {
+     style =&#62; &#39;text-align: right&#39;
+  },[1,2]);</pre>
+
+<p>You cannot currently mix areas and columns in the same method call. That is, you cannot set a specific column in the &#39;head&#39; area, but not the &#39;body&#39; area. This _might_ change in the future, but such specific needs are a symptom of needing a more powerful tool.</p>
+
+<p>As of Version 1.10, multiple calls to modfiy() are inheritable. For example, if you set an attribute for all &#60;td&#62; tags and set another attribute for a specific column, that specific column will inherit both attributes:</p>
+
+<pre>  $table-&#62;modify(td =&#62; {foo =&#62; &#39;bar&#39;});
+  $table-&#62;modify(td =&#62; {baz =&#62; &#39;qux&#39;},&#39;Salary&#39;);</pre>
+
+<p>In the preceding code, all &#60;td&#62; tags will have the attribute &#39;foo = &#34;bar&#34;&#39;, and the &#60;td&#62; tags for the &#39;Salary&#39; column will have the attributes &#39;foo = &#34;bar&#34;&#39; and &#39;baz = &#34;qux&#34;&#39;. Should you not this behavior, you can &#39;erase&#39; the unwanted attribute by setting the value of an attribute to the empty string:</p>
+
+<pre>  $table-&#62;modify(td =&#62; {foo =&#62; &#39;bar&#39;});
+  $table-&#62;modify(td =&#62; {foo =&#62;&#39;&#39;, baz =&#62; &#39;qux&#39;},&#39;Salary&#39;);</pre>
+
+<p>Note the use of the empty string and not undef or 0. Setting the value to undef will work, but will issue a warning if you have warnings turned on. Setting the value to 0 will set the value of the attribute to 0, not remove it.</p>
+
+<p>A final caveat is setting the &#60;caption&#62; tag. This one breaks the signature convention:</p>
+
+<pre>  $table-&#62;modify(tag =&#62; $value, $attrib);</pre>
+
+<p>Since there is only one &#60;caption&#62; allowed in an XHTML table, there is no reason to bind it to a column or an area:</p>
+
+<pre>  # with attributes
+  $table-&#62;modify(
+     caption =&#62; &#39;A Table Of Contents&#39;,
+     { align =&#62; &#39;bottom&#39; }
+  );
+
+  # without attributes
+  $table-&#62;modify(caption =&#62; &#39;A Table Of Contents&#39;);</pre>
+
+<p>The only tag that cannot be modified by modify() is the &#60;col&#62; tag. Use add_col_tag() instead.</p>
+
+<dt><a name="modify_tag"
+><b>modify_tag</b></a></dt>
+
+<dd>
+<pre>  $table-&#62;modify_tag($tag,$attribs[,$cols])</pre>
+
+<p>Deprecated, use the easier to type modify() instead.</p>
+
+<dt><a name="add_col_tag"
+><b>add_col_tag</b></a></dt>
+
+<dd>
+<pre>  $table-&#62;add_col_tag($cols)</pre>
+
+<p>Add a new &#60;col&#62; tag and attributes. The only argument is reference to a hash that contains the attributes for this &#60;col&#62; tag. Multiple &#60;col&#62; tags require multiple calls to this method. The &#60;colgroup&#62; tag pair will be automatically generated if at least one &#60;col&#62; tag is added.</p>
+
+<p>Advice: use &#60;col&#62; and &#60;colgroup&#62; tags wisely, don&#39;t do this:</p>
+
+<pre>  # bad
+  for (0..39) {
+    $table-&#62;add_col_tag({
+       foo =&#62; &#39;bar&#39;,
+    });
+  }</pre>
+
+<p>When this will suffice:</p>
+
+<pre>  # good
+  $table-&#62;modify(colgroup =&#62; {
+     span =&#62; 40,
+     foo  =&#62; &#39;bar&#39;,
+  });</pre>
+
+<p>You should also consider using &#60;col&#62; tags to set the attributes of &#60;td&#62; and &#60;th&#62; instead of the &#60;td&#62; and &#60;th&#62; tags themselves, especially if it is for the entire table. Notice the use of the get_col_count() method in this example to span the entire table:</p>
+
+<pre>  $table-&#62;add_col_tag({
+     span  =&#62; $table-&#62;get_col_count(),
+     style =&#62; &#39;text-align: center&#39;,
+  });</pre>
+
+<dt><a name="map_cell"
+><b>map_cell</b></a></dt>
+
+<dd>
+<pre>  $table-&#62;map_cell($subroutine[,$cols])</pre>
+
+<p>Map a supplied subroutine to all the &#60;td&#62; tag&#39;s cdata for the specified columns. The first argument is a reference to a subroutine. This subroutine should shift off a single scalar at the beginning, munge it in some fasion, and then return it. The second argument is the column (scalar) or columns (reference to a list of scalars) to apply this subroutine to. Example:</p>
+
+<pre>  # uppercase the data in column DEPARTMENT
+  $table-&#62;map_cell( sub { return uc shift }, &#39;department&#39;);
+
+  # uppercase the data in the fifth column
+  $table-&#62;map_cell( sub { return uc shift }, 4);</pre>
+
+<p>One temptation that needs to be addressed is using this method to color the cdata inside a &#60;td&#62; tag pair. For example:</p>
+
+<pre>  # don&#39;t be tempted to do this
+  $table-&#62;map_cell(sub {
+    return qq|&#60;font color=&#34;red&#34;&#62;| . shift . qq|&#60;/font&#62;|;
+  }, [qw(first_name last_name)]);
+
+  # when CSS styles will work
+  $table-&#62;modify(td =&#62; {
+    style =&#62; &#39;color: red&#39;,
+  }, [qw(first_name last_name)]);</pre>
+
+<p>Note that the get_current_row() and get_current_col() can be used inside the sub reference. See set_pk() below for an example.</p>
+
+<p>All columns are used if none are specified, and you can specify index number(s) as well as name(s). Also, exec_query() must be called and data must be returned from the database prior to calling this method, otherwise the call back will be ignored and a warning will be generated. This is true for map_head() as well.</p>
+
+<dt><a name="map_col"
+><b>map_col</b></a></dt>
+
+<dd>
+<pre>  $table-&#62;map_col($subroutine[,$cols])</pre>
+
+<p>Deprecated - use map_cell() instead.</p>
+
+<dt><a name="map_head"
+><b>map_head</b></a></dt>
+
+<dd>
+<pre>  $table-&#62;map_head($subroutine[,$cols])</pre>
+
+<p>Just like map_cell() except it modifies only column headers, i.e. the &#60;th&#62; data located inside the &#60;thead&#62; section. The immediate application is to change capitalization of the column headers, which are defaulted to ucfirst:</p>
+
+<pre>  $table-&#62;map_head(sub { uc shift });</pre>
+
+<p>Instead of using map_head() to lower case the column headers, just specify that you don&#39;t want default capitalization with output():</p>
+
+<pre>  $table-&#62;output({ no_ucfirst =&#62; 1 });</pre>
+
+<dt><a name="set_row_colors"
+><b>set_row_colors</b></a></dt>
+
+<dd>
+<pre>  $table-&#62;set_row_colors($colors[,$attrib_name]);</pre>
+
+<p>This method will produce horizontal stripes. This first argument is an array reference that contains the colors to use. Each row will get a color from the list - when the last color in the list is reached, then the rotation will start over at the beginning. This will continue until all &#60;tr&#62; tags have been generated. If you don&#39;t supply an array reference with at least 2 colors then this method will return without telling you.</p>
+
+<p>set_row_colors() by default will use CSS styles to color the rows. The optional second argument is a single scalar that can be used to specify another attribute instead of the CSS style &#39;color&#39;. For example, you could use &#39;class&#39; or even deprecated HTML attributes such as &#39;bgcolor&#39; or &#39;width&#39;.</p>
+
+<p>This method is just a more convenient way to do the same thing with the modify() modify.</p>
+
+<p>See <a href="http://www.unlocalhost.com/XHTML_Table/cookbook.html#5" class="podlinkurl"
+>http://www.unlocalhost.com/XHTML_Table/cookbook.html#5</a> for more information on coloring the table.</p>
+
+<dt><a name="set_col_colors"
+><b>set_col_colors</b></a></dt>
+
+<dd>
+<pre>  $table-&#62;set_col_colors($colors[,$attrib_name]);</pre>
+
+<p>This method will produce vertical stripes. The first argument is an array reference to arrays just like set_row_colors().</p>
+
+<p>Unlike set_row_colors() however, this module is more than just a convenient way to do the same with the modify() method. The problem arises when you supply an odd number of colors for an even number of columns, vice versa, or both odd. The result will be a checkerboard. Not very readable for anything except board games. By using set_col_colors() instead, the result will always be vertical stripes.</p>
+
+<p>set_col_colors() by default will use CSS styles to color the rows. The optional second argument is a single scalar that can be used to specify another attribute instead of the CSS style &#39;color&#39;. For example, you could use &#39;class&#39; or even deprecated HTML attributes such as &#39;bgcolor&#39; or &#39;width&#39;.</p>
+
+<p>See <a href="http://www.unlocalhost.com/XHTML_Table/cookbook.html#5" class="podlinkurl"
+>http://www.unlocalhost.com/XHTML_Table/cookbook.html#5</a> for more information on coloring the table.</p>
+
+<dt><a name="set_null_value"
+><b>set_null_value</b></a></dt>
+
+<dd>
+<pre>  $table-&#62;set_null_value($new_null_value)</pre>
+
+<p>Change the default null_value (&#38;nbsp;) to something else. Any column that is undefined will have this value substituted instead.</p>
+
+<dt><a name="set_pk"
+><b>set_pk</b></a></dt>
+
+<dd>
+<pre>  $table-&#62;set_pk([$primary_key]);</pre>
+
+<p>This method must be called before exec_query() in order to work!</p>
+
+<p>Note that the single argument to this method, $primary_key, is optional. If you do not specify a primary key, then &#39;id&#39; will be used.</p>
+
+<p>This is highly specialized method - the need is when you want to select the primary key along with the columns you want to display, but you don&#39;t want to display it as well. The value will be accessible via the get_current_row() method. This is useful as a a callback via the map_cell() method. Consider the following:</p>
+
+<pre>  $table-&#62;map_cell(sub { 
+    my $datum = shift;
+    my $row   = $table-&#62;get_current_row();
+    my $col   = $table-&#62;get_current_col();
+    return qq|&#60;input type=&#34;text&#34; name=&#34;$row:$col&#34; value=&#34;$datum&#34;&#62;|;
+  });</pre>
+
+<p>This will render a &#34;poor man&#39;s&#34; spreadsheet, provided that set_pk() was called with the proper primary key before exec_query() was called. Now each input has a name that can be split to reveal which row and column the value belongs to.</p>
+
+<p>Big thanks to Jim Cromie for the idea.</p>
+
+<dt><a name="set_group"
+><b>set_group</b></a></dt>
+
+<dd>
+<pre>  $table-&#62;set_group($column[,$no_dups,$replace_with])</pre>
+
+<p>Assign one column as the main column. Every time a new row is encountered for this column, a &#60;tbody&#62; tag is written. An optional second argument that contains a defined, non-zero value will cause duplicates to be permanantly eliminated for this row. An optional third argument specifies what value to replace for duplicates, default is &#38;nbsp;</p>
+
+<pre>  # replace duplicates with the global &#39;null_value&#39;
+  $table-&#62;set_group(&#39;Branch&#39;,1);
+
+  # replace duplicates with a new value
+  $table-&#62;set_group(&#39;Branch&#39;,1,&#39;----&#39;);
+  
+  # or in a more Perl-ish way
+  $table-&#62;set_group(&#39;Branch&#39;,nodups=&#62;&#39;----&#39;);</pre>
+
+<p>Don&#39;t assign a column that has a different value each row, choose one that is a super class to the rest of the data, for example, pick album over song, since an album consists of songs.</p>
+
+<p>So, what&#39;s it good for? If you set a group (via the set_group() method) and supply the following:</p>
+
+<pre>  # well, and you are viewing in IE...
+  $table-&#62;modify(table =&#62; {
+    cellspacing =&#62; 0,
+    rules       =&#62; &#39;groups&#39;,
+  });</pre>
+
+<p>then horizontal lines will only appear at the point where the &#39;grouped&#39; rows change. This had to be implemented in the past with &#60;table&#62;&#39;s inside of &#60;table&#62;&#39;s. Much nicer! Add this for a nice coloring trick:</p>
+
+<pre>  # this works with or without setting a group, by the way
+  $table-&#62;modify(tbody =&#62; {
+    bgcolor =&#62; [qw(insert rotating colors here)],
+  });</pre>
+
+<dt><a name="calc_totals"
+><b>calc_totals</b></a></dt>
+
+<dd>
+<pre>  $table-&#62;calc_totals([$cols,$mask])</pre>
+
+<p>Computes totals for specified columns. The first argument is the column or columns to sum, again a scalar or array reference is the requirement. If $cols is not specified, all columns will be totaled. Non-numbers will be ignored, negatives and floating points are supported, but you have to supply an appropriate sprintf mask, which is the optional second argument, in order for the sum to be correctly formatted. See the sprintf docs for further details.</p>
+
+<dt><a name="calc_subtotals"
+><b>calc_subtotals</b></a></dt>
+
+<dd>
+<pre>  $table-&#62;calc_subtotals([$cols,$mask])</pre>
+
+<p>Computes subtotals for specified columns. It is mandatory that you first specify a group via set_group() before you call this method. Each subtotal is tallied from the rows that have the same value in the column that you specified to be the group. At this point, only one subtotal row per group can be calculated and displayed.</p>
+
+<dt><a name="get_col_count"
+><b>get_col_count</b></a></dt>
+
+<dd>
+<pre>  $scalar = $table-&#62;get_col_count()</pre>
+
+<p>Returns the number of columns in the table.</p>
+
+<dt><a name="get_row_count"
+><b>get_row_count</b></a></dt>
+
+<dd>
+<pre>  $scalar = $table-&#62;get_row_count()</pre>
+
+<p>Returns the numbers of body rows in the table.</p>
+
+<dt><a name="get_current_row"
+><b>get_current_row</b></a></dt>
+
+<dd>
+<pre>  $scalar = $table-&#62;get_current_row()</pre>
+
+<p>Returns the value of the primary key for the current row being processed. This method is only meaningful inside a map_cell() callback; if you access it otherwise, you will either receive undef or the value of the primary key of the last row of data.</p>
+
+<dt><a name="get_current_col"
+><b>get_current_col</b></a></dt>
+
+<dd>
+<pre>  $scalar = $table-&#62;get_current_col()</pre>
+
+<p>Returns the name of the column being processed. This method is only meaningful inside a map_cell() callback; if you access it otherwise, you will either receive undef or the the name of the last column specified in your SQL statement.</p>
+
+<dt><a name="add_cols"
+><b>add_cols</b></a></dt>
+
+<dd>
+<pre>   $table-&#62;add_cols(
+      { header =&#62; &#39;&#39;, data =&#62; [], before =&#62; &#39;&#39; }, { ... }, ... 
+   );</pre>
+
+<p>Going against the philosophy of only select what you need from the database, this sub allows you to remove whole columns. &#39;header&#39; is the name of the new column, you will have to ucfirst yourself. It is up to you to ensure that that the size of &#39;data&#39; is the same as the number of rows in the original data set. &#39;before&#39; can be an index or the name of the column. For example, to add a new column to the beginning:</p>
+
+<pre>   $table-&#62;add_cols({name=&#62;&#39;New&#39;, data=&#62;\@rows, before =&#62; 0});</pre>
+
+<p>add a new column to the end:</p>
+
+<pre>   $table-&#62;add_cols({name=&#62;&#39;New&#39;, data=&#62;\@rows});</pre>
+
+<p>or somewhere in the middle:</p>
+
+<pre>   $table-&#62;add_cols({name=&#62;&#39;New&#39;, data=&#62;\@rows}, before =&#62; &#39;age&#39;});</pre>
+
+<p>or combine all three into one call:</p>
+
+<pre>   $table-&#62;add_cols(
+      {name=&#62;&#39;Foo&#39;, data=&#62;\@rows, before =&#62; 0},
+      {name=&#62;&#39;Bar&#39;, data=&#62;\@rows},
+      {name=&#62;&#39;Baz&#39;, data=&#62;\@rows}, before =&#62; &#39;Bar&#39;},
+   );</pre>
+
+<dt><a name="drop_cols"
+><b>drop_cols</b></a></dt>
+
+<dd>
+<pre>   $table-&#62;drop_cols([qw(foo bar 5)];</pre>
+
+<p>Like add_cols, drop_cols goes against said &#39;philosophy&#39;, but it is here for the sake of TIMTWOTDI. Simply pass it an array ref that contains either the name or positions of the columns you want to drop.</p>
+</dd>
+</dl>
+
+<h1><a class='u' href='#___top' title='click to go to top of document'
+name="TAG_REFERENCE"
+>TAG REFERENCE <img alt='^' src='http://st.pimg.net/tucs/img/up.gif'></a></h1>
+
+<pre>    TAG        CREATION    BELONGS TO AREA
++------------+----------+--------------------+
+| &#60;table&#62;    |   auto   |       ----         |
+| &#60;caption&#62;  |  manual  |       ----         |
+| &#60;colgroup&#62; |   both   |       ----         |
+| &#60;col&#62;*     |  manual  |       ----         |
+| &#60;thead&#62;    |   auto   |       head         |
+| &#60;tbody&#62;    |   auto   |       body         |
+| &#60;tfoot&#62;    |   auto   |       foot         |
+| &#60;tr&#62;       |   auto   |  head,body,foot    |
+| &#60;td&#62;       |   auto   |       body         |
+| &#60;th&#62;       |   auto   |  head,body,foot    |
++------------+-------------------------------+
+
+ * All tags use modify() to set attributes
+   except &#60;col&#62;, which uses add_col_tag() instead</pre>
+
+<h1><a class='u' href='#___top' title='click to go to top of document'
+name="BUGS"
+>BUGS <img alt='^' src='http://st.pimg.net/tucs/img/up.gif'></a></h1>
+
+<p>If you have found a bug, typo, etc. please visit Best Practical Solution&#39;s CPAN bug tracker at <a href="http://rt.cpan.org" class="podlinkurl"
+>http://rt.cpan.org</a>:</p>
+
+<p>&#60;<a href="http://rt.cpan.org/NoAuth/Bugs.html?Dist=DBIx-XHTML_Table" class="podlinkurl"
+>http://rt.cpan.org/NoAuth/Bugs.html?Dist=DBIx-XHTML_Table</a>&#62;</p>
+
+<p>or send mail to &#60;bug-DBIx-XHTML_Table#rt.cpan.org&#62;</p>
+
+<p>(you got this far ... you can figure out how to make that a valid address ... and note that i won&#39;t respond to bugs sent to my personal address any longer)</p>
+
+<h1><a class='u' href='#___top' title='click to go to top of document'
+name="ISSUES"
+>ISSUES <img alt='^' src='http://st.pimg.net/tucs/img/up.gif'></a></h1>
+
+<dl>
+<dt><a name='Problems'></a><a name="Problems_with_&#39;SELECT_*&#39;"
+>Problems with &#39;SELECT *&#39;</a></dt>
+
+<dd>
+<p>Users are recommended to avoid &#39;select *&#39; and instead specify the names of the columns. Problems have been reported using &#39;select *&#39; with SQLServer7 will cause certain &#39;text&#39; type columns not to display. I have not experienced this problem personally, and tests with Oracle and MySQL show that they are not affected by this. SQLServer7 users, please help me confirm this. :)</p>
+
+<dt><a name='Not'></a><a name="Not_specifying_&#60;body&#62;_tag_in_CGI_scripts"
+>Not specifying &#60;body&#62; tag in CGI scripts</a></dt>
+
+<dd>
+<p>I anticipate this module to be used by CGI scripts, and when writing my own &#39;throw-away&#39; scripts, I noticed that Netscape 4 will not display a table that contains XHTML tags IF a &#60;body&#62; tag is NOT found. Be sure and print one out.</p>
+</dd>
+</dl>
+
+<h1><a class='u' href='#___top' title='click to go to top of document'
+name="CREDITS"
+>CREDITS <img alt='^' src='http://st.pimg.net/tucs/img/up.gif'></a></h1>
+
+<p>Briac [OeufMayo] Pilpr&#233; for the name.</p>
+
+<p>Mark [extremely] Mills for patches and suggestions.</p>
+
+<p>Jim Cromie for presenting the whole spreadsheet idea.</p>
+
+<p>Stephen Nelson for documentation/code corrections.</p>
+
+<p>Matt Sergeant for DBIx::XML_RDB.</p>
+
+<p>Aaron [trs80] Johnson for convincing me into writing add and drop cols.</p>
+
+<p>Richard Piacentini and Tim Alexander for recommending DBIx::Password and Apache::DBI compatability and Slaven Rezic for recommending using UNIVERSAL::isa().</p>
+
+<p>Perl Monks for the education.</p>
+
+<h1><a class='u' href='#___top' title='click to go to top of document'
+name="SEE_ALSO"
+>SEE ALSO <img alt='^' src='http://st.pimg.net/tucs/img/up.gif'></a></h1>
+
+<p>DBI</p>
+
+<h1><a class='u' href='#___top' title='click to go to top of document'
+name="AUTHOR"
+>AUTHOR <img alt='^' src='http://st.pimg.net/tucs/img/up.gif'></a></h1>
+
+<p>Jeffrey Hayes Anderson</p>
+
+<h1><a class='u' href='#___top' title='click to go to top of document'
+name="COPYRIGHT"
+>COPYRIGHT <img alt='^' src='http://st.pimg.net/tucs/img/up.gif'></a></h1>
+
+<p>Copyright (c) 2004 Jeffrey Hayes Anderson.</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &#34;Software&#34;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED &#34;AS IS&#34;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+
+</div>
+
+
+<div class="footer"><div class="cpanstats">62617 Uploads, 19844 Distributions
+79979 Modules, 8071 Uploaders
+</div>
+Hosted by <a href="http://www.digitalcraftsmen.net/">craftsmen</a><br/>
+<a href="http://www.digitalcraftsmen.net/"><img src="http://st.pimg.net/tucs/img/DC-LOGO-S.gif"></a>
+</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-3528438-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+<script type="text/javascript" src="http://ipv4.v6test.develooper.com/cdn/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://ipv4.v6test.develooper.com/js/v1/v6test.js"></script>
+
+<script type="text/javascript">
+   // v6.target = '';
+   if (!v6.target) { v6.only_once = true }
+   v6.site = '7A0D89A6-2B82-11DF-B9DA-F61CBD13F020';
+   v6.api_server = 'http://ipv4.v6test.develooper.com';
+   try {
+     v6.test();
+   } catch(err) {}
+</script>
+<!-- Sun Mar 14 13:32:34 2010 GMT (0.190551996231079) @eucpan101 -->
+ </body>
+</html>

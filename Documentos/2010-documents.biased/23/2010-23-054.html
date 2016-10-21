@@ -1,0 +1,535 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Opening a Database Connection</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REV="MADE"
+HREF="mailto:pgsql-docs@postgresql.org"><LINK
+REL="HOME"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="EnterpriseDB .NET Connector"
+HREF="dotnetdataprovider.html"><LINK
+REL="PREVIOUS"
+TITLE="Performing common database tasks"
+HREF="dotnetprovider-common-tasks.html"><LINK
+REL="NEXT"
+TITLE="Retrieving Database Records"
+HREF="dotnet-retrieverecords.html"><LINK
+REL="STYLESHEET"
+TYPE="text/css"
+HREF="stylesheet.css"><!-- InstanceEndEditable --><title>EnterpriseDB Documentation</title><link href="stylesheet.css" rel="stylesheet" type="text/css"><style type="text/css"><!--.style4 {font-size:12px;}--></style></HEAD><body><table width="90%"  border="0" align="center" cellpadding="0" cellspacing="0"><TR><th width="7" background="images/lshadow.gif" scope="col">&nbsp;</TH><th align="left" valign="top" scope="col"><table width="98%"  border="0" align="center" cellpadding="0" cellspacing="0"><TR><th width="36%" align="left" scope="col"><img src="images/logo.gif" width="250" height="98"></TH><th width="64%" scope="col">Documentation</TH></TR> <TR><th colspan="2" align="left" scope="col">&nbsp; </TH></TR></TABLE></TH><th width="7" background="images/rshadow.gif" scope="col">&nbsp;</TH></TR> <TR><th background="images/lshadow.gif" scope="row">&nbsp;</TH><td><table width="90%" align="center"> <TR><td class="style4"><!-- InstanceBeginEditable name="textarea" --><form method="get" action="http://search.enterprisedb.com/search"><div align="right"><table border="0"><tr><td><input type="text" name="q" size="25" maxlength="255" value=""/><input type="submit" name="btnG" value="Search"/><input type="hidden" name="site" value="my_collection"/><input type="hidden" name="client" value="my_collection"/><input type="hidden" name="proxystylesheet" value="my_collection"/><input type="hidden" name="output" value="xml_no_dtd"/><input type="hidden" name="restrict" value="Documentation"/></td></tr></table></div></form><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="5"
+ALIGN="center"
+VALIGN="bottom"
+></TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="dotnetprovider-common-tasks.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="dotnetdataprovider.html"
+>Fast Backward</A
+></TD
+><TD
+WIDTH="60%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 25. EnterpriseDB .NET Connector</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="dotnetdataprovider.html"
+>Fast Forward</A
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="dotnet-retrieverecords.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%">
+<center>
+<script type="text/javascript"><!--
+google_ad_client = "pub-2627642070897863";
+/* 728x90, created 5/27/08 */
+google_ad_slot = "6410357476";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</center></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="DOTNET-OPENDBCONNECTION"
+>25.7. Opening a Database Connection</A
+></H1
+><P
+>        Connections are responsible for handling the physical communication between a data store and 
+	a .NET application and is the first object that a developer needs to deal with as all database 
+	commands need a database connection before doing anything else. 
+     </P
+><P
+>        Because the Connection object is part of a Data Provider, each Data Provider implements its own version. 
+	The Connection object for <TT
+CLASS="LITERAL"
+>EnterpriseDB .NET Connector</TT
+> is called <SPAN
+CLASS="QUOTE"
+>"EDBConnection"</SPAN
+>.
+     </P
+><P
+>     To access a database you need to create and open a database connection.
+     For the first example we will show how to open a database connection from an ASP.NET page, a Console 
+     Application as well as a Windows Form application. The other examples will only be using ASP.NET pages.
+     </P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="DOTNET-OPENCONN-ASPNET"
+>25.7.1. Opening a Database Connection using ASP.NET</A
+></H2
+><DIV
+CLASS="EXAMPLE"
+><A
+NAME="AEN21289"
+></A
+><P
+><B
+>Example 25-1. Opening a Database Connection via ASP.NET</B
+></P
+><PRE
+CLASS="PROGRAMLISTING"
+>&#60;% @ Page Language="C#" %&#62;
+&#60;% @Import Namespace="EnterpriseDB.EDBClient" %&#62;
+&#60;% @Import Namespace="System.Configuration" %&#62;
+
+&#60;script language="C#" runat="server"&#62;
+
+private void Page_Load(object sender, System.EventArgs e)
+{
+	string strConnectionString = ConfigurationSettings.AppSettings
+	["DB_CONN_STRING"];
+	EDBConnection conn = new EDBConnection(strConnectionString);
+	
+	try {
+ 	   conn.Open();
+	   Response.Write("Connection opened successfully");
+	}
+	
+	catch(EDBException exp) { exp.ToString(); }
+	
+	finally {
+		conn.Close();
+	}
+}
+
+&#60;/script&#62;</PRE
+></DIV
+><P
+>     First a connection with the database is established by specifying the server name, port number, user ID, and password. 
+     If due to some reason a connection is not to established an error message will be displayed. 
+    </P
+><P
+>    Then the user is asked to give the employee id against which the image will be retrieved and saved onto the hard disk. 
+    The image is retrieved depending on the 'empID' parameter that is passed in against which the image is retrieved into a byte array. 
+    To get the image as a whole we loop through the raw bytes and write out the content via a FileStream into a file called 
+    <SPAN
+CLASS="QUOTE"
+>"tips.gif"</SPAN
+>. The following code shows how we would do this:
+ </P><PRE
+CLASS="PROGRAMLISTING"
+> 
+ EDBDataReader reader =  cmd.ExecuteReader(); 
+				reader.Read(); 
+				if (reader.HasRows) 
+				{ Byte[] image = new Byte[Convert.ToInt32
+				((reader.GetBytes(0, 0,null, 0, Int32.MaxValue)))]; 
+					reader.GetBytes(0, 0, image, 0, image.Length);	 
+			FileStream fs = new FileStream(@"c:\tips.gif", FileMode.Create,                   
+                      				FileAccess.ReadWrite); 
+                          		for(int i=0;i&#60;image.Length;i++) 
+						 fs.WriteByte(image[i]);				 
+						 	fs.Close();
+                                       	 }     
+      
+
+ </PRE
+><P></P
+><P
+>Once we are done with writing out our content we can close the FileStream object and subsequently the EDBConnection object. 
+If everything goes well you should see the following message: 
+      
+      <P
+><IMG
+SRC="images/aspconnection.png"></P
+>	
+     
+     </P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="DOTNET-OPENCONN-CONSOLE"
+>25.7.2. Opening a Database Connection from a Console Application</A
+></H2
+><P
+>Now lets take a look at opening a connection with an <SPAN
+CLASS="PRODUCTNAME"
+>EnterpriseDB</SPAN
+> database using a Console based application.</P
+><P
+>Before we write the code for the console application, let us create an <TT
+CLASS="LITERAL"
+>app.config</TT
+> file for storing the
+      connection string to our database. Whenever you need to make any changes to the connection string, this file is where you 
+      need to enter the changed connection string under. 
+      
+</P><PRE
+CLASS="PROGRAMLISTING"
+>&#60;?xml version="1.0" encoding="utf-8" ?&#62;
+&#60;configuration&#62;
+	&#60;appSettings&#62;
+		&#60;add key="DB_CONN_STRING" value = "Server=127.0.0.1;Port=5444;
+		User Id=enterprisedb;Password=enterprisedb;Database=edb"/&#62;
+	&#60;/appSettings&#62;
+&#60;/configuration&#62;</PRE
+><P>      
+     </P
+><DIV
+CLASS="EXAMPLE"
+><A
+NAME="AEN21306"
+></A
+><P
+><B
+>Example 25-2. Opening a Database Connection with a Console Based Application</B
+></P
+><PRE
+CLASS="PROGRAMLISTING"
+>using System;
+using System.Data;
+using EnterpriseDB.EDBClient;
+
+namespace EnterpriseDB
+{
+	
+	class EDB
+	{
+		
+	  static void Main(string[] args)
+	  {
+              string strConnectionString = ConfigurationSettings.AppSettings
+	      ["DB_CONN_STRING"];
+	      EDBConnection conn = new EDBConnection(strConnectionString);
+			      
+	      try
+	      {
+		  conn.Open(); 
+		  Console.WriteLine("Connection Opened Successfully");
+	      }
+	      
+	      catch(Exception exp)
+	      {
+		  throw new Exception(exp.ToString());
+	      }
+	          
+	      finally
+	      {
+		conn.Close();
+	      }
+	   }
+	}
+}</PRE
+></DIV
+><P
+>   Save the file as <SPAN
+CLASS="QUOTE"
+>"EDBConnection-Sample.cs"</SPAN
+> and compile it with the following command from the 
+   folder you saved the <SPAN
+CLASS="QUOTE"
+>"EDBConnection-Sample.cs"</SPAN
+> file in.
+</P><PRE
+CLASS="PROGRAMLISTING"
+>csc /r:EDBDataProvider.dll /out:Console.exe EDBConnection-Sample.cs</PRE
+><P></P
+><P
+>    After running this command, a Console.exe file should be generated in the same folder which you can execute 
+    by typing <SPAN
+CLASS="QUOTE"
+>"Console.exe"</SPAN
+>. You should see something like the following screen:
+      <P
+><IMG
+SRC="images/consoleconnection.png"></P
+>	    
+ </P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="DOTNET-OPENCONNE-WINFORM"
+>25.7.3. Opening a Database Connection from a Windows Form Application</A
+></H2
+><P
+>    Finally, let's cover opening a database connection through a .NET WinForm
+    application.  
+ </P
+><P
+>    Save the following code snippet as <SPAN
+CLASS="QUOTE"
+>"WinForm-Example.cs"</SPAN
+> in a directory of your choice, but it should have 
+    both the above mentioned dll's in it. 
+ </P><PRE
+CLASS="PROGRAMLISTING"
+>using System;
+using System.Windows.Forms;
+using System.Drawing;
+using EnterpriseDB.EDBClient;
+
+namespace EDBTestClient
+{
+	
+	class Win_Conn
+	{
+		static void Main(string[] args)
+		{			
+			Form frmMain = new Form();
+			Button btnConn = new Button();
+			btnConn.Location = new System.Drawing.Point(104, 64);
+			btnConn.Name = "btnConn";
+			btnConn.Text = "Open Connection";
+			btnConn.Click += new System.EventHandler(btnConn_Click);
+
+			frmMain.Controls.Add(btnConn);
+			frmMain.Text = "EnterpriseDB";
+					
+			Application.Run(frmMain);
+		}
+
+		private static void btnConn_Click(object sender, System.EventArgs e)
+		{
+			EDBConnection conn = null;
+			try
+			{
+				string connectionString = "Server=10.90.1.29;port=5444;
+				username=edb;password=edb;database=edb";
+				conn = new EDBConnection(connectionString);
+				conn.Open();
+				MessageBox.Show("Connection Open");				
+			}
+			catch(EDBException exp)
+			{
+				MessageBox.Show(exp.ToString());
+			}
+			finally
+			{
+				conn.Close();	
+			}
+		}
+	}
+}
+ 
+ </PRE
+><P>   
+ </P
+><P
+>Just change the database connection string to point to the database that you want to connect to then 
+compile the file with the following command:
+</P><PRE
+CLASS="PROGRAMLISTING"
+>csc /r:EDBDataProvider.dll /out:WinForm.exe WinForm-Example.cs</PRE
+><P></P
+><P
+>    After running this command, a WinForm.exe file should be generated within the same folder 
+    as you compiled under. You should see something like the following screen:
+      <P
+><IMG
+SRC="images/dotnet-openconnection.png"></P
+>	    
+ </P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="DOTNET-OPENDBCONNECTION-EXP"
+>25.7.4. Opening a Database Connection - Explanation</A
+></H2
+><P
+>	For both the database connection examples above, we begin by importing the necessary namespace 
+	<TT
+CLASS="LITERAL"
+>EnterpriseDB.EDBClient</TT
+> for working with an <SPAN
+CLASS="PRODUCTNAME"
+>EnterpriseDB</SPAN
+> database. 
+	We first create an instance of <TT
+CLASS="LITERAL"
+>EDBConnection</TT
+> called conn. 
+	The conn class is then initialized by passing a connection string as a parameter to the constructor 
+	for the <TT
+CLASS="LITERAL"
+>EDBConnection</TT
+> class. Then finally we call the <TT
+CLASS="LITERAL"
+>Open</TT
+> method 
+	of the <TT
+CLASS="LITERAL"
+>EDBConnection</TT
+> class to open a connection to an <SPAN
+CLASS="PRODUCTNAME"
+>EnterpriseDB</SPAN
+> database.      
+     </P
+><P
+>        The connection string contains all the necessary location and authentication information 
+	for connecting to an EnterpriseDB server. A valid connection string contains the name/IP address of the server, 
+	the name of the database to connect to as well as the <SPAN
+CLASS="PRODUCTNAME"
+>EnterpriseDB</SPAN
+> user login and password
+     </P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+><B
+>Note: </B
+>Its compulsory to specify the connection information before opening the connection.</P
+></BLOCKQUOTE
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%">
+<center>
+<script type="text/javascript"><!--
+google_ad_client = "pub-2627642070897863";
+/* 728x90, created 5/27/08 */
+google_ad_slot = "6410357476";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</center><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top" class="footerlabel"
+><A
+HREF="dotnetprovider-common-tasks.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top" class="footerlabel"
+><A
+HREF="dotnet-retrieverecords.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top" class="footerlabel"
+>Performing common database tasks</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="dotnetdataprovider.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top" class="footerlabel"
+>Retrieving Database Records</TD
+></TR
+></TABLE
+></DIV
+></BODY
+<!-- InstanceEndEditable --></TD></TR>  </TABLE></TD><td background="images/rshadow.gif">&nbsp;</TD></TR> <TR><th background="images/lshadow.gif" scope="row">&nbsp;</TH><td align="center" class="style4">&copy;2004-2007 EnterpriseDB&nbsp;All Rights Reserved</TD><td background="images/rshadow.gif">&nbsp;</TD></TR></TABLE></body><!-- InstanceEnd --></HTML>

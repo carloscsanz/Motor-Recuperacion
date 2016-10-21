@@ -1,0 +1,507 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en"> <head>
+<base href="http://bytes.com/" /><!--[if IE]></base><![endif]--> <title>How to remove HTTP Header [Expect: 100-continue] - .NET Framework  answers</title> <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" /> <meta name="keywords" content="How,remove,HTTP,Header,Expect,100,continue, How to remove HTTP Header [Expect: 100-continue], biz,it,dev,business,information technology,development,software,programming,tech,information" /> <meta name="description" content="How to remove HTTP Header [Expect: 100-continue]. Get real .NET Framework insights and knowledge from Bytes experts." /> <link rel="canonical" href="http://bytes.com/topic/net/answers/426546-how-remove-http-header-expect-100-continue" />  <style type="text/css" id="vbulletin_css">
+/**
+* vBulletin 3.7.6 CSS
+* Style: 'bytes.answers'; Style ID: 18
+*/
+@import url("clientscript/vbulletin_css/style-26809493-00018.css");
+</style> <link rel="stylesheet" type="text/css" href="http://bytes.com/clientscript/vbulletin_important.css?v=376" />  <script type="text/javascript" src="/clientscript/yui/yahoo-dom-event/yahoo-dom-event.js?v=376"></script> <script type="text/javascript" src="/clientscript/yui/connection/connection-min.js?v=376"></script> <script type="text/javascript" src="/clientscript/navMenu.js"></script> <script type="text/javascript" src="/clientscript/CodeTags.js"></script> <script type="text/javascript"> <!--
+var SESSIONURL = "s=637c977baa4de8f86e0239454e9b3d0c&";
+var SECURITYTOKEN = "guest";
+var IMGDIR_MISC = "/images/misc";
+var vb_disable_ajax = parseInt("0", 10);
+window.onload = navMenuExp; 
+// --> </script> <script type="text/javascript" src="/clientscript/vbulletin_global.js?v=376"></script> <link rel="alternate" type="application/rss+xml" title="Bytes RSS Feed" href="/external.php?type=RSS2" /> <link rel="alternate" type="application/rss+xml" title="Bytes - answers - RSS Feed" href="/external.php?type=RSS2&amp;forumids=312" /> <script type="text/javascript" src="http://bytes.com/clientscript/vbulletin_post_loader.js?v=376"></script> <style type="text/css" id="vbulletin_showthread_css"> <!--
+	
+	#links div { white-space: nowrap; }
+	#links img { vertical-align: middle; }
+	--> </style> </head> <body onload=""> <div class="codeBlur" id="codeBlur">&nbsp;</div> <div class="codeAbs" id="codeAbs">&nbsp;</div> <div style="margin: 0px 0px 0px 0px; padding:0px 0px 0px 0px; background-color:#F4F4F4; width: 100%; z-index: 10; border-bottom: 1px solid #CCC;"> <table class="tempwrapper"> <tr> <td width="250px;">
+		browse: <a href="/forums">forums</a> | <a href="/faq.php">FAQ</a> </td> <td align="right"> <div id="login_box"> <ul> <li> <a href="/register/">Sign Up</a> </li> <li> <a href="http://bytes.com/topic/net/answers/426546-how-remove-http-header-expect-100-continue#" onclick="showlayer('login_menu')">Login</a> </li> <div id="login_menu" style="display:none;"> <div id="new-user-col">new member:<br /><br /> <a href="/register/" class="green-button" rel="nofollow">Register</a> </div> <div id="signup-user-col">
+						member login:<br /><br /> <form action="http://bytes.com/login.php?do=login" method="post" onsubmit="md5hash(vb_login_password, vb_login_md5password, vb_login_md5password_utf, 0)"> <ul> <li> <label for="navbar_password">User Name</label> <input type="text" class="bginput" style="font-size: 9pt" name="vb_login_username" id="navbar_username" size="10" accesskey="u" tabindex="101"/> </li> <li> <label for="navbar_password">Password</label> <input type="password" class="bginput" style="font-size: 9pt" name="vb_login_password" id="navbar_password" size="10" tabindex="102" /> </li> <input type="submit" class="button" value="Log in" tabindex="104" title="Enter your username and password in the boxes provided to login, or click the 'register' button to create a profile for yourself." accesskey="s" /> </ul> <input type="hidden" name="s" value="637c977baa4de8f86e0239454e9b3d0c" /> <input type="hidden" name="do" value="login" /> <input type="hidden" name="vb_login_md5password" /> <input type="hidden" name="vb_login_md5password_utf" /> <input type="hidden" name="cookieuser" value="1" /> </form> <br /> <a href="http://bytes.com/login.php?do=lostpw" rel="nofollow">lost password?</a> </div> <div class="spacer"></div> </div> </ul> </div> </td> </tr> </table> </div> <div style="margin: 0px 0px 5px 0px; padding:15px 0px 15px 0px; background-color:#EEEEEE; width: 100%; z-index: 10;"> <table class="tempwrapper"> <tr> <td align="left" width="140px;"> <A HREF="http://bytes.com"><IMG SRC="http://bytes.com/images/logo4.gif" WIDTH="120px" HEIGHT="30px" BORDER="0" ALT="Connecting Tech Pros Worldwide"></A> </td> <td align="left"> <form action="http://bytes.com/search.php" method="post" name="search"> <input type="hidden" name="do" value="process" /> <input type="hidden" name="showposts" value="0" /> <input type="hidden" name="quicksearch" value="1" /> <input type="hidden" name="forumchoice[]" value="" /> <input type="text" name="query" size="41" value="" onfocus="this.value=''" style="font-size: 17px; vertical-align: middle;"/> <input type="submit" value="Search" name="gobutton" style="font-size: 15px; height: 1.85em; vertical-align: middle;"> </form> </td> <td width="325px" align="right">  <form method="POST" action="/submit/insight" name="share_insight"> <input type="hidden" name="topic" value="0" /> <input type="submit" value="share an insight" name="share_an_insight" class="btn_share"> </form> <form method="POST" action="/submit/question" name="ask_question"> <input type="hidden" name="topic" value="0" /> <input type="submit" value="ask a question" name="ask_a_question" class="btn_ask"> </form>  </td> </tr> </table> </div>  <div class="navtable"> <div class="navbar_box"> <a href="/" accesskey="1">bytes</a> <span class="navbar">&gt; <a href="http://bytes.com/topic/">topic</a></span> <span class="navbar">&gt; <a href="http://bytes.com/topic/net/">.net</a></span> <span class="navbar">&gt; <a href="http://bytes.com/topic/net/answers/">answers</a></span> </div> </div> <div class="adtable" style="padding: 10px;"> <table cellpadding="0px"> <tr> <td width="650px"> <h3 style="font-size: 13pt; margin: 0px; padding: 0px; font-weight: normal;">Hey there! Do you need <strong>.NET Framework help</strong>?</h3> <div style="font-size: small; line-height: 1.5em;"> <a href="/submit/question/">Get answers</a> from our community of .NET Framework experts on <strong>BYTES</strong>! It's free.
+		</div> </td> <td align="center" valign="top"> <form action="/register" style="margin-bottom: 10px;"> <input type="submit" value="ask your question" name="commit" class="btn_asksignup"> </form> </td> </tr> </table> </div> <table class="maintable"> <tr> <td valign="top"> <table width="625px" border="0" cellspacing="0" cellpadding="0"> <tr> <td height="1000px" valign="top">  <a name="poststop" id="poststop"></a>  <h1 style="font-size: 15pt; padding: 0px; margin-bottom: 10px;">How to remove HTTP Header [Expect: 100-continue]</h1>   <div> <script language="JavaScript" src="/ads/as_header.js"></script> <script language="JavaScript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script> <div style="clear:both"></div> </div> <div id="posts">  <div id="edit1614261" style="padding:0px 0px 6px 0px">  <table class="tborder" id="post1614261" cellpadding="6" cellspacing="1" border="0" width="100%" align="center" style="margin-bottom: 10px;"> <tr> <td class="alt2" style="padding:0px">  <table cellpadding="0" cellspacing="6" border="0" width="100%"> <tr> <td nowrap="nowrap"> <div id="postmenu_1614261">
+					
+					Christian Lutz
+					
+				</div> <div class="smallfont">Guest</div> </td> <td width="100%">&nbsp;</td> <td valign="top" nowrap="nowrap"> <div style="line-height: 13px; font-size: 8pt; color: #999999;"> <div>
+						Posts: n/a
+					</div> <div> </div>  <div> <a name="post1614261"></a>
+					#<a href="http://bytes.com/topic/net/answers/426546-how-remove-http-header-expect-100-continue#post1614261"  id="postcount1614261" name="1" title="permalink">1</a>: 
+					
+						Nov 23 '05
+					
+					
+					</div> </div> </td> </tr> </table>  </td> </tr> <tr> <td class="alt1" id="td_post_1614261">   <div id="post_message_1614261">
+			
+			Hy there<br /> <br />
+I have a Web Services written in Java, running on Tomcat. The Client is<br />
+written in C#. When i monitor the request/Response with TCPMon (included in<br />
+Tomcat) i can observer the following sequence:<br /> <br />
+********************************************<br />
+CLIENT:: Request<br />
+********************************************<br /> <br />
+POST /axis/services/AgencyGatewayPort HTTP/1.1<br />
+User-Agent: Axis/1.1<br />
+Authorization: Basic bW1hX3VzZXIxOm1tYV9wd2Qx<br />
+Cache-Control: no-cache<br />
+Pragma: no-cache<br />
+Content-Type: text/xml; charset=utf-8<br />
+SOAPAction: &quot;http://net.guardean.wsdl/AgPerformRequest&quot;<br />
+Content-Length: 639<br />
+Expect: 100-continue<br />
+Connection: Keep-Alive<br />
+Host: localhost<br /> <br />
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;<br />
+....<br /> <br /> <br />
+********************************************<br />
+SERVER:: Response<br />
+********************************************<br />
+HTTP/1.1 100 Continue<br /> <br />
+HTTP/1.1 200 OK<br />
+Set-Cookie: JSESSIONID=8E01AF57B2FF5BBFB22BF6E4BEA65FBB; Path=/axis<br />
+Content-Type: text/xml;charset=utf-8<br />
+Transfer-Encoding: chunked<br />
+Date: Fri, 08 Apr 2005 14:07:59 GMT<br />
+Server: Apache-Coyote/1.1<br /> <br />
+2000<br />
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br />
+....<br /> <br /> <br />
+After the WS-call i don't have access to my object. All object are set to<br />
+null.<br />
+I have tried to manipulate the HTTP-Header (remove Expect: 100-continue).<br />
+But it's not possible to remove this header. In the documentation i've found,<br />
+that some header-elements could not be changed.<br /> <br />
+In my oppinion the response from Tomcat look a little bit strange. My<br />
+question is: Is it possible to change my HTTP-Header? I have another sample<br />
+written in Java and this sample does work. The Java Client Header look like<br />
+this:<br /> <br />
+********************************************<br />
+Java CLIENT:: Request<br />
+********************************************<br />
+POST /axis/services/AgencyGatewayPort HTTP/1.0<br />
+Content-Type: text/xml; charset=utf-8<br />
+Accept: application/soap+xml, application/dime, multipart/related, text/*<br />
+User-Agent: Axis/1.1<br />
+Host: localhost<br />
+Cache-Control: no-cache<br />
+Pragma: no-cache<br />
+SOAPAction: &quot;http://net.guardean.wsdl/AgPerformRequest&quot;<br />
+Content-Length: 926<br />
+Authorization: Basic bW1hX3VzZXIxOm1tYV9wd2Qx<br /> <br />
+Thakns in advance!<br /> <br /> <br /> <br /> <br /> </div>   </td> </tr> </table> </div>  <br/><br/> <br>  <div id="edit1614265" style="padding:0px 0px 6px 0px">  <table class="tborder" id="post1614265" cellpadding="6" cellspacing="1" border="0" width="100%" align="center" style="margin-bottom: 10px;"> <tr> <td class="alt2" style="padding:0px">  <table cellpadding="0" cellspacing="6" border="0" width="100%"> <tr> <td nowrap="nowrap"> <div id="postmenu_1614265">
+					
+					Alex Passos
+					
+				</div> <div class="smallfont">Guest</div> </td> <td width="100%">&nbsp;</td> <td valign="top" nowrap="nowrap"> <div style="line-height: 13px; font-size: 8pt; color: #999999;"> <div>
+						Posts: n/a
+					</div> <div> </div>  <div> <a name="post1614265"></a>
+					#<a href="http://bytes.com/topic/net/answers/426546-how-remove-http-header-expect-100-continue#post1614265"  id="postcount1614265" name="2" title="permalink">2</a>: 
+					
+						Nov 23 '05
+					
+					
+					</div> </div> </td> </tr> </table>  </td> </tr> <tr> <td class="alt1" id="td_post_1614265">   <div> <h2 style="margin: 0px; padding: 0px; color: #a8a8a8; font-size: 9pt;">re: How to remove HTTP Header [Expect: 100-continue]</h2> </div> <hr size="1" style="color:#eee; background-color: #eee;" />   <div id="post_message_1614265">
+			
+			Is the response coming in on one trip or 2?<br /> <br />
+Normally (in other cases such as redirects) you see the client getting a<br />
+RESPONSE to redirect, then client makes another requests and gets a 200 Ok.<br />
+Is it possible these 2 are separate responses? You get 100, then send<br />
+request again and get 200? What else was in the body of the 100 response?<br /> <br />
+Alex<br /> <br />
+&quot;Christian Lutz&quot; &lt;Christian <a href="mailto:Lutz@discussions.microsoft.com">Lutz@discussions.microsoft.com</a>&gt; wrote in message<br />
+news:D0163685-34D3-4384-8F64-6F7B52746F28@microsoft.com...[color=blue]<br />
+&gt; Hy there<br />
+&gt;<br />
+&gt; I have a Web Services written in Java, running on Tomcat. The Client is<br />
+&gt; written in C#. When i monitor the request/Response with TCPMon (included<br />
+&gt; in<br />
+&gt; Tomcat) i can observer the following sequence:<br />
+&gt;<br />
+&gt; ********************************************<br />
+&gt; CLIENT:: Request<br />
+&gt; ********************************************<br />
+&gt;<br />
+&gt; POST /axis/services/AgencyGatewayPort HTTP/1.1<br />
+&gt; User-Agent: Axis/1.1<br />
+&gt; Authorization: Basic bW1hX3VzZXIxOm1tYV9wd2Qx<br />
+&gt; Cache-Control: no-cache<br />
+&gt; Pragma: no-cache<br />
+&gt; Content-Type: text/xml; charset=utf-8<br />
+&gt; SOAPAction: &quot;http://net.guardean.wsdl/AgPerformRequest&quot;<br />
+&gt; Content-Length: 639<br />
+&gt; Expect: 100-continue<br />
+&gt; Connection: Keep-Alive<br />
+&gt; Host: localhost<br />
+&gt;<br />
+&gt; &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;<br />
+&gt; ...<br />
+&gt;<br />
+&gt;<br />
+&gt; ********************************************<br />
+&gt; SERVER:: Response<br />
+&gt; ********************************************<br />
+&gt; HTTP/1.1 100 Continue<br />
+&gt;<br />
+&gt; HTTP/1.1 200 OK<br />
+&gt; Set-Cookie: JSESSIONID=8E01AF57B2FF5BBFB22BF6E4BEA65FBB; Path=/axis<br />
+&gt; Content-Type: text/xml;charset=utf-8<br />
+&gt; Transfer-Encoding: chunked<br />
+&gt; Date: Fri, 08 Apr 2005 14:07:59 GMT<br />
+&gt; Server: Apache-Coyote/1.1<br />
+&gt;<br />
+&gt; 2000<br />
+&gt; &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br />
+&gt; ...<br />
+&gt;<br />
+&gt;<br />
+&gt; After the WS-call i don't have access to my object. All object are set to<br />
+&gt; null.<br />
+&gt; I have tried to manipulate the HTTP-Header (remove Expect: 100-continue).<br />
+&gt; But it's not possible to remove this header. In the documentation i've<br />
+&gt; found,<br />
+&gt; that some header-elements could not be changed.<br />
+&gt;<br />
+&gt; In my oppinion the response from Tomcat look a little bit strange. My<br />
+&gt; question is: Is it possible to change my HTTP-Header? I have another<br />
+&gt; sample<br />
+&gt; written in Java and this sample does work. The Java Client Header look<br />
+&gt; like<br />
+&gt; this:<br />
+&gt;<br />
+&gt; ********************************************<br />
+&gt; Java CLIENT:: Request<br />
+&gt; ********************************************<br />
+&gt; POST /axis/services/AgencyGatewayPort HTTP/1.0<br />
+&gt; Content-Type: text/xml; charset=utf-8<br />
+&gt; Accept: application/soap+xml, application/dime, multipart/related, text/*<br />
+&gt; User-Agent: Axis/1.1<br />
+&gt; Host: localhost<br />
+&gt; Cache-Control: no-cache<br />
+&gt; Pragma: no-cache<br />
+&gt; SOAPAction: &quot;http://net.guardean.wsdl/AgPerformRequest&quot;<br />
+&gt; Content-Length: 926<br />
+&gt; Authorization: Basic bW1hX3VzZXIxOm1tYV9wd2Qx<br />
+&gt;<br />
+&gt; Thakns in advance!<br />
+&gt;<br />
+&gt;<br />
+&gt;<br />
+&gt;[/color]<br /> <br /> <br /> </div>   </td> </tr> </table> </div>  <div id="edit1614274" style="padding:0px 0px 6px 0px">  <table class="tborder" id="post1614274" cellpadding="6" cellspacing="1" border="0" width="100%" align="center" style="margin-bottom: 10px;"> <tr> <td class="alt2" style="padding:0px">  <table cellpadding="0" cellspacing="6" border="0" width="100%"> <tr> <td nowrap="nowrap"> <div id="postmenu_1614274">
+					
+					Christian Lutz
+					
+				</div> <div class="smallfont">Guest</div> </td> <td width="100%">&nbsp;</td> <td valign="top" nowrap="nowrap"> <div style="line-height: 13px; font-size: 8pt; color: #999999;"> <div>
+						Posts: n/a
+					</div> <div> </div>  <div> <a name="post1614274"></a>
+					#<a href="http://bytes.com/topic/net/answers/426546-how-remove-http-header-expect-100-continue#post1614274"  id="postcount1614274" name="3" title="permalink">3</a>: 
+					
+						Nov 23 '05
+					
+					
+					</div> </div> </td> </tr> </table>  </td> </tr> <tr> <td class="alt1" id="td_post_1614274">   <div> <h2 style="margin: 0px; padding: 0px; color: #a8a8a8; font-size: 9pt;">re: How to remove HTTP Header [Expect: 100-continue]</h2> </div> <hr size="1" style="color:#eee; background-color: #eee;" />   <div id="post_message_1614274">
+			
+			The Response is coming in one trip. The answer from the server you see is one<br />
+response. The server sends 100 and the 200 response at once.<br /> <br />
+cu luc<br /> <br /> <br /> <br /> <br />
+&quot;Alex Passos&quot; wrote:<br />
+[color=blue]<br />
+&gt; Is the response coming in on one trip or 2?<br />
+&gt;<br />
+&gt; Normally (in other cases such as redirects) you see the client getting a<br />
+&gt; RESPONSE to redirect, then client makes another requests and gets a 200 Ok.<br />
+&gt; Is it possible these 2 are separate responses? You get 100, then send<br />
+&gt; request again and get 200? What else was in the body of the 100 response?<br />
+&gt;<br />
+&gt; Alex<br />
+&gt;<br />
+&gt; &quot;Christian Lutz&quot; &lt;Christian <a href="mailto:Lutz@discussions.microsoft.com">Lutz@discussions.microsoft.com</a>&gt; wrote in message<br />
+&gt; news:D0163685-34D3-4384-8F64-6F7B52746F28@microsoft.com...[color=green]<br />
+&gt; &gt; Hy there<br />
+&gt; &gt;<br />
+&gt; &gt; I have a Web Services written in Java, running on Tomcat. The Client is<br />
+&gt; &gt; written in C#. When i monitor the request/Response with TCPMon (included<br />
+&gt; &gt; in<br />
+&gt; &gt; Tomcat) i can observer the following sequence:<br />
+&gt; &gt;<br />
+&gt; &gt; ********************************************<br />
+&gt; &gt; CLIENT:: Request<br />
+&gt; &gt; ********************************************<br />
+&gt; &gt;<br />
+&gt; &gt; POST /axis/services/AgencyGatewayPort HTTP/1.1<br />
+&gt; &gt; User-Agent: Axis/1.1<br />
+&gt; &gt; Authorization: Basic bW1hX3VzZXIxOm1tYV9wd2Qx<br />
+&gt; &gt; Cache-Control: no-cache<br />
+&gt; &gt; Pragma: no-cache<br />
+&gt; &gt; Content-Type: text/xml; charset=utf-8<br />
+&gt; &gt; SOAPAction: &quot;http://net.guardean.wsdl/AgPerformRequest&quot;<br />
+&gt; &gt; Content-Length: 639<br />
+&gt; &gt; Expect: 100-continue<br />
+&gt; &gt; Connection: Keep-Alive<br />
+&gt; &gt; Host: localhost<br />
+&gt; &gt;<br />
+&gt; &gt; &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;<br />
+&gt; &gt; ...<br />
+&gt; &gt;<br />
+&gt; &gt;<br />
+&gt; &gt; ********************************************<br />
+&gt; &gt; SERVER:: Response<br />
+&gt; &gt; ********************************************<br />
+&gt; &gt; HTTP/1.1 100 Continue<br />
+&gt; &gt;<br />
+&gt; &gt; HTTP/1.1 200 OK<br />
+&gt; &gt; Set-Cookie: JSESSIONID=8E01AF57B2FF5BBFB22BF6E4BEA65FBB; Path=/axis<br />
+&gt; &gt; Content-Type: text/xml;charset=utf-8<br />
+&gt; &gt; Transfer-Encoding: chunked<br />
+&gt; &gt; Date: Fri, 08 Apr 2005 14:07:59 GMT<br />
+&gt; &gt; Server: Apache-Coyote/1.1<br />
+&gt; &gt;<br />
+&gt; &gt; 2000<br />
+&gt; &gt; &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br />
+&gt; &gt; ...<br />
+&gt; &gt;<br />
+&gt; &gt;<br />
+&gt; &gt; After the WS-call i don't have access to my object. All object are set to<br />
+&gt; &gt; null.<br />
+&gt; &gt; I have tried to manipulate the HTTP-Header (remove Expect: 100-continue).<br />
+&gt; &gt; But it's not possible to remove this header. In the documentation i've<br />
+&gt; &gt; found,<br />
+&gt; &gt; that some header-elements could not be changed.<br />
+&gt; &gt;<br />
+&gt; &gt; In my oppinion the response from Tomcat look a little bit strange. My<br />
+&gt; &gt; question is: Is it possible to change my HTTP-Header? I have another<br />
+&gt; &gt; sample<br />
+&gt; &gt; written in Java and this sample does work. The Java Client Header look<br />
+&gt; &gt; like<br />
+&gt; &gt; this:<br />
+&gt; &gt;<br />
+&gt; &gt; ********************************************<br />
+&gt; &gt; Java CLIENT:: Request<br />
+&gt; &gt; ********************************************<br />
+&gt; &gt; POST /axis/services/AgencyGatewayPort HTTP/1.0<br />
+&gt; &gt; Content-Type: text/xml; charset=utf-8<br />
+&gt; &gt; Accept: application/soap+xml, application/dime, multipart/related, text/*<br />
+&gt; &gt; User-Agent: Axis/1.1<br />
+&gt; &gt; Host: localhost<br />
+&gt; &gt; Cache-Control: no-cache<br />
+&gt; &gt; Pragma: no-cache<br />
+&gt; &gt; SOAPAction: &quot;http://net.guardean.wsdl/AgPerformRequest&quot;<br />
+&gt; &gt; Content-Length: 926<br />
+&gt; &gt; Authorization: Basic bW1hX3VzZXIxOm1tYV9wd2Qx<br />
+&gt; &gt;<br />
+&gt; &gt; Thakns in advance!<br />
+&gt; &gt;<br />
+&gt; &gt;<br />
+&gt; &gt;<br />
+&gt; &gt;[/color]<br />
+&gt;<br />
+&gt;<br />
+&gt;[/color]<br /> </div>   </td> </tr> </table> </div>  <div id="edit1614286" style="padding:0px 0px 6px 0px"> <table class="tborder" id="post1614286" cellpadding="6" cellspacing="1" border="0" width="100%" align="center" style="margin-bottom: 10px;"> <tr> <td class="alt2" style="padding:0px">  <table cellpadding="0" cellspacing="6" border="0" width="100%"> <tr> <td nowrap="nowrap"> <div id="postmenu_1614286">
+					
+					Rafal Gwizdala
+					
+				</div> <div class="smallfont">Guest</div> </td> <td width="100%">&nbsp;</td> <td valign="top" nowrap="nowrap"> <div style="line-height: 13px; font-size: 8pt; color: #999999;"> <div>
+						Posts: n/a
+					</div> <div> </div>  <div> <a name="post1614286"></a>
+					#<a href="http://bytes.com/topic/net/answers/426546-how-remove-http-header-expect-100-continue#post1614286"  id="postcount1614286" name="4" title="permalink">4</a>: 
+					
+						Nov 23 '05
+					
+					
+					</div> </div> </td> </tr> </table>  </td> </tr> <tr> <td class="alt1" id="td_post_1614286">   <div> <h2 style="margin: 0px; padding: 0px; color: #a8a8a8; font-size: 9pt;">re: How to remove HTTP Header [Expect: 100-continue]</h2> </div> <hr size="1" style="color:#eee; background-color: #eee;" />   <div id="post_message_1614286">
+			
+			Christian Lutz wrote:[color=blue]<br />
+&gt; The Response is coming in one trip. The answer from the server you see is one<br />
+&gt; response. The server sends 100 and the 200 response at once.<br />
+&gt;<br />
+&gt; cu luc<br />
+&gt;<br />
+&gt;<br />
+&gt;<br />
+&gt;<br />
+&gt; &quot;Alex Passos&quot; wrote:<br />
+&gt;<br />
+&gt;[color=green]<br />
+&gt;&gt;Is the response coming in on one trip or 2?<br />
+&gt;&gt;<br />
+&gt;&gt;Normally (in other cases such as redirects) you see the client getting a<br />
+&gt;&gt;RESPONSE to redirect, then client makes another requests and gets a 200 Ok.<br />
+&gt;&gt;Is it possible these 2 are separate responses? You get 100, then send<br />
+&gt;&gt;request again and get 200? What else was in the body of the 100 response?<br />
+&gt;&gt;<br />
+&gt;&gt;Alex<br />
+&gt;&gt;<br />
+&gt;&gt;&quot;Christian Lutz&quot; &lt;Christian <a href="mailto:Lutz@discussions.microsoft.com">Lutz@discussions.microsoft.com</a>&gt; wrote in message<br />
+&gt;&gt;news:D0163685-34D3-4384-8F64-6F7B52746F28@microsoft.com...<br />
+&gt;&gt;[color=darkred]<br />
+&gt;&gt;&gt;Hy there<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt;I have a Web Services written in Java, running on Tomcat. The Client is<br />
+&gt;&gt;&gt;written in C#. When i monitor the request/Response with TCPMon (included<br />
+&gt;&gt;&gt;in<br />
+&gt;&gt;&gt;Tomcat) i can observer the following sequence:<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt;********************************************<br />
+&gt;&gt;&gt;CLIENT:: Request<br />
+&gt;&gt;&gt;********************************************<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt;POST /axis/services/AgencyGatewayPort HTTP/1.1<br />
+&gt;&gt;&gt;User-Agent: Axis/1.1<br />
+&gt;&gt;&gt;Authorization: Basic bW1hX3VzZXIxOm1tYV9wd2Qx<br />
+&gt;&gt;&gt;Cache-Control: no-cache<br />
+&gt;&gt;&gt;Pragma: no-cache<br />
+&gt;&gt;&gt;Content-Type: text/xml; charset=utf-8<br />
+&gt;&gt;&gt;SOAPAction: &quot;http://net.guardean.wsdl/AgPerformRequest&quot;<br />
+&gt;&gt;&gt;Content-Length: 639<br />
+&gt;&gt;&gt;Expect: 100-continue<br />
+&gt;&gt;&gt;Connection: Keep-Alive<br />
+&gt;&gt;&gt;Host: localhost<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt;&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;<br />
+&gt;&gt;&gt;...<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt;********************************************<br />
+&gt;&gt;&gt;SERVER:: Response<br />
+&gt;&gt;&gt;********************************************<br />
+&gt;&gt;&gt;HTTP/1.1 100 Continue<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt;HTTP/1.1 200 OK<br />
+&gt;&gt;&gt;Set-Cookie: JSESSIONID=8E01AF57B2FF5BBFB22BF6E4BEA65FBB; Path=/axis<br />
+&gt;&gt;&gt;Content-Type: text/xml;charset=utf-8<br />
+&gt;&gt;&gt;Transfer-Encoding: chunked<br />
+&gt;&gt;&gt;Date: Fri, 08 Apr 2005 14:07:59 GMT<br />
+&gt;&gt;&gt;Server: Apache-Coyote/1.1<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt;2000<br />
+&gt;&gt;&gt;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br />
+&gt;&gt;&gt;...<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt;After the WS-call i don't have access to my object. All object are set to<br />
+&gt;&gt;&gt;null.<br />
+&gt;&gt;&gt;I have tried to manipulate the HTTP-Header (remove Expect: 100-continue).<br />
+&gt;&gt;&gt;But it's not possible to remove this header. In the documentation i've<br />
+&gt;&gt;&gt;found,<br />
+&gt;&gt;&gt;that some header-elements could not be changed.<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt;In my oppinion the response from Tomcat look a little bit strange. My<br />
+&gt;&gt;&gt;question is: Is it possible to change my HTTP-Header? I have another<br />
+&gt;&gt;&gt;sample<br />
+&gt;&gt;&gt;written in Java and this sample does work. The Java Client Header look<br />
+&gt;&gt;&gt;like<br />
+&gt;&gt;&gt;this:<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt;********************************************<br />
+&gt;&gt;&gt;Java CLIENT:: Request<br />
+&gt;&gt;&gt;********************************************<br />
+&gt;&gt;&gt;POST /axis/services/AgencyGatewayPort HTTP/1.0<br />
+&gt;&gt;&gt;Content-Type: text/xml; charset=utf-8<br />
+&gt;&gt;&gt;Accept: application/soap+xml, application/dime, multipart/related, text/*<br />
+&gt;&gt;&gt;User-Agent: Axis/1.1<br />
+&gt;&gt;&gt;Host: localhost<br />
+&gt;&gt;&gt;Cache-Control: no-cache<br />
+&gt;&gt;&gt;Pragma: no-cache<br />
+&gt;&gt;&gt;SOAPAction: &quot;http://net.guardean.wsdl/AgPerformRequest&quot;<br />
+&gt;&gt;&gt;Content-Length: 926<br />
+&gt;&gt;&gt;Authorization: Basic bW1hX3VzZXIxOm1tYV9wd2Qx<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt;Thakns in advance!<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt;<br />
+&gt;&gt;&gt;[/color]<br />
+&gt;&gt;<br />
+&gt;&gt;<br />
+&gt;&gt;[/color][/color]<br /> <br />
+You could try using HTTP 1.0 instead of 1.1. I don't know how to achieve<br />
+this, haven't programmed in Java/Tomcat for quite a long now. Probably<br />
+there is some client side API for choosing HTTP version, or you can<br />
+reconfigure the server to use only HTTP 1.0.<br /> <br />
+Best regards<br />
+Rafal Gwizdala<br /> </div>   </td> </tr> </table> </div>  <div id="lastpost"></div> </div> <div> <script language="JavaScript" src="/ads/as_footer.js"></script> <script language="JavaScript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script> <div style="clear:both"></div> </div>    <table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top:-3px"> <tr valign="top"> <td class="smallfont"><a href="http://bytes.com/newreply.php?do=newreply&amp;noquote=1&amp;p=1614286"><img src="/images/buttons/threadclosed.gif" alt="Closed Thread" border="0" /></a></td> </tr> </table>   <br /> <div class="smallfont" align="center"> <strong>&laquo;</strong> <a href="http://bytes.com/topic/net/answers/426546-how-remove-http-header-expect-100-continue/prev">previous question</a>
+			|
+			<a href="http://bytes.com/topic/net/answers/426546-how-remove-http-header-expect-100-continue/next">next question</a> <strong>&raquo;</strong> </div>     <table cellpadding="0" cellspacing="0" border="0" width="100%" align="center"> <tr valign="bottom"> <td width="100%" valign="top"> </td> <td class="smallfont" align="right"> <table cellpadding="0" cellspacing="0" border="0"> <tr> <td> </td> </tr> </table> </td> </tr> </table>  <br /> <div class="similar"> <h3>Similar .NET Framework bytes</h3> <ul> <li> <a href="http://bytes.com/topic/perl/answers/840433-remove-contents-between-tags" title="want to remove &quot;content&quot; between two corresponding tags. What's the best way of doing it? I want to remove contents between &lt;SEC-HEADER&gt; and &lt;table&gt;...">remove contents between tags</a> <span>(answers)</span> </li> <li> <a href="http://bytes.com/topic/javascript/insights/744273-grid-table-add-remove-import-edit" title="Greetings again to everyone, 
+ 
+Im back to show this grid componenet i´ve developed. With this grid you can show the data like a normal table, remove...">Grid table (add, remove, import, edit)</a> <span>(insights)</span> </li> <li> <a href="http://bytes.com/topic/php/answers/667622-http-post-fields" title="Hi, 
+ 
+I'm trying to add an simple upload applet to shopping cart script. My new 
+applet form sends all needed post fields ( quantity, product,...">Http post fields ...</a> <span>(answers)</span> </li> <li> <a href="http://bytes.com/topic/javascript/answers/638028-select-remove-performance-necessity" title="Hi, 
+ 
+I have read many of the copius entries on the subject of IE performance (or 
+the lack thereof) when populating Select Lists. 
+ 
+I don't mind...">&lt;select&gt;.remove() Performance and Necessity</a> <span>(answers)</span> </li> <li> <a href="http://bytes.com/topic/c-sharp/answers/547928-remove-items-list-while-enumerating" title="Hi 
+ 
+I have a sorted list with several thousands items. In my case, but this 
+is not important, objects are stored only in Keys, Values are all...">Remove items from list while enumerating</a> <span>(answers)</span> </li> </ul> </div>   </td> </tr> </table> </td> <td width="12" class="spacer"></td> <td width="300px" height="1000px" valign="top"> <img src="/images/sidecolumn.gif" width="300px" height="1px" border="0" style="margin: 0px; padding: 0px;"> <div class="navbox"> <h3>/bytes/development</h3> <ul class="navbox_list"> <li><a href="/topic/algorithms/">algorithms</a></li> <li><a href="/topic/asp-classic/">asp</a></li> <li><a href="/topic/asp-net/">asp.net</a></li> <li><a href="/topic/c/">c / c++</a></li> <li><a href="/topic/coldfusion/">coldfusion</a></li> <li><a href="/topic/c-sharp/">c#</a></li> <li><a href="/topic/flash/">flash</a></li> <li><a href="/topic/html-css/">html/css</a></li> <li><a href="/topic/java/">java</a></li> <li><a href="/topic/javascript/">javascript</a></li> <li><a href="/topic/mobile-development/">mobile dev</a></li> <li><a href="/topic/net/">.net</a></li> <li><a href="/topic/perl/">perl</a></li> <li><a href="/topic/php/">php</a></li> <li><a href="/topic/python/">python</a></li> <li><a href="/topic/ruby/">ruby</a></li> <li><a href="/topic/software-development/">software dev</a></li> <li><a href="/topic/visual-basic-net/">vb.net</a></li> <li><a href="/topic/visual-basic/">visual basic</a></li> <li><a href="/topic/xaml">xaml / wpf</a></li> <li><a href="/topic/xml/">xml</a></li> </ul> <div style="clear:both;"></div> </div> <div class="navbox"> <h3>/bytes/it</h3> <ul class="navbox_list"> <li><a href="/topic/access/">access</a></li> <li><a href="/topic/apache/">apache</a></li> <li><a href="/topic/careers/">careers</a></li> <li><a href="/topic/cms/">cms</a></li> <li><a href="/topic/db2/">db2</a></li> <li><a href="/topic/iis/">iis</a></li> <li><a href="/topic/macosx/">macosx</a></li> <li><a href="/topic/mysql/">mysql</a></li> <li><a href="/topic/networking/">networking</a></li> <li><a href="/topic/oracle/">oracle</a></li> <li><a href="/topic/postgresql/">postgresql</a></li> <li><a href="/topic/sql-server/">sql server</a></li> <li><a href="/topic/unix/">unix</a></li> <li><a href="/topic/windows/">windows</a></li> </ul> <div style="clear:both;"></div> </div> <div class="navbox"> <h3>/bytes/other</h3> <ul class="navbox_list"> <li><a href="/topic/misc/">misc</a></li> </ul> <div style="clear:both;"></div> </div> <div style="padding: 0px 0px 15px 0px; margin: 0px;"> </div> <div class="navbox"> <p style="padding-left: 15px";
+		<strong><a href="/forums/">Forums</a></strong> <br>
+		Visit our community forums for general discussions and latest on Bytes
+		</p> <div style="clear:both;"></div> </div> <div class="navbox"> <h3>/bytes/about</h3> <p style="padding: 10px;">
+			We are a network of experts and professionals in IT and software development that help one another with answers to tough questions and share insights.
+			Get the best answers to your questions from over <strong><i>231,258</i></strong> network members. 
+			</p>  </div> <div style="padding-bottom: 15px;"> </div>   </td> </tr> </table> <table class="maintable footer"> <tr> <td> <div> <strong>dev questions</strong>:<br /> <a href="/sitemap/f-341.html">algorithms</a> | 
+		<a href="/sitemap/f-288.html">asp</a> | 
+		<a href="/sitemap/f-329.html">asp.net</a> | 
+		<a href="/sitemap/f-308.html">c/c++</a> | 
+		<a href="/sitemap/f-278.html">coldfusion</a> | 
+		<a href="/sitemap/f-326.html">c#</a> | 
+		<a href="/sitemap/f-274.html">flash</a> | 
+		<a href="/sitemap/f-298.html">html/css</a> | 
+		<a href="/sitemap/f-310.html">java</a> | 
+		<a href="/sitemap/f-286.html">javascript</a> |<br> <a href="/sitemap/f-271.html">mobile dev</a> | 
+		<a href="/sitemap/f-312.html">.net</a> | 
+		<a href="/sitemap/f-290.html">perl</a> | 
+		<a href="/sitemap/f-304.html">php</a> | 
+		<a href="/sitemap/f-292.html">python</a> | 
+		<a href="/sitemap/f-282.html">ruby</a> | 
+		<a href="/sitemap/f-280.html">software dev</a> | 
+		<a href="/sitemap/f-314.html">vb.net</a> | 
+		<a href="/sitemap/f-314.html">visual basic</a> | 
+		<a href="/sitemap/f-276.html">xml</a> </div> <div> <strong>it questions</strong>: <br /> <a href="/sitemap/f-272.html">access</a> |
+		<a href="/sitemap/f-316.html">apache</a> |
+		<a href="/sitemap/f-338.html">careers</a> |
+		<a href="/sitemap/f-294.html">db2</a> |
+		<a href="/sitemap/f-318.html">iis</a> |
+		<a href="/sitemap/f-335.html">macosx</a> |
+		<a href="/sitemap/f-302.html">mysql</a> |
+		<a href="/sitemap/f-320.html">networking</a> |
+		<a href="/sitemap/f-296.html">oracle</a> |
+		<a href="/sitemap/f-306.html">postgresql</a> |
+		<a href="/sitemap/f-300.html">sql server</a> |
+		<a href="/sitemap/f-322.html">unix</a> |
+		<a href="/sitemap/f-283.html">windows</a> </div> <br>
+	 Copyright 1995-2010 BYTES. All rights Reserved 
+<A HREF="http://bytes.com/about_us.html">About Bytes</A> | <a href="http://bytes.com/faq.php">Help</a> | <a href="http://bytes.com/sitemap/">Site Map</a> <br />
+					Bytes Expert Network: 231,258 Members
+
+(1694 Online)
+
+
+<br /> <div class="smallfont" align="center">   </div> </td> </tr> </table> <script type="text/javascript"> <!--
+	var tzOffset = 0 + 0;
+	var utcOffset = new Date().getTimezoneOffset() / 60;
+	if (Math.abs(tzOffset + utcOffset) == 1)
+	{	// Dst offset is 1 so its changed
+		document.forms.dstform.submit();
+	}
+//--> </script> <script type="text/javascript"> <!--
+	// Main vBulletin Javascript Initialization
+	vBulletin_init();
+//--> </script> <script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script> <script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-90111-7");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>  <div style="display:none">   </div> <div class="vbmenu_popup" id="linkbacktools_menu" style="display:none"> <table cellpadding="4" cellspacing="1" border="0"> <tr> <td class="thead">LinkBack<a name="goto_linkback"></a></td> </tr> <tr> <td class="vbmenu_option"><img class="inlineimg" src="http://bytes.com/images/vbseo/linkback_url.gif" alt="LinkBack URL" /> <a href="http://bytes.com/topic/net/answers/426546-how-remove-http-header-expect-100-continue" onclick="prompt('Use the following URL when referencing this thread from another forum or blog.','http://bytes.com/topic/net/answers/426546-how-remove-http-header-expect-100-continue');return false;">LinkBack URL</a></td> </tr> <tr> <td class="vbmenu_option"><img class="inlineimg" src="http://bytes.com/images/vbseo/linkback_about.gif" alt="About LinkBacks" /> <a href="http://bytes.com/misc.php?do=linkbacks">About LinkBacks</a></td> </tr> </table> </div> 
+<script type="text/javascript">
+
+window.orig_onload = window.onload;
+window.onload = function() {
+var cpost=document.location.hash;if(cpost){ if(cobj = fetch_object(cpost.substring(1,cpost.length)))cobj.scrollIntoView(true);else {cpostno = cpost.substring(5,cpost.length);if(parseInt(cpostno)>0 && (cpost.substring(1,5)=='post')){location.replace('http://bytes.com/showthread.php?p='+cpostno);};} }
+
+if(typeof window.orig_onload == "function") window.orig_onload();
+}
+
+</script>
+</body> </html>

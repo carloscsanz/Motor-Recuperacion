@@ -1,0 +1,386 @@
+<!-- MHonArc v2.6.16 -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://seclists.org/rss/fulldisclosure.rss">
+<title>Full Disclosure: iDEFENSE Security Advisory 12.14.04: Microsoft	Word 6.0/95 Document Converter Buffer Overflow Vulnerability</title>
+<meta name="Subject" content="iDEFENSE Security Advisory 12.14.04: Microsoft	Word 6.0/95 Document Converter Buffer Overflow Vulnerability"/>
+<meta name="Author" content="idlabs-advisories"/>
+<link REL="SHORTCUT ICON" HREF="http://images.insecure.org/images/tiny-eyeicon.png" TYPE="image/png">
+<META NAME="ROBOTS" CONTENT="NOARCHIVE">
+<link rel="stylesheet" href="/css/insecdb.css" type="text/css">
+</HEAD>
+<BODY BGCOLOR="#2A0D45" TEXT="#000000">
+
+<TABLE CELLPADDING="0" WIDTH="100%" CELLSPACING="0">
+<TR><TD ALIGN="left"><A HREF="/"><IMG BORDER=0 ALT="Home page logo"
+SRC="/images/sitelogo.png" HEIGHT=90 WIDTH=168></A></TD>
+<TD VALIGN="bottom" ALIGN="right">
+<!-- Begin TopBanner Code -->
+<!-- AdSpeed.com Serving Code 7.9 -->
+<script type="text/javascript">var a=new Date();var q='&amp;tz='+a.getTimezoneOffset()/60 +'&amp;ck='+(navigator.cookieEnabled?'Y':'N') +'&amp;jv='+(navigator.javaEnabled()?'Y':'N') +'&amp;scr='+screen.width+'x'+screen.height+'x'+screen.colorDepth +'&amp;z='+Math.random() +'&amp;ref='+escape(document.referrer.substr(0,255)) +'&amp;uri='+escape(document.URL.substr(0,255));document.write('<ifr'+'ame width="728" height="90" src="http://g.adspeed.net/ad.php?do=html&amp;zid=14678&amp;wd=728&amp;ht=90&amp;target=_top'+q+'" frameborder="0" scrolling="no"><\/ifr'+'ame>');</script>
+<noscript><iframe width="728" height="90" src="http://g.adspeed.net/ad.php?do=html&amp;zid=14678&amp;wd=728&amp;ht=90&amp;target=_top" frameborder="0" scrolling="no"><a href="http://g.adspeed.net/ad.php?do=clk&amp;zid=14678&amp;wd=728&amp;ht=90&amp;pair=as" target="_top"><img style="border:0px;" src="http://g.adspeed.net/ad.php?do=img&amp;zid=14678&amp;wd=728&amp;ht=90&amp;pair=as" alt="i" width="728" height="90"></a></iframe>
+</noscript><!-- AdSpeed.com End -->
+<!-- End Banner Code -->
+
+</TD></TR></TABLE>
+<TABLE WIDTH="100%" CELLPADDING="0" CELLSPACING="0"><TR>
+<TD ALIGN="left" WIDTH="130" VALIGN="top">
+
+<ul class="sidebar">
+<li><a href="http://nmap.org/">Nmap Security Scanner</a>
+<ul>
+<li><a href="http://nmap.org/">Intro</a></li>
+<li><a href="http://nmap.org/book/man.html">Ref Guide</a></li>
+<li><a href="http://nmap.org/book/install.html">Install Guide</a></li>
+<li><a href="http://nmap.org/download.html">Download</a></li>
+<li><a href="http://nmap.org/changelog.html">Changelog</a></li>
+<li><a href="http://nmap.org/book/">Book</a></li>
+<li><a href="http://nmap.org/docs.html">Docs</a></li>
+</ul>
+<li><a href="http://seclists.org/">Security Lists</a>
+<ul>
+<li><a href="http://seclists.org/nmap-hackers/">Nmap Hackers</a></li>
+<li><a href="http://seclists.org/nmap-dev/">Nmap Dev</a></li>
+<li><a href="http://seclists.org/bugtraq/">Bugtraq</a></li>
+<li><a href="http://seclists.org/fulldisclosure/">Full Disclosure</a></li>
+<li><a href="http://seclists.org/pen-test/">Pen Test</a></li>
+<li><a href="http://seclists.org/basics/">Basics</a></li>
+<li><a href="http://seclists.org/">More</a></li>
+</ul>
+<li><a href="http://sectools.org">Security Tools</a>
+<ul>
+<li><a href="http://sectools.org/crackers.html">Pass crackers</a></li>
+<li><a href="http://sectools.org/sniffers.html">Sniffers</a></li>
+<li><a href="http://sectools.org/vuln-scanners.html">Vuln Scanners</a></li>
+<li><a href="http://sectools.org/web-scanners.html">Web scanners</a></li>
+<li><a href="http://sectools.org/wireless.html">Wireless</a></li>
+<li><a href="http://sectools.org/sploits.html">Exploitation</a></li>
+<li><a href="http://sectools.org/packet-crafters.html">Packet crafters</a></li>
+<li><a href="http://sectools.org/">More</a></li>
+</ul>
+<li><a href="http://insecure.org/">Site News</a></li>
+<li><a href="http://insecure.org/advertising.html">Advertising</a></li>
+<li><a href="http://insecure.org/fyodor/">About/Contact</a></li>
+<li>
+<!-- SiteSearch Google -->
+<form action="http://insecure.org/search.html" id="cse-search-box">
+  <div>
+    <input type="hidden" name="cx" value="partner-pub-0078565546631069:bx60rb-fytx">
+    <input type="hidden" name="cof" value="FORID:9">
+    <input type="hidden" name="ie" value="ISO-8859-1">
+    <input type="text" name="q" size="16">
+    <input type="submit" name="sa" value="Site Search">
+  </div>
+</form>
+<script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en"></script>
+<!-- End SiteSearch Google -->
+</li>
+<!-- These can come back if I ever update them ...
+<li><a href="http://insecure.org/links.html">Exceptional Links</a></li>
+<li><a href="http://insecure.org/reading.html">Good Reading</a></li>
+-->
+<li><a href="http://insecure.org/sploits.html">Exploit World</a></li>
+<li><a href="http://insecure.org/advertising.html">Sponsors:</a>
+
+<!-- Begin Sidebar 1 Banner Code -->
+<!-- NOTE: Acunetix does NOT want to use the rotation script -->
+<a href="http://www.acunetix.com/cross-site-scripting/scanner.htm"><img height=60 width=120 border=0 src="http://insecure.org/images/p/Acunetix/acunetix-freexss-120x60.gif" alt=""></a>
+<!-- End Sidebar 1 Banner Code -->
+<BR><BR>
+
+<!-- Begin Sidebar 2 Banner Code -->
+<a href="http://www.gfi.com/lannetscan/?adv=731&amp;loc=1"><img height=90 width=120 border=0 src="http://insecure.org/images/p/gfi/LAN-May09-120x90.gif" alt=""></a>
+<!-- End Sidebar 2 Banner Code -->
+<BR><BR>
+
+<!-- Google Skyscraper Ad -->
+<script type="text/javascript"><!--
+google_ad_client = "pub-0078565546631069";
+/* SidebarSkyScraper */
+google_ad_slot = "9829251079";
+google_ad_width = 120;
+google_ad_height = 600;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<!-- End Google Skyscraper Ad -->
+</ul>
+</TD>
+<TD BGCOLOR="#FFFFFF" VALIGN="top" ALIGN="left"><IMG
+SRC="http://images.insecure.org/images/topleftcurve.gif" alt="/"><TABLE CELLPADDING="4"><TR><TD BGCOLOR="#FFFFFF">
+
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<p>
+<A HREF="/fulldisclosure/"><img src="/images/fulldisclosure-logo.png" border="0" width="80" style="vertical-align: middle" alt="fulldisclosure logo"></A>
+<FONT SIZE="+1"><a href="http://seclists.org/fulldisclosure/">Full Disclosure</a>
+mailing list archives</FONT><br>
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<!-- Google Custom SiteSearch -->
+<form action="http://insecure.org/search.html" id="top-search-box">
+<a href="323"><img src="/images/left-icon-16x16.png" border=0 width=16 height=16></a>&nbsp;&nbsp;<a href="date.html#324">By Date</a>&nbsp;&nbsp;<a href="325"><img src="/images/right-icon-16x16.png" border=0 width=16 height=16></a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="323"><img src="/images/left-icon-16x16.png" border=0 width=16 height=16></a>&nbsp;&nbsp;<a href="index.html#324">By Thread</a>&nbsp;&nbsp;<a href="327"><img src="/images/right-icon-16x16.png" border=0 width=16 height=16></a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="hidden" name="cx" value="partner-pub-0078565546631069:bx60rb-fytx" />
+    <input type="hidden" name="cof" value="FORID:9" />
+    <input type="hidden" name="ie" value="ISO-8859-1" />
+    <input type="text" name="q" size="24" />
+    <input type="submit" name="sa" value="Search" />
+</form>
+<script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=top-search-box&amp;lang=en"></script>
+<!-- End Google Custom SiteSearch -->
+</p>
+
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<font size="+2"><b>iDEFENSE Security Advisory 12.14.04: Microsoft	Word 6.0/95 Document Converter Buffer Overflow Vulnerability</b></font>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+
+
+<em>From</em>: idlabs-advisories () idefense com<br>
+
+<em>Date</em>: Tue, 14 Dec 2004 14:07:21 -0500<br>
+
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">Microsoft Word 6.0/95 Document Converter Buffer Overflow Vulnerability 
+
+iDEFENSE Security Advisory 12.14.04
+www.idefense.com/application/poi/display?id=162&amp;type=vulnerabilities
+December 14, 2004
+
+I. BACKGROUND
+
+WordPad is a word processing application that uses the MFC rich edit 
+control classes. It is installed by default on most Windows platforms,
+and contains filters for converting from other filetypes into RTF 
+(Rich Text Format).
+
+II. DESCRIPTION
+
+Remote exploitation of a buffer overflow vulnerability in Microsoft 
+Corp.'s Word 6.0/95 Document Converter could allow attackers to exploit 
+arbitrary code under the privileges of the target user.
+
+The Microsoft Word 6.0/95 Document Converter (MSWRD632.WPC) is a module
+that is utilized by WordPad and potentially other applications to 
+convert Microsoft Word format files into the Rich Text Format natively 
+handled by WordPad. The module is installed by default in
+
+C:\Program Files\Common Files\Microsoft Shared\TextConv
+
+The problem specifically exists when a specially crafted file is 
+opened by WordPad or another application that utilizes the vulnerable 
+library and results in a buffer overflow. The overflow is caused by 
+copying a length tagged segment of a file into a fixed length stack 
+buffer of smaller size. The following instruction sequence is found 
+within ConvertForeignToRtf():
+
+0150eba6   8bd1      mov edx, ecx
+0150eba8   83e203    and edx, 0x3
+0150ebab   c1e902    shr ecx, 0x2
+0150ebae   f3a5      rep movsd edi, esi
+
+This instruction sequence will copy bytes from the memory region 
+pointed to by ESI into the memory region pointed to by EDI. Due to a 
+lack of bounds checking, an overflow occurs directly overwriting the 
+stored return address and frame pointer on the stack and allowing for 
+the eventual execution of arbitrary code.
+
+III. ANALYSIS
+
+Successful exploitation allows remote attackers to execute arbitrary 
+code under the privileges of the target user that opened the malicious 
+document. WordPad, a vulnerable application, is installed by default 
+and will open WRI and large TXT files. If Microsoft Word is not 
+installed, WordPad will also be the default application for opening 
+DOC and RTF files.
+
+In order for this vulnerability to be exploited, a user would need to 
+open an attacker-supplied file with a vulnerable application.
+
+IV. DETECTION
+
+The following operating systems appear to be impacted by this
+vulnerability in their default configuration:
+
+  Windows XP 
+  Windows 2000
+  Windows 2003
+  Windows NT 4.0
+  Windows ME
+  Windows 98
+
+iDEFENSE Labs has confirmed that MSWRD632.WPC, file version 1999.8.7.0 
+is vulnerable. Any application that utilizes this module to convert Word
+
+documents may be considered vulnerable. This includes wordpad.exe, which
+
+is the default application for opening files with the .wri extension, 
+and .doc and .rtf files if Microsoft Word is not installed.
+
+It does not seem to be possible to exploit Microsoft Word itself with 
+this vulnerability, as it does not appear to use this library.
+
+As this module comes with Windows by default, even if you have Word 
+installed, WordPad is still vulnerable to exploitation from files with
+the  .wri extension, or by opening an affected file from within WordPad.
+
+V. WORKAROUND
+
+User awareness is the best defense against this class of attack. Users 
+should be aware of the existence of such attacks and proceed with 
+caution when following links or opening attachments from suspicious 
+and/or unsolicited e-mail.
+
+Alternatively, concerned users can remove the affected converter module,
+
+MSWRD632.WPC. This will prevent the user from opening Word for Windows 
+files, but will still allow other supported file types to be opened such
+
+as .txt or .rtf. However, the error will be handled gracefully and the 
+described vulnerability will no longer be exploitable.
+
+VI. VENDOR RESPONSE
+
+This vulnerability is addressed in Microsoft Security Bulletin MS04-041
+available at:
+
+<a  rel="nofollow" href="http://www.microsoft.com/technet/security/Bulletin/MS04-041.mspx">http://www.microsoft.com/technet/security/Bulletin/MS04-041.mspx</a>
+
+VII. CVE INFORMATION
+
+The Common Vulnerabilities and Exposures (CVE) project has assigned the
+name CAN-2004-0901 to this issue. This is a candidate for inclusion
+in the CVE list (<a  rel="nofollow" href="http://cve.mitre.org">http://cve.mitre.org</a>), which standardizes names for
+security problems.
+
+VIII. DISCLOSURE TIMELINE
+
+09/22/2004  Initial vendor notification
+09/23/2004  Initial vendor response
+12/14/2004  Coordinated public disclosure
+
+IX. CREDIT
+
+This vulnerability was discovered by Lord Yup.
+
+Get paid for vulnerability research
+<a  rel="nofollow" href="http://www.idefense.com/poi/teams/vcp.jsp">http://www.idefense.com/poi/teams/vcp.jsp</a>
+
+X. LEGAL NOTICES
+
+Copyright (c) 2004 iDEFENSE, Inc.
+
+Permission is granted for the redistribution of this alert
+electronically. It may not be edited in any way without the express
+written consent of iDEFENSE. If you wish to reprint the whole or any
+part of this alert in any other medium other than electronically, please
+email customerservice () idefense com for permission.
+
+Disclaimer: The information in the advisory is believed to be accurate
+at the time of publishing based on currently available information. Use
+of the information constitutes acceptance for use in an AS IS condition.
+There are no warranties with regard to this information. Neither the
+author nor the publisher accepts any liability for any direct, indirect,
+or consequential loss or damage arising from use of, or reliance on,
+this information.
+
+
+_______________________________________________
+Full-Disclosure - We believe in it.
+Charter: <a  rel="nofollow" href="http://lists.netsys.com/full-disclosure-charter.html">http://lists.netsys.com/full-disclosure-charter.html</a>
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<p>
+<a href="323"><img src="/images/left-icon-16x16.png" border=0 width=16 height=16></a>&nbsp;&nbsp;<a href="date.html#324">By Date</a>&nbsp;&nbsp;<a href="325"><img src="/images/right-icon-16x16.png" border=0 width=16 height=16></a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="323"><img src="/images/left-icon-16x16.png" border=0 width=16 height=16></a>&nbsp;&nbsp;<a href="index.html#324">By Thread</a>&nbsp;&nbsp;<a href="327"><img src="/images/right-icon-16x16.png" border=0 width=16 height=16></a>
+</p>
+<font size="+1"><b>Current thread:</b></font>
+<ul style="margin-top: 0em">
+<li><strong>iDEFENSE Security Advisory 12.14.04: Microsoft	Word 6.0/95 Document Converter Buffer Overflow Vulnerability</strong> <em>idlabs-advisories (Dec 15)</em>
+</ul>
+
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD></TD><TD ALIGN="center">
+<FONT COLOR="#FFFFFF">
+[ <A HREF="http://nmap.org"><FONT COLOR="#FFFFFF">Nmap</FONT></A> |
+  <A HREF="http://sectools.org"><FONT COLOR="#FFFFFF">Sec Tools</FONT></A> |
+  <A HREF="http://seclists.org/"><FONT COLOR="#FFFFFF">Mailing Lists</FONT></A> |
+  <A HREF="http://insecure.org/"><FONT COLOR="#FFFFFF">Site News</FONT></A> |
+  <A HREF="http://insecure.org/fyodor/"><FONT COLOR="#FFFFFF">About/Contact</FONT></A> |
+  <A HREF="http://insecure.org/advertising.html"><FONT COLOR="#FFFFFF">Advertising</FONT></A> |
+  <A HREF="http://insecure.org/privacy.html"><FONT COLOR="#FFFFFF">Privacy</FONT></A> ]<BR>
+</FONT>
+
+<!-- SiteSearch Google -->
+<form action="http://insecure.org/search.html" id="cse-search-box-bottom">
+  <div>
+    <input type="hidden" name="cx" value="partner-pub-0078565546631069:bx60rb-fytx">
+    <input type="hidden" name="cof" value="FORID:9">
+    <input type="hidden" name="ie" value="ISO-8859-1">
+    <input type="text" name="q" size="60">
+    <input type="submit" name="sa" value="Site Search">
+  </div>
+</form>
+<script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en"></script>
+<!-- End SiteSearch Google -->
+
+<!-- Bottom Banner -->
+<script type="text/javascript"><!--
+google_ad_client = "pub-0078565546631069";
+/* PageBottom728x90 */
+google_ad_slot = "2743510915";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<!-- End Bottom Banner -->
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-11009417-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+<!-- End Google Analytics -->
+</TD></TR>
+</TABLE>
+</BODY>
+</HTML>
+
+

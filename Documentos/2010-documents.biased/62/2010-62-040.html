@@ -1,0 +1,757 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>Google API - AS3 Library | labs.boulevart</title>
+
+<meta name="generator" content="WordPress 2.6.3" /> <!-- leave this for stats -->
+
+<link rel="stylesheet" href="http://labs.boulevart.be/wp-content/themes/curved-10/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="http://labs.boulevart.be/wp-content/themes/curved-10/print.css" type="text/css" media="print" />
+<!--link rel="alternate" type="application/rss+xml" title="labs.boulevart RSS Feed" href="http://labs.boulevart.be/index.php/feed/" /-->
+<link rel="alternate" type="application/rss+xml" title="labs.boulevart RSS Feed" href="http://feeds.feedburner.com/labsboulevart">
+<link rel="pingback" href="http://labs.boulevart.be/xmlrpc.php" />
+
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://labs.boulevart.be/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://labs.boulevart.be/wp-includes/wlwmanifest.xml" /> 
+<script type='text/javascript' src='http://labs.boulevart.be/wp-content/plugins/vipers-video-quicktags/resources/swfobject.js?ver=2.1'></script>
+<meta name="generator" content="WordPress 2.6.3" />
+
+
+<!-- all in one seo pack 1.4.6.15 ob_start_detected [-1,-1] -->
+<meta name="description" content="A while ago, I have build an API library in AS3 that interfaces with Google’s own javascript API. To show you how performant this API is, I included a" />
+<meta name="keywords" content="google,google api as3,air,api's,as3,boulevart,flash,flex" />
+<!-- /all in one seo pack -->
+
+	<!-- Courtesy of Kimili Flash Embed - Version 1.4.3 -->
+	<script src="http://labs.boulevart.be/wp-content/plugins/kimili-flash-embed/js/swfobject.js" type="text/javascript"></script>
+<script type="text/javascript" charset="utf-8" src="http://w.sharethis.com/widget/?wp=2.6.3&amp;publisher=fceb264a-5241-4a4d-8225-a2290fff44c3"></script>
+<link rel="stylesheet" href="http://labs.boulevart.be/wp-content/plugins/wp-syntax/wp-syntax.css" type="text/css" media="screen" />
+<!-- Viper's Video Quicktags v6.1.4 | http://www.viper007bond.com/wordpress-plugins/vipers-video-quicktags/ -->
+<style type="text/css">
+.vvqbox { display: block; max-width: 100%; visibility: visible !important; margin: 10px auto; } .vvqbox img { max-width: 100%; height: 100%; } .vvqbox object { max-width: 100%; } 
+</style>
+<script type="text/javascript">
+// <![CDATA[
+	var vvqflashvars = {};
+	var vvqparams = { wmode: "opaque", allowfullscreen: "true" };
+	var vvqattributes = {};
+	var vvqexpressinstall = "http://labs.boulevart.be/wp-content/plugins/vipers-video-quicktags/resources/expressinstall.swf";
+// ]]>
+</script>
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-815116-9");
+pageTracker._trackPageview();
+</script>
+<!-- Google Analytics end -->
+
+<!-- Technorati -->
+<script type="text/javascript" src="http://embed.technorati.com/embed/4f72v38em.js"></script>
+<!-- Technorati end -->
+
+</head>
+<body>
+<!-- MyBlogLog tracking code -->
+<script type='text/javascript' src='http://track3.mybloglog.com/js/jsserv.php?mblID=2007060702260201'></script>
+<!-- MyBlogLog end -->
+  <div id="header">
+    <div id="headerimg">
+	  <h1><a href="http://labs.boulevart.be/">labs.boulevart</a></h1>
+	  <div class="description">your multi media production partner</div>
+      <div id="search">
+		<form method="get" id="searchform" action="http://labs.boulevart.be/">
+<div><input type="text" value="" name="s" id="s" />
+<input type="submit" id="searchsubmit" value="" />
+</div>
+</form>
+	  </div>
+
+	</div>
+	<div id="navi">
+		<ul id="nav">
+		  <li class="page_item"><a href="http://labs.boulevart.be/" title="Home">Home</a></li>
+		  <li class="page_item page-item-2"><a href="http://labs.boulevart.be/index.php/about/" title="About">About</a></li>
+<li class="page_item page-item-4"><a href="http://labs.boulevart.be/index.php/contact/" title="Contact">Contact</a></li>
+<li class="page_item page-item-55"><a href="http://labs.boulevart.be/index.php/jobs/" title="Jobs">Jobs</a></li>
+<li class="page_item page-item-420"><a href="http://labs.boulevart.be/index.php/max-milan-shooter/" title="MAX Milan Shooter">MAX Milan Shooter</a></li>
+<li class="page_item page-item-219"><a href="http://labs.boulevart.be/index.php/rockwerchter/" title="Rock Werchter">Rock Werchter</a></li>
+		</ul>
+	</div>
+  </div>
+  <!--/header -->
+<div id="wrapper">
+<div id="page">  <div id="content">
+  
+    
+    <div class="post" id="post-502">
+	  <div class="entrytop"><div class="entry">
+        <h2><span class="inpost-date">December 15th, 2008</span><a href="http://labs.boulevart.be/index.php/2008/12/15/google-as3-api/" rel="bookmark" title="Permanent Link to Google API - AS3 Library">Google API - AS3 Library</a></h2>
+	  </div></div>
+			<span class="post-meta">Posted by <a href="http://blog.joristimmerman.be">Joris Timmerman</a> in <a href="http://labs.boulevart.be/index.php/category/air/" title="View all posts in AIR" rel="category tag">AIR</a>,  <a href="http://labs.boulevart.be/index.php/category/apis/" title="View all posts in API's" rel="category tag">API's</a>,  <a href="http://labs.boulevart.be/index.php/category/as3/" title="View all posts in AS3" rel="category tag">AS3</a>,  <a href="http://labs.boulevart.be/index.php/category/boulevart/" title="View all posts in Boulevart" rel="category tag">Boulevart</a>,  <a href="http://labs.boulevart.be/index.php/category/flash/" title="View all posts in Flash" rel="category tag">Flash</a>,  <a href="http://labs.boulevart.be/index.php/category/flex/" title="View all posts in Flex" rel="category tag">Flex</a></span>
+
+		<div class="post-content">
+		<p><!--StartFragment--></p>
+<p class="MsoNormal"><!--StartFragment--></p>
+<p style="text-align: center; ">
+<p style="text-align: center;"><img class="size-medium wp-image-505   aligncenter" title="Google API: AS3 lib" src="http://labs.boulevart.be/wp-content/uploads/2008/12/googlewb1.jpg" alt="" width="133" height="100" /></p>
+<p class="MsoNormal"><span lang="NL-BE">A while ago, I have build an API library in AS3 that interfaces with Google’s own javascript API. To show you how performant this API is, I included a demo-app at the bottom of this blog. </span></p>
+<p class="MsoNormal"><span lang="NL-BE">The library is a simple collection of the API’s features, there is a class per feature, like Google Web search, Images Search, etc. Each library throws it’s own event with an Array of matching datatypes, for example GoogleWebItem,<span> </span>so it’s easy to keep track on wich data is recieved and what this data contains.</span></p>
+<p class="MsoNormal"><span lang="NL-BE"><span>This</span> api contains:</span></p>
+<ul>
+<li>Google Web Search</li>
+<li>Google Images Search</li>
+<li>Google Book Search</li>
+<li>Google Video Search (Google Video &amp; YouTube)</li>
+<li>Google Blog Search</li>
+<li>Google Local Search</li>
+<li>Google Patent Search</li>
+<li>Google News Search</li>
+<li>Google Translation</li>
+<li>Google Weather</li>
+<li>Google Suggest</li>
+</ul>
+<p>This API is Flash &amp; Flex compatible.</p>
+<p class="MsoNormal"><!--StartFragment--></p>
+<h2><span lang="NL-BE">Little example code</span></h2>
+<div class="wp_syntax">
+<div class="code">
+<p class="MsoNormal"><span lang="NL-BE">var googleWebSearch:GoogleWebSearch=new GoogleWebSearch()<br />
+googleWebSearch.search(txtInput.text,0,lang)<br />
+googleWebSearch.addEventListener(GoogleSearchEvent.WEB_SEARCH_RESULT,onWebResults)</span></p>
+<p class="MsoNormal"><span lang="NL-BE">private function onWebResults(e:GoogleSearchEvent):void{<br />
+for each (var result:GoogleWebItem in e.data as Array){<br />
+trace(result.title, result.url)<br />
+}<br />
+<span>}</span></span></p>
+</div>
+</div>
+<h2>The library</h2>
+<p style="text-align: left;">You can download the library <a href="http://googleas3api.googlecode.com/files/as3googleapilibs2.0.2.zip">here</a> <span style="color: #ff0000;">(updated)</span>.<br />
+The demo app can be found <a title="here" href="http://googleas3api.googlecode.com/files/GoogleEyes.air" target="_blank">here</a>.</p>
+<p>Right-click in the app to see source-code.</p>
+<p><!--EndFragment--></p>
+<span class="UTWPrimaryTags"><p><br />No Tags</p></span><p><script type="text/javascript">SHARETHIS.addEntry({ title: "Google API - AS3 Library", url: "http://labs.boulevart.be/index.php/2008/12/15/google-as3-api/" });</script></p>		
+				
+				
+		</div>
+		
+		
+<!-- You can start editing here. -->
+
+	<h3 id="comments">17 Responses to &#8220;Google API - AS3 Library&#8221;</h3> 
+
+	<ul class="commentlist">
+
+	
+		<li class="alt" id="comment-101534">
+			<div class="comment-btm"><cite>chris</cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-101534" title="">December 24th, 2008 at 6:21 am</a> </small>
+
+			<p>thank you very much for makeing this very hand tool. it should speed things along nicely for me.</p>
+</div>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-101546">
+			<div class="comment-btm"><cite>chris</cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-101546" title="">December 24th, 2008 at 9:40 am</a> </small>
+
+			<p>woops i think i found a bug but is was simple to fix here look its in the GoogleLocalSearch.as</p>
+<p>//item.title = item.titleNoFormatting = item.url = item.latitude = data.lat<br />
+				item.title = data.titleNoFormatting<br />
+				item.longitude = data.lng<br />
+				item.latitude = data.lat<br />
+				item.url = data.url</p>
+</div>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-101648">
+			<div class="comment-btm"><cite><a href='http://www.twitter.com/joristimmerman'>Joris Timmerman</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-101648" title="">December 29th, 2008 at 11:24 am</a> </small>
+
+			<p>Thx Chris for noticing, </p>
+<p>weird thing happened there. guess I was getting sleepy&#8230; <img src='http://labs.boulevart.be/wp-includes/images/smilies/icon_wink.gif' alt=';)' class='wp-smiley' /><br />
+Library has been updated.</p>
+</div>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-101804">
+			<div class="comment-btm"><cite><a href='http://www.czbin.com/html/2009/google-as3-api.html'>czBin&#8217;s RIA Blog &raquo; Blog Archive &raquo; Google As3 API</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-101804" title="">January 6th, 2009 at 9:42 am</a> </small>
+
+			<p>[...] 地址：http://labs.boulevart.be/index.php/2008/12/15/google-as3-api/ [...]</p>
+</div>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-105133">
+			<div class="comment-btm"><cite><a href='http://www.flashpedia.com.br/2009/04/boulevart-google-search/'>Boulevart Google API, AS3CoreLib API e Google Search no Flash | FlashPedia</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-105133" title="">April 4th, 2009 at 1:19 am</a> </small>
+
+			<p>[...] Boulevart.be Google API [...]</p>
+</div>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-109533">
+			<div class="comment-btm"><cite><a href='http://www.ff0000.com'>John Martz</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-109533" title="">June 12th, 2009 at 2:46 am</a> </small>
+
+			<p>Hey Joris,</p>
+<p>I downloaded your googleas3api.swc to use on an experimental flash project of mine.  I want to use it for the Google Images API.  In a simple test, when just trying it out, i wrote the following code:</p>
+<p>package<br />
+{<br />
+	import be.boulevart.google.ajaxapi.search.images.GoogleImageSearch;<br />
+	import be.boulevart.google.events.GoogleApiEvent;</p>
+<p>	import flash.display.Sprite;<br />
+	import flash.events.Event;<br />
+	import flash.net.URLLoader;</p>
+<p>	import mx.utils.StringUtil;</p>
+<p>	public class HelloWorld extends Sprite<br />
+	{<br />
+		private var urlLoader:URLLoader;</p>
+<p>		public function HelloWorld()<br />
+		{<br />
+			  var google:GoogleImageSearch = new GoogleImageSearch();<br />
+			  google.search(&#8221;dogs&#8221;);<br />
+			  google.addEventListener(GoogleApiEvent.IMAGE_SEARCH_RESULT, onSearchComplete);</p>
+<p>		}</p>
+<p>		private function onSearchComplete(e:GoogleApiEvent):void {<br />
+			trace(&#8221;it worked&#8221;);<br />
+		}<br />
+	}<br />
+}</p>
+<p>I got the following error:</p>
+<p>ReferenceError: Error #1065: Variable StringUtil is not defined.<br />
+	at be.boulevart.google.ajaxapi.search.images::GoogleImageSearch/search()[/Users/joris/Documents/Flex Builder 3/GoogleEyes/libs/be/boulevart/google/ajaxapi/search/images/GoogleImageSearch.as:60]</p>
+<p>Any ideas?  Thanks!</p>
+<p>&#8212;<br />
+<em>As mentioned in the post, the classes use the Adobe AS3 CoreLib, for Json Parsing and a few StringUtil usage, so download that swc, add it to your project and the classes will work fine.<br />
+Regards,</p>
+<p>Joris</em></p>
+</div>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-110350">
+			<div class="comment-btm"><cite><a href='http://action3flash.blogspot.com'>Fasil</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-110350" title="">June 22nd, 2009 at 9:59 am</a> </small>
+
+			<p>Thanks for this excellent API<br />
+I am trying out the Image Search. Same code as mentioned by John Martz.</p>
+<p>I have inclued the AS3 core lib<br />
+Now I get the below error:<br />
+JSONParseError: Unexpected &lt; encountered<br />
+	at com.adobe.serialization.json::JSONTokenizer/parseError()[/Users/mesh/src/as3corelib/src/com/adobe/serialization/json/JSONTokenizer.as:579]<br />
+	at com.adobe.serialization.json::JSONTokenizer/getNextToken()[/Users/mesh/src/as3corelib/src/com/adobe/serialization/json/JSONTokenizer.as:168]<br />
+	at com.adobe.serialization.json::JSONDecoder/com.adobe.serialization.json:JSONDecoder::nextToken()[/Users/mesh/src/as3corelib/src/com/adobe/serialization/json/JSONDecoder.as:83]<br />
+	at com.adobe.serialization.json::JSONDecoder$iinit()[/Users/mesh/src/as3corelib/src/com/adobe/serialization/json/JSONDecoder.as:60]<br />
+	at com.adobe.serialization.json::JSON$/decode()[/Users/mesh/src/as3corelib/src/com/adobe/serialization/json/JSON.as:78]<br />
+	at be.boulevart.google.ajaxapi.search.images::GoogleImageSearch/be.boulevart.google.ajaxapi.search.images:GoogleImageSearch::onResponse()[/Users/joris/Documents/Flex Builder 3/GoogleEyes/libs/be/boulevart/google/ajaxapi/search/images/GoogleImageSearch.as:91]<br />
+	at flash.events::EventDispatcher/flash.events:EventDispatcher::dispatchEventFunction()<br />
+	at flash.events::EventDispatcher/dispatchEvent()<br />
+	at flash.net::URLLoader/flash.net:URLLoader::onComplete()</p>
+<p>Do you know whats going wrong here?</p>
+</div>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-117433">
+			<div class="comment-btm"><cite>Andrew</cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-117433" title="">August 5th, 2009 at 2:55 pm</a> </small>
+
+			<p>Hi Fasil, I seem to be getting near enough the same error as you -</p>
+<p>JSONParseError: Unexpected &lt; encountered<br />
+	at com.adobe.serialization.json::JSONTokenizer/parseError()[/Users/mesh/src/as3corelib/src/com/adobe/serialization/json/JSONTokenizer.as:579]<br />
+	at com.adobe.serialization.json::JSONTokenizer/getNextToken()[/Users/mesh/src/as3corelib/src/com/adobe/serialization/json/JSONTokenizer.as:168]<br />
+	at com.adobe.serialization.json::JSONDecoder/nextToken()[/Users/mesh/src/as3corelib/src/com/adobe/serialization/json/JSONDecoder.as:83]<br />
+	at com.adobe.serialization.json::JSONDecoder()[/Users/mesh/src/as3corelib/src/com/adobe/serialization/json/JSONDecoder.as:60]<br />
+	at com.adobe.serialization.json::JSON$/decode()[/Users/mesh/src/as3corelib/src/com/adobe/serialization/json/JSON.as:78]<br />
+	at main/getPHPData()[C:\wamp\www\ClassDB\src\main.mxml:25]<br />
+	at main/__getData_result()[C:\wamp\www\ClassDB\src\main.mxml:58]<br />
+	at flash.events::EventDispatcher/dispatchEventFunction()<br />
+	at flash.events::EventDispatcher/dispatchEvent()<br />
+	at mx.rpc.http.mxml::HTTPService/http://www.adobe.com/2006/flex/mx/internal::dispatchRpcEvent()[C:\autobuild\3.2.0\frameworks\projects\rpc\src\mx\rpc\http\mxml\HTTPService.as:290]<br />
+	at mx.rpc::AbstractInvoker/http://www.adobe.com/2006/flex/mx/internal::resultHandler()[C:\autobuild\3.2.0\frameworks\projects\rpc\src\mx\rpc\AbstractInvoker.as:193]<br />
+	at mx.rpc::Responder/result()[C:\autobuild\3.2.0\frameworks\projects\rpc\src\mx\rpc\Responder.as:43]<br />
+	at mx.rpc::AsyncRequest/acknowledge()[C:\autobuild\3.2.0\frameworks\projects\rpc\src\mx\rpc\AsyncRequest.as:74]<br />
+	at DirectHTTPMessageResponder/completeHandler()[C:\autobuild\3.2.0\frameworks\projects\rpc\src\mx\messaging\channels\DirectHTTPChannel.as:403]<br />
+	at flash.events::EventDispatcher/dispatchEventFunction()<br />
+	at flash.events::EventDispatcher/dispatchEvent()<br />
+	at flash.net::URLLoader/onComplete()</p>
+<p>Any ideas anybody?</p>
+</div>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-117478">
+			<div class="comment-btm"><cite><a href='http://blog.joristimmerman.be'>Joris Timmerman</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-117478" title="">August 6th, 2009 at 12:16 pm</a> </small>
+
+			<p>@Andrew &#038; @Fasil<br />
+I&#8217;m afraid I&#8217;m going to need more details <img src='http://labs.boulevart.be/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' /><br />
+what are your search parameters, etc&#8230;<br />
+tried escaping your search terms, just use the escape() function.<br />
+Google is giving you a wrong response, the results is propably of non-json formatting.</p>
+</div>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-124337">
+			<div class="comment-btm"><cite><a href='http://www.fabiobiondi.com/blog'>Fabio Biondi</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-124337" title="">September 2nd, 2009 at 1:12 pm</a> </small>
+
+			<p>Great work man..<br />
+i have tested the Google Search API and they work really well.</p>
+</div>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-124439">
+			<div class="comment-btm"><cite><a href='http://www.fabiobiondi.com/blog/2009/09/google-search-in-flex-and-actionscript-30/'>Fabio Biondi Blog &raquo; Google Search in Flex and ActionScript 3.0</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-124439" title="">September 3rd, 2009 at 3:11 pm</a> </small>
+
+			<p>[...] In few words, user asked how integrate a Google Search inside its Flex application to display the result always inside the flash app. So I started to surf around the web to find a valid solution, and after founding many PHP solutions I found a cool AS3 library, developed by Boulevart. [...]</p>
+</div>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-124634">
+			<div class="comment-btm"><cite><a href='http://ravindrabharathi.blogspot.com/index.html'>Ravindrabharathi</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-124634" title="">September 7th, 2009 at 8:53 pm</a> </small>
+
+			<p>Great job! Saved me loads of time while trying to visualize google search results.<br />
+Should &#8216;GoogleSearchEvent&#8217; in the example snippet be &#8216;GoogleApiEvent&#8217; instead?</p>
+</div>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-124635">
+			<div class="comment-btm"><cite><a href='http://ravindrabharathi.blogspot.com/index.html'>Ravindrabharathi</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-124635" title="">September 7th, 2009 at 9:09 pm</a> </small>
+
+			<p>oops.<br />
+Should&#8217;ve read the &#8216;Changes &amp; new features&#8217; under &#8216;Google API - AS3 library: v. 2.0&#8242; before asking about &#8216;GoogleSearchEvent&#8217; in the example snippet.<br />
+Sorry about that <img src='http://labs.boulevart.be/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' /></p>
+</div>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-126833">
+			<div class="comment-btm"><cite>MadHat</cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-126833" title="">November 11th, 2009 at 1:49 am</a> </small>
+
+			<p>Thanks for the nice libraries.  I was having trouble getting the example to work in the Flash authoring environment, but finally figured it out.  I wanted to post the code in case it will help other flash noobs like myself figure this stuff out.</p>
+<p>//START CODE</p>
+<p>import be.boulevart.google.ajaxapi.search.web.data.*;<br />
+import be.boulevart.google.ajaxapi.search.web.*;<br />
+import be.boulevart.google.ajaxapi.search.*;<br />
+import be.boulevart.google.events.*;<br />
+//import be.boulevart.google.*;<br />
+//import com.adobe.utils.StringUtil;</p>
+<p>var searchLanguage:String = &#8220;eng&#8221;</p>
+<p>var googleWebSearch:GoogleWebSearch=new GoogleWebSearch();<br />
+googleWebSearch.search(txtInput.text,0,searchLanguage);<br />
+googleWebSearch.addEventListener(GoogleApiEvent.WEB_SEARCH_RESULT,onWebResults) ;<br />
+googleWebSearch.addEventListener(GoogleAPIErrorEvent.API_ERROR,onAPIError)</p>
+<p>function onWebResults(e:GoogleApiEvent):void{<br />
+	var resultObject:GoogleSearchResult=e.data as GoogleSearchResult<br />
+	trace(&#8221;Estimated Number of Results: &#8220;+resultObject.estimatedNumResults)<br />
+	trace(&#8221;Current page index: &#8220;+resultObject.currentPageIndex)<br />
+	trace(&#8221;Number of pages: &#8220;+resultObject.numPages)<br />
+	for each (var result:GoogleWebItem in resultObject.results){<br />
+		trace(result.title, result.url)<br />
+	}<br />
+}<br />
+function onAPIError(evt:GoogleAPIErrorEvent):void{<br />
+	trace(&#8221;An API error has occured: &#8221; + evt.responseDetails, &#8220;responseStatus was: &#8221; + evt.responseStatus);<br />
+}</p>
+</div>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-126844">
+			<div class="comment-btm"><cite>madhat</cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-126844" title="">November 11th, 2009 at 11:14 am</a> </small>
+
+			<p>Hello,<br />
+I was able to get an image search working in flash.  Thanks again for the great API.</p>
+<p>Unfortunately, I am getting an error when the search loads &#8216;many&#8217; images: &#8220;An API error has occured: out of range start responseStatus was: 400&#8243;.</p>
+<p>I was wondering if there is documentation for this error, or if there is a high-limit for the start range for an image search.</p>
+</div>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-126862">
+			<div class="comment-btm"><cite><a href='http://blog.joristimmerman.be'>Joris Timmerman</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-126862" title="">November 11th, 2009 at 10:47 pm</a> </small>
+
+			<p>Hi Madhat,</p>
+<p>The error you are getting is an error given by the Google API, you probably bumped upon a restriction or they aren&#8217;t more images,<br />
+trying to get images from a a start index that is too great or does not exists probably gives this error&#8230;</p>
+</div>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-126874">
+			<div class="comment-btm"><cite>madhat</cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-126874" title="">November 12th, 2009 at 11:37 am</a> </small>
+
+			<p>Thanks Joris,<br />
+Upon further testing, it appears that the 400 error is thrown when more than 64 images are loaded, or 8 iterations.  Thanks for your reply.</p>
+</div>
+
+		</li>
+
+	
+	
+	</ul>
+
+ 
+
+
+<h3 id="respond">Leave a Reply</h3>
+
+
+<form action="http://labs.boulevart.be/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><strong>Name</strong> (required)</label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><strong>Mail</strong> (will not be published) (required)</label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><strong>Website</strong></label></p>
+
+
+<p><textarea name="comment" id="comment" cols="100%" rows="10" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="502" />
+</p>
+		<script type='text/javascript'>
+			var RecaptchaOptions = { theme : 'red', tabindex : 5 };
+		</script><script type="text/javascript" src="http://api.recaptcha.net/challenge?k=6LffdQEAAAAAAHZ-Y8ZVw7atL_p_9hZ-m6mtpl9k"></script>
+
+	<noscript>
+  		<iframe src="http://api.recaptcha.net/noscript?k=6LffdQEAAAAAAHZ-Y8ZVw7atL_p_9hZ-m6mtpl9k" height="300" width="500" frameborder="0"></iframe><br/>
+  		<textarea name="recaptcha_challenge_field" rows="3" cols="40"></textarea>
+  		<input type="hidden" name="recaptcha_response_field" value="manual_challenge"/>
+	</noscript>		<div id="recaptcha-submit-btn-area"></div> 
+		<script type='text/javascript'>
+			var sub = document.getElementById('submit');
+			sub.parentNode.removeChild(sub);
+			document.getElementById('recaptcha-submit-btn-area').appendChild (sub);
+			document.getElementById('submit').tabIndex = 6;
+			if ( typeof _recaptcha_wordpress_savedcomment != 'undefined') {
+				document.getElementById('comment').value = _recaptcha_wordpress_savedcomment;
+			}
+		</script>
+		<noscript>
+		 <style type='text/css'>#submit {display:none;}</style>
+		 <input name="submit" type="submit" id="submit-alt" tabindex="6" value="Submit Comment"/> 
+		</noscript>
+</form>
+
+
+		
+			
+	</div><!--/post -->
+
+  </div><!--/content -->
+
+<div id="sidebar">
+<ul>
+
+  
+    
+    <li>
+      <ul class="list-archives"><a href="http://feeds.feedburner.com/labsboulevart" title="Subscribe to our feed" rel="alternate" type="application/rss+xml"><img src="http://www.feedburner.com/fb/images/pub/feed-icon32x32.png" alt="" style="border:0"/></a></ul>
+    </li>
+
+
+    <li>
+      <ul class="list-archives"><a href="http://www.youtube.com/boulevart" title="Our Youtube channel" onFocus="blur();"><img src="http://labs.boulevart.be/wp-content/themes/curved-10/images/blv_youtube.jpg" alt="" style="border:0"/></a></ul>
+    </li>
+    <li>
+      <ul class="list-archives"><a href="http://www.flickr.com/boulevart" title="Our Flick channel" onFocus="blur();"><img src="http://labs.boulevart.be/wp-content/themes/curved-10/images/blv_flickr.jpg" alt="" style="border:0"/></a></ul>
+    </li>
+	
+
+    <!-- RECENT COMMENTS START-->
+          <li><h2 class="sidebartitle">Recent Comments</h2>
+        <ul class="list-archives">	<li><a href="http://labs.boulevart.be/index.php/2007/11/23/svn-cleaner-app/#comment-132316" title="SVN Cleaner, 23 November, 2007">Rob Houston</a>: This does not appear to work with the latest version of AIR. Any plans to update?...</li>
+	<li><a href="http://labs.boulevart.be/index.php/2009/06/22/silverlight-3-writeable-bitmap-api-plasma/#comment-132227" title="Silverlight 3 Writeable Bitmap API - Plasma, 22 June, 2009">Punto</a>: wew,&#8230;okey I follow you Kris..</li>
+	<li><a href="http://labs.boulevart.be/index.php/2008/09/22/this-file-server-does-not-allow-guest-access-on-os-x-leopard-the-solution/#comment-132172" title="&#8220;This file server does not allow guest access&#8221; on OS X Leopard: the solution, 22 September, 2008">Jeme</a>: security=user works fine. I think map to guest is the key.</li>
+	<li><a href="http://labs.boulevart.be/index.php/2008/06/05/sketch-paper-for-the-mobile-designer/#comment-131704" title="Sketch paper for the mobile designer, 5 June, 2008">ur nath</a>: Hi can anyone send me these pdfs (nokia/iphone). I would like to learn from these.</li>
+	<li><a href="http://labs.boulevart.be/index.php/2009/09/10/touchscreen-video-puzzle-by-boulevart-and-holocube/#comment-131701" title="Touchscreen video puzzle by Boulevart and Holocube, 10 September, 2009">Mx Worker</a>: I just love it, and I am sure I am one of the First Europeans who have the IPAD!!!!...</li>
+</ul>
+      </li>
+     
+    <!-- RECENT COMMENTS END -->
+
+    <li>    
+      <h2 class="sidebartitle">Recent Visitors</h2>
+      <ul>
+        <li>
+          <script src="http://pub.mybloglog.com/comm3.php?mblID=2007060702260201&amp;r=widget&amp;is=small&amp;o=l&amp;ro=5&amp;cs=green&amp;ww=180&amp;wc=multiple"></script>
+        </li>
+      </ul>
+    </li>
+
+    <li>    
+      <h2 class="sidebartitle">Advertisement</h2>
+      <ul>
+        <li>
+          <a href="https://chitika.com/mm_overview.php?refid=boulevart" style="text-decoration: none;"><img src="http://scripts.chitika.net/eminimalls/logos/120x90.png" border="0"alt="Get Chitika eMiniMalls" title="Get Chitika eMiniMalls" /></a>
+        </li>
+      </ul>
+    </li>
+
+    <li>
+      <h2 class="sidebartitle">Categories</h2>
+      <ul class="list-cat">
+        	<li class="cat-item cat-item-23"><a href="http://labs.boulevart.be/index.php/category/net/" title="View all posts filed under .NET">.NET</a> (6)
+</li>
+	<li class="cat-item cat-item-20"><a href="http://labs.boulevart.be/index.php/category/adobemax/" title="View all posts filed under AdobeMAX">AdobeMAX</a> (9)
+</li>
+	<li class="cat-item cat-item-19"><a href="http://labs.boulevart.be/index.php/category/air/" title="View all posts filed under AIR">AIR</a> (20)
+</li>
+	<li class="cat-item cat-item-21"><a href="http://labs.boulevart.be/index.php/category/apis/" title="View all posts filed under API&#039;s">API&#039;s</a> (3)
+</li>
+	<li class="cat-item cat-item-7"><a href="http://labs.boulevart.be/index.php/category/apollo/" title="View all posts filed under Apollo">Apollo</a> (1)
+</li>
+	<li class="cat-item cat-item-5"><a href="http://labs.boulevart.be/index.php/category/as2/" title="View all posts filed under AS2">AS2</a> (4)
+</li>
+	<li class="cat-item cat-item-4"><a href="http://labs.boulevart.be/index.php/category/as3/" title="View all posts filed under AS3">AS3</a> (30)
+</li>
+	<li class="cat-item cat-item-15"><a href="http://labs.boulevart.be/index.php/category/boulevart/" title="View all posts filed under Boulevart">Boulevart</a> (55)
+</li>
+	<li class="cat-item cat-item-136"><a href="http://labs.boulevart.be/index.php/category/cocoatouch/" title="View all posts filed under cocoatouch">cocoatouch</a> (1)
+</li>
+	<li class="cat-item cat-item-1"><a href="http://labs.boulevart.be/index.php/category/css/" title="View all posts filed under CSS">CSS</a> (1)
+</li>
+	<li class="cat-item cat-item-18"><a href="http://labs.boulevart.be/index.php/category/design/" title="View all posts filed under Design">Design</a> (6)
+</li>
+	<li class="cat-item cat-item-6"><a href="http://labs.boulevart.be/index.php/category/flash/" title="View all posts filed under Flash">Flash</a> (35)
+</li>
+	<li class="cat-item cat-item-44"><a href="http://labs.boulevart.be/index.php/category/flash-lite/" title="View all posts filed under flash lite">flash lite</a> (1)
+</li>
+	<li class="cat-item cat-item-8"><a href="http://labs.boulevart.be/index.php/category/flex/" title="View all posts filed under Flex">Flex</a> (25)
+</li>
+	<li class="cat-item cat-item-13"><a href="http://labs.boulevart.be/index.php/category/framework/" title="View all posts filed under Framework">Framework</a> (5)
+</li>
+	<li class="cat-item cat-item-56"><a href="http://labs.boulevart.be/index.php/category/iphone/" title="View all posts filed under iphone">iphone</a> (2)
+</li>
+	<li class="cat-item cat-item-81"><a href="http://labs.boulevart.be/index.php/category/merapi/" title="View all posts filed under Merapi">Merapi</a> (1)
+</li>
+	<li class="cat-item cat-item-50"><a href="http://labs.boulevart.be/index.php/category/methodology/" title="View all posts filed under methodology">methodology</a> (1)
+</li>
+	<li class="cat-item cat-item-45"><a href="http://labs.boulevart.be/index.php/category/mobile/" title="Flash lite, mobile, wireless, mobile applications">mobile</a> (16)
+</li>
+	<li class="cat-item cat-item-11"><a href="http://labs.boulevart.be/index.php/category/random-shite/" title="View all posts filed under Notes about nothing">Notes about nothing</a> (17)
+</li>
+	<li class="cat-item cat-item-22"><a href="http://labs.boulevart.be/index.php/category/papervision/" title="View all posts filed under PaperVision">PaperVision</a> (2)
+</li>
+	<li class="cat-item cat-item-129"><a href="http://labs.boulevart.be/index.php/category/php/" title="View all posts filed under PHP">PHP</a> (1)
+</li>
+	<li class="cat-item cat-item-14"><a href="http://labs.boulevart.be/index.php/category/projects/" title="View all posts filed under Projects">Projects</a> (23)
+</li>
+	<li class="cat-item cat-item-17"><a href="http://labs.boulevart.be/index.php/category/silverlight/" title="View all posts filed under Silverlight">Silverlight</a> (3)
+</li>
+	<li class="cat-item cat-item-12"><a href="http://labs.boulevart.be/index.php/category/web20/" title="View all posts filed under Web 2.0">Web 2.0</a> (1)
+</li>
+	<li class="cat-item cat-item-167"><a href="http://labs.boulevart.be/index.php/category/wpf/" title="View all posts filed under WPF">WPF</a> (2)
+</li>
+	<li class="cat-item cat-item-30"><a href="http://labs.boulevart.be/index.php/category/xhtml-css/" title="View all posts filed under xhtml &amp; css">xhtml &amp; css</a> (3)
+</li>
+	<li class="cat-item cat-item-146"><a href="http://labs.boulevart.be/index.php/category/zend/" title="View all posts filed under Zend">Zend</a> (3)
+</li>
+      </ul>
+    </li>
+
+    <li>
+      <h2 class="sidebartitle">Links</h2>
+      <ul class="linkcat">
+        <li><a href="http://blog.soulcreation.com">Soulcreation</a></li>
+<li><a href="http://seeing-is-believing.blogspot.com/">Seeing is Believing</a></li>
+<li><a href="http://www.svendens.com/blog/" title="Blogging on Flex, *nix, databases and more nerd-stuff">Sven Dens</a></li>
+<li><a href="http://showmethis.blogspot.com/" rel="co-worker colleague">Show me this</a></li>
+<li><a href="http://9rules.com/">9 Rules</a></li>
+<li><a href="http://www.thefwa.com">The FWA</a></li>
+<li><a href="http://aralbalkan.com/">Aral Balkan</a></li>
+<li><a href="http://www.gskinner.com/blog/">Grant Skinner</a></li>
+<li><a href="http://blog.andre-michelle.com/">Andre Michelle</a></li>
+<li><a href="http://newmovieclip.wordpress.com/">Koen De Weggheleire</a></li>
+<li><a href="http://www.lab101.be" title="Silverlight goodness">Lab101</a></li>
+<li><a href="http://labs.adobe.com">Adobe Labs</a></li>
+<li><a href="http://www.peterelst.com">Peter Elst</a></li>
+<li><a href="http://www.mmug.be">Belgian Adobe User Group</a></li>
+<li><a href="http://www.webkitchen.be">Serge Jespers</a></li>
+<li><a href="http://www.aboutnico.be">AboutNico</a></li>
+<li><a href="http://labs.groupwave.be">Groupwave labs</a></li>
+<li><a href="http://nightguard.blogspot.com/">Pretty things wait just around the corner</a></li>
+<li><a href="http://about.boulevart.be" rel="me">About Boulevart</a></li>
+<li><a href="http://www.richapps.de">Benjamin Dobler</a></li>
+<li><a href="http://www.herrodius.com">Christophe Herreman</a></li>
+<li><a href="http://blog.artueel.be">Artueel Blog</a></li>
+<li><a href="http://www.thomasjoos.be" rel="co-worker colleague" title="Thomas Joos Mobile application developer @ boulevart">Thomas Joos</a></li>
+<li><a href="http://scrum.boulevart.be" rel="me">Scrum.boulevart.be</a></li>
+<li><a href="http://blog.arten.be">Maarten Cox</a></li>
+<li><a href="http://www.bartclaessens.com">Bart Claessens</a></li>
+<li><a href="http://www.berthagendoorn.nl/" title="Adobe">Bert Hagendoorn</a></li>
+<li><a href="http://andyj.be/blog/">Andy Jacobs</a></li>
+<li><a href="http://blog.joristimmerman.be">Joris Timmerman</a></li>
+<li><a href="http://dennisjaamann.com/blog/" title="blog of Dennis Jaamann">Dennis Jaamann</a></li>
+      </ul>
+
+    <li>
+      <h2 class="sidebartitle">Archives</h2>
+      <ul class="list-archives">
+        	<li><a href='http://labs.boulevart.be/index.php/2009/09/' title='September 2009'>September 2009</a></li>
+	<li><a href='http://labs.boulevart.be/index.php/2009/07/' title='July 2009'>July 2009</a></li>
+	<li><a href='http://labs.boulevart.be/index.php/2009/06/' title='June 2009'>June 2009</a></li>
+	<li><a href='http://labs.boulevart.be/index.php/2009/05/' title='May 2009'>May 2009</a></li>
+	<li><a href='http://labs.boulevart.be/index.php/2009/04/' title='April 2009'>April 2009</a></li>
+	<li><a href='http://labs.boulevart.be/index.php/2009/03/' title='March 2009'>March 2009</a></li>
+	<li><a href='http://labs.boulevart.be/index.php/2009/02/' title='February 2009'>February 2009</a></li>
+	<li><a href='http://labs.boulevart.be/index.php/2009/01/' title='January 2009'>January 2009</a></li>
+	<li><a href='http://labs.boulevart.be/index.php/2008/12/' title='December 2008'>December 2008</a></li>
+	<li><a href='http://labs.boulevart.be/index.php/2008/11/' title='November 2008'>November 2008</a></li>
+	<li><a href='http://labs.boulevart.be/index.php/2008/10/' title='October 2008'>October 2008</a></li>
+	<li><a href='http://labs.boulevart.be/index.php/2008/09/' title='September 2008'>September 2008</a></li>
+	<li><a href='http://labs.boulevart.be/index.php/2008/08/' title='August 2008'>August 2008</a></li>
+	<li><a href='http://labs.boulevart.be/index.php/2008/07/' title='July 2008'>July 2008</a></li>
+	<li><a href='http://labs.boulevart.be/index.php/2008/06/' title='June 2008'>June 2008</a></li>
+	<li><a href='http://labs.boulevart.be/index.php/2008/05/' title='May 2008'>May 2008</a></li>
+	<li><a href='http://labs.boulevart.be/index.php/2008/04/' title='April 2008'>April 2008</a></li>
+	<li><a href='http://labs.boulevart.be/index.php/2008/03/' title='March 2008'>March 2008</a></li>
+	<li><a href='http://labs.boulevart.be/index.php/2008/02/' title='February 2008'>February 2008</a></li>
+	<li><a href='http://labs.boulevart.be/index.php/2008/01/' title='January 2008'>January 2008</a></li>
+	<li><a href='http://labs.boulevart.be/index.php/2007/12/' title='December 2007'>December 2007</a></li>
+	<li><a href='http://labs.boulevart.be/index.php/2007/11/' title='November 2007'>November 2007</a></li>
+	<li><a href='http://labs.boulevart.be/index.php/2007/10/' title='October 2007'>October 2007</a></li>
+	<li><a href='http://labs.boulevart.be/index.php/2007/09/' title='September 2007'>September 2007</a></li>
+	<li><a href='http://labs.boulevart.be/index.php/2007/08/' title='August 2007'>August 2007</a></li>
+	<li><a href='http://labs.boulevart.be/index.php/2007/07/' title='July 2007'>July 2007</a></li>
+	<li><a href='http://labs.boulevart.be/index.php/2007/06/' title='June 2007'>June 2007</a></li>
+	<li><a href='http://labs.boulevart.be/index.php/2007/05/' title='May 2007'>May 2007</a></li>
+	<li><a href='http://labs.boulevart.be/index.php/2007/04/' title='April 2007'>April 2007</a></li>
+	<li><a href='http://labs.boulevart.be/index.php/2007/03/' title='March 2007'>March 2007</a></li>
+	<li><a href='http://labs.boulevart.be/index.php/2007/02/' title='February 2007'>February 2007</a></li>
+	<li><a href='http://labs.boulevart.be/index.php/2007/01/' title='January 2007'>January 2007</a></li>
+	<li><a href='http://labs.boulevart.be/index.php/2006/11/' title='November 2006'>November 2006</a></li>
+	<li><a href='http://labs.boulevart.be/index.php/2006/05/' title='May 2006'>May 2006</a></li>
+      </ul>
+    </li>
+
+    </li>
+    <li>
+      <h2 class="sidebartitle">Meta</h2>
+      <ul>
+        <li><a href="http://technorati.com/faves?sub=addfavbtn&amp;add=http://labs.boulevart.be"><img src="http://static.technorati.com/pix/fave/btn-fave2.png" alt="Add to Technorati Favorites" /></a></li>
+      </ul>
+    </li>
+  
+ </ul>
+</div>
+<!--/sidebar -->
+  
+  <hr class="clear" />
+</div><!--/page -->
+</div><!--/wrapper -->
+
+<div id="footerbg">
+  <div id="footer">
+	
+  <hr class="clear" />
+  </div>
+<!--/footer -->
+
+<div id="credits">
+	<div class="alignleft">&copy; 2007 labs.boulevart | <a href="http://www.justskins.com" title="iKon Wordpress Theme">iKon Wordpress Theme</a> by <a href="http://www.textndata.com" title="Content Management System">TextNData</a> | Powered by Wordpress | <a href="http://www.rakcha.com">rakCha web directory</a></div>
+
+	<div class="alignright"><a href="http://validator.w3.org/check?uri=referer" class="valid">XHTML</a> <a href="http://jigsaw.w3.org/css-validator/check?uri=referer" class="valid">CSS</a> <a href="http://feeds.feedburner.com/labsboulevart" class="rss">RSS</a></div> 
+</div>
+  
+</div>
+</body>
+</html>

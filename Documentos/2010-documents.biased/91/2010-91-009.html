@@ -1,0 +1,871 @@
+<!--INFOLINKS_OFF-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<head>
+	<title> Where Are All The Google Data Centers? - Instablogs </title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="title" content="Where Are All The Google Data Centers?" />
+	<meta name="author" content="Nick" />
+	<meta name="language" content="en" />
+	<meta name="description" content="Google’s data infrastructure is massive and spread across the world. All that Web crawling, indexing, and searching takes enormous amounts of computing power, not to mention everyone pounding away at Gmail, Google Apps, Blogger, Google Reader, and..." />
+
+	<script type="text/javascript" src="http://www.instablogs.com/js/yui.js"></script>
+	<script type="text/javascript" src="http://www.instablogs.com/js/lightbox.js"></script>
+	<script type="text/javascript" src="http://www.instablogs.com/js/Lightbox.js"></script>
+	<script type="text/javascript" src="http://www.instablogs.com/js/ibn_common.js"></script>
+	<script type="text/javascript" src="http://www.instablogs.com/js/effects-min.js"></script>
+	<script type="text/javascript" src="http://www.instablogs.com/js/connection.js"></script>
+	<script type="text/javascript" src="http://www.instablogs.com/js/prototype.js"></script>
+	<script type="text/javascript" src="http://www.instablogs.com/js/scriptaculous.js"></script>
+	<script type="text/javascript" src="http://www.instablogs.com/js/permalink.js"></script>
+
+	
+	
+	<script type="text/javascript">
+
+		function checkFormData()
+		{
+			with(window.document.SubmitForm)
+			{	
+				field = (v_content.value).replace(/^\s*|\s*$/g,'');
+
+				if(field=="")
+				{	
+					alert("Please enter comment"); v_content.focus(); return false;
+				}
+				return true;
+			}
+		}
+
+		function checkFormData1()
+		{
+			with(window.document.SubmitForm1)
+			{	
+				field = (v_content.value).replace(/^\s*|\s*$/g,'');
+
+				if(field=="")
+				{	
+					alert("Please enter comment"); v_content.focus(); return false;
+				}
+				return true;
+			}
+		}
+
+		function checkFormData2()
+		{
+			with(window.document.SubmitForm2)
+			{	
+				field = (v_content.value).replace(/^\s*|\s*$/g,'');
+
+				if(field=="")
+				{	
+					alert("Please enter comment"); v_content.focus(); return false;
+				}
+				return true;
+			}
+		}
+
+		function checkFormData4()
+		{
+			with(window.document.SubmitForm4)
+			{	
+				field = (v_content.value).replace(/^\s*|\s*$/g,'');
+
+				if(field=="")
+				{	
+					alert("Please enter comment"); v_content.focus(); return false;
+				}
+				return true;
+			}
+		}
+
+		function checkFormData5()
+		{
+			with(window.document.SubmitForm5)
+			{	
+				field = (v_content.value).replace(/^\s*|\s*$/g,'');
+
+				if(field=="")
+				{	
+					alert("Please enter comment"); v_content.focus(); return false;
+				}
+				return true;
+			}
+		}
+
+		function checkFormData9()
+		{
+			with(window.document.SubmitForm9)
+			{	
+				field = (v_content.value).replace(/^\s*|\s*$/g,'');
+
+				if(field=="")
+				{	
+					alert("Please enter comment"); v_content.focus(); return false;
+				}
+				return true;
+			}
+		}
+
+		init = function()
+		{
+			var dataSource = 
+			{
+				photo:{url:'http://www.instablogsimages.com/images/2008/04/12/where-are_Nw84Q_9191.jpg', title: 'Where Are All The Google Data...'}
+			};
+				 
+			 var lightbox = new YAHOO.com.thecodecentral.Lightbox
+			 ({
+				imageBase:'http://www.instablogs.com/css-img',
+				dataSource: dataSource
+			 });
+		}
+		YAHOO.util.Event.on(window, 'load', init);
+	</script>
+	<style type="text/css">
+	@import url(/css/common.css);
+	@import url(/css/permalink.css);
+	@import url(/css/admin-nav.css);
+	</style>
+</head>
+<body class="yui-skin-sam">
+		<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+	<script type="text/javascript" src="/js/container-min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/css/container.css" />
+	<script type="text/javascript">
+	new YAHOO.widget.Tooltip("prashant", { context:"t1", text:"How Instablogs Works?" });
+	new YAHOO.widget.Tooltip("prashant", { context:"t2", text:"Catch up with the latest activity" });
+	new YAHOO.widget.Tooltip("prashant", { context:"t3", text:"See all newly submitted stories" });
+	new YAHOO.widget.Tooltip("prashant", { context:"t4", text:"Track activity of your favorites. Stay connected" });
+	new YAHOO.widget.Tooltip("prashant", { context:"t5", text:"Top Members" });
+	new YAHOO.widget.Tooltip("prashant", { context:"t6", text:"Manage your Account settings" });
+	new YAHOO.widget.Tooltip("prashant", { context:"t7", text:"Share interesting stories online" });
+	new YAHOO.widget.Tooltip("prashant", { context:"t8", text:"Be a Newsmaker. Get Published." });
+
+	function check()
+	{
+		var type =document.getElementById('type').value;
+		var str = document.getElementById('nav-search').value;
+		if(str!='')
+		{
+		var str = str.toLowerCase();
+		var reg = str.replace(/^\s+|\s+$/g, '');
+		for(var i=0;i<=3; i++)
+		{
+		var reg = reg.replace(/\s+/,'-');
+		}
+		if(type=='tags')
+			window.location='http://www.instablogs.com/' + reg + '/';
+		if(type=='text')
+			window.location='http://www.instablogs.com/search.php?q=' + document.getElementById('nav-search').value;
+		if(type=='image')
+			window.location='http://www.instablogs.com/search.php?q=' + document.getElementById('nav-search').value + '&type=images';
+		}
+
+		recordstat('search','permalink','0','0', 'click');
+	}
+
+	function update_phoneno(UserID)
+	{
+		var div = document.getElementById('show-phone-no');
+		var phone_no = document.getElementById('v_user_phone_no').value;
+		var phone_isd = document.getElementById('v_user_phone_isd').value;		
+
+		var postdata ='user_id=' + UserID + '&phone_no=' + phone_no + '&phone_isd=' + phone_isd;
+		div.innerHTML = '<div style="padding-top:50px"><center>Please wait...</center></div>';
+	
+		var handleSuccess = function(o){if(o.responseText !== undefined){div.innerHTML = o.responseText;}}
+		var handleFailure = function(o){if(o.responseText !== undefined){div.innerHTML=  o.statusText;}}
+		var Callback ={success:handleSuccess,failure: handleFailure};
+
+		var request = YAHOO.util.Connect.asyncRequest("POST", '/update_phone_no.php', Callback, postdata);			
+	}
+
+	</script>
+
+
+<div class="clear"></div>
+
+	<div class="main-container">
+	<div id="header">
+		<div id="top-nav-1">
+			<div id="search">
+					<select id="type" class="search-sel">
+						<option value="tags" selected="selected">Tags</option>
+						<option value="text">Text</option>
+						<option value="image">Images</option>
+					</select>
+				<input id="nav-search" name="q" value="" type="text" onkeypress="{if (event.keyCode==13)check()}">
+				<input type="button" name="submit" value="Go" onclick="check()"/>
+				
+			</div>
+							<a class="toplink" href="http://www.instablogs.com/"><img class="home-img" src="/css-img/home.gif" />Home</a>
+				<a class="toplink" href=""></a>|
+				<a class="toplink" href="http://blog.instablogs.com/">Official Blog</a>|	
+				<a class="toplink" href="http://www.instablogs.com/download_widget.php">Tools/widgets</a>|
+				<a class="toplink" href="http://www.instablogs.com/tour">Take a Tour</a>|
+
+				<!-- <a class="toplink" href="javascript:toggle_simple('drop-login')">Edit Tracker</a>|
+				<a class="toplink" href="javascript:toggle_simple('drop-login')">Manage Friends</a>|
+				<a class="toplink" href="javascript:toggle_simple('drop-login')">Explore Comments</a>|
+				<a class="toplink" href="javascript:toggle_simple('drop-login')">Manage Account</a>|-->
+				<a href="javascript:toggle_simple('drop-login')" class="cut-arrow">Admin</a>
+
+				&nbsp; | <a class="toplink" href="http://www.instablogs.com/phip/">PHIP (New)</a>
+				
+					</div>
+	
+		<div id="top-nav-2">
+
+			<div id="login">
+									<img src="/css-img/login.gif">
+					<span><a href="javascript:toggle_simple('drop-login')">Login</a>|
+					<span><a href="/register.php">Register</a>
+							</div>
+
+							<a href="http://www.instablogs.com/all/">All</a>|
+							<a href="http://www.instablogs.com/business/" onmousedown="recordstat('channel','permalink','0','16532', 'click')">Business</a>|
+							<a href="http://www.instablogs.com/technology/" onmousedown="recordstat('channel','permalink','0','798', 'click')">Technology</a>|
+							<a href="http://www.instablogs.com/environment/" onmousedown="recordstat('channel','permalink','0','767', 'click')">Environment</a>|
+							<a href="http://www.instablogs.com/health-fitness/" onmousedown="recordstat('channel','permalink','0','111859', 'click')">Health & Fitness</a>|
+							<a href="http://www.instablogs.com/lifestyle/" onmousedown="recordstat('channel','permalink','0','7985', 'click')">Lifestyle</a>|
+							<a href="http://www.instablogs.com/entertainment/" onmousedown="recordstat('channel','permalink','0','10108', 'click')">Entertainment</a>|
+							<a href="http://www.instablogs.com/travel/" onmousedown="recordstat('channel','permalink','0','782', 'click')">Travel</a>|
+							<a href="http://www.instablogs.com/politics-society/" onmousedown="recordstat('channel','permalink','0','105520', 'click')">Politics & Society</a>|
+							<a href="http://www.instablogs.com/sports/" onmousedown="recordstat('channel','permalink','0','14593', 'click')">Sports</a>|
+					</div>
+		<div class="drop-login" id="drop-login" style="display:none;"><style type="text/css">
+  @import url(/css/drop_login.css);
+</style>
+	
+<div class="drop-inner-login">
+	<div class="x-close"><a href="javascript:toggle_simple('drop-login')">X</a></div>
+	<form name="LoginSubmitForm" id="loginform" action="http://www.instablogs.com/login.php" method="post" onsubmit="return checkFormData()">
+	<div class="login-left">
+	<div class="dd4">Already a member?</div>
+		<div class="dd1">Username</div>
+		<div class="dd2"><input type="text" id="v_login" name="v_login" class="input1" value="" /></div>
+		<div class="dd1">Password</div>
+		<div class="dd2"><input type="password" id="v_pass" name="v_pass" class="input1" /></div>
+		 <span class="dd4"></span>			<div class="l-submit">
+				<input type="submit" class="d-button" value="Login" name="login" class="login-button" />
+			</div>
+			<div class="dd3">
+				<a href="forgot_password.php">Forgot Password?</a>
+			</div>
+		</form>
+	</div>
+	<div class="login-right">
+		<div class="dd4">
+		<span class="nt-mem">Not a member?</span><br>
+		<a href="http://www.instablogs.com/register.php" class="d-button">Join Now</a><br><br><br>
+		It's quick and easy
+		</div>
+	</div>
+</div><!-- EOF main-login-->
+
+<div class="clear"></div></div>
+	</div><!-- EOF header -->
+		<div id="container-bg">
+		<div id="container">
+		<div id="insta-logo">
+			<a class="logo-link" href="http://www.instablogs.com"><img src="/css-img/insta-logo.gif" class="logo"></a>
+			<div class="top-ad" style="padding-left:5px;">
+							<script type="text/javascript"><!--
+				google_ad_client = "pub-9415440757655812";
+				/* instablogs, Header_728x90, created 6/3/09 */
+				google_ad_slot = "0880226453";
+				google_ad_width = 728;
+				google_ad_height = 90;
+				//-->
+				</script>
+				<script type="text/javascript"
+				src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+				</script>
+				<!-- <a href="http://www.instablogs.com"><img src="/css-img/ad.gif"></a> -->
+							</div>
+			<div class="clear"></div>
+							<div class="top-bar">
+					<a id="t7" class="bar7 bar0" href="javascript:toggle_simple('drop-login')">Submit Newslink</a>  ::
+					<a id="t8" class="bar8 bar0" href="javascript:toggle_simple('drop-login')">Write Article</a>  ::
+					<a id="t2" class="bar2 bar0" href="http://www.instablogs.com/live/" onmousedown="recordstat('live','permalink','0','0', 'click')">Live</a>  ::
+					<a id="t3" class="bar3 bar0" href="http://www.instablogs.com/upcoming/" onmousedown="recordstat('upcoming','permalink','0','0', 'click')">Upcoming</a>  ::
+					<a id="t4" class="bar4 bar0" href="javascript:toggle_simple('drop-login')">Tracker</a>  ::					
+					<a id="t6" class="bar6 bar0" href="javascript:toggle_simple('drop-login')">Admin Panel</a>  ::
+					<a id="t1" class="bar1 bar0" href="http://www.instablogs.com/tour/" onmousedown="recordstat('tour','permalink','0','0', 'click')">Help</a>
+				</div>
+								<div class="top-ad-bar">
+					
+				</div>
+						</div>
+		<div class="clear"></div>
+
+		
+
+	<div id="lb-edit" class="white_content_video" ></div><!-- EOF white_content -->
+	<div id="lb-slide" class="white_content_slide" ></div><!-- EOF white_content_slide -->
+
+	<div id="content-main">
+		<div id="content-main1" >
+
+		<div> <!-- Please do not delete this div. Hack for browsers compatibility -->
+
+		<!--INFOLINKS_ON-->
+		<script type="text/javascript">
+var infolink_pid = 23535;
+var infolink_link_color = '0000FF';
+var infolink_title_color = '252667';
+var infolink_ad_link_color = '24951E';
+var infolink_ad_link_color = '24951E';
+var infolink_anow = '2';
+var infolink_cat = 'News';
+</script>
+<script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script><!--INFOLINKS_OFF--><div class="perma-title">
+	Where Are All The Google Data Centers?</div>
+
+<div id="lb-edit217945" class="white_content_share" style="display:none;"></div><!-- EOF white_content -->
+
+<div class="clear"></div>
+
+	
+	<div class="perma-bar" id="perma-bar">
+					<div class="perma-bar1" id="main217945"><span class="star-it" onclick="javascript:increase_vote('0','217945',1)">7&nbsp;Star it</span></div>
+				<div class="perma-bar2"><a target="_blank" href="#network-comment">0&nbsp;Comments</a></div>
+		<div class="perma-bar3">
+			<span class="share-op" onmouseover="javascript:open1('share-op')" onmouseout="javascript:close1('share-op')">
+				<span class="toplink1" id="share-op" style="display:none;">
+					<div class="other-site-links">
+
+	<span class="other-site1"><a target='_blank' href="http://del.icio.us/post?url=http%3A%2F%2Fgilliland-nick.instablogs.com%2Fentry%2Fwhere-are-all-the-google-data-centers%2F&title=Where+Are+All+The+Google+Data+Centers%3F"><img src="/css-img/delicious.png">  Delicious</a></span>
+
+	<span class="other-site"><a target='_blank' href="http://digg.com/submit?phase=2&url=http%3A%2F%2Fgilliland-nick.instablogs.com%2Fentry%2Fwhere-are-all-the-google-data-centers%2F&title=Where+Are+All+The+Google+Data+Centers%3F"><img src="/css-img/digg.png">  Digg</a></span>
+
+	<span class="other-site"><a target='_blank' href="http://www.facebook.com/share.php?u=http%3A%2F%2Fgilliland-nick.instablogs.com%2Fentry%2Fwhere-are-all-the-google-data-centers%2F"><img src="/css-img/facebook.png">  Facebook</a></span>
+
+	<div class="clear"></div>
+
+	<span class="other-site"><a target='_blank' href="http://reddit.com/submit?url=http%3A%2F%2Fgilliland-nick.instablogs.com%2Fentry%2Fwhere-are-all-the-google-data-centers%2F&title=Where+Are+All+The+Google+Data+Centers%3F"><img src="/css-img/reddit.png">  Reddit</a></span>
+
+	<span class="other-site"><a target='_blank' href="http://www.stumbleupon.com/submit?url=http%3A%2F%2Fgilliland-nick.instablogs.com%2Fentry%2Fwhere-are-all-the-google-data-centers%2F&title=Where+Are+All+The+Google+Data+Centers%3F"><img src="/css-img/stumble-upon.png">  Stumble Upon</a></span>
+
+	<span class="other-site"><a target='_blank' href="http://technorati.com/faves/?add=http%3A%2F%2Fgilliland-nick.instablogs.com%2Fentry%2Fwhere-are-all-the-google-data-centers%2F&title=Where+Are+All+The+Google+Data+Centers%3F"><img src="/css-img/technoratipng.png">  Technorati</a></span>
+
+	<div class="clear"></div>
+
+	<span class="other-site"><a target='_blank' href="http://www.mixx.com/submit?page_url=http%3A%2F%2Fgilliland-nick.instablogs.com%2Fentry%2Fwhere-are-all-the-google-data-centers%2F&title=Where+Are+All+The+Google+Data+Centers%3F"><img src="/css-img/mixx.png">  Mixx</a></span>
+	
+	<span class="other-site"><a target='_blank' href="http://sphinn.com/submit.php?url=http%3A%2F%2Fgilliland-nick.instablogs.com%2Fentry%2Fwhere-are-all-the-google-data-centers%2F&title=Where+Are+All+The+Google+Data+Centers%3F"><img src="/css-img/sphinn.gif">  Sphinn</a></span>
+
+	<span class="other-site"><a target='_blank' href="http://twitter.com/home?status=Check out this Instablogs Post : Where Are All The Google Data Centers? ( http://tinyurl.com/d6mr27 )"><img src="/css-img/twitter.gif">  Twitter</a></span>
+
+	<div class="clear"></div>
+
+	<span class="other-site"><a target='_blank' href="http://www.sphere.com/search?q=sphereit:http%3A%2F%2Fgilliland-nick.instablogs.com%2Fentry%2Fwhere-are-all-the-google-data-centers%2F&title=Where+Are+All+The+Google+Data+Centers%3F"><img src="/css-img/sphere.png">  SphereIt</a></span>
+
+	<span class="other-site"><a target='_blank' href="http://www.propeller.com/submit/?url=http%3A%2F%2Fgilliland-nick.instablogs.com%2Fentry%2Fwhere-are-all-the-google-data-centers%2F"><img src="/css-img/propeller.gif">  Propeller</a></span>
+
+	<span class="other-site"><a target='_blank' href="http://www.google.com/bookmarks/mark?op=edit&bkmk=http%3A%2F%2Fgilliland-nick.instablogs.com%2Fentry%2Fwhere-are-all-the-google-data-centers%2F"><img src="/css-img/google.gif">  Gmarks</a></span>
+
+	<div class="clear"></div>
+
+	<span class="other-site"><a target='_blank' href="http://www.newsvine.com/_tools/seed&save?popoff=0&u=http%3A%2F%2Fgilliland-nick.instablogs.com%2Fentry%2Fwhere-are-all-the-google-data-centers%2F&h=Where+Are+All+The+Google+Data+Centers%3F"><img src="/css-img/newsvine.gif">  Newsvine</a></span>
+
+	<span class="other-site"><a target='_blank' href="http://myweb2.search.yahoo.com/myresults/bookmarklet?u=http%3A%2F%2Fgilliland-nick.instablogs.com%2Fentry%2Fwhere-are-all-the-google-data-centers%2F&t=Where+Are+All+The+Google+Data+Centers%3F"><img src="/css-img/yahoo.gif">  Yahoo! My Web</a></span>
+
+	<span class="other-site"><a target='_blank' href="http://www.livejournal.com/update.bml?subject=http%3A%2F%2Fgilliland-nick.instablogs.com%2Fentry%2Fwhere-are-all-the-google-data-centers%2F"><img src="/css-img/livejournal.gif">  Live Journal</a></span>
+	
+	<div class="clear"></div>
+
+	<span class="other-site"><a target='_blank' href="http://blinklist.com/index.php?Action=Blink/addblink.php&Url=http%3A%2F%2Fgilliland-nick.instablogs.com%2Fentry%2Fwhere-are-all-the-google-data-centers%2F&Tilte=Where+Are+All+The+Google+Data+Centers%3F"><img src="/css-img/blinklist.gif">  Blinklist</a></span>
+
+	<span class="other-site2" onclick="lightboxshareon('lb-edit217945','217945' ,'http://gilliland-nick.instablogs.com/entry/where-are-all-the-google-data-centers/')"><img src="/css-img/unread.gif">  E-mail</span>
+
+</div>
+				</span>
+				Share
+			</span>
+		</div>
+					<div class="perma-bar4">
+				<span title="Trash this story"  class="trash-op" onmouseover="javascript:open1('trash-op')" onmouseout="javascript:close1('trash-op')">Trash
+					<span class="toplink1" id="trash-op" style="display:none;">
+						<a class="toplink2" href="javascript:trash('perma-bar',217945,0,'Duplicate')">Duplicate story</a>
+						<a class="toplink2" href="javascript:trash('perma-bar',217945,0,'Spam')">Spam</a>
+						<a class="toplink2" href="javascript:trash('perma-bar',217945,0,'Inaccurate')">Inaccurate</a>
+						<a class="toplink2" href="javascript:trash('perma-bar',217945,0,'Plagiarized')">Plagiarized</a>
+						<a class="toplink3" href="javascript:trash('perma-bar',217945,0,'Profane')">Profane</a>
+					</span>
+				</span>
+			</div>
+			</div>
+<div class="perma-author-editorial">
+	<div class="perma-author-name">
+		<span>
+			Nick			, La:
+			Apr 12 2008		</span>
+	</div><!-- end of perma-author-name -->
+</div> <!-- end of perma-author-editorial -->
+
+<div class="clear"></div>
+<div class="md-pop">Made Popular Apr 12 2008</div><div class="clear"></div>
+<!--INFOLINKS_ON-->
+<div class="perma-content" style="margin:10px 0 20px 0;">
+	<script type="text/javascript"><!--
+	google_ad_client = "pub-9415440757655812";
+	/* Instablogs_perma_468x60, created 6/12/09 */
+	google_ad_slot = "6016516680";
+	google_ad_width = 468;
+	google_ad_height = 60;
+	//-->
+	</script>
+	<script type="text/javascript"
+	src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+	</script>
+<div class='you-tube-video'>
+</div>
+<div class="clear"></div>
+
+	<div class="md-country" style="font-weight:bold">United States :</div><img style="cursor: pointer;" class="m-pic" title="click here to zoom image" src="http://www.instablogsimages.com/images/2008/04/12/mb_where-are_Nw84Q_9191.jpg" id="photo">	Google’s data infrastructure is massive and spread across the world. All that Web crawling, indexing, and searching takes enormous amounts of computing power, not to mention everyone pounding away at Gmail, Google Apps, Blogger, Google Reader, and...		<div class="clear"></div>
+		<div class="read-story">
+		<a href="http://www.instablogs.com/outer_permalink.php?p=where-are-all-the-google-data-centers">Read Story</a>		</div>
+					<div class="perma-tags">
+				<span>Tags:</span>
+				<a target="_blank" href="http://www.instablogs.com/gmail/"> Gmail</a>, <a target="_blank" href="http://www.instablogs.com/google-apps/"> Google Apps</a>, <a target="_blank" href="http://www.instablogs.com/blogger/"> Blogger</a>, <a target="_blank" href="http://www.instablogs.com/google-reader/"> Google Reader</a>			</div>	<div class="clear"></div>
+
+
+</div> <!-- end of perma-content -->
+
+<div class="inner-media-bar">
+
+	<div class="upload-def" style=""><a href="javascript:lightboxon('lb-upload')"><img src="/css-img/upload-def.gif" /></a></div>
+
+	<div class="ads">
+		<!-- Begin Adify tag for "WideSkyscraper" Ad Space (160x600) ID #8834807 -->
+		<script type="text/javascript">
+			sr_adspace_id = 8834807;
+			sr_adspace_width = 160;
+			sr_adspace_height = 600;
+			sr_ad_new_window = true;
+			sr_adspace_type = "graphic";
+		</script>
+		<script type="text/javascript" src="http://ad.afy11.net/srad.js?azId=8834807">
+		</script>
+		<!-- End Adify tag for "WideSkyscraper" Ad Space (160x600) ID #8834807 -->
+	</div>
+
+
+				<div class="upload-def"><a href="javascript:alert('Oops! It seems you\'re not an active contributor. Increase your activity to get more Editorial powers!');"><img src="/css-img/upload-def.gif" /></a></div>
+				
+	<div id="lb-upload" class="white_content_upload" >
+		<div class="light-main" id="light-main">
+	<div class="top-main">
+		<div class="light-text">Add Images and Videos</div>
+		<div class="light-close"><span>Close</span><a href="javascript:lightboxoff('lb-upload'); window.location.reload();" class="light-x"> X </a></div>
+	</div> <!-- Eof top-main -->
+	<div class="light-left">
+		<div class="light-rec">
+			<span class="light-h">Recommended Tags or Keywords</span>
+			
+			<form method="post" action="">
+				<input class="rec-tags" type="text" name="rec-tags" value="Gmail, Google Apps, Blogger, Google Reader"/>
+			</form>
+		</div>
+		<div class="light-srch">
+			<span class="light-h">Search by Tags or Keywords</span>
+			<form id="form_tag" method="post" action="">
+				<input id="sel-tags" class="sel-tags" type="text" name="sent_tags" onfocus="on_focus('sel-tags')" value="Enter Tags to be searched" onblur="on_blur('sel-tags','Enter Tags to be searched')"/>
+				<input  class="sel-but" type="button" onclick="get_upload_tags('light-right','form_tag','2',217945)" value="Search" />
+			</form>
+		</div>
+		<div class="light-sel">
+			<span class="light-h">Selected Media <span style="font-size:10px;color:#666">( You can Upload only Six media )</span></span>
+			<div id="sel">
+			</div>
+		</div>
+		<div class="clear"></div>
+		<span id="add-st" ><div class="add-st"><a href="javascript:add_to_story(217945)">Add to Story</a></div></span>
+	</div><!-- Eof light-left -->
+	<div class="light-right" id="light-right">
+		<div class="img-ico">
+			<form name="f1">
+				<div class="single-ico"><input type="radio" name="r1" value="flickr" checked onclick="selectRadio(2, 'Gmail, Google Apps, Blogger, Google Reader')"><img src="/css-img/flickr.gif" /></div>
+				<div class="single-ico"><input type="radio" name="r1" value="you-tube" onclick="selectRadio(1, 'Gmail, Google Apps, Blogger, Google Reader')"><img src="/css-img/you.gif" /></div>
+				<div class="single-ico"><input type="radio" name="r1" value="instablogs" onclick="selectRadio(3, 'Gmail, Google Apps, Blogger, Google Reader')"><img src="/css-img/insta.gif" /></div>
+				<!-- <div class="single-ico"><input type="radio" name="r1" value="instablogs" onclick="selectRadio(4, 'Gmail, Google Apps, Blogger, Google Reader','217945')">Manual Upload</div> -->
+			</form>
+		</div>
+		<div class="img-div" id="open">
+		<span class="error-media">Sorry no picture found for this combination of tags. Try to search minimum number of tags at once</span><div class="clear"></div><div class="mail-paging-home"></div>			</div><!-- Eof img-div -->
+	</div><!-- Eof light-right -->
+</div><!-- Eof light-main -->	</div><!-- EOF white_upload -->
+	
+	</div><!-- EOF inner-media-bar -->
+<div class="clear"></div>		
+			<div class="clear"></div>
+							<style type="text/css">
+					#content-main{background:url(/css-img/know.gif) no-repeat bottom right;}
+				</style>
+				<!--INFOLINKS_OFF-->
+			<div id="column_comments">
+				<ul id="navigation">
+					<li><a id="n" class="head-current" href="javascript:show_comments('normal-comments')">Normal</a></li>
+											<li><a id="g" href="javascript:show_comments('global-local-comments')">Global/Local</a></li>
+									</ul>
+				<!--INFOLINKS_OFF-->
+				
+				<div id="normal-comments">
+					<div class="simple">
+	
+</div> <!-- end of simple -->				</div>
+				<div id="global-local-comments" style="display:none">
+					<div class="inner-simple">
+	<div class="inner-local">
+		<h2>Local Opinions (0)</h2>
+			</div>
+
+		<div class="inner-global">
+	<h2>Global Opinions (0)</h2>
+		</div>
+</div>				</div>					
+				<div id="debate-comments" style="display:none">
+									</div>						
+			</div>
+				
+			<div class="clear"></div>	
+			
+			<div id="add-comment">Add your Comment</div>
+								<div class="clear"></div>
+					<div class="login">
+						<form name="LoginSubmitForm" id="loginform" action="http://www.instablogs.com/login.php" method="post" >
+							<div class="d1">Username</div>
+							<div class="d2"><input type="text" id="v_login" name="v_login" class="input1" value="" /></div>
+							<div class="d1">Password</div>
+							<div class="d2"><input type="password" id="v_pass" name="v_pass" class="input1" /></div>
+							
+							<div>
+								<span class="d4"></span>							</div>
+								
+							<div class="d1">
+								<input type="hidden" name="return" value="http://gilliland-nick.instablogs.com/entry/where-are-all-the-google-data-centers/" />
+								<input type="submit" value="LOGIN" name="login" class="login-button" />
+							</div>
+							<div class="clear"></div>
+							<div class="d3">
+								<a target="_blank" href="http://www.instablogs.com/register.php">Register Yourself</a>
+								<a target="_blank" href="http://www.instablogs.com/resend_activation_link.php">Resend Activation Link</a>
+								<a target="_blank" href="http://www.instablogs.com/forgot_password.php">Forgot Password?</a>
+							</div>
+						</form>
+					</div><!-- EOF login -->
+								</div>
+			<div class="clear"></div>
+		</div><!-- EOF content-main1 -->
+	</div><!-- EOF content-main -->
+
+
+	<div id="sidebar">
+
+					<div class="profile">
+				<div class="profile-left" >
+										<a target="_blank" href="http://Gilliland-Nick.instablogs.com"><img class="user-pic" src="http://www.instablogsimages.com/user-img/m_gilliland-nick.jpg" /></a>
+					<div id="tracker">
+					 <a target="_blank" href="http://www.instablogs.com/login.php"><img src="/css-img/button1.gif" alt="Track" /></a>					</div>
+				</div>
+
+				<div class="profile-top">
+					<p class="p7">
+				<img title='Star Member' src='/css-img/star_member.gif'>				</p><!-- <br /> -->
+
+					<p class="p1">
+										<span class='s1'><a target="_blank" href="http://Gilliland-Nick.instablogs.com">Nick</a></span>
+					</p>
+
+					<p class="p2">
+					<span class='s2'>La, </span>					<span class='s3'>United States</span>
+					</p>
+
+					<p class="p3">
+					<img src='/css-img/offline.gif'>					</p><br />
+					
+					<p class="p4">
+					<span class='s4'>
+					<p class="about-me">Rambo goes to destroy Iran Nuclear Warheads this time</p>					</span>					
+					</p>
+				</div><!-- EOF profile-top -->
+
+				<div class="member-info">
+					<p class="p5">
+																			<span class='s7'>Links:129</span>
+											</p>
+				
+					<p class="p6">
+						<span class='s6'>Member Since:Sep, 07</span>
+					</p>
+				</div><!-- end of member-info -->
+
+				<div class="friend-and-msg">
+					<a target="_blank" href="http://www.instablogs.com/login.php">Add as Friend</a>
+						<div><a target="_blank" href="http://www.instablogs.com/login.php">Send Message</a></div>				</div><!-- end of friend-and-msg -->
+
+			</div><!-- end of profile -->
+				<div class="related-stories">	
+			<script type="text/javascript"><!--
+			google_ad_client = "pub-9415440757655812";
+			/* 250x250, created 3/10/08 */
+			google_ad_slot = "3484622258";
+			google_ad_width = 250;
+			google_ad_height = 250;
+			//-->
+			</script>
+			<script type="text/javascript"
+			src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+			</script>
+		</div>
+
+				
+		<div class="clear"></div>
+
+		<div class="local-main">
+			<span class="topof">Top of Instablogs <span style="font:italic 10px/1.1em arial,serif;">(24 Hours)</span></span>
+				<div class="local-main-inner">
+					<form>
+						<div class="topic"><input class="r-vote" checked="checked" type="radio" name="comment_vote" onchange="show_top_tabs('topic-commented')">Most Voted</div>
+						<div class="topic"><input class="r-vote" type="radio" name="comment_vote"  onchange="show_top_tabs('topic-voted')">Most Commented</div>
+					</form>
+					
+					<div id="topic-voted">
+												<ol>
+							<li class="postnam"><a target="_blank" href="http://.instablogs.com/entry//"  class="postnam1">
+								</a><p class='v-c-1'></p>							</li>
+															<li class="postnam2">
+									<a target="_blank" href="http://.instablogs.com/entry//"></a>
+								</li>
+															<li class="postnam2">
+									<a target="_blank" href="http://.instablogs.com/entry//"></a>
+								</li>
+															<li class="postnam2">
+									<a target="_blank" href="http://.instablogs.com/entry//"></a>
+								</li>
+															<li class="postnam2">
+									<a target="_blank" href="http://.instablogs.com/entry//"></a>
+								</li>
+															<li class="postnam2">
+									<a target="_blank" href="http://.instablogs.com/entry//"></a>
+								</li>
+															<li class="postnam2">
+									<a target="_blank" href="http://.instablogs.com/entry//"></a>
+								</li>
+															<li class="postnam2">
+									<a target="_blank" href="http://.instablogs.com/entry//"></a>
+								</li>
+															<li class="postnam2">
+									<a target="_blank" href="http://.instablogs.com/entry//"></a>
+								</li>
+															<li class="postnam2">
+									<a target="_blank" href="http://.instablogs.com/entry//"></a>
+								</li>
+													</ol>
+					</div>
+					
+					<div id="topic-commented" style="display:none;">
+										<ol>
+						<li class="postnam">
+							<a target="_blank" href="http://zameer36.instablogs.com/entry/lahore-blasts-indian-proxy-war-against-pakistan-by-zaheerul-hassan/"  class="postnam1">Lahore Blasts: Indian Proxy War against Pakistan</a>
+							<div class="v-c-image"><img class="v-c-img" src="http://www.instablogsimages.com/images/2010/03/13/cr_11140044_e7t2p_16298.jpg" /></div><p class='v-c-1'>
+On March 13, 2010, two suicidal bombers walked up to Pakistan military vehicles and exploded themselves in densely...</p>						</li>
+													<li class="postnam2">
+								<a target="_blank" href="http://Mandebvhu.instablogs.com/entry/de-beers-stole-our-diamonds-alleges-mugabe/">"De Beers Stole Our Diamonds!" Alleges Mugabe</a>
+							</li>
+													<li class="postnam2">
+								<a target="_blank" href="http://Sameerdwind.instablogs.com/entry/entertaining-battlefield-ipl-2010/">Entertaining Battlefield - IPL 2010</a>
+							</li>
+													<li class="postnam2">
+								<a target="_blank" href="http://shiv1.instablogs.com/entry/kiska-kashmir/">Whose Kashmir?</a>
+							</li>
+													<li class="postnam2">
+								<a target="_blank" href="http://WAZ84.instablogs.com/entry/a-building-collapses-in-amman/">A Building Collapses in Amman</a>
+							</li>
+													<li class="postnam2">
+								<a target="_blank" href="http://MarcoVilla.instablogs.com/entry/islamic-style/">Islamic Style</a>
+							</li>
+													<li class="postnam2">
+								<a target="_blank" href="http://MarcoVilla.instablogs.com/entry/redux-mexican-drug-lords-taking-lessons-from-the-departed-us-border-corruption/">Redux: Mexican Drug Lords Taking Lessons from 'The Departed' & U.S. Border Corruption</a>
+							</li>
+													<li class="postnam2">
+								<a target="_blank" href="http://Jarno-L.instablogs.com/entry/counterfeit-phones-force-nokia-to-revise-market-share-figures/">Counterfeit Phones Force Nokia to Revise Market Share Figures</a>
+							</li>
+													<li class="postnam2">
+								<a target="_blank" href="http://Jarno-L.instablogs.com/entry/crippling-port-strike-in-finland-enters-2nd-week/">Crippling port strike in Finland enters 2nd week</a>
+							</li>
+													<li class="postnam2">
+								<a target="_blank" href="http://Mobilest.instablogs.com/entry/india-not-winding-up-afghanistan-operations/">India not winding up Afghanistan operations</a>
+							</li>
+											</ol>
+				</div>
+			</div><!-- EOF local-main-inner-->
+		</div><!-- EOF local-main-->
+		<div class="chitika-ads">	
+			<script type="text/javascript"><!--
+				ch_client = "instablogs2";
+				ch_type = "mpu";
+				ch_width = 250;
+				ch_height = 250;
+				ch_color_title = "479";
+				ch_color_text = "333";
+				ch_non_contextual = 4;
+				ch_vertical ="premium";
+				ch_font_title = "Arial";
+				ch_font_text = "Arial";
+				ch_sid = "Chitika Premium";
+				var ch_queries = new Array( );
+				var ch_selected=Math.floor((Math.random()*ch_queries.length));
+				if ( ch_selected < ch_queries.length ) {
+				ch_query = ch_queries[ch_selected];
+				}
+				//--></script>
+				<script  src="http://scripts.chitika.net/eminimalls/amm.js" type="text/javascript">
+				</script>
+
+		</div>
+	</div><!-- EOF sidebar -->
+	
+	<div class="clear"></div>
+	<div id="fade" class="black_overlay"></div>
+<img src="/permalink_pageviews_img.php?var=217945|9191|2008-04-12|2|Newsroom|0|1|2664|200|gilliland-nick.instablogs.com||||84.77.14.133|%2Fentry%2Fwhere-are-all-the-google-data-centers%2F|%2Fentry%2Fwhere-are-all-the-google-data-centers%2F">
+	<!-- Start of StatCounter Code -->
+<script type="text/javascript">
+var sc_project=4183753; 
+var sc_invisible=1; 
+var sc_partition=48; 
+var sc_click_stat=1; 
+var sc_security="3dc59c0a"; 
+</script>
+
+<script type="text/javascript" src="http://www.statcounter.com/counter/counter.js"></script><noscript><div class="statcounter"><a title="web counter" href="http://www.statcounter.com/" target="_blank"><img class="statcounter" src="http://c.statcounter.com/4183753/0/3dc59c0a/1/" alt="web counter" ></a></div></noscript>
+<!-- End of StatCounter Code -->
+
+		<div class="clear"> </div>
+	
+	<div class="help-faq">
+		<div class="faq"><a target="_blank" href="http://www.instablogs.com/tour/">FAQ / Help</a></div>
+		<div class="move"><a style="cursor:pointer" onclick="window.scrollTo(0,0)" title="Move to top" >Move to top</a></div>
+	</div>
+
+	<div style="text-align:center" class="glam-logo">
+		<script type="text/javascript" language="JavaScript">
+		brash_affiliate_id = '318102505';
+		brash_logo_type = 'BPN';
+		brash_logo_size = '160x24';
+		brash_logo_color = 'wht';
+		</script>
+		<script src="http://www8.glam.com/js/widgets/brash_logo.js"></script>
+	</div>
+
+
+
+	</div><!-- EOF container -->
+	</div><!-- EOF container-bg -->
+	<div id="footer">
+		<div class="single-div">
+			<h4><a target="_blank" href="http://www.instablogs.com" class="footer-heading">Reading Room</a></h4>
+			<ul>
+				<li><a target="_blank" href="http://www.instablogs.com" class="footer-links">Home</a></li>
+			</ul>
+		</div>
+
+		<div class="single-div">
+			<h4><a target="_blank" href="http://www.instablogs.com" class="footer-heading">Quick Links</a></h4>
+			<ul>
+				<li><a target="_blank" href="http://www.instablogs.com/upcoming/" class="footer-heading">Upcoming</a></li>
+				<li><a target="_blank" href="http://www.instablogs.com/write_article.php" class="footer-links">Submit Story</a></li>
+				<li><a target="_blank" href="http://www.instablogs.com/submit.php" class="footer-links">Submit NewsLink</a></li>
+				<li><a target="_blank" href="http://www.instablogs.com/ad_solutions.php" class="footer-links">Advertise With Us</a></li>
+				<li><a target="_blank" href="http://www.instablogs.com/marketplacetermsofuse.php" class="footer-links">Marketplace Terms of Use</a></li>
+				<li><a target="_blank" href="http://www.instablogs.com/commentpolicy.php" class="footer-links">Comment Policy</a></li>
+			</ul>
+		</div>
+	 
+		<div class="single-div">
+			<h4><a target="_blank" href="http://www.instablogs.com" class="footer-heading">Community</a></h4>
+			<ul>
+				<li><a target="_blank" href="http://www.instablogs.com/live/" class="footer-links">Instablogs Live</a></li>
+			</ul>
+		</div>
+
+						<div class="single-div">
+					<h4><span class="footer-heading">MyBlog</span></h4>
+					<ul>
+						<li><span class="footer-heading">Friends</span></li>
+						<li><span class="footer-heading">Account</span></li>
+						<li><span class="footer-heading">Tracker</span></li>
+						<li><span class="footer-heading">Inbox</span></li>
+					</ul>
+				</div>
+						
+		<div class="single-div">
+			<h4><span class="footer-heading">Explore</span></h4>
+			<ul>
+				<li><a target="_blank" href="http://www.instablogs.com/tour/" class="footer-links">Take a Tour</a><br />
+				<li><a target="_blank" href="http://www.instablogs.com/tour/" class="footer-links">FAQs</a></li>			
+				<li><a target="_blank" href="http://www.instablogs.com/feed/" class="footer-links">Feeds</a>
+				<li><a target="_blank" href="http://press.instablogs.com/" class="footer-links">Press</a></li>
+				<li><a target="_blank" href="http://www.instablogs.com/contact-us.php" class="footer-links">Contact Us</a></li>
+				<br /><a target="_blank" href="http://www.instablogs.com/feed/"><img src="/site-img/rss.gif" border="0"></a></li>
+			</ul>
+		</div>
+
+		<div class="copyright"><b>&copy; Copyright 2009 Instablogs. All Rights Reserved. <a target="_blank" href="http://www.instablogs.com/privacypolicy.php">Privacy Policy</a> and <a target="_blank" href="http://www.instablogs.com/termsofuse.php">Terms of Use</a>.</b><b> Powered by <a href="http://www.instapress.org/" title="InstaPress 2.1, Instablogs">InstaPress</b></a></div>		
+	<div class="clear"> </div>
+	</div><!-- EOF footer -->
+</div><!-- EOF main-container -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-601944-2");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+
+<!-- Instablogs Network Google Analytics -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-601944-10");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+<!-- End of Instablogs Network Google Analytics -->
+
+<!-- Start of StatCounter Code Community-->
+<script type="text/javascript" language="javascript">
+var sc_project=2040913; 
+var sc_invisible=1;
+var sc_partition=18; 
+var sc_security="961d0943"; 
+var sc_remove_link=1; 
+</script>
+
+<script type="text/javascript" language="javascript" src="http://www.statcounter.com/counter/counter.js"></script><noscript><img  src="http://c19.statcounter.com/counter.php?sc_project=2040913&java=0&security=961d0943&invisible=0" alt="website metrics" border="0"></noscript>
+<!-- End of StatCounter Code -->
+
+<!-- Start of StatCounter Code Network 0-->
+
+<script type="text/javascript" language="javascript">
+var sc_project=2497465; 
+var sc_invisible=1; 
+var sc_partition=23; 
+var sc_security="77633a20";
+var sc_remove_link=1; 
+</script>
+
+<script type="text/javascript" language="javascript" src="http://www.statcounter.com/counter/counter.js"></script><noscript><img  src="http://c24.statcounter.com/counter.php?sc_project=2497465&java=0&security=77633a20&invisible=0" alt="blog counter" border="0"> </noscript>
+<!-- End of StatCounter Code -->
+
+</body>
+</html>
+
+

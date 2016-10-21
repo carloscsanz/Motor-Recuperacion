@@ -1,0 +1,1138 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head1"><title>
+	IGotMessage - C# Stock Quote
+</title><link href="styles.css" type="text/css" rel="stylesheet" /><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta content="Get stock quote and chart from Yahoo in C#." name="description" /><meta content="stock quote, C#, Yahoo, chart" name="keywords" /><meta content="all" name="robots" /><meta content="IGotMessage.com" name="copyright" /><meta content="IGotMessage.com" name="author" /></head>
+<body style="margin:0px;" bgcolor="#678FC2">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td align="center">
+            <table width="940" border="0" cellspacing="0" cellpadding="0">
+                <tr valign="top">
+                    <td align="center"><img src="images/main_top.jpg"></td>
+                </tr>
+                <tr valign="top">
+                    <td background="images/main_body.jpg" align="center">
+                        <table width="900" border="0" cellspacing="0" cellpadding="0">
+                            <tr valign="top">
+                                <td align="left" colspan="3" nowrap>
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tr valign="top">
+                                            <td align="left"><a href="Default.aspx"><img src="images/logo.jpg" border=0 alt= "I Got Message" /></a></td>
+                                            <td align="right">
+                                                 <script type="text/javascript"><!--
+                                                     google_ad_client = "pub-3065708621838473";
+                                                     /* 468x60, created 12/27/08 */
+                                                     google_ad_slot = "6727306787";
+                                                     google_ad_width = 468;
+                                                     google_ad_height = 60;
+                                                //-->
+                                                </script>
+                                                <script type="text/javascript"
+                                                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                                                </script>                                             
+                                            </td>                                
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>              
+                            <tr valign="top">
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr valign="top">
+                                <td align="left" width="120">
+                                    <table width="100%" border="0" cellspacing="2" cellpadding="2">
+                                        <tr>
+                                            <td class="barText" nowrap>Microsoft Tech</td>
+                                        </tr>
+                                        <tr>
+                                            <td nowrap><a class="linkText" href="Articles.aspx?s=codeproject">CodeProject</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td nowrap><a class="linkText" href="Articles.aspx?s=codeplex">CodePlex</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td nowrap><a class="linkText" href="Articles.aspx?s=csharpcorner">C-Sharpcorner</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td nowrap><a class="linkText" href="Articles.aspx?s=vbdotnetheaven">VB.NET Heaven</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td nowrap><a class="linkText" href="Articles.aspx?s=dotnetheaven">.NET Heaven</a></td>
+                                        </tr>                   
+                                        <tr>
+                                            <td nowrap><a class="linkText" href="Articles.aspx?s=eggheadcafe">EggHeadCafe</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="barText" nowrap>Misc</td>
+                                        </tr>
+                                        <tr>
+                                            <td nowrap><a class="linkText" href="Articles.aspx?s=sourceforge">SourceForge</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td nowrap><a class="linkText" href="Articles.aspx?s=ddj">Dr. Dobb's</a></td>
+                                        </tr>                                        
+                                        <tr>
+                                            <td nowrap><a class="linkText" href="Articles.aspx?s=ajaxian">Ajaxian</a></td>
+                                        </tr>                                        
+                                        <tr>
+                                            <td class="barText" nowrap>Articles</td>
+                                        </tr>
+                                        <tr>
+                                            <td nowrap><a class="linkText" href="IGotMessage.aspx">IGotMessage</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td nowarp><a class="linkText" href="StockQuote.aspx"><b>C# Stock Quote</b></a></td>
+                                        </tr>                                           
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>                                       
+                                            <td>
+                                                <script type="text/javascript"><!--
+                                                    google_ad_client = "pub-3065708621838473";
+                                                    /* 120x600, created 8/2/09 */
+                                                    google_ad_slot = "6017308809";
+                                                    google_ad_width = 120;
+                                                    google_ad_height = 600;
+                                                //-->
+                                                </script>
+                                                <script type="text/javascript"
+                                                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                                                </script>                                            
+                                            </td>
+                                        </tr>                                        
+                                    </table>
+                                </td>
+                                <td width="10">&nbsp;</td>
+                                <td align="left" width="770">
+                                    <div id="header">
+                                        <ul>
+                                            <li><a href="Default.aspx">Home</a></li>                                                                                                                                    
+                                            <li id="selected"><a href="Articles.aspx">Software Dev.</a></li>
+                                            <li><a href="News.aspx">News</a></li>
+                                            <li><a href="Finance.aspx">Finance</a></li>
+                                            
+                                            <li><a href="Games.aspx">Games</a></li>
+                                            <li><a href="Ebooks.aspx">Ebooks</a></li>
+                                        </ul>
+                                    </div>  
+                                    <div id="content" class="normalText">
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                            <tr valign="top">                                            
+                                                <td nowrap>
+                                                    <table id="dlCategory" cellspacing="0" cellpadding="0" border="0">
+	<tr>
+		<td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+	</tr>
+</table>
+                                                </td>
+                                            </tr>    
+                                        </table>    
+                                    </div>           
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="2">
+                                        <tr valign="top">
+                                            <td align="right">                                                    
+                                                <form action="Search.aspx" id="cse-search-box">
+                                                  <div class="normalText">
+                                                    <input type="hidden" name="cx" value="partner-pub-3065708621838473:aj81n3nfxq4" />
+                                                    <input type="hidden" name="cof" value="FORID:10" />
+                                                    <input type="hidden" name="ie" value="UTF-8" />
+                                                    Web search: <input type="text" name="q" size="31" />
+                                                    <input type="submit" name="sa" value="Search" />
+                                                  </div>
+                                                </form>
+                                                <script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en"></script>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table width="100%" border="0" cellspacing="2" cellpadding="2">
+                                        <tr valign="top">                                            
+                                            <td class="titleText">
+                                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                    <tr>
+                                                        <td>Introduction</td>
+                                                        <td align=right class=smallText>6/22/2009</td>
+                                                    </tr>
+                                                </table>    
+                                            </td>                                                                                        
+                                        </tr>          
+                                        <tr class="normalText">
+                                            <td>
+                                                U.S. stock market went down today and I lost a lot of money, but hopefully everyone here has made money from the stock market. Anyway, in this article, I will introduce you how to access stock quotes with a 20 minute delay from the Yahoo finance service. You can download the <a class="linkText" href="downloads/StockQuote.zip">source code</a> and modify it according to your needs. Click below to see the live demo:
+                                            </td>
+                                        </tr>
+                                        <tr class="normalText">
+                                            <td>
+                                                <a class="linkText" target=_blank href="http://www.igotmessage.com/Finance.aspx">http://www.igotmessage.com/Finance.aspx</a>
+                                            </tr>
+                                        </tr>                                        
+                                        <tr>
+                                            <td class="titleText">
+                                                License
+                                            </td>
+                                        </tr>                                        
+                                        <tr class="normalText">
+                                            <td>                                        
+                                                This article, along with any associated source code and files, is licensed under the LGPL.
+                                            </td>
+                                        </tr>    
+                                        <tr>
+                                            <td class="titleText">
+                                                Background 
+                                            </td>
+                                        </tr>        
+                                        <tr class="normalText">
+                                            <td>
+                                                It is easy to download stock data from Yahoo. For example, copy and paste URL below into your browser address:
+                                            </tr>
+                                        </tr>           
+                                        <tr class="normalText">
+                                            <td style="color:Blue;">
+                                                http://download.finance.yahoo.com/d/quotes.csv?s=YHOO+GOOG+MSFT&f=sl1d1t1c1hgvbap2
+                                            </tr>
+                                        </tr>    
+                                        <tr class="normalText">
+                                            <td>
+                                                <br />Depends on you Internet browser setting, you maybe asked to save the results into a filename call "quotes.csv" or the follow page will appear in your browser.
+                                            </td>
+                                        </tr>
+                                        <tr class="normalText">
+                                            <td style="background-color:#eeeeee">
+                                                "YHOO",14.8188,"6/22/2009","1:20pm",-0.9812,15.61,14.80,13944065,14.81,14.82,"-6.21%"<br />
+                                                "GOOG",402.25,"6/22/2009","1:20pm",-17.84,417.49,402.11,2399141,402.14,402.27,"-4.25%"<br />
+                                                "MSFT",23.359,"6/22/2009","1:20pm",-0.711,23.95,23.32,36595084,23.35,23.36,"-2.95%"<br />
+                                            </td>
+                                        </tr>          
+                                        <tr class="normalText">
+                                            <td>
+                                                <br />The URL starts with a base URL and then adds parameters and values after a question mark (?).                                                                               
+                                            </td>
+                                        </tr>                                                    
+                                        <tr>
+                                            <td class="normalText">
+                                                <br /><span style="font-weight: bold;">http://quote.yahoo.com/d/quotes.csv?</span> - The default URL to get the information<br />
+                                                <span style="font-weight: bold;">'s='</span> - Append a bunch of stock symbols separated by "+" after this<br />
+                                                <span style="font-weight: bold;">&</span> - to join the string<br />
+                                                <span style="font-weight: bold;">'f='</span> - Append a bunch of special tags after this with no spaces in between<br />
+                                            </td>
+                                        </tr>    
+                                        <tr>
+                                            <td class="normalText">                                        
+                                                <br />The following are special tags provided by Yahoo finance:
+                                            </td>
+                                        </tr>        
+                                        <tr>
+                                            <td class="normalText">                                          
+<table width="100%" border="1" cellspacing="2" cellpadding="2">
+<tr>
+<td><span style="font-weight: bold;">a</span></td>
+<td>Ask</td>
+<td><span style="font-weight: bold;">a2</span></td>
+<td>Average Daily Volume</td>
+<td>
+<span style="font-weight: bold;">a5</span></td>
+<td>Ask Size</td>
+</tr>
+<tr>
+<td>
+<span style="font-weight: bold;">b</span></td>
+<td>Bid</td>
+<td>
+<span style="font-weight: bold;">b2</span></td>
+<td>Ask (Real-time)</td>
+<td><span style="font-weight: bold;">b3</span></td>
+<td>Bid (Real-time)</td>
+</tr>
+<tr>
+<td>
+<span style="font-weight: bold;">b4</span></td>
+<td>Book Value</td>
+<td>
+<span style="font-weight: bold;">b6</span></td>
+<td>Bid Size</td>
+<td>
+<span style="font-weight: bold;">c</span></td>
+<td>Change &amp; Percent Change</td>
+</tr>
+<tr>
+<td><span style="font-weight: bold;">c1</span></td>
+<td>Change</td>
+<td>
+<span style="font-weight: bold;">c3</span></td>
+<td>Commission</td>
+<td>
+<span style="font-weight: bold;">c6</span></td>
+<td>Change (Real-time)</td>
+</tr>
+<tr>
+<td>
+<span style="font-weight: bold;">c8</span></td>
+<td>After Hours Change (Real-time)</td>
+<td><span style="font-weight: bold;">d</span></td>
+<td>Dividend/Share</td>
+<td>
+<span style="font-weight: bold;">d1</span></td>
+<td>Last Trade Date</td>
+</tr>
+<tr>
+<td>
+<span style="font-weight: bold;">d2</span></td>
+<td>Trade Date</td>
+<td>
+<span style="font-weight: bold;">e</span></td>
+<td>Earnings/Share</td>
+<td><span style="font-weight: bold;">e1</span></td>
+<td>Error Indication (returned for symbol changed / invalid)</td>
+</tr>
+<tr>
+<td>
+<span style="font-weight: bold;">e7</span></td>
+<td>EPS Estimate Current Year</td>
+<td>
+<span style="font-weight: bold;">e8</span></td>
+<td>EPS Estimate Next Year</td>
+<td>
+<span style="font-weight: bold;">e9</span></td>
+<td>EPS Estimate Next Quarter</td>
+</tr>
+<tr>
+<td><span style="font-weight: bold;">f6</span></td>
+<td>Float Shares</td>
+<td>
+<span style="font-weight: bold;">g</span></td>
+<td>Day&#8217;s Low</td>
+<td>
+<span style="font-weight: bold;">h</span></td>
+<td>Day&#8217;s High</td>
+</tr>
+<tr>
+<td>
+<span style="font-weight: bold;">j</span></td>
+<td>52-week Low</td>
+<td><span style="font-weight: bold;">k</span></td>
+<td>52-week High</td>
+<td>
+<span style="font-weight: bold;">g1</span></td>
+<td>Holdings Gain Percent</td>
+</tr>
+<tr>
+<td>
+<span style="font-weight: bold;">g3</span></td>
+<td>Annualized Gain</td>
+<td>
+<span style="font-weight: bold;">g4</span></td>
+<td>Holdings Gain</td>
+<td><span style="font-weight: bold;">g5</span></td>
+<td>Holdings Gain Percent (Real-time)</td>
+</tr>
+<tr>
+<td>
+<span style="font-weight: bold;">g6</span></td>
+<td>Holdings Gain (Real-time)</td>
+<td>
+<span style="font-weight: bold;">i</span></td>
+<td>More Info</td>
+<td>
+<span style="font-weight: bold;">i5</span></td>
+<td>Order Book (Real-time)</td>
+</tr>
+<tr>
+<td><span style="font-weight: bold;">j1</span></td>
+<td>Market Capitalization</td>
+<td>
+<span style="font-weight: bold;">j3</span></td>
+<td>Market Cap (Real-time)</td>
+<td>
+<span style="font-weight: bold;">j4</span></td>
+<td>EBITDA</td>
+</tr>
+<tr>
+<td>
+<span style="font-weight: bold;">j5</span></td>
+<td>Change From 52-week Low</td>
+<td><span style="font-weight: bold;">j6</span></td>
+<td>Percent Change From 52-week Low</td>
+<td>
+<span style="font-weight: bold;">k1</span></td>
+<td>Last Trade (Real-time) With Time</td>
+</tr>
+<tr>
+<td>
+<span style="font-weight: bold;">k2</span></td>
+<td>Change Percent (Real-time)</td>
+<td>
+<span style="font-weight: bold;">k3</span></td>
+<td>Last Trade Size</td>
+<td><span style="font-weight: bold;">k4</span></td>
+<td>Change From 52-week High</td>
+</tr>
+<tr>
+<td>
+<span style="font-weight: bold;">k5</span></td>
+<td>Percebt Change From 52-week High</td>
+<td>
+<span style="font-weight: bold;">l</span></td>
+<td>Last Trade (With Time)</td>
+<td>
+<span style="font-weight: bold;">l1</span></td>
+<td>Last Trade (Price Only)</td>
+</tr>
+<tr>
+<td><span style="font-weight: bold;">l2</span></td>
+<td>High Limit</td>
+<td>
+<span style="font-weight: bold;">l3</span></td>
+<td>Low Limit</td>
+<td>
+<span style="font-weight: bold;">m</span></td>
+<td>Day&#8217;s Range</td>
+</tr>
+<tr>
+<td>
+<span style="font-weight: bold;">m2</span></td>
+<td>Day&#8217;s Range (Real-time)</td>
+<td><span style="font-weight: bold;">m3</span></td>
+<td>50-day Moving Average</td>
+<td>
+<span style="font-weight: bold;">m4</span></td>
+<td>200-day Moving Average</td>
+</tr>
+<tr>
+<td>
+<span style="font-weight: bold;">m5</span></td>
+<td>Change From 200-day Moving Average</td>
+<td>
+<span style="font-weight: bold;">m6</span></td>
+<td>Percent Change From 200-day Moving Average</td>
+<td><span style="font-weight: bold;">m7</span></td>
+<td>Change From 50-day Moving Average</td>
+</tr>
+<tr>
+<td>
+<span style="font-weight: bold;">m8</span></td>
+<td>Percent Change From 50-day Moving Average</td>
+<td>
+<span style="font-weight: bold;">n</span></td>
+<td>Name</td>
+<td>
+<span style="font-weight: bold;">n4</span></td>
+<td>Notes</td>
+</tr>
+<tr>
+<td><span style="font-weight: bold;">o</span></td>
+<td>Open</td>
+<td>
+<span style="font-weight: bold;">p</span></td>
+<td>Previous Close</td>
+<td>
+<span style="font-weight: bold;">p1</span></td>
+<td>Price Paid</td>
+</tr>
+<tr>
+<td>
+<span style="font-weight: bold;">p2</span></td>
+<td>Change in Percent</td>
+<td><span style="font-weight: bold;">p5</span></td>
+<td>Price/Sales</td>
+<td>
+<span style="font-weight: bold;">p6</span></td>
+<td>Price/Book</td>
+</tr>
+<tr>
+<td>
+<span style="font-weight: bold;">q</span></td>
+<td>Ex-Dividend Date</td>
+<td>
+<span style="font-weight: bold;">r</span></td>
+<td>P/E Ratio</td>
+<td><span style="font-weight: bold;">r1</span></td>
+<td>Dividend Pay Date</td>
+</tr>
+<tr>
+<td>
+<span style="font-weight: bold;">r2</span></td>
+<td>P/E Ratio (Real-time)</td>
+<td>
+<span style="font-weight: bold;">r5</span></td>
+<td>PEG Ratio</td>
+<td>
+<span style="font-weight: bold;">r6</span></td>
+<td>Price/EPS Estimate Current Year</td>
+</tr>
+<tr>
+<td><span style="font-weight: bold;">r7</span></td>
+<td>Price/EPS Estimate Next Year</td>
+<td>
+<span style="font-weight: bold;">s</span></td>
+<td>Symbol</td>
+<td>
+<span style="font-weight: bold;">s1</span></td>
+<td>Shares Owned</td>
+</tr>
+<tr>
+<td>
+<span style="font-weight: bold;">s7</span></td>
+<td>Short Ratio</td>
+<td><span style="font-weight: bold;">t1</span></td>
+<td>Last Trade Time</td>
+<td>
+<span style="font-weight: bold;">t6</span></td>
+<td>Trade Links</td>
+</tr>
+<tr>
+<td>
+<span style="font-weight: bold;">t7</span></td>
+<td>Ticker Trend</td>
+<td>
+<span style="font-weight: bold;">t8</span></td>
+<td>1 yr Target Price</td>
+<td><span style="font-weight: bold;">v</span></td>
+<td>Volume/td>
+</tr>
+<tr>
+<td>
+<span style="font-weight: bold;">v1</span></td>
+<td>Holdings Value</td>
+<td>
+<span style="font-weight: bold;">v7</span></td>
+<td>Holdings Value (Real-time)/td>
+<td>
+<span style="font-weight: bold;">w</span></td>
+<td>52-week Range</td>
+</tr>
+<tr>
+<td><span style="font-weight: bold;">w1</span></td>
+<td>Day&#8217;s Value Change</td>
+<td>
+<span style="font-weight: bold;">w4</span></td>
+<td>Day&#8217;s Value Change (Real-time)</td>
+<td>
+<span style="font-weight: bold;">x</span></td>
+<td>Stock Exchange</td>
+</tr>
+<tr>
+<td>
+<span style="font-weight: bold;">y</span></td>
+<td>Dividend Yield</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="normalText">
+                                                Let's say that you want to have the following quotes:  YHOO, GOOG, GE, MSFT. You want to get the Name, Last Price, Last Traded Volume, 52-Week High. From the table above, you can find out that the special tags needed are as follow:
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="normalText">
+                                                <br />Name - <span style="font-weight: bold;">n</span><br />
+                                                Last Price- <span style="font-weight: bold;">l1</span><br />
+                                                Last Traded Volume - <span style="font-weight: bold;">v</span><br />
+                                                52-Week High - <span style="font-weight: bold;">k</span><br />
+                                                52-Week Low - <span style="font-weight: bold;">j</span><br />
+                                            </td>
+                                        </tr>     
+                                        <tr>
+                                            <td class="normalText">                                           
+                                                All you need to do is to construct the URL with the given special tags above. The URL will looks like this: 
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="normalText">                                                                                                  
+                                                <br /><span style="color:Blue;">http://quote.yahoo.com/d/quotes.csv?s=YHOO+GOOG+GE+MSFT&f=nl1vkj</span>
+                                            </td>
+                                        </tr>    
+                                        <tr>
+                                            <td class="titleText">
+                                                Chart 
+                                            </td>
+                                        </tr>    
+                                        <tr>
+                                            <td class="normalText">                                                                                                  
+                                                It's also easy to get stock charts from Yahoo finance. All you need to do is to make a request for the image with the identical URL that is in the Yahoo finance page. For example, this is the last three months of Mosftsoft stock:                                                
+                                            </td>                                    
+                                        </tr>
+                                        <tr>
+                                            <td class="linkText">                                                                                                                                          
+                                                <br /><a href="http://chart.finance.yahoo.com/c/3m/d/msft" target=_blank class=linkText>http://chart.finance.yahoo.com/c/3m/d/msft</a>
+                                            </td>
+                                        </te>                                                    
+                                        <tr>
+                                            <td class="normalText">                                                                                                  
+                                                <br />The URL also starts with a base URL and then adds a stock symbo after that.
+                                            </td>
+                                        </tr>                                            
+                                        <tr>
+                                            <td class="normalText">
+                                                <br />Small chart:
+                                            </td>    
+                                        </tr>    
+                                        <tr>
+                                            <td class="normalText">
+                                                1 day:&nbsp;<a class="linkText" target=_blank href="http://ichart.yahoo.com/t?s=MSFT">http://ichart.yahoo.com/t?s=MSFT</a><br />                                                
+                                                5 days:&nbsp;<a class="linkText" target=_blank href="http://ichart.yahoo.com/v?s=MSFT">http://ichart.yahoo.com/v?s=MSFT</a><br />
+                                                1 year:&nbsp;<a class="linkText" target=_blank href="http://ichart.finance.yahoo.com/c/bb/m/msft">http://ichart.finance.yahoo.com/c/bb/m/msft</a>
+                                            </td>
+                                        </tr>                                                                                                            
+                                        <tr>
+                                            <td class="normalText">
+                                                <br />Big chart:
+                                            </td>    
+                                        </tr>    
+                                        <tr>
+                                            <td class="normalText">                                                
+                                                1 day:&nbsp;<a class="linkText" target=_blank href="http://ichart.finance.yahoo.com/b?s=MSFT">http://ichart.finance.yahoo.com/b?s=MSFT</a><br />
+                                                5 days:&nbsp;<a class="linkText" target=_blank href="http://ichart.finance.yahoo.com/w?s=MSFT">http://ichart.finance.yahoo.com/w?s=MSFT</a><br />
+                                                3 months:&nbsp;<a class="linkText" target=_blank href="http://chart.finance.yahoo.com/c/3m/msft">http://chart.finance.yahoo.com/c/3m/msft</a><br />
+                                                6 months:&nbsp;<a class="linkText" target=_blank href="http://chart.finance.yahoo.com/c/6m/msft">http://chart.finance.yahoo.com/c/6m/msft</a><br />
+                                                1 year:&nbsp;<a class="linkText" target=_blank href="http://chart.finance.yahoo.com/c/1y/msft">http://chart.finance.yahoo.com/c/1y/msft</a><br />
+                                                2 years:&nbsp;<a class="linkText" target=_blank href="http://chart.finance.yahoo.com/c/2y/msft">http://chart.finance.yahoo.com/c/2y/msft</a><br />
+                                                5 years:&nbsp;<a class="linkText" target=_blank href="http://chart.finance.yahoo.com/c/5y/msft">http://chart.finance.yahoo.com/c/5y/msft</a><br />
+                                                max:&nbsp;<a class="linkText" target=_blank href="http://chart.finance.yahoo.com/c/my/msft">http://chart.finance.yahoo.com/c/my/msft</a><br />
+                                            <td>
+                                        </tr>
+                                        <tr>
+                                            <td class="titleText">
+                                                <br />Implementation 
+                                            </td>
+                                        </tr>                                          
+                                        <tr>
+                                            <td class="normalText">                                                                                                  
+                                                First, create a new ASP.NET Web Application by using Microsoft Visual C# .NET.
+                                                <ol>
+                                                    <li>Open Visual Studio .NET.</li>
+                                                    <li>On the <b>File menu</b>, point to <b>New</b>, and then click <b>Project</b>.</b>
+                                                    <li>In the <b>New Project</b> dialog box, under <b>Project Types</b>, click <b>Visual C# Projects</b>. Under <b>Templates</b>, click <b>ASP.NET Web Application.</b></li>
+                                                    <li>In the <b>Name</b> text box, type <b>sample</b>.</li>
+                                                    <li>Click <b>OK</b>.</li>
+                                                </ol> 
+                                                <br />Second, open the Default.aspx page and add the following code:
+                                                <pre class="programText">
+<span class="programGrayText">&lt;%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="sample._Default" %&gt;
+
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+
+&lt;html xmlns="http://www.w3.org/1999/xhtml" &gt;
+&lt;head runat="server"&gt;</span></pre><pre class="programText" style="background-color:#eeeeee;">&lt;title&gt;Stock quote and chart from Yahoo in C#&lt;/title&gt;
+&lt;script type="text/javascript" language="JavaScript"&gt;
+    <span class="programGreenText">/// &lt;summary&gt;</span>
+    <span class="programGreenText">/// This function will be called when user clicks the Get Quotes button.</span>
+    <span class="programGreenText">/// &lt;/summary&gt;</span>
+    <span class="programGreenText">/// &lt;returns&gt;Always return false.&lt;/returns&gt;</span>
+    function SendRequest()
+    {
+        var txtSymbol = document.getElementById("txtSymbol");
+        <span class="programGreenText">// Refresh the page.</span>
+        window.location = "default.aspx?s=" + txtSymbol.value;
+        return false;
+    }
+
+    <span class="programGreenText">/// &lt;summary&gt;</span>
+    <span class="programGreenText">/// The functyion will be called when a keyboard key is pressed in the textbox.</span>
+    <span class="programGreenText">/// &lt;/summary&gt;</span>
+    <span class="programGreenText">/// &lt;param name="e"&gt;Onkeypress event.&lt;/param&gt;</span>
+    <span class="programGreenText">/// &lt;returns&gt;Return true if user presses Enter key; otherwise false.&lt;/returns&gt;</span>
+    function CheckEnter(e)
+    {
+        if ((e.keyCode && e.keyCode == 13) || (e.which && e.which == 13))
+            <span class="programGreenText">// Enter is pressed in the textbox.</span>
+            return SendRequest();
+        return true;
+    }
+
+    <span class="programGreenText">/// &lt;summary&gt;</span>
+    <span class="programGreenText">/// The function will be called when user changes the chart type to another type.</span>
+    <span class="programGreenText">/// &lt;/summary&gt;</span>
+    <span class="programGreenText">/// &lt;param name="type">Chart type.&lt;/param&gt;</span>
+    <span class="programGreenText">/// &lt;param name="num">Stock number.&lt;/param&gt;</span>
+    <span class="programGreenText">/// &lt;param name="symbol">Stock symobl.&lt;/param&gt;</span>     
+    function changeChart(type, num, symbol)
+    {
+        <span class="programGreenText">// All the DIVs are inside the main DIV and defined in the code-behind class.</span>
+        var div1d=document.getElementById("div1d_"+num);
+        var div5d = document.getElementById("div5d_" + num);
+        var div3m = document.getElementById("div3m_" + num);
+        var div6m = document.getElementById("div6m_" + num);
+        var div1y = document.getElementById("div1y_" + num);
+        var div2y = document.getElementById("div2y_" + num);
+        var div5y = document.getElementById("div5y_" + num);
+        var divMax = document.getElementById("divMax_" + num);
+        var divChart = document.getElementById("imgChart_" + num);
+        <span class="programGreenText">// Set innerHTML property.</span>
+        div1d.innerHTML = "1d";
+        div5d.innerHTML="5d";
+        div3m.innerHTML="3m";
+        div6m.innerHTML="6m";
+        div1y.innerHTML="1y";
+        div2y.innerHTML="2y";
+        div5y.innerHTML="5y";
+        divMax.innerHTML="Max";
+        <span class="programGreenText">// Use a random number to defeat cache.</span>
+        var rand_no = Math.random();
+        rand_no = rand_no * 100000000;
+        <span class="programGreenText">//  Display the stock chart.</span>
+        switch(type)
+        {
+        case 1: <span class="programGreenText">// 5 days</span>
+            div5d.innerHTML="&lt;b&gt;5d&lt;/b&gt;";
+            divChart.src = "http://ichart.finance.yahoo.com/w?s=" + symbol + "&" + rand_no;
+            break;
+        case 2: <span class="programGreenText">// 3 months</span>
+            div3m.innerHTML="&lt;b&gt;3m&lt;/b&gt;";
+            divChart.src = "http://chart.finance.yahoo.com/c/3m/" + symbol + "?" + rand_no;
+            break;
+        case 3: <span class="programGreenText">// 6 months</span> 
+            div6m.innerHTML = "&lt;b&gt;6m&lt;/b&gt;";
+            divChart.src = "http://chart.finance.yahoo.com/c/6m/" + symbol + "?" + rand_no;
+            break;
+        case 4: <span class="programGreenText">// 1 year</span>
+            div1y.innerHTML = "&lt;b&gt;1y&lt;/b&gt;";
+            divChart.src = "http://chart.finance.yahoo.com/c/1y/" + symbol + "?" + rand_no;
+            break;
+        case 5: <span class="programGreenText">// 2 years</span>
+            div2y.innerHTML = "&lt;b&gt;2y&lt;/b&gt;";
+            divChart.src = "http://chart.finance.yahoo.com/c/2y/" + symbol + "?" + rand_no;
+            break;
+        case 6: <span class="programGreenText">// 5 years</span>
+            div5y.innerHTML = "&lt;b&gt;5y&lt;/b&gt;";
+            divChart.src = "http://chart.finance.yahoo.com/c/5y/" + symbol + "?" + rand_no;
+            break;
+        case 7: <span class="programGreenText">// Max</span>
+            divMax.innerHTML = "&lt;b&gt;msx&lt;/b&gt;";
+            divChart.src = "http://chart.finance.yahoo.com/c/my/" + symbol + "?" + rand_no;
+            break;
+        case 0: <span class="programGreenText">// 1 day</span>
+        default:                
+            div1d.innerHTML = "&lt;b&gt;1d&lt;/b&gt;";
+            divChart.src = "http://ichart.finance.yahoo.com/b?s=" + symbol + "&" + rand_no;
+            break;
+        }
+    }
+&lt;/script&gt;    
+</pre><pre class="programGrayText">&lt;/head&gt;
+&lt;body&gt;
+    &lt;form id="form1" runat="server"&gt;
+    &lt;div&gt;</pre><pre class="programText" style="background-color:#eeeeee;">        &lt;table width="100%" border="0" cellspacing="0" cellpadding="0"&gt;
+            &lt;tr valign="top"&gt;                                            
+                &lt;td style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #000; text-decoration: none;"&gt;
+                    &lt;input type="text" value="" id="txtSymbol" runat="server" onkeypress="return CheckEnter(event);" /&gt;
+                    &lt;input type="button" value="Get Quotes" onclick="return SendRequest();" /&gt;
+                    &lt;br /&gt;
+                    &lt;span style="font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #666;"&gt;
+                        e.g. "YHOO or YHOO GOOG"
+                    &lt;/span&gt;
+                    &lt;%if (m_symbol != "") {%&gt;                        
+                        &lt;div id="divService" runat="server"&gt;
+                        <span class="programGreenText">&lt;!-- Main DIV: this DIV contains text and DIVs that displays stock quotes and chart. --&gt;</span>
+                        &lt;/div&gt;
+                    &lt;%}%&gt;                                                                                            
+                &lt;/td&gt;    
+            &lt;/tr&gt;
+        &lt;/table&gt;</pre><pre class="programGrayText">    &lt;/div&gt;
+    &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre></td>                                    
+                                        </tr>  
+                                        <tr>
+                                            <td class="normalText">                                         
+                                                Third, open the code-behind page (Default.aspx.cs) and write the code:
+                                            </td>
+                                        </tr>    
+                                        <tr>
+                                            <td class="normalText">                                         
+                                                <pre class="programGrayText">using System;
+using System.IO;</pre>
+<pre class="programText" style="background-color:#eeeeee;">using System.Xml;
+using System.Xml.Xsl;
+using System.Xml.XPath;
+using System.Net;
+using System.Text;
+</pre><pre class="programGrayText">
+namespace sample
+{
+    public partial class _Default : System.Web.UI.Page
+    {</pre><pre class="programText" style="background-color:#eeeeee;">
+        <span class="programGreenText">// Stock symbols seperated by space or comma.</span>
+        protected string m_symbol = "";
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                <span class="programGreenText">// The page is being loaded and accessed for the first time.</span>
+                <span class="programGreenText">// Retrieve user input from the form.</span>
+                if (Request.QueryString["s"] == null)
+                    <span class="programGreenText">// Set the default stock symbol to YHOO.</span>
+                    m_symbol = "YHOO";
+                else
+                    <span class="programGreenText">// Get the user's input.</span>
+                    m_symbol = Request.QueryString["s"].ToString().ToUpper();
+                <span class="programGreenText">// Update the textbox value.</span>
+                txtSymbol.Value = m_symbol;
+                <span class="programGreenText">// This DIV that contains text and DIVs that displays stock quotes and chart from Yahoo.</span>
+                <span class="programGreenText">// Set the innerHTML property to replaces the existing content of the DIV.</span>
+                divService.InnerHtml = "&lt;br /&gt;";
+                if (m_symbol.Trim() != "")
+                {
+                    try
+                    {
+                        <span class="programGreenText">// Return the stock quote data in XML format.</span>
+                        String arg = GetQuote(m_symbol.Trim());                        
+                        if (arg == null)
+                            return;
+
+                        <span class="programGreenText">// Read XML.</span>
+                        <span class="programGreenText">// Declare an XmlDocument object to represents an XML document.</span>
+                        XmlDocument xd = new XmlDocument();
+                        // Loads the XML data from a stream.
+                        xd.LoadXml(arg);
+
+                        <span class="programGreenText">// Read XSLT</span>
+                        <span class="programGreenText">// Declare an XslCompiledTransform object to transform XML data using an XSLT style sheet.</span>
+                        XslCompiledTransform xslt = new XslCompiledTransform();
+                        <span class="programGreenText">// Use the Load method to load the Xsl transform object.</span>
+                        xslt.Load(Server.MapPath("stock.xsl"));
+                                                
+                        <span class="programGreenText">// Transform the XML document into HTML.</span>
+                        StringWriter fs = new StringWriter();
+                        xslt.Transform(xd.CreateNavigator(), null, fs);
+                        string result = fs.ToString();
+
+                        <span class="programGreenText">// Replace the characters "&amp;lt;" and "&amp;gt;" back to "&lt;" and "&gt;".</span>
+                        divService.InnerHtml = "&lt;br /&gt;" + result.Replace("&amp;lt;", "&lt;").Replace("&amp;gt;", "&lt;") + "&lt;br /&gt;";
+
+                        <span class="programGreenText">// Display stock charts.</span>
+                        String[] symbols = m_symbol.Replace(",", " ").Split(' ');
+                        <span class="programGreenText">// Loop through each stock</span>
+                        for (int i = 0; i &lt; symbols.Length; ++i)
+                        {
+                            if (symbols[i].Trim() == "")
+                                continue;
+                            int index = divService.InnerHtml.ToLower().IndexOf(symbols[i].Trim().ToLower() + " is invalid.");
+                            <span class="programGreenText">// If index = -1, the stock symbol is valid.</span>
+                            if (index == -1)
+                            {                                
+                                <span class="programGreenText">// Use a random number to defeat cache.</span>
+                                Random random = new Random();
+                                divService.InnerHtml += "&lt;img id='imgChart_" + i.ToString() + 
+                                "' src='http://ichart.finance.yahoo.com/b?s=" + symbols[i].Trim().ToUpper() + "& " + random.Next() + 
+                                "' border=0&gt;&lt;br /&gt;";
+                                <span class="programGreenText">// 1 days</span>
+                                divService.InnerHtml += 
+"&lt;a style='font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: Blue;' href='javascript:changeChart(0," +
+i.ToString() + ", \"" + symbols[i].ToLower() + "\");'&gt;&lt;span id='div1d_" + i.ToString() + "'&gt;&lt;b&gt;1d&lt;/b&gt;&lt;/span&gt;&lt;/a&gt;&amp;nbsp;&amp;nbsp;";
+                                <span class="programGreenText">// 5 days</span>
+                                divService.InnerHtml += 
+"&lt;a style='font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: Blue;' href='javascript:changeChart(1," +
+i.ToString() + ", \"" + symbols[i].ToLower() + "\");'&gt;&lt;span id='div5d_" + i.ToString() + "'&gt;5d&lt;/span&gt;&lt;/a&gt;&amp;nbsp;&amp;nbsp;";
+                                <span class="programGreenText">// 3 months</span>
+                                divService.InnerHtml += 
+"&lt;a style='font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: Blue;' href='javascript:changeChart(2," +
+i.ToString() + ", \"" + symbols[i].ToLower() + "\");'&gt;&lt;span id='div3m_" + i.ToString() + "'&gt;3m&lt;/span&gt;&lt;/a&gt;&&amp;nbsp;&amp;nbsp;";
+                                <span class="programGreenText">// 6 months</span>
+                                divService.InnerHtml += 
+"&lt;a style='font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: Blue;' href='javascript:changeChart(3," +
+i.ToString() + ", \"" + symbols[i].ToLower() + "\");'&gt;&lt;span id='div6m_" + i.ToString() + "'&gt;6m&lt;/span&gt;&lt;/a&gt;&amp;nbsp;&amp;nbsp;";
+                                <span class="programGreenText">// 1 yeas</span>
+                                divService.InnerHtml += 
+"&lt;a style='font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: Blue;' href='javascript:changeChart(4," +
+i.ToString() + ", \"" + symbols[i].ToLower() + "\");'&gt;&lt;span id='div1y_" + i.ToString() + "'&gt;1y&lt;/span&gt;&lt;/a&gt;&amp;nbsp;&amp;nbsp;";
+                                <span class="programGreenText">// 2 years</span>
+                                divService.InnerHtml += 
+"&lt;a style='font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: Blue;' href='javascript:changeChart(5," +
+i.ToString() + ", \"" + symbols[i].ToLower() + "\");'&gt;&lt;span id='div2y_" + i.ToString() + "'&gt;2y&lt;/span&gt;&lt;/a&gt;&amp;nbsp;&amp;nbsp;";
+                                <span class="programGreenText">// 5 years</span>
+                                divService.InnerHtml += 
+"&lt;a style='font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: Blue;' href='javascript:changeChart(6," +
+i.ToString() + ", \"" + symbols[i].ToLower() + "\");'&gt;&lt;span id='div5y_" + i.ToString() + "'&gt;5y&lt;/span&gt;&lt;/a&gt;&amp;nbsp;&amp;nbsp;";
+                                <span class="programGreenText">// Max</span>
+                                divService.InnerHtml += 
+"&lt;a style='font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: Blue;' href='javascript:changeChart(7," +
+i.ToString() + ", \"" + symbols[i].ToLower() + "\");'&gt;&lt;span id='divMax_" + i.ToString() + 
+"'&gt;Max&lt;/span&gt;&lt;/a&gt;&lt;br&gt;&lt;br /&gt;&lt;br /&gt;&amp;nbsp;&amp;nbsp;";</span>
+                            }
+                        }
+                    }
+                    catch
+                    {
+                        <span class="programGreenText">// Handle exceptions</span>
+                    }
+                }
+            }
+        }
+
+        <span class="programGreenText">/// &lt;summary&gt;</span>
+        <span class="programGreenText">/// This function handles and parses multiple stock symbols as input parameters</span>
+        <span class="programGreenText">/// and builds a valid XML return document.</span>
+        <span class="programGreenText">/// &lt;/summary&gt;</span>
+        <span class="programGreenText">/// &lt;param name="symbol"&gt;A bunch of stock symbols seperated by space or comma&lt;/param&gt;</span>
+        <span class="programGreenText">/// &lt;returns&gt;Return stock quote data in XML format&lt;/returns&gt;</span>
+        public string GetQuote(string symbol)
+        {
+            <span class="programGreenText">// Set the return string to null.</span>
+            string result = null;            
+            try
+            {
+                <span class="programGreenText">// Use Yahoo finance service to download stock data from Yahoo</span>
+                string yahooURL = @"http://download.finance.yahoo.com/d/quotes.csv?s=" + symbol + "&f=sl1d1t1c1hgvbap2";
+                string[] symbols = symbol.Replace(",", " ").Split(' ');
+
+                <span class="programGreenText">// Initialize a new WebRequest.</span>
+                HttpWebRequest webreq = (HttpWebRequest)WebRequest.Create(yahooURL);
+                <span class="programGreenText">// Get the response from the Internet resource.</span>
+                HttpWebResponse webresp = (HttpWebResponse)webreq.GetResponse();</span>
+                <span class="programGreenText">// Read the body of the response from the server.</span>
+                StreamReader strm = new StreamReader(webresp.GetResponseStream(), Encoding.ASCII);
+
+                <span class="programGreenText">// Construct a XML in string format.</span>
+                string tmp = "<StockQuotes>";
+                string content = "";
+                for (int i = 0; i &lt; symbols.Length; i++)
+                {
+                    <span class="programGreenText">// Loop through each line from the stream, building the return XML Document string</span>
+                    if (symbols[i].Trim() == "")
+                        continue;
+
+                    content = strm.ReadLine().Replace("\"", "");
+                    string[] contents = content.ToString().Split(',');
+                    <span class="programGreenText">// If contents[2] = "N/A". the stock symbol is invalid.</span>
+                    if (contents[2] == "N/A")
+                    {
+                        <span class="programGreenText">// Construct XML via strings.</span>
+                        tmp += "&lt;Stock&gt;";
+                        <span class="programGreenText">// "&lt;" and "&gt;" are illegal in XML elements. Replace the characters "&lt;" and "&gt;" to "&amp;gt;" and "&amp;lt;".</span>
+                        tmp += "&lt;Symbol&gt;&amp;lt;span style='color:red'&amp;gt;" + symbols[i].ToUpper() + " is invalid.&amp;lt;/span&amp;gt;&lt;/Symbol&gt;";
+                        tmp += "&lt;Last&gt;&lt;/Last&gt;";
+                        tmp += "&lt;Date&gt;&lt;/Date&gt;";
+                        tmp += "&lt;Time&gt;&lt;/Time&gt;";
+                        tmp += "&lt;Change&gt;&lt;/Change&gt;";
+                        tmp += "&lt;High&gt;&lt;/High&gt;";
+                        tmp += "&lt;Low&gt;&lt;/Low&gt;";
+                        tmp += "&lt;Volume&gt;&lt;/Volume&gt;";
+                        tmp += "&lt;Bid&gt;&lt;/Bid&gt;";
+                        tmp += "&lt;Ask&gt;&lt;/Ask&gt;";
+                        tmp += "&lt;Ask&gt;&lt;/Ask&gt;";
+                        tmp += "&lt;/Stock&gt;";
+                    }
+                    else
+                    {
+                        <span class="programGreenText">//construct XML via strings.</span>
+                        tmp += "&lt;Stock&gt;";
+                        tmp += "&lt;Symbol&gt;" + contents[0] + "&lt;/Symbol&gt;";
+                        try
+                        {
+                            tmp += "&lt;Last&gt;" + String.Format("{0:c}", Convert.ToDouble(contents[1])) + "&lt;/Last&gt;";
+                        }
+                        catch
+                        {
+                            tmp += "&lt;Last&gt;" + contents[1] + "&lt;/Last&gt;";
+                        }
+                        tmp += "&lt;Date&gt;" + contents[2] + "&lt;/Date&gt;";
+                        tmp += "&lt;Time&gt;" + contents[3] + "&lt;/Time&gt;";
+                        <span class="programGreenText">// "&lt;" and "&gt;" are illegal in XML elements. Replace the characters "&lt;" and "&gt;" to "&amp;gt;" and "&amp;lt;".</span>
+                        if (contents[4].Trim().Substring(0, 1) == "-")
+                            tmp += "&lt;Change&gt;&amp;lt;span style='color:red'&amp;gt;" + contents[4] + "(" + contents[10] + ")" + "&amp;lt;span&amp;gt;&lt;/Change&gt;";
+                        else if (contents[4].Trim().Substring(0, 1) == "+")
+                            tmp += "&lt;Change&gt;&amp;lt;span style='color:green'&amp;gt;" + contents[4] + "(" + contents[10] + ")" + "&amp;lt;span&amp;gt;&lt;/Change&gt;";
+                        else
+                            tmp += "&lt;Change&gt;" + contents[4] + "(" + contents[10] + ")" + "&lt;/Change&gt;";
+                        tmp += "&lt;High&gt;" + contents[5] + "&lt;/High&gt;";
+                        tmp += "&lt;Low&gt;" + contents[6] + "&lt;/Low&gt;";
+                        try
+                        {
+                            tmp += "&lt;Volume&gt;" + String.Format("{0:0,0}", Convert.ToInt64(contents[7])) + "&lt;/Volume&gt;";
+                        }
+                        catch
+                        {
+                            tmp += "&lt;Volume&gt;" + contents[7] + "&lt;/Volume&gt;";
+                        }
+                        tmp += "&lt;Bid&gt;" + contents[8] + "&lt;/Bid&gt;";
+                        tmp += "&lt;Ask&gt;" + contents[9] + "&lt;/Ask&gt;";
+                        tmp += "&lt;/Stock&gt;";
+                    }
+                    <span class="programGreenText">// Set the return string</span>
+                    result += tmp;
+                    tmp = "";
+                }
+                <span class="programGreenText">// Set the return string</span>
+                result += "&lt;/StockQuotes&gt;";
+                <span class="programGreenText">// Close the StreamReader object.</span>
+                strm.Close();
+            }
+            catch
+            {
+                <span class="programGreenText">// Handle exceptions.</span>
+            }
+            <span class="programGreenText">// Return the stock quote data in XML format.</span>
+            return result;
+        }        
+    </pre><pre class="programGrayText">    }
+}</pre>
+                                            </td>
+                                        </tr>                                           
+                                        <tr>
+                                            <td class="normalText">
+                                                Fourth, add a new XSLT file named stock.xsl to the project. With this XSLT we can transform the stock quotes XML document into HTML.
+                                                <ol>
+                                                    <li>In <b>Solution Explorer</b>, select the project.</li>
+                                                    <li>On the <b>Project</b> menu, click <b>Add New Item</b>. The <b>Add New Item</b> dialog box appears.</li> 
+                                                    <li>Click the Data.</li> 
+                                                    <li>In the right pane, click the <b>XSLT file</b>.</li> 
+                                                    <li>Rename the item to <b>styles.css</b>.</li> 
+                                                    <li>Click <b>Open</b>.</li>
+                                                </ol>    
+                                            </td>
+                                        </tr>
+                                            <td>
+<pre class="programText" style="background-color:#eeeeee;">&lt;?xml version='1.0'?&gt;
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"&gt;
+&lt;xsl:output method="html"/&gt;
+&lt;xsl:template match="/"&gt;
+&lt;html&gt;
+  &lt;TABLE width="770"  STYLE="border:1px solid black"&gt;
+    &lt;TR STYLE="font-size:14px; font-family:Arial, Helvetica, sans-serif; font-weight:bold"&gt;
+      &lt;TD&gt;Symbol&lt;/TD&gt;
+      &lt;TD&gt;Date&lt;/TD&gt;	 
+      &lt;TD&gt;Time&lt;/TD&gt;
+      &lt;TD&gt;Trade&lt;/TD&gt;
+      &lt;TD&gt;% Chg&lt;/TD&gt;
+      &lt;TD&gt;Bid&lt;/TD&gt;
+      &lt;TD&gt;Ask&lt;/TD&gt;	 
+      &lt;TD&gt;Volume&lt;/TD&gt;
+      &lt;TD&gt;High&lt;/TD&gt;
+      &lt;TD&gt;Low&lt;/TD&gt;
+    &lt;/TR&gt;
+    &lt;xsl:for-each select="StockQuotes/Stock"&gt;
+    &lt;TR STYLE="font-family:Arial, Helvetica, sans-serif; font-size:14px; padding:0px 2px"&gt;
+      &lt;TD&gt;
+        &lt;xsl:value-of select="Symbol" /&gt;
+      &lt;/TD&gt;
+      &lt;TD&gt;
+        &lt;xsl:value-of select="Date" /&gt;
+      &lt;/TD&gt;	
+      &lt;TD&gt;
+        &lt;xsl:value-of select="Time" /&gt;
+      &lt;/TD&gt;
+      &lt;TD&gt;
+        &lt;xsl:value-of select="Last" /&gt;
+      &lt;/TD&gt;
+      &lt;TD&gt;
+        &lt;xsl:value-of select="Change" /&gt; 
+      &lt;/TD&gt;
+      &lt;TD&gt;
+        &lt;xsl:value-of select="Bid" /&gt;
+      &lt;/TD&gt;
+      &lt;TD&gt;
+        &lt;xsl:value-of select="Ask" /&gt;
+      &lt;/TD&gt;	
+      &lt;TD&gt;	 
+        &lt;xsl:value-of select="Volume" /&gt; 
+      &lt;/TD&gt;
+      &lt;TD&gt;
+        &lt;xsl:value-of select="High" /&gt;
+      &lt;/TD&gt;
+      &lt;TD&gt;
+        &lt;xsl:value-of select="Low" /&gt;
+      &lt;/TD&gt;
+    &lt;/TR&gt;
+  &lt;/xsl:for-each&gt;
+&lt;/TABLE&gt;
+&lt;/html&gt;
+&lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</pre>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="normalText">  
+                                                Finally, press control+F5 to run the project.                                                                                                 
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="titleText">
+                                                <br />Conclusion 
+                                            </td>
+                                        </tr>    
+                                        <tr>
+                                            <td class="normalText">                                                                                                  
+                                                This article walked you through a step-by-step guide on how to get stock quote data from Yahoo and display them using C#.NET. I am sure there are lot of things that can be improved. For example, you can use Ajax technology to update stock quotes automatically without refreshing the whole page. I hope this article gives you some ideas of where to start.
+                                            </td>                                    
+                                        </tr>      
+                                        <tr>
+                                            <td class="titleText">
+                                                <br />Reference 
+                                            </td>
+                                        </tr>    
+                                        <tr>
+                                            <td class="normalText">                                                                                                  
+                                                <a class="linkText" target=_blank href="http://www.gummy-stuff.org/Yahoo-data.htm">http://www.gummy-stuff.org/Yahoo-data.htm</a><br />
+                                                <a class="linkText" target=_blank href="http://www.diytraders.com/content/view/26/39/">http://www.diytraders.com/content/view/26/39/</a><br />
+                                                <a class="linkText" target=_blank href="http://www.eggheadcafe.com/articles/20010404.asp">http://www.eggheadcafe.com/articles/20010404.asp</a>
+                                            </td>                                    
+                                        </tr>      
+                                    </table>
+                                </td>
+                            </tr>
+                        </table> 
+                        <table width="900" border="0" cellspacing="0" cellpadding="0">
+                            <tr valign="top">
+                                <td align="center">
+                                    <table border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td align="left">
+                                                <a href="http://www.reviewebook.net" class="smallLinkText"><img src="images/reviewebooknet.jpg" border=0 /><br />www.ReviewEbook.NET</a>     
+                                            </td>
+                                        </tr>
+                                    </table> 
+                                </td>
+                            </tr>
+                        </table>                                            
+                        <table width="900" border="0" cellspacing="0" cellpadding="0">
+                            <tr valign="top">
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr valign="top">
+                                <td align="center">
+                                    <form style="margin:0px;" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                                    <input type="hidden" name="cmd" value="_donations">
+                                    <input type="hidden" name="business" value="donate@igotmessage.com">
+                                    <input type="hidden" name="no_shipping" value="1">
+                                    <input type="hidden" name="return" value="http://www.igotmessage.com/ThankYou.aspx">
+                                    <input type="hidden" name="cancel_return" value="http://www.igotmessage.com">
+                                    <input type="hidden" name="currency_code" value="USD">
+                                    <input type="hidden" name="tax" value="0">
+                                    <input type="hidden" name="lc" value="US">
+                                    <input type="hidden" name="bn" value="PP-DonationsBF">
+                                    <input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                                    <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                                    </form>       
+                                    <a href="whydonate.aspx" class="linkText"><img src="images/why.jpg" border=0 /></a>
+                                </td>
+                            </tr>                             
+                            <tr valign="top">
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr valign="top">
+                                <td colspan="2" class="smallText" align="center">
+                                    © 2008-2009 IGotMessage.com. All rights reserved.&nbsp;<a href="Terms.aspx" class="smallLinkText">Terms of Service</a>&nbsp;|&nbsp;<a href="Privacy.aspx" class="smallLinkText">Privacy Policy</a>
+                                </td>
+                            </tr>                          
+                        </table>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td align="center"><img src="images/main_bottom.jpg"></td>
+                </tr>              
+            </table>           
+        </td>
+    </tr>        
+</table>            
+</body>
+</html>

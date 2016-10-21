@@ -1,0 +1,528 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://gmpg.org/xfn/11">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+
+	<title>osrin.net &raquo; Azure SDKs, OpenID, Samba, ODF, DII, SAML 2.0, AMQP</title>
+	<link rel="alternate" type="application/rss+xml" title="RSS 2.0 - all posts" href="http://osrin.net/feed/" />
+	<link rel="alternate" type="application/rss+xml" title="RSS 2.0 - all comments" href="http://osrin.net/comments/feed/" />
+	<link rel="pingback" href="http://osrin.net/xmlrpc.php" />
+
+	<!-- style START -->
+	<!-- default style -->
+	<style type="text/css" media="screen">@import url( http://osrin.net/wp-content/themes/inove/style.css );</style>
+	<!-- for translations -->
+		<!--[if IE]>
+		<link rel="stylesheet" href="http://osrin.net/wp-content/themes/inove/ie.css" type="text/css" media="screen" />
+	<![endif]-->
+	<!-- style END -->
+
+	<!-- script START -->
+	<script type="text/javascript" src="http://osrin.net/wp-content/themes/inove/js/base.js"></script>
+	<script type="text/javascript" src="http://osrin.net/wp-content/themes/inove/js/menu.js"></script>
+	<!-- script END -->
+
+	<link rel="alternate" type="application/rss+xml" title="osrin.net &raquo; Azure SDKs, OpenID, Samba, ODF, DII, SAML 2.0, AMQP Comments Feed" href="http://osrin.net/2008/10/azure-sdks-openid-samba-odf-dii-saml-20-amqp/feed/" />
+<link rel='stylesheet' id='prlipro-post-css'  href='http://osrin.net/wp-content/plugins/pretty-link/pro/css/prlipro-post.css?ver=2.9.2' type='text/css' media='' />
+<script type='text/javascript' src='http://osrin.net/wp-includes/js/prototype.js?ver=1.6'></script>
+<script type='text/javascript' src='http://osrin.net/wp-includes/js/scriptaculous/wp-scriptaculous.js?ver=1.8.0'></script>
+<script type='text/javascript' src='http://osrin.net/wp-includes/js/scriptaculous/effects.js?ver=1.8.0'></script>
+<script type='text/javascript' src='http://osrin.net/wp-content/plugins/lightbox-2/lightbox.js?ver=1.8'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://osrin.net/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://osrin.net/wp-includes/wlwmanifest.xml" /> 
+<link rel='index' title='osrin.net' href='http://osrin.net' />
+<link rel='start' title='The Blog starts now&#8230;' href='http://osrin.net/2007/08/the-blog-starts-now/' />
+<link rel='prev' title='Windows Azure, the sky is the limit' href='http://osrin.net/2008/10/windows-azure-the-sky-is-the-limit/' />
+<link rel='next' title='Why large systems integrators sometimes fail to deliver government projects' href='http://osrin.net/2008/10/why-large-systems-integrators-sometimes-fail-to-deliver-government-projects/' />
+<meta name="generator" content="WordPress 2.9.2" />
+<link rel='canonical' href='http://osrin.net/2008/10/azure-sdks-openid-samba-odf-dii-saml-20-amqp/' />
+
+<link rel="stylesheet" href="http://osrin.net/wp-content/plugins/dd-formmailer/dd-formmailer.css" type="text/css" media="screen" />
+
+	<!-- begin lightbox scripts -->
+	<script type="text/javascript">
+    //<![CDATA[
+    document.write('<link rel="stylesheet" href="http://osrin.net/wp-content/plugins/lightbox-2/Themes/Grey/lightbox.css" type="text/css" media="screen" />');
+    //]]>
+    </script>
+	<!-- end lightbox scripts -->
+      <link rel="shorturl" href="http://osrin.net/qxc" />
+    
+<style type="text/css">
+A.iconsphere {
+  background: url(http://www.sphere.com/images/sphereicon.gif) top left no-repeat;
+  padding-left: 20px;
+  padding-bottom: 10px;
+  font-size: 10px;
+  white-space: nowrap;
+}
+</style>
+
+<script type="text/javascript" src="http://www.sphere.com/widgets/sphereit/js?t=wordpressorg&p=wordpressorg"></script>
+<link rel="shortlink" href="http://wp.me/p6Q6q-5Z" /><style type="text/css">
+#aka,#aka:link,#aka:hover,#aka:visited,#aka:active{color:#fff;text-decoration:none}
+#aka:hover{border:none;text-decoration:none}
+#aka:hover #akismet1{display:none}
+#aka:hover #akismet2,#akismet1{display:block}
+#akismet2{display:none;padding-top:2px}
+#akismeta{font-size:16px;font-weight:bold;line-height:18px;text-decoration:none}
+#akismetcount{display:block;font:15px Verdana,Arial,Sans-Serif;font-weight:bold;text-decoration:none}
+#akismetwrap #akismetstats{background:url(http://osrin.net/wp-content/plugins/akismet/akismet.gif) no-repeat top left;border:none;color:#fff;font:11px 'Trebuchet MS','Myriad Pro',sans-serif;height:40px;line-height:100%;overflow:hidden;padding:8px 0 0;text-align:center;width:120px}
+</style>
+		</head>
+
+
+<body>
+<!-- wrap START -->
+<div id="wrap">
+
+<!-- container START -->
+<div id="container"  >
+
+<!-- header START -->
+<head>
+<meta name="msvalidate.01" content="B68FB3BB18D27A5A1AF898F67A5BE5E5" />
+</head>
+<div id="header">
+
+	<!-- banner START -->
+		<!-- banner END -->
+
+	<div id="caption">
+		<h1 id="title"><a href="http://osrin.net/">osrin.net</a></h1>
+		<div id="tagline">Notes from fourty one degrees south&#8230;</div>
+	</div>
+
+	<div class="fixed"></div>
+</div>
+<!-- header END -->
+
+<!-- navigation START -->
+<div id="navigation">
+	<!-- menus START -->
+	<ul id="menus">
+		<li class="page_item"><a class="home" title="Home" href="http://osrin.net/">Home</a></li>
+		<li class="page_item page-item-17"><a href="http://osrin.net/contact/" title="Contact">Contact</a></li>
+<li class="page_item page-item-18"><a href="http://osrin.net/about/" title="About">About</a>
+<ul>
+	<li class="page_item page-item-22"><a href="http://osrin.net/about/brief-bio/" title="Brief Bio">Brief Bio</a></li>
+	<li class="page_item page-item-61"><a href="http://osrin.net/about/presentations/" title="Presentations">Presentations</a></li>
+	<li class="page_item page-item-177"><a href="http://osrin.net/about/content-license/" title="Content License">Content License</a></li>
+</ul>
+</li>
+		<li><a class="lastmenu" href="javascript:void(0);"></a></li>
+	</ul>
+	<!-- menus END -->
+
+	<!-- searchbox START -->
+	<div id="searchbox">
+					<form action="http://osrin.net" method="get">
+				<div class="content">
+					<input type="text" class="textfield" name="s" size="24" value="" />
+					<input type="submit" class="button" value="" />
+				</div>
+			</form>
+			</div>
+<script type="text/javascript">
+//<![CDATA[
+	var searchbox = MGJS.$("searchbox");
+	var searchtxt = MGJS.getElementsByClassName("textfield", "input", searchbox)[0];
+	var searchbtn = MGJS.getElementsByClassName("button", "input", searchbox)[0];
+	var tiptext = "Type text to search here...";
+	if(searchtxt.value == "" || searchtxt.value == tiptext) {
+		searchtxt.className += " searchtip";
+		searchtxt.value = tiptext;
+	}
+	searchtxt.onfocus = function(e) {
+		if(searchtxt.value == tiptext) {
+			searchtxt.value = "";
+			searchtxt.className = searchtxt.className.replace(" searchtip", "");
+		}
+	}
+	searchtxt.onblur = function(e) {
+		if(searchtxt.value == "") {
+			searchtxt.className += " searchtip";
+			searchtxt.value = tiptext;
+		}
+	}
+	searchbtn.onclick = function(e) {
+		if(searchtxt.value == "" || searchtxt.value == tiptext) {
+			return false;
+		}
+	}
+//]]>
+</script>
+	<!-- searchbox END -->
+
+	<div class="fixed"></div>
+</div>
+<!-- navigation END -->
+
+<!-- content START -->
+<div id="content">
+
+	<!-- main START -->
+	<div id="main">
+
+
+	<div id="postpath">
+		<a title="Go to homepage" href="http://osrin.net/">Home</a>
+		 &gt; <a href="http://osrin.net/category/cloud-computing/" title="View all posts in Cloud Computing" rel="category tag">Cloud Computing</a>,  <a href="http://osrin.net/category/general/" title="View all posts in General" rel="category tag">General</a>,  <a href="http://osrin.net/category/interoperability/" title="View all posts in Interoperability" rel="category tag">Interoperability</a>,  <a href="http://osrin.net/category/standards/" title="View all posts in Standards" rel="category tag">Standards</a>		 &gt; Azure SDKs, OpenID, Samba, ODF, DII, SAML 2.0, AMQP	</div>
+
+	<div class="post" id="post-371">
+		<h2>Azure SDKs, OpenID, Samba, ODF, DII, SAML 2.0, AMQP</h2>
+		<div class="info">
+			<span class="date">October 29th, 2008</span>
+			<span class="author"><a href="http://osrin.net/author/oliver/" title="Posts by oliver">oliver</a></span>									<div class="fixed"></div>
+		</div>
+		<div class="content">
+			<!-- sphereit start -->      <a class="prli-tweet-badge" style="float: right; margin: 0 0 6px 12px; background-image: url('http://d178vyg5m2018t.cloudfront.net/hovertweets/retweet_b-0.png');" href="http://twitter.com/home?status=RT+%40osrin%3A+Azure+SDKs%2C+OpenID%2C+Samba%2C+ODF%2C+DII%2C+SAML+2.0%2C+AMQP+http%3A%2F%2Fosrin.net%2Fqxc" rel="nofollow" target="_blank"></a>		<p>I&#8217;ve posted extensively about our various interop related efforts over the last year or so, highlighting many of the big steps that we have made in this area, each one incrementally making us a more interoperable platform than before and a more participatory citizen in the wider software industry.</p>
+<p>When I came into the office this morning I knew there was a backlog of such announcements building up that I wanted to talk about, but hadn&#8217;t quite grasped how much has gone on over the last couple of weeks.</p>
+<p>Below is a round up of news around multi-platform development for Azure, the document interoperability initiative, ODF support in Wordpad (!), working with the Samba project, participating in the Advanced Message Queuing Protocol (<a href="http://jira.amqp.org/confluence/display/AMQP/Advanced+Message+Queuing+Protocol">AMQP</a>) WG, SAML 2.0, and OpenID.</p>
+<p>First of all is news of what we&#8217;re doing for developers around the Windows Azure and Azure Services platform that I <a href="http://osrin.net/2008/10/windows-azure-the-sky-is-the-limit/">talked about yesterday</a>. Up on microsoft.com you&#8217;ll find <a href="http://www.microsoft.com/azure/sdk.mspx">pointers to the SDKs</a> that are already under development, not only for <a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=BB893FB0-AD04-4FE8-BB04-0C5E4278D3E9&amp;displaylang=en">.NET</a> but also for <a href="http://www.jdotnetservices.com/">Java</a> and <a href="http://www.dotnetservicesruby.com/">Ruby</a>, and a <a href="http://osrin.net/docs/NETServicesInteroperability.pdf">whitepaper</a> that explains the objectives of these projects.</p>
+<p>From the <a href="http://osrin.net/docs/NETServicesInteroperability.pdf">whitepaper</a>;</p>
+<blockquote><p>The Azure Services Platform has been built from the ground up with interoperability in mind. With its standards-based and interoperable approach, the services platform supports multiple Internet protocols, including HTTP, REST, SOAP, and &#8220;plain old XML&#8221; (POX). This interoperability opens up opportunities to build new or enhanced applications using existing skills with the Microsoft Visual Studio development environment and the .NET Framework, or with other developments environments such as Java, or Ruby.</p></blockquote>
+<p>For a product that is still only a community technology preview (CTP) I think we&#8217;re off to a good start.</p>
+<p><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; margin: 0px 10px 0px 0px; border-right-width: 0px" src="http://osrin.net/wp-content/uploads/2008/10/workshop.jpg" border="0" alt="workshop" width="157" height="151" align="left" /> Next is news of the latest Document Interoperability Initiative workshop that was held in Redmond last week, this time focusing on plans for Open XML. The DII workshops are an important component of our commitment to engage more openly and more thoroughly with the community, this is the second workshop to be held in Redmond, the first one looked predominately at our plans for <a href="http://osrin.net/2008/07/dii-workshop-on-odf-and-sp2-complete/">ODF support in Microsoft Office 2007 SP2</a>.</p>
+<p>Jesper Lund Stocholm has his hands on the beta for the SP2 code, and has posted about his experiences with it <a href="http://idippedut.dk/post/2008/10/28/Microsoft-Office-2007-now-with-ODF-support.aspx">earlier this week</a>.</p>
+<p>Doug Mahugh has a <a href="http://blogs.msdn.com/dmahugh/archive/2008/10/26/dii-workshop-recap.aspx">comprehensive write-up</a> of the latest DII workshop;</p>
+<blockquote><p>The latest DII workshop took place in Redmond over the last two days. There were presentations at this event from a variety of people, including members of the Office product groups at Microsoft and developers and consultants from several other companies. Topics covered included planning an IS29500 document test library, server-side document assembly strategies, various approaches to document validation, use of content controls in e-courseware, and goals for future DII events. <a href="http://www.johndavidhead.com/jhead/johnhead.nsf">John Head</a> already blogged a few thoughts <a href="http://www.johndavidhead.com/jhead/johnhead.nsf/dx/test-documents-for-ooxml-and-odf-standards">from the workshop</a>, and I expect we&#8217;ll see more in the days ahead from John, his colleague <a href="http://andrewschwantes.blogspot.com/">Andrew Schwantes</a>, or other blogger attendees such as <a href="http://www.orcmid.com/blog">Dennis Hamilton</a> and <a href="http://www.adjb.net/">Alex Brown</a>. The DII we site has an <a href="http://www.documentinteropinitiative.org/events/DIIRedmondOct08.htm">event summary</a>, and you can find downloadable copies of most of the presentations <a href="http://www.documentinteropinitiative.org/events/DIIRedmondOct08Docs.htm">here</a>.</p></blockquote>
+<p>Doug&#8217;s post is lengthy and gives really good insight into the discussions that took place at the event, I&#8217;d encourage you to <a href="http://blogs.msdn.com/dmahugh/archive/2008/10/26/dii-workshop-recap.aspx">follow the link</a> and read the whole report. There are also a couple more posts on the topic that I&#8217;ve seen, John Head of PSC has <a href="http://www.johndavidhead.com/jhead/johnhead.nsf/dx/pscs-presentation-from-the-dii-workshop-this-past-week-microsoft">shared his presentation</a>, and Alex Brown has <a href="http://www.adjb.net/post/OOXML-gets-boring.aspx">declared Open XML boring</a>, in the nicest possible way of course!</p>
+<p>Finally on DII, for those of you who are really interested in digging into the depths of the topics discussed, all of the <a href="http://www.documentinteropinitiative.org/events/DIIRedmondOct08Docs.htm">Microsoft led presentations have been posted</a> on the Document Interoperability Initiative site.</p>
+<p>In other brief document format related news, you might have caught <a href="http://blog.seattletimes.nwsource.com/techtracks/2008/10/28/pdc_windows_7_will_run_on_new_lowcost_net_books.html">Stephen Sinofsky earlier today mentioning</a> that the version of WordPad in Windows 7 will support both ODF and Open XML, Stephen McGibbon has <a href="http://notes2self.net/archive/2008/10/28/windows-7-wordpad-supports-openxml-and-odf.aspx">promised some screen shots</a>.</p>
+<blockquote><p>Applets. &#8220;We&#8217;ve also decided that once every 15 years or so we&#8217;re going to update the applets in Windows,&#8221; Sinofsky said, showing off his bone-dry wit. That means updates to Calculator, Paint, WordPad, which will now support open document formats including Open XML and ODF.</p></blockquote>
+<p>Next up is a post from Samba&#8217;s Andrew Bartlett in which he discusses the significant progress that has been made between the Samba Project and Microsoft&#8217;s Server devlelopment team over the last year, it was Brett Roberts who <a href="http://blog.brettroberts.com/post/2008/10/25/Samba-Microsoft-and-Interoperability.aspx">brought this to my attention</a>, as a tangential point Brett also has some discussion about a recent event he ran alongside Google discussing our <a href="http://blog.brettroberts.com/post/2008/10/24/Microsoft-and-Google-in-Violent-Agreement-.aspx">respective approaches to Software + Online Services</a>.</p>
+<p>Back to Samba, Andrew&#8217;s <a href="http://people.samba.org/people/abartlet/a-year-since-microsofts-appeal-failed.html">post is here</a>;</p>
+<blockquote><p>This has been an amazing year of changes for those of us with an interest in interoperability with Microsoft, and these two events are an excellent example of the change in practice.</p>
+<p>In short, Microsoft organised an industry plug fest for CIFS and AD technologies and then invited the Samba Team to it&#8217;s home campus for a week of hands on testing with their engineers. This follows up on documentation of over 100 protocols delivered, well over 100 requests for clarification answered, Samba code debugged and fortnightly conference calls held.</p></blockquote>
+<p>There can be little disagreement that this is night and day from the position we had with the Samba team three or four years ago. I think we probably have a way to go before the company as a whole pervasively understands the value of this type of relationship, but there are certainly a growing and significant number of individuals in the company who &#8220;get it&#8221;.</p>
+<p>Fourth on the list is our recent decision to get involved in the <a href="http://jira.amqp.org/confluence/display/AMQP/Advanced+Message+Queuing+Protocol">Advanced Message Queuing Protocol Working Group</a>.</p>
+<p>From <a href="http://port25.technet.com/archive/2008/10/24/microsoft-joins-the-amqp-working-group.aspx">Sam Ramji&#8217;s blog</a>;</p>
+<blockquote><p>Messaging (and I mean enterprise messaging, rather than email) is an area that is of keen interest to customers like JP Morgan Chase and Credit Suisse. As they run their businesses on real-time messaging, they need to be deep experts, and drive changes in their messaging platforms to fit their business. Along with companies like Cisco, Novell, iMatix, RabbitMQ, WSO2, and Red Hat, these industry leaders have built a standard for ubiquitous messaging: AMQP. </p>
+<p>The Advanced Message Queueing Protocol is an open specification supported by open source communities and currently implemented by <a href="http://incubator.apache.org/projects/qpid.html">Apache QPID</a>, <a href="http://www.rabbitmq.com/">RabbitMQ</a>, and <a href="http://www.openamq.org/">OpenAMQ</a>.  The contributors established the <a href="http://jira.amqp.org/confluence/display/AMQP/Advanced+Message+Queuing+Protocol">AMQP Working Group</a> as a body to manage the process of developing the specification.</p>
+<p>It&#8217;s my pleasure to announce that <a href="http://www.microsoft.com/presspass/press/2008/oct08/10-24AMQPPR.mspx">Microsoft has been invited</a> to join the AMQP working <a>group</a>  by the six founding members. We have committed to participate in the development of the specification and are keenly interested in the developing need for interoperability in enterprise messaging.</p></blockquote>
+<p>This is a great standards story, and a great interoperability story.</p>
+<p>Fifth on the list is support for the Web SSO profile for SAML 2.0 in &#8220;Geneva&#8221;, a code name for our upcoming claims based access platform.</p>
+<p>Don Schmidt <a href="http://identity-des.com/2008/10/28/microsoft-geneva-server-supports-saml-20/">has the following</a>;</p>
+<blockquote><p>At the Professional Developers Conference this week Microsoft is announcing the beta release of <a href="http://www.networkworld.com/news/2008/102708-microsoft-identity-cloud.html">“Geneva”</a>, the codename for its new claims based access platform. This platform helps developers and IT professionals simplify user access to applications and other systems with an open claims-based model. “Geneva” helps developers to externalize user authentication and identity processing from application code by using claims that are obtained with pre-built security logic that is integrated with .NET tools. “Geneva” helps IT professionals to efficiently deploy and manage new applications by reducing user account management, promoting a consistent security model, and facilitating seamless collaboration across departmental, organizational and vendor boundaries. User access benefits include shortened provisioning lead times, reduced accounts, passwords and logins, and enhanced privacy support. “Geneva” implements the Identity Metasystem vision for open and interoperable identity, and includes built-in support for standard federated identity protocols.</p></blockquote>
+<p>SAML 2.0 support by Microsoft has been a big discussion point here in the region, especially in countries such as New Zealand where SAML plays <a href="http://www.geekzone.co.nz/content.asp?contentid=7808">key roles in</a> the government&#8217;s <a href="http://www.e.govt.nz/standards/e-gif/authentication/">national authentication program</a>.</p>
+<p>Finally, and equally important, an announcement from the LiveID team at PDC yesterday that they will be supporting OpenID.</p>
+<p>TechCrunch has some info <a href="http://www.techcrunch.com/2008/10/27/windows-live-adds-support-for-openid-calls-it-de-facto-login-standard/">on this announcement</a>;</p>
+<blockquote><p>Login standard <a href="http://www.openid.net">OpenID</a> has gotten a huge boost today from Microsoft, as the company has <a href="http://winliveid.spaces.live.com/blog/cns!AEE1BB0D86E23AAC!1745.entry">announced</a> that users will soon be able to login to any OpenID site using their Windows Live IDs. With over 400 million Windows Live accounts (many of which see frequent use on the Live’s Mail and Messenger services), the announcement is a massive win for OpenID. And Microsoft isn’t just supporting OpenID &#8211; the announcement goes as far as to call it the <em>de facto</em> login standard.</p></blockquote>
+<p>&#8230;as does Microosft&#8217;s <a href="http://port25.technet.com/archive/2008/10/27/live-id-to-support-openid.aspx">Peter Galli</a>;</p>
+<blockquote><p>This means that Windows Live ID accounts will be able to be used to sign in to any OpenID Web site. The Windows Live ID OpenID Provider (OP) enables anyone with a Windows Live ID account to set up an OpenID alias and to use that alias for identification at an increasing number of OpenID 2.0 relying party sites-for example: <a href="http://www.plaxo.com/">Plaxo</a>, <a href="https://pibb.com/">Pibb</a>, <a href="http://stackoverflow.com/">StackOverflow.com</a> and <a href="http://www.wikispaces.com/">Wikispaces</a>.</p></blockquote>
+<p>Putting around half a billion LiveID users to one side. this is good news for me personally, next time I want to post a comment on <a href="http://harishpillay.livejournal.com/122817.html">Harish Pillay&#8217;s blog</a> I won&#8217;t need to do it anonymously!</p>
+<p>That should be more than enough for one post, as I&#8217;ve said before it is evidence that we&#8217;re delivering on the public promises we have made around interoperability that will eventually make a difference to the way that developers, ISVs, customers and other partners perceive us.</p>
+<p>This week feels like it has delivered a pretty strong set of evidence to support those public statements&#8230; and it is still only the second day of PDC!</p>
+<!-- sphereit end --><span style="margin-bottom:40px; border-bottom:none;"><a class="iconsphere" title="Sphere: Related Content" onclick="return Sphere.Widget.search('http://osrin.net/2008/10/azure-sdks-openid-samba-odf-dii-saml-20-amqp/')" href="http://www.sphere.com/search?q=sphereit:http://osrin.net/2008/10/azure-sdks-openid-samba-odf-dii-saml-20-amqp/">Sphere: Related Content</a></span><br/><br/>			<div class="fixed"></div>
+		</div>
+		<div class="under">
+			<span class="categories">Categories: </span><span><a href="http://osrin.net/category/cloud-computing/" title="View all posts in Cloud Computing" rel="category tag">Cloud Computing</a>,  <a href="http://osrin.net/category/general/" title="View all posts in General" rel="category tag">General</a>,  <a href="http://osrin.net/category/interoperability/" title="View all posts in Interoperability" rel="category tag">Interoperability</a>,  <a href="http://osrin.net/category/standards/" title="View all posts in Standards" rel="category tag">Standards</a></span>			<span class="tags">Tags: </span><span><a href="http://osrin.net/tag/amqp/" rel="tag">AMQP</a>, <a href="http://osrin.net/tag/azure/" rel="tag">Azure</a>, <a href="http://osrin.net/tag/dii/" rel="tag">dii</a>, <a href="http://osrin.net/tag/odf/" rel="tag">odf</a>, <a href="http://osrin.net/tag/openid/" rel="tag">OpenID</a>, <a href="http://osrin.net/tag/samba/" rel="tag">Samba</a>, <a href="http://osrin.net/tag/saml/" rel="tag">SAML</a></span>		</div>
+	</div>
+
+	<!-- related posts START -->
+		<!-- related posts END -->
+
+	<script type="text/javascript" src="http://osrin.net/wp-content/themes/inove/js/comment.js"></script>
+
+
+
+<div id="comments">
+
+<div id="cmtswitcher">
+			<a id="commenttab" class="curtab" href="javascript:void(0);">Comments (1)</a>
+				<div class="fixed"></div>
+</div>
+
+<div id="commentlist">
+	<!-- comments START -->
+	<ol id="thecomments">
+		<li class="comment regularcomment" id="comment-11436">
+		<div class="author">
+			<div class="pic">
+				<img alt='' src='http://www.gravatar.com/avatar/6f355ae1f33640b777cae294092116ff?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			</div>
+			<div class="name">
+									<a id="commentauthor-11436" class="url" href="http://www.rabbitmq.com" rel="external nofollow">
+				
+				alexis
+									</a>
+							</div>
+		</div>
+
+		<div class="info">
+			<div class="date">
+				November 25th, 2008 at 22:30					 | <a href="#comment-11436">#1</a>
+			</div>
+			<div class="act">
+				<a href="javascript:void(0);" onclick="MGJS_CMT.reply('commentauthor-11436', 'comment-11436', 'comment');">Reply</a> | 
+				<a href="javascript:void(0);" onclick="MGJS_CMT.quote('commentauthor-11436', 'comment-11436', 'commentbody-11436', 'comment');">Quote</a>
+							</div>
+			<div class="fixed"></div>
+			<div class="content">
+				
+				<div id="commentbody-11436">
+					<p>Hello Oliver, I just got round to reading this blog post of yours.  I am involved in both cloud (CohesiveFT Elastic Server) and AMQP (RabbitMQ).  I thought it was interesting to see you bring together both these threads here.  I&#8217;ve just commented on a related matter, interop and standards for the cloud, here: <a href="http://www.elasticvapor.com/2008/11/cloud-standardization-unified-cloud.html" rel="nofollow">http://www.elasticvapor.com/2008/11/cloud-standardization-unified-cloud.html</a>  </p>
+<p>Best wishes<br />
+alexis richardson</p>
+				</div>
+			</div>
+		</div>
+		<div class="fixed"></div>
+
+</li>
+	</ol>
+	<!-- comments END -->
+
+
+	<!-- trackbacks START -->
+		<div class="fixed"></div>
+	<!-- trackbacks END -->
+</div>
+
+</div>
+
+	<div class="messagebox">
+		Comments are closed.	</div>
+
+	<div id="postnavi">
+		<span class="prev"><a href="http://osrin.net/2008/10/why-large-systems-integrators-sometimes-fail-to-deliver-government-projects/" rel="next">Why large systems integrators sometimes fail to deliver government projects</a></span>
+		<span class="next"><a href="http://osrin.net/2008/10/windows-azure-the-sky-is-the-limit/" rel="prev">Windows Azure, the sky is the limit</a></span>
+		<div class="fixed"></div>
+	</div>
+
+
+	</div>
+	<!-- main END -->
+
+	
+<!-- sidebar START -->
+<div id="sidebar">
+
+<!-- sidebar north START -->
+<div id="northsidebar" class="sidebar">
+
+	<!-- feeds -->
+	<div class="widget widget_feeds">
+		<div class="content">
+			<div id="subscribe">
+				<a rel="external nofollow" id="feedrss" title="Subscribe to this blog..." href="http://osrin.net/feed/"><abbr title="Really Simple Syndication">RSS</abbr></a>
+							</div>
+							<a id="followme" title="Follow me!" href="http://twitter.com/osrin/">Twitter</a>
+						<div class="fixed"></div>
+		</div>
+	</div>
+
+	<!-- showcase -->
+	
+<div id="text-302905531" class="widget widget_text"><h3>Oliver Bell</h3>			<div class="textwidget">Standards @Microsoft ANZ</div>
+		</div><div id="subscribe2" class="widget s2class_widget_subscribe2widget"><h3>email subscriptions</h3><div class="search"><form method="post" action=""><input type="hidden" name="ip" value="84.77.4.30" /><p>Your email:<br /><input type="text" name="email" value="Enter email address..." size="20" onfocus="if (this.value == 'Enter email address...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Enter email address...';}" /></p><p><input type="submit" name="subscribe" value="Subscribe" />&nbsp;<input type="submit" name="unsubscribe" value="Unsubscribe" /></p></form>
+</div></div><div id="twitter-431104291" class="widget widget_twitter"><div><h3><a class="twitterwidget twitterwidget-rss" title="Syndicate this content" href="http://twitter.com/statuses/user_timeline/osrin.rss"><img style='background:orange;color:white;border:none;' width='14' height='14' src='http://osrin.net/wp-includes/images/rss.png' alt='RSS' /></a><a class="twitterwidget twitterwidget-title" title="Twitter: osrin" href="http://twitter.com/osrin">twitter.com/osrin</a></h3><ul><li><span class='entry-content'>Soon <a href="http://search.twitter.com/search?q=%23boarding" class="twitter-hashtag">#boarding</a> QF48 WLG-SYD</span> <span class='entry-meta'><span class='time-meta'><a href="http://twitter.com/osrin/statuses/10448540891">about 11 hours ago</a></span> <span class='from-meta'>from <a href="http://www.tweetdeck.com" rel="nofollow">TweetDeck</a></span></span></li><li><span class='entry-content'><a href="http://twitter.com/andrewpickup" class="twitter-user">@andrewpickup</a> to be honest, that is pretty tempting.</span> <span class='entry-meta'><span class='time-meta'><a href="http://twitter.com/osrin/statuses/10320269093">about 3 days ago</a></span> <span class='from-meta'>from <a href="http://www.trinketsoftware.com/Twikini" rel="nofollow">Twikini</a></span><span class="in-reply-to-meta"><a href="http://twitter.com/andrewpickup/statuses/10319603447" class="reply-to">in reply to andrewpickup</a></span></span></li><li><span class='entry-content'><a href="http://twitter.com/venzann" class="twitter-user">@venzann</a> actually I'm free all day Friday... last job was much, much worse than this one</span> <span class='entry-meta'><span class='time-meta'><a href="http://twitter.com/osrin/statuses/10318847290">about 3 days ago</a></span> <span class='from-meta'>from <a href="http://www.tweetdeck.com" rel="nofollow">TweetDeck</a></span><span class="in-reply-to-meta"><a href="http://twitter.com/venzann/statuses/10318777615" class="reply-to">in reply to venzann</a></span></span></li><li><span class='entry-content'><a href="http://twitter.com/andrewpickup" class="twitter-user">@andrewpickup</a> two weeks and you can be a Doctor of Medicine... it would solve the NHS doctor shortage in a matter of months</span> <span class='entry-meta'><span class='time-meta'><a href="http://twitter.com/osrin/statuses/10318688022">about 3 days ago</a></span> <span class='from-meta'>from <a href="http://www.tweetdeck.com" rel="nofollow">TweetDeck</a></span><span class="in-reply-to-meta"><a href="http://twitter.com/andrewpickup/statuses/10318625275" class="reply-to">in reply to andrewpickup</a></span></span></li><li><span class='entry-content'><a href="http://twitter.com/venzann" class="twitter-user">@venzann</a> one more comment - my inbox is not my busiest outlook folder. I see quite a lot of mail. Maybe 1k to 1.5k a day.</span> <span class='entry-meta'><span class='time-meta'><a href="http://twitter.com/osrin/statuses/10318638696">about 3 days ago</a></span> <span class='from-meta'>from <a href="http://www.tweetdeck.com" rel="nofollow">TweetDeck</a></span><span class="in-reply-to-meta"><a href="http://twitter.com/venzann/statuses/10318417210" class="reply-to">in reply to venzann</a></span></span></li></ul></div></div>		<div id="recent-posts-2" class="widget widget_recent_entries">		<h3>Recent Posts</h3>		<ul>
+				<li><a href="http://osrin.net/2010/03/interop-some-nuts-and-bolts/" title="Interop &ndash; some nuts and bolts">Interop &ndash; some nuts and bolts </a></li>
+				<li><a href="http://osrin.net/2010/02/and-you-thought-you-were-done-with-gov20/" title="And you thought you were done with gov20&hellip;">And you thought you were done with gov20&hellip; </a></li>
+				<li><a href="http://osrin.net/2010/01/reforming-the-reformist-agenda/" title="Reforming the Reformist Agenda">Reforming the Reformist Agenda </a></li>
+				<li><a href="http://osrin.net/2010/01/rdf-and-open-government-data/" title="RDF and Open Government Data">RDF and Open Government Data </a></li>
+				<li><a href="http://osrin.net/2010/01/the-city-of-edmonton-and-ogdi/" title="The City of Edmonton and OGDI">The City of Edmonton and OGDI </a></li>
+				</ul>
+		</div><div id="tag_cloud-2" class="widget widget_tag_cloud"><h3>Tags</h3><div><a href='http://osrin.net/tag/2008/' class='tag-link-9' title='1 topic' style='font-size: 8pt;'>2008!</a>
+<a href='http://osrin.net/tag/adoption/' class='tag-link-10' title='8 topics' style='font-size: 13.8333333333pt;'>adoption</a>
+<a href='http://osrin.net/tag/asia/' class='tag-link-11' title='3 topics' style='font-size: 10.6923076923pt;'>asia</a>
+<a href='http://osrin.net/tag/binary-formats/' class='tag-link-40' title='2 topics' style='font-size: 9.61538461538pt;'>binary formats</a>
+<a href='http://osrin.net/tag/brm/' class='tag-link-12' title='8 topics' style='font-size: 13.8333333333pt;'>brm</a>
+<a href='http://osrin.net/tag/crm/' class='tag-link-13' title='1 topic' style='font-size: 8pt;'>crm</a>
+<a href='http://osrin.net/tag/daisy/' class='tag-link-14' title='2 topics' style='font-size: 9.61538461538pt;'>DAISY</a>
+<a href='http://osrin.net/tag/digital-divide/' class='tag-link-47' title='3 topics' style='font-size: 10.6923076923pt;'>digital divide</a>
+<a href='http://osrin.net/tag/dii/' class='tag-link-64' title='3 topics' style='font-size: 10.6923076923pt;'>dii</a>
+<a href='http://osrin.net/tag/economy/' class='tag-link-15' title='1 topic' style='font-size: 8pt;'>economy</a>
+<a href='http://osrin.net/tag/egov/' class='tag-link-16' title='6 topics' style='font-size: 12.9358974359pt;'>egov</a>
+<a href='http://osrin.net/tag/future/' class='tag-link-52' title='2 topics' style='font-size: 9.61538461538pt;'>future</a>
+<a href='http://osrin.net/tag/gov20/' class='tag-link-90' title='9 topics' style='font-size: 14.2820512821pt;'>gov20</a>
+<a href='http://osrin.net/tag/growth/' class='tag-link-18' title='1 topic' style='font-size: 8pt;'>growth</a>
+<a href='http://osrin.net/tag/hotmail/' class='tag-link-19' title='1 topic' style='font-size: 8pt;'>hotmail</a>
+<a href='http://osrin.net/tag/india/' class='tag-link-20' title='2 topics' style='font-size: 9.61538461538pt;'>india</a>
+<a href='http://osrin.net/tag/industry/' class='tag-link-21' title='1 topic' style='font-size: 8pt;'>industry</a>
+<a href='http://osrin.net/tag/interop/' class='tag-link-22' title='11 topics' style='font-size: 15pt;'>interop</a>
+<a href='http://osrin.net/tag/ipr/' class='tag-link-39' title='6 topics' style='font-size: 12.9358974359pt;'>ipr</a>
+<a href='http://osrin.net/tag/ipv6/' class='tag-link-59' title='16 topics' style='font-size: 16.3461538462pt;'>ipv6</a>
+<a href='http://osrin.net/tag/jpeg-xr/' class='tag-link-80' title='2 topics' style='font-size: 9.61538461538pt;'>jpeg xr</a>
+<a href='http://osrin.net/tag/kayak/' class='tag-link-23' title='2 topics' style='font-size: 9.61538461538pt;'>kayak</a>
+<a href='http://osrin.net/tag/live/' class='tag-link-24' title='1 topic' style='font-size: 8pt;'>live</a>
+<a href='http://osrin.net/tag/migration/' class='tag-link-25' title='1 topic' style='font-size: 8pt;'>migration</a>
+<a href='http://osrin.net/tag/new-ideas/' class='tag-link-26' title='1 topic' style='font-size: 8pt;'>new ideas</a>
+<a href='http://osrin.net/tag/odf/' class='tag-link-27' title='16 topics' style='font-size: 16.3461538462pt;'>odf</a>
+<a href='http://osrin.net/tag/office/' class='tag-link-48' title='2 topics' style='font-size: 9.61538461538pt;'>office</a>
+<a href='http://osrin.net/tag/opendata/' class='tag-link-93' title='8 topics' style='font-size: 13.8333333333pt;'>opendata</a>
+<a href='http://osrin.net/tag/openid/' class='tag-link-67' title='2 topics' style='font-size: 9.61538461538pt;'>OpenID</a>
+<a href='http://osrin.net/tag/openxml/' class='tag-link-28' title='72 topics' style='font-size: 22pt;'>openxml</a>
+<a href='http://osrin.net/tag/oscon08/' class='tag-link-55' title='3 topics' style='font-size: 10.6923076923pt;'>oscon08</a>
+<a href='http://osrin.net/tag/osp/' class='tag-link-43' title='2 topics' style='font-size: 9.61538461538pt;'>osp</a>
+<a href='http://osrin.net/tag/oss/' class='tag-link-29' title='4 topics' style='font-size: 11.5897435897pt;'>oss</a>
+<a href='http://osrin.net/tag/research/' class='tag-link-30' title='2 topics' style='font-size: 9.61538461538pt;'>research</a>
+<a href='http://osrin.net/tag/rosettanet/' class='tag-link-31' title='1 topic' style='font-size: 8pt;'>RosettaNet</a>
+<a href='http://osrin.net/tag/schema/' class='tag-link-32' title='4 topics' style='font-size: 11.5897435897pt;'>schema</a>
+<a href='http://osrin.net/tag/sdk/' class='tag-link-50' title='3 topics' style='font-size: 10.6923076923pt;'>sdk</a>
+<a href='http://osrin.net/tag/services/' class='tag-link-33' title='3 topics' style='font-size: 10.6923076923pt;'>services</a>
+<a href='http://osrin.net/tag/solutions/' class='tag-link-34' title='6 topics' style='font-size: 12.9358974359pt;'>solutions</a>
+<a href='http://osrin.net/tag/success/' class='tag-link-35' title='2 topics' style='font-size: 9.61538461538pt;'>success</a>
+<a href='http://osrin.net/tag/talkstandards/' class='tag-link-89' title='2 topics' style='font-size: 9.61538461538pt;'>TalkStandards</a>
+<a href='http://osrin.net/tag/technology/' class='tag-link-8' title='1 topic' style='font-size: 8pt;'>Technology</a>
+<a href='http://osrin.net/tag/tools/' class='tag-link-36' title='1 topic' style='font-size: 8pt;'>tools</a>
+<a href='http://osrin.net/tag/travel/' class='tag-link-37' title='3 topics' style='font-size: 10.6923076923pt;'>travel</a>
+<a href='http://osrin.net/tag/use-case/' class='tag-link-38' title='2 topics' style='font-size: 9.61538461538pt;'>use case</a></div>
+</div>			<div id="akismet" class="widget widget_akismet">				<h3>Spam Blocked</h3>				<div id="akismetwrap"><div id="akismetstats"><a id="aka" href="http://akismet.com" title=""><div id="akismet1"><span id="akismetcount">36,715</span> <span id="akismetsc">spam comments</span></div> <div id="akismet2"><span id="akismetbb">blocked by</span><br /><span id="akismeta">Akismet</span></div></a></div></div>
+			</div>	</div>
+<!-- sidebar north END -->
+
+<div id="centersidebar">
+
+	<!-- sidebar east START -->
+	<div id="eastsidebar" class="sidebar">
+	
+		<!-- categories -->
+		<div class="widget widget_categories">
+			<h3>Categories</h3>
+			<ul>
+					<li class="cat-item cat-item-65"><a href="http://osrin.net/category/cloud-computing/" title="View all posts filed under Cloud Computing">Cloud Computing</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="http://osrin.net/category/egovernment/" title="View all posts filed under eGovernment">eGovernment</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="http://osrin.net/category/examples/" title="View all posts filed under Examples">Examples</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="http://osrin.net/category/general/" title="View all posts filed under General">General</a>
+</li>
+	<li class="cat-item cat-item-53"><a href="http://osrin.net/category/identity/" title="View all posts filed under Identity">Identity</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="http://osrin.net/category/interoperability/" title="View all posts filed under Interoperability">Interoperability</a>
+</li>
+	<li class="cat-item cat-item-7"><a href="http://osrin.net/category/standards/" title="View all posts filed under Standards">Standards</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="http://osrin.net/category/technology/" title="View all posts filed under Technology">Technology</a>
+</li>
+			</ul>
+		</div>
+
+		</div>
+	<!-- sidebar east END -->
+
+	<!-- sidebar west START -->
+	<div id="westsidebar" class="sidebar">
+	
+		<!-- blogroll -->
+		<div class="widget widget_links">
+			<h3>Blogroll</h3>
+			<ul>
+				<li><a href="http://port25.technet.com/archive/category/1000.aspx">Bill Hilf</a></li>
+<li><a href="http://blogs.msdn.com/brian_jones/default.aspx">Brian Jones</a></li>
+<li><a href="http://blogs.msdn.com/craig/">Craig Kitterman</a></li>
+<li><a href="http://blogs.msdn.com/dmahugh/default.aspx">Doug Mahugh</a></li>
+<li><a href="http://blogs.msdn.com/ericwhite/default.aspx">Eric White</a></li>
+<li><a href="http://blogs.technet.com/gray_knowlton/default.aspx">Gray Knowlton</a></li>
+<li><a href="http://www.mylemonadestand.net/weblog/">Greg Thomas</a></li>
+<li><a href="http://james.newtonking.com/">James Newton King</a></li>
+<li><a href="http://blogs.msdn.com/jasonmatusow/">Jason Matusow</a></li>
+<li><a href="http://ntouk.com">Jerry Fishenden</a></li>
+<li><a href="http://blogs.msdn.com/mordonez/default.aspx">Mauricio Ordoñez</a></li>
+<li><a href="http://blogs.msdn.com/interoperability">Microsoft Interoperability</a></li>
+<li><a href="http://blogs.technet.com/reedblog/">Reed Shaffner</a></li>
+<li><a href="http://www.oreillynet.com/pub/au/1712">Rick Jelliffe</a></li>
+<li><a href="http://port25.technet.com/search.aspx?u=2126">Sam Ramji</a></li>
+<li><a href="http://notes2self.net">Stephen McGibbon</a></li>
+			</ul>
+		</div>
+
+		</div>
+	<!-- sidebar west END -->
+	<div class="fixed"></div>
+</div>
+
+<!-- sidebar south START -->
+<div id="southsidebar" class="sidebar">
+
+	<!-- archives -->
+	<div class="widget">
+		<h3>Archives</h3>
+					<ul>
+					<li><a href='http://osrin.net/2010/03/' title='March 2010'>March 2010</a></li>
+	<li><a href='http://osrin.net/2010/02/' title='February 2010'>February 2010</a></li>
+	<li><a href='http://osrin.net/2010/01/' title='January 2010'>January 2010</a></li>
+	<li><a href='http://osrin.net/2009/11/' title='November 2009'>November 2009</a></li>
+	<li><a href='http://osrin.net/2009/10/' title='October 2009'>October 2009</a></li>
+	<li><a href='http://osrin.net/2009/08/' title='August 2009'>August 2009</a></li>
+	<li><a href='http://osrin.net/2009/07/' title='July 2009'>July 2009</a></li>
+	<li><a href='http://osrin.net/2009/06/' title='June 2009'>June 2009</a></li>
+	<li><a href='http://osrin.net/2009/05/' title='May 2009'>May 2009</a></li>
+	<li><a href='http://osrin.net/2009/04/' title='April 2009'>April 2009</a></li>
+	<li><a href='http://osrin.net/2009/03/' title='March 2009'>March 2009</a></li>
+	<li><a href='http://osrin.net/2009/02/' title='February 2009'>February 2009</a></li>
+	<li><a href='http://osrin.net/2009/01/' title='January 2009'>January 2009</a></li>
+	<li><a href='http://osrin.net/2008/12/' title='December 2008'>December 2008</a></li>
+	<li><a href='http://osrin.net/2008/11/' title='November 2008'>November 2008</a></li>
+	<li><a href='http://osrin.net/2008/10/' title='October 2008'>October 2008</a></li>
+	<li><a href='http://osrin.net/2008/09/' title='September 2008'>September 2008</a></li>
+	<li><a href='http://osrin.net/2008/08/' title='August 2008'>August 2008</a></li>
+	<li><a href='http://osrin.net/2008/07/' title='July 2008'>July 2008</a></li>
+	<li><a href='http://osrin.net/2008/06/' title='June 2008'>June 2008</a></li>
+	<li><a href='http://osrin.net/2008/05/' title='May 2008'>May 2008</a></li>
+	<li><a href='http://osrin.net/2008/04/' title='April 2008'>April 2008</a></li>
+	<li><a href='http://osrin.net/2008/03/' title='March 2008'>March 2008</a></li>
+	<li><a href='http://osrin.net/2008/02/' title='February 2008'>February 2008</a></li>
+	<li><a href='http://osrin.net/2008/01/' title='January 2008'>January 2008</a></li>
+	<li><a href='http://osrin.net/2007/12/' title='December 2007'>December 2007</a></li>
+	<li><a href='http://osrin.net/2007/11/' title='November 2007'>November 2007</a></li>
+	<li><a href='http://osrin.net/2007/10/' title='October 2007'>October 2007</a></li>
+	<li><a href='http://osrin.net/2007/09/' title='September 2007'>September 2007</a></li>
+	<li><a href='http://osrin.net/2007/08/' title='August 2007'>August 2007</a></li>
+			</ul>
+			</div>
+
+</div>
+<!-- sidebar south END -->
+</div>
+<!-- sidebar END -->
+	<div class="fixed"></div>
+</div>
+<!-- content END -->
+
+<!-- footer START -->
+<div id="footer">
+	<a id="gotop" href="#" onclick="MGJS.goTop();return false;">Top</a>
+	<a id="powered" href="http://wordpress.org/">WordPress</a>
+	<div id="copyright">
+		Copyright &copy; 2007-2010 osrin.net	</div>
+	<div id="themeinfo">
+		Theme by <a href="http://www.neoease.com/">NeoEase</a>. Valid <a href="http://validator.w3.org/check?uri=referer">XHTML 1.1</a> and <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3">CSS 3</a>.	</div>
+</div>
+<!-- footer END -->
+
+</div>
+<!-- container END -->
+</div>
+<!-- wrap END -->
+
+<script src="http://stats.wordpress.com/e-201010.js" type="text/javascript"></script>
+<script type="text/javascript">
+st_go({blog:'1630254',v:'ext',post:'371'});
+var load_cmc = function(){linktracker_init(1630254,371,2);};
+if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+else load_cmc();
+</script>
+<!-- Start of StatCounter Code -->
+<script type="text/javascript">
+sc_project=2966073; 
+sc_invisible=1; 
+sc_partition=32; 
+sc_security="5f35501a"; 
+</script>
+
+<script type="text/javascript"
+src="http://www.statcounter.com/counter/counter.js"></script><noscript><div
+class="statcounter"><a title="hit counter"
+href="http://www.statcounter.com/" target="_blank"><img
+class="statcounter"
+src="http://c33.statcounter.com/2966073/0/5f35501a/1/"
+alt="hit counter" ></a></div></noscript>
+<!-- End of StatCounter Code -->
+</body>
+</html>
+

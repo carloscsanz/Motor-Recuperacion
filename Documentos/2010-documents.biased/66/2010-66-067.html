@@ -1,0 +1,1319 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="ctl00_Head1"><link id="ctl00_HeaderLink1" rel="stylesheet" type="text/css" href="http://i3.msdn.microsoft.com/Global/Global-bn20100217.css" /><link id="ctl00_HeaderLink2" rel="stylesheet" type="text/css" href="http://i3.msdn.microsoft.com/Platform/MasterPages/Library/Library-bn20100217.css" /><meta name="NormalizedUrl" content="http://msdn.microsoft.com/en-us/library(d=default)/77hkfhh8(l=en-us,v=VS.71).aspx" /><meta name="VotingContextUrl" content="http://msdn.microsoft.com/en-us/library(d=default)/77hkfhh8(l=en-us,v=VS.71).aspx" /><meta name="ROBOTS" content="NOINDEX,NOFOLLOW" /><meta name="MN" content="74838609-6:40:27 AM" /><meta name="ms.locale" content="en-us" /><meta name="Search.ShortId" content="77hkfhh8" />
+<!-- Looking for metadata? Use the robot view instead http://currentsite/currenturl(robot).aspx -->
+<meta name="DCS.dcsuri" content="/en-us/library(d=default)/77hkfhh8(l=en-us,v=VS.71).aspx" />
+<link rel="stylesheet" type="text/css" href="http://i3.msdn.microsoft.com/en-us/library/mtps-bn20100217.css?l=en-us&amp;i=library&amp;ct=AlternateSelector;CCEditor;CCSection;CCTagEditor;CodeSnippet;ContentFallback;DropDownFilter;ExpandCollapseAll;Eyebrow;Footer;InstrumentedLink;InteractiveToolbar;iRootBrand;LocaleManagementFlyout;lwViewSwitcher;MastheadLibrary;MemberlistFrameworksFilter;MemberlistMembersFilter;MtpsLoginStatus;MtpsRating;MtViewDropDown;Omniture;RedVelvetCodeSnippet;RedVelvetInstrumentedLink;RelatedPages;ResizeableAreaD10;StoSearch;StoTabStripLibrary;SurveyLauncher;TagCloud;TemplatedFlyout;Tickler;Toc;UserRecognition;WebMetrix;WebTrends&amp;clustimg=1"></link><link rel="alternate" media="print" href="/en-us/library/77hkfhh8(VS.71,printer).aspx" />
+<title>
+	Using SOAP Headers
+</title></head>
+<body id="ctl00_Mtps_body" dir="ltr">
+
+  <form name="aspnetForm" method="post" action="77hkfhh8(VS.71).aspx" id="aspnetForm">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUBMGQYAQUeX19Db250cm9sc1JlcXVpcmVQb3N0QmFja0tleV9fFgEFHmN0bDAwJGN0bDA4JGN0bDAwJFNlYXJjaEJ1dHRvbimZ2hJZtgBkl5fCfcdieVCh7CSX" />
+
+
+<script type="text/javascript">
+//<![CDATA[
+var CurUserId="AxUFAAAAAADxBgAAaeO9f91MEbmPz+e2x/+ZHA!!";var ClientURL="http%3a%2f%2fmsdn.microsoft.com%2fen-us%2flibrary(d%3ddefault)%2f77hkfhh8(l%3den-us%2cv%3dVS.71).aspx";var maxRating=5;var RatingObjId="ctl00_ib1_Flyout_Rating1";var tbCommentsId="ctl00_ib1_Flyout_tbComments";var PageId="77hkfhh8";var pageTag="contentRating77hkfhh8VS.71en-us";var sendBtnId="ctl00_ib1_Flyout_btnSend";var curRating="4";var contentRated=false;var RatingTooltipText="Click a star and provide feedback";var RatedTooltipText="You have already rated this content. Thank you for your feedback.";var userIPAddress="84.77.3.46";var MtpsPageDirection="ltr";var RatingFlyoutID="ctl00_ib1_Flyout";var Rating_Device="default";//]]>
+</script>
+
+<script src="http://i2.msdn.microsoft.com/Platform/cjs/jquery-1.2.6-bn20100217.js" type="text/javascript"></script>
+<script src="http://i2.msdn.microsoft.com/Platform/cjs/Silverlight-bn20100217.js" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+var wt_nvr_ru = "WT_NVR_RU";var wt_fpcdom = ".microsoft.com";var wt_domlist = "msdn.microsoft.com";var wt_pathlist = "";var wt_paramlist = "DCSext.mtps_devcenter";var wt_siteid = "MSDN";var gDomain="m.webtrends.com";
+var gDcsId="dcsmgru7m99k7mqmgrhudo0k8_8c6m";
+var gFpc="WT_FPC";
+/*<![CDATA[*/
+if(document.cookie.indexOf(gFpc+"=")==-1){document.write("<scr"+"ipt type='text/javascript' src='"+"http"+(window.location.protocol.indexOf('https:')==0?'s':'')+"://"+gDomain+"/"+gDcsId+"/wtid.js"+"'><\/scr"+"ipt>");}
+/*]]>*/
+var detectedLocale = 'en-us';
+var wtsp="msdnlib_dotnet";
+var gTrackEvents = 0;
+var omni_guid='6ad38756-24ec-4799-845d-0885f68d9efa';//]]>
+</script>
+<SCRIPT LANGUAGE='JavaScript' SRC='http://i2.msdn.microsoft.com/platform/Controls/Omniture/resources/MSDN/omni_rsid_msdn-bn20100217.js'></SCRIPT><noscript><a href='http://www.omniture.com' title='Web Analytics'><img src='http://msstonojsmsdn.112.2o7.net/b/ss/msstonojsmsdn/1/H.20.2--NS/0'  height='1' width='1' border='0' alt='' /></a></noscript>
+<script src="http://i2.msdn.microsoft.com/platform/cjs/extract/compositejscript2.js" type="text/javascript"></script>
+  
+   
+  <div id="rheader">
+    
+
+<div class="mastheadfontbase">
+  <div>
+		<div class="GlobalBar">
+			<div class="Teaser">
+				
+
+<span id="ticklerWrapper" >
+<a id="ctl00_ctl08_Tickler1_InstallLink" class="slLink" href="http://clk.atdmt.com/MRT/go/141489558/direct/01/" onclick="javascript:Track('ctl00_ctl08_Tickler1|_InstallLink',this);">Upgrade your Internet Experience</a>
+</span>
+
+
+			</div>
+			<div class="GlobalBarRight">
+			  <div class="LocaleFlyout">
+				  <div class="LocaleManagementFlyoutStatic" style="position:relative;" id="ctl00_ctl08_LocaleManagement_ctl00"><a class="LocaleManagementFlyoutStaticLink" href="javascript:void(0)">United States - English&nbsp;</a><img class="LocaleManagementFlyoutPopArrow LibC_popdownarrow" src="http://i.msdn.microsoft.com/Global/Images/clear.gif" alt="Dropdown Arrow" height="4" width="7" border="0" /><div id="ctl00_ctl08_LocaleManagement_ctl00_Popup" class="LocaleManagementFlyoutPopup" style="position: absolute;visibility:hidden;left:-1000px;">
+		<table border="0" width="175">
+			<tr>
+				<td><a href="javascript:__doPostBack('ctl00$ctl08$LocaleManagement$ctl00$ctl05','')">Argentina (Español)</a></td>
+			</tr><tr>
+				<td><a href="javascript:__doPostBack('ctl00$ctl08$LocaleManagement$ctl00$ctl06','')">Australia (English)</a></td>
+			</tr><tr>
+				<td><a href="javascript:__doPostBack('ctl00$ctl08$LocaleManagement$ctl00$ctl07','')">Brasil (Português)</a></td>
+			</tr><tr>
+				<td><a href="javascript:__doPostBack('ctl00$ctl08$LocaleManagement$ctl00$ctl08','')">Canada (English)</a></td>
+			</tr><tr>
+				<td><a href="javascript:__doPostBack('ctl00$ctl08$LocaleManagement$ctl00$ctl09','')">Canada (Français)</a></td>
+			</tr><tr>
+				<td><a href="javascript:__doPostBack('ctl00$ctl08$LocaleManagement$ctl00$ctl10','')">中国 (简体中文)</a></td>
+			</tr><tr>
+				<td><a href="javascript:__doPostBack('ctl00$ctl08$LocaleManagement$ctl00$ctl11','')">Colombia (Español)</a></td>
+			</tr><tr>
+				<td><a href="javascript:__doPostBack('ctl00$ctl08$LocaleManagement$ctl00$ctl12','')">Deutschland (Deutsch)</a></td>
+			</tr><tr>
+				<td><a href="javascript:__doPostBack('ctl00$ctl08$LocaleManagement$ctl00$ctl13','')">España (Español)</a></td>
+			</tr><tr>
+				<td><a href="javascript:__doPostBack('ctl00$ctl08$LocaleManagement$ctl00$ctl14','')">France (Français)</a></td>
+			</tr><tr>
+				<td><a href="javascript:__doPostBack('ctl00$ctl08$LocaleManagement$ctl00$ctl15','')">India (English)</a></td>
+			</tr><tr>
+				<td><a href="javascript:__doPostBack('ctl00$ctl08$LocaleManagement$ctl00$ctl16','')">Italia (Italiano)</a></td>
+			</tr><tr>
+				<td><a href="javascript:__doPostBack('ctl00$ctl08$LocaleManagement$ctl00$ctl17','')">日本 (日本語)</a></td>
+			</tr><tr>
+				<td><a href="javascript:__doPostBack('ctl00$ctl08$LocaleManagement$ctl00$ctl18','')">México (Español)</a></td>
+			</tr><tr>
+				<td><a href="javascript:__doPostBack('ctl00$ctl08$LocaleManagement$ctl00$ctl19','')">Perú (Español)</a></td>
+			</tr><tr>
+				<td><a href="javascript:__doPostBack('ctl00$ctl08$LocaleManagement$ctl00$ctl20','')">Россия (Pусский)</a></td>
+			</tr><tr>
+				<td><a href="javascript:__doPostBack('ctl00$ctl08$LocaleManagement$ctl00$ctl21','')">United Kingdom (English)</a></td>
+			</tr><tr>
+				<td><a href="javascript:__doPostBack('ctl00$ctl08$LocaleManagement$ctl00$ctl22','')">United States (English)</a></td>
+			</tr><tr>
+				<td class="LocaleManagementFlyoutPopupHr"></td>
+			</tr><tr>
+				<td><a href="/en-us/ms376822.aspx">More...</a></td>
+			</tr>
+		</table></div><div id="ctl00_ctl08_LocaleManagement_ctl00_Anim" class="TFlyPopupAnimate"></div>
+</div>
+
+
+
+		    </div>
+		    <div class="SiteMap">
+				  <a id="ctl00_ctl08_MSFT_Site" title="Microsoft.com" class="SiteMapLink" href="http://www.microsoft.com">Microsoft.com</a>
+			  </div>
+			  <div class="PassportScarab">
+				  <span id="ctl00_ctl08_UserRecognitionFlyout_lbwelcom" class="UserRecognitionStaticText">Welcome</span>
+
+  
+  
+<a id="idPPScarab" href="http://login.live.com/login.srf?wa=wsignin1.0&amp;rpsnv=11&amp;ct=1268574027&amp;rver=6.0.5276.0&amp;wp=MCLBI&amp;wlcxt=msdn%24msdn%24msdn&amp;wreply=http:%2F%2Fmsdn.microsoft.com%2Fen-us%2Flibrary%2F77hkfhh8%2528VS.71%2529.aspx&amp;lc=1033&amp;id=254354" ><span id="idPPScarabSIT" class="MTPS_GlobalToolbarLinks_msdn">Sign in</span></a>
+
+
+			  </div>
+			  
+			  
+		  </div>
+		</div>
+	</div>
+	<div class="classicTopNav">
+	    <div class="ThinNavBox">
+		<a href="/en-us/default.aspx" id="ctl00_ctl08_brandlink"><div id="ctl00_ctl08_BrandLogo" class="BrandLogo">
+
+</div></a>
+		<div class="Search"><div id="ctl00_ctl08_ctl00_SearchBox" class="SearchBox">
+    <input name="ctl00$ctl08$ctl00$SearchTextBox" type="text" id="ctl00_ctl08_ctl00_SearchTextBox" title="Search MSDN" class="TextBoxSearch" />
+    <input type="image" name="ctl00$ctl08$ctl00$SearchButton" id="ctl00_ctl08_ctl00_SearchButton" title="Click here to search" class="SearchButton" alt="Click here to search" src="http://i.msdn.microsoft.com/Global/Images/clear.gif" border="0" />
+    <span class="Bing"></span>
+<script type="text/javascript" defer="defer" src="http://i1.services.social.microsoft.com/search/Widgets/SearchBox.jss?boxid=ctl00_ctl08_ctl00_SearchTextBox&btnid=ctl00_ctl08_ctl00_SearchButton&brand=MSDN&loc=en-us" id="mscom.srch.searchBox"></script></div></div>
+		<div class="evergreenLinks">
+	    
+      
+     
+        <a id="ctl00_ctl08_eventlink"><div id="ctl00_ctl08_EventLogo" class="EventLogo">
+
+</div></a>
+     </div>
+     
+       
+	</div>
+	    <div class="Clear"></div>
+        
+
+	<div class="NavigationBox">
+	    <div id="ctl00_ctl08_tabs_CenterTitle" class="HeaderTitle">Microsoft Developer Network</div>
+		<div class="Sponsor">
+		  
+		</div>
+		<div class="ClearLeft"></div>
+        <div class="leftcap"></div>
+        <div class="internav">
+	        <div id="ctl00_ctl08_tabs_manTabsHolder"><a id="ctl00_ctl08_tabs_ctl01" href="http://msdn.microsoft.com/en-us/default.aspx" onclick="javascript:Track('|TabStrip Link|ctl00_ctl08_tabs_ctl00|ctl00_ctl08_tabs_ctl01',this);">Home</a><a id="ctl00_ctl08_tabs_ctl03" class="active" href="http://msdn.microsoft.com/en-us/library/default.aspx" onclick="javascript:Track('|TabStrip Link|ctl00_ctl08_tabs_ctl02|ctl00_ctl08_tabs_ctl03',this);">Library</a><a id="ctl00_ctl08_tabs_ctl05" href="http://msdn.microsoft.com/en-us/bb188199.aspx" onclick="javascript:Track('|TabStrip Link|ctl00_ctl08_tabs_ctl04|ctl00_ctl08_tabs_ctl05',this);">Learn</a><a id="ctl00_ctl08_tabs_ctl07" href="http://msdn.microsoft.com/en-us/aa570309.aspx" onclick="javascript:Track('|TabStrip Link|ctl00_ctl08_tabs_ctl06|ctl00_ctl08_tabs_ctl07',this);">Downloads</a><a id="ctl00_ctl08_tabs_ctl09" href="http://msdn.microsoft.com/en-us/aa570318.aspx" onclick="javascript:Track('|TabStrip Link|ctl00_ctl08_tabs_ctl08|ctl00_ctl08_tabs_ctl09',this);">Support</a><a id="ctl00_ctl08_tabs_ctl11" href="http://msdn.microsoft.com/en-us/aa497440.aspx" onclick="javascript:Track('|TabStrip Link|ctl00_ctl08_tabs_ctl10|ctl00_ctl08_tabs_ctl11',this);">Community</a><a id="ctl00_ctl08_tabs_ctl13" href="http://social.msdn.microsoft.com/Forums/en-US/categories" onclick="javascript:Track('|TabStrip Link|ctl00_ctl08_tabs_ctl12|ctl00_ctl08_tabs_ctl13',this);">Forums</a></div>
+        </div>
+        
+
+<div id="ctl00_ctl08_tabs_LwViewSwitcher1_Panel1" class="LWVS_Loband">
+	
+<a id="ctl00_ctl08_tabs_LwViewSwitcher1_ClassicLink" tabindex="201" class="LWVS_DisabledLink" onclick="SetViewCookie('classic')">Classic</a>&nbsp | &nbsp <a href="http://msdn.microsoft.com/en-us/library/77hkfhh8(VS.71).aspx" id="ctl00_ctl08_tabs_LwViewSwitcher1_LightweightLink" tabindex="202" class="LWVS_Link" onclick="SetViewCookie('lightweight')">Lightweight Beta</a>&nbsp | &nbsp <a href="http://msdn.microsoft.com/en-us/library/77hkfhh8(VS.71).aspx" id="ctl00_ctl08_tabs_LwViewSwitcher1_LobandLink" tabindex="203" class="LWVS_Link" onclick="SetViewCookie('loband')">ScriptFree</a>
+</div>
+
+
+        <div class="rightcap"></div>
+	</div>
+	
+	<div class="Clear"></div>
+	<div id="ctl00_ctl08_tabs_LocalNavigation" class="LocalNavigation" style="height:2px;">
+	    
+	</div>
+	<div class="cleartabstrip"></div>
+	<div id="ctl00_ctl08_tabs_LocalNavBottom" class="LocalNavBottom"></div>
+	
+	
+	
+    </div>
+</div>
+<div class="Clear"></div>    
+    <div id="ctl00_ib1_Panel1" class="miniRatings">
+	
+<div id="ctl00_ib1_miniRatings_left" class="miniRatings_left">
+		
+    <a id="ctl00_ib1_hlPrint" title="Print This Content" class="itPrint" onclick="javascript:SubmitRateAction('printerFriendlyPage');" href="http://msdn.microsoft.com/en-us/library/77hkfhh8(VS.71,printer).aspx"><img id="ctl00_ib1_imgPrint" class="LibC_rtg_print" src="http://i.msdn.microsoft.com/Global/Images/clear.gif" border="0" />&nbsp;Printer Friendly Version</a>&nbsp;&nbsp;
+    &nbsp;&nbsp;
+    <a id="ctl00_ib1_hlSendCont" title="Send This Content" class="itSend" onclick="javascript:SubmitRateAction('sendThisPage');" href="mailto:?subject=Using SOAP Headers&amp;body=This URL points to a page on MSDN that may interest you: http://msdn.microsoft.com/en-us/library/77hkfhh8(VS.71).aspx"><img id="ctl00_ib1_imgSendCont" class="LibC_rtg_email" src="http://i.msdn.microsoft.com/Global/Images/clear.gif" border="0" />&nbsp;Send</a>&nbsp;&nbsp;
+    &nbsp;&nbsp;
+   
+	</div>
+<div id="ctl00_ib1_miniRatings_right" class="miniRatings_right">
+		
+        <div class="ratingFlyoutStatic" style="position:relative;" id="ctl00_ib1_Flyout"><div id="ctl00_ib1_Flyout_rtgContainer" title="Turn scripting on  to submit a rating and send feedback." style="display: block; text-align:right;">
+				
+              <table>
+                <tr>
+                  <td style="text-align:right;line-height:70%;">
+                    <span id="ctl00_ib1_Flyout_rateTitleLabel" class="tbFont">Click to Rate and Give Feedback</span>
+                  </td>
+                  <td id="ctl00_ib1_Flyout_tdRtg" style="width:85px" onclick="if($get('ctl00_ib1_Flyout_tbComments')!=null &amp;&amp; $get('ctl00_ib1_Flyout_tbComments').visible == 'true') $get('ctl00_ib1_Flyout_tbComments').focus();">
+                      <div id="ctl00_ib1_Flyout_Rating1" title="Click a star and provide feedback" dir="ltr">
+					<a href="#" id="ctl00_ib1_Flyout_Rating1_A" title="Click a star and provide feedback" style="text-decoration:none"><span id="ctl00_ib1_Flyout_Rating1_Star_1" class="ratingStar filledRatingStar">&nbsp;</span><span id="ctl00_ib1_Flyout_Rating1_Star_2" class="ratingStar filledRatingStar">&nbsp;</span><span id="ctl00_ib1_Flyout_Rating1_Star_3" class="ratingStar filledRatingStar">&nbsp;</span><span id="ctl00_ib1_Flyout_Rating1_Star_4" class="ratingStar filledRatingStar">&nbsp;</span><span id="ctl00_ib1_Flyout_Rating1_Star_5" class="ratingStar emptyRatingStar">&nbsp;</span></a>
+				</div>
+                  </td>
+				
+                </tr>
+              </table>
+            
+			</div>
+            <div style="display: block; float: none; clear: both;">
+            </div>
+          <div id="ctl00_ib1_Flyout_Popup" class="ratingFlyoutPopup" style="position: absolute;visibility:hidden;left:-1000px;">
+				<span id="ctl00_ib1_Flyout_lbOptText" class="OptionalText">Give feedback on this content</span><textarea name="ctl00$ib1$Flyout$tbComments" rows="2" cols="20" id="ctl00_ib1_Flyout_tbComments" class="Comment"></textarea><input name="ctl00$ib1$Flyout$btnClose" type="button" id="ctl00_ib1_Flyout_btnClose" Class="Button" value="Close" OnClick="CloseFLY(&quot;ctl00_ib1_Flyout&quot;) " /><input name="ctl00$ib1$Flyout$btnSend" type="button" id="ctl00_ib1_Flyout_btnSend" Class="Button" value="Send" OnClick="return IsPageRated(&quot;ctl00_ib1_Flyout_Rating1&quot;,&quot;ctl00_ib1_Flyout_lbOptText&quot;,'Please rate the page first.', &quot;ctl00_ib1_Flyout&quot;,this)" /></div><div id="ctl00_ib1_Flyout_Anim" class="TFlyPopupAnimate"></div>
+		</div>
+		
+      
+	</div>
+    
+  <div id="intercleardiv" style="display: block; clear: both; visibility: hidden;"></div>
+
+</div>
+
+  </div>
+  <div id="contents">
+   <div id="ctl00_LibFrame" class="resizableArea">
+	<div id="ctl00_raLeft" class="leftSection" style="width:300px;">
+		
+        <img id="ctl00_TocVector1_o" class="hidden" src="http://i.msdn.microsoft.com/Global/Images/clear.gif" border="0" />
+<img id="ctl00_TocVector1_c" class="hidden" src="http://i.msdn.microsoft.com/Global/Images/clear.gif" border="0" />
+<img id="ctl00_TocVector1_e" class="hidden" src="http://i.msdn.microsoft.com/Global/Images/clear.gif" border="0" />
+<div id="holder" onclick="TocClick(event)">
+<div id="ctl00_TocVector1_root" class="rootToc">
+			<ul class="toc" id="tocVectorTreeId"><li name="ms310241(n)"><img src="http://i.msdn.microsoft.com/Global/Images/clear.gif" class="LibC_c"/><a href="http://msdn.microsoft.com/en-us/library/ms123401.aspx" target="_top">MSDN Library</a></li></ul>
+		</div>
+</div>
+
+
+      
+	</div><div id="ctl00_raSplitter" title="Click and drag to resize. Double click or press 't' to toggle visibility." class="splitter" style="left:300px;">
+		<div class="LibC_lib_grippy" style="position:absolute;top:50%;"></div>
+	</div><div id="ctl00_raRight" class="rightSection">
+		
+        <div >
+          <div id="ctl00_eb1_Panel1" class="EyebrowMenuBar">
+			
+<div class="stat" style="position:relative;" id="ctl00_eb1_ctl00"><a title="MSDN" href="http://msdn.microsoft.com/en-us/ms348103.aspx">MSDN</a><div id="ctl00_eb1_ctl00_Popup" class="popup" style="position: absolute;visibility:hidden;left:-1000px;">
+					<span name="http://msdn.microsoft.com/en-us/library/36cf08ac-18d1-4fe0-abc8-466852a0f9c7(n).aspx">Please Wait</span></div><div id="ctl00_eb1_ctl00_Anim" class="TFlyPopupAnimate"></div>
+			</div>
+			<div class="stat" style="position:relative;" id="ctl00_eb1_ctl01"><a title="MSDN Library" href="http://msdn.microsoft.com/en-us/library/ms123401.aspx">MSDN Library</a><div id="ctl00_eb1_ctl01_Popup" class="popup" style="position: absolute;visibility:hidden;left:-1000px;">
+					<span name="http://msdn.microsoft.com/en-us/library/ms310241(n).aspx">Please Wait</span></div><div id="ctl00_eb1_ctl01_Anim" class="TFlyPopupAnimate"></div>
+			</div>
+			<div class="stat" style="position:relative;" id="ctl00_eb1_ctl02"><a title=".NET Development" href="http://msdn.microsoft.com/en-us/library/ff361664(VS.100).aspx">.NET Development</a><div id="ctl00_eb1_ctl02_Popup" class="popup" style="position: absolute;visibility:hidden;left:-1000px;">
+					<span name="http://msdn.microsoft.com/en-us/library/aa139615(n).aspx">Please Wait</span></div><div id="ctl00_eb1_ctl02_Anim" class="TFlyPopupAnimate"></div>
+			</div>
+			<div class="stat" style="position:relative;" id="ctl00_eb1_ctl03"><a title=".NET Framework 1.1" href="http://msdn.microsoft.com/en-us/library/aa139623.aspx">.NET Framework 1.1</a><div id="ctl00_eb1_ctl03_Popup" class="popup" style="position: absolute;visibility:hidden;left:-1000px;">
+					<span name="http://msdn.microsoft.com/en-us/library/aa139623(n).aspx">Please Wait</span></div><div id="ctl00_eb1_ctl03_Anim" class="TFlyPopupAnimate"></div>
+			</div>
+			<div class="stat" style="position:relative;" id="ctl00_eb1_ctl04"><a title=".NET Framework" href="http://msdn.microsoft.com/en-us/library/aa308416(VS.71).aspx">.NET Framework</a><div id="ctl00_eb1_ctl04_Popup" class="popup" style="position: absolute;visibility:hidden;left:-1000px;">
+					<span name="http://msdn.microsoft.com/en-us/library/aa308416(VS.71,n).aspx">Please Wait</span></div><div id="ctl00_eb1_ctl04_Anim" class="TFlyPopupAnimate"></div>
+			</div>
+			<div class="stat" style="position:relative;" id="ctl00_eb1_ctl05"><a title="Building Applications" href="http://msdn.microsoft.com/en-us/library/a0d60xcx(VS.71).aspx">Building Applications</a><div id="ctl00_eb1_ctl05_Popup" class="popup" style="position: absolute;visibility:hidden;left:-1000px;">
+					<span name="http://msdn.microsoft.com/en-us/library/aa308749(VS.71,n).aspx">Please Wait</span></div><div id="ctl00_eb1_ctl05_Anim" class="TFlyPopupAnimate"></div>
+			</div>
+			<div class="stat" style="position:relative;" id="ctl00_eb1_ctl06"><a title="Creating ASP.NET Web Applications" href="http://msdn.microsoft.com/en-us/library/ywdtth2f(VS.71).aspx">Creating ASP.NET Web Applications</a><div id="ctl00_eb1_ctl06_Popup" class="popup" style="position: absolute;visibility:hidden;left:-1000px;">
+					<span name="http://msdn.microsoft.com/en-us/library/aa308750(VS.71,n).aspx">Please Wait</span></div><div id="ctl00_eb1_ctl06_Anim" class="TFlyPopupAnimate"></div>
+			</div>
+			<div class="stat" style="position:relative;" id="ctl00_eb1_ctl07"><a title="XML Web Services Created Using ASP.NET and XML Web Service Clients" href="http://msdn.microsoft.com/en-us/library/7bkzywba(VS.71).aspx">XML Web Services Created Using ASP....</a><div id="ctl00_eb1_ctl07_Popup" class="popup" style="position: absolute;visibility:hidden;left:-1000px;">
+					<span name="http://msdn.microsoft.com/en-us/library/aa308792(VS.71,n).aspx">Please Wait</span></div><div id="ctl00_eb1_ctl07_Anim" class="TFlyPopupAnimate"></div>
+			</div>
+			<div class="nochildstat"><strong>&nbsp;Using SOAP Headers</strong></div><span style="float:none;clear:both;display:block;"></span>
+		</div>
+
+        </div>
+        
+
+        <div class="RightPanel">
+          <div class="ContentBar">
+            
+            
+<script type="text/Javascript">
+var visualbasic = new Array(6);
+visualbasic[0] = "ctl00_MTCS_main_ctl13_VisualBasic";
+visualbasic[1] = "ctl00_MTCS_main_ctl14_VisualBasic";
+visualbasic[2] = "ctl00_MTCS_main_ctl15_VisualBasic";
+visualbasic[3] = "ctl00_MTCS_main_ctl16_VisualBasic";
+visualbasic[4] = "ctl00_MTCS_main_ctl17_VisualBasic";
+visualbasic[5] = "ctl00_MTCS_main_ctl18_VisualBasic";
+</script>
+
+<style type="text/css">
+.vb, .cs, .cpp, .nu, .fs
+{
+	display:none;
+}
+</style>
+<style id="LanguageSpecificTextStyle" type="text/css">
+.nu
+{
+   display:inline;
+}
+</style><div id="ctl00_DropDownFilter_DropDownFilterMain" class="DropDownFilterStyle"><img id="ctl00_DropDownFilter_MTPS_DD_ImageArrow" title="Language Filter" class="MTPS_DropDownImage LibC_arrow-off" onclick="DDFilterOn(event);" onmouseover="ChangeDropDownImage(true);ResetLanguagesMenuTimer(event);" onmouseout="ChangeDropDownImage(false);RequestHideLanguagesMenu();" src="http://i.msdn.microsoft.com/Global/Images/clear.gif" alt="Language Filter" border="0" /><a id="ctl00_DropDownFilter_Mtps_DropDownFilterText" title="Language Filter" class="DropDownFilterOff" onclick="DDFilterOn(event);" onmouseover="ChangeDropDownImage(true);" onmouseout="ChangeDropDownImage(false);" href="/en-us/library/77hkfhh8(VS.71).aspx#Mtps_DropDownFilterText">Language Filter</a><div id="ctl00_DropDownFilter_Mtps_DropDownPopUp" style="display:none" class="MTPS_PopupDivPanel" onmouseover="ResetLanguagesMenuTimer(event);" onmouseout="RequestHideLanguagesMenu();"><div class="DivCbxLabelLanguage">
+			<input name="ctl00$DropDownFilter$DropDownLngFilterCtrl" type="checkbox" id="ctl00_DropDownFilter_DropDownLngFilterCtrl" checked="checked" value="Visual Basic" arrayValue="visualbasic" onclick="SetLangFilter('visualbasic',false);" /><span id="ctl00_DropDownFilter_ctl00_DropDownFilter_DropDownLngFilterCtrl_0" title="Visual Basic">Visual Basic<br/></span>
+		</div><div class="DivCbxLabelLanguage">
+			<input name="ctl00$DropDownFilter$DropDownLngFilterCtrl" type="checkbox" id="ctl00_DropDownFilter_DropDownLngFilterCtrl" checked="checked" value="C#" arrayValue="csharp" onclick="SetLangFilter(null,false);" /><span id="ctl00_DropDownFilter_ctl00_DropDownFilter_DropDownLngFilterCtrl_1" title="C#">C#<br/></span>
+		</div><div class="DivCbxLabelLanguage">
+			<input name="ctl00$DropDownFilter$DropDownLngFilterCtrl" type="checkbox" id="ctl00_DropDownFilter_DropDownLngFilterCtrl" checked="checked" value="C++" arrayValue="managedcplusplus" onclick="SetLangFilter(null,false);" /><span id="ctl00_DropDownFilter_ctl00_DropDownFilter_DropDownLngFilterCtrl_2" title="C++">C++<br/></span>
+		</div><div class="DivCbxLabelLanguage">
+			<input name="ctl00$DropDownFilter$DropDownLngFilterCtrl" type="checkbox" id="ctl00_DropDownFilter_DropDownLngFilterCtrl" checked="checked" value="J#" arrayValue="jsharp" onclick="SetLangFilter(null,false);" /><span id="ctl00_DropDownFilter_ctl00_DropDownFilter_DropDownLngFilterCtrl_3" title="J#">J#<br/></span>
+		</div><div class="DivCbxLabelLanguage">
+			<input name="ctl00$DropDownFilter$DropDownLngFilterCtrl" type="checkbox" id="ctl00_DropDownFilter_DropDownLngFilterCtrl" checked="checked" value="JScript" arrayValue="jscript" onclick="SetLangFilter(null,false);" /><span id="ctl00_DropDownFilter_ctl00_DropDownFilter_DropDownLngFilterCtrl_4" title="JScript">JScript<br/></span>
+		</div><div class="DivCbxLabelLanguage">
+			<input name="ctl00$DropDownFilter$DropDownLngFilterCtrl" type="checkbox" id="ctl00_DropDownFilter_DropDownLngFilterCtrl" checked="checked" value="XAML" arrayValue="xaml" onclick="SetLangFilter(null,false);" /><span id="ctl00_DropDownFilter_ctl00_DropDownFilter_DropDownLngFilterCtrl_5" title="XAML">XAML<br/></span>
+		</div><div class="DivCbxLabelLanguage">
+			<input name="ctl00$DropDownFilter$DropDownLngFilterCtrl" type="checkbox" id="ctl00_DropDownFilter_DropDownLngFilterCtrl" checked="checked" value="F#" arrayValue="fsharp" onclick="SetLangFilter(null,false);" /><span id="ctl00_DropDownFilter_ctl00_DropDownFilter_DropDownLngFilterCtrl_6" title="F#">F#<br/></span>
+		</div></div>
+<script type="text/Javascript">
+var strConstLangFilterAll ="All";
+var strConstLangFilterMulti ="Multiple";
+var strConstLangFilterNone ="None";
+var strConstLangFilterText ="Language Filter";
+var oMTPS_DD_ImgArrow = document.getElementById("ctl00_DropDownFilter_MTPS_DD_ImageArrow");
+var oMTPS_DD_PanelLink = document.getElementById("ctl00_DropDownFilter_Mtps_DropDownFilterText");
+var oMTPS_DD_Div = document.getElementById("ctl00_DropDownFilter_DropDownFilterMain");
+var oMTPS_DD_PopUpDiv = document.getElementById("ctl00_DropDownFilter_Mtps_DropDownPopUp");
+</script>
+</div>
+              
+            
+            
+          </div>
+           <div class="ContentArea">
+      
+          
+          <span id="ctl00_altSelector"><div class="AlterPart">
+			<div>
+				This page is specific to
+  
+			</div><span>Microsoft Visual Studio 2003/.NET Framework 1.1</span><br/><br/><div>
+				Other versions are also available for the following:
+  
+			</div><div id="ctl00_ctl04">
+				<ul><li><a id="ctl00_ctl05" href="http://msdn.microsoft.com/en-us/library/77hkfhh8(VS.80).aspx" onclick="javascript:Track('ctl00_ctl04|ctl00_ctl05',this);">Microsoft Visual Studio 2005/.NET Framework 2.0</a></li><li><a id="ctl00_ctl06" href="http://msdn.microsoft.com/en-us/library/77hkfhh8(VS.85).aspx" onclick="javascript:Track('ctl00_ctl04|ctl00_ctl06',this);">.NET Framework 3.0</a></li><li><a id="ctl00_ctl07" href="http://msdn.microsoft.com/en-us/library/77hkfhh8(VS.100).aspx" onclick="javascript:Track('ctl00_ctl04|ctl00_ctl07',this);">Microsoft Visual Studio 2010/.NET Framework 4</a></li></ul>
+			</div>
+		</div></span>
+          
+          
+          
+        
+          <div class="topic"  ><div class="majorTitle">.NET Framework Developer's Guide</div><div class="title">Using SOAP Headers</div><!--Content type: PSDK_8. Transform: everett2mtps.xslt.--><a name="cpconusingsoapheaders"><!----></a>  <div id="nstext" valign="bottom">  <p>Communicating with an XML Web service method using SOAP follows a standard format. Part of this format is the data that is encoded in an XML document. The XML document consists of a root <b>Envelope</b> tag, which in turn consists of a required <b>Body</b> element and an optional <b>Header</b> element. The <b>Body</b> element comprises the data specific to the message. The optional <b>Header</b> element can contain additional information not directly related to the particular message. Each child element of the <b>Header</b> element is called a SOAP header.</p> <p>Although the SOAP headers can contain data related to the message, as the SOAP specification doesn't strictly define the contents of a SOAP header, they typically contain information processed by infrastructure within a Web server. An example of how a SOAP header can be used is to supply routing information for the SOAP message within the SOAP header.</p> <h2 class="dtH2">Defining and Processing SOAP Headers</h2> <p>XML Web services created using ASP.NET can define and manipulate SOAP headers. Defining a SOAP header is accomplished by defining a class representing the data in a particular SOAP header and deriving it from the <a id="ctl00_MTCS_main_ctl01" href="http://msdn.microsoft.com/en-us/library/system.web.services.protocols.soapheader(VS.71).aspx" onclick="javascript:Track('ctl00_MTCS_main_ctl00|ctl00_MTCS_main_ctl01',this);">SoapHeader</a> class.</p> <p class="labelproc"><b>To define a class representing a SOAP header</b> </p><ol type="1"> <li>Create a class deriving from the <b>SoapHeader</b> class with a name matching the root element for the SOAP header.
+<span id="ctl00_MTCS_main_ctl02">
+<div class='libCScode'
+id="ctl00_MTCS_main_ctl02_C#">
+    
+    <div class="CodeSnippetTitleBar">
+        <div class="CodeDisplayLanguage">
+            [C#]
+        </div>
+        
+    </div>
+    <div dir="ltr" style="background-color: #ddd">
+    <pre class="libCScode" id="ctl00_MTCS_main_ctl02_code" space="preserve"><span style="color:blue">public</span> <span style="color:blue">class</span> MyHeader : SoapHeader
+[Visual&#160;Basic]
+Public Class MyHeader : Inherits SoapHeader</pre>
+    </div>
+</div>
+
+</span> </li> <li>Add public fields or properties, matching the names and their respective data types for each element in the SOAP header. 
+<p>For instance, given the following SOAP header, the class following it defines a class representing the SOAP header. 
+
+</p><span id="ctl00_MTCS_main_ctl03">
+<div class='libCScode'
+id="ctl00_MTCS_main_ctl03_C#">
+    
+    <div class="CodeSnippetTitleBar">
+        <div class="CodeDisplayLanguage">
+            [C#]
+        </div>
+        
+    </div>
+    <div dir="ltr" style="background-color: #ddd">
+    <pre class="libCScode" id="ctl00_MTCS_main_ctl03_code" space="preserve"><span style="color:blue">public</span> <span style="color:blue">class</span> MyHeader : SoapHeader
+{
+   <span style="color:blue">public</span> DateTime Created;
+   <span style="color:blue">public</span> long Expires;
+} 
+[Visual&#160;Basic]
+Public Class MyHeader
+  Inherits SoapHeader
+    Public Created As DateTime
+    Public Expires As Long
+End Class</pre>
+    </div>
+</div>
+
+</span> </li> </ol> <p class="labelproc"><b>To process SOAP headers within an XML Web service</b> </p><ol type="1"> <li>Add a public member to the class implementing the XML Web service of the type representing the SOAP header.
+<span id="ctl00_MTCS_main_ctl04">
+<div class='libCScode'
+id="ctl00_MTCS_main_ctl04_C#">
+    
+    <div class="CodeSnippetTitleBar">
+        <div class="CodeDisplayLanguage">
+            [C#]
+        </div>
+        
+    </div>
+    <div dir="ltr" style="background-color: #ddd">
+    <pre class="libCScode" id="ctl00_MTCS_main_ctl04_code" space="preserve">[WebService(Namespace=<span style="color: maroon"><span style="color: maroon">&quot;http://www.contoso.com&quot;</span></span>)]
+<span style="color:blue">public</span> <span style="color:blue">class</span> MyWebService 
+{
+    <span style="color:green">// Add a member variable of the type deriving from SoapHeader.</span>
+    <span style="color:blue">public</span> MyHeader timeStamp;
+[Visual&#160;Basic]
+&lt;WebService(Namespace:=<span style="color: maroon"><span style="color: maroon">&quot;http://www.contoso.com&quot;</span></span>)&gt; _
+Public Class MyWebService
+    ' Add a member variable of the type deriving from SoapHeader.
+    Public TimeStamp As MyHeader</pre>
+    </div>
+</div>
+
+</span> </li> <li>Apply a <a id="ctl00_MTCS_main_ctl05" href="http://msdn.microsoft.com/en-us/library/system.web.services.protocols.soapheaderattribute(VS.71).aspx" onclick="javascript:Track('ctl00_MTCS_main_ctl00|ctl00_MTCS_main_ctl05',this);">SoapHeader</a> attribute to each XML Web service method that intends to process the SOAP header. Set the <b>MemberName</b> property of the <b>SoapHeader</b> attribute to the name of the member variable created in the first step.
+<span id="ctl00_MTCS_main_ctl06">
+<div class='libCScode'
+id="ctl00_MTCS_main_ctl06_C#">
+    
+    <div class="CodeSnippetTitleBar">
+        <div class="CodeDisplayLanguage">
+            [C#]
+        </div>
+        
+    </div>
+    <div dir="ltr" style="background-color: #ddd">
+    <pre class="libCScode" id="ctl00_MTCS_main_ctl06_code" space="preserve">[WebMethod]
+[SoapHeader(<span style="color: maroon"><span style="color: maroon">&quot;timeStamp&quot;</span></span>)]
+<span style="color:blue">public</span> <span style="color:blue">void</span> MyWebMethod()
+[Visual&#160;Basic]
+&lt;WebMethod, SoapHeader(<span style="color: maroon"><span style="color: maroon">&quot;TimeStamp&quot;</span></span>)&gt; _ 
+Public Sub MyWebMethod()</pre>
+    </div>
+</div>
+
+</span> </li> <li>Within each XML Web service method that the <b>SoapHeader</b> attribute is applied to, access the member variable created in the first step to process the data sent in the SOAP header.
+<span id="ctl00_MTCS_main_ctl07">
+<div class='libCScode'
+id="ctl00_MTCS_main_ctl07_C#">
+    
+    <div class="CodeSnippetTitleBar">
+        <div class="CodeDisplayLanguage">
+            [C#]
+        </div>
+        
+    </div>
+    <div dir="ltr" style="background-color: #ddd">
+    <pre class="libCScode" id="ctl00_MTCS_main_ctl07_code" space="preserve">[WebMethod]
+[SoapHeader(<span style="color: maroon"><span style="color: maroon">&quot;timeStamp&quot;</span></span>,
+            Direction=SoapHeaderDirection.InOut)]
+<span style="color:blue">public</span> <span style="color:blue">string</span> MyWebMethod() 
+{
+  <span style="color:green">// Verify that the client sent the SOAP Header.</span>
+  <span style="color:blue">if</span> (timeStamp == <span style="color:blue">null</span>)
+  {
+     timeStamp = <span style="color:blue">new</span> MyHeader();
+  }
+  <span style="color:green">// Set the value of the SoapHeader returned</span>
+  <span style="color:green">// to the client.</span>
+  timeStamp.Expires = 60000;
+  timeStamp.Created = DateTime.UtcNow;
+
+  <span style="color:blue">return</span> <span style="color: maroon"><span style="color: maroon">&quot;Hello World&quot;</span></span>;
+}
+[Visual&#160;Basic]
+&lt;WebMethod,SoapHeader(<span style="color: maroon"><span style="color: maroon">&quot;TimeStamp&quot;</span></span>, _
+                      Direction:=SoapHeaderDirection.InOut)&gt; _ 
+Public Function MyWebMethod() As String
+   ' Verify that the client sent the SOAP Header. 
+   If (TimeStamp Is Nothing) Then
+      TimeStamp = New MyHeader
+   End If
+        
+   ' Set the value of the SoapHeader returned
+   ' to the client.
+   TimeStamp.Expires = 60000
+   TimeStamp.Created = DateTime.UtcNow
+
+   Return <span style="color: maroon"><span style="color: maroon">&quot;Hello World&quot;</span></span>
+End Function</pre>
+    </div>
+</div>
+
+</span> </li> </ol> <p>The following code example demonstrates how to define and process a SOAP header in an XML Web service created using ASP.NET. The <code class="ce">MyWebService</code> XML Web service has a member variable named <code class="ce">timeStamp</code>, which is of a type deriving from <b>SoapHeader</b> (<code class="ce">MyHeader</code>) and set to the <b>MemberName</b> property of the <b>SoapHeader</b> attribute. In addition, a <b>SoapHeader</b> attribute is applied to the <code class="ce">MyWebMethod</code> XML Web service method specifying <code class="ce">myHeaderMemberVariable</code>. Within the <code class="ce">MyWebMethod</code> XML Web service method, <code class="ce">myHeaderMemberVariable</code> is accessed to set the value of the <code class="ce">Created</code> and <code class="ce">Expires</code> XML elements of the SOAP header.</p> <span id="ctl00_MTCS_main_ctl08">
+<div class='libCScode'
+id="ctl00_MTCS_main_ctl08_C#">
+    
+    <div class="CodeSnippetTitleBar">
+        <div class="CodeDisplayLanguage">
+            [C#]
+        </div>
+        
+    </div>
+    <div dir="ltr" style="background-color: #ddd">
+    <pre class="libCScode" id="ctl00_MTCS_main_ctl08_code" space="preserve">&lt;%@ WebService Language=<span style="color: maroon"><span style="color: maroon">&quot;C#&quot;</span></span> Class=<span style="color: maroon"><span style="color: maroon">&quot;MyWebService&quot;</span></span> %&gt;
+<span style="color:blue">using</span> System;
+<span style="color:blue">using</span> System.Web.Services;
+<span style="color:blue">using</span> System.Web.Services.Protocols;
+
+<span style="color:green">// Define a SOAP header by deriving from the SoapHeader class.</span>
+<span style="color:blue">public</span> <span style="color:blue">class</span> MyHeader : SoapHeader
+{
+   <span style="color:blue">public</span> DateTime Created;
+   <span style="color:blue">public</span> long Expires;
+}
+
+[WebService(Namespace=<span style="color: maroon"><span style="color: maroon">&quot;http://www.contoso.com&quot;</span></span>)]
+<span style="color:blue">public</span> <span style="color:blue">class</span> MyWebService : System.Web.Services.WebService
+{
+   <span style="color:green">// Add a member variable of the type deriving from SoapHeader.</span>
+   <span style="color:blue">public</span> MyHeader timeStamp;
+
+   <span style="color:green">// Apply a SoapHeader attribute.</span>
+   [WebMethod]
+   [SoapHeader(<span style="color: maroon"><span style="color: maroon">&quot;timeStamp&quot;</span></span>, Direction=SoapHeaderDirection.InOut)]
+   <span style="color:blue">public</span> <span style="color:blue">string</span> HelloWorld()
+   {
+      <span style="color:blue">if</span> (timeStamp == <span style="color:blue">null</span>)
+         timeStamp = <span style="color:blue">new</span> MyHeader();
+         
+      timeStamp.Expires = 60000;
+      timeStamp.Created = DateTime.UtcNow;
+         
+      <span style="color:blue">return</span> <span style="color: maroon"><span style="color: maroon">&quot;Hello World&quot;</span></span>;
+   }
+} 
+[Visual&#160;Basic]
+&lt;%@ WebService Language=<span style="color: maroon"><span style="color: maroon">&quot;VB&quot;</span></span> Class=<span style="color: maroon"><span style="color: maroon">&quot;MyWebService&quot;</span></span> %&gt;
+Imports System
+Imports System.Web.Services
+Imports System.Web.Services.Protocols
+
+' Define a SOAP header by deriving from the SoapHeader <span style="color:blue">class</span>.
+Public Class MyHeader
+    Inherits SoapHeader
+    Public Created As DateTime
+    Public Expires As Long
+End Class
+
+&lt;WebService(Namespace:=<span style="color: maroon"><span style="color: maroon">&quot;http://www.contoso.com&quot;</span></span>)&gt; _
+Public Class MyWebService
+    Inherits System.Web.Services.WebService
+
+    ' Add a member variable of the type deriving from SoapHeader.
+    Public timeStamp As MyHeader
+
+    ' Apply a SoapHeader attribute.
+    &lt;WebMethod(), _
+     SoapHeader(<span style="color: maroon"><span style="color: maroon">&quot;timeStamp&quot;</span></span>, Direction:=SoapHeaderDirection.InOut)&gt; _
+    Public Function HelloWorld() As String
+
+        If (timeStamp Is Nothing) Then
+            timeStamp = New MyHeader
+        End If
+
+        timeStamp.Expires = 60000
+        timeStamp.Created = DateTime.UtcNow
+
+        Return <span style="color: maroon"><span style="color: maroon">&quot;Hello World&quot;</span></span>
+    End Function
+End Class</pre>
+    </div>
+</div>
+
+</span> <p>In the previous example, a SOAP response is returned to the client with the <code class="ce">Expires</code> element set to 60000 (number of milliseconds, so 1 minute) and the <code class="ce">Created</code> element to the current time in coordinated universal time. That is, the following SOAP response is sent to the client.</p> <span id="ctl00_MTCS_main_ctl09">
+<div class='libCScode'
+id="ctl00_MTCS_main_ctl09_">
+    
+    <div class="CodeSnippetTitleBar">
+        <div class="CodeDisplayLanguage">
+            
+        </div>
+        
+    </div>
+    <div dir="ltr" style="background-color: #ddd">
+    <pre class="libCScode" id="ctl00_MTCS_main_ctl09_code" space="preserve">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"&gt;
+  &lt;soap:Header&gt;
+    &lt;MyHeader xmlns="http://www.contoso.com"&gt;
+      &lt;Created&gt;dateTime&lt;/Created&gt;
+      &lt;Expires&gt;long&lt;/Expires&gt;
+    &lt;/MyHeader&gt;
+  &lt;/soap:Header&gt;
+  &lt;soap:Body&gt;
+    &lt;MyWebMethod xmlns="http://www.contoso.com" /&gt;
+  &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;</pre>
+    </div>
+</div>
+
+</span> <h3 class="dtH3">Building a Client that Processes SOAP Headers</h3> <p>An XML Web services client can send and receive SOAP headers when communicating with an XML Web service. When a proxy class is generated for an XML Web service expecting or returning SOAP headers using the Wsdl.exe utility, the proxy class includes information about the SOAP headers. Specifically, the proxy class has member variables representing the SOAP headers that correlate to those found in the XML Web service. The proxy class also has definitions for the corresponding classes representing the SOAP header. For example, proxy classes generated for the previous XML Web service will have a member variable of type <code class="ce">MyHeader</code> and a definition for the <code class="ce">MyHeader</code> class. For details on creating a proxy class, see <a id="ctl00_MTCS_main_ctl10" href="http://msdn.microsoft.com/en-us/library/d2s8y7bs(VS.71).aspx" onclick="javascript:Track('ctl00_MTCS_main_ctl00|ctl00_MTCS_main_ctl10',this);">Creating an XML Web Service Proxy</a>.</p> <p>Note: If the XML Web service defines the member variables representing the SOAP headers of type <a id="ctl00_MTCS_main_ctl11" href="http://msdn.microsoft.com/en-us/library/system.web.services.protocols.soapheader(VS.71).aspx" onclick="javascript:Track('ctl00_MTCS_main_ctl00|ctl00_MTCS_main_ctl11',this);">SoapHeader</a> or <a id="ctl00_MTCS_main_ctl12" href="http://msdn.microsoft.com/en-us/library/system.web.services.protocols.soapunknownheader(VS.71).aspx" onclick="javascript:Track('ctl00_MTCS_main_ctl00|ctl00_MTCS_main_ctl12',this);">SoapUnknownHeader</a> instead of a class deriving from <b>SoapHeader</b>, a proxy class will not have any information about that SOAP header.</p> <p class="labelproc"><b>To process SOAP headers within an XML Web service client</b> </p><ol type="1"> <li>Create a new instance of the class representing the SOAP header.
+<span id="ctl00_MTCS_main_ctl13">
+<div class='libCScode'
+id="ctl00_MTCS_main_ctl13_VisualBasic">
+    
+    <div class="CodeSnippetTitleBar">
+        <div class="CodeDisplayLanguage">
+            [Visual Basic]
+        </div>
+        
+    </div>
+    <div dir="ltr" style="background-color: #ddd">
+    <pre class="libCScode" id="ctl00_MTCS_main_ctl13_code" space="preserve"><span style="color:blue">Dim</span> mySoapHeader <span style="color:blue">As</span> MyHeader = <span style="color:blue">New</span> MyHeader()
+[C#]
+MyHeader mySoapHeader = <span style="color:blue">new</span> MyHeader();</pre>
+    </div>
+</div>
+
+</span> </li> <li>Populate the values for the SOAP header.
+<span id="ctl00_MTCS_main_ctl14">
+<div class='libCScode'
+id="ctl00_MTCS_main_ctl14_VisualBasic">
+    
+    <div class="CodeSnippetTitleBar">
+        <div class="CodeDisplayLanguage">
+            [Visual Basic]
+        </div>
+        
+    </div>
+    <div dir="ltr" style="background-color: #ddd">
+    <pre class="libCScode" id="ctl00_MTCS_main_ctl14_code" space="preserve">header.Expires = 60000
+header.Created = DateTime.UtcNow
+[C#]
+header.Expires = 60000;
+header.Created = DateTime.UtcNow;</pre>
+    </div>
+</div>
+
+</span> </li> <li>Create a new instance of the proxy class.
+<span id="ctl00_MTCS_main_ctl15">
+<div class='libCScode'
+id="ctl00_MTCS_main_ctl15_VisualBasic">
+    
+    <div class="CodeSnippetTitleBar">
+        <div class="CodeDisplayLanguage">
+            [Visual Basic]
+        </div>
+        
+    </div>
+    <div dir="ltr" style="background-color: #ddd">
+    <pre class="libCScode" id="ctl00_MTCS_main_ctl15_code" space="preserve"><span style="color:blue">Dim</span> proxy <span style="color:blue">As</span> MyWebService = <span style="color:blue">New</span> MyWebService()
+[C#]
+MyWebService proxy = <span style="color:blue">new</span> MyWebService();</pre>
+    </div>
+</div>
+
+</span> </li> <li>Assign the SOAP header object to the member variable of the proxy class representing the SOAP header.
+<span id="ctl00_MTCS_main_ctl16">
+<div class='libCScode'
+id="ctl00_MTCS_main_ctl16_VisualBasic">
+    
+    <div class="CodeSnippetTitleBar">
+        <div class="CodeDisplayLanguage">
+            [Visual Basic]
+        </div>
+        
+    </div>
+    <div dir="ltr" style="background-color: #ddd">
+    <pre class="libCScode" id="ctl00_MTCS_main_ctl16_code" space="preserve">proxy.MyHeaderValue = mySoapHeader
+[C#]
+proxy.MyHeaderValue = mySoapHeader</pre>
+    </div>
+</div>
+
+</span> </li> <li>Call the method on the proxy class that communicates with the XML Web service method.
+<p>The SOAP header portion of the SOAP request sent to the XML Web service will include the contents of the data stored in the SOAP header object.
+
+</p><span id="ctl00_MTCS_main_ctl17">
+<div class='libCScode'
+id="ctl00_MTCS_main_ctl17_VisualBasic">
+    
+    <div class="CodeSnippetTitleBar">
+        <div class="CodeDisplayLanguage">
+            [Visual Basic]
+        </div>
+        
+    </div>
+    <div dir="ltr" style="background-color: #ddd">
+    <pre class="libCScode" id="ctl00_MTCS_main_ctl17_code" space="preserve"><span style="color:blue">Dim</span> results <span style="color:blue">as</span> <span style="color:blue">String</span> = proxy.MyWebMethod()
+[C#]
+<span style="color:blue">string</span> results = proxy.MyWebMethod();</pre>
+    </div>
+</div>
+
+</span> </li> </ol> <p>The following code example demonstrates how to pass a SOAP header from a client to an XML Web service.</p> <span id="ctl00_MTCS_main_ctl18">
+<div class='libCScode'
+id="ctl00_MTCS_main_ctl18_VisualBasic">
+    
+    <div class="CodeSnippetTitleBar">
+        <div class="CodeDisplayLanguage">
+            [Visual Basic]
+        </div>
+        
+    </div>
+    <div dir="ltr" style="background-color: #ddd">
+    <pre class="libCScode" id="ctl00_MTCS_main_ctl18_code" space="preserve">&lt;%@ Page Language=<span style="color: maroon">&quot;VB&quot;</span> %&gt;
+
+&lt;asp:Label id=<span style="color: maroon">&quot;ReturnValue&quot;</span> runat=<span style="color: maroon">&quot;server&quot;</span> /&gt;
+&lt;script runat=server language=VB&gt;
+
+ <span style="color:blue">Sub</span> Page_Load(o <span style="color:blue">As</span> <span style="color:blue">Object</span>, e <span style="color:blue">As</span> EventArgs)
+
+  <span style="color:blue">Dim</span> header <span style="color:blue">As</span> MyHeader = <span style="color:blue">New</span> MyHeader()
+
+  <span style="color:green">' Populate the values of the SOAP header.</span>
+   header.Expires = 60000
+   header.Created = DateTime.UtcNow
+
+  <span style="color:green">' Create a new instance of the proxy class.</span>
+  <span style="color:blue">Dim</span> proxy <span style="color:blue">As</span> MyWebService = <span style="color:blue">New</span> MyWebService()
+  
+  <span style="color:green">' Add the MyHeader SOAP header to the SOAP request.</span>
+  proxy.MyHeaderValue = header
+
+  <span style="color:green">' Call the method on the proxy class that communicates</span>
+  <span style="color:green">' with your XML Web service method.</span>
+  <span style="color:blue">Dim</span> results <span style="color:blue">as</span> <span style="color:blue">String</span> = proxy.MyWebMethod()
+
+  <span style="color:green">' Display the results of the method in a label.</span>
+  ReturnValue.Text = results
+
+ <span style="color:blue">End</span> <span style="color:blue">Sub</span>
+&lt;/script&gt;
+[C#]
+&lt;%@ Page Language=<span style="color: maroon">&quot;C#&quot;</span> %&gt;
+
+&lt;asp:Label id=<span style="color: maroon">&quot;ReturnValue&quot;</span> runat=<span style="color: maroon">&quot;server&quot;</span> /&gt;
+&lt;script runat=server language=c#&gt;
+
+ void Page_Load(<span style="color:blue">Object</span> o, EventArgs e)
+ {
+
+  MyHeader header = <span style="color:blue">new</span> MyHeader();
+
+  // Populate the values <span style="color:blue">of</span> the SOAP header.
+  header.Expires = 60000;
+  header.Created = DateTime.UtcNow;
+
+  // Create a <span style="color:blue">new</span> instance <span style="color:blue">of</span> the proxy <span style="color:blue">class</span>.
+  MyWebService proxy = <span style="color:blue">new</span> MyWebService();
+  
+  // Add the MyHeader SOAP header <span style="color:blue">to</span> the SOAP request.
+  proxy.MyHeaderValue = header;
+
+  // <span style="color:blue">Call</span> the method <span style="color:blue">on</span> the proxy <span style="color:blue">class</span> that communicates 
+  // <span style="color:blue">with</span> your XML Web service method.
+  <span style="color:blue">string</span> results = proxy.MyWebMethod();
+
+  // Display the results <span style="color:blue">of</span> the method <span style="color:blue">in</span> a label.
+  ReturnValue.Text = results;
+ }
+&lt;/script&gt;</pre>
+    </div>
+</div>
+
+</span> <h3 class="dtH3">Changing the SOAP Headers Recipients</h3> <p>By default, SOAP headers are sent by an XML Web service client to an XML Web service method when a <b>SoapHeader</b> attribute is applied to an XML Web service method. However, a SOAP header can also be sent by the XML Web service method back to the XML Web service client. It can also be sent both ways. Setting the <b>Direction</b> property of a <b>SoapHeader</b> attribute applied to an XML Web service method controls the recipient of the SOAP header. The <b>Direction </b>property is of type <b>SoapHeaderDirection</b>, which has four values: <b>In</b>, <b>Out</b>, <b>InOut</b>, and <b>Fault</b>. These refer to the recipient (whether it is the XML Web service server), to the client, or both the XML Web service server and client, and whether the SOAP header is sent to the client when an exception is thrown by the XML Web service, respectively.</p> <p>Note: Version 1.0 of the .NET Framework SDK does not support the <b>Fault</b> value.</p> <p class="labelproc"><b>To change the SOAP header recipient</b> </p><ol type="1"> <li>Define the SOAP header.
+<span id="ctl00_MTCS_main_ctl19">
+<div class='libCScode'
+id="ctl00_MTCS_main_ctl19_C#">
+    
+    <div class="CodeSnippetTitleBar">
+        <div class="CodeDisplayLanguage">
+            [C#]
+        </div>
+        
+    </div>
+    <div dir="ltr" style="background-color: #ddd">
+    <pre class="libCScode" id="ctl00_MTCS_main_ctl19_code" space="preserve"><span style="color:blue">public</span> <span style="color:blue">class</span> MyHeader : SoapHeader
+{
+   <span style="color:blue">public</span> DateTime Created;
+   <span style="color:blue">public</span> long Expires;
+} 
+[Visual&#160;Basic]
+Public Class MyHeader
+  Inherits SoapHeader
+    Public Created As DateTime
+    Public Expires As Long
+End Class</pre>
+    </div>
+</div>
+
+</span> </li> <li>Add a member variable to the class implementing the XML Web service.
+<span id="ctl00_MTCS_main_ctl20">
+<div class='libCScode'
+id="ctl00_MTCS_main_ctl20_C#">
+    
+    <div class="CodeSnippetTitleBar">
+        <div class="CodeDisplayLanguage">
+            [C#]
+        </div>
+        
+    </div>
+    <div dir="ltr" style="background-color: #ddd">
+    <pre class="libCScode" id="ctl00_MTCS_main_ctl20_code" space="preserve">[WebService(Namespace=<span style="color: maroon"><span style="color: maroon">&quot;http://www.contoso.com&quot;</span></span>)]
+<span style="color:blue">public</span> <span style="color:blue">class</span> MyWebService : WebService
+{
+    <span style="color:blue">public</span> MyHeader myOutHeader;
+[Visual&#160;Basic]
+&lt;WebService(Namespace:=<span style="color: maroon"><span style="color: maroon">&quot;http://www.contoso.com&quot;</span></span>)&gt; _
+Public Class MyWebService  
+  Inherits WebService
+    Public myOutHeader As MyHeader</pre>
+    </div>
+</div>
+
+</span> </li> <li>Apply a <b>SoapHeader </b>attribute to each XML Web service method that processes the SOAP header. Set the <b>Direction</b> property to each intended recipient, using the <a id="ctl00_MTCS_main_ctl21" href="http://msdn.microsoft.com/en-us/library/system.web.services.protocols.soapheaderdirection(VS.71).aspx" onclick="javascript:Track('ctl00_MTCS_main_ctl00|ctl00_MTCS_main_ctl21',this);">SoapHeaderDirection</a> enumeration. The following example sets the XML Web service client as the recipient by setting <b>Direction</b> to <b>SoapHeaderDirection.Out</b>.
+<span id="ctl00_MTCS_main_ctl22">
+<div class='libCScode'
+id="ctl00_MTCS_main_ctl22_C#">
+    
+    <div class="CodeSnippetTitleBar">
+        <div class="CodeDisplayLanguage">
+            [C#]
+        </div>
+        
+    </div>
+    <div dir="ltr" style="background-color: #ddd">
+    <pre class="libCScode" id="ctl00_MTCS_main_ctl22_code" space="preserve">    [WebMethod]
+    [SoapHeader(<span style="color: maroon"><span style="color: maroon">&quot;myOutHeader&quot;</span></span>,Direction=SoapHeaderDirection.Out)]
+[Visual&#160;Basic]
+    &lt;WebMethod, _
+     SoapHeader(<span style="color: maroon"><span style="color: maroon">&quot;myOutHeader&quot;</span></span>,Direction:=SoapHeaderDirection.Out)&gt;</pre>
+    </div>
+</div>
+
+</span> </li> <li>Process or set the SOAP header, depending on the recipient. The following code example sets the values of the SOAP header, as the recipient is the XML Web service client.
+<span id="ctl00_MTCS_main_ctl23">
+<div class='libCScode'
+id="ctl00_MTCS_main_ctl23_C#">
+    
+    <div class="CodeSnippetTitleBar">
+        <div class="CodeDisplayLanguage">
+            [C#]
+        </div>
+        
+    </div>
+    <div dir="ltr" style="background-color: #ddd">
+    <pre class="libCScode" id="ctl00_MTCS_main_ctl23_code" space="preserve"><span style="color:green">// Set the Time the SOAP message expires.</span>
+myOutHeader.Expires = 60000;
+myOutHeader.Created = DateTime.UtcNow;
+[Visual&#160;Basic]
+' Set the Time the SOAP message expires.
+myOutHeader.Expires = 60000
+myOutHeader.Created = DateTime.UtcNow
+    </pre>
+    </div>
+</div>
+
+</span> </li> </ol> <p>The following code example defines a <code class="ce">MyHeader</code> SOAP header that is sent from the XML Web service method to the client.</p> <span id="ctl00_MTCS_main_ctl24">
+<div class='libCScode'
+id="ctl00_MTCS_main_ctl24_C#">
+    
+    <div class="CodeSnippetTitleBar">
+        <div class="CodeDisplayLanguage">
+            [C#]
+        </div>
+        
+    </div>
+    <div dir="ltr" style="background-color: #ddd">
+    <pre class="libCScode" id="ctl00_MTCS_main_ctl24_code" space="preserve">&lt;%@ WebService Language=<span style="color: maroon"><span style="color: maroon">&quot;C#&quot;</span></span> Class=<span style="color: maroon"><span style="color: maroon">&quot;MyWebService&quot;</span></span> %&gt;
+<span style="color:blue">using</span> System;
+<span style="color:blue">using</span> System.Web.Services;
+<span style="color:blue">using</span> System.Web.Services.Protocols;
+
+<span style="color:green">// Define a SOAP header by deriving from the SoapHeader class.</span>
+<span style="color:blue">public</span> <span style="color:blue">class</span> MyHeader : SoapHeader
+{
+   <span style="color:blue">public</span> DateTime Created;
+   <span style="color:blue">public</span> long Expires;
+} 
+
+[WebService(Namespace=<span style="color: maroon"><span style="color: maroon">&quot;http://www.contoso.com&quot;</span></span>)]
+<span style="color:blue">public</span> <span style="color:blue">class</span> MyWebService : WebService
+{
+    <span style="color:blue">public</span> MyHeader myOutHeader;
+ 
+    [WebMethod]
+    [SoapHeader(<span style="color: maroon"><span style="color: maroon">&quot;myOutHeader&quot;</span></span>,Direction=SoapHeaderDirection.Out)]
+    <span style="color:blue">public</span> <span style="color:blue">void</span> MyOutHeaderMethod() 
+    {
+      <span style="color:green">// Set the time the SOAP message expires.</span>
+      myOutHeader.Expires = 60000;
+      myOutHeader.Created = DateTime.UtcNow;
+    }
+}
+[Visual&#160;Basic]
+&lt;%@ WebService Language=<span style="color: maroon"><span style="color: maroon">&quot;VB&quot;</span></span> Class=<span style="color: maroon"><span style="color: maroon">&quot;MyWebService&quot;</span></span> %&gt;
+Imports System
+Imports System.Web.Services
+Imports System.Web.Services.Protocols
+
+' Define a SOAP header by deriving from the SoapHeader <span style="color:blue">class</span>.
+Public Class MyHeader
+  Inherits SoapHeader
+    Public Created As DateTime
+    Public Expires As Long
+End Class
+
+&lt;WebService(Namespace:=<span style="color: maroon"><span style="color: maroon">&quot;http://www.contoso.com&quot;</span></span>)&gt; _
+Public Class MyWebService 
+  Inherits WebService
+    Public myOutHeader As MyHeader 
+    
+    &lt;WebMethod, _
+     SoapHeader(<span style="color: maroon"><span style="color: maroon">&quot;myOutHeader&quot;</span></span>,Direction:=SoapHeaderDirection.Out)&gt; _
+    Public Sub MyOutHeaderMethod()
+         ' Set the time the SOAP message expires.
+         myOutHeader.Expires = 60000
+         myOutHeader.Created = DateTime.UtcNow
+    End Sub
+End Class</pre>
+    </div>
+</div>
+
+</span> <h3 class="dtH3">Handling Unknown SOAP Headers</h3> <p>An XML Web service client can send a SOAP request with a SOAP header to an XML Web service method that the XML Web service might not have explicitly defined that it was expecting. In this case, it is important to determine whether the semantics of the SOAP header are understood and processed, as the SOAP specification states that an exception is thrown when SOAP headers have a <b>mustUnderstand</b> attribute set to <b>true</b>. For details on handling SOAP headers required by a client, see <a href="#cpconusingsoapheadersanchor2">Handling SOAP Headers Required by an XML Web Service Client</a>.</p> <p class="labelproc"><b>To handle unknown SOAP headers from an XML Web service client</b> </p><ol type="1"> <li>Add a member variable to the class implementing the XML Web service with a type of <b>SoapUnknownHeader</b> or <b>SoapHeader</b>, or an array of either, to handle multiple unknown SOAP headers.
+<p>Declaring the type as either an array or a single instance of <b>SoapUnknownHeader</b> has the added benefit that <b>SoapUnknownHeader</b> has an <b>Element</b> property. The <b>Element</b> property is of type <b>XmlElement</b> and represents the XML document for the <b>Header</b> element of the SOAP request or SOAP response. Thus, an XML Web service method can determine the name of the SOAP header, along with the data passed by the SOAP header, by interrogating the <b>Element</b> property.
+
+</p><span id="ctl00_MTCS_main_ctl25">
+<div class='libCScode'
+id="ctl00_MTCS_main_ctl25_C#">
+    
+    <div class="CodeSnippetTitleBar">
+        <div class="CodeDisplayLanguage">
+            [C#]
+        </div>
+        
+    </div>
+    <div dir="ltr" style="background-color: #ddd">
+    <pre class="libCScode" id="ctl00_MTCS_main_ctl25_code" space="preserve"><span style="color:blue">public</span> <span style="color:blue">class</span> MyWebService {
+    <span style="color:blue">public</span> SoapUnknownHeader[] unknownHeaders;
+[Visual&#160;Basic]
+Public Class MyWebService
+    Public unknownHeaders() As SoapUnknownHeader</pre>
+    </div>
+</div>
+
+</span> </li> <li>Apply a <b>SoapHeader </b>attribute to each XML Web service method that intends to process each unknown SOAP header. 
+<span id="ctl00_MTCS_main_ctl26">
+<div class='libCScode'
+id="ctl00_MTCS_main_ctl26_C#">
+    
+    <div class="CodeSnippetTitleBar">
+        <div class="CodeDisplayLanguage">
+            [C#]
+        </div>
+        
+    </div>
+    <div dir="ltr" style="background-color: #ddd">
+    <pre class="libCScode" id="ctl00_MTCS_main_ctl26_code" space="preserve">    [WebMethod]
+    [SoapHeader(<span style="color: maroon"><span style="color: maroon">&quot;unknownHeaders&quot;</span></span>)]
+    <span style="color:blue">public</span> <span style="color:blue">string</span> MyWebMethod()
+[Visual&#160;Basic]
+    &lt;WebMethod, _
+     SoapHeader(<span style="color: maroon"><span style="color: maroon">&quot;unknownHeaders&quot;</span></span>) &gt; _
+    Public Function MyWebMethod() As String
+ </pre>
+    </div>
+</div>
+
+</span> </li> <li>Add code to determine whether you can process any unknown SOAP headers.
+<p>If the member variable is of type <b>SoapUnknownHeader</b>, an XML Web service method can determine the name of the SOAP header, along with the data passed by the SOAP header, by interrogating the <b>Element</b> property. The <b>Name</b> property of <b>Element</b> property identifies the name of the SOAP header.
+
+</p><span id="ctl00_MTCS_main_ctl27">
+<div class='libCScode'
+id="ctl00_MTCS_main_ctl27_C#">
+    
+    <div class="CodeSnippetTitleBar">
+        <div class="CodeDisplayLanguage">
+            [C#]
+        </div>
+        
+    </div>
+    <div dir="ltr" style="background-color: #ddd">
+    <pre class="libCScode" id="ctl00_MTCS_main_ctl27_code" space="preserve">       <span style="color:blue">foreach</span> (SoapUnknownHeader header <span style="color:blue">in</span> unknownHeaders) 
+       {
+         <span style="color:green">// Check to see if this a known header.</span>
+         <span style="color:blue">if</span> (header.Element.Name == <span style="color: maroon"><span style="color: maroon">&quot;MyKnownHeader&quot;</span></span>)
+[Visual&#160;Basic]
+       Dim header As SoapUnknownHeader       
+       For Each header In unknownHeaders
+         ' Check to see <span style="color:blue">if</span> <span style="color:blue">this</span> is a known header.
+         If (header.Element.Name = <span style="color: maroon"><span style="color: maroon">&quot;MyKnownHeader&quot;</span></span>) Then</pre>
+    </div>
+</div>
+
+</span> </li> <li>Set the <b>DidUnderstand</b> property of the member variable representing the unknown SOAP header to <b>true</b> if it is known how to process a particular SOAP header.
+<p>If an XML Web service method does process an unknown SOAP header and does not set the <b>DidUnderstand</b> property to <b>true</b>, a <b>SoapHeaderException</b> can be thrown. For more details, see <a href="#cpconusingsoapheadersanchor2">Handling SOAP Headers Required by an XML Web Service Client</a> </p><span id="ctl00_MTCS_main_ctl28">
+<div class='libCScode'
+id="ctl00_MTCS_main_ctl28_C#">
+    
+    <div class="CodeSnippetTitleBar">
+        <div class="CodeDisplayLanguage">
+            [C#]
+        </div>
+        
+    </div>
+    <div dir="ltr" style="background-color: #ddd">
+    <pre class="libCScode" id="ctl00_MTCS_main_ctl28_code" space="preserve">         <span style="color:green">// Check to see if this is a known header.</span>
+         <span style="color:blue">if</span> (header.Element.Name == <span style="color: maroon"><span style="color: maroon">&quot;MyKnownHeader&quot;</span></span>)
+               header.DidUnderstand = <span style="color:blue">true</span>;
+         <span style="color:blue">else</span>
+             <span style="color:green">// For those headers that cannot be </span>
+             <span style="color:green">// processed, set DidUnderstand to false.</span>
+             header.DidUnderstand = <span style="color:blue">false</span>;
+         }
+[Visual&#160;Basic]
+         ' Check to see <span style="color:blue">if</span> <span style="color:blue">this</span> a known header.
+         If (header.Element.Name = <span style="color: maroon"><span style="color: maroon">&quot;MyKnownHeader&quot;</span></span>) Then
+               header.DidUnderstand = True
+         Else
+             ' For those headers that cannot be 
+             ' processed, <span style="color:blue">set</span> DidUnderstand to <span style="color:blue">false</span>.
+             header.DidUnderstand = False
+         End If</pre>
+    </div>
+</div>
+
+</span> <blockquote class="dtBlock"> <b class="le">Note</b>   The <b>DidUnderstand</b> property is used by XML Web services created using ASP.NET to communicate with the XML Web service method. It is not part of the SOAP specification. Its value does not appear in any part of the SOAP request or SOAP response.</blockquote> <blockquote class="dtBlock"> <b class="le">Note</b>   When an XML Web service client builds a proxy class using the Web Services Description Language Tool (Wsdl.exe) and an XML Web service defines the member variable representing a SOAP header using the <b>SoapUnknownHeader</b> type, no reference to that SOAP header is added to the proxy class. If an XML Web service client decides to add that SOAP header to the SOAP request, they must modify the proxy class by adding a member variable and applying a <b>SoapHeader</b> attribute to the method making the call to the pertinent XML Web service method.</blockquote> </li> </ol> <h3 class="dtH3"><a name="cpconusingsoapheadersanchor2"><!----></a>Handling SOAP Headers Required by an XML Web Service Client</h3> <p>A client can require an XML Web service method to interpret the semantics of the SOAP header correctly and process it accordingly for the SOAP request to succeed. To do so, clients set the <b>mustUnderstand</b> attribute of the SOAP header to <b>1</b>. For instance, the following SOAP request requires the SOAP request recipient to process the <code class="ce">MyCustomSoapHeader</code> SOAP header.</p> <span id="ctl00_MTCS_main_ctl29">
+<div class='libCScode'
+id="ctl00_MTCS_main_ctl29_">
+    
+    <div class="CodeSnippetTitleBar">
+        <div class="CodeDisplayLanguage">
+            
+        </div>
+        
+    </div>
+    <div dir="ltr" style="background-color: #ddd">
+    <pre class="libCScode" id="ctl00_MTCS_main_ctl29_code" space="preserve">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" &gt;
+  &lt;soap:Header&gt;
+    &lt;MyCustomSoapHeader soap:mustUnderstand="1" xmlns="http://www.contoso.com"&gt;
+      &lt;custom&gt;Keith&lt;/custom&gt;
+    &lt;/MyCustomSoapHeader&gt;
+  &lt;/soap:Header&gt;
+  &lt;soap:Body&gt;
+    &lt;MyUnknownHeaders xmlns="http://www.contoso.com" /&gt;
+  &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;</pre>
+    </div>
+</div>
+
+</span> <p>Whether the XML Web service defines the SOAP header or not determines how the XML Web service should handle SOAP headers required by the client. ASP.NET handles a lot of the work in the case where the XML Web service defines the SOAP header. In the procedure that follows, you can learn how to handle the two cases.</p> <p class="labelproc"><b>To handle SOAP headers not defined by the XML Web service, but required by an XML Web service client</b> </p><ul type="disc"> <li>Follow the steps for handling unknown SOAP headers from an XML Web service client, paying particular attention to the <b>DidUnderstand</b> property of the SOAP header.
+<p>For SOAP headers not defined by the XML Web service, the initial value of <b>DidUnderstand</b> is <b>false</b>. If ASP.NET detects SOAP headers with their <b>DidUnderstand</b> property set to <b>false</b> after the XML Web service method returns, a <b>SoapHeaderException</b> is automatically thrown.
+</p></li> </ul> <p class="labelproc"><b>To handle SOAP headers required by an XML Web service client and defined by the XML Web service</b> </p><ul type="disc"> <li>Follow the steps for processing SOAP headers within an XML Web service created using ASP.NET within each XML Web service method.
+<p>For SOAP headers defined by the XML Web service and processed in the XML Web service method receiving the SOAP header, ASP.NET assumes the XML Web service understands the SOAP header and sets the initial value of <b>DidUnderstand</b> to <b>true</b>.
+</p></li> </ul> <p>The following <code class="ce">MyWebService</code> XML Web service defines the <code class="ce">MyHeader</code> SOAP header and requires it to be sent with any calls to the <code class="ce">MyWebMethod</code> XML Web service method. Additionally, the <code class="ce">MyWebMethod</code> processes any unknown SOAP headers. For the SOAP headers <code class="ce">MyWebMethod</code> can process, <b>DidUnderstand</b> is set to <b>true</b>.</p> <span id="ctl00_MTCS_main_ctl30">
+<div class='libCScode'
+id="ctl00_MTCS_main_ctl30_C#">
+    
+    <div class="CodeSnippetTitleBar">
+        <div class="CodeDisplayLanguage">
+            [C#]
+        </div>
+        
+    </div>
+    <div dir="ltr" style="background-color: #ddd">
+    <pre class="libCScode" id="ctl00_MTCS_main_ctl30_code" space="preserve">&lt;%@ WebService Language=<span style="color: maroon"><span style="color: maroon">&quot;C#&quot;</span></span> Class=<span style="color: maroon"><span style="color: maroon">&quot;MyWebService&quot;</span></span> %&gt;
+<span style="color:blue">using</span> System.Web.Services;
+<span style="color:blue">using</span> System.Web.Services.Protocols;
+
+<span style="color:green">// Define a SOAP header by deriving from the SoapHeader base class.</span>
+<span style="color:blue">public</span> <span style="color:blue">class</span> MyHeader : SoapHeader {
+    <span style="color:blue">public</span> <span style="color:blue">string</span> MyValue;
+}
+<span style="color:blue">public</span> <span style="color:blue">class</span> MyWebService {
+    <span style="color:blue">public</span> MyHeader myHeader;
+
+    <span style="color:green">// Receive all SOAP headers other than the MyHeader SOAP header.</span>
+    <span style="color:blue">public</span> SoapUnknownHeader[] unknownHeaders;
+ 
+    [WebMethod]
+    [SoapHeader(<span style="color: maroon"><span style="color: maroon">&quot;myHeader&quot;</span></span>)]
+    <span style="color:green">//Receive any SOAP headers other than MyHeader.</span>
+    [SoapHeader(<span style="color: maroon"><span style="color: maroon">&quot;unknownHeaders&quot;</span></span>)]
+    <span style="color:blue">public</span> <span style="color:blue">string</span> MyWebMethod() 
+    {
+       <span style="color:blue">foreach</span> (SoapUnknownHeader header <span style="color:blue">in</span> unknownHeaders) 
+       {
+         <span style="color:green">// Perform some processing on the header.</span>
+         <span style="color:blue">if</span> (header.Element.Name == <span style="color: maroon"><span style="color: maroon">&quot;MyKnownHeader&quot;</span></span>)
+               header.DidUnderstand = <span style="color:blue">true</span>;
+         <span style="color:blue">else</span>
+                <span style="color:green">// For those headers that cannot be </span>
+                <span style="color:green">// processed, set DidUnderstand to false.</span>
+                header.DidUnderstand = <span style="color:blue">false</span>;
+       }
+       <span style="color:blue">return</span> <span style="color: maroon"><span style="color: maroon">&quot;Hello&quot;</span></span>;
+    }
+}
+[Visual&#160;Basic]
+&lt;%@ WebService Language=<span style="color: maroon"><span style="color: maroon">&quot;VB&quot;</span></span> Class=<span style="color: maroon"><span style="color: maroon">&quot;MyWebService&quot;</span></span> %&gt;
+Imports System.Web.Services
+Imports System.Web.Services.Protocols
+
+' Define a SOAP header by deriving from the SoapHeader <span style="color:blue">base</span> <span style="color:blue">class</span>.
+Public Class MyHeader : Inherits SoapHeader
+    Public MyValue As String
+End Class
+
+Public Class MyWebService
+    Public myHeader As MyHeader
+    
+    ' Receive all SOAP headers other than the MyHeader SOAP header.
+    Public unknownHeaders() As SoapUnknownHeader    
+    
+    &lt;WebMethod, _
+     SoapHeader(<span style="color: maroon"><span style="color: maroon">&quot;myHeader&quot;</span></span>), _
+     SoapHeader(<span style="color: maroon"><span style="color: maroon">&quot;unknownHeaders&quot;</span></span>)&gt; _
+    Public Function MyWebMethod() As String
+        'Receive any SOAP headers other than MyHeader.
+        Dim header As SoapUnknownHeader
+        For Each header In unknownHeaders
+            ' Perform some processing on the header.
+            If header.Element.Name = <span style="color: maroon"><span style="color: maroon">&quot;MyKnownHeader&quot;</span></span> Then
+                header.DidUnderstand = True
+            ' For those headers that cannot be 
+            ' processed, <span style="color:blue">set</span> DidUnderstand to <span style="color:blue">false</span>.
+            Else
+                header.DidUnderstand = False
+            End If
+        Next header
+        Return <span style="color: maroon"><span style="color: maroon">&quot;Hello&quot;</span></span>
+    End Function
+End Class</pre>
+    </div>
+</div>
+
+</span> <blockquote class="dtBlock"> <b class="le">Note</b>   The <b>DidUnderstand</b> property is used by ASP.NET to communicate with the XML Web service method. It is not part of the SOAP specification; its value does not appear in any part of the SOAP request or SOAP response.</blockquote> <blockquote class="dtBlock">
+If an XML Web service forwards a SOAP header, it is very important to follow the rules in the SOAP specification, especially those pertaining to the value of the <b>Actor</b>. For details, see the W3C Web site (http://www.w3.org/TR/SOAP/).</blockquote> <h3 class="dtH3">Handling Errors That Occur While Processing a SOAP Header</h3> <p>When an XML Web service detects an error specific to the processing of a header, a <b>SoapHeaderException</b> should be thrown. Using this exception class allows XML Web services to correctly format the response. If the client is created using the .NET Framework, it will receive the <b>SoapHeaderException</b> with its contents, including the <a id="ctl00_MTCS_main_ctl31" href="http://msdn.microsoft.com/en-us/library/system.exception.innerexception(VS.71).aspx" onclick="javascript:Track('ctl00_MTCS_main_ctl00|ctl00_MTCS_main_ctl31',this);">InnerException</a> property, placed in the <a id="ctl00_MTCS_main_ctl32" href="http://msdn.microsoft.com/en-us/library/system.exception.message(VS.71).aspx" onclick="javascript:Track('ctl00_MTCS_main_ctl00|ctl00_MTCS_main_ctl32',this);">Message</a> property. The <b>InnerException</b> property of the <b>SoapHeaderException</b> caught by the client will be <b>null</b>. This is a programming model supported by the .NET Framework, as the exception is sent over the network in a SOAP <b>&lt;Fault&gt;</b> XML element, as prescribed by the SOAP specification. For more details on exceptions, see <a id="ctl00_MTCS_main_ctl33" href="http://msdn.microsoft.com/en-us/library/ds492xtk(VS.71).aspx" onclick="javascript:Track('ctl00_MTCS_main_ctl00|ctl00_MTCS_main_ctl33',this);">Handling and Throwing Exceptions in XML Web Services</a>.</p> <p>The following code example throws a <b>SoapHeaderException</b> if a client makes a SOAP request to the <code class="ce">MyWebMethod</code> XML Web service method setting the <code class="ce">Expires</code> property to a date and time that occurs in the past by the time the SOAP request reaches the XML Web service.</p> <span id="ctl00_MTCS_main_ctl34">
+<div class='libCScode'
+id="ctl00_MTCS_main_ctl34_C#">
+    
+    <div class="CodeSnippetTitleBar">
+        <div class="CodeDisplayLanguage">
+            [C#]
+        </div>
+        
+    </div>
+    <div dir="ltr" style="background-color: #ddd">
+    <pre class="libCScode" id="ctl00_MTCS_main_ctl34_code" space="preserve">&lt;%@ WebService Language=<span style="color: maroon"><span style="color: maroon">&quot;C#&quot;</span></span> Class=<span style="color: maroon"><span style="color: maroon">&quot;MyWebService&quot;</span></span> %&gt;
+<span style="color:blue">using</span> System.Web.Services;
+<span style="color:blue">using</span> System.Web.Services.Protocols;
+
+<span style="color:green">// Define a SOAP header by deriving from the SoapHeader class.</span>
+<span style="color:blue">public</span> <span style="color:blue">class</span> MyHeader : SoapHeader
+{
+  <span style="color:blue">public</span> DateTime Created;
+  <span style="color:blue">public</span> DateTime Expires;
+  <span style="color:blue">public</span> DateTime Received;
+} 
+
+[WebService(Namespace=<span style="color: maroon"><span style="color: maroon">&quot;http://www.contoso.com&quot;</span></span>)]
+<span style="color:blue">public</span> <span style="color:blue">class</span> MyWebService 
+{
+    <span style="color:green">// Add a member variable of the type deriving from SoapHeader.</span>
+    <span style="color:blue">public</span> MyHeader myHeaderMemberVariable;
+ 
+    <span style="color:green">// Apply a SoapHeader attribute.</span>
+    [WebMethod]
+    [SoapHeader(<span style="color: maroon"><span style="color: maroon">&quot;myHeaderMemberVariable&quot;</span></span>)]
+    <span style="color:blue">public</span> <span style="color:blue">void</span> MyWebMethod() 
+    {
+       <span style="color:blue">if</span> (timeStamp == <span style="color:blue">null</span>)
+          timeStamp = <span style="color:blue">new</span> MyHeader();
+       <span style="color:blue">else</span>
+       {
+          <span style="color:green">// Check whether the SOAP message is expired.</span>
+          <span style="color:blue">if</span> ((timeStamp.Expires.CompareTo(DateTime.UtcNow)) &lt;= 0)
+          {
+             <span style="color:green">// The SOAP message is expired, so throw a SOAP header</span>
+             <span style="color:green">// exception indicating that.</span>
+             SoapHeaderException se = <span style="color:blue">new</span> SoapHeaderException(
+               <span style="color: maroon"><span style="color: maroon">&quot;SOAP message expired before reaching this node.&quot;</span></span>,
+               SoapException.ClientFaultCode, 
+               <span style="color:blue">this</span>.Context.Request.Url.ToString());
+             throw se;
+          }
+       }
+    }
+}
+[Visual&#160;Basic]
+&lt;%@ WebService Language=<span style="color: maroon"><span style="color: maroon">&quot;VB&quot;</span></span> Class=<span style="color: maroon"><span style="color: maroon">&quot;MyWebService&quot;</span></span> %&gt;
+Imports System.Web.Services
+Imports System.Web.Services.Protocols
+
+' Define a SOAP header by deriving from the SoapHeader <span style="color:blue">class</span>.
+Public Class MyHeader 
+  Inherits SoapHeader
+    Public Created As DateTime
+    Public Expires As DateTime
+    Public Received As DateTime
+End Class
+
+&lt;WebService(Namespace:=<span style="color: maroon"><span style="color: maroon">&quot;http://www.contoso.com&quot;</span></span>)&gt; _
+Public Class MyWebService
+    ' Add a member variable of the type deriving from SoapHeader.
+    Public myHeaderMemberVariable As MyHeader    
+    
+    ' Apply a SoapHeader attribute.
+    &lt;WebMethod, _
+     SoapHeader(<span style="color: maroon"><span style="color: maroon">&quot;myHeaderMemberVariable&quot;</span></span>)&gt; _
+    Public Sub MyWebMethod()
+       If (TimeStamp Is Nothing) Then
+          TimeStamp = New MyHeader
+       Else
+           ' Check whether the SOAP message is expired.
+           If ((TimeStamp.Expires.CompareTo(DateTime.UtcNow)) &lt;= 0) Then
+             ' The SOAP message is expired, so throw a SOAP header
+             ' exception indicating that.
+             Dim se As New SoapHeaderException( _
+                <span style="color: maroon"><span style="color: maroon">&quot;SOAP message expired before reaching this node.&quot;</span></span>, _
+                SoapException.ClientFaultCode, _
+                Me.Context.Request.Url.ToString())
+             Throw se    
+           End If
+       End If
+    End Sub
+End Class</pre>
+    </div>
+</div>
+
+</span> <p><b>Note: </b>The .NET Framework version 1.0 includes the <a id="ctl00_MTCS_main_ctl35" href="http://msdn.microsoft.com/en-us/library/system.web.services.protocols.soapheaderattribute.required(VS.71).aspx" onclick="javascript:Track('ctl00_MTCS_main_ctl00|ctl00_MTCS_main_ctl35',this);">SoapHeaderAttribute.Required</a> property which enables an XML Web service to require that a client send a specific SOAP header when the property is set to <b>true</b>. ASP.NET indicates that the SOAP header is required in a generated WSDL document by setting the <b>wsdl:required</b> attribute to <b>"true"</b> on the <b>soap:header</b> element. .NET Framework clients of the XML Web service built from the WSDL document receive a <a id="ctl00_MTCS_main_ctl36" href="http://msdn.microsoft.com/en-us/library/system.web.services.protocols.soapheaderexception(VS.71).aspx" onclick="javascript:Track('ctl00_MTCS_main_ctl00|ctl00_MTCS_main_ctl36',this);">SoapHeaderException</a> if they do not send the required SOAP header and other clients receive a SOAP Fault. To interoperate with other SOAP implementations this functionality is removed in later versions.</p> <p>The <b>Required</b> property is obsolete in version 1.1, and the <b>wsdl:required</b> attribute of a <b>soap:header</b> element in a WSDL document is ignored by the Web Services Description Language tool (Wsdl.exe). Because a SOAP header can no longer be required, an XML Web service should verify that the field or property representing the SOAP header is not <b>null</b> before accessing it.</p> <h4 class="dtH4">See Also</h4> <p><a id="ctl00_MTCS_main_ctl37" href="http://msdn.microsoft.com/en-us/library/system.web.services.protocols.soapheader(VS.71).aspx" onclick="javascript:Track('ctl00_MTCS_main_ctl00|ctl00_MTCS_main_ctl37',this);">SoapHeader</a> | <a id="ctl00_MTCS_main_ctl38" href="http://msdn.microsoft.com/en-us/library/system.web.services.protocols.soapheaderattribute(VS.71).aspx" onclick="javascript:Track('ctl00_MTCS_main_ctl00|ctl00_MTCS_main_ctl38',this);">SoapHeaderAttribute</a> | <a id="ctl00_MTCS_main_ctl39" href="http://msdn.microsoft.com/en-us/library/system.web.services.protocols.soapheaderexception(VS.71).aspx" onclick="javascript:Track('ctl00_MTCS_main_ctl00|ctl00_MTCS_main_ctl39',this);">SoapHeaderException</a> | <a id="ctl00_MTCS_main_ctl40" href="http://msdn.microsoft.com/en-us/library/system.web.services.protocols.soapunknownheader(VS.71).aspx" onclick="javascript:Track('ctl00_MTCS_main_ctl00|ctl00_MTCS_main_ctl40',this);">SoapUnknownHeader</a> | <a id="ctl00_MTCS_main_ctl41" href="http://msdn.microsoft.com/en-us/library/ba0z6a33(VS.71).aspx" onclick="javascript:Track('ctl00_MTCS_main_ctl00|ctl00_MTCS_main_ctl41',this);">Building XML Web Services Using ASP.NET</a> | <a id="ctl00_MTCS_main_ctl42" href="http://msdn.microsoft.com/en-us/library/w3h45ebk(VS.71).aspx" onclick="javascript:Track('ctl00_MTCS_main_ctl00|ctl00_MTCS_main_ctl42',this);">Building XML Web Service Clients</a></p>  </div> </div>
+        
+          
+        </div>
+      </div>
+
+      
+      
+
+<div style="overflow:hidden;display:block;position:relative;">
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+  <tr>
+    <td id="ctl00_mtpsFooter_FooterFadeCell" class="MTPS_FooterFade">
+      <div id="ctl00_mtpsFooter_SiteLinks" class="MTPS_FooterLinks">
+
+		</div>
+      <span id="ctl00_mtpsFooter_MSFT_copyright" title="© 2010  Microsoft Corporation. All rights reserved." class="MTPS_FooterCopyright">&copy; 2010  Microsoft Corporation. All rights reserved.</span>
+      <a id="ctl00_mtpsFooter_MSFT_Terms" title="Terms of Use" class="MTPS_FooterLinks" href="/cc300389.aspx">Terms of Use</a>
+      <span id="ctl00_mtpsFooter_PipeSpan1">|</span>
+      <a id="ctl00_mtpsFooter_MSFT_Trademarks" title="Trademarks" class="MTPS_FooterLinks" href="http://www.microsoft.com/library/toolbar/3.0/trademarks/en-us.mspx">Trademarks</a>
+      <span id="ctl00_mtpsFooter_PipeSpan2">|</span>
+      <a id="ctl00_mtpsFooter_MSFT_PrivacyStatement" title="Privacy Statement" class="MTPS_FooterLinks" href="http://www.microsoft.com/info/privacy.mspx">Privacy Statement</a>
+      
+      <a id="ctl00_mtpsFooter_MSFT_Feedback" class="MTPS_FooterLinks" rel="sitefeedback" target="_blank"></a>
+    </td>
+		
+    <td id="ctl00_mtpsFooter_FooterLogoCell">
+      <a id="ctl00_mtpsFooter_MSFT_LOGO" title="Microsoft Corporation" href="http://www.microsoft.com/en/us/default.aspx"><img id="ctl00_mtpsFooter_MSFT_imgLogo" class="msdn_TabC_mslogo" src="http://i.msdn.microsoft.com/Global/Images/clear.gif" border="0" /></a>
+    </td>
+		
+  </tr>
+</table>
+
+</div>
+ 
+      
+	</div>
+</div>
+  </div>
+  <div style="display:none"><img src="http://c.microsoft.com/trans_pixel.asp?source=msdn&amp;TYPE=PV&amp;uri=%2fen-us%2flibrary(d%3ddefault)%2f77hkfhh8(l%3den-us%2cv%3dVS.71).aspx&amp;p=_en-us_library(d=default)_77hkfhh8(l=en-us,v=VS.71).aspx" width="0" height="0" hspace="0" vspace="0" border="0" alt="Page view tracker" /></div>
+  
+<script src="http://i2.msdn.microsoft.com/platform/Controls/WebTrends/resources/webtrendsscript-bn20100217.js" type="text/javascript"></script>
+<noscript>
+<div><img alt="DCSIMG" id="Img1" width="1" height="1" src="http://m.webtrends.com/dcsmgru7m99k7mqmgrhudo0k8_8c6m/njs.gif?dcsuri=/nojavascript&amp;WT.js=No" /></div>
+</noscript>
+  <script type="text/javascript" src="http://i2.msdn.microsoft.com/en-us/library/mtps-bn20100217.js?l=en-us&amp;i=library&amp;ct=AlternateSelector;CCEditor;CCSection;CCTagEditor;CodeSnippet;ContentFallback;DropDownFilter;ExpandCollapseAll;Eyebrow;Footer;InstrumentedLink;InteractiveToolbar;iRootBrand;LocaleManagementFlyout;lwViewSwitcher;MastheadLibrary;MemberlistFrameworksFilter;MemberlistMembersFilter;MtpsLoginStatus;MtpsRating;MtViewDropDown;Omniture;RedVelvetCodeSnippet;RedVelvetInstrumentedLink;RelatedPages;ResizeableAreaD10;StoSearch;StoTabStripLibrary;SurveyLauncher;TagCloud;TemplatedFlyout;Tickler;Toc;UserRecognition;WebMetrix;WebTrends"></script>
+    <script type="text/javascript">
+        //<![CDATA[
+        setTimeout(function() {
+            var hashElementId = document.location.hash.substr(1);
+            var hashElement = document.getElementById(hashElementId);
+            if (hashElement != null) {
+                hashElement.scrollIntoView(true);
+            }
+        }, 1);
+        //]]>
+    </script>
+  
+
+<script type="text/javascript">
+//<![CDATA[
+ RegisterAutoSubmit('ctl00_ib1_Flyout_Rating1','ctl00_ib1_Flyout_btnSend','contentRating77hkfhh8VS.71en-us');
+//]]>
+</script>
+<script type="text/javascript" language="javascript">
+<!--
+ function GetContentWnd(){ return parent; } function OnInitPage(){var oWnd = GetContentWnd();} function OnSave(){ var oWnd = GetContentWnd(); window.external.addFavorite('http://msdn.microsoft.com/en-us/library/77hkfhh8(VS.71).aspx', oWnd.document.title ); }
+
+-->
+</script>
+<script type="text/javascript">
+//<![CDATA[
+document.getElementById('ctl00_ib1_Flyout_rtgContainer').title="Click a star and provide feedback";
+Sys.Application.initialize();
+TFly_Init('ctl00_ctl08_LocaleManagement_ctl00',0,0,1,0,0,'LocaleManagementFlyoutStaticHover','',0,400,'','','','');
+TFly_Init('ctl00_ib1_Flyout',5,2,1,0,0,'','',0,400,'','TFlyPreAnimate','','');
+MTPS.Controls.MtpsRating.createMtpsRating('ctl00_ib1_Flyout_Rating1','ratingStar','filledRatingStar','emptyRatingStar','savedRatingStar','5','LeftToRightTopToBottom', false);MTPS.Controls.ResizeableArea = new MTPS.Controls.CreateResizeableArea('ctl00_LibFrame','ctl00_raSplitter','ctl00_raLeft','ctl00_raRight','tocwidth','toccollapsed','173');var tocVectorObject;var hostbase;var closedImg;var openImg;var emptyImg;var loadingImg;var tocVector;var tocIndex = 0;var holder;var tocLoaded = false;var tocCollapsed = 'False';tocVectorObject = {"nodes": [{"id": "ms310241(n)" ,"url": "/ms310241(n)"},{"id": "aa139615(n)" ,"url": "/aa139615(n)"},{"id": "aa139623(n)" ,"url": "/aa139623(n)"},{"id": "aa308416(vs.71,n)" ,"url": "/aa308416(VS.71,n)"},{"id": "aa308749(vs.71,n)" ,"url": "/aa308749(VS.71,n)"},{"id": "aa308750(vs.71,n)" ,"url": "/aa308750(VS.71,n)"},{"id": "aa308792(vs.71,n)" ,"url": "/aa308792(VS.71,n)"},{"id": "77hkfhh8(vs.71,n)" ,"url": "/77hkfhh8(VS.71,n)"}]};hostbase ="http://msdn.microsoft.com/en-us/library";tocVector = eval(tocVectorObject);closedImg = "LibC_c";openImg = "LibC_o";emptyImg = "LibC_e";var tocDir = false;TFly_Init('ctl00_eb1_ctl00',0,-1,-1,0,0,'statHover','',0,0,'EyeBrowMenuBarSetHeight','ExpEye','','');
+TFly_Init('ctl00_eb1_ctl01',0,-1,-1,0,0,'statHover','',0,0,'EyeBrowMenuBarSetHeight','ExpEye','','');
+TFly_Init('ctl00_eb1_ctl02',0,-1,-1,0,0,'statHover','',0,0,'EyeBrowMenuBarSetHeight','ExpEye','','');
+TFly_Init('ctl00_eb1_ctl03',0,-1,-1,0,0,'statHover','',0,0,'EyeBrowMenuBarSetHeight','ExpEye','','');
+TFly_Init('ctl00_eb1_ctl04',0,-1,-1,0,0,'statHover','',0,0,'EyeBrowMenuBarSetHeight','ExpEye','','');
+TFly_Init('ctl00_eb1_ctl05',0,-1,-1,0,0,'statHover','',0,0,'EyeBrowMenuBarSetHeight','ExpEye','','');
+TFly_Init('ctl00_eb1_ctl06',0,-1,-1,0,0,'statHover','',0,0,'EyeBrowMenuBarSetHeight','ExpEye','','');
+TFly_Init('ctl00_eb1_ctl07',0,-1,-1,0,0,'statHover','',0,0,'EyeBrowMenuBarSetHeight','ExpEye','','');
+CheckDropDownClientCookie(false);SetFilterText(false);//]]>
+</script>
+</form>
+</body>
+
+<script language="javascript" type="text/javascript" src="http://js.microsoft.com/library/svy/sto/broker.js"></script>
+</html>

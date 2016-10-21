@@ -1,0 +1,311 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<TITLE>Salton: LIS 540 Information Systems, Architectures and Retrieval</TITLE>
+	<link type="text/css" rel="stylesheet" href="reset-fonts-grids.css">
+	<link type="text/css" rel="stylesheet" href="pageStyle.css" >
+	<link rel="shortcut icon" href="course.ico">
+
+<script type="text/javascript">
+function showInsert(name) {
+	 
+	 var e;
+	 
+	 e = document.getElementById(name);
+	 e.style.display="block";
+}
+	
+function hideInsert(name) {
+	 
+	 var e;
+	 
+	 e = document.getElementById(name);
+	 e.style.display="none";
+}
+</script>
+
+
+
+</head>
+
+<body id="yahoo-com">
+<div id="doc" class="yui-t1">					
+	<div id="hd">
+	<!-- Header -->
+		<div style="height: 100px; background-color: #CCFFFF; padding-top: 10px">
+		<p class="tiny" style="margin-left: 30px;">dLIS 540 Information Systems, Architecture and Retrieval <br> Autumn 2007<p>		
+		<p class="script" style="margin-left: 30px; font-size: 300%">One of the pioneers of information science!</p>
+	</div>
+
+	
+			
+	<!-- End header -->
+	</div>
+	<div id="bd">
+		<div id="yui-main">
+			<div class="yui-b">				
+		
+			<!-- Main page contents -->	
+		
+
+	<h1 style="color: red">Gerard Salton and Words</h1>
+	
+	<p class="tiny">Most of the published research in our field is probably not worth doing and ought to be forgotten &nbsp;&nbsp;Gerard Salton, "A Note About Information Science Research," JASIS, 36(4), p.268, 1985</p>
+
+
+
+
+	<br><br><br>
+	<h3>Indexing As A Craft</h3>
+	<p>
+	<img src="editor.JPG" align="right">
+	An indexer was a person who worked with an author and publisher to create a listing of topics called an index.  The most common example is the back-of-the-book index.
+	<br>"Indexing, far from being merely the alphabetically arranged concatenation of text words, is, first of all, <font color="#FF0000">a creative process</font>.  Though always, by definition, dependent on the work of another creative mind--that of a writer, artist, or compiler of data--it transforms the original text into a homologous but functionally different structure.  In that structure, topics and names mentioned here and there in the text are arranged in an ordered and easily scannable sequence, indicating their place in the text.  At the same time, both their explicit and implicit relationships are displayed in a way in which the original text does not or cannot reveal them."</p>
+	<p>"Like other creative processes, such as literary writing, painting, or composing music, indexing relies on certain technical rules which can be learned by example, training, and experience.  <font color="#FF0000">Yet the creative inspiration that will result in a good and useful index can neither be learned nor taught</font>."
+<br><br>
+<font size="-1"><em>Hans H. Wellisch</em> <strong>Indexing from A to Z</strong>, 1995</font> </p>
+	<br clear="right">
+	
+	<br><br><br>
+	<h3 style="font-family: Showcard Gothic; font-size: xx-large">Question: What Happens When Text Is Digitized?</h3>
+	<h3><em>Answer:</em> Machines Can Find "Words"</h3>
+	<h3><em>Therefore:</em> Machines Can Index Text</h3>
+	<h3><em>Which Means:</em> Machines Can Determine Meaning</h3>
+	<img src="lightBulb.JPG" align="left">
+	<br clear="left">
+
+	<br><br>
+	<p style="margin-left:20px; color:red"><strong><em>Significance Check for the Inattentive!</em></strong> &nbsp;There is a tremendous amount of money to be made if a machine can determine the <strong>meaning</strong> of text!  Think of all the newspapers that can be indexed, all the scientific articles that can be indexed, now spam can be parsed from e-mail, porn can be found on the web, etc., etc.  You could build a bot to scour the Net that would determine the "meaning" of Web pages and thereby find just the information that you're looking for! Call that the Semantic Web! Terry Brooks could get a machine to answer his e-mail while he goes fishing!</p>
+<br><br>
+	
+
+
+<h3>Gerard Salton and Automatic Indexing</h3>
+<img src="Salton.JPG" align="left">
+<p>Prior to Gerry Salton, information retrieval was done with paper methods and library practices. Salton developed information retrieval for digital documents in a database context. A key innovation was automatic indexing - using machine methods to determine the meaning of text. <br>He was awarded the first ACM SIGIR Award for outstanding contributions to information retrieval, 
+twice received the ASIS award for Best Information Science Book,
+and the ASIS Award of Merit, The Alexander von
+Humboldt Senior Scientist Award, and was recognized as a fellow of
+the American Association for the Advancement of Science.</p>
+<p><font size="-1">ACM - Association for Computing Machinery&nbsp;&nbsp;&nbsp;
+SIGIR - Special Interest Group in Information Retrieval&nbsp;&nbsp;&nbsp;
+ASIS - American Society for Information Science</font></p>
+<br clear="left">
+<h3>A Simple Automatic Indexing Process</h3>
+<p>In 1983, Salton and McGill published <strong>Introduction to Modern Information Retrieval</strong>, which outlined a simple automatic indexing process (page 71, passim):</p>
+
+<ul>
+<li class="spacer">Identify the individual words that constitute the document&nbsp;&nbsp;
+<input type=button value="Explanation" onclick="showInsert('parse')">
+</li>
+<div id="parse" style="background-color:yellow;padding-left:20px;padding-top:10px;display:none;">
+<p>One finds words by <strong>parsing</strong> text, i.e., you break text on the presence of white space. It's not too difficult to program a computer to read in a line of text and split it apart into "words" based on the location of white space between "words."</p>
+<p>For example, the phrase <em>brothers-in-law's banquet</em> becomes two words: <em>brothers-in-law's</em> and 
+<em>banquet</em>.</p>
+<p>Usually, some <strong>normalization</strong> process is then used to take care of internal punctuation.  For example, all internal punctuation might be <strong>elided</strong> making <em>brothers-in-law's</em> into the word <em>brothersinlaws</em>. Alternatively, you might program your normalization process to further reduce words based on their internal punctuation.  In this case, <em>brothers-in-law's</em> would become the words: (1) brothers, (2) in, (3) law and (4) s.</p>
+<p>The latter method of normalization is more common than the former.  The reason is that few of your users will recognize "brothersinlaws" as a legitimate query term, but they can be taught to deal with "s" as a word.</p>
+<p>Big philosophical question: "s" is a word?</p>
+<p>Consequently, the phrase <em>brothers-in-law's banquet</em> might be considered (depending on the exact parsing and normalization routines) either two, three, four, or five words.  <em>It all depends.</em></p>
+<input type=button value="Hide" onclick="hideInsert('parse')">
+</div>
+
+
+<li class="spacer">Eliminate high frequency words (i.e., stopwords)
+<input type=button value="Explanation" onclick="showInsert('stopwords')">
+</li>
+<div id="stopwords" style="background-color:yellow;padding-left:20px;padding-top:10px;display:none;">
+<p>Years ago, when computer memory was not so cheap and abundant, one had to figure out ways to avoid bulking your computer with "useless", "non-significant" words that didn't carry information, i.e., in the English language, 'the' is an article that appears very frequently but carries little unique information.</p>
+<p><strong>Stopwords</strong> are words that are <em>stopped</em> from being placed in an index.  There are many lists of stopwords, but commonly English words such as "the", "a", "an", "and", "or", "not" are not indexed.</p>
+
+<p><img src="alexanderThe.JPG" class="left">Did you know that <em>Le Th&eacute; </em>is tea in French and that <em>The</em> is a common last name? What would Alexander say if you told him that his last name didn't have any useful information? <em><font size="-1">Wouldn't that hurt his feelings? What if he told you that he didn't think your last name was so hot? Would this promote world peace? etc., etc.</font></em></p>
+<br clear="left">
+<input type=button value="Hide" onclick="hideInsert('stopwords')">
+</div>
+
+
+
+
+<li class="spacer">Stem the remaining words
+<input type=button value="Explanation" onclick="showInsert('stem')">
+</li>
+<div id="stem" style="background-color:yellow;padding-left:20px;padding-top:10px;display:none;">
+<p><strong>Stemming</strong> is the process of reducing word forms down to a simpler radical.</p>
+<p>Salton explains: "It is useful first to remove word suffixes (and possibly also prefixes), thereby reducing the original words to word stem form.  This reduces a variety of different forms such as analysis, analyzing, analyzer, analyzed, and analysing to the common word stem 'analy'."</p>
+<p><em><font size="-1">Picky question:</em> Is "analyzer" the same as "analysis"?  What if you were looking for "analyzer" but were given a lot of documents about "analysis?"  This would make you happy?</font></p>
+
+<br>
+<input type=button value="Hide" onclick="hideInsert('stem')">
+</div>
+<li class="spacer">Weight the index terms by their frequency of occurrence in documents.
+<input type=button value="Explanation" onclick="showInsert('weight')">
+</li>
+<div id="weight" style="background-color:yellow;padding:20px;display:none;">
+<p>Perhaps one of Salton's most significant contributions was the idea recognizing that words don't occur randomly in documents, but depending on the topic, some words occur more frequently than others.  Therefore, these words should be given more weight in the index, i.e., if the word "dog" occurred 6 times in a document, then that document was pretty "doggy" compared to a document where "dog" occurred only once. </p>
+<p>Building an index with weighted terms means that you can deliver the documents to the searcher <strong>in rank order</strong> by their "dogginess," i.e., give a patron looking for "dog" the document with six "dogs" before you give him the document with only one "dog."</p>
+
+<p><img src="dog.JPG" align="left">Perhaps an example would better illustrate this effect.  Consider the three documents below and determine which one is "doggiest", that is, the sort of document that someone searching for "dog" would want to see first.  Rank these documents by counting the times that "dog" and its variants occur.</p>
+<p><em>Is the high ranking document the "doggiest"?</em></p>
+<br clear="left">
+<table bgcolor="#FFFF00" cellspacing="2" cellpadding="2" border="1" frame="box" rules="all">
+<tr width="150">
+    <td  valign="top">My dog is named Spot.<br><font color="#FF0000">"Dog" occurs once.</font></td>
+</tr>
+<tr>
+    <td valign="top">I saw two dogs on the way to school. One dog was named Spot and the other dog bit me.<br><font color="#FF0000">"Dog" occurs 3 times.</font></td>
+</tr>	
+<tr>
+    <td valign="top">"Fishing for Dog Fish" by Cameron Dog. Dog fish gaffs that feature a left dog leg handle are most useful in securing dog fish.<br><font color="#FF0000">"Dog" occurs five times.</font></td>
+</tr>
+</table>
+
+<p>Hmmm? The third document is the "doggiest"?  This is the one that you would recommend to someone who wants information about "dog"?</p>
+
+<br>
+<input type=button value="Hide" onclick="hideInsert('weight')">
+</div>
+</ul>
+
+
+
+
+
+<p>&nbsp;</p>
+<h3>Politics, Religion, Food Fights, etc., in Information Retrieval</h3>
+<p>
+<img src="fight.jpg" align="right" style="padding: 10px">
+Information retrieval is quite controversial.  It  attempts to index the meaning of documents via a mechanical processing of language.  It is easy to be skeptical, but something has to be done with the torrent of digital documents, or else we'll have to invent Google (<em>yikes!</em>).
+<br>Some folks have tried linguistic methods such as natural language processing and other folks have tried fuzzy logic.  Believe me, if something really worked somebody would be very famous and wealthy.</p>
+<p>The philosopher Wittgenstein considered language as a sort of word game, so who knows what words are, or what language is, or what this sentence is about, or stuff like that. What would happen if we all started speaking leetspeek? </p>
+
+<p>You can imagine that great religion battles have been fought over the "right" way to do information retrieval.  Consider the following letter written by Gerry Salton:</p>
+	<br clear="right">
+	<em><font size="-1">Journal of the American Society for Information Science, v.47(4), April 1996, p. 333</font></em>
+<br><br>
+	<img src="SaltonLetter1.JPG" align="left">
+	<br clear="left">
+	<img src="SaltonLetter2.JPG" align="left">
+	<br clear="left">
+	
+	
+	
+	
+	
+
+	
+	<p>Required reading: <a href="http://informationr.net/ir/8-3/paper154.html">"Websearch: How the web has changed information retrieval"</a>, by T. A. Brooks</p>
+	
+	<p>&nbsp;</p>
+	<h3>Heirs of Salton</h3>
+	<p>The vision of automatically 'understanding' text is simply too attractive (necessary?) to go away.  The Web is simply too big and too rich an information resource to be handled manually and ignored.  There <em>must</em> be some way to automatically understand the Web and harvest meaning from it!</p>
+	
+	<p>
+	<img src="orenEtzioni.jpg" class="left">
+	Professor Oren Etzioni, University of Washington, has been working on the KnowItAll project.
+	<br><br>
+	"Using search engines to compile a list - like the top 50 greatest blues guitarists by record sales, say - involves a lot of drudge work because you have to visit many web pages to gather the data you need. But the next step in search engine technology could make creating such lists possible with a single mouse click.
+<br>
+KnowItAll, a search engine under development at the University of Washington, Seattle, trawls the web for data and then collates it in the form of a list. The approach is unique, says its developer, Oren Etzioni, because it generates information that probably does not exist on any single web page.
+<br>
+Etzioni's ultimate aim is to have KnowItAll answer questions such as "list all British scientists born before 1900". The software cannot do that yet, because it lacks a module that can understand "natural-language" questions of this type. That will come later, he says.
+<br>
+<a href="http://www.newscientist.com/article.ns?id=dn4961">Search engine tackles tricky lists</a> New Scientist, May 7, 2004
+	</p>
+	
+	
+	
+	
+	
+	<p>&nbsp;</p>
+	<h3>The Challenge of Information Retrieval On The Web</h3>
+	<p>
+	<img src="spider.JPG" class = "left">
+	The web is a vast information resource that permits us to do information retrieval (<em>Really? Aren't you making a lot of assumptions? Such as?  Well, that the web is a database</em>).  Using Google, we retrieve web documents (<em>Really? Isn't a web page just a 'presentation' created by a web browser?</em>). Google indexes the web using keywords that people put in their HTML pages (<em>Really? Doesn't Google consider them as spam?</em>) </p> 
+	<br clear="left">
+
+<div style="background-color:cyan;padding-left:20px;padding-top:10px;padding-right:20px;padding-bottom:20px;">
+<p><strong><em>Lots of things to think about:</em></strong></p>
+<div class="txt">
+<ul>
+<li>How are web pages (i.e., static HTML) and database documents the same? different?
+<li>How are web pages (i.e., dynamic HTML) and database documents the same? different?
+<li>Is Google an index of the Web?
+<li>Can you build an automatic indexing algorithm for the Web?
+<li>If Google uses an automatic indexing algorithm, why is it a secret?
+<li>Why is packing a bunch of words in a web page considered spamming Google?
+<li>Why is responding to Google web crawler with a special page called "cloaking" and punished by being banned from Google?  Weren't you just trying to "help" the crawler?
+</ul>
+</div>
+</div>
+<p>&nbsp;</p>
+<br><br>
+<h3>Why don't we apply everything we've learned during the last 50 years of information retrieval to the web? </h3>
+
+
+
+
+
+<p><em><strong>The ironic, market-driven, cynical last comment:</strong></em> You realize that if there was a technological "silver bullet" that solved the information retrieval problem on the web, an organization like Microsoft would have already incorporated it into Internet Explorer.  If the solution <em>really</em> existed, you've have to pay to use it.</p>
+
+	<p>&nbsp;</p>
+	<div style="background-color:cyan;padding-left:20px;padding-top:10px;padding-right:10px;padding-bottom:10px;">
+	<strong>An Even Deeper Insight (That Might Touch Profundity)</strong>
+	<p>If there was a consistent pattern in spoken or written language, it would have been noticed and exploited long before computers came along.</p>
+	<p>There hasn't been, so one would tend to conclude there isn't.</p>
+	<p><em>Oops!</em> &nbsp;&nbsp;&nbsp;Sorry.  Please excuse my candor.</p>
+	</div>
+	<p>&nbsp;</p>
+	
+<br><br>
+	<h1><font color="#FF0000">But Cynicism is Easy</font></h1>
+	<h3>It Doesn't Solve Real-World Problems!</h3>
+	<h3>Parsing Text is Imperfect, But So What!</h3>
+	<p>
+	<img src="owl.JPG" class = "left">
+	"Brightmail scans the text of every message sent to a Hotmail account and runs it through a filter that looks for patterns of words, letters or numbers.  If it finds such patterns, which are known as <strong>signatures</strong>, this electronic sieve either deletes the message that contains them or strains it into a separate folder."
+<br>&nbsp;&nbsp;&nbsp;"Brightmail augments the filter by maintaining 250,000 e-mail accounts as spam traps.  Staff members harvest any spam messages that evade the filters, then generate rules to recognize those messages.  The Hotmail filter is upgraded every 10 minutes to incorporate the new rules." <em>Fortifying the In Box as Spammers Lay Siege</em> by Mark Glassman, New York Times, July 31, 2003
+<br clear="left">
+	</p>
+	<p>"When serving ads for content sites, both Overture and Google employ technology that <strong>infers the topic of a page by scanning for words and phrases</strong>, searching through a database of tens of thousands of advertisers, then delivering a relevant text ad. In some cases that is not difficult...The technology is not yet foolproof.  The online edition of The New York Post ran an article last month about a murder in which the victim's body parts were packed in a suitcase, and Google served up an ad for a luggage dealer."  <em>If You Liked The Web Page, Try The Ad"</em> by Bob Tedeschi, New York Times, Monday, August 4, 2003</p>
+
+	<br><br>
+	<h3>Examples of spam currently slipping past my filter:</h3>
+	<div>
+	<ul>
+	<li>Subject:&nbsp;&nbsp;&nbsp;&nbsp; yo)u sh:ould a)ttend thi,s l-ife ch_anging e)vent u:cpn
+	<li>Subject:&nbsp;&nbsp;&nbsp;&nbsp; Ch'eck ou(t ou)r selec;tion _of :great R^X fi/bk
+	</ul>
+	</div>
+	<br><br>
+	<h1><font color="#FF0000">Why Cynicism is Really Easy</font></h1>
+	<h3>Does Parsing Text Solve Real-World Problems?</h3>
+
+
+	<p>"He cited a number of cases in which filters have blocked inoffensive information because <strong><font color="#FF0000">search terms set off the protective software</font></strong>, including references to the poet Anne Sexton, Super Bowl XXX and Dick Armey, the former House majority leader." <em>Librarians Size Up Internet Filter Law's Impact</em> New York Times, June 24, 2003</p>
+	<p>"Critics complain that the <strong><font color="#FF0000">words triggering many filters</font></strong> cause the programs to block legitimate sites about, for example, breast cancer...A list of such words can be surprising to the uninitiated: interracial, shower, toilet, pregnant, toys, underage, puffy, latex, teen, free, lolita, watersports."  New York Times, Sunday, July 6, 2003</p>
+	<p>
+	<img src="toppenish.JPG" class="left">
+"Don't bother trying to find 'Top<strong><font color="#FF0000">penis</font></strong>h' on the Internet using filtered computers in the Yakima Valley Regional Library System - even at the library in Top<strong><font color="#FF0000">penis</font></strong>h. <em>Bess</em>, a widely used anti-pornography filter installed on some of the regional library's terminals, block the town's name as a search term as it zeros in on the fourth through eighth letters." Seattle Post-Intelligencer, Monday July 7, 2003</p>
+	<p>&nbsp;</p>
+	<br><br clear=all>
+<p style="font-family: ravie; font-size: xx-large">You have now reached the end of the 'entertainment' between weeks one and two.  Are you amused? Or, perhaps more bemused?</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+			
+				
+			<!-- End main page contents -->
+			</div>
+		</div>		
+		<div class="yui-b">
+		<!-- Left sidebar -->
+
+		
+			<script type="text/javascript" src="leftColumn.js"></script>
+
+		
+		<!-- End left sidebar -->
+		</div>
+	</div>
+
+</div>
+</body>
+</html>

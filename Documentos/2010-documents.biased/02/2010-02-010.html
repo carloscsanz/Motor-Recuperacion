@@ -1,0 +1,2234 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./chap4_files/filelist.xml">
+<link rel=Edit-Time-Data href="./chap4_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Components and Database Handling - C# The Basics - Beta2</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Vijay Mukhi</o:Author>
+  <o:LastAuthor>Vijay Mukhi</o:LastAuthor>
+  <o:Revision>4</o:Revision>
+  <o:TotalTime>3</o:TotalTime>
+  <o:Created>2001-09-27T10:50:00Z</o:Created>
+  <o:LastSaved>2001-09-27T10:53:00Z</o:LastSaved>
+  <o:Pages>15</o:Pages>
+  <o:Words>5035</o:Words>
+  <o:Characters>28701</o:Characters>
+  <o:Company>V.M.C.I.</o:Company>
+  <o:Lines>239</o:Lines>
+  <o:Paragraphs>57</o:Paragraphs>
+  <o:CharactersWithSpaces>35246</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:553679495 -2147483648 8 0 66047 0;}
+@font-face
+	{font-family:Impact;
+	panose-1:2 11 8 6 3 9 2 5 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-parent:"base text of the book";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	text-autospace:none;
+	font-size:8.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	letter-spacing:10.0pt;}
+p.MsoCaption, li.MsoCaption, div.MsoCaption
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	font-style:italic;}
+p.MsoTitle, li.MsoTitle, div.MsoTitle
+	{margin:0in;
+	margin-bottom:.0001pt;
+	text-align:right;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	text-autospace:none;
+	font-size:24.0pt;
+	font-family:Impact;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	font-weight:bold;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:36.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.basetextofthebook, li.basetextofthebook, div.basetextofthebook
+	{mso-style-name:"base text of the book";
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	text-autospace:none;
+	font-size:11.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.ChapName, li.ChapName, div.ChapName
+	{mso-style-name:ChapName;
+	mso-style-parent:"c\# base text";
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	text-autospace:none;
+	font-size:11.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.SubTitle, li.SubTitle, div.SubTitle
+	{mso-style-name:SubTitle;
+	mso-style-parent:"c\# base text";
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	text-autospace:none;
+	font-size:14.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	font-weight:bold;}
+p.DOSPROMPT, li.DOSPROMPT, div.DOSPROMPT
+	{mso-style-name:"DOS PROMPT";
+	mso-style-parent:"c\# base text";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";}
+p.programs, li.programs, div.programs
+	{mso-style-name:programs;
+	mso-style-parent:"c\# base text";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:Tahoma;
+	mso-fareast-font-family:"Times New Roman";}
+p.cbasetext, li.cbasetext, div.cbasetext
+	{mso-style-name:"c\# base text";
+	mso-style-parent:"base text of the book";
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	text-autospace:none;
+	font-size:11.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.ChapName0, li.ChapName0, div.ChapName0
+	{mso-style-name:"Chap Name";
+	mso-style-parent:"base text of the book";
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:center;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	text-autospace:none;
+	font-size:30.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	font-weight:bold;}
+p.ChapIntro, li.ChapIntro, div.ChapIntro
+	{mso-style-name:"Chap Intro";
+	mso-style-parent:"base text of the book";
+	margin-top:0in;
+	margin-right:42.65pt;
+	margin-bottom:0in;
+	margin-left:1.25in;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	text-autospace:none;
+	font-size:11.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	font-style:italic;}
+p.basetextofthebook1, li.basetextofthebook1, div.basetextofthebook1
+	{mso-style-name:"base text of the book1";
+	mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	text-autospace:none;
+	font-size:11.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.figure, li.figure, div.figure
+	{mso-style-name:figure;
+	mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:center;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	font-weight:bold;}
+p.PageNo, li.PageNo, div.PageNo
+	{mso-style-name:"Page No";
+	mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:center;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	text-autospace:none;
+	font-size:9.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";}
+p.Subhead2, li.Subhead2, div.Subhead2
+	{mso-style-name:"Subhead 2";
+	mso-style-parent:"Subhead 1";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	text-autospace:none;
+	font-size:12.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	font-weight:bold;}
+p.Subhead1, li.Subhead1, div.Subhead1
+	{mso-style-name:"Subhead 1";
+	mso-style-parent:Headline;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	text-autospace:none;
+	font-size:18.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	font-weight:bold;}
+p.Headline, li.Headline, div.Headline
+	{mso-style-name:Headline;
+	mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	text-autospace:none;
+	font-size:30.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	font-weight:bold;}
+p.Hangingindent, li.Hangingindent, div.Hangingindent
+	{mso-style-name:"Hanging indent";
+	mso-style-parent:"";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:12.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-12.0pt;
+	mso-pagination:widow-orphan;
+	tab-stops:12.0pt;
+	mso-layout-grid-align:none;
+	text-autospace:none;
+	font-size:12.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.Bodytext, li.Bodytext, div.Bodytext
+	{mso-style-name:"Body text";
+	mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-indent:24.0pt;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	text-autospace:none;
+	font-size:12.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	color:black;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+</head>
+
+<body lang=EN-US style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<p class=MsoNormal><img width=64 height=48 id="_x0000_i1025" src=bpb.jpg></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style='font-size:48.0pt'>4</span></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoBodyText>Components and Database Handling</p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=SubTitle>Exception Handling<span style="mso-spacerun: yes">� </span><o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>Failing to prepare is preparing to fail. Ergo, one is
+constantly planning and preparing for the future. We often set a path for
+ourselves and try to follow it steadily. But then life intervenes. Uncertainties
+in life result in unforeseen situations. These are like exceptions in the
+normal course that we set for ourselves. Similarly, when you write programs,
+unforeseen problems may arise during its normal path of execution.<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>These unforeseen problems are nothing but an euphemism for
+errors. Just as in life, in the programming world, these errors can be further
+classified into Fatal errors and Non-Fatal errors. A Fatal error is an error
+that brings the program to a grinding halt. A Non-Fatal error is an error that
+allows your program to run but with limited capacity. This can be exemplified
+by the following.<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>Let's assume you have a card that is not of a high
+resolution. Accordingly, your browser displays your page in a lower resolution.
+Now, technically, that is an error but it is not a Fatal one. However, if you
+didn't have a graphics card at all then it would be a Fatal error. Thus, we may
+also call an unforeseen problem or error an Exception. In other words,
+therefore, the word Exception is used almost synonymously with the word Error.<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>Earlier, the problem was that we never centralized error
+handling. Let's assume you have to open three files. Each time you open a file
+you have to check whether an error occurred or not. So you have to conduct that
+check for every file. Since there are three files, it would mean repeating the
+same error check thrice. That is surely a waste of time. Or you could be
+calling two functions and checking for the same error in both the functions.
+One reason that programmers don't write error-handling routines is that they
+get tired of the mundane task. It is the same thing repeated over and over
+again. <o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>Let's consider constructors. Before the constructor gets
+called, the object has not yet been created. So you ask the constructor to
+create an object, to allocate memory and create a file. Now, if it can't do so,
+how will the constructor return to tell you that an error occurred! Today
+constructors carry a lot of code within them and if you haven't forgotten,
+constructors cannot return values.<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>Because of the various reasons discussed above, we don't
+talk about errors any more; we handle exceptions. Bearing this in mind let's
+understand the next program.<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=programs><u>a.cs</u><o:p></o:p></p>
+
+<p class=programs>class zzz<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>public static void Main()<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>yyy a;<o:p></o:p></p>
+
+<p class=programs>a=new yyy();<o:p></o:p></p>
+
+<p class=programs>a.abc();<o:p></o:p></p>
+
+<p class=programs>System.Console.WriteLine(&quot;Bye&quot;);<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>class yyy<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>public void abc()<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>throw new System.Exception();<o:p></o:p></p>
+
+<p class=programs>System.Console.WriteLine(&quot;abc&quot;);<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=DOSPROMPT>Compiler Warning<o:p></o:p></p>
+
+<p class=DOSPROMPT>a.cs(16,1): warning CS0162: Unreachable code detected<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=DOSPROMPT>Output<o:p></o:p></p>
+
+<p class=DOSPROMPT>Unhandled Exception: System.Exception: Exception of type
+System.Exception was thrown<o:p></o:p></p>
+
+<p class=DOSPROMPT><span style="mso-spacerun: yes">�� </span>at yyy.abc()<o:p></o:p></p>
+
+<p class=DOSPROMPT><span style="mso-spacerun: yes">�� </span>at zzz.Main()<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>Here, a.abc calls the function abc in class yyy.
+System.Console.WriteLine is used to display 'Bye'. It is of significance to
+note that when you run this program the System.Console.WriteLine does not get
+called. Hence the word 'Bye' is not displayed. Within the abc function we have
+a line that says throw new System.Exception(); The word new indicates that we
+are creating an object. We are creating an object that looks like System.Exception.
+'throw' is a reserved word, that means it is recognized by C#. Exception is a
+class in the System namespace. In other words, we are identifying an exception,
+creating an object of it, and throwing it. Then we have a WriteLine statement
+for printing 'abc'. Note that neither 'Bye' nor 'abc' gets displayed. A Message
+Box may appear for debugging the applicaition. Since we are still at the
+learning stage, we click on the No button. <o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>The warning says that when you use the 'throw' keyword in
+your code, no lines of code get called after that. Since the function abc is
+throwing an exception no code after the throw in abc will get executed. The
+throw acts like the return statement. Everything comes to a stand still! And we
+get an error at runtime and not at the time of running the compiler; indicating
+where the exception occurred. Also no code gets called after function abc gets
+called as it throws an exception.<o:p></o:p></p>
+
+<p class=cbasetext>Explicitly declaring exceptions tells the compiler that a
+particular problem might occur. When the problem does occur, an exception is
+thrown; the next step being to catch the exception. Let's see how we can
+accomplish this. In our program, the function abc throws an exception. We will
+now catch the exception.<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=programs><u>a.cs</u><o:p></o:p></p>
+
+<p class=programs>class zzz<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>public static void Main()<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>yyy a;<o:p></o:p></p>
+
+<p class=programs>a=new yyy();<o:p></o:p></p>
+
+<p class=programs>try<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>a.abc();<o:p></o:p></p>
+
+<p class=programs>System.Console.WriteLine(&quot;Bye&quot;);<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>catch (System.Exception e)<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>System.Console.WriteLine(&quot;In Exception&quot;+
+e.ToString());<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>System.Console.WriteLine(&quot;After Exception&quot;);<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>class yyy {<o:p></o:p></p>
+
+<p class=programs>public void abc()<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>throw new System.Exception();<o:p></o:p></p>
+
+<p class=programs>System.Console.WriteLine(&quot;abc&quot;);<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=DOSPROMPT>Output<o:p></o:p></p>
+
+<p class=DOSPROMPT>In ExceptionSystem.Exception: Exception of type
+System.Exception was thrown.<o:p></o:p></p>
+
+<p class=DOSPROMPT><span style="mso-spacerun: yes">�� </span>at yyy.abc()<o:p></o:p></p>
+
+<p class=DOSPROMPT><span style="mso-spacerun: yes">�� </span>at zzz.Main()<o:p></o:p></p>
+
+<p class=DOSPROMPT>After Exception<o:p></o:p></p>
+
+<p class=cbasetext>Catching exceptions is done within 'try-catch' blocks.
+Therefore, the code for abc is included within a 'try-catch' block. a.abc - the
+function that throws the exception - is included within the try-catch block .
+The abc function throws an exception by using the keyword throw. There is no
+other way of throwing an exception. At this point all code is skipped in
+function abc as well as the in the try block and the control moves to the catch
+block. As such, neither 'abc' nor 'bye' gets displayed. <o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>Within the catch we have a parameter 'e' that looks like
+System.Exception. The object e has a method called ToString. ToString is a very
+handy function. It tells you where exactly the exception occurred and in which
+function, function within function. So, System.Console.Writeline will display
+the string 'In Exception' along with the exception. <o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>After the code contained in the catch block is executed, the
+remaining code after the end of the try - catch block will be executed. Hence,
+WriteLine will display 'After Exception'. That means the program will not come
+to a stand still, it resumes execution after the catch and not after the
+function which threw the exception. If you give a return statement immediately
+after the catch block, as we have given in the next program, the program will
+stop execution there itself. Hence, in this case, 'After Exception' will not be
+displayed as shown below.<span style="mso-spacerun: yes">��� </span><o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=programs><u>a.cs</u><o:p></o:p></p>
+
+<p class=programs>class zzz<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>public static void Main()<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>yyy a;<o:p></o:p></p>
+
+<p class=programs>a=new yyy();<o:p></o:p></p>
+
+<p class=programs>try<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>a.abc();<o:p></o:p></p>
+
+<p class=programs>System.Console.WriteLine(&quot;Bye&quot;);<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>catch (System.Exception e)<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>System.Console.WriteLine(&quot;In Exception&quot;+
+e.ToString());<o:p></o:p></p>
+
+<p class=programs>return;<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>System.Console.WriteLine(&quot;After Exception&quot;);<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>class yyy<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>public void abc()<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>throw new System.Exception();<o:p></o:p></p>
+
+<p class=programs>System.Console.WriteLine(&quot;abc&quot;);<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=DOSPROMPT>Output<o:p></o:p></p>
+
+<p class=DOSPROMPT>In ExceptionSystem.Exception: Exception of type
+System.Exception was thrown.<o:p></o:p></p>
+
+<p class=DOSPROMPT><span style="mso-spacerun: yes">�� </span>at yyy.abc()<o:p></o:p></p>
+
+<p class=DOSPROMPT><span style="mso-spacerun: yes">�� </span>at zzz.Main()<o:p></o:p></p>
+
+<p class=DOSPROMPT><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>Each time that abc gets called an exception is thrown. But
+you may not want that to happen. Hence, exception handling is normally included
+in an if statement and if an error condition takes place.<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>A 'try-catch' block can include a number of functions and
+whenever an exception occurs for any one of them, we will catch it. By doing so
+we are synchronizing all the code to handle errors at one place. <span
+style="mso-spacerun: yes">�</span>Constructors can also throw exceptions.<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=SubTitle>Building Components<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext><span style="mso-spacerun: yes">�</span><span
+style='mso-tab-count:1'>���������� </span><u><span style='font-size:10.0pt;
+font-family:Tahoma'>a.cs</span></u><o:p></o:p></p>
+
+<p class=programs>public class zzz {<o:p></o:p></p>
+
+<p class=programs>public void abc() {<o:p></o:p></p>
+
+<p class=programs>System.Console.WriteLine(&quot;zzz abc&quot;);<o:p></o:p></p>
+
+<p class=programs>} <o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=cbasetext>The above program consists of a simple class zzz with one
+public function. The class has also been tagged with the modifier public that
+makes it accessible to everyone. When we run the command csc a.cs, we are
+asking the C# compiler to create an executable file for us even though we did
+not explicitly ask it to. An executable file will always be created by the C#
+compiler unless you override it by stating an option to the C# compiler.<span
+style="mso-spacerun: yes">� </span>Let us start with the /t option.<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=DOSPROMPT>csc /t:library<span style="mso-spacerun: yes">� </span>a.cs<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>You could use /t or /target. This option specifies what type
+of output file the compiler should create for you. If you do not specify a /t
+option on the command line, C# by default writes /t:exe for you thereby
+creating an executable file. The long form of /t is /target and depending upon
+the time of day, choose the appropriate one. Not all options have a long and a
+short form like /t does. The : after the option is mandatory. Then we write the
+type of executable output file we want. Library means a dll. When we run the
+dir command we see a file named a.dll in the current sub directory. A file with
+a .dll or a .exe extension are called Windows PE files. This is the default
+file format that Windows uses to create executable files. There is a minor
+difference between the internal structures of a dll and a exe file. Which is
+that a dll cannot be executed like an exe program can. By convention dlls' are
+used to store code even though an exe could have also be used. What we have
+done is created a component.<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>What if we wanted to change the name of the output file. By
+default it is the name of our program. Then we must use the /out option as
+follows.<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=DOSPROMPT>csc /t:library<span style="mso-spacerun: yes">�
+</span>/out:bbb.dll a.cs<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>This will create a file bbb.dll instead of a.dll as earlier.
+Whether we use the /out option or not, C# does it for us. If the C# program was
+called a.cs, then C# wrote /out:a.exe on the command line for us. We can use
+the /out option to change the name of the output file. /out does not have a
+short form /o. <o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>Remember C# uses defaults for command line options to make
+life easier for us. <o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>Note that we have created a component in a file bbb.dll <o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=programs><u>a.cs</u><o:p></o:p></p>
+
+<p class=programs>class yyy<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>public static void Main()<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>zzz a;<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=DOSPROMPT>Compiler error<o:p></o:p></p>
+
+<p class=DOSPROMPT>a.cs(5,1): error CS0246: The type or namespace name 'zzz'
+could not be found (are you missing a using directive or an assembly
+reference?)<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>The only reason we create a component is to allow other
+programs to call code from it. In the above program, we are saying that a looks
+like a class zzz. The C# compiler is telling us in a vague way that it does not
+know that zzz is a class. Though we know zzz is a class as we just created it
+and it is in a file called bbb.dll, C# is not aware of the same.<span
+style="mso-spacerun: yes">� </span><o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=programs><u>a.cs</u><o:p></o:p></p>
+
+<p class=programs>class yyy {<o:p></o:p></p>
+
+<p class=programs>public static void Main()<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>zzz a;<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=DOSPROMPT>&gt;csc a.cs /r:bbb.dll<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=DOSPROMPT>Compiler Warning<o:p></o:p></p>
+
+<p class=DOSPROMPT>a.cs(5,5): warning CS0168: The variable 'a' is declared but
+never used<o:p></o:p></p>
+
+<p class=cbasetext>The /r or reference option tells the C# compiler to look at
+bbb.dll; in this case for the code of classes it is not aware of. In our case
+the error disappears as the file bbb.dll contains the code for the class
+bbb.dll. Thus in future, if the C# compiler ever gives you the above error, do
+not panic. All that you need to do is specify which dll contains the code for
+the classes. The help available along with C#, tells you every class and the
+dll that contains the code of the class.<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=programs><u>a.cs</u><o:p></o:p></p>
+
+<p class=programs>class yyy<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>public static void Main()<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>zzz a = new zzz();<o:p></o:p></p>
+
+<p class=programs>a.abc();<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=DOSPROMPT>Output<o:p></o:p></p>
+
+<p class=DOSPROMPT>zzz abc<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>We have successfully called the function abc in class zzz.
+The code of the class zzz resides in bbb.dll.<o:p></o:p></p>
+
+<p class=programs><span style='font-size:11.0pt;font-family:"Times New Roman"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=programs><u>a.cs</u><o:p></o:p></p>
+
+<p class=programs>namespace mukhi<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>public class zzz<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>public void abc()<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>System.Console.WriteLine(&quot;zzz abc&quot;);<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=DOSPROMPT>&gt;csc /t:library<span style="mso-spacerun: yes">�
+</span>/out:bbb.dll a.cs<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>The same class zzz is now enclosed in a namespace mukhi and
+the component recreated. <o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=programs><u>a.cs</u><o:p></o:p></p>
+
+<p class=programs>class yyy<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>public static void Main()<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>zzz a = new zzz();<o:p></o:p></p>
+
+<p class=programs>a.abc();<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=DOSPROMPT>csc a.cs /r:bbb.dll<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=DOSPROMPT>Compiler Error<o:p></o:p></p>
+
+<p class=DOSPROMPT>a.cs(5,1): error CS0246: The type or namespace name 'zzz'
+could not be found (are you missing a using directive or an assembly
+reference?)<o:p></o:p></p>
+
+<p class=DOSPROMPT>a.cs(6,1): error CS0246: The type or namespace name 'a'
+could not be found (are you missing a using directive or an assembly
+reference?)<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>The error results as the name of the class is not zzz but
+mukhi.zzz.<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=programs><u>a.cs</u><o:p></o:p></p>
+
+<p class=programs>using mukhi;<o:p></o:p></p>
+
+<p class=programs>class yyy {<o:p></o:p></p>
+
+<p class=programs>public static void Main()<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>zzz a = new zzz();<o:p></o:p></p>
+
+<p class=programs>a.abc();<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=DOSPROMPT>Output<o:p></o:p></p>
+
+<p class=DOSPROMPT>zzz abc<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>All's well that ends well.<o:p></o:p></p>
+
+<p class=SubTitle>Databases<o:p></o:p></p>
+
+<p class=SubTitle><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>Databases are centralized stores of data. In a database,
+information from several files (also known as tables) is accessed, coordinated
+and operated upon as if in a single file. Thus, the database organizes data
+independently from the programs that access it. Large volumes of data are
+stored in a database. <o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>Computer programs have little meaning when written in
+isolation. Therefore, it is of importance to have our programs work with
+databases. Databases work under the control of a database management system.
+SQL Server is an RDBMS; it is one such database management system.<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>Before we can write programs that communicate with databases
+we need to have a database. One of the simplest databases to use is Microsoft
+Access. As a large number of people use it, we have based our examples on it.
+However you could use any RDBMS like Oracle, SQL Server as you wish.<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>First and foremost, before we can access a database and perform
+various operations, we need to connect to the database. Assuming you want to
+speak to your friend over the phone, you dial your friend's phone number. Its
+only when you connect to your friends phone that the both of you can speak to
+each other. Similarly, if we want to use a database we first have to connect to
+it and only then can we speak to it.<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=programs><u>a.cs</u><o:p></o:p></p>
+
+<p class=programs>class zzz <o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>public static void Main()<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>System.Data.OleDb.OleDbConnection s;<o:p></o:p></p>
+
+<p class=programs>}}<o:p></o:p></p>
+
+<p class=DOSPROMPT><span style='color:blue'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=DOSPROMPT><span style='color:black'>Compiler warning</span><o:p></o:p></p>
+
+<p class=DOSPROMPT>a.cs(5,35): warning CS0168: The variable 's' is declared but
+never used<o:p></o:p></p>
+
+<p class=cbasetext>Let's see how we can connect to a database.<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=programs><u>a.cs</u><o:p></o:p></p>
+
+<p class=programs>class zzz<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>public static void Main()<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>try<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>System.Data.OleDb.OleDbConnection s;<o:p></o:p></p>
+
+<p class=programs>s = new System.Data.OleDb.OleDbConnection();<o:p></o:p></p>
+
+<p class=programs>System.Console.WriteLine(&quot;hell&quot;);<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>catch(System.Exception e)<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>System.Console.WriteLine(e.ToString());<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=DOSPROMPT>Output<o:p></o:p></p>
+
+<p class=DOSPROMPT>hell<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>Within the try block we have an object s that looks like
+System.Data.OleDb.OleDbConnection. You are already aware that System is a
+namespace, but what about Data and OleDb?<span style="mso-spacerun: yes">�
+</span>Well, System.Data.OleDb is the name of the namespace. We can liken this
+to an earlier example where we created a namespace mukhi.vijay. Hierarchy in a
+namespace can go to absurd lengths! The help on C# states that
+System.Data.OleDb is the name of a namespace and OleDbConnection is a class
+within that namespace. By saying s = System.Data.OleDb.OleDbConnection(); we
+are creating the object s. When you run this program all that we see is the
+word hell, which means that the constructor threw no Exception. If it did then
+the catch block would have been executed. <o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=programs><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=programs><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=programs><u>a.cs</u><o:p></o:p></p>
+
+<p class=programs>class zzz<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>public static void Main()<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>try<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>System.Data.OleDb.OleDbConnection s;<o:p></o:p></p>
+
+<p class=programs>s = new System.Data.OleDb.OleDbConnection();<o:p></o:p></p>
+
+<p class=programs>s.Open();<o:p></o:p></p>
+
+<p class=programs>System.Console.WriteLine(&quot;hell&quot;);<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>catch(System.Exception e)<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>System.Console.WriteLine(e.ToString());<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=DOSPROMPT>Output<o:p></o:p></p>
+
+<p class=DOSPROMPT>System.InvalidOperationException: The ConnectionString
+property has not been initialized.<o:p></o:p></p>
+
+<p class=DOSPROMPT><span style="mso-spacerun: yes">�� </span>at
+System.Data.OleDb.OleDbConnection.Open()<o:p></o:p></p>
+
+<p class=DOSPROMPT><span style="mso-spacerun: yes">�� </span>at zzz.Main()<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>The class OleDbConnection has a function called Open which
+opens or connects to our database. When we run the above the above program, the
+Open function throws an exception. Now, at this point you must catch the
+Exception. The ToString within the catch block displays the Exception message.
+The error says that the ConnectionString property has not been initialized. <o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>The reason an exception occurred is that we did not provide
+certain mandatory information whilst creating the object. We did not indicate
+the location of the database server that we want to connect to or the database.
+It's like picking up the phone and not dialing a number. How in the world do
+you expect to connect then!<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>We will now provide the constructor with some basic
+information. <o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=programs><u>a.cs</u><o:p></o:p></p>
+
+<p class=programs>class zzz<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>public static void Main()<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>try<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>System.Data.OleDb.OleDbConnection s;<o:p></o:p></p>
+
+<p class=programs>s = new System.Data.OleDb.OleDbConnection(&quot;Provider=Microsoft.Jet.OLEDB.4.0;<o:p></o:p></p>
+
+<p class=programs>Data Source=c:\\zzz.mdb;&quot;);<o:p></o:p></p>
+
+<p class=programs>s.Open();<o:p></o:p></p>
+
+<p class=programs>System.Console.WriteLine(&quot;hell&quot;);<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>catch(System.Exception e)<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>System.Console.WriteLine(e.ToString());<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=DOSPROMPT>Output<o:p></o:p></p>
+
+<p class=DOSPROMPT>System.Data.OleDb.OleDbException: Could not find file
+'c:\zzz.mdb'. at System.Data.OleDb.OleDbConnection.ProcessResults(Int32 hr)<o:p></o:p></p>
+
+<p class=DOSPROMPT><span style="mso-spacerun: yes">�� </span>at
+System.Data.OleDb.OleDbConnection.InitializeProvider()<o:p></o:p></p>
+
+<p class=DOSPROMPT><span style="mso-spacerun: yes">�� </span>at
+System.Data.OleDb.OleDbConnection.Open()<o:p></o:p></p>
+
+<p class=DOSPROMPT><span style="mso-spacerun: yes">�� </span>at zzz.Main()<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>We first specify the database provider as
+Provider=Microsoft.Jet.OLEDB.4.0, which stands for MS-Access and then the path
+as Data Source=c:\\zzz.mdb separated by semicolon. <o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>When you run the program, an OleDbException is thrown, which
+says could not find file 'c:\zzz.mdb'. This is because we have not created an
+MSAccess<span style="mso-spacerun: yes">� </span>DataBase called zzz.mdb.<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>An mdb file stores data from multiple tables. In this file
+zzz.mdb, create one table abc with 2 fields f1 and f2 , both of type text. Add
+two records to this database. The first record will contain 1,a1 and the second
+record will be 2,a2.<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>Re run the program which now displays hell unlike before
+where we generated an Exception. <o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=DOSPROMPT>Output<o:p></o:p></p>
+
+<p class=DOSPROMPT>hell<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>s.Open opens a connection to the database. The 'Provider'
+and 'Data Source' given in the constructor identify the database. <o:p></o:p></p>
+
+<p class=cbasetext><span style='color:blue'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=cbasetext><span style='color:black'>As we have given the constructor
+all the mandatory information, s.Open() will open a connection with the Access
+database. The program executes smoothly and once the connection is established
+WriteLine displays 'hell'.</span><o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>Now that we have established a connection with the database,
+let's see how we can communicate with it. More specifically, let's see how we
+can execute an SQL command.<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=programs><u>a.cs</u><o:p></o:p></p>
+
+<p class=programs>using System.Data.OleDb;<o:p></o:p></p>
+
+<p class=programs>class zzz<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>public static void Main()<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>try<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>OleDbConnection s;<o:p></o:p></p>
+
+<p class=programs>s = new
+OleDbConnection(&quot;Provider=Microsoft.Jet.OLEDB.4.0;<o:p></o:p></p>
+
+<p class=programs>Data Source=c:\\zzz.mdb&quot;);<o:p></o:p></p>
+
+<p class=programs>s.Open();<o:p></o:p></p>
+
+<p class=programs>OleDbCommand c;<o:p></o:p></p>
+
+<p class=programs>c=new OleDbCommand(&quot;Create Table a1 ( vno integer , name
+char(10))&quot;,s);<o:p></o:p></p>
+
+<p class=programs>c.ExecuteNonQuery();<o:p></o:p></p>
+
+<p class=programs>System.Console.WriteLine(&quot;hell&quot;);<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>catch(System.Exception e)<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>System.Console.WriteLine(e.ToString());<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=DOSPROMPT>Output<o:p></o:p></p>
+
+<p class=DOSPROMPT>hell<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>Employing using, we do not have to preface every class with
+the namespace<span style="mso-spacerun: yes">� </span>System.Data.OleDb. The
+purpose of this program is to execute an SQL statement. SQL is a short form for
+Structured Query Language. It is not a computer programming language like C#
+but rather a language like English. SQL understands certain words like Create,
+which create a table for us in our database. SQL has nothing to do with Oracle
+or Access, it works with all the RDBMSs<span style="mso-spacerun: yes">�
+</span>of the world. <o:p></o:p></p>
+
+<p class=cbasetext><span style='font-size:10.0pt;font-family:Tahoma'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=programs>Create Table a1 (vno integer, name char(10))<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>The above SQL statement means that a table called a1 will be
+created in our database. It will have 2 fields vno and name. Vno will store
+numbers and name will store characters subject to a maximum of 10.<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>A class in any programming language is made up of a
+collection of variables and functions. These put together do something for us
+like solving a particular problem or accomplishing a certain task. We live in a
+world of specialization. Just like it is difficult to come across one human
+being who is a PHD in Nuclear Science as well as Sociology, classes too are
+written to focus on one particular task only. <o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>Thus we need one class to handle our connection to a
+database and another class which understands SQL. We first create an object
+that looks like an OleDbConnection, which understands how to connect to a
+database using a string attributes 'Provider' and 'Data Source', which it
+passes as a parameter to the constructor. Then we create an object c which
+looks like OleDbCommand as this class understands SQL. The constructor gets
+called with 2 parameters, the SQL statement and also the connection object.
+Thus the object c now comprises the necessary information regarding the command
+we want to execute and the connection. Now, c.ExecuteNonQuery() will actually
+execute the SQL statement. ExecuteNonQuery() is a function within the
+OleDbCommand<span style="mso-spacerun: yes">� </span>class that enables us to
+execute any<span style="mso-spacerun: yes">� </span>SQL command. You will now
+see the word 'hell' displayed on your screen. <o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>But did the table get created? Let's find out by starting
+Access and then choosing the database zzz. Here we will see the table a1 with 2
+fields vno and name but with no data at all. We created our table alright, but
+it is empty as it has no data in it! So let's start inserting data/records into
+the table. Before doing so, Quit out of Access<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=programs><u>a.cs</u><o:p></o:p></p>
+
+<p class=programs>using System.Data.OleDb;<o:p></o:p></p>
+
+<p class=programs>class zzz<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>public static void Main()<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>try<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>OleDbConnection s;<o:p></o:p></p>
+
+<p class=programs>s = new
+OleDbConnection(&quot;Provider=Microsoft.Jet.OLEDB.4.0;<o:p></o:p></p>
+
+<p class=programs>Data Source=c:\\zzz.mdb&quot;);<o:p></o:p></p>
+
+<p class=programs>s.Open();<o:p></o:p></p>
+
+<p class=programs>OleDbCommand c;<o:p></o:p></p>
+
+<p class=programs>c=new OleDbCommand(&quot;insert into a1
+values(1,'hi')&quot;,s);<o:p></o:p></p>
+
+<p class=programs>c.ExecuteNonQuery();<o:p></o:p></p>
+
+<p class=programs>System.Console.WriteLine(&quot;hell&quot;);<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>catch(System.Exception e)<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>System.Console.WriteLine(e.ToString());<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>} }<o:p></o:p></p>
+
+<p class=DOSPROMPT>Output<o:p></o:p></p>
+
+<p class=DOSPROMPT>hell<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>The only difference between this program and the previous
+one is that this one uses the Insert SQL command. Earlier, we created a table
+zzz, now we are inserting records in zzz. To the constructor of OleDbCommand we
+are giving two things - the insert command &quot;insert into a1
+values(1,'hi')&quot; and the connection. Insert into and values are part of the
+SQL syntax. A1 is the name of the table in which a fresh record will be added.
+After values, we write the data separated by commas. The first field will
+contain 1 and the second hi. As the second field has the data type of
+character, it has to be enclosed in single quotes. c.ExecuteNonQuery<span
+style="mso-spacerun: yes">� </span>as usual executes the SQL command and as no
+exception gets thrown ,the word 'hell' gets displayed..<o:p></o:p></p>
+
+<p class=cbasetext>Let's cross check to see if the data has been inserted into
+zzz by running Access. Aha! It displays the record that you just inserted in
+the following format-<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>vno name<o:p></o:p></p>
+
+<p class=cbasetext><span style="mso-spacerun: yes">�</span>1<span
+style="mso-spacerun: yes">���� </span>hi<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>Now it follows that if we can insert a record then we should
+be able to remove it too. The following program uses the delete command to
+remove all the records from the table zzz.<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=programs><u>a.cs</u><o:p></o:p></p>
+
+<p class=programs>using System.Data.OleDb;<o:p></o:p></p>
+
+<p class=programs>class zzz<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>public static void Main()<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>try<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>OleDbConnection s;<o:p></o:p></p>
+
+<p class=programs>s = new
+OleDbConnection(&quot;Provider=Microsoft.Jet.OLEDB.4.0;<o:p></o:p></p>
+
+<p class=programs>Data Source=c:\\zzz.mdb&quot;);<o:p></o:p></p>
+
+<p class=programs>s.Open();<o:p></o:p></p>
+
+<p class=programs>OleDbCommand c;<o:p></o:p></p>
+
+<p class=programs>c=new OleDbCommand(&quot;delete from a1&quot;,s);<o:p></o:p></p>
+
+<p class=programs>c.ExecuteNonQuery();<o:p></o:p></p>
+
+<p class=programs>System.Console.WriteLine(&quot;hell&quot;);<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>catch(System.Exception e) {<o:p></o:p></p>
+
+<p class=programs>System.Console.WriteLine(e.ToString());<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=DOSPROMPT>Output<o:p></o:p></p>
+
+<p class=DOSPROMPT>hell<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>Now c.ExecuteNonQuery will execute the delete command. This
+command deletes all the data from the table. In Access we will see an empty
+table. This proves that the delete command was successful!<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>Apart from inserting and deleting data another operation that
+is commonly performed is updating data. However, you must have data in your
+table to update it. Our table is empty right now, so let's execute the insert
+program once again. You will now have one record in your table zzz. After
+inserting a record, change the sql insert command to an update command. This is
+shown below. <o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=programs>c= new OleDbCommand(&quot;update a1 set vno=3,name='bad'
+where vno=1&quot;,s);<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>Here, we are giving an update statement and our connection
+to the object is 'c'. The update statement will change the vno and name to the
+values specified. It will do so for any record that has vno=1. We have only one
+record in our table and it meets this criteria. Now, go back to Access , you
+will find that the record has been updated as follows-<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>vno<span style="mso-spacerun: yes">�� </span>name<o:p></o:p></p>
+
+<p class=cbasetext><span style="mso-spacerun: yes">�</span>3<span
+style="mso-spacerun: yes">���� </span>bad<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=programs><u>a.cs</u><o:p></o:p></p>
+
+<p class=programs>using System.Data.OleDb;<o:p></o:p></p>
+
+<p class=programs>class zzz<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>public static void Main()<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>try<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>OleDbConnection s;<o:p></o:p></p>
+
+<p class=programs>s = new
+OleDbConnection(&quot;Provider=Microsoft.Jet.OLEDB.4.0;Data
+Source=c:\\zzz.mdb&quot;);<o:p></o:p></p>
+
+<p class=programs>s.Open();<o:p></o:p></p>
+
+<p class=programs>OleDbCommand c;<o:p></o:p></p>
+
+<p class=programs>c=new OleDbCommand(&quot;delete from a11&quot;,s);<o:p></o:p></p>
+
+<p class=programs>c.ExecuteNonQuery();<o:p></o:p></p>
+
+<p class=programs>System.Console.WriteLine(&quot;hell&quot;);<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>catch(System.Exception e)<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>System.Console.WriteLine(e.ToString());<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=DOSPROMPT><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=DOSPROMPT>Output<o:p></o:p></p>
+
+<p class=DOSPROMPT>System.Data.OleDb.OleDbException: The Microsoft Jet database
+engine cannot find the input table or query 'a11'.<span style="mso-spacerun:
+yes">� </span>Make sure it exists and that its name is spelled correctly.<o:p></o:p></p>
+
+<p class=DOSPROMPT><span style="mso-spacerun: yes">�� </span>at
+System.Data.OleDb.OleDbCommand.ExecuteCommand<o:p></o:p></p>
+
+<p class=DOSPROMPT>TextErrorHandling(Int32 hr)<o:p></o:p></p>
+
+<p class=DOSPROMPT><span style="mso-spacerun: yes">�� </span>at
+System.Data.OleDb.OleDbCommand.ExecuteCommand<o:p></o:p></p>
+
+<p class=DOSPROMPT>TextForSingleResult(tagDBPARAMS dbParams, Object&amp;
+executeResult)<o:p></o:p></p>
+
+<p class=DOSPROMPT><span style="mso-spacerun: yes">�� </span>at
+System.Data.OleDb.OleDbCommand.<o:p></o:p></p>
+
+<p class=DOSPROMPT>ExecuteCommandText(Object&amp; executeResult)<o:p></o:p></p>
+
+<p class=DOSPROMPT><span style="mso-spacerun: yes">�� </span>at
+System.Data.OleDb.OleDbCommand.<o:p></o:p></p>
+
+<p class=DOSPROMPT>ExecuteCommand(CommandBehavior behavior, Object&amp;
+executeResult)<o:p></o:p></p>
+
+<p class=DOSPROMPT><span style="mso-spacerun: yes">�� </span>at
+System.Data.OleDb.OleDbCommand.<o:p></o:p></p>
+
+<p class=DOSPROMPT>ExecuteReaderInternal(CommandBehavior behavior, String
+method)<o:p></o:p></p>
+
+<p class=DOSPROMPT><span style="mso-spacerun: yes">�� </span>at
+System.Data.OleDb.OleDbCommand.ExecuteNonQuery()<o:p></o:p></p>
+
+<p class=DOSPROMPT><span style="mso-spacerun: yes">�� </span>at zzz.Main()<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>Don't worry, we have simulated this error on purpose. The
+table a11 does not exist in our database. Thus an exception got thrown by
+ExecuteCommandText and not ExecuteNonQuery as seen above. What it means is that
+ExecuteNonQuery calls Execute which calls ExecuteCommand which finally calls
+ExecuteCommandText. Also the word hell does not get displayed because of the
+exception thrown.<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>We will now execute a simple select statement.<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=programs><u>a.cs</u><o:p></o:p></p>
+
+<p class=programs>using System.Data.OleDb;<o:p></o:p></p>
+
+<p class=programs>class zzz<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>public static void Main()<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>try<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>OleDbConnection s;<o:p></o:p></p>
+
+<p class=programs>s = new
+OleDbConnection(&quot;Provider=Microsoft.Jet.OLEDB.4.0;Data
+Source=c:\\zzz.mdb&quot;);<o:p></o:p></p>
+
+<p class=programs>s.Open();<o:p></o:p></p>
+
+<p class=programs>OleDbCommand c;<o:p></o:p></p>
+
+<p class=programs>c=new OleDbCommand(&quot;select * from abc&quot;,s);<o:p></o:p></p>
+
+<p class=programs>OleDbDataReader r;<o:p></o:p></p>
+
+<p class=programs>r = c.ExecuteReader();<o:p></o:p></p>
+
+<p class=programs>System.Console.WriteLine(&quot;hell&quot;);<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>catch(System.Exception e)<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>System.Console.WriteLine(e.ToString());<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=DOSPROMPT><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=DOSPROMPT>Output<o:p></o:p></p>
+
+<p class=DOSPROMPT>hell<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>We have executed different SQL commands through our earlier
+programs. We will now try and execute an SQL select statement. In order to do
+so, we have given the following select statement to the constructor along with
+the connection- 'Select * from abc'. Abc is a table in the database called zzz
+. Remember, c looks like OleDbCommand. 'Select' is part of the SQL syntax like
+insert , update . 'from' is also a reserved word . 'abc' is the name of the
+table created earlier in Access and populated by data keyed in by us. The '*'
+means all fields in the table. We could have also replaced the * with a comma
+separating list of field names that we were interested in.<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>As OleDbConnection has an Open function, OleDbCommand has a
+ExecuteReader function. This function returns an object that looks like
+OleDbDataReader. <o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>The function ExecuteReader will create an object that looks
+like OleDbDataReader and initialize r to it. No exception was thrown, which
+meant no errors from our side.<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>What we need to do now is retrieve data from the abc table.
+The abc table may have ten fields and twenty records. So we use what is called
+a 'dataset'. In other words, how do we access data contained in multiple rows
+and multiple columns through our program? For example, when we run the select
+statement it gives us the data in rows and columns. How can we achieve this
+through our program? To do that we now need a third object which looks like
+OleDbDataReader.<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>We can almost feel your dismay - Oh no! Another object!
+Well, there is a very good reason why you need to have three different objects.
+Firstly, you need an object that understands a connection. Then you need
+another object that understands an SQL statement. This is because somebody has
+to execute that statement. You now need a third object that will let you
+read/retrieve data. That is why we have 'r' an object that looks like
+OleDbDataReader. Thereafter, we have c.ExecuteReader. Earlier we used a
+function call ExecuteNonQuery. This is because in case of an insert, update or
+delete we didn't want any data to be retrieved, we didn't want an answer back!!
+<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>As a recap, we are using r to store the value return by
+ExecuteReader. That means r will be filled up by ExecuteReader. On executing
+this program only 'hell' is displayed.<o:p></o:p></p>
+
+<p class=cbasetext><span style='color:red'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=cbasetext><span style='color:black'>Now that we have the filled up r,
+let's see how we can display the data.</span><o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=programs><u>a.cs</u><o:p></o:p></p>
+
+<p class=programs>using System.Data.OleDb;<o:p></o:p></p>
+
+<p class=programs>class zzz<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>public static void Main()<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>try<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>OleDbConnection s;<o:p></o:p></p>
+
+<p class=programs>s = new
+OleDbConnection(&quot;Provider=Microsoft.Jet.OLEDB.4.0;<o:p></o:p></p>
+
+<p class=programs>Data Source=c:\\zzz.mdb&quot;);<o:p></o:p></p>
+
+<p class=programs>s.Open();<o:p></o:p></p>
+
+<p class=programs>OleDbCommand c;<o:p></o:p></p>
+
+<p class=programs>c=new OleDbCommand(&quot;select * from abc&quot;,s);<o:p></o:p></p>
+
+<p class=programs>OleDbDataReader r;<o:p></o:p></p>
+
+<p class=programs>r = c.ExecuteReader();<o:p></o:p></p>
+
+<p class=programs>System.Console.WriteLine(&quot;{0},{1}&quot;,r.GetValue(0),r.GetValue(1));<o:p></o:p></p>
+
+<p class=programs>System.Console.WriteLine(&quot;hell&quot;);<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>catch(System.Exception e)<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>System.Console.WriteLine(e.ToString());<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=DOSPROMPT><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=DOSPROMPT>Output<o:p></o:p></p>
+
+<p class=DOSPROMPT>System.InvalidOperationException: No data exists for the
+row/column.<o:p></o:p></p>
+
+<p class=DOSPROMPT><span style="mso-spacerun: yes">�� </span>at
+System.Data.OleDb.OleDbDataReader.DoValueCheck(Int32 ordinal)<o:p></o:p></p>
+
+<p class=DOSPROMPT><span style="mso-spacerun: yes">�� </span>at
+System.Data.OleDb.OleDbDataReader.GetValue(Int32 ordinal)<o:p></o:p></p>
+
+<p class=DOSPROMPT><span style="mso-spacerun: yes">�� </span>at zzz.Main()<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>Run this program. Expect the unexpected....an error! The
+error says 'No data exists for the row/column' But didn't the function Execute
+fill up r? It did, but it did not position the record pointer on the first
+record. A record pointer is an abstract concept. To start with it appears just
+before the first record. The function GetValue will return the value of the
+fields depending upon where the record pointer is. At the start it is just
+before the first record.<span style="mso-spacerun: yes">� </span>So r can be
+also looked at as an array that contains all the fields. We get an error
+because we need to read the data into our array first. In order to read data
+into the fields we must give r.Read. Without r.Read, the records will not be
+read into the array, so also the record pointer will not be moved forward to
+the first record.<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>Now that we know the reason why the error occurred let's
+rectify it by doing the needful. Let's add r.Read() to our program.<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=DOSPROMPT><u>a.cs</u><o:p></o:p></p>
+
+<p class=DOSPROMPT>using System.Data.OleDb;<o:p></o:p></p>
+
+<p class=DOSPROMPT>class zzz<o:p></o:p></p>
+
+<p class=DOSPROMPT>{<o:p></o:p></p>
+
+<p class=DOSPROMPT>public static void Main()<o:p></o:p></p>
+
+<p class=DOSPROMPT>{<o:p></o:p></p>
+
+<p class=DOSPROMPT>try<o:p></o:p></p>
+
+<p class=DOSPROMPT>{<o:p></o:p></p>
+
+<p class=DOSPROMPT>OleDbConnection s;<o:p></o:p></p>
+
+<p class=DOSPROMPT>s = new
+OleDbConnection(&quot;Provider=Microsoft.Jet.OLEDB.4.0;<o:p></o:p></p>
+
+<p class=DOSPROMPT>Data Source=c:\\zzz.mdb&quot;);<o:p></o:p></p>
+
+<p class=DOSPROMPT>s.Open();<o:p></o:p></p>
+
+<p class=DOSPROMPT>OleDbCommand c;<o:p></o:p></p>
+
+<p class=DOSPROMPT>c=new OleDbCommand(&quot;select * from abc&quot;,s);<o:p></o:p></p>
+
+<p class=DOSPROMPT>OleDbDataReader r;<o:p></o:p></p>
+
+<p class=DOSPROMPT>r = c.ExecuteReader();<o:p></o:p></p>
+
+<p class=DOSPROMPT>System.Console.WriteLine(r.Read());<o:p></o:p></p>
+
+<p class=DOSPROMPT>System.Console.WriteLine(&quot;{0},{1}&quot;,r.GetValue(0),r.GetValue(1));<o:p></o:p></p>
+
+<p class=DOSPROMPT>}<o:p></o:p></p>
+
+<p class=DOSPROMPT>catch(System.Exception e)<o:p></o:p></p>
+
+<p class=DOSPROMPT>{<o:p></o:p></p>
+
+<p class=DOSPROMPT>System.Console.WriteLine(e.ToString());<o:p></o:p></p>
+
+<p class=DOSPROMPT>}<o:p></o:p></p>
+
+<p class=DOSPROMPT>}<o:p></o:p></p>
+
+<p class=DOSPROMPT>}<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=DOSPROMPT>Output<o:p></o:p></p>
+
+<p class=DOSPROMPT>True<o:p></o:p></p>
+
+<p class=DOSPROMPT>1,a1<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>Now that we have added r.Read() the program executes as
+advertised. r.Read() returns true.<span style="mso-spacerun: yes">�
+</span>Thereafter, the GetValue() function which needs the field number as a
+parameter retrieves the data associated with the first and second<span
+style="mso-spacerun: yes">� </span>column. Remember in C# we start counting
+from zero and hence zero as a parameter to GetValue will retrieve the value of
+field one in the table. The datatype of the first field is numeric and of the
+second character. However, the function GetValue does not<span
+style="mso-spacerun: yes">� </span>seem to care.<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>Read returns true if more data is available to read and
+false if it is at the last record. Also read positions the record pointer to
+the next record.<o:p></o:p></p>
+
+<p class=programs><u><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></u></p>
+
+<p class=programs><u>a.cs</u><o:p></o:p></p>
+
+<p class=programs>using System.Data.OleDb;<o:p></o:p></p>
+
+<p class=programs>class zzz<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>public static void Main()<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>try<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>OleDbConnection s;<o:p></o:p></p>
+
+<p class=programs>s = new
+OleDbConnection(&quot;Provider=Microsoft.Jet.OLEDB.4.0;<o:p></o:p></p>
+
+<p class=programs>Data Source=c:\\zzz.mdb&quot;);<o:p></o:p></p>
+
+<p class=programs>s.Open();<o:p></o:p></p>
+
+<p class=programs>OleDbCommand c;<o:p></o:p></p>
+
+<p class=programs>c=new OleDbCommand(&quot;select * from abc&quot;,s);<o:p></o:p></p>
+
+<p class=programs>OleDbDataReader r;<o:p></o:p></p>
+
+<p class=programs>r = c.ExecuteReader();<o:p></o:p></p>
+
+<p class=programs>while (r.Read())<o:p></o:p></p>
+
+<p class=programs>System.Console.WriteLine(&quot;{0},{1}&quot;,r.GetValue(0),r.GetValue(1));<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>catch(System.Exception e)<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>System.Console.WriteLine(e.ToString());<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=DOSPROMPT>Output<o:p></o:p></p>
+
+<p class=DOSPROMPT>1,a1<o:p></o:p></p>
+
+<p class=DOSPROMPT>2,a2<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>(A display of only the first two fields of all the records
+in the table. )<o:p></o:p></p>
+
+<p class=cbasetext>But now we want to display all the data in the fields. So we
+are using Read in a loop. while(r.Read()). r.Read() returns true as long as it
+can read data. The while loop continues till the condition is true. We are
+using our trusted function WriteLine to display the data of the first and
+second field. Thus the moment r.Read() cannot read more data it returns false
+and the while loop terminates. Now all the data in the two fields is displayed
+and as such we have a long list of data displayed. To verify further, add some
+more fields and records to abc.<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>Just as we mind our manners in daily life we must do so in
+programming too. It is a good practice to shut the door when leaving a room.
+Similarly, in programs we must close what ever we opened. <o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=programs><u>a.cs</u><o:p></o:p></p>
+
+<p class=programs>using System.Data.OleDb;<o:p></o:p></p>
+
+<p class=programs>class zzz<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>public static void Main()<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>try<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>OleDbConnection s;<o:p></o:p></p>
+
+<p class=programs>s = new
+OleDbConnection(&quot;Provider=Microsoft.Jet.OLEDB.4.0;<o:p></o:p></p>
+
+<p class=programs>Data Source=c:\\zzz.mdb&quot;);<o:p></o:p></p>
+
+<p class=programs>s.Open();<o:p></o:p></p>
+
+<p class=programs>OleDbCommand c;<o:p></o:p></p>
+
+<p class=programs>c=new OleDbCommand(&quot;select * from abc&quot;,s);<o:p></o:p></p>
+
+<p class=programs>OleDbDataReader r;<o:p></o:p></p>
+
+<p class=programs>r = c.ExecuteReader();<o:p></o:p></p>
+
+<p class=programs>while (r.Read())<o:p></o:p></p>
+
+<p class=programs>System.Console.WriteLine(&quot;{0},{1}&quot;,r.GetValue(0),r.GetValue(1));<o:p></o:p></p>
+
+<p class=programs>r.Close();<o:p></o:p></p>
+
+<p class=programs>s.Close();<o:p></o:p></p>
+
+<p class=programs>System.Console.WriteLine(&quot;hell&quot;);<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>catch(System.Exception e)<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>System.Console.WriteLine(e.ToString());<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=DOSPROMPT>Output<o:p></o:p></p>
+
+<p class=DOSPROMPT>1,a1<o:p></o:p></p>
+
+<p class=DOSPROMPT>2,a2<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>We will mind our manners and give r.Close() and s.Close.
+Note that it is not mandatory to do so. First we are closing r and then we are
+closing s i.e. the connection that we opened. <o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=programs><u>a.cs</u><o:p></o:p></p>
+
+<p class=programs>using System.Data.OleDb;<o:p></o:p></p>
+
+<p class=programs>class zzz<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>public static void Main()<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>try<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>OleDbConnection s;<o:p></o:p></p>
+
+<p class=programs>s = new
+OleDbConnection(&quot;Provider=Microsoft.Jet.OLEDB.4.0;<o:p></o:p></p>
+
+<p class=programs>Data Source=c:\\zzz.mdb&quot;);<o:p></o:p></p>
+
+<p class=programs>s.Open();<o:p></o:p></p>
+
+<p class=programs>OleDbCommand c;<o:p></o:p></p>
+
+<p class=programs>c=new OleDbCommand(&quot;select * from abc&quot;,s);<o:p></o:p></p>
+
+<p class=programs>OleDbDataReader r;<o:p></o:p></p>
+
+<p class=programs>r = c.ExecuteReader();<o:p></o:p></p>
+
+<p class=programs>System.Console.WriteLine(r.FieldCount);<o:p></o:p></p>
+
+<p class=programs>for ( int i = 0 ; i &lt; r.FieldCount ; i++)<o:p></o:p></p>
+
+<p class=programs>System.Console.WriteLine(r.GetName(i));<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>catch(System.Exception e)<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>System.Console.WriteLine(e.ToString());<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=DOSPROMPT>Output<o:p></o:p></p>
+
+<p class=DOSPROMPT>2<o:p></o:p></p>
+
+<p class=DOSPROMPT>f1<o:p></o:p></p>
+
+<p class=DOSPROMPT>f2<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=cbasetext>An OleDbDataReader has a useful function called FieldCount
+which tells you how many fields the SQL statement contained. In our case abc
+has two fields. We have one more function GetName which will tell us the name
+of the function in the table given the field number. Thus r.GetName(1) will
+give us the name of the 2nd field. In the for statement, the variable i starts
+at zero. The condition becomes false when the value of i is one less than<span
+style="mso-spacerun: yes">� </span>r.FieldCount which in this case is 2 i.e. i
+will take values of 0 and 1. The reason being i starts from zero as GetName
+understands zero as the first field. Thus we can now print all the column names
+using the for. Now lets print the entire table irrespective of the number of
+columns or the number of rows. <o:p></o:p></p>
+
+<p class=programs><span style='font-size:11.0pt;font-family:"Times New Roman"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=programs><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=programs><u>a.cs</u><o:p></o:p></p>
+
+<p class=programs>using System.Data.OleDb;<o:p></o:p></p>
+
+<p class=programs>class zzz<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>public static void Main()<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>try<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>OleDbConnection s;<o:p></o:p></p>
+
+<p class=programs>s = new
+OleDbConnection(&quot;Provider=Microsoft.Jet.OLEDB.4.0;<o:p></o:p></p>
+
+<p class=programs>Data Source=c:\\zzz.mdb&quot;);<o:p></o:p></p>
+
+<p class=programs>s.Open();<o:p></o:p></p>
+
+<p class=programs>OleDbCommand c;<o:p></o:p></p>
+
+<p class=programs>c=new OleDbCommand(&quot;select * from abc&quot;,s);<o:p></o:p></p>
+
+<p class=programs>OleDbDataReader r;<o:p></o:p></p>
+
+<p class=programs>r = c.ExecuteReader();<o:p></o:p></p>
+
+<p class=programs>while ( r.Read() )<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>for ( int i = 0 ; i &lt; r.FieldCount ; i++)<o:p></o:p></p>
+
+<p class=programs>System.Console.Write(r.GetValue(i)+&quot; &quot;);<o:p></o:p></p>
+
+<p class=programs>System.Console.WriteLine();<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>catch(System.Exception e)<o:p></o:p></p>
+
+<p class=programs>{<o:p></o:p></p>
+
+<p class=programs>System.Console.WriteLine(e.ToString());<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=programs>}<o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=DOSPROMPT>Output<o:p></o:p></p>
+
+<p class=DOSPROMPT>1 a1<span style="mso-spacerun: yes">� </span><o:p></o:p></p>
+
+<p class=DOSPROMPT>2 a2<span style="mso-spacerun: yes">� </span><o:p></o:p></p>
+
+<p class=cbasetext><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>You can modify abc to add more fields and fill in more
+records. Execute the program and see the change in output. Whenever we do not
+know better, we use a for or a while i.e. a looping construct. However we do
+not know two things. One, the numbers of rows in the table and two the number
+of columns. The first while takes care of the number of rows and the for, the
+variable number of columns. Thus the above program will work for any number of
+columns and rows in the table. All that we do is change the select statement.
+The difference between Write and WriteLine is that Write does not add an enter
+at the end like WriteLine does. Also + is used to join two strings together. We
+are adding a space at the end of every field as a separator.</p>
+
+</div>
+
+</body>
+
+</html>

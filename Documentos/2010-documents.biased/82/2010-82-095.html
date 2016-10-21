@@ -1,0 +1,559 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head profile="http://gmpg.org/xfn/11">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Java and C# Client Server Socket Programming</title>
+	
+	<meta name="generator" content="WordPress 2.9.2" /> <!-- leave this for stats -->
+        <meta name="verify-v1" content="eXrhvk4iRjajWhCS6JX9trL2AVcgQhGhFJ4Pr/Fq0F0=" />
+	<style type="text/css" media="screen">
+		@import url( http://mediakey.dk/~cc/wp-content/themes/almost-spring/style.css );
+	</style>
+	
+	<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://mediakey.dk/~cc/feed/" />
+	<link rel="alternate" type="text/xml" title="RSS .92" href="http://mediakey.dk/~cc/feed/rss/" />
+	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="http://mediakey.dk/~cc/feed/atom/" />
+	<link rel="pingback" href="http://mediakey.dk/~cc/xmlrpc.php" />
+
+		<link rel='archives' title='March 2010' href='http://mediakey.dk/~cc/2010/03/' />
+	<link rel='archives' title='February 2010' href='http://mediakey.dk/~cc/2010/02/' />
+	<link rel='archives' title='January 2010' href='http://mediakey.dk/~cc/2010/01/' />
+	<link rel='archives' title='December 2009' href='http://mediakey.dk/~cc/2009/12/' />
+	<link rel='archives' title='September 2009' href='http://mediakey.dk/~cc/2009/09/' />
+	<link rel='archives' title='August 2009' href='http://mediakey.dk/~cc/2009/08/' />
+	<link rel='archives' title='July 2009' href='http://mediakey.dk/~cc/2009/07/' />
+	<link rel='archives' title='June 2009' href='http://mediakey.dk/~cc/2009/06/' />
+	<link rel='archives' title='May 2009' href='http://mediakey.dk/~cc/2009/05/' />
+	<link rel='archives' title='April 2009' href='http://mediakey.dk/~cc/2009/04/' />
+	<link rel='archives' title='March 2009' href='http://mediakey.dk/~cc/2009/03/' />
+	<link rel='archives' title='February 2009' href='http://mediakey.dk/~cc/2009/02/' />
+	<link rel='archives' title='January 2009' href='http://mediakey.dk/~cc/2009/01/' />
+	<link rel='archives' title='November 2008' href='http://mediakey.dk/~cc/2008/11/' />
+	<link rel='archives' title='October 2008' href='http://mediakey.dk/~cc/2008/10/' />
+	<link rel='archives' title='September 2008' href='http://mediakey.dk/~cc/2008/09/' />
+	<link rel='archives' title='August 2008' href='http://mediakey.dk/~cc/2008/08/' />
+	<link rel='archives' title='July 2008' href='http://mediakey.dk/~cc/2008/07/' />
+	<link rel='archives' title='June 2008' href='http://mediakey.dk/~cc/2008/06/' />
+	<link rel='archives' title='May 2008' href='http://mediakey.dk/~cc/2008/05/' />
+	<link rel='archives' title='April 2008' href='http://mediakey.dk/~cc/2008/04/' />
+	<link rel='archives' title='March 2008' href='http://mediakey.dk/~cc/2008/03/' />
+	<link rel='archives' title='February 2008' href='http://mediakey.dk/~cc/2008/02/' />
+	<link rel='archives' title='January 2008' href='http://mediakey.dk/~cc/2008/01/' />
+	<link rel='archives' title='December 2007' href='http://mediakey.dk/~cc/2007/12/' />
+	<link rel='archives' title='November 2007' href='http://mediakey.dk/~cc/2007/11/' />
+	<link rel='archives' title='October 2007' href='http://mediakey.dk/~cc/2007/10/' />
+	<link rel='archives' title='September 2007' href='http://mediakey.dk/~cc/2007/09/' />
+	<link rel='archives' title='August 2007' href='http://mediakey.dk/~cc/2007/08/' />
+	<link rel='archives' title='July 2007' href='http://mediakey.dk/~cc/2007/07/' />
+	<link rel='archives' title='June 2007' href='http://mediakey.dk/~cc/2007/06/' />
+	<link rel='archives' title='May 2007' href='http://mediakey.dk/~cc/2007/05/' />
+	<link rel='archives' title='April 2007' href='http://mediakey.dk/~cc/2007/04/' />
+	<link rel='archives' title='March 2007' href='http://mediakey.dk/~cc/2007/03/' />
+	<link rel='archives' title='February 2007' href='http://mediakey.dk/~cc/2007/02/' />
+	<link rel='archives' title='January 2007' href='http://mediakey.dk/~cc/2007/01/' />
+	<link rel='archives' title='December 2006' href='http://mediakey.dk/~cc/2006/12/' />
+	<link rel='archives' title='November 2006' href='http://mediakey.dk/~cc/2006/11/' />
+	<link rel='archives' title='October 2006' href='http://mediakey.dk/~cc/2006/10/' />
+	<link rel='archives' title='September 2006' href='http://mediakey.dk/~cc/2006/09/' />
+	<link rel='archives' title='August 2006' href='http://mediakey.dk/~cc/2006/08/' />
+	<link rel='archives' title='July 2006' href='http://mediakey.dk/~cc/2006/07/' />
+	<link rel='archives' title='June 2006' href='http://mediakey.dk/~cc/2006/06/' />
+	<link rel='archives' title='May 2006' href='http://mediakey.dk/~cc/2006/05/' />
+	<link rel='archives' title='April 2006' href='http://mediakey.dk/~cc/2006/04/' />
+	<link rel='archives' title='March 2006' href='http://mediakey.dk/~cc/2006/03/' />
+	<link rel='archives' title='February 2006' href='http://mediakey.dk/~cc/2006/02/' />
+	<link rel='archives' title='January 2006' href='http://mediakey.dk/~cc/2006/01/' />
+	<link rel='archives' title='December 2005' href='http://mediakey.dk/~cc/2005/12/' />
+	<link rel='archives' title='November 2005' href='http://mediakey.dk/~cc/2005/11/' />
+	<link rel='archives' title='October 2005' href='http://mediakey.dk/~cc/2005/10/' />
+	<link rel='archives' title='September 2005' href='http://mediakey.dk/~cc/2005/09/' />
+	<link rel='archives' title='August 2005' href='http://mediakey.dk/~cc/2005/08/' />
+	<link rel='archives' title='July 2005' href='http://mediakey.dk/~cc/2005/07/' />
+	<link rel='archives' title='June 2005' href='http://mediakey.dk/~cc/2005/06/' />
+	<link rel='archives' title='May 2005' href='http://mediakey.dk/~cc/2005/05/' />
+	<link rel='archives' title='April 2005' href='http://mediakey.dk/~cc/2005/04/' />
+	<link rel='archives' title='March 2005' href='http://mediakey.dk/~cc/2005/03/' />
+	<link rel='archives' title='February 2005' href='http://mediakey.dk/~cc/2005/02/' />
+	<link rel='archives' title='January 2005' href='http://mediakey.dk/~cc/2005/01/' />
+
+	<link rel="alternate" type="application/rss+xml" title=".bootstrap &raquo; Java and C# Client Server Socket Programming Comments Feed" href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/feed/" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://mediakey.dk/~cc/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://mediakey.dk/~cc/wp-includes/wlwmanifest.xml" /> 
+<link rel='index' title='.bootstrap' href='http://mediakey.dk/~cc' />
+<link rel='start' title='Linux Kernel mailing list member' href='http://mediakey.dk/~cc/linux-kernel-mailing-list-member/' />
+<link rel='prev' title='Howto Wiretap &#8211; Sniff Network Traffic' href='http://mediakey.dk/~cc/howto-wiretap-sniff-network-traffic/' />
+<link rel='next' title='Sony PS3 Cluster (IBM Cell BE)' href='http://mediakey.dk/~cc/sony-ps3-cluster-ibm-cell-be/' />
+<meta name="generator" content="WordPress 2.9.2" />
+<link rel='canonical' href='http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/' />
+
+<!-- Powered by AdSense-Deluxe WordPress Plugin v0.8 - http://www.acmetech.com/blog/adsense-deluxe/ -->
+	<link href="http://mediakey.dk/~cc/wp-content/plugins/google-syntax-highlighter/Styles/SyntaxHighlighter.css" type="text/css" rel="stylesheet" />
+	<!--mclude wp-content/plugins/tp_this_path--><!--/mclude--><link rel="stylesheet" type="text/css" media="screen" href="http://mediakey.dk/~cc/wp-content/plugins/wordtwit/css/style.css" />	<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+</head>
+
+<body>
+
+<div id="wrapper">
+<div id="header">
+<h1><a href="http://mediakey.dk/~cc">.bootstrap</a> <small> - Safe with most medications</small></h1>
+</div>
+
+
+<div id="content">
+			
+		<div class="post">
+	
+			<h2 class="posttitle" id="post-455"><a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/" rel="bookmark" title="Permanent link to Java and C# Client Server Socket Programming">Java and C# Client Server Socket Programming</a></h2>
+			
+			<p class="postmeta"> 
+			October 4, 2007 at 18:38 
+			&#183; Tags: <a href="http://mediakey.dk/~cc/tag/csharp/" rel="tag">CSharp</a>, <a href="http://mediakey.dk/~cc/tag/java/" rel="tag">Java</a>, <a href="http://mediakey.dk/~cc/tag/open-source/" rel="tag">Open Source</a>, <a href="http://mediakey.dk/~cc/tag/open-standards/" rel="tag">Open Standards</a>						</p>
+		
+			<div class="postentry">
+			                
+			<p><script type="text/javascript"><!--
+google_ad_client = "pub-0149118419272697";
+//120x240, created 1/13/08
+google_ad_slot = "1411376746";
+google_ad_width = 120;
+google_ad_height = 240;
+//--></script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></p>
+<p><code><br />
+C# client namespaces<br />
+----------------<br />
+1.System<br />
+2.System.Net.Sockets<br />
+3.System.IO;</p>
+<p>java packages<br />
+--------------<br />
+1.java.net<br />
+2.java.io<br />
+</code></p>
+<p><strong>Java server Application</strong><br />
+<code lang=Java><br />
+import java.net.*;<br />
+import java.io.*;<br />
+public class java_server<br />
+{<br />
+public static void main(String h[])<br />
+    {<br />
+     try<br />
+     {<br />
+     ServerSocket ss=new ServerSocket(1800);<br />
+     Socket s=ss.accept();<br />
+     System.out.println("Client Accepted");<br />
+     BufferedReader br=new BufferedReader(new<br />
+InputStreamReader(s.getInputStream()));<br />
+  System.out.println(br.readLine());<br />
+  PrintWriter wr=new PrintWriter(new<br />
+OutputStreamWriter(s.getOutputStream()),true);<br />
+  wr.println("Welcome to Socket Programming");<br />
+  }catch(Exception e){System.out.println(e);}<br />
+   }<br />
+   }<br />
+</code></p>
+<p><strong>Compile using</strong><br />
+<code>javac java_server.java</code></p>
+<p><strong>C# client Application</strong></p>
+<p><code lang=c#><br />
+using System;<br />
+using System.Net.Sockets;<br />
+using System.IO;<br />
+class csharp_client<br />
+{<br />
+public static void Main(string[] args)<br />
+{<br />
+try{<br />
+TcpClient tc=new TcpClient("server",1800);// in the place of server, enter<br />
+your java server's hostname or Ip<br />
+Console.WriteLine("Server invoked");<br />
+NetworkStream ns=tc.GetStream();<br />
+StreamWriter sw=new StreamWriter(ns);<br />
+sw.WriteLine("My name is Pramod.A");<br />
+sw.Flush();<br />
+StreamReader sr=new StreamReader(ns);<br />
+Console.WriteLine(sr.ReadLine());<br />
+}catch(Exception e){Console.WriteLine(e);}<br />
+          }</p>
+<p>}<br />
+</code></p>
+<p><strong>Compile using the command</strong><br />
+<code>csc /r:System.dll  csharp_client.cs</code></p>
+<p><strong>After compilation, run the java server first</strong><br />
+<code>java java_server</code></p>
+<p><strong>Then run the c# client application</strong><br />
+<code>csharp_client</code></p>
+                                                                          
+                        <p>Related posts:                                                                     
+                        <ol>                                                                                  
+                        <li><a href='http://mediakey.dk/~cc/sockets-programming-in-java/' rel='bookmark' title='Permanent Link: Sockets Programming in Java'>Sockets Programming in Java</a></li>
+<li><a href='http://mediakey.dk/~cc/howto-php-java-bridge-on-debian/' rel='bookmark' title='Permanent Link: Howto PHP / Java bridge on Debian'>Howto PHP / Java bridge on Debian</a></li>
+<li><a href='http://mediakey.dk/~cc/ubuntu-howto-install-sun-java/' rel='bookmark' title='Permanent Link: Ubuntu Howto: Install Sun Java'>Ubuntu Howto: Install Sun Java</a></li>
+<li><a href='http://mediakey.dk/~cc/dalvik-how-google-routed-around-suns-ip-based-licensing-restrictions-on-java-me/' rel='bookmark' title='Permanent Link: Dalvik: How Google routed around Sun&#8217;s IP-based licensing restrictions on Java ME'>Dalvik: How Google routed around Sun&#8217;s IP-based licensing restrictions on Java ME</a></li>
+<li><a href='http://mediakey.dk/~cc/java-default-keystore-password-cacerts/' rel='bookmark' title='Permanent Link: Java default keystore password &#8211; cacerts'>Java default keystore password &#8211; cacerts</a></li>
+<li><a href='http://mediakey.dk/~cc/debugging-server-side-code-through-intellij-idea-or-eclipse-with-bea-weblogic-81/' rel='bookmark' title='Permanent Link: Debugging Server-side Code through IntelliJ IDEA or Eclipse with BEA Weblogic 8.1'>Debugging Server-side Code through IntelliJ IDEA or Eclipse with BEA Weblogic 8.1</a></li>
+<li><a href='http://mediakey.dk/~cc/generic-soapwsdl-client/' rel='bookmark' title='Permanent Link: Generic SOAP/WSDL Client'>Generic SOAP/WSDL Client</a></li>
+<li><a href='http://mediakey.dk/~cc/howto-install-sun-java-on-debian-sarge/' rel='bookmark' title='Permanent Link: Howto install Sun Java on Debian Sarge'>Howto install Sun Java on Debian Sarge</a></li>
+<li><a href='http://mediakey.dk/~cc/howto-install-sun-java-on-debian-etch/' rel='bookmark' title='Permanent Link: Howto Install Sun Java on Debian Etch'>Howto Install Sun Java on Debian Etch</a></li>
+<li><a href='http://mediakey.dk/~cc/java-and-c-benchmark/' rel='bookmark' title='Permanent Link: Java and  C benchmark'>Java and  C benchmark</a></li>
+                                                              
+                        </ol>                                                                                 
+                        </p>                                                                                  
+                          
+						</div>
+
+			<p class="postfeedback">
+			<a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/" rel="bookmark" title="Permanent link to Java and C# Client Server Socket Programming" class="permalink">Permalink</a>
+			</p>
+			
+			<h3>Popular Related Items &raquo;</h3>
+			<p>                                                                                    
+			<div id='searchTermTagging'><h4>Incoming search terms</h4><ul><li><a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/" title="c# client server">c# client server</a></li><li><a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/" title="c# java socket">c# java socket</a></li><li><a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/" title="java c# socket">java c# socket</a></li><li><a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/" title="c# socket">c# socket</a></li><li><a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/" title="client server c#">client server c#</a></li><li><a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/" title="java serversocket">java serversocket</a></li><li><a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/" title="socket programming java">socket programming java</a></li><li><a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/" title="client server socket java">client server socket java</a></li><li><a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/" title="java server c# client">java server c# client</a></li><li><a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/" title="c# client java server">c# client java server</a></li><li><a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/" title="socket c# java">socket c# java</a></li><li><a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/" title="serversocket java">serversocket java</a></li><li><a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/" title="c# java communication">c# java communication</a></li><li><a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/" title="client server socket programming">client server socket programming</a></li><li><a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/" title="java server socket">java server socket</a></li><li><a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/" title="socket c#">socket c#</a></li><li><a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/" title="c# socket server">c# socket server</a></li><li><a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/" title="client server program in java">client server program in java</a></li><li><a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/" title="client server socket programming in java">client server socket programming in java</a></li><li><a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/" title="socket programming in java">socket programming in java</a></li><li><a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/" title="C# Client Server Socket Programming">C# Client Server Socket Programming</a></li><li><a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/" title="C# socket client">C# socket client</a></li><li><a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/" title="client server socket">client server socket</a></li><li><a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/" title="client server sockets java">client server sockets java</a></li><li><a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/" title="java socket C#">java socket C#</a></li><li><a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/" title="Socket Programming in C#">Socket Programming in C#</a></li><li><a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/" title="c# http client">c# http client</a></li><li><a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/" title="C# open socket">C# open socket</a></li><li><a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/" title="c# server java client">c# server java client</a></li><li><a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/" title="C# Socket client server">C# Socket client server</a></li><li><a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/" title="client server in c#">client server in c#</a></li><li><a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/" title="client server program in C#">client server program in C#</a></li><li><a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/" title="client server socket program java">client server socket program java</a></li><li><a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/" title="socket between java and c#">socket between java and c#</a></li><li><a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/" title="socket java c#">socket java c#</a></li><li><a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/" title="c# server socket">c# server socket</a></li><li><a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/" title="C# serversocket">C# serversocket</a></li><li><a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/" title="c# socket programming">c# socket programming</a></li><li><a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/" title="c# socket readline">c# socket readline</a></li><li><a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/" title="client server program C#">client server program C#</a></li><li><a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/" title="Client server Socket c#">Client server Socket c#</a></li><li><a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/" title="client server socket program in java">client server socket program in java</a></li><li><a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/" title="client/server in c#">client/server in c#</a></li><li><a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/" title="java c# communication">java c# communication</a></li><li><a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/" title="java C# socket communication">java C# socket communication</a></li></ul><!-- SEO SearchTerms Tagging 2 plugin took 16.286 ms --></div>                                                                                                                                 
+			</p>    
+			
+		</div>
+		
+		
+<!-- You can start editing here. -->
+
+
+	<h2 id="comments">
+		3 Comments					<a href="#postcomment" title="Jump to the comments form">&raquo;</a>
+			</h2>
+	
+	<ol id="commentlist">
+		
+		<li class="alt" id="comment-69167">
+		
+		<h3 class="commenttitle">Aya said,</h3>
+		
+		<p class="commentmeta">
+			May 8, 2009 
+			@ <a href="#comment-69167" title="Permanent link to this comment">10:51</a>
+					</p>
+		
+		<p>Please , help me to write a program between server and client in two states : in same computer , with two different computers . . . .  Thanks</p>
+				</li>
+
+		
+	
+		<li class="" id="comment-70929">
+		
+		<h3 class="commenttitle">Shaykh said,</h3>
+		
+		<p class="commentmeta">
+			June 10, 2009 
+			@ <a href="#comment-70929" title="Permanent link to this comment">12:17</a>
+					</p>
+		
+		<p>Article is good. However it  looks like some kind of seo site. The main purpose is not solving some exact problem. BUt upgradeing the rating of site . It is seen like  abc  ..</p>
+				</li>
+
+		
+	
+		<li class="alt" id="comment-77973">
+		
+		<h3 class="commenttitle">Frank said,</h3>
+		
+		<p class="commentmeta">
+			October 17, 2009 
+			@ <a href="#comment-77973" title="Permanent link to this comment">16:05</a>
+					</p>
+		
+		<p>Hi,</p>
+<p>at first, sorry for my english &#8230; i hope you will understand my problem<br />
+My java serversocket runs in a while(true) loop and listen at accept() the incomming .net clients. Each accepted client socket start a new thread. If only one client connect to the java socket server, all works nice, but if I use more than one client parallel, the second client will be blocked and I get the esception: A blocking operation was interrupted by a call to WSACancelBlockingCall<br />
+I thougt the problem is, that both clients (each came from an other pc with it&#8217;s own IP) like to comunicate over the same server socket port. Is this the reason? And how I can solve this. </p>
+<p>Thanks for your help.</p>
+				</li>
+
+		
+	
+	</ol>
+	
+	<p class="small">
+	<a href='http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/feed/'><abbr title="Really Simple Syndication">RSS</abbr> feed for comments on this post</a>		&#183; <a href="http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/trackback/" rel="trackback">TrackBack <abbr title="Uniform Resource Identifier">URI</abbr></a>
+		</p>
+
+
+
+	<h2 id="postcomment">Leave a Comment</h2>
+	
+		
+		<form action="http://mediakey.dk/~cc/wp-comments-post.php" method="post" id="commentform">
+		
+			
+			<p>
+			<input type="text" name="author" id="author" value="" size="30" tabindex="1" />
+			<label for="author">Name (required)</label>
+			</p>
+			
+			<p>
+			<input type="text" name="email" id="email" value="" size="30" tabindex="2" />
+			<label for="email">E-mail required)</label>
+			</p>
+			
+			<p>
+			<input type="text" name="url" id="url" value="" size="30" tabindex="3" />
+			<label for="url"><abbr title="Uniform Resource Identifier">URI</abbr></label>
+			</p>
+
+ 	<p><input type="text" name="mcspvalue" id="mcspvalue" value="" size="22" tabindex="4" />
+	<label for="mcspvalue">Spam protection: Sum of 10 + 1 ? ( Hint: type 11 )</label>
+	<input type="hidden" name="mcspinfo" value="0b59f" />
+</p>
+
+
+		
+		<p>
+		<textarea name="comment" id="comment" cols="70" rows="10" tabindex="4"></textarea>
+		</p>
+	
+		<p>
+		<input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+		<input type="hidden" name="comment_post_ID" value="455" />
+		</p>
+	
+			
+		</form>
+
+	
+				
+	
+</div>
+
+<div id="sidebar">
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-0149118419272697";
+/* 200x90, created 2/15/09 */
+google_ad_slot = "1186213430";
+google_ad_width = 200;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+<br/><br/>
+
+<ul>
+	<li id="text-244295851" class="widget widget_text"><h2 class="widgettitle">Ubuntu 9.10 Countdown</h2>			<div class="textwidget"><script type="text/javascript" src="http://www.ubuntu.com/files/countdown/display.js"></script>
+
+
+<br/>
+<br/>
+<br/></div>
+		</li><li id="tag_cloud-2" class="widget widget_tag_cloud"><h2 class="widgettitle">Tags</h2><div><a href='http://mediakey.dk/~cc/tag/ajax/' class='tag-link-30' title='15 topics' style='font-size: 10.0588235294pt;'>AJAX</a>
+<a href='http://mediakey.dk/~cc/tag/apache/' class='tag-link-34' title='18 topics' style='font-size: 10.8823529412pt;'>apache</a>
+<a href='http://mediakey.dk/~cc/tag/apple/' class='tag-link-127' title='12 topics' style='font-size: 9.13235294118pt;'>Apple</a>
+<a href='http://mediakey.dk/~cc/tag/crack/' class='tag-link-43' title='27 topics' style='font-size: 12.6323529412pt;'>Crack</a>
+<a href='http://mediakey.dk/~cc/tag/danish/' class='tag-link-24' title='18 topics' style='font-size: 10.8823529412pt;'>Danish</a>
+<a href='http://mediakey.dk/~cc/tag/debian/' class='tag-link-40' title='100 topics' style='font-size: 18.2941176471pt;'>Debian</a>
+<a href='http://mediakey.dk/~cc/tag/design/' class='tag-link-35' title='44 topics' style='font-size: 14.6911764706pt;'>Design</a>
+<a href='http://mediakey.dk/~cc/tag/fedora/' class='tag-link-42' title='52 topics' style='font-size: 15.4117647059pt;'>Fedora</a>
+<a href='http://mediakey.dk/~cc/tag/firefox/' class='tag-link-80' title='13 topics' style='font-size: 9.54411764706pt;'>Firefox</a>
+<a href='http://mediakey.dk/~cc/tag/freebsd/' class='tag-link-98' title='11 topics' style='font-size: 8.82352941176pt;'>FreeBSD</a>
+<a href='http://mediakey.dk/~cc/tag/hack/' class='tag-link-93' title='24 topics' style='font-size: 12.1176470588pt;'>hack</a>
+<a href='http://mediakey.dk/~cc/tag/howto/' class='tag-link-169' title='13 topics' style='font-size: 9.54411764706pt;'>howto</a>
+<a href='http://mediakey.dk/~cc/tag/iphone/' class='tag-link-91' title='16 topics' style='font-size: 10.3676470588pt;'>iPhone</a>
+<a href='http://mediakey.dk/~cc/tag/ipod/' class='tag-link-92' title='9 topics' style='font-size: 8pt;'>iPod</a>
+<a href='http://mediakey.dk/~cc/tag/java/' class='tag-link-44' title='23 topics' style='font-size: 11.9117647059pt;'>Java</a>
+<a href='http://mediakey.dk/~cc/tag/links/' class='tag-link-20' title='85 topics' style='font-size: 17.5735294118pt;'>Links</a>
+<a href='http://mediakey.dk/~cc/tag/linux/' class='tag-link-21' title='230 topics' style='font-size: 22pt;'>Linux</a>
+<a href='http://mediakey.dk/~cc/tag/microsoft/' class='tag-link-60' title='40 topics' style='font-size: 14.2794117647pt;'>Microsoft</a>
+<a href='http://mediakey.dk/~cc/tag/mysql/' class='tag-link-70' title='15 topics' style='font-size: 10.0588235294pt;'>MySQL</a>
+<a href='http://mediakey.dk/~cc/tag/news/' class='tag-link-17' title='179 topics' style='font-size: 20.9705882353pt;'>News</a>
+<a href='http://mediakey.dk/~cc/tag/nokia/' class='tag-link-39' title='14 topics' style='font-size: 9.85294117647pt;'>Nokia</a>
+<a href='http://mediakey.dk/~cc/tag/ooxml/' class='tag-link-125' title='9 topics' style='font-size: 8pt;'>OOXML</a>
+<a href='http://mediakey.dk/~cc/tag/open-source/' class='tag-link-36' title='126 topics' style='font-size: 19.3235294118pt;'>Open Source</a>
+<a href='http://mediakey.dk/~cc/tag/open-standards/' class='tag-link-25' title='92 topics' style='font-size: 17.9852941176pt;'>Open Standards</a>
+<a href='http://mediakey.dk/~cc/tag/osx/' class='tag-link-111' title='15 topics' style='font-size: 10.0588235294pt;'>OSX</a>
+<a href='http://mediakey.dk/~cc/tag/performance/' class='tag-link-170' title='14 topics' style='font-size: 9.85294117647pt;'>performance</a>
+<a href='http://mediakey.dk/~cc/tag/php/' class='tag-link-132' title='16 topics' style='font-size: 10.3676470588pt;'>PHP</a>
+<a href='http://mediakey.dk/~cc/tag/ruby/' class='tag-link-28' title='15 topics' style='font-size: 10.0588235294pt;'>Ruby</a>
+<a href='http://mediakey.dk/~cc/tag/ruby-on-rails/' class='tag-link-27' title='12 topics' style='font-size: 9.13235294118pt;'>Ruby on Rails</a>
+<a href='http://mediakey.dk/~cc/tag/security/' class='tag-link-63' title='23 topics' style='font-size: 11.9117647059pt;'>security</a>
+<a href='http://mediakey.dk/~cc/tag/ssh/' class='tag-link-103' title='11 topics' style='font-size: 8.82352941176pt;'>SSH</a>
+<a href='http://mediakey.dk/~cc/tag/study/' class='tag-link-23' title='13 topics' style='font-size: 9.54411764706pt;'>Study</a>
+<a href='http://mediakey.dk/~cc/tag/themes/' class='tag-link-45' title='20 topics' style='font-size: 11.2941176471pt;'>themes</a>
+<a href='http://mediakey.dk/~cc/tag/ubuntu/' class='tag-link-41' title='112 topics' style='font-size: 18.8088235294pt;'>Ubuntu</a>
+<a href='http://mediakey.dk/~cc/tag/uncategorized/' class='tag-link-1' title='10 topics' style='font-size: 8.41176470588pt;'>Uncategorized</a>
+<a href='http://mediakey.dk/~cc/tag/usability/' class='tag-link-22' title='76 topics' style='font-size: 17.1617647059pt;'>Usability</a>
+<a href='http://mediakey.dk/~cc/tag/user-experience/' class='tag-link-48' title='40 topics' style='font-size: 14.2794117647pt;'>user experience</a>
+<a href='http://mediakey.dk/~cc/tag/virtualization/' class='tag-link-115' title='12 topics' style='font-size: 9.13235294118pt;'>virtualization</a>
+<a href='http://mediakey.dk/~cc/tag/vista/' class='tag-link-38' title='35 topics' style='font-size: 13.7647058824pt;'>Vista</a>
+<a href='http://mediakey.dk/~cc/tag/wallpapers/' class='tag-link-130' title='10 topics' style='font-size: 8.41176470588pt;'>wallpapers</a>
+<a href='http://mediakey.dk/~cc/tag/webdesign/' class='tag-link-31' title='19 topics' style='font-size: 11.0882352941pt;'>Webdesign</a>
+<a href='http://mediakey.dk/~cc/tag/windows/' class='tag-link-69' title='33 topics' style='font-size: 13.4558823529pt;'>Windows</a>
+<a href='http://mediakey.dk/~cc/tag/windows-7/' class='tag-link-413' title='9 topics' style='font-size: 8pt;'>Windows 7</a>
+<a href='http://mediakey.dk/~cc/tag/xen/' class='tag-link-37' title='17 topics' style='font-size: 10.6764705882pt;'>Xen</a>
+<a href='http://mediakey.dk/~cc/tag/xp/' class='tag-link-118' title='21 topics' style='font-size: 11.5pt;'>xp</a></div>
+</li><li id="global-translator" class="widget widget_global_translator"><h2 class="widgettitle">Translator</h2>
+<!--FLAG_BAR_BEGIN--><div id="translation_bar"><map id="gltr_flags_map" name="gltr_flags_map"><area shape='rect' coords='0,0,16,11' href='http://mediakey.dk/~cc/java-and-c-client-server-socket-programming/' id='flag_en'   title='English'/><area shape='rect' coords='20,0,36,11' href='http://mediakey.dk/~cc/it/java-and-c-client-server-socket-programming/' id='flag_it'   title='Italian'/><area shape='rect' coords='40,0,56,11' href='http://mediakey.dk/~cc/ko/java-and-c-client-server-socket-programming/' id='flag_ko'   title='Korean'/><area shape='rect' coords='60,0,76,11' href='http://mediakey.dk/~cc/zh-CN/java-and-c-client-server-socket-programming/' id='flag_zh-CN'   title='Chinese (Simplified)'/><area shape='rect' coords='80,0,96,11' href='http://mediakey.dk/~cc/zh-TW/java-and-c-client-server-socket-programming/' id='flag_zh-TW'   title='Chinese (Traditional)'/><area shape='rect' coords='100,0,116,11' href='http://mediakey.dk/~cc/pt/java-and-c-client-server-socket-programming/' id='flag_pt'   title='Portuguese'/><area shape='rect' coords='120,0,136,11' href='http://mediakey.dk/~cc/de/java-and-c-client-server-socket-programming/' id='flag_de'   title='German'/><area shape='rect' coords='0,15,16,26' href='http://mediakey.dk/~cc/fr/java-and-c-client-server-socket-programming/' id='flag_fr'   title='French'/><area shape='rect' coords='20,15,36,26' href='http://mediakey.dk/~cc/es/java-and-c-client-server-socket-programming/' id='flag_es'   title='Spanish'/><area shape='rect' coords='40,15,56,26' href='http://mediakey.dk/~cc/ja/java-and-c-client-server-socket-programming/' id='flag_ja'   title='Japanese'/><area shape='rect' coords='60,15,76,26' href='http://mediakey.dk/~cc/ar/java-and-c-client-server-socket-programming/' id='flag_ar'   title='Arabic'/><area shape='rect' coords='80,15,96,26' href='http://mediakey.dk/~cc/ru/java-and-c-client-server-socket-programming/' id='flag_ru'   title='Russian'/><area shape='rect' coords='100,15,116,26' href='http://mediakey.dk/~cc/el/java-and-c-client-server-socket-programming/' id='flag_el'   title='Greek'/><area shape='rect' coords='120,15,136,26' href='http://mediakey.dk/~cc/nl/java-and-c-client-server-socket-programming/' id='flag_nl'   title='Dutch'/><area shape='rect' coords='0,30,16,41' href='http://mediakey.dk/~cc/bg/java-and-c-client-server-socket-programming/' id='flag_bg'   title='Bulgarian'/><area shape='rect' coords='20,30,36,41' href='http://mediakey.dk/~cc/cs/java-and-c-client-server-socket-programming/' id='flag_cs'   title='Czech'/><area shape='rect' coords='40,30,56,41' href='http://mediakey.dk/~cc/hr/java-and-c-client-server-socket-programming/' id='flag_hr'   title='Croat'/><area shape='rect' coords='60,30,76,41' href='http://mediakey.dk/~cc/da/java-and-c-client-server-socket-programming/' id='flag_da'   title='Danish'/><area shape='rect' coords='80,30,96,41' href='http://mediakey.dk/~cc/fi/java-and-c-client-server-socket-programming/' id='flag_fi'   title='Finnish'/><area shape='rect' coords='100,30,116,41' href='http://mediakey.dk/~cc/hi/java-and-c-client-server-socket-programming/' id='flag_hi'   title='Hindi'/><area shape='rect' coords='120,30,136,41' href='http://mediakey.dk/~cc/pl/java-and-c-client-server-socket-programming/' id='flag_pl'   title='Polish'/><area shape='rect' coords='0,45,16,56' href='http://mediakey.dk/~cc/ro/java-and-c-client-server-socket-programming/' id='flag_ro'   title='Rumanian'/><area shape='rect' coords='20,45,36,56' href='http://mediakey.dk/~cc/sv/java-and-c-client-server-socket-programming/' id='flag_sv'   title='Swedish'/><area shape='rect' coords='40,45,56,56' href='http://mediakey.dk/~cc/no/java-and-c-client-server-socket-programming/' id='flag_no'   title='Norwegian'/><area shape='rect' coords='60,45,76,56' href='http://mediakey.dk/~cc/ca/java-and-c-client-server-socket-programming/' id='flag_ca'   title='Catalan'/><area shape='rect' coords='80,45,96,56' href='http://mediakey.dk/~cc/tl/java-and-c-client-server-socket-programming/' id='flag_tl'   title='Filipino'/><area shape='rect' coords='100,45,116,56' href='http://mediakey.dk/~cc/iw/java-and-c-client-server-socket-programming/' id='flag_iw'   title='Hebrew'/><area shape='rect' coords='120,45,136,56' href='http://mediakey.dk/~cc/id/java-and-c-client-server-socket-programming/' id='flag_id'   title='Indonesian'/><area shape='rect' coords='0,60,16,71' href='http://mediakey.dk/~cc/lv/java-and-c-client-server-socket-programming/' id='flag_lv'   title='Latvian'/><area shape='rect' coords='20,60,36,71' href='http://mediakey.dk/~cc/lt/java-and-c-client-server-socket-programming/' id='flag_lt'   title='Lithuanian'/><area shape='rect' coords='40,60,56,71' href='http://mediakey.dk/~cc/sr/java-and-c-client-server-socket-programming/' id='flag_sr'   title='Serbian'/><area shape='rect' coords='60,60,76,71' href='http://mediakey.dk/~cc/sk/java-and-c-client-server-socket-programming/' id='flag_sk'   title='Slovak'/><area shape='rect' coords='80,60,96,71' href='http://mediakey.dk/~cc/sl/java-and-c-client-server-socket-programming/' id='flag_sl'   title='Slovenian'/><area shape='rect' coords='100,60,116,71' href='http://mediakey.dk/~cc/uk/java-and-c-client-server-socket-programming/' id='flag_uk'   title='Ukrainian'/><area shape='rect' coords='120,60,136,71' href='http://mediakey.dk/~cc/vi/java-and-c-client-server-socket-programming/' id='flag_vi'   title='Vietnamese'/><area shape='rect' coords='0,75,16,86' href='http://mediakey.dk/~cc/sq/java-and-c-client-server-socket-programming/' id='flag_sq'   title='Albanian'/><area shape='rect' coords='20,75,36,86' href='http://mediakey.dk/~cc/et/java-and-c-client-server-socket-programming/' id='flag_et'   title='Estonian'/><area shape='rect' coords='40,75,56,86' href='http://mediakey.dk/~cc/gl/java-and-c-client-server-socket-programming/' id='flag_gl'   title='Galician'/><area shape='rect' coords='60,75,76,86' href='http://mediakey.dk/~cc/mt/java-and-c-client-server-socket-programming/' id='flag_mt'   title='Maltese'/><area shape='rect' coords='80,75,96,86' href='http://mediakey.dk/~cc/th/java-and-c-client-server-socket-programming/' id='flag_th'   title='Thai'/><area shape='rect' coords='100,75,116,86' href='http://mediakey.dk/~cc/tr/java-and-c-client-server-socket-programming/' id='flag_tr'   title='Turkish'/><area shape='rect' coords='120,75,136,86' href='http://mediakey.dk/~cc/hu/java-and-c-client-server-socket-programming/' id='flag_hu'   title='Hungarian'/></map><img style='border:0px;' src='http://mediakey.dk/~cc/wp-content/plugins/global-translator/gltr_image_map.png' usemap='#gltr_flags_map'/></div><div id="transl_sign"><a style="font-size:9px;" href="http://www.nothing2hide.net">By N2H</a></div><!--FLAG_BAR_END-->
+</li><li id="search-2" class="widget widget_search"><!--
+<form method="get" action="/~cc/index.php">
+<p>
+<input type="text" value="" name="s" id="s" />
+<input type="submit" value="Search" />
+</p>
+</form>
+-->
+
+
+
+<!-- SiteSearch Google -->
+<form method="get" action="http://www.google.com/custom" target="_top">
+<table border="0" bgcolor="#ffffff">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+
+<br/>
+<input type="hidden" name="domains" value="mediakey.dk"></input>
+<label for="sbi" style="display: none">Enter your search terms</label>
+<input type="text" name="q" size="23" maxlength="255" value="" id="sbi"></input>
+</td></tr>
+<tr>
+<td nowrap="nowrap">
+<table>
+<tr>
+<td>
+<input type="radio" name="sitesearch" value="" id="ss0"></input>
+<label for="ss0" title="Search the Web"><font size="-1" color="#000000">Web</font></label></td>
+<td>
+<input type="radio" name="sitesearch" value="mediakey.dk" checked id="ss1"></input>
+<label for="ss1" title="Search mediakey.dk"><font size="-1" color="#000000">mediakey.dk</font></label></td>
+</tr>
+</table>
+<label for="sbb" style="display: none">Submit search form</label>
+<input type="submit" name="sa" value="Search" id="sbb"></input>
+<input type="hidden" name="client" value="pub-0149118419272697"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="hl" value="en"></input>
+</td></tr></table>
+</form>
+
+
+<br/>
+<!-- SiteSearch Google -->
+
+
+
+
+</li>		<li id="recent-posts-2" class="widget widget_recent_entries">		<h2 class="widgettitle">Recent Posts</h2>		<ul>
+				<li><a href="http://mediakey.dk/~cc/howto-recover-a-linux-root-password/" title="Howto Recover a Linux Root Password">Howto Recover a Linux Root Password </a></li>
+				<li><a href="http://mediakey.dk/~cc/combine-multiple-pdfs-into-one-file/" title="Combine Multiple PDFs Into One File">Combine Multiple PDFs Into One File </a></li>
+				<li><a href="http://mediakey.dk/~cc/how-to-update-a-garmin-nuvi-firmware-and-maps/" title="How To Update A Garmin Nuvi (Firmware and Maps)">How To Update A Garmin Nuvi (Firmware and Maps) </a></li>
+				<li><a href="http://mediakey.dk/~cc/top-10-free-windows-7-applications/" title="Top 10 Free Windows 7 Applications">Top 10 Free Windows 7 Applications </a></li>
+				<li><a href="http://mediakey.dk/~cc/wireless-how-to-secure-your-wireless-network/" title="Wireless: How To Secure Your Wireless Network">Wireless: How To Secure Your Wireless Network </a></li>
+				</ul>
+		</li>		<li id="recent-comments-2" class="widget widget_recent_comments">			<h2 class="widgettitle">Recent Comments</h2>			<ul id="recentcomments"><li class="recentcomments">jess on <a href="http://mediakey.dk/~cc/credit-card-number-generator/comment-page-6/#comment-78589">Credit Card Number Generator</a></li><li class="recentcomments">FRESHDUMPS on <a href="http://mediakey.dk/~cc/credit-card-number-generator/comment-page-6/#comment-78588">Credit Card Number Generator</a></li><li class="recentcomments">momdep on <a href="http://mediakey.dk/~cc/bank-identification-number-bin-database/comment-page-1/#comment-78587">Bank Identification Number (BIN) Database</a></li><li class="recentcomments">kaki on <a href="http://mediakey.dk/~cc/bank-identification-number-bin-database/comment-page-1/#comment-78586">Bank Identification Number (BIN) Database</a></li><li class="recentcomments">Marcus on <a href="http://mediakey.dk/~cc/howto-crack-or-hack-a-wireless-network-with-wired-equivalent-privacy-wep/comment-page-3/#comment-78585">Howto crack (or hack) a wireless network with Wired Equivalent Privacy (WEP)</a></li></ul>
+		</li><li id="linkcat-52" class="widget widget_links"><h2 class="widgettitle">Blogs</h2>
+	<ul class='xoxo blogroll'>
+<li><a href="http://www.fonsie.dk/">Fonsie&#039;s Blog</a></li>
+<li><a href="http://blogs.forrester.com/information_management/">Forrester Research Blogs</a></li>
+<li><a href="http://gastromand.dk/">GastroMand</a></li>
+<li><a href="http://ianmurdock.com/" title="The founder of the Debian Linux Project">Ian Murdock</a></li>
+<li><a href="http://www.bananus.dk/" rel="friend met">Janus Tøndering</a></li>
+<li><a href="http://blogs.sun.com/jonathan/" title="President and CEO of Sun Microsystems">Jonathan Schwartz</a></li>
+<li><a href="http://klauskjeldsen.dk/" rel="friend met">Klaus Kjeldsen</a></li>
+<li><a href="http://www.markshuttleworth.com/" title="The founder of the Ubuntu Linux Project">Mark Shuttleworth</a></li>
+<li><a href="http://www.tirania.org/blog/" title="The founder of the Gnome Project">Miguel de Icaza</a></li>
+<li><a href="http://squareboy.dk/" title="Christian MÃ¸ller">Squareboy</a></li>
+<li><a href="http://mediakey.dk/~ss/" rel="friend met co-worker colleague" title="Co-Founder at mediakey.dk">Søren Soltveit</a></li>
+<li><a href="http://winniemethmann.com/">winniemethmann PHOTOGRAPHY</a></li>
+
+	</ul>
+</li>
+<li id="linkcat-54" class="widget widget_links"><h2 class="widgettitle">Linux Websites</h2>
+	<ul class='xoxo blogroll'>
+<li><a href="http://www.debian-administration.org/" title="System Administration Tips and Resources">Debian Administration</a></li>
+<li><a href="http://distrowatch.com/" title="a comprehensive and useful list of Linux distributions">DistroWatch.com</a></li>
+<li><a href="http://kerneltrap.org/">KernelTrap</a></li>
+<li><a href="http://www.linuxtoday.com/">Linux Today</a></li>
+<li><a href="http://cia.navi.cx/" title="Open Source CIA">Open Source CIA</a></li>
+<li><a href="http://osnews.com/">OSNews.com</a></li>
+<li><a href="http://www.kernel.org" title="This is the primary site for the Linux kernel source">The Linux Kernel Archives</a></li>
+
+	</ul>
+</li>
+<li id="linkcat-51" class="widget widget_links"><h2 class="widgettitle">Planets</h2>
+	<ul class='xoxo blogroll'>
+<li><a href="http://planet.debian.org/" title="Planet Debian">Planet Debian</a></li>
+<li><a href="http://planet.gnome.org/" title="Planet GNOME">Planet GNOME</a></li>
+<li><a href="http://planet.kde.org/" title="Planet KDE">Planet KDE</a></li>
+<li><a href="http://planet.ubuntu.com/" title="Planet Ubuntu">Planet Ubuntu</a></li>
+
+	</ul>
+</li>
+<li id="rss-1" class="widget widget_rss"><h2 class="widgettitle"><a class='rsswidget' href='http://feeds.delicious.com/rss/methmann' title='Syndicate this content'><img style='background:orange;color:white;border:none;' width='14' height='14' src='http://mediakey.dk/~cc/wp-includes/images/rss.png' alt='RSS' /></a> <a class='rsswidget' href='http://delicious.com/methmann' title='bookmarks posted by methmann'>My del.icio.us booksmarks</a></h2><ul><li><a class='rsswidget' href='http://debgen.simplylinux.ch/' title=' [&hellip;]'>Debian Sources List Generator</a></li><li><a class='rsswidget' href='http://code.google.com/p/compcache/' title=' [&hellip;]'>compcache - Project Hosting on Google Code</a></li><li><a class='rsswidget' href='http://seewah.blogspot.com/2009/06/gwt-and-spring-security-sample-demo.html' title=' [&hellip;]'>random thoughts...: GWT and Spring Security - sample demo download</a></li><li><a class='rsswidget' href='http://github.com/camptocamp/puppet-xen/blob/master/manifests/guest.pp' title=' [&hellip;]'>manifests/guest.pp at master from camptocamp&#039;s puppet-xen - GitHub</a></li><li><a class='rsswidget' href='http://manual.phpdoc.org/HTMLSmartyConverter/HandS/phpDocumentor/tutorial_phpDocumentor.quickstart.pkg.html' title=' [&hellip;]'>phpDocumentor Quickstart</a></li><li><a class='rsswidget' href='http://www.svenstrupvendelboe.com/' title=' [&hellip;]'>www.svenstrupvendelboe.com</a></li><li><a class='rsswidget' href='http://askmonty.org/wiki/index.php/MariaDB' title=' [&hellip;]'>MariaDB - Askmonty.org</a></li><li><a class='rsswidget' href='http://www.swift.com/' title=' [&hellip;]'>SWIFT - Home</a></li><li><a class='rsswidget' href='http://www.prowidesoftware.com/en/wife-documentation.html' title=' [&hellip;]'>WIFE | prowide</a></li><li><a class='rsswidget' href='http://alexyoung.org/2006/10/22/vim-for-textmate-fans/' title=' [&hellip;]'>Alex Young: Vim for TextMate Fans</a></li><li><a class='rsswidget' href='http://code.google.com/p/ontowiki/wiki/CodingStandard' title=' [&hellip;]'>CodingStandard - ontowiki - Coding standards of the OntoWiki and Erfurt projects - Project Hosting on Google Code</a></li><li><a class='rsswidget' href='http://webapps-common.alioth.debian.org/draft/html/' title=' [&hellip;]'>Webapps Policy Manual</a></li><li><a class='rsswidget' href='http://webapps-common.alioth.debian.org/draft-php/html/' title=' [&hellip;]'>PHP Policy Draft</a></li><li><a class='rsswidget' href='http://www.drbd.org/' title=' [&hellip;]'>DRBD:What is DRBD</a></li><li><a class='rsswidget' href='http://www.gnu.org/software/parted/index.shtml' title=' [&hellip;]'>GNU Parted</a></li></ul></li>
+<li>
+		<h2>Popular Posts</h2>
+		<ul>
+		<ul><li><a href="http://mediakey.dk/~cc/credit-card-number-generator/" title="credit card number generator">credit card number generator</a></li><li><a href="http://mediakey.dk/~cc/free-xp-themes/" title="free xp themes">free xp themes</a></li><li><a href="http://mediakey.dk/~cc/black-windows-xp-theme/" title="black xp theme">black xp theme</a></li><li><a href="http://mediakey.dk/~cc/windows-7-themes-for-windows-xp/" title="windows 7 theme for xp">windows 7 theme for xp</a></li><li><a href="http://mediakey.dk/~cc/black-windows-xp-theme/" title="windows xp black theme">windows xp black theme</a></li><li><a href="http://mediakey.dk/~cc/ubuntu-themes/" title="Ubuntu themes">Ubuntu themes</a></li><li><a href="http://mediakey.dk/~cc/howto-install-windows-xp-vista-on-xen/" title="xen windows">xen windows</a></li><li><a href="http://mediakey.dk/~cc/x11-for-windows-xp-and-vista/" title="x11 windows">x11 windows</a></li><li><a href="http://mediakey.dk/~cc/credit-card-number-generator/" title="credit card number">credit card number</a></li><li><a href="http://mediakey.dk/~cc/black-windows-xp-theme/" title="black xp themes">black xp themes</a></li><li><a href="http://mediakey.dk/~cc/windows-7-themes-for-windows-xp/" title="free windows 7 theme for xp">free windows 7 theme for xp</a></li><li><a href="http://mediakey.dk/~cc/hack-wireless-network-crack/" title="hack wireless network">hack wireless network</a></li><li><a href="http://mediakey.dk/~cc/black-windows-xp-theme/" title="xp black theme">xp black theme</a></li><li><a href="http://mediakey.dk/~cc/hack-wireless-network-crack/" title="hacking wireless networks">hacking wireless networks</a></li><li><a href="http://mediakey.dk/~cc/black-windows-xp-theme/" title="windows xp black themes">windows xp black themes</a></li></ul>  
+		</ul>
+	</li>
+</ul>
+
+
+
+
+</div>
+
+<div id="footer">
+
+<p>
+Topics covered: Linux, Ubuntu, Themes, User Experience, Debian, Fedora, Gnome etc.
+</p>
+<p>
+Design by <a href="http://beccary.com" title="Theme designed by Beccary">Beccary</a> and <a href="http://weblogs.us" title="Theme sponsored by Weblogs.us">Weblogs.us</a>
+&#183;
+<a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a>
+&#183;
+<a href="http://jigsaw.w3.org/css-validator/check/referer" title="This page validates as CSS"><abbr title="Cascading Style Sheets">CSS</abbr></a>
+</p>
+</div>
+
+</div>
+
+<script class="javascript" src="http://mediakey.dk/~cc/wp-content/plugins/google-syntax-highlighter/Scripts/shCore.js"></script>
+<script class="javascript" src="http://mediakey.dk/~cc/wp-content/plugins/google-syntax-highlighter/Scripts/shBrushCSharp.js"></script>
+<script class="javascript" src="http://mediakey.dk/~cc/wp-content/plugins/google-syntax-highlighter/Scripts/shBrushPhp.js"></script>
+<script class="javascript" src="http://mediakey.dk/~cc/wp-content/plugins/google-syntax-highlighter/Scripts/shBrushJScript.js"></script>
+<script class="javascript" src="http://mediakey.dk/~cc/wp-content/plugins/google-syntax-highlighter/Scripts/shBrushJava.js"></script>
+<script class="javascript" src="http://mediakey.dk/~cc/wp-content/plugins/google-syntax-highlighter/Scripts/shBrushVb.js"></script>
+<script class="javascript" src="http://mediakey.dk/~cc/wp-content/plugins/google-syntax-highlighter/Scripts/shBrushSql.js"></script>
+<script class="javascript" src="http://mediakey.dk/~cc/wp-content/plugins/google-syntax-highlighter/Scripts/shBrushXml.js"></script>
+<script class="javascript" src="http://mediakey.dk/~cc/wp-content/plugins/google-syntax-highlighter/Scripts/shBrushDelphi.js"></script>
+<script class="javascript" src="http://mediakey.dk/~cc/wp-content/plugins/google-syntax-highlighter/Scripts/shBrushPython.js"></script>
+<script class="javascript" src="http://mediakey.dk/~cc/wp-content/plugins/google-syntax-highlighter/Scripts/shBrushRuby.js"></script>
+<script class="javascript" src="http://mediakey.dk/~cc/wp-content/plugins/google-syntax-highlighter/Scripts/shBrushCss.js"></script>
+<script class="javascript" src="http://mediakey.dk/~cc/wp-content/plugins/google-syntax-highlighter/Scripts/shBrushCpp.js"></script>
+<script class="javascript">
+dp.SyntaxHighlighter.ClipboardSwf = 'http://mediakey.dk/~cc/wp-content/plugins/google-syntax-highlighter/Scripts/clipboard.swf';
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-120957-2");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+
+<script type="text/javascript" src="http://mediakey.dk/~cc/gae.js">
+</script>
+
+</body>
+</html>
+
+

@@ -1,0 +1,105 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Web Standards and Technologies - xhtml tutorial</title>
+<meta name="Author" content="Timothy, Derek, and Eisen" />
+<link rel="stylesheet" href="wsat.css" type="text/css" />
+</head>
+<body>
+
+<script type="text/javascript" src="navigation.js"></script>
+
+<div class="navigation">:: <a class="section" href="index.html" title="home">home</a><br />:: <a class="section" href="intro.html" title="introduction">introduction</a><br />:: <a class="section" href="#" title="tutorials..." onclick="expand(1);">tutorials...</a><br />
+<div class="indent" id="tutorials">&raquo; XHTML<br />&raquo; <a href="tut-css.html" title="CSS tutorial">CSS</a><br />&raquo; <a href="tut-dom.html" title="DOM tutorial">DOM</a></div>
+:: <a class="section" href="#" title="reference..." onclick="expand(0);">reference...</a>
+<div class="indent" id="reference">&raquo; <a href="ref-xhtml.html" title="XHTML reference">XHTML</a><br />&raquo; <a href="ref-css.html" title="CSS reference">CSS</a></div></div>
+<div class="header"><img src="images/tut-xhtmltitle.gif" width="601" height="103" alt="xhtml tutorial" /></div>
+<div class="content">
+
+<!-- content begins here -->
+
+<h1><a id="tut-xhtml">XHTML Tutorial</a></h1>
+<p>Designed to help increase accessibility of documents, discourage extraneous presentational markup, as well as to improve extensibility, XHTML is a reformulation of HTML as an XML application. Although XHTML and HTML are almost the same, there are enough important differences to make migrating from HTML to XHTML a difficult task. Although full knowledge of the workings of XML is not necessary to work with XHTML, understanding the basics of XML will help you maximize the potential of XHTML documents.</p> 
+
+<h1><a id="basic">A Basic Document</a></h1>
+<p>Almost all XHTML documents have a basic structure that is defined by a few tags. In XHTML, tags are special <i>markup</i> that the browser recognizes as a sort of command, rather than plain textual information. All tags are enclosed within the &lt; and &gt; signs, and are usually not visible when the document is viewed in a browser. Note that tags are case-sensitive in XHTML, so you must take care to keep all your tags in lower case, except for the SGML &lt;!DOCTYPE&gt; declaration as shown below:</p>
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"DTD/xhtml1-transitional.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"&gt;
+&lt;head&gt;
+&lt;title&gt;Your title goes here&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+Your document goes here.
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>From the example above, note that all tags such as &lt;body&gt; have an ending tag associated with it denoted by &lt;/body&gt;. All the information enclosed within these two tags are then said to be under the body element. Note that tags can be nested within one another, but they must close in the opposite order in which they were opened. For instance, if the title element was opened in the head element, the title element must be closed before closing the head element. Note that except for the first two lines, the entire XHTML document is enclosed within a html element.</p>
+<p>The first line of a XHTML document is an XML instruction identifying which version of XML this document conforms to, as well as the document encoding. While the version number is fixed at 1.0 for XHTML documents, you can change the encoding to fit your document. If you are unsure as to which encoding to choose, keep it at UTF-8, a Unicode encoding designed to be compatible with the ASCII character set. There are no closing tags for XML instructions.</p>
+<p>The second line of a XHTML document is aa DOCTYPE declaration declaring which standard you claim this document conforms to. There are actually three "flavours" of XHTML, of which two you will use in this tutorial. If you are migrating from HTML to XHTML, you would most likely use XHTML Transitional, since presentational markup and deprecated elements are still available in this mode. For beginners, however, XHTML Strict will help ensure that you write code that is compatible with future versions of XHTML. Use XHTML Strict by changing the second line to read:</p>
+<pre><code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"DTD/xhtml1-strict.dtd"&gt;</code></pre>
+<p>The remainder of the document is then your XHTML code proper. Note that for the html element's starting tag, we see additional information being included inside the &lt; and &gt; signs. These are called <i>attributes</i> of the tag. The xmlns attribute of the html tag, for instance, is set to "http://www.w3.org/1999/xhtml". If your document is not in english, feel free to change the xml:lang and lang attributes to the corresponding two-letter code as well. Within the html element, we see that there are two additional elements, head and body. Information about the document on the whole are included within the head, such as the title of the document, which is placed inside a title tag in the head element. The document itself, however, is placed within the body.</p>
+
+<h1><a id="headers">Headers and Paragraphs</a></h1>
+<p>Since most documents are divided into sections and headers, XHTML provides some basic tags for you to organize your document in such a manner. The h1, h2, h3, h4, h5, and h6 tags provide you with up to six levels of organization, while the p tag lets you easily divide your information into distinct paragraphs.</p>
+<pre><code>&lt;h1&gt;1 - Introduction&lt;/h1&gt;
+&lt;p&gt;This is my introduction.&lt;/p&gt;
+
+&lt;h1&gt;2 - Tutorials&lt;/h1&gt;
+&lt;h2&gt;2.1 - XHTML&lt;/h2&gt;
+&lt;p&gt;This is my XHTML tutorial.&lt;/p&gt;
+&lt;h2&gt;2.2 - CSS&lt;/h2&gt;
+&lt;p&gt;This is CSS tutorial.&lt;/p&gt;</code></pre>
+<p>Don't worry if this page doesn't look very visually appealing yet. The main purpose of XHTML is to provide structure to your document, rather than decorating it with fonts and typefaces. To control the presentation of your document, you should use CSS, which is covered in another tutorial on this website.</p>
+
+<h1><a id="hypertext">Hypertext</a></h1>
+<p>The main distinguishing property of XHTML documents is their ability to link to another document just by selecting a particular phrase that has been marked out for this purpose. You can do the same with the a tag, which encloses the text that is to be changed into a hyperlink.</p>
+<pre><code>&lt;a href="http://www.thinkquest.org/"
+	title="The Official ThinkQuest Website!"&gt;ThinkQuest&lt;/a&gt;</code></pre>
+<p>The new document to be retrieved is placed into the href attribute of the a tag. Note that if you are referring to a remote site of the Internet, the entire URL must be specified. Otherwise, the browser may misinterpret your link as the name of a local file. To help your users identify the destination of a link, you can give a short description of the referred document through the title attribute.</p>
+
+<h1><a id="presentational">Presentational Tags</a></h1>
+<p>Although XHTML has removed most of the presentational markup which used to be present in HTML, some basic and essential presentational tags still remain. Although it is generally better to use descriptive tags such as em for emphasis and strong for important points, the b and i tags provide functionality for bolding and italicizing text for purely decorative reasons. You can even add a horizontal bar to separate section with the hr tag.</p>
+<pre><code>This text is &lt;b&gt;bold&lt;/b&gt;, &lt;i&gt;italic&lt;/i&gt;,
+	and now both &lt;b&gt;&lt;i&gt;bold and italic&lt;/i&gt;&lt;/b&gt;!
+&lt;hr /&gt;
+This is a separate section.</code></pre>
+<p>Here, we see a new syntax for tags that do not hold any content. Since a hr tag does not and cannot hold any information inside it, the opening and closing tags can be contracted to the form shown in the example above. Typing &lt;hr /&gt; is equivalent to typing &lt;hr&gt;&lt;/hr&gt;, although &lt;hr /&gt; works better for some browsers.</p>
+
+<h1><a id="tables">Tables</a></h1>
+<p>XHTML provides enhanced methods for representing tabular information through markup. Like a HTML document, a table is completely enclosed within a table tag, and can possess a table header (thead) and a table body (tbody). Although there is a table footer (tfoot), it is not widely supported by browsers yet. Within both the head and the body, a table can have a row (tr), along with several cells (td) or headers (th) containing the information to be represented. The browser will automatically calculate the numbers of rows and columns and render the table accordingly. For example, the following example is a four-celled table with two additional header cells at the top.</p>
+<pre><code>&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Header 1&lt;/th&gt;&lt;th&gt;Header 2&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;(1, 1)&lt;/td&gt;&lt;td&gt;(1, 2)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;(2, 1)&lt;/td&gt;&lt;td&gt;(2, 2)&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+<p>Alternatively, you can simplify the markup above by removing all thead and tbody elements. The table information is then assumed to be part of the table body. Tables are remarkably flexible since they are allowed to contain any XHTML tag that is allowed under the body element. You can even nest tables within one another! Also, cells can span multiple columns or rows, such as those in the example below:</p>
+<pre><code>&lt;table&gt;
+&lt;tr&gt;&lt;th colspan="2"&gt;Two Column Header&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td rowspan="2"&gt;(1, 1) and (2, 1)&lt;/td&gt;&lt;td&gt;(1, 2)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;(2, 2)&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+<p>Cells which are "taken over" are automatically taken into consideration when calculating the number of rows of columns in the table, so the cell can simply be ignored from the markup. In the example above, the cell (1, 1) has been asked to span two rows, merging itself with cell (2, 1) from the previous example. Thus, cell (2, 1) need not be mentioned at all when creating the second row. This principle is best understood by experimenting with the code above, so feel free to use our examples and try them out.</p>
+
+<h1><a id="images">Images</a></h1>
+<p>XHTML documents allow for the embedding of GIF, JPEG, and PNG pictures into a document through the use of the img tag. Since the img tag is yet another tag which does not contain information, it follows the shortened syntax demonstrated earlier with the hr tag. To use the img tag, just specify the source of the image in the src attribute, as well as an alternative description of the picture in the alt attribute. This description is necessary for text browsers and visually-disabled users.</p>
+<pre><code>&lt;img src="myself.gif" width="320" height="240" alt="A picture of myself!" /&gt;</code></pre>
+<p>To optimize your page for faster processing, you may choose to specify the width and height of your image through the width and height attributes so that the browser does not need to download the images before knowing how much space to allocate on the page for your image. These attributes can also be used to scale your picture to whichever size you want, although the results are usually less than desirable.</p> 
+
+<h1><a id="conclusion">Conclusion</a></h1>
+<p>You have come to the end of our XHTML tutorial. With XHTML, documents are neater and better structured, avoiding the problems of extraneous presentational markup and irregularly nested tags. Although the visual appearance of XHTML documents is rather bland by default, CSS will allow you to style your documents to your heart's content. Furthermore, if you comply to the XHTML standard, you will find that your documents will be easier to index and more accessible through a number of devices. For more information of XHTML, there are many sites and references detailing the nuances of the specification.</p>
+
+<!-- content ends here -->
+
+</div>
+<div class="footer"><img class="footer" src="images/footer2.gif" width="228" height="84" alt="Game Over" /><img src="images/footer.gif" width="332" height="84" alt="created by: Timothy, Derek, and Eisen" /></div>
+
+</body>
+</html>
+<!-- ThinkQuest Banner --></object></layer></div></span></style></noscript></table></script></applet><link href="http://library.thinkquest.org/banner/banner.css" rel="stylesheet" type="text/css"><script language="javascript" src="http://library.thinkquest.org/banner/banner.html"></script>

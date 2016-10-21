@@ -1,0 +1,1024 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<head><title>
+	C# - How to display almost all properties for all IIS Virtual Web Servers
+</title><meta http-equiv="content-type" content="text/html; charset=UTF-8" /><meta name="author" content="Chris Crowe" /><meta name="Generator" content="Subtext Version 1.9.4.0" /><link id="RSSLink" title="RSS" type="application/rss+xml" rel="alternate" href="http://blog.crowe.co.nz/blog/Rss.aspx" /><link id="MainStyle" type="text/css" rel="stylesheet" href="/blog/skins/blog.crowe.co.nz/style.css" /><link id="Rsd" rel="EditURI" type="application/rsd+xml" title="RSD" href="http://blog.crowe.co.nz/blog/rsd.xml.ashx" /><link id="AtomLink" title="RSS" type="application/rss+xml" rel="alternate" href="http://blog.crowe.co.nz/blog/Rss.aspx" /><script src="/blog/Scripts/common.js" type="text/javascript"></script><script src="/blog/Scripts/tableEffects.js" type="text/javascript"></script><script src="/blog/Scripts/BlogInfo.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			var subtextAllowedHtmlTags = ['a', 'b', 'strong', 'blockquote', 'i', 'em', 'u', 'strike', 'super', 'sub', 'code'];
+			var subtextBlogInfo = new blogInfo('/blog/', '/blog/" />');
+		</script>
+		</head>
+	<body>
+		<form name="Form1" method="post" action="644.aspx" id="Form1">
+<input type="hidden" name="PostComment_ascx_ctl00_answer" id="PostComment_ascx_ctl00_answer" value="" />
+<input type="hidden" name="PostComment_ascx_ctl00_encrypted" id="PostComment_ascx_ctl00_encrypted" value="G5uivX7LjHTnmCXB22bglPHc5ToT1WPAlvXPVhm8lU8=" />
+<input type="hidden" name="__VIEWSTATE" id="
+__VIEWSTATE" value="" />
+
+
+<script src="/blog/WebResource.axd?d=_oobDi18retJ0hRekjFiF3AwS3yhj6qN33BQc3dyZA-ng95bwAbpwPYBXyFOvDTT0NctugNLwA-uUm_9WDa8T08S0M0PEQU1WJjWC3jgqDk1&amp;t=633944274807535735" type="text/javascript"></script>
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWFQL+raDpAgLCkdDQCgLnkMqxCALZ0YTdDQL4oNG+CQLTntyYCQKKxo21BQLluYDqDgLUw76tDQKvt7HiBgKm1I3fAwKByICUDQL+3YXIBALZ0fj8DQKyqIecCQLH9YpTAq+a5rsPAoqv5pwLAq/bzYAMAqX8uYIOAsnZ7LoEfrOpUk8GacJdydhHTtVLx0wW370=" />
+			
+
+<table width="100%" class="Framework" cellspacing="0" cellpadding="0" border="0">
+    <tr>
+        <td colspan="3">
+            
+
+<div id="top">
+<table width="100%" cellpadding="10" cellspacing="0">
+	<tr>
+		<td nowrap>
+			<a id="Header1_HeaderTitle" class="headermaintitle" title="The Title Of This Blog." href="/blog/Default.aspx">Chris Crowe's Blog</a>
+			<div id="headerSubTitle">Ramblings of an IIS MVP ( MVP Since 1997 )</div>
+
+
+		</td>
+	</tr>
+</table>
+</div>
+<div id="link">
+	
+<table border='0' cellspacing='0' cellpadding='0' width='100%' class='statsTable'><tr><td>
+<a id="Header1_MyLinks1_HomeLink" title="Link to the home page." href="/blog/Default.aspx">Home</a>&nbsp;::
+<a id="Header1_MyLinks1_ContactLink" accesskey="9" title="Contact form." href="/blog/contact.aspx">Contact</a>&nbsp;::
+<a id="Header1_MyLinks1_Syndication" title="Subscribe to this feed." href="http://blog.crowe.co.nz/blog/Rss.aspx">Syndication</a>
+<a id="Header1_MyLinks1_XMLLink" class="XMLLink" title="Subscribe to this feed." href="http://blog.crowe.co.nz/blog/Rss.aspx"><img src="../../../../Skins/blog.crowe.co.nz/images/xml.gif" border="0" /></a>&nbsp;::
+<a href="http://art.crowe.co.nz">Art Blog</a>&nbsp;::
+<a href="http://fish.crowe.co.nz">Fish Blog</a>&nbsp;::
+<a href="http://rotties.crowe.co.nz">Rotty Blog</a>&nbsp;::
+<a href="http://travel.crowe.co.nz">Travel Blog</a>&nbsp;::
+<a href="http://photos.crowe.co.nz">Photos</a>&nbsp;::
+<a href="http://weather.crowe.co.nz">Weather in Christchurch,NZ</a>&nbsp;::
+<a id="Header1_MyLinks1_Admin" title="Login Form." href="/blog/login.aspx">Login</a>
+</td><td align='right'><span id="blogstats">
+posts - 335, comments - 1167, trackbacks - 0</span>&nbsp;</td></tr></table>
+
+
+
+</div>
+
+        </td>
+    </tr>
+    <tr>
+        <td class="LeftCell">
+            <div id="leftmenu">
+                
+		<br>
+            <!--
+<p align='center'><a href="http://clustrmaps.com/counter/maps.php?url=http://blog.crowe.co.nz" id="clustrMapsLink">
+<img src="http://clustrmaps.com/counter/index2.php?url=http://blog.crowe.co.nz" border=1 alt="Locations of visitors to this page" onError="this.onError=null; 
+this.src='http://www.meetomatic.com/images/clustrmaps-back-soon.jpg'; document.getElementById('clustrMapsLink').href='http://clustrmaps.com/'"></a></p>-->
+            <p align='center'>
+                <a href="http://www.iis.net" title="IIS Home Page">
+                    <img style="border: none" src="/images/powered-by-iis7-1of2.png"
+                        alt="Powered By IIS 7" /></a>
+<!--                        &nbsp;<a href="http://www.ripcordsoftware.com/cs/" title="IISxpress">                            <img style="border: none" src="/images/CompressedWithIISxpress.gif" alt="Compressed By IISxpress" /></a>
+-->
+            </p>
+	      <div id="cell">
+                    <img src="/skins/blog.crowe.co.nz/images/icon-group.jpg" hspace="5" align="left" vspace="2"><h3>Search my blog</h3>
+		    
+<div id="searchBox">
+<input name="Searcb1$txtSearch" type="text" id="Searcb1_txtSearch" class="searchInput" />
+<input type="submit" name="Searcb1$btnSearch" value="Search" id="Searcb1_btnSearch" class="searchButton" />
+</div>
+
+
+		</div>
+		 
+	  
+            
+		<div id=cell>
+		<img src="/skins/blog.crowe.co.nz/images/icon-group.jpg" hspace=5 align=left vspace=2>
+		<h3>Article Categories</h3>
+		
+				<ul>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl00_LinkList_ctl01_Link" title="" href="/blog/category/17.aspx">Internet Information Server</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl00_LinkList_ctl02_Link" title="" href="/blog/category/37.aspx">Windows Sharepoint Services</a></li>
+			
+				</ul>
+			</div>
+	
+		<div id=cell>
+		<img src="/skins/blog.crowe.co.nz/images/icon-group.jpg" hspace=5 align=left vspace=2>
+		<h3>Archives</h3>
+		
+				<ul>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl01_Link" title="" href="/blog/archive/2009/07.aspx">July, 2009 (3)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl02_Link" title="" href="/blog/archive/2009/06.aspx">June, 2009 (1)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl03_Link" title="" href="/blog/archive/2009/05.aspx">May, 2009 (1)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl04_Link" title="" href="/blog/archive/2009/02.aspx">February, 2009 (1)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl05_Link" title="" href="/blog/archive/2009/01.aspx">January, 2009 (1)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl06_Link" title="" href="/blog/archive/2008/11.aspx">November, 2008 (3)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl07_Link" title="" href="/blog/archive/2008/10.aspx">October, 2008 (4)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl08_Link" title="" href="/blog/archive/2008/09.aspx">September, 2008 (9)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl09_Link" title="" href="/blog/archive/2008/08.aspx">August, 2008 (6)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl10_Link" title="" href="/blog/archive/2008/07.aspx">July, 2008 (3)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl11_Link" title="" href="/blog/archive/2008/06.aspx">June, 2008 (3)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl12_Link" title="" href="/blog/archive/2008/01.aspx">January, 2008 (1)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl13_Link" title="" href="/blog/archive/2007/11.aspx">November, 2007 (2)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl14_Link" title="" href="/blog/archive/2007/10.aspx">October, 2007 (6)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl15_Link" title="" href="/blog/archive/2007/09.aspx">September, 2007 (5)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl16_Link" title="" href="/blog/archive/2007/08.aspx">August, 2007 (22)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl17_Link" title="" href="/blog/archive/2007/07.aspx">July, 2007 (5)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl18_Link" title="" href="/blog/archive/2007/06.aspx">June, 2007 (1)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl19_Link" title="" href="/blog/archive/2007/05.aspx">May, 2007 (3)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl20_Link" title="" href="/blog/archive/2007/04.aspx">April, 2007 (26)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl21_Link" title="" href="/blog/archive/2007/03.aspx">March, 2007 (8)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl22_Link" title="" href="/blog/archive/2007/02.aspx">February, 2007 (6)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl23_Link" title="" href="/blog/archive/2006/09.aspx">September, 2006 (2)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl24_Link" title="" href="/blog/archive/2006/08.aspx">August, 2006 (4)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl25_Link" title="" href="/blog/archive/2006/07.aspx">July, 2006 (9)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl26_Link" title="" href="/blog/archive/2006/06.aspx">June, 2006 (17)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl27_Link" title="" href="/blog/archive/2006/05.aspx">May, 2006 (20)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl28_Link" title="" href="/blog/archive/2006/04.aspx">April, 2006 (12)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl29_Link" title="" href="/blog/archive/2006/03.aspx">March, 2006 (9)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl30_Link" title="" href="/blog/archive/2006/02.aspx">February, 2006 (4)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl31_Link" title="" href="/blog/archive/2006/01.aspx">January, 2006 (3)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl32_Link" title="" href="/blog/archive/2005/12.aspx">December, 2005 (2)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl33_Link" title="" href="/blog/archive/2005/11.aspx">November, 2005 (4)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl34_Link" title="" href="/blog/archive/2005/10.aspx">October, 2005 (4)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl35_Link" title="" href="/blog/archive/2005/09.aspx">September, 2005 (37)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl36_Link" title="" href="/blog/archive/2005/08.aspx">August, 2005 (82)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl37_Link" title="" href="/blog/archive/2005/07.aspx">July, 2005 (6)</a></li>
+			
+				</ul>
+			</div>
+	
+		<div id=cell>
+		<img src="/skins/blog.crowe.co.nz/images/icon-group.jpg" hspace=5 align=left vspace=2>
+		<h3>Post Categories</h3>
+		
+				<ul>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl01_RssLink" title="Subscribe to Active Directory / LDAP" href="/blog/category/76.aspx/rss"><img title="Subscribe to Active Directory / LDAP" src="/skins/blog.crowe.co.nz/images/xml_small.gif" border="0" /></a><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl01_Link" title="" href="/blog/category/76.aspx">Active Directory / LDAP</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl02_RssLink" title="Subscribe to ASP.Net" href="/blog/category/10.aspx/rss"><img title="Subscribe to ASP.Net" src="/skins/blog.crowe.co.nz/images/xml_small.gif" border="0" /></a><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl02_Link" title="" href="/blog/category/10.aspx">ASP.Net</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl03_RssLink" title="Subscribe to Blackberry Development" href="/blog/category/71.aspx/rss"><img title="Subscribe to Blackberry Development" src="/skins/blog.crowe.co.nz/images/xml_small.gif" border="0" /></a><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl03_Link" title="" href="/blog/category/71.aspx">Blackberry Development</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl04_RssLink" title="Subscribe to c#" href="/blog/category/11.aspx/rss"><img title="Subscribe to c#" src="/skins/blog.crowe.co.nz/images/xml_small.gif" border="0" /></a><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl04_Link" title="" href="/blog/category/11.aspx">c#</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl05_RssLink" title="Subscribe to c++" href="/blog/category/29.aspx/rss"><img title="Subscribe to c++" src="/skins/blog.crowe.co.nz/images/xml_small.gif" border="0" /></a><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl05_Link" title="" href="/blog/category/29.aspx">c++</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl06_RssLink" title="Subscribe to Code Camp" href="/blog/category/75.aspx/rss"><img title="Subscribe to Code Camp" src="/skins/blog.crowe.co.nz/images/xml_small.gif" border="0" /></a><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl06_Link" title="" href="/blog/category/75.aspx">Code Camp</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl07_RssLink" title="Subscribe to Excel" href="/blog/category/62.aspx/rss"><img title="Subscribe to Excel" src="/skins/blog.crowe.co.nz/images/xml_small.gif" border="0" /></a><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl07_Link" title="" href="/blog/category/62.aspx">Excel</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl08_RssLink" title="Subscribe to Exchange" href="/blog/category/36.aspx/rss"><img title="Subscribe to Exchange" src="/skins/blog.crowe.co.nz/images/xml_small.gif" border="0" /></a><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl08_Link" title="" href="/blog/category/36.aspx">Exchange</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl09_RssLink" title="Subscribe to Front Page 2003" href="/blog/category/4.aspx/rss"><img title="Subscribe to Front Page 2003" src="/skins/blog.crowe.co.nz/images/xml_small.gif" border="0" /></a><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl09_Link" title="" href="/blog/category/4.aspx">Front Page 2003</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl10_RssLink" title="Subscribe to FTP User Editor" href="/blog/category/64.aspx/rss"><img title="Subscribe to FTP User Editor" src="/skins/blog.crowe.co.nz/images/xml_small.gif" border="0" /></a><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl10_Link" title="" href="/blog/category/64.aspx">FTP User Editor</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl11_RssLink" title="Subscribe to HTML / CSS / DHTML" href="/blog/category/33.aspx/rss"><img title="Subscribe to HTML / CSS / DHTML" src="/skins/blog.crowe.co.nz/images/xml_small.gif" border="0" /></a><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl11_Link" title="" href="/blog/category/33.aspx">HTML / CSS / DHTML</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl12_RssLink" title="Subscribe to IIS" href="/blog/category/1.aspx/rss"><img title="Subscribe to IIS" src="/skins/blog.crowe.co.nz/images/xml_small.gif" border="0" /></a><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl12_Link" title="" href="/blog/category/1.aspx">IIS</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl13_RssLink" title="Subscribe to IIS - Log Parser" href="/blog/category/31.aspx/rss"><img title="Subscribe to IIS - Log Parser" src="/skins/blog.crowe.co.nz/images/xml_small.gif" border="0" /></a><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl13_Link" title="" href="/blog/category/31.aspx">IIS - Log Parser</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl14_RssLink" title="Subscribe to IIS / FTP" href="/blog/category/28.aspx/rss"><img title="Subscribe to IIS / FTP" src="/skins/blog.crowe.co.nz/images/xml_small.gif" border="0" /></a><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl14_Link" title="" href="/blog/category/28.aspx">IIS / FTP</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl15_RssLink" title="Subscribe to IIS / Tools / Administration" href="/blog/category/26.aspx/rss"><img title="Subscribe to IIS / Tools / Administration" src="/skins/blog.crowe.co.nz/images/xml_small.gif" border="0" /></a><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl15_Link" title="" href="/blog/category/26.aspx">IIS / Tools / Administration</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl16_RssLink" title="Subscribe to IIS / Tools / Authentication" href="/blog/category/23.aspx/rss"><img title="Subscribe to IIS / Tools / Authentication" src="/skins/blog.crowe.co.nz/images/xml_small.gif" border="0" /></a><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl16_Link" title="" href="/blog/category/23.aspx">IIS / Tools / Authentication</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl17_RssLink" title="Subscribe to IIS / Tools / Compression" href="/blog/category/20.aspx/rss"><img title="Subscribe to IIS / Tools / Compression" src="/skins/blog.crowe.co.nz/images/xml_small.gif" border="0" /></a><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl17_Link" title="" href="/blog/category/20.aspx">IIS / Tools / Compression</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl18_RssLink" title="Subscribe to IIS / Tools / Crash &amp; Hang" href="/blog/category/22.aspx/rss"><img title="Subscribe to IIS / Tools / Crash &amp; Hang" src="/skins/blog.crowe.co.nz/images/xml_small.gif" border="0" /></a><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl18_Link" title="" href="/blog/category/22.aspx">IIS / Tools / Crash & Hang</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl19_RssLink" title="Subscribe to IIS / Tools / ISAPI Filters" href="/blog/category/19.aspx/rss"><img title="Subscribe to IIS / Tools / ISAPI Filters" src="/skins/blog.crowe.co.nz/images/xml_small.gif" border="0" /></a><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl19_Link" title="" href="/blog/category/19.aspx">IIS / Tools / ISAPI Filters</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl20_RssLink" title="Subscribe to IIS / Tools / Log Files" href="/blog/category/18.aspx/rss"><img title="Subscribe to IIS / Tools / Log Files" src="/skins/blog.crowe.co.nz/images/xml_small.gif" border="0" /></a><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl20_Link" title="" href="/blog/category/18.aspx">IIS / Tools / Log Files</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl21_RssLink" title="Subscribe to IIS / Tools / Scripts" href="/blog/category/21.aspx/rss"><img title="Subscribe to IIS / Tools / Scripts" src="/skins/blog.crowe.co.nz/images/xml_small.gif" border="0" /></a><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl21_Link" title="" href="/blog/category/21.aspx">IIS / Tools / Scripts</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl22_RssLink" title="Subscribe to IIS / Tools / Security" href="/blog/category/25.aspx/rss"><img title="Subscribe to IIS / Tools / Security" src="/skins/blog.crowe.co.nz/images/xml_small.gif" border="0" /></a><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl22_Link" title="" href="/blog/category/25.aspx">IIS / Tools / Security</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl23_RssLink" title="Subscribe to IIS / Tools / SSL" href="/blog/category/24.aspx/rss"><img title="Subscribe to IIS / Tools / SSL" src="/skins/blog.crowe.co.nz/images/xml_small.gif" border="0" /></a><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl23_Link" title="" href="/blog/category/24.aspx">IIS / Tools / SSL</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl24_RssLink" title="Subscribe to IIS 7" href="/blog/category/74.aspx/rss"><img title="Subscribe to IIS 7" src="/skins/blog.crowe.co.nz/images/xml_small.gif" border="0" /></a><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl24_Link" title="" href="/blog/category/74.aspx">IIS 7</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl25_RssLink" title="Subscribe to Me (Chris Crowe)" href="/blog/category/6.aspx/rss"><img title="Subscribe to Me (Chris Crowe)" src="/skins/blog.crowe.co.nz/images/xml_small.gif" border="0" /></a><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl25_Link" title="" href="/blog/category/6.aspx">Me (Chris Crowe)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl26_RssLink" title="Subscribe to MIME Types" href="/blog/category/70.aspx/rss"><img title="Subscribe to MIME Types" src="/skins/blog.crowe.co.nz/images/xml_small.gif" border="0" /></a><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl26_Link" title="" href="/blog/category/70.aspx">MIME Types</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl27_RssLink" title="Subscribe to Misc" href="/blog/category/2.aspx/rss"><img title="Subscribe to Misc" src="/skins/blog.crowe.co.nz/images/xml_small.gif" border="0" /></a><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl27_Link" title="" href="/blog/category/2.aspx">Misc</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl28_RssLink" title="Subscribe to Oulook Express" href="/blog/category/32.aspx/rss"><img title="Subscribe to Oulook Express" src="/skins/blog.crowe.co.nz/images/xml_small.gif" border="0" /></a><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl28_Link" title="" href="/blog/category/32.aspx">Oulook Express</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl29_RssLink" title="Subscribe to Silverlight" href="/blog/category/77.aspx/rss"><img title="Subscribe to Silverlight" src="/skins/blog.crowe.co.nz/images/xml_small.gif" border="0" /></a><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl29_Link" title="" href="/blog/category/77.aspx">Silverlight</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl30_RssLink" title="Subscribe to SQL Server" href="/blog/category/9.aspx/rss"><img title="Subscribe to SQL Server" src="/skins/blog.crowe.co.nz/images/xml_small.gif" border="0" /></a><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl30_Link" title="" href="/blog/category/9.aspx">SQL Server</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl31_RssLink" title="Subscribe to SQL Server CTE" href="/blog/category/78.aspx/rss"><img title="Subscribe to SQL Server CTE" src="/skins/blog.crowe.co.nz/images/xml_small.gif" border="0" /></a><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl31_Link" title="" href="/blog/category/78.aspx">SQL Server CTE</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl32_RssLink" title="Subscribe to Vista" href="/blog/category/67.aspx/rss"><img title="Subscribe to Vista" src="/skins/blog.crowe.co.nz/images/xml_small.gif" border="0" /></a><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl32_Link" title="" href="/blog/category/67.aspx">Vista</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl33_RssLink" title="Subscribe to Vista Gadgets" href="/blog/category/69.aspx/rss"><img title="Subscribe to Vista Gadgets" src="/skins/blog.crowe.co.nz/images/xml_small.gif" border="0" /></a><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl33_Link" title="" href="/blog/category/69.aspx">Vista Gadgets</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl34_RssLink" title="Subscribe to Visual Studio" href="/blog/category/63.aspx/rss"><img title="Subscribe to Visual Studio" src="/skins/blog.crowe.co.nz/images/xml_small.gif" border="0" /></a><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl34_Link" title="" href="/blog/category/63.aspx">Visual Studio</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl35_RssLink" title="Subscribe to Voice over BroadBand" href="/blog/category/73.aspx/rss"><img title="Subscribe to Voice over BroadBand" src="/skins/blog.crowe.co.nz/images/xml_small.gif" border="0" /></a><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl35_Link" title="" href="/blog/category/73.aspx">Voice over BroadBand</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl36_RssLink" title="Subscribe to Windows" href="/blog/category/16.aspx/rss"><img title="Subscribe to Windows" src="/skins/blog.crowe.co.nz/images/xml_small.gif" border="0" /></a><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl36_Link" title="" href="/blog/category/16.aspx">Windows</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl37_RssLink" title="Subscribe to Windows Powershell" href="/blog/category/66.aspx/rss"><img title="Subscribe to Windows Powershell" src="/skins/blog.crowe.co.nz/images/xml_small.gif" border="0" /></a><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl37_Link" title="" href="/blog/category/66.aspx">Windows Powershell</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl38_RssLink" title="Subscribe to Windows Sharepoint Services" href="/blog/category/3.aspx/rss"><img title="Subscribe to Windows Sharepoint Services" src="/skins/blog.crowe.co.nz/images/xml_small.gif" border="0" /></a><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl38_Link" title="" href="/blog/category/3.aspx">Windows Sharepoint Services</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl39_RssLink" title="Subscribe to Windows Vista" href="/blog/category/68.aspx/rss"><img title="Subscribe to Windows Vista" src="/skins/blog.crowe.co.nz/images/xml_small.gif" border="0" /></a><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl39_Link" title="" href="/blog/category/68.aspx">Windows Vista</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl40_RssLink" title="Subscribe to Wine Cellar" href="/blog/category/8.aspx/rss"><img title="Subscribe to Wine Cellar" src="/skins/blog.crowe.co.nz/images/xml_small.gif" border="0" /></a><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl40_Link" title="" href="/blog/category/8.aspx">Wine Cellar</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl41_RssLink" title="Subscribe to WMI" href="/blog/category/30.aspx/rss"><img title="Subscribe to WMI" src="/skins/blog.crowe.co.nz/images/xml_small.gif" border="0" /></a><a id="SingleColumn1_Categories_CatList_ctl02_LinkList_ctl41_Link" title="" href="/blog/category/30.aspx">WMI</a></li>
+			
+				</ul>
+			</div>
+	
+		<div id=cell>
+		<img src="/skins/blog.crowe.co.nz/images/icon-group.jpg" hspace=5 align=left vspace=2>
+		<h3>Blogs - IIS Team</h3>
+		
+				<ul>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl03_LinkList_ctl01_Link" title="" rel="external" href="http://blogs.iis.net/bills/default.aspx">Bill Staples </a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl03_LinkList_ctl02_Link" title="" rel="external" href="http://blogs.iis.net/bobbyv/default.aspx">Bobby Videna </a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl03_LinkList_ctl03_Link" title="" rel="external" href="http://iisanswers.com/brettblog">Brett Hill</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl03_LinkList_ctl04_Link" title="" rel="external" href="http://blogs.msdn.com/carlosag/default.aspx">Carlos Aguilar Mares </a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl03_LinkList_ctl05_Link" title="" rel="external" href="http://blogs.iis.net/chrisad/default.aspx">Chris Adams </a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl03_LinkList_ctl06_Link" title="" rel="external" href="http://blogs.iis.net/davcox/default.aspx">David Cox</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl03_LinkList_ctl07_Link" title="" rel="external" href="http://blogs.msdn.com/david.wang">David Wang</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl03_LinkList_ctl08_Link" title="" rel="external" href="http://blogs.iis.net/ksingla/default.aspx">Kanwaljeet Singla</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl03_LinkList_ctl09_Link" title="" rel="external" href="http://blogs.iis.net/raynerd/default.aspx">Rayner D' Souza</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl03_LinkList_ctl10_Link" title="" rel="external" href="http://blogs.msdn.com/robert_mcmurray/">Robert McMurray </a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl03_LinkList_ctl11_Link" title="" rel="external" href="http://blogs.iis.net/suditi/default.aspx">Suditi Lahiri</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl03_LinkList_ctl12_Link" title="" rel="external" href="http://blogs.msdn.com/tobint/default.aspx">Tobin Titus</a></li>
+			
+				</ul>
+			</div>
+	
+		<div id=cell>
+		<img src="/skins/blog.crowe.co.nz/images/icon-group.jpg" hspace=5 align=left vspace=2>
+		<h3>Blogs : IIS MVPs</h3>
+		
+				<ul>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl04_LinkList_ctl01_Link" title="" href="http://www.msmvps.com/bernard/">Bernard Cheah</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl04_LinkList_ctl02_Link" title="" href="http://www.adopenstatic.com/cs/blogs/ken/">Ken Schaefer</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl04_LinkList_ctl03_Link" title="" rel="external" href="http://www.gafvert.info/iis/">Kristofer Gafvert</a></li>
+			
+				</ul>
+			</div>
+	
+		<div id=cell>
+		<img src="/skins/blog.crowe.co.nz/images/icon-group.jpg" hspace=5 align=left vspace=2>
+		<h3>Blogs : Other Blogs</h3>
+		
+				<ul>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl05_LinkList_ctl01_Link" title="" rel="external" href="http://www.ideseg.com/default.aspx">Carlos Segura Sanz</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl05_LinkList_ctl02_Link" title="" rel="external" href="http://blogs.technet.com/chrisad/">Chris Adams (IIS Program Manager)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl05_LinkList_ctl03_Link" title="" rel="external" href="http://iisgeek.no-ip.com/">IIS Geek Blog</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl05_LinkList_ctl04_Link" title="" href="http://kjctech.net/blog/">Kent J Chen</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl05_LinkList_ctl05_Link" title="" rel="external" href="http://www.paulfallon.com/CategoryView,category,IIS%206.aspx">Paul Fallon's Blog </a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl05_LinkList_ctl06_Link" title="" rel="external" href="http://jonesie.net.nz/">Peter Jones (.NET MVP)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl05_LinkList_ctl07_Link" title="" rel="external" href="http://weblogs.asp.net/scottgu/">Scott Guthrie</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl05_LinkList_ctl08_Link" title="" rel="external" href="http://sharepointerol.blogspot.com/2005_08_01_sharepointerol_archive.html">SharePoint d'EROL </a></li>
+			
+				</ul>
+			</div>
+	
+		<div id=cell>
+		<img src="/skins/blog.crowe.co.nz/images/icon-group.jpg" hspace=5 align=left vspace=2>
+		<h3>IIS Microsoft</h3>
+		
+				<ul>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl06_LinkList_ctl01_Link" title="" rel="external" href="http://iisanswers.com/brettblog/">Brett Hill (IIS Evangelist)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl06_LinkList_ctl02_Link" title="" href="http://blogs.msdn.com/david.wang/">David Wang</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl06_LinkList_ctl03_Link" title="" href="http://www.iis-digest.com/">IIS Digest</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl06_LinkList_ctl04_Link" title="" rel="external" href="http://blogs.technet.com/iishints/default.aspx">IIS Hints and Tips</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl06_LinkList_ctl05_Link" title="" rel="external" href="http://support.microsoft.com/default.aspx?scid=fh;EN-US;iis60">IIS Support Center</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl06_LinkList_ctl06_Link" title="" rel="external" href="http://www.microsoft.com/technet/prodtechnol/windowsserver2003/technologies/featured/iis/default.mspx">IIS Technet Site</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl06_LinkList_ctl07_Link" title="" rel="external" href="http://www.iis.net">Microsoft new IIS Home</a></li>
+			
+				</ul>
+			</div>
+	
+		<div id=cell>
+		<img src="/skins/blog.crowe.co.nz/images/icon-group.jpg" hspace=5 align=left vspace=2>
+		<h3>IIS Newsgroups</h3>
+		
+				<ul>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl07_LinkList_ctl01_Link" title="" rel="external" href="news://msnews.microsoft.com/microsoft.public.platformsdk.adsi.iis-admin">iis adsi admin</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl07_LinkList_ctl02_Link" title="" rel="external" href="news://msnews.microsoft.com/microsoft.public.inetserver.iis.ftp">iis ftp</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl07_LinkList_ctl03_Link" title="" rel="external" href="news://msnews.microsoft.com/microsoft.public.inetserver.iis">iis general</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl07_LinkList_ctl04_Link" title="" rel="external" href="news://msnews.microsoft.com/microsoft.public.inetserver.iis.security">iis security</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl07_LinkList_ctl05_Link" title="" rel="external" href="news://msnews.microsoft.com/microsoft.public.inetserver.iis.smtp_nntp">iis smtp & nntp</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl07_LinkList_ctl06_Link" title="" rel="external" href="http://www.microsoft.com/technet/community/newsgroups/topics/iis.mspx">Web Interface to Newsgroups</a></li>
+			
+				</ul>
+			</div>
+	
+		<div id=cell>
+		<img src="/skins/blog.crowe.co.nz/images/icon-group.jpg" hspace=5 align=left vspace=2>
+		<h3>IIS Tools/Docs</h3>
+		
+				<ul>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl08_LinkList_ctl01_Link" title="" rel="external" href="http://www.microsoft.com/technet/prodtechnol/WindowsServer2003/Library/IIS">IIS 6 Docs ( TechNet )</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl08_LinkList_ctl02_Link" title="" rel="external" href="http://www.microsoft.com/windowsserver2003/community/centers/iis/iis6_faq.mspx">IIS 6 FAQ</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl08_LinkList_ctl03_Link" title="" rel="external" href="http://www.microsoft.com/downloads/details.aspx?familyid=2AEFC3E4-CE97-4F25-ACE6-127F933A6CD2&amp;displaylang=en">IIS 6 Migration Tool</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl08_LinkList_ctl04_Link" title="" rel="external" href="http://www.microsoft.com/downloads/details.aspx?FamilyID=80A1B6E6-829E-49B7-8C02-333D9C148E69&amp;displaylang=en">IIS 6 Res Kit ( Book )</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl08_LinkList_ctl05_Link" title="" rel="external" href="http://www.microsoft.com/downloads/details.aspx?FamilyID=56fc92ee-a71a-4c73-b628-ade629c89499&amp;DisplayLang=en">IIS 6 Res Kit ( Tools )</a></li>
+			
+				</ul>
+			</div>
+	
+		<div id=cell>
+		<img src="/skins/blog.crowe.co.nz/images/icon-group.jpg" hspace=5 align=left vspace=2>
+		<h3>IIS Web Sites</h3>
+		
+				<ul>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl09_LinkList_ctl01_Link" title="" href="../../../../Skins/blog.crowe.co.nz/Controls/www.iis-aid.com">IIS-Aid</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl09_LinkList_ctl02_Link" title="" rel="external" href="http://www.microsoft.com/WindowsServer2003/iis/default.mspx">Microsoft IIS Home</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl09_LinkList_ctl03_Link" title="" rel="external" href="http://www.iisanswers.com">www.iisanswers.com</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl09_LinkList_ctl04_Link" title="" rel="external" href="http://www.iistoolbox.com/">www.iistoolbox.com/</a></li>
+			
+				</ul>
+			</div>
+	
+
+
+
+
+	    
+            <div id="cell">
+                <img src="/skins/blog.crowe.co.nz/images/icon-group.jpg" hspace="5" align="left" vspace="2"><h3>
+                    Some of my readers</h3>
+                <br>
+                <table border="0" cellspacing="0" cellpadding="0" width="240">
+                    <tr>
+                        <td align='center' valign='middle'>
+	    	    <script type='text/javascript' src='http://track2.mybloglog.com/js/jsserv.php?mblID=2007082407072538'></script>
+<br/>
+<script type="text/javascript" src="http://feedjit.com/serve/?bc=ffffff&amp;tc=494949&amp;brd1=336699&amp;lnk=494949&amp;hc=336699&amp;ww=216"></script><noscript><a href="http://feedjit.com/">Feedjit Live Blog Stats</a></noscript>
+</td></tr></table></div>
+
+	    <!-- Microsoft Certifications -->
+            <div id="cell">
+                <img src="/skins/blog.crowe.co.nz/images/icon-group.jpg" hspace="5" align="left" vspace="2"><h3>
+                    My Microsoft Certifications</h3>
+                <br>
+                <table border="0" cellspacing="0" cellpadding="0" width="215">
+                    <tr>
+                        <td align='center' valign='middle'>
+                        <tbody>
+                            <tr>
+                                <td align="center">
+                                    <font size="2">
+                                        <img src="/images/mcp.gif" border="0"></font></td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    <font size="2">Dec 15, 1998</font><br>
+                                    <br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    <font size="2">
+                                        <img src="/images/mcp_int.gif" border="0"></font></td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    <font size="2">Dec 20, 2000</font><br>
+                                    <br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    <font size="2">
+                                        <img src="/images/mcse.gif" border="0"></font></td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    <font size="2">Jan 31, 2001</font><br>
+                                    <br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    <font size="2">
+                                        <img src="/images/mcsa.gif" border="0"></font></td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    <font size="2">Jul 22, 2002</font><br>
+                                    <br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    <font size="2">
+                                        <img src="/images/mcdba.gif" border="0"></font></td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    <font size="2">Nov 1, 2004</font></td>
+                            </tr>
+                        </tbody>
+                </table>
+            </div>
+
+	      <br>
+                <!-- MVP Years -->
+                <div id="cell">
+                    <img src="/skins/blog.crowe.co.nz/images/icon-group.jpg" hspace="5" align="left" vspace="2"><h3>
+                        My Microsoft MVP Awards</h3>
+                    <br>
+                    <table align="center" border="0" cellspacing="0" cellpadding="1">
+                        <tr>
+                            <td align='center' valign='middle'>
+                                <tbody>
+                                    <tr>
+                                        <td align="center" colspan="2">
+                                            <a href="http://mvp.support.microsoft.com" border="0" target="_new"><font size="2">
+                                                <img src="/images/mvp.gif" border="0"></a></font><br>
+                                            <br>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <tr>
+                                            <td align="center">
+                                                <font size="2"><a href="/images/mvp1997.gif" border="0" target="_new">
+                                                    <img src="/images/mvp1997small.gif" width="80" border="0"></a></font></td>
+                                            <td align="center">
+                                                <font size="2">1997</font></td>
+                                        </tr>
+                                        <tr>
+                                            <td align="center">
+                                                <font size="2"><a href="/images/mvp1998.gif" border="0" target="_new">
+                                                    <img src="/images/mvp1998small.gif" width="80" border="0"></a></font></td>
+                                            <td align="center">
+                                                <font size="2">1998</font></td>
+                                        </tr>
+                                        <tr>
+                                            <td align="center">
+                                                <font size="2"><a href="/images/mvp1999.gif" border="0" target="_new">
+                                                    <img src="/images/mvp1999small.gif" width="80" border="0"></a></font></td>
+                                            <td align="center">
+                                                <font size="2">1999</font></td>
+                                        </tr>
+                                        <tr>
+                                            <td align="center">
+                                                <font size="2"><a href="/images/mvp2000.gif" border="0" target="_new">
+                                                    <img src="/images/mvp2000small.gif" width="80" border="0"></a></font></td>
+                                            <td align="center">
+                                                <font size="2">2000</font></td>
+                                        </tr>
+                                        <tr>
+                                            <td align="center">
+                                                <font size="2"><a href="/images/mvp2001.gif" border="0" target="_new">
+                                                    <img src="/images/mvp2001small.gif" width="80" border="0"></a></font></td>
+                                            <td align="center">
+                                                <font size="2">2001</font></td>
+                                        </tr>
+                                        <tr>
+                                            <td align="center">
+                                                <font size="2"><a href="/images/mvp2002.gif" border="0" target="_new">
+                                                    <img src="/images/mvp2002small.gif" width="80" border="0"></a></font></td>
+                                            <td align="center">
+                                                <font size="2">2002</font></td>
+                                        </tr>
+                                        <tr>
+                                            <td align="center">
+                                                <font size="2"><a href="/images/mvp2003.gif" border="0" target="_new">
+                                                    <img src="/images/mvp2003small.gif" width="80" border="0"></a></font></td>
+                                            <td align="center">
+                                                <font size="2">2003</font></td>
+                                        </tr>
+                                        <tr>
+                                            <td align="center">
+                                                <font size="2"><a href="/images/mvp2004.gif" border="0" target="_new">
+                                                    <img src="/images/mvp2004small.gif" width="80" border="0"></a></font></td>
+                                            <td align="center">
+                                                <font size="2">2004</font></td>
+                                        </tr>
+                                        <tr>
+                                            <td align="center">
+                                                <font size="2"><a href="/images/mvp2005.gif" border="0" target="_new">
+                                                    <img src="/images/mvp2005small.gif" width="80" border="0"></a></font></td>
+                                            <td align="center">
+                                                <font size="2">2005</font></td>
+                                        </tr>
+                                        <tr>
+                                            <td align="center">
+                                                <font size="2"><a href="/images/mvp2006.gif" border="0" target="_new">
+                                                    <img src="/images/mvp2006small.gif" width="80" border="0"></a></font></td>
+                                            <td align="center">
+                                                <font size="2">2006</font></td>
+                                        </tr>
+                                        <td colspan="2" align="center">
+                                            <font size="2"><a href="http://mvp.support.microsoft.com" target="_new">mvp.support.microsoft.com</a></font></td>
+                                    </tr>
+                                </tbody>
+                    </table>
+                </div>
+                <br>
+
+<!-- Start of StatCounter Code -->
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-1654315-1";
+urchinTracker();
+</script>
+
+                <script type="text/javascript" language="javascript">
+var sc_project=934823; 
+var sc_invisible=1; 
+var sc_partition=7; 
+var sc_security="4d03305b"; 
+var sc_remove_link=1; 
+                </script>
+
+                <script type="text/javascript" language="javascript" src="http://www.statcounter.com/counter/counter.js"></script>
+
+                <noscript>
+                    <img src="http://c8.statcounter.com/counter.php?sc_project=934823&amp;java=0&amp;security=4d03305b&amp;invisible=1"
+                        alt="web stats analysis" border="0">
+                </noscript>
+                <!-- End of StatCounter Code -->
+                <!--
+<table border=0 cellspacing=0 cellpadding=0 width=245><tr><td align='center'><script type="text/javascript" src="http://www.feedmap.net/blogmap/blogapi.ashx?method=blogmapbadge&feed=http://blog.crowe.co.nz/rss.aspx"></script></td></tr></table>
+-->
+            </div>
+            </div>
+
+        </td>
+
+	   <td class="MainCell" width="100%">
+            <div id="main">
+                      
+					
+
+<div class="previousNext">
+	<a id="viewpost_ascx_previousNext_PrevLink" title="previous post" href="http://blog.crowe.co.nz/blog/archive/2006/06/02/647.aspx"><< C# - How to display MimeMap entries to the console from an instance of IIS</a>
+	<span id="viewpost_ascx_previousNext_LeftPipe" class="prevNextSeparator"> | </span>
+	<a id="viewpost_ascx_previousNext_MainLink" href="/blog/Default.aspx">Home</a>
+	<span id="viewpost_ascx_previousNext_RightPipe" class="prevNextSeparator"> | </span>
+	<a id="viewpost_ascx_previousNext_NextLink" title="next post" href="http://blog.crowe.co.nz/blog/archive/2006/06/02/648.aspx">2007 Microsoft Office system – free elearning courses >></a>
+</div>
+
+<div class="post">
+			<div class="title">
+				<h2><a id="viewpost_ascx_TitleUrl" title="Title of this entry." href="/blog/archive/2006/06/01/644.aspx">C# - How to display almost all properties for all IIS Virtual Web Servers</a>&nbsp;</h2>
+	</div>
+	<div class="body">
+		<P><B>Source Code</B></P>
+<P><B>Note: </B>You will need to add a reference to <B>System.DirectoryServices </B>if you are using <B>VisualStudio.net</B></P><PRE><SPAN style="COLOR: blue">using</SPAN> System;
+<SPAN style="COLOR: blue">using</SPAN> System.DirectoryServices;
+<SPAN style="COLOR: blue">namespace</SPAN> IISSample
+{
+    <SPAN style="COLOR: blue">static</SPAN> <SPAN style="COLOR: blue">class</SPAN> Program
+    {
+        <SPAN style="COLOR: gray">/// <SUMMARY></SPAN>
+        <SPAN style="COLOR: gray">/// The main entry point for the application.</SPAN>
+        <SPAN style="COLOR: gray">/// </SUMMARY></SPAN>
+        [STAThread]
+        <SPAN style="COLOR: blue">static</SPAN> <SPAN style="COLOR: blue">void</SPAN> Main()
+        {
+            <SPAN style="COLOR: blue">const</SPAN> <SPAN style="COLOR: blue">string</SPAN> WebServerSchema = <SPAN style="COLOR: maroon">"IIsWebServer"</SPAN>; <SPAN style="COLOR: green">// Case Sensitive</SPAN>
+            <SPAN style="COLOR: blue">string</SPAN> ServerName = <SPAN style="COLOR: maroon">"LocalHost"</SPAN>;
+            DirectoryEntry W3SVC = <SPAN style="COLOR: blue">new</SPAN> DirectoryEntry(<SPAN style="COLOR: maroon">"IIS://"</SPAN> + ServerName + <SPAN style="COLOR: maroon">"/w3svc"</SPAN>);
+            <SPAN style="COLOR: blue">foreach</SPAN> (DirectoryEntry Site <SPAN style="COLOR: blue">in</SPAN> W3SVC.Children)
+            {
+                <SPAN style="COLOR: blue">if</SPAN> (Site.SchemaClassName == WebServerSchema)
+                {
+                    Console.WriteLine(<SPAN style="COLOR: maroon">"WebSite Instance ID : "</SPAN> +Site.Name);
+                    <SPAN style="COLOR: blue">foreach</SPAN> (<SPAN style="COLOR: blue">string</SPAN> PropertyName <SPAN style="COLOR: blue">in</SPAN> Site.Properties.PropertyNames)
+                    {
+                        Console.WriteLine(PropertyName);
+                        PropertyValueCollection pvc = Site.Properties[PropertyName];
+                        <SPAN style="COLOR: blue">foreach</SPAN>(<SPAN style="COLOR: blue">object</SPAN> Value <SPAN style="COLOR: blue">in</SPAN> pvc)
+                            Console.WriteLine(<SPAN style="COLOR: maroon">"  "</SPAN> + Value.ToString());
+                    }
+                }
+                Console.WriteLine(<SPAN style="COLOR: maroon">""</SPAN>.PadRight(<SPAN style="COLOR: maroon">80</SPAN>, <SPAN style="COLOR: maroon">'-'</SPAN>));
+            }
+        }
+    }
+}</PRE>
+<P><STRONG>Example Output:</STRONG> </P><SPAN style="OVERFLOW: auto; HEIGHT: 300px">
+<P><FONT face="Courier New" size=2>ServerSize<BR>&nbsp; 1<BR>NotDeletable<BR>&nbsp; True<BR>FrontPageWeb <BR>&nbsp; True<BR>ServerAutoStart<BR>&nbsp; True<BR>ServerState<BR>&nbsp; 2<BR>ServerComment<BR>&nbsp; Default Web Site <BR>KeyType<BR>&nbsp; IIsWebServer<BR>DefaultDoc<BR>&nbsp; Default.htm,Default.asp,index.htm,iisstart.asp<BR>SecureBindings<BR>&nbsp; :443:<BR>ServerBindings<BR>&nbsp; :80:<BR>&nbsp; :9090:chris<BR>CPUResetInterval<BR>&nbsp; 1440<BR>CPULoggingInterval<BR>&nbsp; 60<BR>CPULoggingOptions<BR>&nbsp; 1<BR>CPULoggingMask<BR>&nbsp; 255<BR>CPUCGIEnabled<BR>&nbsp; True<BR>CPUAppEnabled<BR>&nbsp; True<BR>AnonymousPasswordSync<BR>&nbsp; True<BR>LogType<BR>&nbsp; 1<BR>LogFilePeriod<BR>&nbsp; 1<BR>LogFileTruncateSize<BR>&nbsp; 20971520<BR>LogExtFileFlags<BR>&nbsp; 1414<BR>DirBrowseFlags<BR>&nbsp; 1073741886<BR>CacheISAPI<BR>&nbsp; True<BR>AllowKeepAlive<BR>&nbsp; True<BR>CGITimeout<BR>&nbsp; 300<BR>ConnectionTimeout<BR>&nbsp; 900<BR>MaxConnections<BR>&nbsp; 10<BR>ContentIndexed<BR>&nbsp; True<BR>PasswordChangeFlags<BR>&nbsp; 6<BR>AspLogErrorRequests<BR>&nbsp; True<BR>AspScriptFileCacheSize<BR>&nbsp; 250<BR>AspScriptEngineCacheMax<BR>&nbsp; 125<BR>AspExceptionCatchEnable<BR>&nbsp; True<BR>AspTrackThreadingModel<BR>&nbsp; False<BR>AspAllowOutOfProcComponents<BR>&nbsp; True<BR>AspEnableAspHtmlFallback<BR>&nbsp; False<BR>AspEnableChunkedEncoding<BR>&nbsp; True<BR>AspEnableTypelibCache<BR>&nbsp; True<BR>AspErrorsToNTLog<BR>&nbsp; False<BR>AspProcessorThreadMax<BR>&nbsp; 25<BR>AspRequestQueueMax<BR>&nbsp; 3000<BR>AspThreadGateEnabled<BR>&nbsp; False<BR>AspThreadGateTimeSlice<BR>&nbsp; 1000<BR>AspThreadGateSleepDelay<BR>&nbsp; 100<BR>AspThreadGateSleepMax<BR>&nbsp; 50<BR>AspThreadGateLoadLow<BR>&nbsp; 50<BR>AspThreadGateLoadHigh<BR>&nbsp; 80<BR>AspMaxDiskTemplateCacheFiles<BR>&nbsp; 1000<BR>AspAllowSessionState<BR>&nbsp; True<BR>AspBufferingOn<BR>&nbsp; True<BR>AspEnableParentPaths<BR>&nbsp; True<BR>AspSessionTimeout<BR>&nbsp; 20<BR>AspQueueTimeout<BR>&nbsp; -1<BR>AspCodepage<BR>&nbsp; 0<BR>AspScriptTimeout<BR>&nbsp; 90<BR>AspScriptErrorSentToBrowser<BR>&nbsp; True<BR>AppAllowDebugging<BR>&nbsp; False<BR>AppAllowClientDebug<BR>&nbsp; False<BR>AspKeepSessionIDSecure<BR>&nbsp; False<BR>AspBufferingLimit<BR>&nbsp; 134217728<BR>AspEnableApplicationRestart<BR>&nbsp; True<BR>AspQueueConnectionTestTime<BR>&nbsp; 3<BR>AspSessionMax<BR>&nbsp; -1<BR>AspLCID<BR>&nbsp; 2048<BR>AspMaxRequestEntityAllowed<BR>&nbsp; 1073741824<BR>AuthFlags<BR>&nbsp; 5<BR>AnonymousUserName<BR>&nbsp; IUSR_CCROWE<BR>AnonymousUserPass<BR>&nbsp; O0vqT^=Vz:2\9&amp;<BR>NTAuthenticationProviders<BR>&nbsp; Negotiate,NTLM<BR>LogPluginClsid<BR>&nbsp; {FF160663-DE82-11CF-BC0A-00AA006111E0}<BR>Realm<BR>&nbsp; ap.trimblecorp.net<BR>AspScriptLanguage<BR>&nbsp; VBScript<BR>AspScriptErrorMessage<BR>&nbsp; An error occurred on the server when processing the URL.&nbsp; Please contact the system administrator.<BR>AdminACL<BR>&nbsp; System.__ComObject<BR>LogFileDirectory<BR>&nbsp; C:\WINDOWS\system32\LogFiles<BR>AspDiskTemplateCacheDirectory<BR>&nbsp; %windir%\system32\inetsrv\ASP Compiled Templates<BR>HttpErrors<BR>&nbsp; 400,*,FILE,C:\WINDOWS\help\iisHelp\common\400.htm<BR>&nbsp; 401,1,FILE,C:\WINDOWS\help\iisHelp\common\401-1.htm<BR>&nbsp; 401,2,FILE,C:\WINDOWS\help\iisHelp\common\401-2.htm<BR>&nbsp; 401,3,FILE,C:\WINDOWS\help\iisHelp\common\401-3.htm<BR>&nbsp; 401,4,FILE,C:\WINDOWS\help\iisHelp\common\401-4.htm<BR>&nbsp; 401,5,FILE,C:\WINDOWS\help\iisHelp\common\401-5.htm<BR>&nbsp; 403,1,FILE,C:\WINDOWS\help\iisHelp\common\403-1.htm<BR>&nbsp; 403,2,FILE,C:\WINDOWS\help\iisHelp\common\403-2.htm<BR>&nbsp; 403,3,FILE,C:\WINDOWS\help\iisHelp\common\403-3.htm<BR>&nbsp; 403,4,FILE,C:\WINDOWS\help\iisHelp\common\403-4.htm<BR>&nbsp; 403,5,FILE,C:\WINDOWS\help\iisHelp\common\403-5.htm<BR>&nbsp; 403,6,FILE,C:\WINDOWS\help\iisHelp\common\403-6.htm<BR>&nbsp; 403,7,FILE,C:\WINDOWS\help\iisHelp\common\403-7.htm<BR>&nbsp; 403,8,FILE,C:\WINDOWS\help\iisHelp\common\403-8.htm<BR>&nbsp; 403,9,FILE,C:\WINDOWS\help\iisHelp\common\403-9.htm<BR>&nbsp; 403,10,FILE,C:\WINDOWS\help\iisHelp\common\403-10.htm<BR>&nbsp; 403,11,FILE,C:\WINDOWS\help\iisHelp\common\403-11.htm<BR>&nbsp; 403,12,FILE,C:\WINDOWS\help\iisHelp\common\403-12.htm<BR>&nbsp; 403,13,FILE,C:\WINDOWS\help\iisHelp\common\403-13.htm<BR>&nbsp; 403,15,FILE,C:\WINDOWS\help\iisHelp\common\403-15.htm<BR>&nbsp; 403,16,FILE,C:\WINDOWS\help\iisHelp\common\403-16.htm<BR>&nbsp; 403,17,FILE,C:\WINDOWS\help\iisHelp\common\403-17.htm<BR>&nbsp; 404,*,FILE,C:\WINDOWS\help\iisHelp\common\404b.htm<BR>&nbsp; 405,*,FILE,C:\WINDOWS\help\iisHelp\common\405.htm<BR>&nbsp; 406,*,FILE,C:\WINDOWS\help\iisHelp\common\406.htm<BR>&nbsp; 407,*,FILE,C:\WINDOWS\help\iisHelp\common\407.htm<BR>&nbsp; 412,*,FILE,C:\WINDOWS\help\iisHelp\common\412.htm<BR>&nbsp; 414,*,FILE,C:\WINDOWS\help\iisHelp\common\414.htm<BR>&nbsp; 500,12,FILE,C:\WINDOWS\help\iisHelp\common\500-12.htm<BR>&nbsp; 500,13,FILE,C:\WINDOWS\help\iisHelp\common\500-13.htm<BR>&nbsp; 500,15,FILE,C:\WINDOWS\help\iisHelp\common\500-15.htm<BR>ScriptMaps<BR>&nbsp; .asp,C:\WINDOWS\system32\inetsrv\asp.dll,5,GET,HEAD,POST,TRACE<BR>&nbsp; .cer,C:\WINDOWS\system32\inetsrv\asp.dll,5,GET,HEAD,POST,TRACE<BR>&nbsp; .cdx,C:\WINDOWS\system32\inetsrv\asp.dll,5,GET,HEAD,POST,TRACE<BR>&nbsp; .asa,C:\WINDOWS\system32\inetsrv\asp.dll,5,GET,HEAD,POST,TRACE<BR>&nbsp; .idc,C:\WINDOWS\system32\inetsrv\httpodbc.dll,5,OPTIONS,GET,HEAD,POST,PUT,DELETE,TRACE<BR>&nbsp; .shtm,C:\WINDOWS\system32\inetsrv\ssinc.dll,5,GET,POST<BR>&nbsp; .shtml,C:\WINDOWS\system32\inetsrv\ssinc.dll,5,GET,POST<BR>&nbsp; .stm,C:\WINDOWS\system32\inetsrv\ssinc.dll,5,GET,POST<BR>&nbsp; .asax,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG<BR>&nbsp; .ascx,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG<BR>&nbsp; .ashx,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG<BR>&nbsp; .asmx,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG<BR>&nbsp; .aspx,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG<BR>&nbsp; .axd,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG<BR>&nbsp; .vsdisco,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG<BR>&nbsp; .rem,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG<BR>&nbsp; .soap,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG<BR>&nbsp; .config,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG<BR>&nbsp; .cs,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG<BR>&nbsp; .csproj,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG<BR>&nbsp; .vb,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG<BR>&nbsp; .vbproj,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG<BR>&nbsp; .webinfo,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG<BR>&nbsp; .licx,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG<BR>&nbsp; .resx,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG<BR>&nbsp; .resources,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG<BR>&nbsp; .master,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG<BR>&nbsp; .skin,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG<BR>&nbsp; .compiled,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG<BR>&nbsp; .browser,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG<BR>&nbsp; .mdb,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG<BR>&nbsp; .jsl,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG<BR>&nbsp; .vjsproj,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG<BR>&nbsp; .sitemap,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG<BR>&nbsp; .msgx,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG<BR>&nbsp; .ad,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG<BR>&nbsp; .dd,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG<BR>&nbsp; .ldd,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG<BR>&nbsp; .sd,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG<BR>&nbsp; .cd,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG<BR>&nbsp; .adprototype,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG<BR>&nbsp; .lddprototype,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG<BR>&nbsp; .sdm,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG<BR>&nbsp; .sdmDocument,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG<BR>&nbsp; .ldb,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG<BR>&nbsp; .svc,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG<BR>&nbsp; .mdf,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG<BR>&nbsp; .ldf,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG<BR>&nbsp; .java,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG<BR>&nbsp; .exclude,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG<BR>&nbsp; .refresh,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG<BR>HttpCustomHeaders<BR>&nbsp; X-Powered-By: ASP.NET<BR>MaxBandwidth<BR>&nbsp; -1</FONT> </P></SPAN>
+<P>You can also do this for all of the IIS Classes such as:</P>
+<P>
+<TABLE style="BORDER-COLLAPSE: collapse" cellPadding=2 border=1>
+<TBODY>
+<TR vAlign=top>
+<TD><A href="http://www.microsoft.com/windows2000/en/server/iis/htm/asp/aore4qia.htm"><B>IIsCertMapper</B></A></TD>
+<TD>Maps certificates to Windows accounts.</TD></TR>
+<TR vAlign=top>
+<TD><A href="http://www.microsoft.com/windows2000/en/server/iis/htm/asp/aore4mcz.htm"><B>IIsCompressionSchemes</B></A></TD>
+<TD>Global settings for HTTP 1.1 compression schemes.</TD></TR>
+<TR vAlign=top>
+<TD><A href="http://www.microsoft.com/windows2000/en/server/iis/htm/asp/aore6sh1.htm"><B>IIsCompressionScheme</B></A></TD>
+<TD>Settings for individual compression schemes.</TD></TR>
+<TR vAlign=top>
+<TD><A href="http://www.microsoft.com/windows2000/en/server/iis/htm/asp/aore2xpu.htm"><B>IIsComputer</B></A></TD>
+<TD>Establishes global settings for IIS configuration.</TD></TR>
+<TR vAlign=top>
+<TD><A href="http://www.microsoft.com/windows2000/en/server/iis/htm/asp/aore6r8l.htm"><B>IIsCustomLogModule</B></A></TD>
+<TD>Sets properties for custom logging information field nodes.</TD></TR>
+<TR vAlign=top>
+<TD><A href="http://www.microsoft.com/windows2000/en/server/iis/htm/asp/aore0drm.htm"><B>IIsFilter</B></A></TD>
+<TD>Provides information about a specific filter.</TD></TR>
+<TR vAlign=top>
+<TD><A href="http://www.microsoft.com/windows2000/en/server/iis/htm/asp/aore4h6b.htm"><B>IIsFilters</B></A></TD>
+<TD>Manages filters.</TD></TR>
+<TR vAlign=top>
+<TD><A href="http://www.microsoft.com/windows2000/en/server/iis/htm/asp/aore5yzz.htm"><B>IIsFtpInfo</B></A></TD>
+<TD>Establishes configuration properties for FTP servers in addition to those set at IIsFtpService.</TD></TR>
+<TR vAlign=top>
+<TD><A href="http://www.microsoft.com/windows2000/en/server/iis/htm/asp/aore43si.htm"><B>IIsFtpServer</B></A></TD>
+<TD>Establishes configuration properties for a single FTP server.</TD></TR>
+<TR vAlign=top>
+<TD><A href="http://www.microsoft.com/windows2000/en/server/iis/htm/asp/aore32n9.htm"><B>IIsFtpService</B></A></TD>
+<TD>Establishes configuration properties common to all FTP servers.</TD></TR>
+<TR vAlign=top>
+<TD><A href="http://www.microsoft.com/windows2000/en/server/iis/htm/asp/aore20mq.htm"><B>IIsFtpVirtualDir</B></A></TD>
+<TD>Sets properties for an individual FTP virtual directory.</TD></TR>
+<TR vAlign=top>
+<TD><A href="http://www.microsoft.com/windows2000/en/server/iis/htm/asp/aore0ard.htm"><B>IIsIPSecurity</B></A></TD>
+<TD>A custom ADSI object you can use to set access permissions by IP address and domain address.</TD></TR>
+<TR vAlign=top>
+<TD><A href="http://www.microsoft.com/windows2000/en/server/iis/htm/asp/aore60yt.htm"><B>IIsLogModule</B></A></TD>
+<TD>Contains information about a specific logging module.</TD></TR>
+<TR vAlign=top>
+<TD><A href="http://www.microsoft.com/windows2000/en/server/iis/htm/asp/aore5pyr.htm"><B>IIsLogModules</B></A></TD>
+<TD>Maintains information about installed logging modules.</TD></TR>
+<TR vAlign=top>
+<TD><A href="http://www.microsoft.com/windows2000/en/server/iis/htm/asp/aore8m5s.htm"><B>IIsMimeMap</B></A></TD>
+<TD>Manages Multipurpose Internet Mail Extension (MIME) mappings.</TD></TR>
+<TR vAlign=top>
+<TD><A href="http://www.microsoft.com/windows2000/en/server/iis/htm/asp/aore2u3p.htm"><B>IIsMimeType</B></A></TD>
+<TD>Used to manipulate the list of valid MIME types.</TD></TR>
+<TR vAlign=top>
+<TD><A href="http://www.microsoft.com/windows2000/en/server/iis/htm/asp/aore1jw9.htm"><B>IIsWebDirectory</B></A></TD>
+<TD>Sets properties for an individual Web directory.</TD></TR>
+<TR vAlign=top>
+<TD><A href="http://www.microsoft.com/windows2000/en/server/iis/htm/asp/aore136t.htm"><B>IIsWebFile</B></A></TD>
+<TD>Sets properties for an individual Web file.</TD></TR>
+<TR vAlign=top>
+<TD><A href="http://www.microsoft.com/windows2000/en/server/iis/htm/asp/aore8din.htm"><B>IIsWebInfo</B></A></TD>
+<TD>Establishes configuration properties for Web servers in addition to those set at <B>IIsWebService</B>.</TD></TR>
+<TR vAlign=top>
+<TD><A href="http://www.microsoft.com/windows2000/en/server/iis/htm/asp/aore7zn6.htm"><B>IIsWebServer</B></A></TD>
+<TD>Establishes configuration properties for a single Web server.</TD></TR>
+<TR vAlign=top>
+<TD><A href="http://www.microsoft.com/windows2000/en/server/iis/htm/asp/aore1p5x.htm"><B>IIsWebService</B></A></TD>
+<TD>Establishes configuration properties common to all Web servers.</TD></TR>
+<TR vAlign=top>
+<TD><A href="http://www.microsoft.com/windows2000/en/server/iis/htm/asp/aore8v5e.htm"><B>IIsWebVirtualDir</B></A></TD>
+<TD>Sets properties for an individual Web virtual directory.</TD></TR></TBODY></TABLE></P>
+<P><B>Note</B>: Note all classes are available at all levels in the IIS Metabase Hierarchy - so you can not for example get an IIsVirtualDirectory at the same level as the IIsWebServer because it is a child element of an IIsWebServer</P>
+<P>For more details see the following references</P>
+<UL>
+<LI><A href="http://www.microsoft.com/windows2000/en/server/iis/default.asp?url=/windows2000/en/server/iis/htm/asp/aore7zn6.htm">http://www.microsoft.com/windows2000/en/server/iis/default.asp?url=/windows2000/en/server/iis/htm/asp/aore7zn6.htm</A> 
+<LI>http://www.microsoft.com/technet/prodtechnol/WindowsServer2003/Library/IIS/848968f3-baa0-46f9-b1e6-ef81dd09b015.mspx?mfr=true</LI></UL>
+	</div>
+	<div class="info">
+		posted on
+		Thursday, June 01, 2006 10:08 AM | 
+		Filed Under [
+	
+		<a id="viewpost_ascx_Categories_CatList_ctl01_Link" title="" href="/blog/category/11.aspx">c#</a>
+	
+		<a id="viewpost_ascx_Categories_CatList_ctl02_Link" title="" href="/blog/category/4.aspx">Front Page 2003</a>
+	
+		<a id="viewpost_ascx_Categories_CatList_ctl03_Link" title="" href="/blog/category/1.aspx">IIS</a>
+	
+		<a id="viewpost_ascx_Categories_CatList_ctl04_Link" title="" href="/blog/category/21.aspx">IIS / Tools / Scripts</a>
+	
+		]
+	
+
+	</div>
+	<div class="trackback">
+		<link rel="pingback" href="http://blog.crowe.co.nz/blog/Services/Pingback.aspx"></link>
+		
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+xmlns:dc="http://purl.org/dc/elements/1.1/"
+xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+<rdf:Description
+rdf:about="http://blog.crowe.co.nz/blog/archive/2006/06/01/644.aspx"
+dc:identifier="http://blog.crowe.co.nz/blog/archive/2006/06/01/644.aspx"
+dc:title="C# - How to display almost all properties for all IIS Virtual Web Servers"
+trackback:ping="http://blog.crowe.co.nz/blog/services/trackbacks/644.aspx" />
+</rdf:RDF>
+-->
+
+	</div>
+</div>
+<span id='apnlCommentsWrapper$RBS_Holder'><span id="apnlCommentsWrapper" AjaxCall="async">
+<a name="feedback" title="feedback anchor"></a>
+
+<div class="post" style="">
+<div class="title">
+<h2>Comments</h2></div>
+<br>
+
+
+	<div class="post">
+<div class="title"><h2><a title="permalink: re: C# - How to display almost all properties for all IIS Virtual Web Servers" href="http://blog.crowe.co.nz/blog/archive/2006/06/01/644.aspx#408342">#</a>&nbsp;<a name="408342"></a>re: C# - How to display almost all properties for all IIS Virtual Web Servers</h2></div>
+<img id="Comments_ascx_CommentList_ctl01_GravatarImg" class="avatar" align="right" src="http://www.gravatar.com/avatar.php?gravatar_id=806f5488d5f79a2013d0517fbb1c798a&amp;size=50&amp;default=http%3a%2f%2fblog.crowe.co.nz%2fblog%2fimages%2fdefault_gravatar.png" alt="Gravatar" style="border-width:0px;" />
+<a id="Comments_ascx_CommentList_ctl01_EditLink" href="javascript:__doPostBack('Comments_ascx$CommentList$ctl01$EditLink','')"></a>
+		<br>
+		<div class="content">
+			Thanks alot. You sloved my very very big problem
+		</div>
+	<span class='author'>Posted by <a id="Comments_ascx_CommentList_ctl01_NameLink" title="Nikhil Joshi">Nikhil Joshi</a> on
+			3/3/2008 10:41 PM</span>
+	</div>
+	
+	<div class="post">
+<div class="title"><h2><a title="permalink: re: C# - How to display almost all properties for all IIS Virtual Web Servers" href="http://blog.crowe.co.nz/blog/archive/2006/06/01/644.aspx#559816">#</a>&nbsp;<a name="559816"></a>re: C# - How to display almost all properties for all IIS Virtual Web Servers</h2></div>
+
+<a id="Comments_ascx_CommentList_ctl02_EditLink" href="javascript:__doPostBack('Comments_ascx$CommentList$ctl02$EditLink','')"></a>
+		<br>
+		<div class="content">
+			Thank you it has been very hard to find a list of these properties
+		</div>
+	<span class='author'>Posted by <a id="Comments_ascx_CommentList_ctl02_NameLink" title="Craig">Craig</a> on
+			3/28/2008 1:48 AM</span>
+	</div>
+	
+	<div class="post">
+<div class="title"><h2><a title="permalink: re: C# - How to display almost all properties for all IIS Virtual Web Servers" href="http://blog.crowe.co.nz/blog/archive/2006/06/01/644.aspx#576808">#</a>&nbsp;<a name="576808"></a>re: C# - How to display almost all properties for all IIS Virtual Web Servers</h2></div>
+<img id="Comments_ascx_CommentList_ctl03_GravatarImg" class="avatar" align="right" src="http://www.gravatar.com/avatar.php?gravatar_id=7b64f01c867899da82878ef47c34a7f6&amp;size=50&amp;default=http%3a%2f%2fblog.crowe.co.nz%2fblog%2fimages%2fdefault_gravatar.png" alt="Gravatar" style="border-width:0px;" />
+<a id="Comments_ascx_CommentList_ctl03_EditLink" href="javascript:__doPostBack('Comments_ascx$CommentList$ctl03$EditLink','')"></a>
+		<br>
+		<div class="content">
+			very useful list.<br />but, i get an error when executing this code (visual studio 2005) on the line:<br />foreach (string PropertyName in Site.Properties.PropertyNames)<br />
+		</div>
+	<span class='author'>Posted by <a id="Comments_ascx_CommentList_ctl03_NameLink" title="lud">lud</a> on
+			5/21/2008 8:58 PM</span>
+	</div>
+	
+	<div class="post">
+<div class="title"><h2><a title="permalink: re: C# - How to display almost all properties for all IIS Virtual Web Servers" href="http://blog.crowe.co.nz/blog/archive/2006/06/01/644.aspx#576975">#</a>&nbsp;<a name="576975"></a>re: C# - How to display almost all properties for all IIS Virtual Web Servers</h2></div>
+
+<a id="Comments_ascx_CommentList_ctl04_EditLink" href="javascript:__doPostBack('Comments_ascx$CommentList$ctl04$EditLink','')"></a>
+		<br>
+		<div class="content">
+			I receive an error message anytime I try to access the DirectoryEntry W3SVC object. It returns a COMException with an Unknown error (0x8000050000). I think it's a problem with security, but I don't know how to solve it.<br />Thanks
+		</div>
+	<span class='author'>Posted by <a id="Comments_ascx_CommentList_ctl04_NameLink" title="Charles">Charles</a> on
+			6/12/2008 4:50 AM</span>
+	</div>
+	
+	<div class="post">
+<div class="title"><h2><a title="permalink: re: C# - How to display almost all properties for all IIS Virtual Web Servers" href="http://blog.crowe.co.nz/blog/archive/2006/06/01/644.aspx#577078">#</a>&nbsp;<a name="577078"></a>re: C# - How to display almost all properties for all IIS Virtual Web Servers</h2></div>
+
+<a id="Comments_ascx_CommentList_ctl05_EditLink" href="javascript:__doPostBack('Comments_ascx$CommentList$ctl05$EditLink','')"></a>
+		<br>
+		<div class="content">
+			Hey! <br />How would u use c# to create a virtual directory from an Exported IIS configuration file ( the .xml one)
+		</div>
+	<span class='author'>Posted by <a id="Comments_ascx_CommentList_ctl05_NameLink" title="fuzze">fuzze</a> on
+			8/12/2008 4:37 AM</span>
+	</div>
+	
+	<div class="post">
+<div class="title"><h2><a title="permalink: re: C# - How to display almost all properties for all IIS Virtual Web Servers" href="http://blog.crowe.co.nz/blog/archive/2006/06/01/644.aspx#577151">#</a>&nbsp;<a name="577151"></a>re: C# - How to display almost all properties for all IIS Virtual Web Servers</h2></div>
+<img id="Comments_ascx_CommentList_ctl06_GravatarImg" class="avatar" align="right" src="http://www.gravatar.com/avatar.php?gravatar_id=85f67f9055f1f8babfdaaf9d479ca4e1&amp;size=50&amp;default=http%3a%2f%2fblog.crowe.co.nz%2fblog%2fimages%2fdefault_gravatar.png" alt="Gravatar" style="border-width:0px;" />
+<a id="Comments_ascx_CommentList_ctl06_EditLink" href="javascript:__doPostBack('Comments_ascx$CommentList$ctl06$EditLink','')"></a>
+		<br>
+		<div class="content">
+			Charles,<br />Are you sure the string parameter you put in the DirectoryEntry constructor for the path is valid ?<br /><br />
+		</div>
+	<span class='author'>Posted by <a id="Comments_ascx_CommentList_ctl06_NameLink" title="Kype">Kype</a> on
+			8/15/2008 8:54 AM</span>
+	</div>
+	
+	<div class="post">
+<div class="title"><h2><a title="permalink: re: C# - How to display almost all properties for all IIS Virtual Web Servers" href="http://blog.crowe.co.nz/blog/archive/2006/06/01/644.aspx#577207">#</a>&nbsp;<a name="577207"></a>re: C# - How to display almost all properties for all IIS Virtual Web Servers</h2></div>
+
+<a id="Comments_ascx_CommentList_ctl07_EditLink" href="javascript:__doPostBack('Comments_ascx$CommentList$ctl07$EditLink','')"></a>
+		<br>
+		<div class="content">
+			Hi All,<br /><br />I've created an IIS Web Site from C# and now I want to make one of its folders (not Virtual Directories, just physical folders i've created within the web site's path) unreadable, doing it from C#.<br /><br />Do you have any clue of how to do this?<br /><br />Thanks,<br />Brian 
+		</div>
+	<span class='author'>Posted by <a id="Comments_ascx_CommentList_ctl07_NameLink" title="Brian">Brian</a> on
+			9/15/2008 5:43 AM</span>
+	</div>
+	
+	<div class="post">
+<div class="title"><h2><a title="permalink: re: C# - How to display almost all properties for all IIS Virtual Web Servers" href="http://blog.crowe.co.nz/blog/archive/2006/06/01/644.aspx#577425">#</a>&nbsp;<a name="577425"></a>re: C# - How to display almost all properties for all IIS Virtual Web Servers</h2></div>
+<img id="Comments_ascx_CommentList_ctl08_GravatarImg" class="avatar" align="right" src="http://www.gravatar.com/avatar.php?gravatar_id=ca0fa41766448bf5be691b5e3175bd07&amp;size=50&amp;default=http%3a%2f%2fblog.crowe.co.nz%2fblog%2fimages%2fdefault_gravatar.png" alt="Gravatar" style="border-width:0px;" />
+<a id="Comments_ascx_CommentList_ctl08_EditLink" href="javascript:__doPostBack('Comments_ascx$CommentList$ctl08$EditLink','')"></a>
+		<br>
+		<div class="content">
+			Thanks. But I want to redirect website on IIS directly. How can I do that?
+		</div>
+	<span class='author'>Posted by <a id="Comments_ascx_CommentList_ctl08_NameLink" title="http://tinhdaunuochoa.com/" href="http://tinhdaunuochoa.com/">vinh</a> on
+			1/14/2009 6:23 AM</span>
+	</div>
+	
+	<div class="post">
+<div class="title"><h2><a title="permalink: re: C# - How to display almost all properties for all IIS Virtual Web Servers" href="http://blog.crowe.co.nz/blog/archive/2006/06/01/644.aspx#577477">#</a>&nbsp;<a name="577477"></a>re: C# - How to display almost all properties for all IIS Virtual Web Servers</h2></div>
+<img id="Comments_ascx_CommentList_ctl09_GravatarImg" class="avatar" align="right" src="http://www.gravatar.com/avatar.php?gravatar_id=4e7335ab9c88b248770b63a9f5099123&amp;size=50&amp;default=http%3a%2f%2fblog.crowe.co.nz%2fblog%2fimages%2fdefault_gravatar.png" alt="Gravatar" style="border-width:0px;" />
+<a id="Comments_ascx_CommentList_ctl09_EditLink" href="javascript:__doPostBack('Comments_ascx$CommentList$ctl09$EditLink','')"></a>
+		<br>
+		<div class="content">
+			how can i change iis properties of webapplication. eg-if i want to change http headers- Enable content expiration properties
+		</div>
+	<span class='author'>Posted by <a id="Comments_ascx_CommentList_ctl09_NameLink" title="http://prismmicrosys.com/" href="http://prismmicrosys.com/">nitin</a> on
+			2/4/2009 1:17 AM</span>
+	</div>
+	
+	<div class="post">
+<div class="title"><h2><a title="permalink: re: C# - How to display almost all properties for all IIS Virtual Web Servers" href="http://blog.crowe.co.nz/blog/archive/2006/06/01/644.aspx#577547">#</a>&nbsp;<a name="577547"></a>re: C# - How to display almost all properties for all IIS Virtual Web Servers</h2></div>
+<img id="Comments_ascx_CommentList_ctl10_GravatarImg" class="avatar" align="right" src="http://www.gravatar.com/avatar.php?gravatar_id=3d6dc6dc9a497e03ce0cbe401fab6260&amp;size=50&amp;default=http%3a%2f%2fblog.crowe.co.nz%2fblog%2fimages%2fdefault_gravatar.png" alt="Gravatar" style="border-width:0px;" />
+<a id="Comments_ascx_CommentList_ctl10_EditLink" href="javascript:__doPostBack('Comments_ascx$CommentList$ctl10$EditLink','')"></a>
+		<br>
+		<div class="content">
+			Hi, <br /><br />How can this be implemented in the VC++ ?<br /><br />Regards,<br />Mayur M
+		</div>
+	<span class='author'>Posted by <a id="Comments_ascx_CommentList_ctl10_NameLink" title="Mayur">Mayur</a> on
+			3/10/2009 3:24 PM</span>
+	</div>
+	
+	<div class="post">
+<div class="title"><h2><a title="permalink: re: C# - How to display almost all properties for all IIS Virtual Web Servers" href="http://blog.crowe.co.nz/blog/archive/2006/06/01/644.aspx#577664">#</a>&nbsp;<a name="577664"></a>re: C# - How to display almost all properties for all IIS Virtual Web Servers</h2></div>
+<img id="Comments_ascx_CommentList_ctl11_GravatarImg" class="avatar" align="right" src="http://www.gravatar.com/avatar.php?gravatar_id=711387bd6c5719627e4cd7032a40fc33&amp;size=50&amp;default=http%3a%2f%2fblog.crowe.co.nz%2fblog%2fimages%2fdefault_gravatar.png" alt="Gravatar" style="border-width:0px;" />
+<a id="Comments_ascx_CommentList_ctl11_EditLink" href="javascript:__doPostBack('Comments_ascx$CommentList$ctl11$EditLink','')"></a>
+		<br>
+		<div class="content">
+			Good stuff.<br /><br />I found the "/W3SVC/AppPools/myAppPoolName"<br /><br />directorypath to be quite useful.....and the "Invoke" method.<br /><br />AppPools doesn't get a mention in your list....<br /><br /><br /><br /><br />
+		</div>
+	<span class='author'>Posted by <a id="Comments_ascx_CommentList_ctl11_NameLink" title="Rob von Nesselrode">Rob von Nesselrode</a> on
+			5/11/2009 7:46 AM</span>
+	</div>
+	
+</div>
+
+<div class="post">
+<div class="title">
+<h2>Post Comment</h2></div>
+<br>
+
+			<dl class="Inputs">
+				<dt>
+					Title <em class="Required">*</em> 
+				</dt>
+				<dd>
+					<input name="PostComment_ascx$tbTitle" type="text" value="re: C# - How to display almost all properties for all IIS Virtual Web Servers" maxlength="128" id="PostComment_ascx_tbTitle" class="Text" style="width:400px;" />
+				</dd>
+				<dt>
+					Name <em class="Required">*</em> 
+				</dt>
+				<dd>
+					<input name="PostComment_ascx$tbName" type="text" maxlength="32" id="PostComment_ascx_tbName" class="Text" style="width:400px;" />
+				</dd>
+				<dt>
+					Email 
+				</dt>
+				<dd>
+					<input name="PostComment_ascx$tbEmail" type="text" maxlength="128" id="PostComment_ascx_tbEmail" class="Text" style="width:400px;" />
+				</dd>
+				<dt>
+					Url 
+				</dt>
+				<dd>
+					<input name="PostComment_ascx$tbUrl" type="text" maxlength="256" id="PostComment_ascx_tbUrl" class="Text" style="width:400px;" />
+				</dd>
+				<dt>
+					Comment <em class="Required">*</em> &nbsp;
+				</dt>
+				<dd>
+					<textarea name="PostComment_ascx$tbComment" rows="10" cols="80" id="PostComment_ascx_tbComment"></textarea>
+					
+				</dd>
+				<dd>
+					<input id="PostComment_ascx_chkRemember" type="checkbox" name="PostComment_ascx$chkRemember" checked="checked" /><label for="PostComment_ascx_chkRemember">Remember Me?</label>
+				</dd>
+			</dl>
+			
+				<span id="PostComment_ascx_ctl00_subtext_captcha">Please add 8 and 7 and type the answer here: <input type="text" name="PostComment_ascx_ctl00_visibleanswer" value="" /></span><input type="submit" name="PostComment_ascx$btnSubmit" value="Submit" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;PostComment_ascx$btnSubmit&quot;, &quot;&quot;, true, &quot;SubtextComment&quot;, &quot;&quot;, false, false))" id="PostComment_ascx_btnSubmit" class="Submit" />
+			
+
+	</div></span></span>
+				
+		      			<input type="text" style="DISPLAY:none">
+
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" class="FooterCell">
+	        
+	<div class="copyright">
+		Copyright &copy; 2005 - 2099 Chris Crowe
+	</div>
+
+        </td>
+    </tr>
+
+    </tr>
+</table>
+
+		
+<script type="text/javascript">
+subtext_invisible_captcha_hideFromJavascriptEnabledBrowsers('PostComment_ascx_ctl00_subtext_captcha');
+</script><script type="text/javascript">
+subtext_invisible_captcha_setAnswer(8, 7, 'PostComment_ascx_ctl00_answer');
+</script></form>
+	</body>
+</html>

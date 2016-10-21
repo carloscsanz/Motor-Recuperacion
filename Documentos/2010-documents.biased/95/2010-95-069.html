@@ -1,0 +1,767 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script type="text/javascript" src="http://tripatlas.com/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="http://tripatlas.com/js/jquery/cycle.js"></script>
+<script type="text/javascript" src="http://tripatlas.com/js/jquery/easing.js"></script>
+<script type="text/javascript" src="http://tripatlas.com/js/jquery/date_input.js"></script>
+<script type="text/javascript" src="http://tripatlas.com/js/jquery/dropdown.js"></script>
+<!--[if lte IE 7]>
+    <link rel="stylesheet" type="text/css" href="http://tripatlas.com/js/jquery/css/ie.css" media="screen" />
+<![endif]-->
+
+
+	<script type="text/javascript">
+   $(document).ready(
+		function(){
+			$('#mainslide').cycle({ 
+			    speed:       400, 
+			    timeout:     4000, 
+			    pager:      '#mainslide_nav', 
+			    pagerEvent: 'mouseover',
+				pagerAnchorBuilder: function(idx, slide) { 
+				        // return selector string for existing anchor 
+				        return '#mainslide_nav li:eq(' + idx + ') a'; 
+				    }
+			});
+	});
+	</script>
+	<script type="text/javascript">
+	function onAfter() {
+	    $('#home_feature_drawer').html("Current anchor: " + this.href);
+	}
+	</script>
+
+	<script type="text/javascript">
+	$(document).ready(function(){
+	$('.jswarning').remove();
+	$.get("token.php",function(txt){
+	  $(".secure").append('<input type="hidden" name="ts" value="'+txt+'" />');
+	});
+	});
+	</script>
+
+
+
+
+	<link href="/css/galleria.css" rel="stylesheet" type="text/css" media="screen">
+	<script type="text/javascript" src="/js/jquery/galleria.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$('.ta_slideshow').addClass('ta_slideshow'); // adds new class name to maintain degradability
+		$('ul.ta_slideshow').galleria({
+			history   : false, // activates the history object for bookmarking, back-button etc.
+			clickNext : true, // helper for making the image clickable
+			insert    : '#main_image', // the containing selector for our main image
+			onImage   : function(image,caption,thumb) { // let's add some image effects for demonstration purposes
+				
+				// fade in the image & caption
+				image.css('display','none').fadeIn(700);
+				caption.css('display','none').fadeIn(1);
+				
+				// fetch the thumbnail container
+				var _li = thumb.parents('li');
+				
+				// fade out inactive thumbnail
+				_li.siblings().children('img.selected').fadeTo(750,0.4);
+				
+				// fade in active thumbnail
+				thumb.fadeTo('fast',1).addClass('selected');
+				
+				// add a title for the clickable image
+				image.attr('title','Click for next image >>');
+			},
+			onThumb : function(thumb) { // thumbnail effects goes here
+				
+				// fetch the thumbnail container
+				var _li = thumb.parents('li');
+				
+				// if thumbnail is active, fade all the way.
+				var _fadeTo = _li.is('.active') ? '1' : '0.4';
+				
+				// fade in the thumbnail when finished loading
+				thumb.css({display:'none',opacity:_fadeTo}).fadeIn(2000);
+				
+				// hover effects
+				thumb.hover(
+					function() { thumb.fadeTo('fast',1); },
+					function() { _li.not('.active').children('img').fadeTo('fast',0.4); } // don't fade out if the parent is active
+				)
+			}
+		});
+	});
+	</script>
+
+
+<script type="text/javascript" charset="utf-8">
+	
+		$($.date_input.initialize);
+		$.extend(DateInput.DEFAULT_OPTS, {
+		  stringToDate: function(string) {
+		    var matches;
+		    if (matches = string.match(/^(\d{4,4})-(\d{2,2})-(\d{2,2})$/)) {
+		      return new Date(matches[1], matches[2] - 1, matches[3]);
+		    } else {
+		      return null;
+		    };
+		  },
+		  dateToString: function(date) {
+		    var month = (date.getMonth() + 1).toString();
+		    var dom = date.getDate().toString();
+		    if (month.length == 1) month = "0" + month;
+		    if (dom.length == 1) dom = "0" + dom;
+		    return date.getFullYear() + "-" + month + "-" + dom;
+		  }
+		});
+	
+	</script>
+	    	<title>TripAtlas.com - About Information_retrieval</title>
+	    <base href="http://tripatlas.com/" />    <link href="css/style.css?v=1267562121" rel="stylesheet" type="text/css" />
+
+	
+				    <link rel="stylesheet" href="http://tripatlas.com/js/ibox/ibox2.css" type="text/css" />
+	<link rel="stylesheet" href="http://tripatlas.com/css/date_input.css" type="text/css"/>
+	<link rel="stylesheet" href="http://tripatlas.com/js/jquery/css/style.css" type="text/css" media="screen, projection"/>
+	<!--[if IE 7]>
+	<link href="css/style_ie7.css" rel="stylesheet" type="text/css" media=screen>
+	<![endif]-->
+        	<link rel="icon" type="image/png" href="http://tripatlas.com/images/favicon2.png" />
+			<link rel="stylesheet" href="css/" type="text/css"/>
+		<link rel="stylesheet" href="http://tripatlas.com/js/ibox/skins/lightbox/lightbox.css" type="text/css" 
+	media="screen"/>
+    <script type="text/javascript" src="http://tripatlas.com/js/js.js"></script>
+    <script type="text/javascript" src="http://tripatlas.com/js/ajax.js"></script>
+    <script type="text/javascript" src="http://tripatlas.com/js/ibox/ibox.js"></script>
+    <script type="text/javascript" src="http://tripatlas.com/js/swfobject.js"></script>    
+	<script type="text/javascript" src="flashmapa/swfobject.js"></script>
+		    <meta name="Keywords" content="Information retrieval, information, metadata, database, relational, hypertextually, World Wide Web, document retrieval, text retrieval, interdisciplinary, computer science, mathematics, library science, information science, cognitive psychology, linguistics, statistics, physics, information overload, public libraries, National Institute of Standards and Technology, Text Retrieval Conference, search engine, Google, Yahoo search, Live.com, ill-posed, relevant, binary classification, positive predictive value, accuracy and precision, sensitivity, harmonic mean, Standard Boolean model, Extended Boolean model, fuzzy retrieval, Vector space model, Generalized vector space model, Extended Boolean model, latent semantic analysis, Bayes&#039; theorem, Binary independence retrieval, Probabilistic relevance model (BM25), Language model, Divergence from randomness models, Latent Dirichlet Allocation, orthogonality, probabilistic model, independency, dimensional reduction, co-occurrence, Herman Hollerith, Vannevar Bush, As We May Think, Atlantic Monthly, Hans Peter Luhn, Calvin Mooers, Allen Kent, Eugene Garfield, Case Western Reserve University, Gerard Salton, Cyril W. Cleverdon, Alvin Weinberg, Joseph Becker, Robert Hayes, Karen Sp&amp;auml;rck Jones, computational linguistics, National Bureau of Standards, MEDLARS, J. C. R. Licklider, Don Swanson, J. W. Sammon, F. W. Lancaster, Theodor Nelson, hypertext, N. Jardine, C. J. Van Rijsbergen, ACM, SIGIR, Belkin, D. B. Crouch, Robert R. Korfhage, M. Chalmers, A. Spoerri, World Wide Web, Tim Berners-Lee, CERN, search engine, DataparkSearch, search engine, C, GPL, Lucene, Greenstone Digital Library Software, Sphinx, Zettair, C, C, Gerard Salton, Hans Peter Luhn, W. Bruce Croft" />
+		<meta name="Description" content="Information retrieval (IR)  is the science of searching for information in documents, searching for documents themselves, searching for metadata which describe documents, or searching within databases, whether relational stand-alone databases or hypertextually-networked databases such as the World Wide Web. There is a common confusion, however, between data retrieval, document retrieval, information retrieval, and text retrieval, and each of these has its own bodies of literature, theory, praxis and technologies.  IR is interdisciplinary, based on computer science, mathematics, library science, information science, cognitive psychology, linguistics, statistics and physics.Automated IR systems are used to reduce information overload. Many universities and public libraries use IR systems to provide access to books, journals, and other documents. IR systems are often related to object and query. Queries are formal statements of information needs that are put to an IR system by the user. An object is an entity which keeps or stores information in a database. User queries are matched to objects stored in the database. A document is, therefore, a data object. Often the documents themselves are not kept or stored directly in the IR system, but are instead represented in the system by document surrogates. In 1992 the US Department of Defense, along with the National Institute of Standards and Technology (NIST), cosponsored the Text Retrieval Conference (TREC) as part of the TIPSTER text program. The aim of this was to look into the information retrieval community by supplying the infrastructure that was needed for such a huge evaluation of text retrieval methodologies. Web search engines such as Google, Yahoo search or Live.com are the most visible IR applications." />
+	
+	<meta name="verify-v1" content="X5vBRoaZ0NaqFqovjtHZfA5DfPAa7zlWWFzCTF1H51w=" />
+	<meta name="verify-v1" content="rkoQS1IWlMWZLk5Cv9UC+SPqJw6WVSDqu30HB0Q7k0c=" />
+	
+<link rel="alternate" type="application/rss+xml" title="RSS - TripAtlas Articles" href="http://tripatlas.com/articles_rss.html"/>
+<link rel="alternate" type="application/rss+xml" title="RSS - TripAtlas News" href="http://tripatlas.com/news_rss.html"/>
+
+	
+	
+<script type="text/javascript" src="http://partner.googleadservices.com/gampad/google_service.js">
+</script>
+<script type="text/javascript">
+  GS_googleAddAdSenseService("ca-pub-4359003026711834");
+  GS_googleEnableAllServices();
+</script>
+<script type="text/javascript">
+  GA_googleAddSlot("ca-pub-4359003026711834", "TripAtlas_BigBox");
+  GA_googleAddSlot("ca-pub-4359003026711834", "TripAtlas_Bigbox_2");
+  GA_googleAddSlot("ca-pub-4359003026711834", "TripAtlas_Leaderboard");
+  GA_googleAddSlot("ca-pub-4359003026711834", "TripAtlas_Skyscraper");
+  GA_googleAddSlot("ca-pub-4359003026711834", "TripAtlas_Encyclopedia_Bigbox");
+  GA_googleAddSlot("ca-pub-4359003026711834", "TripAtlas_Video_Bigbox");
+  GA_googleAddSlot("ca-pub-4359003026711834", "TripAtlas_BigBox_Profile");
+  GA_googleAddSlot("ca-pub-4359003026711834", "TripAtlas_Halfpage_Skyscraper");
+  GA_googleAddSlot("ca-pub-4359003026711834", "TripAtlas_Alert_Banner");
+</script>
+
+
+
+<script type="text/javascript">
+  GA_googleFetchAds();
+</script>
+
+<script type="text/javascript" src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php/en_GB"></script>
+
+
+  </head>
+  <body >
+
+
+			<div id="new_masthead">
+	<div class="contained">
+		<div id="new_logo">
+			<a href="/"><img src="http://tripatlas.com/images/logo/tripatlasweblogo.jpg" border="0" alt="TripAtlas.com.  Discover the world.  Share your experience." title="TripAtlas.com.  Discover the world.  Share your experience." /></a>
+		</div>
+		<div id="new_topnav">
+			<div class="left" style="margin-right:20px;"><a href="/tripbuilder.html?aid=1001">Get Trip Quotes</a>&nbsp;&bull;&nbsp;<a href="/directory/travel_agents">Find a Travel Agent</a>&nbsp;&bull;&nbsp;<a href="http://www.tripatlaspro.com">TripAtlas PRO</a>&nbsp;&bull;&nbsp;<a href="#" onclick="document.getElementById('lang_dropdown').style.display='block';return false" onblur="document.getElementById('lang_dropdown').style.display='none'">Translate</a>
+			<div id="lang_dropdown" onmouseover="this.style.display='block'"
+			  onmouseout="this.style.display='none'">
+								<a href="http://translate.google.com/translate?u=http://tripatlas.com%2FRecall_%28information_retrieval%29&sl=en&tl=ar&hl=en&ie=UTF-8"><img src="./images/flags/UAE.jpg" alt="العربية" border="0" hspace="5" align="absmiddle"/>العربية</a>
+				<a href="http://translate.google.com/translate?u=http://tripatlas.com%2FRecall_%28information_retrieval%29&sl=en&tl=zh-CN&hl=en&ie=UTF-8"><img src="./images/flags/China.jpg" alt="中国" border="0" hspace="5" align="absmiddle"/>中国</a>
+				<a href="http://translate.google.com/translate?u=http://tripatlas.com%2FRecall_%28information_retrieval%29&sl=en&tl=fr&hl=en&ie=UTF-8"><img src="./images/flags/France.jpg" alt="Français" border="0" hspace="5" align="absmiddle"/>Français</a>
+				<a href="http://translate.google.com/translate?u=http://tripatlas.com%2FRecall_%28information_retrieval%29&sl=en&tl=de&hl=en&ie=UTF-8"><img src="./images/flags/Germany.jpg" alt="Deutsch" border="0" hspace="5" align="absmiddle"/>Deutsch</a>
+				<a href="http://translate.google.com/translate?u=http://tripatlas.com%2FRecall_%28information_retrieval%29&sl=en&tl=el&hl=en&ie=UTF-8"><img src="./images/flags/Greece.jpg" alt="Ελληνική" border="0" hspace="5" align="absmiddle"/>Ελληνική</a>
+				<a href="http://translate.google.com/translate?u=http://tripatlas.com%2FRecall_%28information_retrieval%29&sl=en&tl=hi&hl=en&ie=UTF-8"><img src="./images/flags/India.jpg" alt="हिन्दी" border="0" hspace="5" align="absmiddle"/>हिन्दी</a>
+				<a href="http://translate.google.com/translate?u=http://tripatlas.com%2FRecall_%28information_retrieval%29&sl=en&tl=it&hl=en&ie=UTF-8"><img src="./images/flags/Italy.jpg" alt="Italiano" border="0" hspace="5" align="absmiddle"/>Italiano</a>
+				<a href="http://translate.google.com/translate?u=http://tripatlas.com%2FRecall_%28information_retrieval%29&sl=en&tl=ja&hl=en&ie=UTF-8"><img src="./images/flags/Japan.jpg" alt="日本語" border="0" hspace="5" align="absmiddle"/>日本語</a>
+				<a href="http://translate.google.com/translate?u=http://tripatlas.com%2FRecall_%28information_retrieval%29&sl=en&tl=pt&hl=en&ie=UTF-8"><img src="./images/flags/Portugal.jpg" alt="Português" border="0" hspace="5" align="absmiddle"/>Português</a>
+				<a href="http://translate.google.com/translate?u=http://tripatlas.com%2FRecall_%28information_retrieval%29&sl=en&tl=ru&hl=en&ie=UTF-8"><img src="./images/flags/Russia.jpg" alt="Русский" border="0" hspace="5" align="absmiddle"/>Русский</a>
+				<a href="http://translate.google.com/translate?u=http://tripatlas.com%2FRecall_%28information_retrieval%29&sl=en&tl=es&hl=en&ie=UTF-8"><img src="./images/flags/Spain.jpg" alt="Español" border="0" hspace="5" align="absmiddle"/>Español</a>
+			</div></div>
+			<div class="right"><form action="/searchall.html"><input type="text" name="q" value="Search" class="searchWhite" onfocus="this.value=''" /></form></div>
+			<div class="clr"></div>
+		</div>
+	</div>
+	<div class="clr"></div>
+	<div id="new_tier1">
+		<div class="contained">
+			<ul class="dropdown">
+				<li><a href="/" >Home</a></li>
+				<li><a href="/tripbuilder.html?aid=1001" >Trip Builder</a>
+					<ul class="sub_menu">
+						<li><a href="/tripbuilder.html?aid=1001">Build a Trip</a></li>
+						<li><a href="/quote.html">My Trip Quotes</a></li>
+						<li><a href="/directory">Find a TripAtlas PRO</a></li>
+					</ul>
+				</li>
+				<li><a href="/trips.html" >Custom Trips</a>
+					<ul class="sub_menu">
+						<li><a href="/trips.html">10 Popular Interests</a>
+							<ul>
+																<li><a href="/trips.html?interest=6">Cruise</a></li>
+																<li><a href="/trips.html?interest=26">All-Inclusive Resort</a></li>
+																<li><a href="/trips.html?interest=8">Guided Tour</a></li>
+																<li><a href="/trips.html?interest=1">Adventure</a></li>
+																<li><a href="/trips.html?interest=9">Bus Tour</a></li>
+																<li><a href="/trips.html?interest=2">Golf</a></li>
+																<li><a href="/trips.html?interest=12">Beach & Sun</a></li>
+																<li><a href="/trips.html?interest=30">Sightseeing</a></li>
+																<li><a href="/trips.html?interest=14">Family</a></li>
+																<li><a href="/trips.html?interest=31">Sporting Event</a></li>
+																<li><a href="/trips.html">View All Trips</a></li>
+							</ul>
+						</li>
+						<li><a href="/trips.html">View All Trips</a></li>
+						<li><a href="/trips.html?sort=popular">Most Popular Trips</a></li>
+						<li><a href="/trips.html?sort=price&dir=up">Cheapest Trips</a></li>
+						<li><a href="/directory">Find a TripAtlas PRO</a></li>
+					</ul>
+				</li>
+
+				<li><a href="/guides" class="lit_up">Travel Guides</a>
+					<ul class="sub_menu">
+						<li><a href="/guides">Featured Travel Guides</a>
+							<ul>
+																<li><a href="/guides/Alberta">Alberta</a></li>
+																<li><a href="/guides/Bahamas">Bahamas</a></li>
+																<li><a href="/guides/Grenada">Grenada</a></li>
+																<li><a href="/guides/Ski">Ski &amp; Snowboard</a></li>
+																<li><a href="/guides/Spas">Spa & Wellness</a></li>
+																<li><a href="/guides/Travel_Gear">Travel Gear</a></li>
+															</ul>
+						</li>
+						<li><a href="/guides">Destination Guides</a>
+							<ul>
+								<li><a href="/guides/Africa">Africa</a></li>
+								<li><a href="/guides/Asia">Asia</a>
+									<ul><li><a href="/guides/China">China</a></li>
+										<li><a href="/guides/Japan">Japan</a></li>
+										<li><a href="/guides/Thailand">Thailand</a></li>
+									</ul>
+								</li>
+								<li><a href="/guides/Caribbean">Caribbean</a>
+									<ul>
+										<li><a href="/guides/Bahamas">Bahamas</a></li>
+										<li><a href="/guides/Grenada">Grenada</a></li>
+									</ul>
+								<li><a href="/guides/Central_America">Central America</a></li>
+								<li><a href="/guides/North_America">Europe</a>
+									<ul>
+										<li><a href="/guides/Denmark">Denmark</a></li>
+										<li><a href="/guides/France">France</a></li>
+										<li><a href="/guides/Italy">Italy</a></li>
+										<li><a href="/guides/Spain">Spain</a></li>
+										<li><a href="/guides/United_Kingdom">United Kingdom</a></li>
+									</ul>
+								</li>
+								<li><a href="/guides/North_America">North America</a>
+									<ul>
+										<li><a href="/guides/Canada">Canada</a></li>
+										<li><a href="/guides/Mexico">Mexico</a></li>
+										<li><a href="/guides/United_States">United States</a></li>
+									</ul>
+								</li>
+								<li><a href="/guides/Pacific">Pacific</a>
+									<ul>
+										<li><a href="/guides/Australia">Australia</a></li>
+										<li><a href="/guides/New_Zealand">New Zealand</a></li>
+									</ul>
+								</li>
+								<li><a href="/guides/South_America">South America</a></li>
+							</ul>
+						</li>
+						<li><a href="/articles.html">Articles</a></li>
+						<li><a href="/blog">Blogs</a></li>
+						<li><a href="/directory">Travel Company Directory</a></li>
+					</ul>
+				</li>
+				<li><a href="/photos.html" >Photos</a></li>
+				<li><a href="/videos.html" >Videos</a></li>
+				<li><a href="/updates" >Share</a></li>
+				<li><a href="http://hotels.tripatlas.com">Hotel Deals</a>
+					<ul class="sub_menu">
+						<li><a href="http://hotels.tripatlas.com">Best Hotel Deals Online</a></li>
+						<li><a href="http://hotels.tripatlas.com/HotelNameSearch.aspx">Find a Hotel by Name</a></li>
+						<li><a href="http://hotels.tripatlas.com/BrowseByCountry.aspx">Find a Hotel by Location</a></li>
+					</ul>
+				</li>
+								<li><a href="/chat.html" >Live Chat</a></li>
+				<li style="border-right:none"><a href="/quote.html"  style="border-right:none">My TripAtlas</a>
+					<ul class="sub_menu">
+												<li><a href="/quote.html">My Trip Quotes</a></li>
+						<li><a href="/user_login.html">Sign In</a></li>
+						<li><a href="/user_signup.html">Join TripAtlas</a></li>
+						<li><a href="/reset_passwd.html">Forget your password?</a></li>
+											</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div id="new_tier2" class="contained">
+		<ul>
+								<li><a href="/guides">Destination &amp; Travel Guides</a> </li>
+				<li>&bull;&nbsp;<a href="/articles.html">Articles</a></li>
+				<li>&bull;&nbsp;<a href="/blog">Blogs</a></li>
+				<li>&bull;&nbsp;<a href="/videos.html">Videos</a></li>
+				<li>&bull;&nbsp;<a href="/photos.html">Photos</a></li>
+				<li>&bull;&nbsp;<a href="/directory">Travel Companies</a></li>
+									<li>&bull;&nbsp;<a href="/contest.html?contest=hong_kong">Win 6 Nights in Hong Kong!</a></li>
+		</ul>
+	</div>
+</div>					<div id="ad_leaderboard">
+		<!--# leaderboard -->
+		
+		<script type="text/javascript">
+		  GA_googleFillSlot("TripAtlas_Leaderboard");
+		</script>
+		
+	</div>
+	
+		<div id="container">
+		<div id="content">
+			<div class="clr"></div>
+			
+										<div style="margin-left:10px">
+				<script type="text/javascript">
+				  GA_googleFillSlot("TripAtlas_Alert_Banner");
+				</script>
+				</div>
+				<div class="clr spacer"></div>
+						<div id="center">	<h1 class="wikih1">INFORMATION RETRIEVAL</h1>
+    		<div class="spacer"></div>
+<!--newsletter popup window-->
+<!--newsletter popup window end-->
+	  		<ul class="social">
+			<li><a href="add_fave.html?page=Information retrieval&type=2&title=All%20about%20Information retrieval" rel="ibox&height=225&width=325">+ Add to Faves</a></li>						<li><a href="friend_referral.php?page=http%3A%2F%2Ftripatlas.com%2FRecall_%28information_retrieval%29" rel="ibox&height=400&width=325" title='Send to a Friend'>+ Email</a></li>
+			<li><a href="#" onclick="document.getElementById('dropdown2b').style.display='block';return false"
+			    onblur="document.getElementById('dropdown2b').style.display='none'">+ Translate</a></li>
+			<div id="dropdown2b" onmouseover="this.style.display='block'"
+			  onmouseout="this.style.display='none'">
+								<a href="http://translate.google.com/translate?u=http://tripatlas.com%2FRecall_%28information_retrieval%29&sl=en&tl=ar&hl=en&ie=UTF-8"><img src="./images/flags/UAE.jpg" alt="العربية" border="0" hspace="5" align="absmiddle"/>العربية</a>
+				<a href="http://translate.google.com/translate?u=http://tripatlas.com%2FRecall_%28information_retrieval%29&sl=en&tl=zh-CN&hl=en&ie=UTF-8"><img src="./images/flags/China.jpg" alt="中国" border="0" hspace="5" align="absmiddle"/>中国</a>
+				<a href="http://translate.google.com/translate?u=http://tripatlas.com%2FRecall_%28information_retrieval%29&sl=en&tl=fr&hl=en&ie=UTF-8"><img src="./images/flags/France.jpg" alt="Français" border="0" hspace="5" align="absmiddle"/>Français</a>
+				<a href="http://translate.google.com/translate?u=http://tripatlas.com%2FRecall_%28information_retrieval%29&sl=en&tl=de&hl=en&ie=UTF-8"><img src="./images/flags/Germany.jpg" alt="Deutsch" border="0" hspace="5" align="absmiddle"/>Deutsch</a>
+				<a href="http://translate.google.com/translate?u=http://tripatlas.com%2FRecall_%28information_retrieval%29&sl=en&tl=el&hl=en&ie=UTF-8"><img src="./images/flags/Greece.jpg" alt="Ελληνική" border="0" hspace="5" align="absmiddle"/>Ελληνική</a>
+				<a href="http://translate.google.com/translate?u=http://tripatlas.com%2FRecall_%28information_retrieval%29&sl=en&tl=hi&hl=en&ie=UTF-8"><img src="./images/flags/India.jpg" alt="हिन्दी" border="0" hspace="5" align="absmiddle"/>हिन्दी</a>
+				<a href="http://translate.google.com/translate?u=http://tripatlas.com%2FRecall_%28information_retrieval%29&sl=en&tl=it&hl=en&ie=UTF-8"><img src="./images/flags/Italy.jpg" alt="Italiano" border="0" hspace="5" align="absmiddle"/>Italiano</a>
+				<a href="http://translate.google.com/translate?u=http://tripatlas.com%2FRecall_%28information_retrieval%29&sl=en&tl=ja&hl=en&ie=UTF-8"><img src="./images/flags/Japan.jpg" alt="日本語" border="0" hspace="5" align="absmiddle"/>日本語</a>
+				<a href="http://translate.google.com/translate?u=http://tripatlas.com%2FRecall_%28information_retrieval%29&sl=en&tl=pt&hl=en&ie=UTF-8"><img src="./images/flags/Portugal.jpg" alt="Português" border="0" hspace="5" align="absmiddle"/>Português</a>
+				<a href="http://translate.google.com/translate?u=http://tripatlas.com%2FRecall_%28information_retrieval%29&sl=en&tl=ru&hl=en&ie=UTF-8"><img src="./images/flags/Russia.jpg" alt="Русский" border="0" hspace="5" align="absmiddle"/>Русский</a>
+				<a href="http://translate.google.com/translate?u=http://tripatlas.com%2FRecall_%28information_retrieval%29&sl=en&tl=es&hl=en&ie=UTF-8"><img src="./images/flags/Spain.jpg" alt="Español" border="0" hspace="5" align="absmiddle"/>Español</a>
+			</div>
+						<li><a href="#" onclick="addthis_url   = location.href; addthis_title = document.title; return addthis_click(this);" target="_blank">+ Share</a><script type="text/javascript">addthis_pub  = 'tripatlas';</script><script type="text/javascript" src="http://s7.addthis.com/js/widget.php?v=10"></script></li>
+		</ul>	<div class="clr"></div>
+	<div id="wiki_info"></div>
+	<div class="spacer"></div>
+		<div id="wikitext">
+			<!-- <h2>Photos of Information retrieval</h2>
+			<div id="flickr_badge_uber_wrapper"><div id="flickr_badge_wrapper">
+			<script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=7&display=latest&size=s&layout=x&source=all_tag&tag=Information retrieval"></script><br />
+			<strong>Photos belong to the individual Flickr photographers.  Click each to see their full versions.  TripAtlas.com takes no responsibility or credit for the content of these photos.</strong>
+			</div></div>
+			<div class="clr"></div> -->
+  					
+						<small>(Redirected from <a href="Recall_(information_retrieval)&redirect=no">Recall (information retrieval)</a>)</small><br>'Information retrieval (IR)'  is the science of searching for <a href="Information">information</a> in documents, searching for documents themselves, searching for <a href="Metadata_(computing)">metadata</a> which describe documents, or searching within <a href="Database">database</a>s, whether <a href="Relational_database">relational</a> stand-alone databases or <a href="Hypertext">hypertextually</a>-networked databases such as the <a href="World_Wide_Web">World Wide Web</a>. There is a common confusion, however, between data retrieval, <a href="Document_retrieval">document retrieval</a>, information retrieval, and <a href="Text_retrieval">text retrieval</a>, and each of these has its own bodies of literature, theory, praxis and technologies.  IR is <a href="Interdisciplinary">interdisciplinary</a>, based on <a href="Computer_science">computer science</a>, <a href="Mathematics">mathematics</a>, <a href="Library_science">library science</a>, <a href="Information_science">information science</a>, <a href="Cognitive_psychology">cognitive psychology</a>, <a href="Linguistics">linguistics</a>, <a href="Statistics">statistics</a> and <a href="Physics">physics</a>.<br />
+Automated IR systems are used to reduce <a href="Information_overload">information overload</a>. Many universities and <a href="Public_library">public libraries</a> use IR systems to provide access to books, journals, and other documents. IR systems are often related to object and query. Queries are formal statements of information needs that are put to an IR system by the user. An object is an entity which keeps or stores information in a database. User queries are matched to objects stored in the database. A document is, therefore, a data object. Often the documents themselves are not kept or stored directly in the IR system, but are instead represented in the system by document surrogates. <br />
+In 1992 the US Department of Defense, along with the <a href="National_Institute_of_Standards_and_Technology">National Institute of Standards and Technology</a> (NIST), cosponsored the <a href="Text_Retrieval_Conference">Text Retrieval Conference</a> (TREC) as part of the TIPSTER text program. The aim of this was to look into the information retrieval community by supplying the infrastructure that was needed for such a huge evaluation of text retrieval methodologies. <br />
+Web <a href="Search_engine">search engine</a>s such as <a href="Google">Google</a>, <a href="Yahoo_search">Yahoo search</a> or <a href="Live.com">Live.com</a> are the most visible IR applications.<br />
+<br><span class='wikicontents'><table  cellpadding="2" cellspacing="1" border="0" class="wikicontents" ><tr><td class=header>Contents</td></tr><tr valign=top><td class='parent'><a href='Information_retrieval#Performance measures'>Performance measures</a></td></tr><tr valign=top><td class='child'><a href='Information_retrieval#Precision'>Precision</a></td></tr><tr valign=top><td class='child'><a href='Information_retrieval#Recall'>Recall</a></td></tr><tr valign=top><td class='child'><a href='Information_retrieval#Fall-Out'>Fall-Out</a></td></tr><tr valign=top><td class='child'><a href='Information_retrieval#F-measure'>F-measure</a></td></tr><tr valign=top><td class='child'><a href='Information_retrieval#Average precision'>Average precision</a></td></tr><tr valign=top><td class='parent'><a href='Information_retrieval#Model types'>Model types</a></td></tr><tr valign=top><td class='child'><a href='Information_retrieval#First dimension: mathematical basis'>First dimension: mathematical basis</a></td></tr><tr valign=top><td class='child'><a href='Information_retrieval#Second dimension: properties of the model'>Second dimension: properties of the model</a></td></tr><tr valign=top><td class='parent'><a href='Information_retrieval#Timeline'>Timeline</a></td></tr><tr valign=top><td class='parent'><a href='Information_retrieval#Open source systems'>Open source systems</a></td></tr><tr valign=top><td class='parent'><a href='Information_retrieval#Other retrieval tools'>Other retrieval tools</a></td></tr><tr valign=top><td class='parent'><a href='Information_retrieval#Research Groups (in no particular order)'>Research Groups (in no particular order)</a></td></tr><tr valign=top><td class='parent'><a href='Information_retrieval#Major figures'>Major figures</a></td></tr><tr valign=top><td class='parent'><a href='Information_retrieval#Other figures associated with information retrieval'>Other figures associated with information retrieval</a></td></tr><tr valign=top><td class='parent'><a href='Information_retrieval#ACM SIGIR Gerard Salton Award'>ACM SIGIR Gerard Salton Award</a></td></tr><tr valign=top><td class='parent'><a href='Information_retrieval#See also'>See also</a></td></tr><tr valign=top><td class='parent'><a href='Information_retrieval#External links'>External links</a></td></tr></table></span><span id='wikicontentsright'>               
+
+  						
+				<script type="text/javascript">
+				  GA_googleFillSlot("TripAtlas_Encyclopedia_Bigbox");
+				</script>
+			</span><div class='stopfloat'></div><a name="Performance measures"></a><h2> Performance measures </h2><br />
+There are several measures on the performance of an information retrieval system. The measures rely on a collection of documents and a query for which the relevancy of the documents is known. All common measures described here assume a ground truth notion of relevancy: every document is known to be either relevant or non-relevant to a particular query. In practice queries may be <a href="Ill-posed">ill-posed</a> and there may be different shades of relevancy.<br />
+<a name="Precision"></a><h5> Precision </h5><br />
+The proportion of retrieved ''and'' <a href="Relevance_(information_retrieval)">relevant</a> documents to all the documents retrieved:<br />
+:<math> mbox{precision}=rac{|{mbox{relevant documents}}cap{mbox{retrieved documents}}|}{|{mbox{retrieved documents}}|} </math><br />
+In <a href="Binary_classification">binary classification</a>, precision is analogous to <a href="Positive_predictive_value">positive predictive value</a>. Precision takes all retrieved documents into account. It can also be evaluated at a given cut-off rank, considering only the topmost results returned by the system. This measure is ''called precision at n'' or ''P@n''.<br />
+Note that the meaning and usage of "precision" in the field of Information Retrieval differs from the definition of <a href="Accuracy_and_precision">accuracy and precision</a> within other branches of science and technology.<br />
+<a name="Recall"></a><h5> Recall </h5> <br />
+The proportion of relevant documents that are retrieved, out of all relevant documents available:<br />
+:<math>mbox{recall}=rac{|{mbox{relevant documents}}cap{mbox{retrieved documents}}|}{|{mbox{relevant documents}}|} </math><br />
+In binary classification, recall is called <a href="Sensitivity_(tests)">sensitivity</a>.<br />
+It is trivial to achieve recall of 100% by returning all documents in response to any query. Therefore recall alone is not enough but one needs to measure the number of non-relevant document also, for example by computing the precision.<br />
+<a name="Fall-Out"></a><h5> Fall-Out </h5><br />
+The proportion of non-relevant documents that are retrieved, out of all non-relevant documents available:<br />
+:<math> mbox{fall-out}=rac{|{mbox{non-relevant documents}}cap{mbox{retrieved documents}}|}{|{mbox{non-relevant documents}}|} </math><br />
+<a name="F-measure"></a><h5> F-measure </h5> <br />
+The weighted <a href="Harmonic_mean">harmonic mean</a> of precision and recall, the traditional F-measure or balanced F-score is:<br />
+:<math>F = 2 cdot (mathrm{precision} cdot mathrm{recall}) / (mathrm{precision} + mathrm{recall}).,</math><br />
+This is also known as the <math>F_1</math> measure, because recall and precision are evenly weighted.<br />
+The general formula for non-negative real α is:<br />
+:<math>F_lpha = (1 + lpha) cdot (mathrm{precision} cdot mathrm{recall}) / (lpha cdot mathrm{precision} + mathrm{recall}).,</math><br />
+Two other commonly used F measures are the <math>F_{2}</math> measure, which weights recall twice as much as precision, and the <math>F_{0.5}</math> measure, which weights precision twice as much as recall.<br />
+<a name="Average precision"></a><h5> Average precision </h5><br />
+The precision and recall are based on the whole list of documents returned by the system. Average precision emphasizes returning more relevant documents earlier. It is average of precisions computed after truncating the list after each of the relevant documents in turn:<br />
+:<math> operatorname{Ave}P = rac{sum_{r=1}^N (P(r) 	imes mathrm{rel}(r))}{mbox{number of relevant documents}} !,</math> <br />
+where ''r'' is the rank, ''N'' the number retrieved, ''rel()'' a binary function on the relevance of a given rank, and ''P()'' precision at a given cut-off rank.<br />
+If there are several queries with known relevancies available, the ''mean average precision'' is the mean value of the average precisions computed for each of the queries separately.<br />
+<a name="Model types"></a><h2> Model types </h2><br />
+<div class="thumb tleft"><div class="thumbinner" style="width:502px;"><a href="http://img.tripatlas.com:8080/media/images/Information-Retrieval-Models.png" target="_blank"><img src="http://img.tripatlas.com:8080/media/images/Information-Retrieval-Models.png" width="500" class="thumbimage"></a><div class="thumbcaption">categorization of IR-models (translated from <a href=http://de.wikipedia.org/wiki/Informationsrückgewinnung#Klassifikation_von_Modellen_zur_Repr.C3.A4sentation_nat.C3.BCrlichsprachlicher_Dokumente class=wikiexternal target=_blank>German entry</a>, original source <a href=http://www.logos-verlag.de/cgi-bin/engbuchmid?isbn=0514&lng=eng&id= class=wikiexternal target=_blank>Dominik Kuropka</a>)</div></div></div><br />
+For successful IR, it is necessary to represent the documents in some way.  There are a number of models for this purpose. They can be categorized according to two dimensions like those shown in the figure on the right: the mathematical basis and the properties of the model. (translated from <a href=http://de.wikipedia.org/wiki/Informationsr%C3%BCckgewinnung#Klassifikation_von_Modellen_zur_Repr.C3.A4sentation_nat.C3.BCrlichsprachlicher_Dokumente class=wikiexternal target=_blank>German entry</a>, original source <a href=http://www.logos-verlag.de/cgi-bin/engbuchmid?isbn=0514&lng=eng&id= class=wikiexternal target=_blank>Dominik Kuropka</a>)<br />
+<a name="First dimension: mathematical basis"></a><h5> First dimension: mathematical basis </h5><br />
+<br>&#9733;  ''Set-theoretic Models'' represent documents by sets. Similarities are usually derived from set-theoretic operations on those sets. Common models are:<br />
+<br>&#9733; <br>&#9733;  <a href="Standard_Boolean_model">Standard Boolean model</a><br />
+<br>&#9733; <br>&#9733;  <a href="Extended_Boolean_model">Extended Boolean model</a><br />
+<br>&#9733; <br>&#9733;  <a href="Fuzzy_retrieval">fuzzy retrieval</a><br />
+<br>&#9733;  ''Algebraic Models'' represent documents and queries usually as vectors, matrices or tuples. Those vectors, matrices or tuples are transformed by the use of a finite number of algebraic operations to a one-dimensional similarity measurement.<br />
+<br>&#9733; <br>&#9733;  <a href="Vector_space_model">Vector space model</a><br />
+<br>&#9733; <br>&#9733;  <a href="Generalized_vector_space_model">Generalized vector space model</a><br />
+<br>&#9733; <br>&#9733;  Topic-based vector space model (literature: <a href=http://www.kuropka.net/files/TVSM.pdf class=wikiexternal target=_blank>[1]</a>, <a href=http://www.logos-verlag.de/cgi-bin/engbuchmid?isbn=0514&lng=eng&id= class=wikiexternal target=_blank>[2]</a>) <br />
+<br>&#9733; <br>&#9733;  <a href="Extended_Boolean_model">Extended Boolean model</a><br />
+<br>&#9733; <br>&#9733;  Enhanced topic-based vector space model (literature: <a href=http://www.kuropka.net/files/Topic-Sims.pdf class=wikiexternal target=_blank>[3]</a>, <a href=http://www.logos-verlag.de/cgi-bin/engbuchmid?isbn=0514&lng=eng&id= class=wikiexternal target=_blank>[4]</a>)<br />
+<br>&#9733; <br>&#9733;  Latent semantic indexing aka <a href="Latent_semantic_analysis">latent semantic analysis</a><br />
+<br>&#9733;  ''Probabilistic Models'' treat the process of document retrieval as a multistage random experiment. Similarities are thus represented as probabilities. Probabilistic theorems like the <a href="Bayes'_theorem">Bayes' theorem</a> are often used in these models.<br />
+<br>&#9733; <br>&#9733;  <a href="Binary_independence_retrieval">Binary independence retrieval</a><br />
+<br>&#9733; <br>&#9733;  <a href="Probabilistic_relevance_model_(BM25)">Probabilistic relevance model (BM25)</a><br />
+<br>&#9733; <br>&#9733;  Uncertain inference<br />
+<br>&#9733; <br>&#9733;  <a href="Language_model">Language model</a>s<br />
+<br>&#9733; <br>&#9733;  <a href="Divergence_from_randomness_models">Divergence from randomness models</a><br />
+<br>&#9733; <br>&#9733;  <a href="Latent_Dirichlet_Allocation">Latent Dirichlet Allocation</a><br />
+<a name="Second dimension: properties of the model"></a><h5> Second dimension: properties of the model </h5><br />
+<br>&#9733;  ''Models without term-interdependencies'' treat different terms/words as not interdependent. This fact is usually represented in vector space models by the <a href="Orthogonality">orthogonality</a> assumption of term vectors or in <a href="Probabilistic_model">probabilistic model</a>s by an <a href="Independency">independency</a> assumption for term variables.<br />
+<br>&#9733;  ''Models with immanent term interdependencies'' allow a representation of interdependencies between terms. However the degree of the interdependency between two terms is defined by the model itself. It is usually directly or indirectly derived (e.g. by <a href="Dimension_reduction">dimensional reduction</a>) from the <a href="Co-occurrence">co-occurrence</a> of those terms in the whole set of documents.<br />
+<br>&#9733;  ''Models with transcendent term interdependencies'' allow a representation of interdependencies between terms, but they do not allege how the interdependency between two terms is defined. They relay an external source for the degree of interdependency between two terms. (For example a human or sophisticated algorithms.)<br />
+<a name="Timeline"></a><h2> Timeline  </h2><br />
+<br>&#9733;  1890: Hollerith tabulating machines were used to analyze the US census. (<a href="Herman_Hollerith">Herman Hollerith</a>).<br />
+<br>&#9733;  1945: <a href="Vannevar_Bush">Vannevar Bush</a>'s ''<a href="As_We_May_Think">As We May Think</a>'' appeared in ''<a href="Atlantic_Monthly">Atlantic Monthly</a>'' <br />
+<br>&#9733;  Late 1940s: The US military confronted problems of indexing and retrieval of wartime scientific research documents captured from Germans.<br />
+<br>&#9733;  1947: <a href="Hans_Peter_Luhn">Hans Peter Luhn</a> (research engineer at IBM since 1941) began work on a mechanized, punch card based system for searching chemical compounds.<br />
+<br>&#9733;  1950: The term "information retrieval" may have been coined by <a href="Calvin_Mooers">Calvin Mooers</a>.<br />
+<br>&#9733;  1950s: Growing concern in the US for a "science gap" with the SSSR motivated, encouraged funding, and provided a backdrop for mechanized literature searching systems (<a href="Allen_Kent">Allen Kent</a> et al) and the invention of citation indexing (<a href="Eugene_Garfield">Eugene Garfield</a>).  <br />
+<br>&#9733;  1955: Allen Kent joined <a href="Case_Western_Reserve_University">Case Western Reserve University</a>, and eventually becomes associate director of the Center for Documentation and Communications Research. <br />
+<br>&#9733;  1958: International Conference on Scientific Information Washington DC included consideration of IR systems as a solution to problems identified. See: Proceedings of the International Conference on Scientific Information, 1958 (National Academy of Sciences, Washington, DC, 1959)<br />
+<br>&#9733;  1959: Hans Peter Luhn published "Auto-encoding of documents for information retrieval." <br />
+<br>&#9733;  1960: Melvin Earl (Bill) Maron and J. L. Kuhns published "On relevance, probabilistic indexing, and information retrieval" in Journal of the ACM 7(3):216-244, July 1960. <br />
+<br>&#9733;  Early 1960s: <a href="Gerard_Salton">Gerard Salton</a> began work on IR at Harvard, later moved to Cornell. <br />
+<br>&#9733;  1962: <a href="Cyril_W._Cleverdon">Cyril W. Cleverdon</a> published early findings of the Cranfield studies, developing a model for IR system evaluation. See: Cyril W. Cleverdon, "Report on the Testing and Analysis of an Investigation into the Comparative Efficiency of Indexing Systems". Cranfield Coll. of Aeronautics, Cranfield, England, 1962. <br />
+<br>&#9733;  1962: Kent published Information Analysis and Retrieval<br />
+<br>&#9733;  1963: Weinberg report "Science, Government and Information" gave a full articulation of the idea of a "crisis of scientific information."  The report was named after Dr. <a href="Alvin_Weinberg">Alvin Weinberg</a>. <br />
+<br>&#9733;  1963: <a href="Joseph_Becker">Joseph Becker</a> and <a href="Robert_Hayes">Robert Hayes</a> published text on information retrieval. Becker, Joseph; Hayes, Robert Mayo. Information storage and retrieval: tools, elements, theories. New York, Wiley (1963). <br />
+<br>&#9733;  1964: <a href="Karen_Sp&auml;rck_Jones">Karen Sp&auml;rck Jones</a> finished her thesis at Cambridge, ''Synonymy and Semantic Classification'', and continued work on <a href="Computational_linguistics">computational linguistics</a> as it applies to IR <br />
+<br>&#9733;  1964: The <a href="National_Bureau_of_Standards">National Bureau of Standards</a> sponsored a symposium titled "Statistical Association Methods for Mechanized Documentation." Several highly significant papers, including G. Salton's first published reference (we believe) to the SMART system. <br />
+<br>&#9733;  Mid-1960s: National Library of Medicine developed <a href="MEDLARS">MEDLARS</a> Medical Literature Analysis and Retrieval System, the first major machine-readable database and batch retrieval system <br />
+<br>&#9733;  Mid-1960s: Project Intrex at MIT <br />
+<br>&#9733;  1965: <a href="J._C._R._Licklider">J. C. R. Licklider</a> published ''Libraries of the Future'' <br />
+<br>&#9733;  1966: <a href="Don_Swanson">Don Swanson</a> was involved in studies at University of Chicago on Requirements for Future Catalogs <br />
+<br>&#9733;  1968: Gerard Salton published ''Automatic Information Organization and Retrieval''. <br />
+<br>&#9733;  1968: <a href="J._W._Sammon">J. W. Sammon</a>'s RADC Tech report "Some Mathematics of Information Storage and Retrieval..." outlined the vector model. <br />
+<br>&#9733;  1969: Sammon's "A nonlinear mapping for data structure analysis" (IEEE Transactions on Computers) was the first proposal for visualization interface to an IR system. <br />
+<br>&#9733;  Late 1960s: <a href="F._W._Lancaster">F. W. Lancaster</a> completed evaluation studies of the MEDLARS system and published the first edition of his text on information retrieval <br />
+<br>&#9733;  Early 1970s: first online systems--NLM's AIM-TWX, MEDLINE; Lockheed's Dialog; SDC's ORBIT <br />
+<br>&#9733;  Early 1970s: <a href="Theodor_Nelson">Theodor Nelson</a> promoting concept of <a href="Hypertext">hypertext</a>, published Computer Lib/Dream Machines <br />
+<br>&#9733;  1971: <a href="N._Jardine">N. Jardine</a> and <a href="C._J._Van_Rijsbergen">C. J. Van Rijsbergen</a> published "The use of hierarchic clustering in information retrieval", which articulated the "cluster hypothesis." (Information Storage and Retrieval, 7(5), pp. 217-240, Dec 1971)<br />
+<br>&#9733; 1975: Three highly influential publications by Salton fully articulated his <strong>vector processing framework</strong> and <strong>term discrimination model</strong>: <br />
+<br>&#9733; <br>&#9733;  A Theory of Indexing  (Society for Industrial and Applied Mathematics) <br />
+<br>&#9733; <br>&#9733;  "A theory of term importance in automatic text analysis", (JASIS v. 26) <br />
+<br>&#9733; <br>&#9733;  "A vector space model for automatic indexing", (CACM 18:11) <br />
+<br>&#9733;  1978: The First <a href="ACM">ACM</a> <a href="SIGIR">SIGIR</a> conference. <br />
+<br>&#9733;  1979: C. J. Van Rijsbergen published ''Information Retrieval'' (Butterworths). Heavy emphasis on probabilistic models. <br />
+<br>&#9733;  1980: First international ACM SIGIR conference, joint with British Computer Society IR group in Cambridge <br />
+<br>&#9733;  1982: <a href="Nicholas_J._Belkin">Belkin</a>, Oddy, and Brooks proposed the ASK (Anomalous State of Knowledge) viewpoint for information retrieval. This was an important concept, though their automated analysis tool proved ultimately disappointing. <br />
+<br>&#9733;  1983: Salton (and M. McGill) published Introduction to Modern Information Retrieval (McGraw-Hill), with heavy emphasis on vector models. <br />
+<br>&#9733;  Mid-1980s: Efforts to develop end user versions of commercial IR systems. <br />
+<br>&#9733;  1985-1993: Key papers on and experimental systems for visualization interfaces. <br />
+<br>&#9733;  Work by <a href="D._B._Crouch">D. B. Crouch</a>, <a href="Robert_R._Korfhage">Robert R. Korfhage</a>, <a href="M._Chalmers">M. Chalmers</a>, <a href="A._Spoerri">A. Spoerri</a> and others. <br />
+<br>&#9733;  1989: First <a href="World_Wide_Web">World Wide Web</a> proposals by <a href="Tim_Berners-Lee">Tim Berners-Lee</a> at <a href="CERN">CERN</a>. <br />
+<br>&#9733;  1992: First TREC conference. <br />
+<br>&#9733;  1997: Publication of Korfhage's ''Information Retrieval'' with emphasis on visualization and multi-reference point systems. <br />
+<br>&#9733;  Late 1990s: Web <a href="Search_engine">search engine</a> implementation of many features formerly found only in experimental IR systems<br />
+<a name="Open source systems"></a><h2> Open source systems </h2><br />
+<br>&#9733;  <a href="DataparkSearch">DataparkSearch</a>, <a href="Search_engine">search engine</a> written in <a href="C_(programming_language)">C</a>, <a href="GPL">GPL</a><br />
+<br>&#9733;  <a href=http://www.egothor.org/ class=wikiexternal target=_blank>Egothor</a> high-performance, full-featured text search engine written entirely in Java<br />
+<br>&#9733;  <a href=http://webglimpse.net/subfeatures/features.html class=wikiexternal target=_blank>Glimpse and Webglimpse</a> advanced site search software<br />
+<br>&#9733;  <a href=http://www.htdig.org/ class=wikiexternal target=_blank>ht://dig</a> Open source web crawling software<br />
+<br>&#9733;  <a href=http://www.lemurproject.org/ class=wikiexternal target=_blank>Lemur</a> Language Modelling IR Toolkit<br />
+<br>&#9733;  <a href="Lucene">Lucene</a> <a href=http://lucene.apache.org/java/docs/ class=wikiexternal target=_blank>[5]</a> Apache Jakarta project<br />
+<br>&#9733;  <a href=http://www.nzdl.org/html/mg.html class=wikiexternal target=_blank>MG full-text retrieval system</a> Now maintained by the <a href="Greenstone_Digital_Library_Software">Greenstone Digital Library Software</a> Project<br />
+<br>&#9733;  [ftp://ftp.cs.cornell.edu/pub/smart/ Smart] Early IR engine from Cornell University<br />
+<br>&#9733;  <a href="Sphinx_(search_engine)">Sphinx</a> <a href=http://www.sphinxsearch.com/ class=wikiexternal target=_blank>[6]</a> Open-source (GPL) SQL full-text search engine<br />
+<br>&#9733;  <a href=http://ir.dcs.gla.ac.uk/terrier class=wikiexternal target=_blank>Terrier</a> TERabyte RetrIEveR, Information Retrieval Platform, written in Java<br />
+<br>&#9733;  <a href=http://www.wumpus-search.org/ class=wikiexternal target=_blank>Wumpus</a> multi-user information retrieval system<br />
+<br>&#9733;  <a href=http://www.xapian.org/ class=wikiexternal target=_blank>Xapian</a> Open source IR platform based on Muscat<br />
+<br>&#9733;  <a href=http://www.indexdata.dk/zebra/ class=wikiexternal target=_blank>Zebra</a> GPL structured text/XML/MARC boolean search IR engine supporting Z39.50 and Web Services<br />
+<br>&#9733;  <a href="Zettair">Zettair</a>, compact and fast search engine written in <a href="C_(programming_language)">C</a>, able to handle large amounts of text<br />
+<a name="Other retrieval tools"></a><h2> Other retrieval tools </h2><br />
+<br>&#9733;  <a href=http://aspseek.org/ class=wikiexternal target=_blank>ASPseek</a><br />
+<br>&#9733;  <a href=http://www.ihop-net.org/UniPub/iHOP/ class=wikiexternal target=_blank>iHOP</a> Information retrieval system for the biomedical domain<br />
+<br>&#9733;  <a href=http://www-tsujii.is.s.u-tokyo.ac.jp/medie/ class=wikiexternal target=_blank>MEDIE</a> An intelligent search engine, retrieving biomedical events from Medline.<br />
+<br>&#9733;  <a href=http://www.ebi.ac.uk/Rebholz-srv/ebimed/ class=wikiexternal target=_blank>EBIMed</a> Information retrieval (and extraction) system over Medline<br />
+<br>&#9733;  <a href=https://www-tsujii.is.s.u-tokyo.ac.jp/info-pubmed/ class=wikiexternal target=_blank>Info-PubMed</a> Protein interaction database with 200,000 gene/protein names mined from Medline.<br />
+<br>&#9733;  <a href=http://xav.com/ class=wikiexternal target=_blank>Fluid Dynamics Search Engine (FDSE)</a> A search engine written in Perl, freeware and shareware versions are available<br />
+<br>&#9733;  <a href=http://www.galaxquery.com/galatex/ class=wikiexternal target=_blank>GalaTex</a> XQuery Full-Text Search (XML query text search)<br />
+<br>&#9733;  <a href=http://www.cs.uni.edu/~okane/source/ISR/isr.html class=wikiexternal target=_blank> Information Storage and Retrieval Using Mumps</a> (Online GPL Text)<br />
+<br>&#9733;  <a href=http://mnogosearch.org/ class=wikiexternal target=_blank>mnoGoSearch</a> written in <a href="C_(programming_language)">C</a>, it can index web multilingual sites and many databases types.<br />
+<br>&#9733;  <a href=http://www.sphinxsearch.com/ class=wikiexternal target=_blank>Sphinx</a> Free SQL full-text search engine<br />
+<br>&#9733;  <a href=http://www.biospider.ca class=wikiexternal target=_blank>BioSpider</a> Free metabolite/drug/protein information retrieval system (used in the annotation of DrugBank and the Human Metabolome Database)<br />
+<a name="Research Groups (in no particular order)"></a><h2> Research Groups (in no particular order) </h2><br />
+<br>&#9733;  <a href=http://ciir.cs.umass.edu/ class=wikiexternal target=_blank>Center for Intelligent Information Retrieval at UMASS</a><br />
+<br>&#9733;  <a href=http://www.lti.cs.cmu.edu/Research/projects.html#ir class=wikiexternal target=_blank>Information Retrieval at the Language Technologies Institute, Carnegie Mellon University</a><br />
+<br>&#9733;  <a href=http://research.microsoft.com/ir/ class=wikiexternal target=_blank> Information Retrieval at Microsoft Research Cambridge</a><br />
+<br>&#9733;  <a href=http://ir.dcs.gla.ac.uk class=wikiexternal target=_blank>Glasgow Information Retrieval Group</a><br />
+<br>&#9733;  <a href=http://www.dcs.vein.hu/CIR/ class=wikiexternal target=_blank>CIR Centre for Information Retrieval</a><br />
+<br>&#9733;  <a href=http://www.soi.city.ac.uk/organisation/is/research/cisr/ class=wikiexternal target=_blank>Centre for Interactive Systems Research at City University, London</a><br />
+<br>&#9733;  <a href=http://www.ir.iit.edu/ class=wikiexternal target=_blank>IIT Information Retrieval Lab</a><br />
+<br>&#9733;  <a href=http://www2.unine.ch/iiun/page4246.html class=wikiexternal target=_blank>Information Retrieval Group at Université de Neuchâtel</a><br />
+<br>&#9733;  <a href=http://iis.ist.psu.edu/ class=wikiexternal target=_blank>PSU Intelligent Systems Research Laboratory</a><br />
+<br>&#9733;  <a href=http://ilps.science.uva.nl class=wikiexternal target=_blank>Information and Language Processing Systems at the University of Amsterdam</a><br />
+<br>&#9733;  <a href=http://ir.hit.edu.cn/ class=wikiexternal target=_blank>Information Retrieval Laboratory, Harbin Institute of Technology</a> (mainly in Chinese)<br />
+<br>&#9733;  <a href=http://www.ir.uwaterloo.ca/ class=wikiexternal target=_blank>Information Retrieval Group at the University of Waterloo, Canada</a><br />
+<br>&#9733;  <a href=http://www.dcs.qmul.ac.uk/researchgp/ir/ class=wikiexternal target=_blank>Information Retrieval Group at the Queen Mary University of London</a><br />
+<br>&#9733;  <a href=http://www.dc.fi.udc.es/ir/ class=wikiexternal target=_blank>Information Retrieval Lab at the University of A Coruña</a><br />
+<a name="Major figures"></a><h2> Major figures </h2><br />
+<br>&#9733;  <a href="Gerard_Salton">Gerard Salton</a><br />
+<br>&#9733;  <a href="Hans_Peter_Luhn">Hans Peter Luhn</a><br />
+<br>&#9733;  <a href="W._Bruce_Croft">W. Bruce Croft</a><br />
+<br>&#9733;  <a href="Karen_Spärck_Jones">Karen Spärck Jones</a><br />
+<br>&#9733;  <a href="C._J._van_Rijsbergen">C. J. van Rijsbergen</a><br />
+<br>&#9733;  <a href="Donald_Kraft">Donald Kraft</a><br />
+<br>&#9733;  <a href=http://www.soi.city.ac.uk/~ser/homepage.html class=wikiexternal target=_blank>Stephen E. Robertson</a><br />
+<br>&#9733;  <a href="Abraham_Bookstein">Abraham Bookstein</a><br />
+<br>&#9733;  <a href="Stephen_P_Harter">Stephen P Harter</a><br />
+<br>&#9733;  <a href="David_Blair">David Blair</a><br />
+<a name="Other figures associated with information retrieval"></a><h2> Other figures associated with information retrieval </h2><br />
+<br>&#9733;  <a href="Vannevar_Bush">Vannevar Bush</a><br />
+<br>&#9733;  <a href="Paul_DeMaine">Paul DeMaine</a><br />
+<br>&#9733;  <a href="Douglas_Engelbart">Douglas Engelbart</a><br />
+<br>&#9733;  <a href="Eugene_Garfield">Eugene Garfield</a><br />
+<br>&#9733;  <a href="Robert_R._Korfhage">Robert R. Korfhage</a><br />
+<br>&#9733;  <a href="Calvin_Mooers">Calvin Mooers</a><br />
+<br>&#9733;  <a href="Ted_Nelson">Ted Nelson</a><br />
+<br>&#9733;  <a href="Don_Swanson">Don Swanson</a><br />
+Awards in this field: <a href="Tony_Kent_Strix_award">Tony Kent Strix award</a>.<br />
+<a name="ACM SIGIR Gerard Salton Award"></a><h2> ACM SIGIR Gerard Salton Award</h2><br />
+; 1983 - <a href="Gerard_Salton">Gerard Salton</a>, <a href="Cornell_University">Cornell University</a> : "About the future of automatic information retrieval"<br />
+; 1988 - <a href="Karen_Spärck_Jones">Karen Spärck Jones</a>, <a href="University_of_Cambridge">University of Cambridge</a> : "A look back and a look forward"<br />
+; 1991 - <a href="Cyril_Cleverdon">Cyril Cleverdon</a>, <a href="Cranfield_Institute_of_Technology">Cranfield Institute of Technology</a> : "The significance of the Cranfield tests on index languages"<br />
+; 1994 - <a href="William_S._Cooper">William S. Cooper</a>, <a href="University_of_California,_Berkeley">University of California, Berkeley</a> : "The formalism of probability theory in IR: a foundation or an encumbrance?"<br />
+; 1997 - <a href="Tefko_Saracevic">Tefko Saracevic</a>, <a href="Rutgers_University">Rutgers University</a> : "Users lost: reflections on the past, future, and limits of information science" <br />
+; 2000 - <a href=http://www.soi.city.ac.uk/~ser/homepage.html class=wikiexternal target=_blank>Stephen E. Robertson</a>, <a href="City_University,_London">City University, London</a> : "On theoretical argument in information retrieval"<br />
+; 2003 - <a href="W._Bruce_Croft">W. Bruce Croft</a>, <a href="University_of_Massachusetts,_Amherst">University of Massachusetts, Amherst</a> : "Information retrieval and computer science: an evolving relationship"<br />
+; 2006 - <a href="C._J._van_Rijsbergen">C. J. van Rijsbergen</a>, <a href="University_of_Glasgow">University of Glasgow</a>, UK : "Quantum haystacks"<br />
+<a name="See also"></a><h2> See also </h2><br />
+<br>&#9733;  <a href="Adversarial_information_retrieval">Adversarial information retrieval</a><br />
+<br>&#9733;  <a href="Controlled_vocabulary">Controlled vocabulary</a><br />
+<br>&#9733;  <a href="Cross_Language_Evaluation_Forum">Cross Language Evaluation Forum</a><br />
+<br>&#9733;  <a href="Cross-language_information_retrieval">Cross-language information retrieval</a><br />
+<br>&#9733;  <a href="Digital_libraries">Digital libraries</a><br />
+<br>&#9733;  <a href="Document_classification">Document classification</a><br />
+<br>&#9733;  <a href="Educational_psychology">Educational psychology</a><br />
+<br>&#9733;  <a href="Free_text_search">Free text search</a><br />
+<br>&#9733;  <a href="Geographic_information_system">Geographic information system</a><br />
+<br>&#9733;  <a href="Information_extraction">Information extraction</a><br />
+<br>&#9733;  <a href="Information_science">Information science</a><br />
+<br>&#9733;  <a href="Knowledge_visualization">Knowledge visualization</a><br />
+<br>&#9733;  <a href="Question_answering">Question answering</a><br />
+<br>&#9733;  <a href="Relevance_feedback">Relevance feedback</a><br />
+<br>&#9733;  <a href="Search_engines">Search engines</a><br />
+<br>&#9733;  <a href="Index_(search_engine)">Search index</a><br />
+<br>&#9733;  <a href="Spoken_document_retrieval">Spoken document retrieval</a><br />
+<br>&#9733;  <a href="Tf-idf">tf-idf</a><br />
+<br>&#9733;  <a href="SP_theory">SP theory</a><br />
+<a name="External links"></a><h2> External links </h2><br />
+<br>&#9733;  <a href=http://www.acm.org/sigir/ class=wikiexternal target=_blank>ACM SIGIR: Information Retrieval Special Interest Group</a><br />
+<br>&#9733;  <a href=http://irsg.bcs.org/ class=wikiexternal target=_blank>BCS IRSG: British Computer Society - Information Retrieval Specialist Group</a> <br />
+<br>&#9733;  <a href=http://trec.nist.gov class=wikiexternal target=_blank>Text Retrieval Conference (TREC)</a><br />
+<br>&#9733;  <a href=http://www.cwirf.org/ class=wikiexternal target=_blank>Chinese Web Information Retrieval Forum (CWIRF)</a><br />
+<br>&#9733;  <a href=http://www.dcs.gla.ac.uk/Keith/Preface.html class=wikiexternal target=_blank>Information Retrieval</a> (online book) by <a href="C._J._van_Rijsbergen">C. J. van Rijsbergen</a><br />
+<br>&#9733;  <a href=http://ir.dcs.gla.ac.uk/wiki/ class=wikiexternal target=_blank>Information Retrieval Wiki</a><br />
+<br>&#9733;  <a href=http://www.google.com/search?hl=en&q=information+retrieval+resources class=wikiexternal target=_blank>Information Retrieval resources</a> (Google search)<br />
+
+    </div><br />
+<div class="smaller">
+	This article provided by <a href="http://www.wikipedia.org">Wikipedia</a>.  To edit the contents of this article, <a href="http://en.wikipedia.org/wiki/Information retrieval" target="_blank">click here</a> for original source.</div> 
+<br />
+<a href="add_fave.html?page=Information retrieval&type=2&title=All%20about%20Information retrieval" rel="ibox&height=225&width=325"><small>psst.. try this: add to faves</small></a>
+<!--		<div class="stopfloat"></div>-->
+<!--	</div>-->
+</div>
+<link href="css/style-short.css" rel="stylesheet" type="text/css" />
+<div id="siderail">
+			<div class="bodyad">
+				
+		<script type="text/javascript">
+		  GA_googleFillSlot("TripAtlas_BigBox");
+		</script>
+		
+			</div>
+	<div class="clr"></div>
+					<div id="left">
+		<div class="infobox box2">
+		<div class="heading heading2">Featured Companies</div>
+		<table border="0" cellpadding="10" cellspacing="0" width="100%">
+					<tr><td><a href='/store/109354'><img src="viewlogo.html?oid=109354" alt="Ocean World Adventure Park" title="Ocean World Adventure Park" width="75" border="0" /></a></td><td><a href='/store/109354'>Ocean World Adventure Park</a></td></tr>
+					<tr><td><a href='/store/111247'><img src="viewlogo.html?oid=111247" alt="Dancing Moon Travel" title="Dancing Moon Travel" width="75" border="0" /></a></td><td><a href='/store/111247'>Dancing Moon Travel</a></td></tr>
+					<tr><td><a href='/store/111212'><img src="viewlogo.html?oid=111212" alt="Delight Tours & Travel" title="Delight Tours & Travel" width="75" border="0" /></a></td><td><a href='/store/111212'>Delight Tours & Travel</a></td></tr>
+					<tr><td><a href='/store/110109'><img src="viewlogo.html?oid=110109" alt="Windstar Travel" title="Windstar Travel" width="75" border="0" /></a></td><td><a href='/store/110109'>Windstar Travel</a></td></tr>
+					<tr><td colspan="2" style="border-bottom:none"><a href="/directory">More Travel Companies &raquo;</a></td></tr>
+		</table>
+	</div>
+		
+	<div class="bodyad">
+	<script type="text/javascript">
+	  GA_googleFillSlot("TripAtlas_Bigbox_2");
+	</script>
+	</div>
+	
+
+<div id="home_photo">
+	<a href="http://tripatlas.com/photos.html"><h2 class="heading heading1">Photo Galleries &raquo;</h2></a>
+			<a href="slideshow/62/St_John's_+_Bathsheba_+_Bridgetown"><img src="images/slideshows/thumbs/barbadosthumb.jpg" width="300" alt="St John's + Bathsheba + Bridgetown" title="St John's + Bathsheba + Bridgetown"></a>
+			<a href="slideshow/66/The_Out_Islands_of_The_Bahamas"><img src="images/slideshows/thumbs/outislands-thumbnail.jpg" width="300" alt="The Out Islands of The Bahamas" title="The Out Islands of The Bahamas"></a>
+			<a href="slideshow/57/Magnificent_Alberta"><img src="images/slideshows/thumbs/albertaslidethumb.jpg" width="300" alt="Magnificent Alberta" title="Magnificent Alberta"></a>
+			<a href="slideshow/47/Hike_to_Machu_Picchu__"><img src="images/slideshows/thumbs/peruslidethumb.jpg" width="300" alt="Hike to Machu Picchu  " title="Hike to Machu Picchu  "></a>
+			<a href="slideshow/8/Shaun_White_&_more_competing_in_Park_City,_Utah"><img src="images/slideshows/thumbs/shaunwhite_parkcity_thumb.jpg" width="300" alt="Shaun White & more competing in Park City, Utah" title="Shaun White & more competing in Park City, Utah"></a>
+		</div>
+<div class="spacer"></div>
+<div class="bodyad">
+	<script type="text/javascript">
+	  GA_googleFillSlot("TripAtlas_Halfpage_Skyscraper");
+	</script>
+</div>
+
+<div class="spacer"></div>
+<div class="bodyad">
+<script type="text/javascript">FB.init("4c1f64aeac0495838bd1ed4b0dc16c82","/xd_receiver.htm");</script>
+<fb:fan profile_id="111961635684" stream="1" connections="10" width="300"></fb:fan><div style="font-size:8px; padding-left:10px"><a href="http://www.facebook.com/pages/TripAtlascom/111961635684">TripAtlas.com on Facebook</a> </div>
+
+<script src="http://widgets.twimg.com/j/2/widget.js"></script>
+<script>
+new TWTR.Widget({
+  version: 2,
+  type: 'search',
+  search: 'tripatlas',
+  interval: 6000,
+  title: 'TripAtlas on Twitter',
+  subject: '',
+  width: 300,
+  height: 250,
+  theme: {
+    shell: {
+      background: '#00b0f0',
+      color: '#ffffff'
+    },
+    tweets: {
+      background: '#ffffff',
+      color: '#444444',
+      links: '#92ca57'
+    }
+  },
+  features: {
+    scrollbar: false,
+    loop: true,
+    live: true,
+    hashtags: true,
+    timestamp: true,
+    avatars: true,
+    behavior: 'default'
+  }
+}).render().start();
+</script>
+</div>
+<div class="clr"></div>
+
+
+
+				</div>				<div id="right">
+		</div>	</div>
+	
+<div class="clr spacer"></div>
+</div>
+</div>
+<div class="clr spacer"></div>
+<div id="footer">
+	<div id="footercontainer">
+	<div class="left">
+		<h6>Customer Service</h6>
+		<a href="http://tripatlas.com/pro">+ TripAtlas PRO</a>
+		<a href="http://affiliates.tripatlas.com">+ Affiliate Program</a>
+		<a href="http://biz.tripatlas.com">+ Advertise</a>
+		<a href="contact.html">+ Contact Us</a>
+		<a href="faq.html">+ FAQ</a>
+		<a href="policies.html">+ Legal</a>
+		<a href="media.html">+ Media</a>
+	</div>
+	<div class="left">
+		<h6>Most Popular</h6>
+		<a href="./tripbuilder.html">+ Trip Builder</a>
+		<a href="http://hotels.tripatlas.com">+ Hotel Deals</a>
+		<a href="./guides">+ Travel Guides</a>
+		<a href="./directory">+ Travel Company Directory</a>
+		<a href="./trips.html">+ Trips</a>
+		<a href="./video.html">+ Videos</a>
+	</div>
+	<div class="left">
+		<h6>Useful</h6>
+		<a href="aboutus.html">+ About Us</a>
+		<a href="partners.html">+ Partners</a>
+		<a href="rssfeeds.html">+ RSS Feeds</a>
+				<a href="tools.html">+ Tools</a>
+	</div>
+	<div class="right">
+		<h6>Find</h6>
+		<a href="./directory/travel_agents">+ Travel Agents</a>
+		<a href="http://hotels.tripatlas.com">+ Hotels</a>
+		<a href="./directory/car_rental">+ Car Rental</a>
+		<a href="./directory/tours">+ Tours</a>
+		<a href="./trips.html">+ Trip Deals</a><br />
+		<div id="infosearch">
+			<form id="infosearchform" action="searchall.html" method="GET">
+	    	<div id="infosearch_title">Discover</div><div id="infosearch-input"><input name="q" type="text" size="11" value="Canada" onfocus="this.value=''" class="inputbox"></div><div id="infosearch-button"><input type="image" src="images/btn_footsearch.png" name="Go" onmouseover="this.src='images/btn_footsearch_on.png'" onmouseout="this.src='images/btn_footsearch.png'"></div>
+		 	</form>
+		</div>
+	</div>
+	<div class="clr"></div>
+	</div>
+</div>
+<div class="copyright">
+	&copy;2009 TripAtlas.com
+</div>
+
+<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+	var pageTracker = _gat._getTracker("UA-3924964-1");
+	pageTracker._initData();
+	pageTracker._trackPageview();
+</script>
+
+
+
+<script type="text/javascript">
+	_qoptions={
+		qacct:"p-58klvR_xn6IFw"
+	};
+</script>
+<script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+<noscript>
+<a href="http://www.quantcast.com/p-58klvR_xn6IFw" target="_blank"><img src="http://pixel.quantserve.com/pixel/p-58klvR_xn6IFw.gif" style="display: none;" border="0" height="1" width="1" alt="Quantcast"/></a>
+</noscript>
+
+
+</body>
+</html>

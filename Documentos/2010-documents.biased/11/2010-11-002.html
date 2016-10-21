@@ -1,0 +1,590 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>My first C#/Gtk#/Glade# application | Jamin</title>
+
+<link rel="stylesheet" href="http://pubcrawler.org/wp-content/themes/amazing-grace/style.css" type="text/css" media="screen" />
+<style type="text/css">
+#portrait-bg { background: url(http://pubcrawler.org/wp-content/themes/amazing-grace/images/bg-portrait3.jpg); }
+</style>
+<link rel="alternate" type="application/rss+xml" title="Jamin RSS Feed" href="http://pubcrawler.org/feed/" />
+<link rel="pingback" href="http://pubcrawler.org/xmlrpc.php" />
+
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://pubcrawler.org/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://pubcrawler.org/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+
+<!-- all in one seo pack 1.4.6.15 [-1,-1] -->
+<meta name="description" content="It's bloody useless and really simple, but it works and was really easy to write. I created the GUI in Glade, a GNOME program which outputs the UI as XML." />
+<meta name="keywords" content="gnome" />
+<!-- /all in one seo pack -->
+<style type="text/css">.recentcomments a{display:inline !important;padding: 0 !important;margin: 0 !important;}</style>
+</head>
+
+<body>
+
+<div id="wrap">
+<div id="menu">
+<ul>
+<li><a href="http://pubcrawler.org/" >Home</a></li>
+<li class="page_item page-item-455"><a href="http://pubcrawler.org/about/" title="About">About</a></li>
+<li class="page_item page-item-477"><a href="http://pubcrawler.org/tunes-im-diggin/" title="Music">Music</a></li>
+<li class="page_item page-item-495"><a href="http://pubcrawler.org/memory-improvement/" title="Memory Improvement">Memory Improvement</a></li>
+<li><a href="http://pubcrawler.org/photos/">Photography</a></li>
+</ul>
+</div>
+
+<div id="header">
+<span class="btitle"><a href="http://pubcrawler.org/">Jamin</a></span>
+<p class="description">
+<a href="http://pubcrawler.org/">Living life forward and understanding it backwards</a></p>
+</div>
+
+<div id="rss-big"><a href="http://pubcrawler.org/feed/" title="Subscribe to this site with RSS" rel="nofollow"></a></div>
+
+<div id="portrait-bg"></div>
+<div id="catmenu">
+<ul>
+	<li class="cat-item cat-item-3"><a href="http://pubcrawler.org/category/personal/"  title="View all posts filed under Personal" rel="nofollow">Personal</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="http://pubcrawler.org/category/other/"  title="View all posts filed under Other" rel="nofollow">Other</a>
+</li>
+</ul>
+</div>
+<div id="content">
+
+<div class="entry">
+	<div class="entrytitle_wrap">
+<div class="entrydate"><div class="dateMonth">Dec</div><div class="dateDay">12</div>  </div>
+<div class="entrytitle">
+<h1><a href="http://pubcrawler.org/2002/12/12/my-first-cgtkglade-application/" rel="bookmark" title="Link to My first C#/Gtk#/Glade# application">My first C#/Gtk#/Glade# application</a></h1> 
+
+</div>
+<div class="endate">jamin on December 12th, 2002</div>
+</div>
+
+<div class="entrybody">
+<p>It&#8217;s bloody useless and really simple, but it works and was really easy to write.  I created the GUI in <a href="http://glade.gnome.org/" onclick="javascript:pageTracker._trackPageview('/outbound/article/glade.gnome.org');">Glade</a>, a GNOME program which outputs the UI as XML.  Then using Glade# I can load the UI and connect the signals from the XML file.  And since in C# I can include resource files in my binary at compile time, I don&#8217;t even have to distribute the .glade XML file, I can compile it in as a resource.
+<p>Why is all this cool?  Well, for me, writing GNOME applications in C has been quite challenging and has a steep learning curve.  C# is a pretty easy language to program in and when you throw in Glade# you have a winner.  This is also neat because the compiled binary will run in Windows provided the system has Gtk# and Glade# installed.
+<p>All the app does is produce a small window with a button that says &#8220;Press me!&#8221;  When you click the button it writes to the console text saying that it was pressed.  So I won&#8217;t bother including a screenshot.  But click below for the really simple code.
+<p>
+<pre><tt>
+// CSharp.cs
+//
+// Author: Jamin P. Gray
+//
+// (c) 2002 Jamin P. Gray
+namespace GladeSamples {
+	using System;
+
+	using Gtk;
+	using Gnome;
+	using Glade;
+	using GtkSharp;
+	using System.IO;
+	using System.Reflection;
+	public class CSharp
+	{
+		public static void Main (string[] args)
+		{
+			new CSharp(args);
+		}
+		public CSharp (string[] args)
+		{
+			Application.Init();
+			Glade.XML gxml = new Glade.XML (null, "c-sharp.glade", "window", null);
+			gxml.Autoconnect (this);
+			Application.Run();
+		}
+		public void OnWindowDeleteEvent (object o, DeleteEventArgs args)
+		{
+			Application.Quit();
+			args.RetVal = true;
+		}
+
+		public void OnButtonClicked (System.Object obj, EventArgs e)
+		{
+			Console.WriteLine ("Button 1 clicked");
+		}
+	}
+}
+</pre>
+<p></tt></p>
+<p>
+and the XML file looks like this:</p>
+<p><pre><tt>
+&lt;?xml version="1.0" standalone="no"?&gt; &lt;!--*- mode: xml -*--&gt;
+&lt;!DOCTYPE glade-interface SYSTEM "http://glade.gnome.org/glade-2.0.dtd"&gt;
+&lt;glade-interface&gt;
+&lt;widget class="GtkWindow" id="window"&gt;
+  &lt;property name="visible"&gt;True&lt;/property&gt;
+  &lt;property name="title" translatable="yes"&gt;Gtk#&lt;/property&gt;
+  &lt;property name="type"&gt;GTK_WINDOW_TOPLEVEL&lt;/property&gt;
+  &lt;property name="window_position"&gt;GTK_WIN_POS_NONE&lt;/property&gt;
+  &lt;property name="modal"&gt;False&lt;/property&gt;
+  &lt;property name="default_width"&gt;100&lt;/property&gt;
+  &lt;property name="default_height"&gt;100&lt;/property&gt;
+  &lt;property name="resizable"&gt;True&lt;/property&gt;
+  &lt;property name="destroy_with_parent"&gt;False&lt;/property&gt;
+  &lt;signal name="delete_event" handler="OnWindowDeleteEvent" last_modification_time="Thu, 12 Dec 2002 17:30:05 GMT"/&gt;
+  &lt;child&gt;
+    &lt;widget class="GtkButton" id="button"&gt;
+      &lt;property name="visible"&gt;True&lt;/property&gt;
+      &lt;property name="tooltip" translatable="yes"&gt;Press the button&lt;/property&gt;
+      &lt;property name="can_focus"&gt;True&lt;/property&gt;
+      &lt;property name="label" translatable="yes"&gt;Press Me!&lt;/property&gt;
+      &lt;property name="use_underline"&gt;True&lt;/property&gt;
+      &lt;property name="relief"&gt;GTK_RELIEF_HALF&lt;/property&gt;
+      &lt;signal name="clicked" handler="OnButtonClicked" last_modification_time="Thu, 12 Dec 2002 17:28:36 GMT"/&gt;
+    &lt;/widget&gt;
+  &lt;/child&gt;
+&lt;/widget&gt;
+&lt;/glade-interface&gt;
+</pre>
+<p></tt></p>
+<script src="http://feeds.feedburner.com/~s/pubcrawler/org?i=http://pubcrawler.org/2002/12/12/my-first-cgtkglade-application/" type="text/javascript" charset="utf-8"></script>
+ <p>Tags: <a href="http://pubcrawler.org/tag/gnome/" rel="tag">GNOME</a></p> 
+</div>
+
+
+                  
+<div class="entrymeta">
+	<div class="postinfo"> 
+				<span class="filedto">Uncategorized </span>
+		
+		 
+		<span class="rss">Subscribe to <a href="http://pubcrawler.org/feed/" title="Subscribe to RSS feed" rel="nofollow"><abbr title="Subscribe to RSS Feed">RSS</abbr></a> feed</span>
+		
+				
+
+	</div>
+	
+</div>
+
+ 
+                    
+                 
+</div>
+
+
+                                
+<div class="commentsblock">
+<h3 id="comments" class="comment_headings">11 Responses to &#8220;My first C#/Gtk#/Glade# application&#8221;</h3> 
+
+<ol class="commentlist">
+
+
+	    	
+        		
+<li class="alt" id="comment-67">
+<span class="gravatar">
+	<img alt='' src='http://www.gravatar.com/avatar/?d=http://pubcrawler.org/wp-content/themes/amazing-grace/images/gravatar.jpg&amp;s=40' class='avatar avatar-40 avatar-default' height='40' width='40' /></span>
+<div class="commentmeta"><cite>Skeezix</cite><br />
+<small><a href="#comment-67" title="">December 12th, 2002 at 12:58 pm</a> </small>
+</div>
+
+
+			<p>To compile (given where my libraries are installed):</p>
+<p>mcs /unsafe /resource:c-sharp.glade -L /usr/local/lib -r gtk-sharp.dll -r glade-sharp.dll CSharp.cs</p>
+
+</li>
+
+	
+	    
+	    	
+        		
+<li class="" id="comment-68">
+<span class="gravatar">
+	<img alt='' src='http://www.gravatar.com/avatar/?d=http://pubcrawler.org/wp-content/themes/amazing-grace/images/gravatar.jpg&amp;s=40' class='avatar avatar-40 avatar-default' height='40' width='40' /></span>
+<div class="commentmeta"><cite>Drune</cite><br />
+<small><a href="#comment-68" title="">September 13th, 2004 at 6:28 pm</a> </small>
+</div>
+
+
+			<p>And how to run the program. mono xxx.exe ?</p>
+
+</li>
+
+	
+	    
+	    	
+        		
+<li class="alt" id="comment-69">
+<span class="gravatar">
+	<img alt='' src='http://www.gravatar.com/avatar/7cc0e71c750573e14b702c1f432a1596?s=40&amp;d=http%3A%2F%2Fpubcrawler.org%2Fwp-content%2Fthemes%2Famazing-grace%2Fimages%2Fgravatar.jpg&amp;r=G' class='avatar avatar-40' height='40' width='40' /></span>
+<div class="commentmeta"><cite><a href="http://www.csse.monash.edu.au/~lito/" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/www.csse.monash.edu.au');"  rel='external nofollow'>Lito</a></cite><br />
+<small><a href="#comment-69" title="">January 25th, 2005 at 4:03 pm</a> </small>
+</div>
+
+
+			<p>I wish to know more about glade#, I have mono and glade but how does one use glade w/ C#?</p>
+<p>Please point me to the right direction, where do I get glade#?</p>
+<p>Thanks for your help</p>
+<p>Lito Cruz</p>
+
+</li>
+
+	
+	    
+	    	
+        		
+<li class="" id="comment-1272">
+<span class="gravatar">
+	<img alt='' src='http://www.gravatar.com/avatar/8991f4ddfd5dc162afb1397373594e4d?s=40&amp;d=http%3A%2F%2Fpubcrawler.org%2Fwp-content%2Fthemes%2Famazing-grace%2Fimages%2Fgravatar.jpg&amp;r=G' class='avatar avatar-40' height='40' width='40' /></span>
+<div class="commentmeta"><cite>HanClinto</cite><br />
+<small><a href="#comment-1272" title="">May 26th, 2005 at 4:02 pm</a> </small>
+</div>
+
+
+			<p>To the best of my understanding, you don&#8217;t need Glade# &#8212; you just use normal Glade. I&#8217;m guessing Glade# is a misnomer. Glade just outputs an XML file, and you can use that XML file anywhere.</p>
+
+</li>
+
+	
+	    
+	    	
+        		
+<li class="alt" id="comment-1273">
+<span class="gravatar">
+	<img alt='' src='http://www.gravatar.com/avatar/02b2fdff9bdbc05a6e44d03b621c3d55?s=40&amp;d=http%3A%2F%2Fpubcrawler.org%2Fwp-content%2Fthemes%2Famazing-grace%2Fimages%2Fgravatar.jpg&amp;r=G' class='avatar avatar-40' height='40' width='40' /></span>
+<div class="commentmeta"><cite><a href="http://pubcrawler.org"   rel='external nofollow'>jamin</a></cite><br />
+<small><a href="#comment-1273" title="">May 26th, 2005 at 5:12 pm</a> </small>
+</div>
+
+
+			<p>Glade# is not a misnomer; it&#8217;s the mono bindings for libglade which are necessary to load the UI from the XML file.</p>
+
+</li>
+
+	
+	    
+	    	
+        		
+<li class="" id="comment-1274">
+<span class="gravatar">
+	<img alt='' src='http://www.gravatar.com/avatar/d955e0e74a2c5951052b65df3c338005?s=40&amp;d=http%3A%2F%2Fpubcrawler.org%2Fwp-content%2Fthemes%2Famazing-grace%2Fimages%2Fgravatar.jpg&amp;r=G' class='avatar avatar-40' height='40' width='40' /></span>
+<div class="commentmeta"><cite>Matthew</cite><br />
+<small><a href="#comment-1274" title="">May 31st, 2005 at 12:47 pm</a> </small>
+</div>
+
+
+			<p>If I make a c# application, and wish to distribute it to employees/customers that are running various versions of windows, what do I need to package with my installer in order for them to be able to run my program?</p>
+<p>Thanks, Matthew</p>
+
+</li>
+
+	
+	    
+	    	
+        		
+<li class="alt" id="comment-1275">
+<span class="gravatar">
+	<img alt='' src='http://www.gravatar.com/avatar/02b2fdff9bdbc05a6e44d03b621c3d55?s=40&amp;d=http%3A%2F%2Fpubcrawler.org%2Fwp-content%2Fthemes%2Famazing-grace%2Fimages%2Fgravatar.jpg&amp;r=G' class='avatar avatar-40' height='40' width='40' /></span>
+<div class="commentmeta"><cite><a href="http://pubcrawler.org"   rel='external nofollow'>jamin</a></cite><br />
+<small><a href="#comment-1275" title="">May 31st, 2005 at 12:53 pm</a> </small>
+</div>
+
+
+			<p>Well that all depends.  At the very least your users will need a .NET runtime&#8230;either Microsoft&#8217;s or Mono.  If you use the Gtk# toolkit you&#8217;ll also need to install Gtk-sharp.  There are installers available on the <a href="http://www.mono-project.com/Downloads" onclick="javascript:pageTracker._trackPageview('/outbound/comment/www.mono-project.com');" rel="nofollow">Mono Project Download page</a></p>
+
+</li>
+
+	
+	    
+	    	
+        		
+<li class="" id="comment-1909">
+<span class="gravatar">
+	<img alt='' src='http://www.gravatar.com/avatar/b5fe97d35ff2f70c8cfc4d222be36b65?s=40&amp;d=http%3A%2F%2Fpubcrawler.org%2Fwp-content%2Fthemes%2Famazing-grace%2Fimages%2Fgravatar.jpg&amp;r=G' class='avatar avatar-40' height='40' width='40' /></span>
+<div class="commentmeta"><cite><a href="http://www.klaatusoftware.com" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/www.klaatusoftware.com');"  rel='external nofollow'>Kyle</a></cite><br />
+<small><a href="#comment-1909" title="">November 28th, 2005 at 8:03 pm</a> </small>
+</div>
+
+
+			<p>Thanks Jamin,<br />
+  You have saved me hours of time trying to work out how it is done.<br />
+Nice bit of code.  <img src='http://pubcrawler.org/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' /> </p>
+<p>Kyle.</p>
+
+</li>
+
+	
+	    
+	    	
+        		
+<li class="alt" id="comment-3451">
+<span class="gravatar">
+	<img alt='' src='http://www.gravatar.com/avatar/4c26186919b3f6b2c6c24505240fd25b?s=40&amp;d=http%3A%2F%2Fpubcrawler.org%2Fwp-content%2Fthemes%2Famazing-grace%2Fimages%2Fgravatar.jpg&amp;r=G' class='avatar avatar-40' height='40' width='40' /></span>
+<div class="commentmeta"><cite>Rick Miller</cite><br />
+<small><a href="#comment-3451" title="">May 15th, 2006 at 1:31 pm</a> </small>
+</div>
+
+
+			<p>So, after I create the &#8220;c-sharp.glade&#8221; XML file using Glade, how do I get the empty C# functions into the &#8220;CSharp.cs&#8221; file?</p>
+<p>I&#8217;m hoping that I don&#8217;t have to remember the prototypes for every different sort of event handler&#8230;</p>
+
+</li>
+
+	
+	    
+	    	
+        		
+<li class="" id="comment-3452">
+<span class="gravatar">
+	<img alt='' src='http://www.gravatar.com/avatar/02b2fdff9bdbc05a6e44d03b621c3d55?s=40&amp;d=http%3A%2F%2Fpubcrawler.org%2Fwp-content%2Fthemes%2Famazing-grace%2Fimages%2Fgravatar.jpg&amp;r=G' class='avatar avatar-40' height='40' width='40' /></span>
+<div class="commentmeta"><cite><a href="http://pubcrawler.org"   rel='external nofollow'>jamin</a></cite><br />
+<small><a href="#comment-3452" title="">May 15th, 2006 at 1:46 pm</a> </small>
+</div>
+
+
+			<p>You have to create the event handlers yourself.  How would a tool or IDE magically know which event handlers you need for your particular application?  You don&#8217;t have to mentally remember all of the event handlers, though.  That&#8217;s what documentation is for.  Have you tried monodoc or monodevelop?</p>
+
+</li>
+
+	
+	    
+	    	
+        		
+<li class="alt" id="comment-3458">
+<span class="gravatar">
+	<img alt='' src='http://www.gravatar.com/avatar/4c26186919b3f6b2c6c24505240fd25b?s=40&amp;d=http%3A%2F%2Fpubcrawler.org%2Fwp-content%2Fthemes%2Famazing-grace%2Fimages%2Fgravatar.jpg&amp;r=G' class='avatar avatar-40' height='40' width='40' /></span>
+<div class="commentmeta"><cite>Rick Miller</cite><br />
+<small><a href="#comment-3458" title="">May 15th, 2006 at 4:04 pm</a> </small>
+</div>
+
+
+			<p>I noticed that the XML file only mentions two event handlers.  I haven&#8217;t used Glade yet, but presumably you somehow gave Glade the names that these event handlers would have.  You told it which events you need and it knows exactly which classes they are.</p>
+<p>Shouldn&#8217;t it then be fairly straightforward for a tool to do the lookup for you?  Button click handlers go this way, form delete handlers go that way&#8230;  Computers excell at things like this.</p>
+<p>Doesn&#8217;t Glade autogenerate code at all?  Maybe I&#8217;m thinking of KDevelop, it&#8217;s been a long while, but this seems pretty fundamental for a graphical development tool.</p>
+
+</li>
+
+	
+	    
+	
+
+</ol>
+
+
+
+
+ 
+
+</div>
+
+
+</div>
+
+<div id="sidebar">
+
+
+<div id="sidebar-left">
+
+	<div class="flickr-photos">
+<h4>My Photos</h4><a href="/photos/photo/4304846445/img_4501.html"><img src="http://farm5.static.flickr.com/4071/4304846445_83fa588beb_s.jpg" width="75" height="75" alt="IMG_4501" /></a>
+<a href="/photos/photo/4304845201/img_4500.html"><img src="http://farm3.static.flickr.com/2678/4304845201_ef078d3093_s.jpg" width="75" height="75" alt="IMG_4500" /></a>
+<a href="/photos/photo/4305586820/img_4498.html"><img src="http://farm5.static.flickr.com/4035/4305586820_29cabdd384_s.jpg" width="75" height="75" alt="IMG_4498" /></a>
+<a href="/photos/photo/4305574924/img_4494.html"><img src="http://farm5.static.flickr.com/4019/4305574924_4551740275_s.jpg" width="75" height="75" alt="IMG_4494" /></a>
+<a href="/photos/photo/4304830743/img_4493.html"><img src="http://farm5.static.flickr.com/4016/4304830743_785f83d43a_s.jpg" width="75" height="75" alt="IMG_4493" /></a>
+<a href="/photos/photo/4305571740/img_4492.html"><img src="http://farm3.static.flickr.com/2680/4305571740_5dac9c12e1_s.jpg" width="75" height="75" alt="IMG_4492" /></a>
+<a href="/photos/photo/4305570082/img_4491.html"><img src="http://farm5.static.flickr.com/4013/4305570082_91af1d74de_s.jpg" width="75" height="75" alt="IMG_4491" /></a>
+<a href="/photos/photo/4305568166/img_4490.html"><img src="http://farm5.static.flickr.com/4066/4305568166_2a69b02a08_s.jpg" width="75" height="75" alt="IMG_4490" /></a>
+<a href="/photos/photo/4304823887/img_4489.html"><img src="http://farm3.static.flickr.com/2730/4304823887_039cfed5b3_s.jpg" width="75" height="75" alt="IMG_4489" /></a>
+<a href="/photos/photo/4305564408/img_4488.html"><img src="http://farm3.static.flickr.com/2700/4305564408_4f784b98ce_s.jpg" width="75" height="75" alt="IMG_4488" /></a>
+
+<br /><a href="/photos/" class="more-photos">View more photos &gt;</a>
+</div>
+<h4>Friends</h4>
+	<ul class='xoxo blogroll'>
+<li><a href="http://www.thestrawmen.com/blogger/crackedmirror.html" title="Singer, song-writer, and former youth-pastor">Bill Harmon</a></li>
+<li><a href="http://dfarq.homeip.net/" title="I enjoy reading his entries">Dave Farquhar</a></li>
+<li><a href="http://laurengray.blogspot.com" rel="sibling" title="My sister">Lauren Gray</a></li>
+<li><a href="http://lindsey_and_charlie.blogspot.com/" title="A high school friend and his wife">Lindsey and Charlie</a></li>
+<li><a href="http://lizeasterling.blogspot.com/" rel="friend" title="One of my friends from high school who now lives in Seattle.">Liz Easterling</a></li>
+<li><a href="http://break-line.net/" title="Former co-worker">Max Drown</a></li>
+<li><a href="http://micah.cowan.name">Micah Cowan</a></li>
+<li><a href="http://micahgray.com/" title="Singer, song-writer, and my brother">Micah Gray</a></li>
+<li><a href="http://qubebooks.blogspot.com/">Qube Books Blog</a></li>
+<li><a href="http://sebandjesse.blogspot.com/" title="A high school friend and his wife">Seb and Jesse</a></li>
+<li><a href="http://lithereed.blogspot.com/" rel="friend" title="One of my good friends here in St. Louis">Stephanie Hood</a></li>
+
+	</ul>
+
+<h4>Start Here</h4>
+	<ul class='xoxo blogroll'>
+<li><a href="http://pubcrawler.org/perl-rocks.html" title="practical benefits to using Perl">Benefits of Perl</a></li>
+<li><a href="http://pubcrawler.org/2005/02/25/building-a-bankroll-online/" title="How to build a bankroll with online poker">Building a Bankroll Online</a></li>
+<li><a href="http://pubcrawler.org/2004/11/11/conservatives-and-liberals/" title="Thoughts on Politics">Conservatives and Liberals</a></li>
+<li><a href="http://pubcrawler.org/2005/03/07/how-to-say-farewell/">How to Say Farewell</a></li>
+<li><a href="http://pubcrawler.org/2004/10/06/lethargy/">Lethargy</a></li>
+<li><a href="http://pubcrawler.org/memory-improvement/" title="Have trouble remembering things?  Read my essay.">Memory Improvement</a></li>
+<li><a href="http://pubcrawler.org/2005/03/14/down-the-river-to-new-orleans/" title="New Orleans in Happier Times&#8230;">New Orleans</a></li>
+<li><a href="http://pubcrawler.org/2003/06/16/on-top-of-old-smoky/" title="Account of a Trip to the Smoky Mountains">On Top of Old Smoky</a></li>
+<li><a href="http://pubcrawler.org/2004/07/25/passion/" title="Thoughts on what drives passion">Passion</a></li>
+<li><a href="http://pubcrawler.org/perl-reference.html" title="bookmark this handy reference">Perl Reference</a></li>
+<li><a href="http://pubcrawler.org/2005/08/02/thoughts-on-ruby-on-rails/" title="My experiences using this framework to write a real-world application">Thoughts on Ruby on Rails</a></li>
+<li><a href="http://pubcrawler.org/2005/10/07/what-is-poetry/" title="What is Poetry?">What is Poetry?</a></li>
+<li><a href="http://wondr.net/" rel="me">wondr.net</a></li>
+
+	</ul>
+
+
+   
+    
+</div>
+
+
+<div id="sidebar-right">
+ 	
+  	   
+          
+
+	<div class="search-form">
+    
+		 
+        <form method="get" id="searchform" action="http://pubcrawler.org/"> 
+        <input type="text" value="Search..." name="s" id="s" onblur="if (this.value == '')  
+        {this.value = 'Search...';}"  
+        onfocus="if (this.value == 'Search...')  
+        {this.value = '';}" /> 
+        <input type="hidden" id="searchsubmit" /> 
+        </form>
+    
+    </div>
+
+
+
+
+	<h4><a class='rsswidget' href='http://twitter.com/statuses/user_timeline/17272191.rss' title='Syndicate this content'><img style='background:orange;color:white;border:none;' width='14' height='14' src='http://pubcrawler.org/wp-includes/images/rss.png' alt='RSS' /></a> <a class='rsswidget' href='http://twitter.com/jamingray' title='Twitter updates from jamingray / jamingray.'>Twitter</a></h4><ul><li><a class='rsswidget' href='http://twitter.com/jamingray/statuses/9591325967' title='jamingray: Why is my phone&#039;s weather app telling me that I&#039;m in Tamalin, Mexico where it&#039;s 60 degrees F?  Son of a bitch is rubbing it in.'>jamingray: Why is my phone&#039;s weather app telling me that I&#039;m in Tamalin, Mexico where it&#039;s 60 degrees F?  Son of a bitch is rubbing it in.</a> <span class="rss-date">February 24, 2010</span></li><li><a class='rsswidget' href='http://twitter.com/jamingray/statuses/8085877267' title='jamingray: Sorry if you&#039;ve sent me email to my main address (jamin@pubcrawler.org) and it bounced.  It was a mailbox quota issue that&#039;s been resolved.'>jamingray: Sorry if you&#039;ve sent me email to my main address (jamin@pubcrawler.org) and it bounced.  It was a mailbox quota issue that&#039;s been resolved.</a> <span class="rss-date">January 22, 2010</span></li><li><a class='rsswidget' href='http://twitter.com/jamingray/statuses/7634345648' title='jamingray: oh the joys of server transitions'>jamingray: oh the joys of server transitions</a> <span class="rss-date">January 11, 2010</span></li><li><a class='rsswidget' href='http://twitter.com/jamingray/statuses/7408921236' title='jamingray: Congratulations to Micah and Crystal on their new child: http://ping.fm/ypdFn'>jamingray: Congratulations to Micah and Crystal on their new child: http://ping.fm/ypdFn</a> <span class="rss-date">January 5, 2010</span></li><li><a class='rsswidget' href='http://twitter.com/jamingray/statuses/6503233811' title='jamingray: There&#039;s nothing sadder in this world than to awake Christmas morning and not be a child. ~ Erma Bombeck'>jamingray: There&#039;s nothing sadder in this world than to awake Christmas morning and not be a child. ~ Erma Bombeck</a> <span class="rss-date">December 9, 2009</span></li></ul><h4>Tags</h4><a href='http://pubcrawler.org/tag/art/' class='tag-link-12' title='4 topics' rel="tag" style='font-size: 8.1794871794872pt;'>Art</a>
+<a href='http://pubcrawler.org/tag/birthday/' class='tag-link-11' title='8 topics' rel="tag" style='font-size: 8.4188034188034pt;'>Birthday</a>
+<a href='http://pubcrawler.org/tag/books/' class='tag-link-15' title='22 topics' rel="tag" style='font-size: 9.2564102564103pt;'>Books</a>
+<a href='http://pubcrawler.org/tag/camping/' class='tag-link-39' title='2 topics' rel="tag" style='font-size: 8.0598290598291pt;'>Camping</a>
+<a href='http://pubcrawler.org/tag/chess/' class='tag-link-18' title='2 topics' rel="tag" style='font-size: 8.0598290598291pt;'>Chess</a>
+<a href='http://pubcrawler.org/tag/cooking/' class='tag-link-23' title='10 topics' rel="tag" style='font-size: 8.5384615384615pt;'>Cooking</a>
+<a href='http://pubcrawler.org/tag/crohns-disease/' class='tag-link-45' title='8 topics' rel="tag" style='font-size: 8.4188034188034pt;'>Crohn's Disease</a>
+<a href='http://pubcrawler.org/tag/drinking/' class='tag-link-4' title='20 topics' rel="tag" style='font-size: 9.1367521367521pt;'>Drinking</a>
+<a href='http://pubcrawler.org/tag/features/' class='tag-link-5' title='26 topics' rel="tag" style='font-size: 9.4957264957265pt;'>Features</a>
+<a href='http://pubcrawler.org/tag/finance/' class='tag-link-21' title='5 topics' rel="tag" style='font-size: 8.2393162393162pt;'>Finance</a>
+<a href='http://pubcrawler.org/tag/fitness/' class='tag-link-34' title='3 topics' rel="tag" style='font-size: 8.1196581196581pt;'>Fitness</a>
+<a href='http://pubcrawler.org/tag/games/' class='tag-link-16' title='7 topics' rel="tag" style='font-size: 8.3589743589744pt;'>Games</a>
+<a href='http://pubcrawler.org/tag/gnome/' class='tag-link-10' title='42 topics' rel="tag" style='font-size: 10.452991452991pt;'>GNOME</a>
+<a href='http://pubcrawler.org/tag/home/' class='tag-link-22' title='1 topic' rel="tag" style='font-size: 8pt;'>Home</a>
+<a href='http://pubcrawler.org/tag/howto/' class='tag-link-33' title='5 topics' rel="tag" style='font-size: 8.2393162393162pt;'>HowTo</a>
+<a href='http://pubcrawler.org/tag/karaoke/' class='tag-link-46' title='2 topics' rel="tag" style='font-size: 8.0598290598291pt;'>Karaoke</a>
+<a href='http://pubcrawler.org/tag/lifehacks/' class='tag-link-32' title='6 topics' rel="tag" style='font-size: 8.2991452991453pt;'>Lifehacks</a>
+<a href='http://pubcrawler.org/tag/linux/' class='tag-link-8' title='10 topics' rel="tag" style='font-size: 8.5384615384615pt;'>Linux</a>
+<a href='http://pubcrawler.org/tag/literature/' class='tag-link-24' title='10 topics' rel="tag" style='font-size: 8.5384615384615pt;'>Literature</a>
+<a href='http://pubcrawler.org/tag/math/' class='tag-link-35' title='4 topics' rel="tag" style='font-size: 8.1794871794872pt;'>Math</a>
+<a href='http://pubcrawler.org/tag/meme/' class='tag-link-47' title='1 topic' rel="tag" style='font-size: 8pt;'>Meme</a>
+<a href='http://pubcrawler.org/tag/meta/' class='tag-link-2' title='19 topics' rel="tag" style='font-size: 9.0769230769231pt;'>Meta</a>
+<a href='http://pubcrawler.org/tag/mono/' class='tag-link-13' title='30 topics' rel="tag" style='font-size: 9.7350427350427pt;'>Mono</a>
+<a href='http://pubcrawler.org/tag/movies/' class='tag-link-6' title='17 topics' rel="tag" style='font-size: 8.957264957265pt;'>Movies</a>
+<a href='http://pubcrawler.org/tag/music/' class='tag-link-7' title='17 topics' rel="tag" style='font-size: 8.957264957265pt;'>Music</a>
+<a href='http://pubcrawler.org/tag/news/' class='tag-link-26' title='3 topics' rel="tag" style='font-size: 8.1196581196581pt;'>News</a>
+<a href='http://pubcrawler.org/tag/perl/' class='tag-link-9' title='14 topics' rel="tag" style='font-size: 8.7777777777778pt;'>Perl</a>
+<a href='http://pubcrawler.org/tag/personal/' class='tag-link-3' title='235 topics' rel="tag" style='font-size: 22pt;'>Personal</a>
+<a href='http://pubcrawler.org/tag/photography/' class='tag-link-38' title='11 topics' rel="tag" style='font-size: 8.5982905982906pt;'>Photography</a>
+<a href='http://pubcrawler.org/tag/poetry/' class='tag-link-27' title='6 topics' rel="tag" style='font-size: 8.2991452991453pt;'>Poetry</a>
+<a href='http://pubcrawler.org/tag/poker/' class='tag-link-20' title='12 topics' rel="tag" style='font-size: 8.6581196581197pt;'>Poker</a>
+<a href='http://pubcrawler.org/tag/religion/' class='tag-link-30' title='6 topics' rel="tag" style='font-size: 8.2991452991453pt;'>Religion</a>
+<a href='http://pubcrawler.org/tag/science/' class='tag-link-29' title='2 topics' rel="tag" style='font-size: 8.0598290598291pt;'>Science</a>
+<a href='http://pubcrawler.org/tag/social-networking/' class='tag-link-48' title='1 topic' rel="tag" style='font-size: 8pt;'>social networking</a>
+<a href='http://pubcrawler.org/tag/travel/' class='tag-link-40' title='3 topics' rel="tag" style='font-size: 8.1196581196581pt;'>Travel</a>
+<a href='http://pubcrawler.org/tag/uncategorized/' class='tag-link-1' title='1 topic' rel="tag" style='font-size: 8pt;'>Uncategorized</a>
+<a href='http://pubcrawler.org/tag/vistawiz/' class='tag-link-17' title='6 topics' rel="tag" style='font-size: 8.2991452991453pt;'>VistaWiz</a>
+<a href='http://pubcrawler.org/tag/web/' class='tag-link-19' title='16 topics' rel="tag" style='font-size: 8.8974358974359pt;'>Web</a>
+<a href='http://pubcrawler.org/tag/zaurus/' class='tag-link-14' title='3 topics' rel="tag" style='font-size: 8.1196581196581pt;'>Zaurus</a>
+					<h4>Recent Comments</h4>			<ul id="recentcomments"><li class="recentcomments"><a href="http://pubcrawler.org/2008/11/09/now-on-twitter-and-using-pingfm-to-update/"   rel='external nofollow'>Now on Twitter and using Ping.fm to update | Jamin</a> on <a href="http://pubcrawler.org/about/#comment-123873">About</a></li><li class="recentcomments">Suresh on <a href="http://pubcrawler.org/2007/09/09/golconda-and-charminar/#comment-113216">Golconda and Charminar</a></li><li class="recentcomments"><a href="http://www.frankrichard.com" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/www.frankrichard.com');"  rel='external nofollow'>Frank Richard</a> on <a href="http://pubcrawler.org/2006/01/18/farewell-grandma/#comment-111222">Farewell, Grandma&#8230;</a></li><li class="recentcomments"><a href="http://www.frankrichard.com" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/www.frankrichard.com');"  rel='external nofollow'>Frank Richard</a> on <a href="http://pubcrawler.org/2008/09/20/mememe/#comment-111221">Meme(me)</a></li><li class="recentcomments"><a href="http://zonker.opensuse.org/" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/zonker.opensuse.org');"  rel='external nofollow'>Zonker</a> on <a href="http://pubcrawler.org/2008/09/21/saturday-with-kelli/#comment-110540">Saturday with Kelli</a></li></ul>
+		<h4>Archives</h4>		<select name="archive-dropdown" onchange='document.location.href=this.options[this.selectedIndex].value;'> <option value="">Select Month</option> 	<option value='http://pubcrawler.org/2009/10/'> October 2009 &nbsp;(1)</option>
+	<option value='http://pubcrawler.org/2009/01/'> January 2009 &nbsp;(1)</option>
+	<option value='http://pubcrawler.org/2008/11/'> November 2008 &nbsp;(1)</option>
+	<option value='http://pubcrawler.org/2008/10/'> October 2008 &nbsp;(2)</option>
+	<option value='http://pubcrawler.org/2008/09/'> September 2008 &nbsp;(2)</option>
+	<option value='http://pubcrawler.org/2008/08/'> August 2008 &nbsp;(1)</option>
+	<option value='http://pubcrawler.org/2007/12/'> December 2007 &nbsp;(1)</option>
+	<option value='http://pubcrawler.org/2007/11/'> November 2007 &nbsp;(1)</option>
+	<option value='http://pubcrawler.org/2007/10/'> October 2007 &nbsp;(1)</option>
+	<option value='http://pubcrawler.org/2007/09/'> September 2007 &nbsp;(3)</option>
+	<option value='http://pubcrawler.org/2007/08/'> August 2007 &nbsp;(1)</option>
+	<option value='http://pubcrawler.org/2007/07/'> July 2007 &nbsp;(1)</option>
+	<option value='http://pubcrawler.org/2007/06/'> June 2007 &nbsp;(6)</option>
+	<option value='http://pubcrawler.org/2007/05/'> May 2007 &nbsp;(7)</option>
+	<option value='http://pubcrawler.org/2007/04/'> April 2007 &nbsp;(4)</option>
+	<option value='http://pubcrawler.org/2007/03/'> March 2007 &nbsp;(1)</option>
+	<option value='http://pubcrawler.org/2007/02/'> February 2007 &nbsp;(3)</option>
+	<option value='http://pubcrawler.org/2007/01/'> January 2007 &nbsp;(4)</option>
+	<option value='http://pubcrawler.org/2006/12/'> December 2006 &nbsp;(2)</option>
+	<option value='http://pubcrawler.org/2006/11/'> November 2006 &nbsp;(3)</option>
+	<option value='http://pubcrawler.org/2006/10/'> October 2006 &nbsp;(2)</option>
+	<option value='http://pubcrawler.org/2006/09/'> September 2006 &nbsp;(4)</option>
+	<option value='http://pubcrawler.org/2006/07/'> July 2006 &nbsp;(3)</option>
+	<option value='http://pubcrawler.org/2006/06/'> June 2006 &nbsp;(3)</option>
+	<option value='http://pubcrawler.org/2006/05/'> May 2006 &nbsp;(3)</option>
+	<option value='http://pubcrawler.org/2006/04/'> April 2006 &nbsp;(3)</option>
+	<option value='http://pubcrawler.org/2006/03/'> March 2006 &nbsp;(5)</option>
+	<option value='http://pubcrawler.org/2006/02/'> February 2006 &nbsp;(6)</option>
+	<option value='http://pubcrawler.org/2006/01/'> January 2006 &nbsp;(8)</option>
+	<option value='http://pubcrawler.org/2005/12/'> December 2005 &nbsp;(5)</option>
+	<option value='http://pubcrawler.org/2005/11/'> November 2005 &nbsp;(3)</option>
+	<option value='http://pubcrawler.org/2005/10/'> October 2005 &nbsp;(10)</option>
+	<option value='http://pubcrawler.org/2005/09/'> September 2005 &nbsp;(7)</option>
+	<option value='http://pubcrawler.org/2005/08/'> August 2005 &nbsp;(6)</option>
+	<option value='http://pubcrawler.org/2005/07/'> July 2005 &nbsp;(2)</option>
+	<option value='http://pubcrawler.org/2005/06/'> June 2005 &nbsp;(9)</option>
+	<option value='http://pubcrawler.org/2005/05/'> May 2005 &nbsp;(4)</option>
+	<option value='http://pubcrawler.org/2005/04/'> April 2005 &nbsp;(3)</option>
+	<option value='http://pubcrawler.org/2005/03/'> March 2005 &nbsp;(9)</option>
+	<option value='http://pubcrawler.org/2005/02/'> February 2005 &nbsp;(12)</option>
+	<option value='http://pubcrawler.org/2005/01/'> January 2005 &nbsp;(7)</option>
+	<option value='http://pubcrawler.org/2004/12/'> December 2004 &nbsp;(5)</option>
+	<option value='http://pubcrawler.org/2004/11/'> November 2004 &nbsp;(6)</option>
+	<option value='http://pubcrawler.org/2004/10/'> October 2004 &nbsp;(19)</option>
+	<option value='http://pubcrawler.org/2004/09/'> September 2004 &nbsp;(13)</option>
+	<option value='http://pubcrawler.org/2004/08/'> August 2004 &nbsp;(19)</option>
+	<option value='http://pubcrawler.org/2004/07/'> July 2004 &nbsp;(9)</option>
+	<option value='http://pubcrawler.org/2004/06/'> June 2004 &nbsp;(13)</option>
+	<option value='http://pubcrawler.org/2004/05/'> May 2004 &nbsp;(8)</option>
+	<option value='http://pubcrawler.org/2004/04/'> April 2004 &nbsp;(9)</option>
+	<option value='http://pubcrawler.org/2004/03/'> March 2004 &nbsp;(9)</option>
+	<option value='http://pubcrawler.org/2004/02/'> February 2004 &nbsp;(10)</option>
+	<option value='http://pubcrawler.org/2004/01/'> January 2004 &nbsp;(6)</option>
+	<option value='http://pubcrawler.org/2003/12/'> December 2003 &nbsp;(10)</option>
+	<option value='http://pubcrawler.org/2003/11/'> November 2003 &nbsp;(20)</option>
+	<option value='http://pubcrawler.org/2003/10/'> October 2003 &nbsp;(24)</option>
+	<option value='http://pubcrawler.org/2003/09/'> September 2003 &nbsp;(17)</option>
+	<option value='http://pubcrawler.org/2003/08/'> August 2003 &nbsp;(15)</option>
+	<option value='http://pubcrawler.org/2003/07/'> July 2003 &nbsp;(8)</option>
+	<option value='http://pubcrawler.org/2003/06/'> June 2003 &nbsp;(16)</option>
+	<option value='http://pubcrawler.org/2003/05/'> May 2003 &nbsp;(13)</option>
+	<option value='http://pubcrawler.org/2003/04/'> April 2003 &nbsp;(4)</option>
+	<option value='http://pubcrawler.org/2003/03/'> March 2003 &nbsp;(3)</option>
+	<option value='http://pubcrawler.org/2003/02/'> February 2003 &nbsp;(10)</option>
+	<option value='http://pubcrawler.org/2003/01/'> January 2003 &nbsp;(11)</option>
+	<option value='http://pubcrawler.org/2002/12/'> December 2002 &nbsp;(8)</option>
+	<option value='http://pubcrawler.org/2002/11/'> November 2002 &nbsp;(4)</option>
+	<option value='http://pubcrawler.org/2002/10/'> October 2002 &nbsp;(13)</option>
+	<option value='http://pubcrawler.org/2002/09/'> September 2002 &nbsp;(6)</option>
+	<option value='http://pubcrawler.org/2002/08/'> August 2002 &nbsp;(6)</option>
+	<option value='http://pubcrawler.org/2002/07/'> July 2002 &nbsp;(11)</option>
+	<option value='http://pubcrawler.org/2002/06/'> June 2002 &nbsp;(6)</option>
+	<option value='http://pubcrawler.org/2002/05/'> May 2002 &nbsp;(16)</option>
+ </select>
+
+</div>
+
+</div></div> 
+
+<div id="footer">
+
+
+<div id="credits">
+<div id="ftnav"><span class="rss"><a href="http://pubcrawler.org/feed/" title="Subscribe to RSS" rel="nofollow"><abbr title="Subscribe to RSS">RSS</abbr></a></span></div>
+<small>Copyright &copy; 2010  <strong>Jamin</strong> All rights reserved. <a href="http://www.prelovac.com/vladimir/wordpress/amazing-grace">Amazing Grace</a> theme by <a href="http://www.prelovac.com/vladimir/">Vladimir Prelovac</a></small>.
+<!-- AdSense Manager v3.2.13 (2.319 seconds.) -->     <!-- 27 queries. 2.319 seconds. --> 
+</div></div>
+
+</body>
+</html>

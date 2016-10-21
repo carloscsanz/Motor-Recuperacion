@@ -1,0 +1,533 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>
+Computer Security Research - McAfee Labs Blog
+</title>
+<meta name="description" content="
+			McAfee Labs Blog provides the latest computer security research.
+	" />
+
+<meta name="generator" content="WordPress 2.8.3" /> <!-- leave this for stats -->
+
+<link rel="stylesheet" href="http://www.avertlabs.com/research/blog/wp-content/themes/avert-blog/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="http://www.avertlabs.com/research/blog/wp-content/themes/avert-blog/_styles/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="McAfee Labs Blog RSS Feed" href="http://feeds.feedburner.com/McafeeAvertLabsBlog" />
+<link rel="pingback" href="http://www.avertlabs.com/research/blog/xmlrpc.php" />
+
+<style type="text/css" media="screen">
+	/*	To accomodate differing install paths of WordPress, images are referred only here,
+	and not in the wp-layout.css file. If you prefer to use only CSS for colors and what
+	not, then go right ahead and delete the following lines, and the image files. */
+	p.post-comments a { background: url(http://www.avertlabs.com/research/blog/wp-content/themes/avert-blog/_images/icon_comment.png) no-repeat 0 1px; }
+	p.post-comments a.permalink { background: url(http://www.avertlabs.com/research/blog/wp-content/themes/avert-blog/_images/icon_permalink.png) no-repeat 0 1px; }
+	div#sidebar h2 { background: #868686 url(http://www.avertlabs.com/research/blog/wp-content/themes/avert-blog/_images/bg_sidebar_gray.png) no-repeat 100% 0; }
+	div#sidebar h2.top { background: #b00c33 url(http://www.avertlabs.com/research/blog/wp-content/themes/avert-blog/_images/bg_sidebar_red.png) no-repeat 100% 0; }
+	#header-image { background: #d8d8d8 url(http://www.avertlabs.com/research/blog/wp-content/themes/avert-blog/_images/bg_header.jpg) no-repeat 0 7px; }
+	#footer { background: #575757 url(http://www.avertlabs.com/research/blog/wp-content/themes/avert-blog/_images/bg_footer.png) repeat 0 0; }
+	
+	div#sidebar li a:link { background-image: url(http://www.avertlabs.com/research/blog/wp-content/themes/avert-blog/_images/icon_arrow_blue.png); color: #0c719d; }
+	div#sidebar li a:visited { background-image: url(http://www.avertlabs.com/research/blog/wp-content/themes/avert-blog/_images/icon_arrow_blue.png); color: #0c719d; }
+	div#sidebar li a:hover { background-image: url(http://www.avertlabs.com/research/blog/wp-content/themes/avert-blog/_images/icon_arrow_red.png); color: #b00c33; }
+	div#sidebar li a:active { background-image: url(http://www.avertlabs.com/research/blog/wp-content/themes/avert-blog/_images/icon_arrow_blue.png); color: #0c719d; }
+</style>
+
+</head>
+<body>
+<div id="wrapper">
+	<div id="header">
+		<div id="header-logo"><a href="http://www.avertlabs.com/research/blog/"><img src="http://www.avertlabs.com/research/blog/wp-content/themes/avert-blog/_images/logo_mcafee.png" alt="McAfee Labs Research Blog Home" /></a></div>
+		<div id="header-image"></div>
+	</div>
+<div id="content-main">
+	<div id="content">
+
+						
+				<div class="post" id="post-779">
+					<div class="post">
+						<div class="post-details">
+							<h2 class="post-title">Google Code Project Abused by Spammers</h2>
+							<p class="post-date">Wednesday January 7, 2009 at 9:47 am CST<br />
+							Posted by <strong>Chris Barton, Research Scientist and Artemis Geek</strong></p>
+							<p class="post-comments"><a href="http://www.avertlabs.com/research/blog/index.php/2009/01/07/google-code-project-abused-by-spammers/#comments" title="Comment on Google Code Project Abused by Spammers">17 Comments;</a><br />
+							<a href="http://www.avertlabs.com/research/blog/index.php/2009/01/07/google-code-project-abused-by-spammers/trackback/" rel="trackback" class="permalink">Trackback</a></p>
+							<div class="clear"></div>
+						</div>
+						<div class="post-content"><p>Google&#8217;s code-hosting project is the latest free service to be abused by web spammers. We&#8217;ve seen one or two previously, but over the holidays the situation appears to have got much worse. They are creating lots of new projects with the following type of website on:</p>
+<div align="center">
+<a href="http://dl.getdropbox.com/u/137429/AL/Avert-Blog-Google-Code.jpg" target="_new"><img src="http://dl.getdropbox.com/u/137429/AL/Avert-Blog-Google-Code.jpg" alt="google code pic" width="80%" height="80%" /></a>
+</div>
+<p>Clicking the image will take you to today&#8217;s fake codec download site. Repeated clicks will take you to an adult site [both NSFW, you have been warned!].</p>
+<p>The difference between this and the MSN Spaces abuse that is now about a year old is that Google appears to automatically index code projects, so any Google-Jedi can generate a good list <a href="http://www.google.co.uk/search?q=Britney+Home+Sex+Spear+Video+site%3Acode.google.com">(Google Search</a>&#8211;again, don&#8217;t click the links) to start with.</p>
+<p>Or the fact that the image is linked from http://bestsextube dot net/video.gif all the time might also be useful to know. <img src='http://www.avertlabs.com/research/blog/wp-includes/images/smilies/icon_wink.gif' alt=';)' class='wp-smiley' />  The icing on the cake, though, is the link to somewhere/in.cgi &#8230; I&#8217;ll come back to this later.</p>
+<p>The porntube site is also host to a number of other related sites such as fake anti-anything software:</p>
+<div align="center">
+<a href="http://dl.getdropbox.com/u/137429/AL/Avert-Blog-Google-Code-Net.jpg" target="_new"><img src="http://dl.getdropbox.com/u/137429/AL/Avert-Blog-Google-Code-Net.jpg" alt="google code net pic" width="80%" height="80%" /></a>
+</div>
+<p>The codec download site, which is in Latvia, also hosts a number of related sites:</p>
+<div align="center">
+<a href="http://dl.getdropbox.com/u/137429/AL/Avert-Blog-Google-Code-Net2.jpg" target="_new"><img src="http://dl.getdropbox.com/u/137429/AL/Avert-Blog-Google-Code-Net2.jpg" alt="google code net pic" width="80%" height="80%" /></a>
+</div>
+<p>The Google Code <a href="http://code.google.com/u/lysiogaqahati12833/">project owner</a> has a few other projects of a similar nature, too.</p>
+<p><a href="http://www.avertlabs.com/research/blog/index.php/2008/01/08/microsofts-skydrive-beta-abused-by-spammers/">A year ago</a> I blogged about MSN Spaces beta with a very similar issue&#8230; I even spoke to some very nice folks there about it, and a year later it&#8217;s <a href="http://lubpq7mlrle.spaces.live.com/">still being abused by spammers</a> [ <a href="http://voices.washingtonpost.com/securityfix/2008/11/spamhaus_microsoft_now_5th_mos.html">spamhaus award.</a> ] I trust Google would like to appear less evil and will take more decisive action. I&#8217;d suggest mashing code and safe browsing together, but it appears <a href="http://safebrowsing.clients.google.com/safebrowsing/diagnostic?client=Firefox&amp;hl=en-GB&amp;site=http://topsecret.noulake.com/in.cgi">not to find anything</a> wrong with the clickable links, though it did catch on after some redirection took place.</p>
+<p>&#8230;perhaps I should start consulting on this sort of thing <img src='http://www.avertlabs.com/research/blog/wp-includes/images/smilies/icon_wink.gif' alt=';)' class='wp-smiley' /> </p>
+<p>Anybody suffering deja-vous? &#8220;/in.cgi should ring an alarm bell or two. If not, check out my colleague <a href="http://www.avertlabs.com/research/blog/index.php/2009/01/05/inside-the-malicious-traffic-business/">Micha&#8217;s blog</a> on traffic management. He explains what happens to those clicks! This is campaign &#8220;6.&#8221;</p>
+<p>Happy new year to all!</p>
+ </div>
+						
+						<p class="post-metadata">
+							This entry was posted on Wednesday, January 7th, 2009 at 09:47							and is filed under <a href="http://www.avertlabs.com/research/blog/index.php/category/exploit-research/" title="View all posts in Exploit Research" rel="category tag">Exploit Research</a>,  <a href="http://www.avertlabs.com/research/blog/index.php/category/general-chatter/" title="View all posts in General Chatter" rel="category tag">General Chatter</a>,  <a href="http://www.avertlabs.com/research/blog/index.php/category/general-computer-security/" title="View all posts in General Computer Security" rel="category tag">General Computer Security</a>,  <a href="http://www.avertlabs.com/research/blog/index.php/category/spam-and-phishing/" title="View all posts in Spam and Phishing" rel="category tag">Spam and Phishing</a>,  <a href="http://www.avertlabs.com/research/blog/index.php/category/web-and-internet-safety/" title="View all posts in Web and Internet Safety" rel="category tag">Web and Internet Safety</a>.	You can follow any responses to this entry through the <a href='http://www.avertlabs.com/research/blog/index.php/2009/01/07/google-code-project-abused-by-spammers/feed/'>RSS 2.0</a> feed. 
+							
+															You can <a href="#respond">leave a response</a>, or <a href="http://www.avertlabs.com/research/blog/index.php/2009/01/07/google-code-project-abused-by-spammers/trackback/" rel="trackback">trackback</a> from your own site.
+													</p>
+					</div>
+				</div>
+				<div class="replies">
+
+<!-- You can start editing here. -->
+
+	<h3 id="comments">17 Responses to &#8220;Google Code Project Abused by Spammers&#8221;</h3> 
+
+	<ol class="commentlist">
+
+	
+		<li class="alt" id="comment-710415">
+			<cite><a href='http://hoverover.us/2009/01/09/mcafee-google-developer-site-being-used-to-distribute-malware/' rel='external nofollow' class='url'>HoverOver.Us And Create Your Blog | Blogs, News &amp; Latest Web 3.0 Trends</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-710415" title="">January 9th, 2009 at 19:58</a> </small>
+
+			<p>[...] The problem is similar to one that was found to be plaguing Microsoft&#8217;s MSN Spaces site a year ago and continues to occur there, according to a McAfee Avert Labs blog posting. [...]</p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-710491">
+			<cite><a href='http://www.antivirusconnection.com/index.php/mcafee-network-associates/mcafee-google-developer-site-used-to-employ-distributive-malware' rel='external nofollow' class='url'>McAfee: Google Developer site used to employ distributive malware | AntiVirusConnection</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-710491" title="">January 9th, 2009 at 21:17</a> </small>
+
+			<p>[...] plaguing Microsoft&#8217;s MSN Spaces site a year ago and continues to occur there, according to a McAfee Avert Labs blog posting. google code [...]</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-710706">
+			<cite><a href='http://www.hamrodharana.com/?p=' rel='external nofollow' class='url'>Hamro Dharana</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-710706" title="">January 10th, 2009 at 01:27</a> </small>
+
+			<p>[...] The problem is similar to one that was found to be plaguing Microsoft&#8217;s MSN Spaces site a year ago and continues to occur there, according to a McAfee Avert Labs blog posting. [...]</p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-710840">
+			<cite><a href='http://www.historiasdequeso.es/2009/01/segun-mcaffe-la-web-para-desarrolladores-de-google-se-utiliza-para-distribuir-malware.html' rel='external nofollow' class='url'>Según McAffe la web para desarrolladores de Google se utiliza para distribuir malware | Historias de Queso</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-710840" title="">January 10th, 2009 at 06:20</a> </small>
+
+			<p>[...] El problema es similar a lo que ocurrió hace un año en MSN Space de Microsoft, y que sigue ocurriendo de acuerdo con el blog de McAfee Avert Labs. [...]</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-710903">
+			<cite><a href='http://www.indovps.com/news/mcafee-google-developer-site-being-used-to-distribute-malware' rel='external nofollow' class='url'>McAfee: Google developer site being used to distribute malware IGN/INDOVPS -</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-710903" title="">January 10th, 2009 at 08:29</a> </small>
+
+			<p>[...] The problem is similar to one that was found to be plaguing Microsoft&#8217;s MSN Spaces site a year ago and continues to occur there, according to a McAfee Avert Labs blog posting. [...]</p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-711589">
+			<cite><a href='http://klausalrutz.wordpress.com/2009/01/11/malware-verbreitung-per-google-code/' rel='external nofollow' class='url'>Malware-Verbreitung per Google Code &laquo; Computerhilfe u. Info Blog</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-711589" title="">January 11th, 2009 at 01:06</a> </small>
+
+			<p>[...] auf. Die Server, die die gefälschten Codecs verbreiten, stehen in Lettland und werden offensichtlich auch zur Verteilung von falscher Anti-Irgendwas-Software [...]</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-711644">
+			<cite>SHAN</cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-711644" title="">January 11th, 2009 at 01:58</a> </small>
+
+			<p>Thanks for the infor but can u tell me if the antivirus softwares can block such web sites</p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-712045">
+			<cite><a href='http://pantec.wordpress.com/2009/01/11/google-code-distribui-malware-diz-mcafee/' rel='external nofollow' class='url'>Google Code Distribui Malware, diz McAfee &laquo; Pantec - Tecnologia &amp; Informação</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-712045" title="">January 11th, 2009 at 10:42</a> </small>
+
+			<p>[...] de acordo com o blog do McAfee Avert Labs, laboratório de fornecedora de software de segurança, grupos de spammers estão utilizando o site [...]</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-712599">
+			<cite><a href='http://datasecurityblog.wordpress.com/2009/01/11/data-security-podcast-episode-35-jan-12-2009/' rel='external nofollow' class='url'>Data Security Podcast Episode 35 - Jan 12 2009 &laquo; Data Security Podcast</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-712599" title="">January 11th, 2009 at 20:36</a> </small>
+
+			<p>[...] &#8211; Tales From The Dark Web:� Google Code Project Abused by Malware Attackers  [...]</p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-712991">
+			<cite><a href='http://www.blog.arun-prabha.com/2009/01/12/google-code-hosting-site-distributes-malware/' rel='external nofollow' class='url'>Arun&#8217;s Blog &raquo; Blog Archive &raquo; Google code hosting site distributes malware</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-712991" title="">January 12th, 2009 at 08:15</a> </small>
+
+			<p>[...] Code, a website where developers can host projects and codes, to distribute malwares. According to McAfee, they are creating lots of new projects with titles such as Live Free Sex Movies and clicking the [...]</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-713203">
+			<cite><a href='http://blog.xaviermedia.com/2009/01/12/upload-your-code-projects-to-google/' rel='external nofollow' class='url'>&raquo; Upload your code projects to Google &raquo; Xavier Media Blog</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-713203" title="">January 12th, 2009 at 11:37</a> </small>
+
+			<p>[...] it looks like the code projects get indexed sooner then other pages  . I read about this in the McAfee blog where spammers abuse this feature since the pages get instantly indexed in Google, but you [...]</p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-715467">
+			<cite><a href='http://thepostingsecrets.com/2009/01/computer-security-research-mcafee-avert-labs-blog/' rel='external nofollow' class='url'>Computer Security Research - McAfee Avert Labs Blog | thepostingsecrets</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-715467" title="">January 14th, 2009 at 16:09</a> </small>
+
+			<p>[...] Go here to read the rest: Computer Security Research &#8211; McAfee Avert Labs Blog [...]</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-715642">
+			<cite><a href='http://www.zdnet.com.tw/news/web/0,2000085679,20135520,00.htm' rel='external nofollow' class='url'>McAfee：Google開發者網站被用來散佈惡意軟體</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-715642" title="">January 14th, 2009 at 21:00</a> </small>
+
+			<p>[...] McAfee Avert Labs安全研究主任Dave Marcus指出，Google Code是為程式設計師代管開發計畫和程式碼的網站。除了合法的程式之外，還有引導使用者下載遺缺編碼的假影音連結。但這些程式碼竟是偷取密碼和金融個資的木馬軟體。 [...]</p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-719075">
+			<cite><a href='http://www.jacksecurity.com/jacknews/2009/01/19/malware-distribuido-via-google-code/' rel='external nofollow' class='url'>JaCkNews &raquo; Blog Archive &raquo; Malware distribuido via Google Code</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-719075" title="">January 19th, 2009 at 08:11</a> </small>
+
+			<p>[...] &lt;Noticia original&gt; [...]</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-720244">
+			<cite><a href='http://miguelthepooh.wordpress.com/2009/01/21/ciberdelincuentes-intentan-propagar-malware-por-google-code/' rel='external nofollow' class='url'>Ciberdelincuentes intentan propagar malware por Google Code &laquo; Miguelthepooh&#8217;s Blog</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-720244" title="">January 21st, 2009 at 03:12</a> </small>
+
+			<p>[...] de software alojar sus proyectos Open Source. Según informó la especialista en seguridad McAfee, los ciberdelincuentes lo están aprovechando para propagar malware creando una gran cantidad de [...]</p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-726247">
+			<cite><a href='http://www.7441000.com/latvia' rel='external nofollow' class='url'>carey</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-726247" title="">January 28th, 2009 at 05:10</a> </small>
+
+			<p>Do a search for Hunt&#8217;s Point within Google video,<br />
+and then click on the hit entitled,<br />
+Hunts Point Pimps And Hookers @ kooldvd.com<br />
+page redirects, foisting fake Flash installer upon.<br />
+Reverse traces to Latvia.IP Address: 94.247.2.34<br />
+Location: RIGA (56.944N,  24.117E)<br />
+Network: 94-RIPE<br />
+domain:       zlkon.lv<br />
+admin-c:      86617-LUMII<br />
+tech-c:       86617-LUMII<br />
+nserver:      ns1.zlkon.lv<br />
+nserver:      ns2.zlkon.lv<br />
+changed:      <a href="mailto:dns-reg@nic.lv">dns-reg@nic.lv</a> 20081121<br />
+source:       LUMII</p>
+<p>person:<br />
+address:      none<br />
+phone:        +371 26330593<br />
+e-mail:       <a href="mailto:arkadzi.daniyelian@zlkon.lv">arkadzi.daniyelian@zlkon.lv</a><br />
+nic-hdl:      86617-LUMII<br />
+source:       LUMII</p>
+<p>File Info Description<br />
+Report Generated 25.1.2009 at 0.32.30 (GMT 1)<br />
+Time for scan: 31 seconds<br />
+Filename: FlashPlayer.v3.181.exe<br />
+File size: 110 KB<br />
+MD5 Hash: D3EE381464C72DA4671C1B8F15A8281B<br />
+SHA1 Hash: B48EA7824B3DFC130FBF200BE7AB5D1D7ED96484<br />
+CRC32: 3376619150<br />
+Application Type: Executable (EXE) 32bit<br />
+Packer detected: Nullsoft PiMP Stub [Nullsoft PiMP SFX] *<br />
+Self-Extract Archive: Nothing found<br />
+Binder Detector: Nothing found<br />
+ASCII Strings: View<br />
+Detection Rate: 3 on 24 (12,5 %)</p>
+<p>Antivirus Sig Version Result<br />
+a-squared 25/01/2009 Nothing found!<br />
+Avira AntiVir 7.1.1.173 Nothing found!<br />
+Avast 090124-0 NSIS:Fasec [Trj]<br />
+AVG 270.10.7/1893 Nothing found!<br />
+BitDefender 25/01/2009 Nothing found!<br />
+ClamAV 25/01/2009 Nothing found!<br />
+Comodo 944 Nothing found!<br />
+Dr.Web 25/01/2009 Nothing found!<br />
+Ewido 25/01/2009 Nothing found!<br />
+F-PROT 6 20090124 Nothing found!<br />
+G DATA 19.2579 Packed.Win32.Tdss.a A<br />
+IkarusT3 24/01/2009 Nothing found!<br />
+Kaspersky 25/01/2009 Packed.Win32.Tdss.a<br />
+McAfee 17/01/2009 Nothing found!<br />
+MHR (Malware Hash Registry) 25/01/2009 Nothing found!<br />
+NOD32 v3 3796 Nothing found!<br />
+Norman 2009/01/23 Nothing found!<br />
+Panda 21/01/2009 Nothing found!<br />
+QuickHeal 24 January, 2009 Nothing found!<br />
+Solo Antivirus 25/01/2009 Nothing found!<br />
+Sophos 25/01/2009 Nothing found!<br />
+TrendMicro 791(579100) Nothing found!<br />
+VBA32 25/01/2009 Nothing found!<br />
+VirusBuster 10.100.37 Nothing found!</p>
+<p>Trojan.DNSChanger.Gen is a generic class of trojans that reconfigure DNS<br />
+(Domain Name Server) settings on compromised machines in order to ensure<br />
+that all network requests from those PCs are directed to servers and<br />
+networks controlled by malicious parties, who can then inject malicious<br />
+content into otherwise legitimate web pages or even redirect requests for<br />
+standard web sites to bogus, malicious web sites.</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-844226">
+			<cite><a href='http://www.xaviermedia.com/webbing/2009/01/12/upload-your-code-projects-to-google/' rel='external nofollow' class='url'>&raquo; Upload your code projects to Google &raquo; XavierMedia.com</a></cite> Says:
+						<br />
+
+			<small class="commentmetadata"><a href="#comment-844226" title="">July 29th, 2009 at 10:17</a> </small>
+
+			<p>[...] it looks like the code projects get indexed sooner then other pages  . I read about this in the McAfee blog where spammers abuse this feature since the pages get instantly indexed in Google, but you [...]</p>
+
+		</li>
+
+	
+	
+	</ol>
+
+ 
+
+
+<h3 id="respond">Leave a Reply</h3>
+
+	<form action="http://www.avertlabs.com/research/blog/wp-comments-post.php" method="post" id="commentform">
+
+	<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+	<label for="author"><small>Name (required)</small></label></p>
+	
+	<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+	<label for="email"><small>Mail (will not be published) (required)</small></label></p>
+	
+	<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+	<label for="url"><small>Website</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" cols="100%" rows="10" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="779" />
+</p>
+
+</form>
+
+
+</div>	
+			
+	</div>
+
+<div id="sidebar">
+	
+	<h2 class="top">Archives</h2>
+	<ul>
+			<li><a href='http://www.avertlabs.com/research/blog/index.php/2010/03/' title='March 2010'>March 2010</a></li>
+	<li><a href='http://www.avertlabs.com/research/blog/index.php/2010/02/' title='February 2010'>February 2010</a></li>
+	<li><a href='http://www.avertlabs.com/research/blog/index.php/2010/01/' title='January 2010'>January 2010</a></li>
+	<li><a href='http://www.avertlabs.com/research/blog/index.php/2009/12/' title='December 2009'>December 2009</a></li>
+	<li><a href='http://www.avertlabs.com/research/blog/index.php/2009/11/' title='November 2009'>November 2009</a></li>
+	<li><a href='http://www.avertlabs.com/research/blog/index.php/2009/10/' title='October 2009'>October 2009</a></li>
+	<li><a href='http://www.avertlabs.com/research/blog/index.php/2009/09/' title='September 2009'>September 2009</a></li>
+	<li><a href='http://www.avertlabs.com/research/blog/index.php/2009/08/' title='August 2009'>August 2009</a></li>
+	<li><a href='http://www.avertlabs.com/research/blog/index.php/2009/07/' title='July 2009'>July 2009</a></li>
+	<li><a href='http://www.avertlabs.com/research/blog/index.php/2009/06/' title='June 2009'>June 2009</a></li>
+	<li><a href='http://www.avertlabs.com/research/blog/index.php/2009/05/' title='May 2009'>May 2009</a></li>
+	<li><a href='http://www.avertlabs.com/research/blog/index.php/2009/04/' title='April 2009'>April 2009</a></li>
+	<li><a href='http://www.avertlabs.com/research/blog/index.php/2009/03/' title='March 2009'>March 2009</a></li>
+	<li><a href='http://www.avertlabs.com/research/blog/index.php/2009/02/' title='February 2009'>February 2009</a></li>
+	<li><a href='http://www.avertlabs.com/research/blog/index.php/2009/01/' title='January 2009'>January 2009</a></li>
+	<li><a href='http://www.avertlabs.com/research/blog/index.php/2008/12/' title='December 2008'>December 2008</a></li>
+	<li><a href='http://www.avertlabs.com/research/blog/index.php/2008/11/' title='November 2008'>November 2008</a></li>
+	<li><a href='http://www.avertlabs.com/research/blog/index.php/2008/10/' title='October 2008'>October 2008</a></li>
+	<li><a href='http://www.avertlabs.com/research/blog/index.php/2008/09/' title='September 2008'>September 2008</a></li>
+	<li><a href='http://www.avertlabs.com/research/blog/index.php/2008/08/' title='August 2008'>August 2008</a></li>
+	<li><a href='http://www.avertlabs.com/research/blog/index.php/2008/07/' title='July 2008'>July 2008</a></li>
+	<li><a href='http://www.avertlabs.com/research/blog/index.php/2008/06/' title='June 2008'>June 2008</a></li>
+	<li><a href='http://www.avertlabs.com/research/blog/index.php/2008/05/' title='May 2008'>May 2008</a></li>
+	<li><a href='http://www.avertlabs.com/research/blog/index.php/2008/04/' title='April 2008'>April 2008</a></li>
+	<li><a href='http://www.avertlabs.com/research/blog/index.php/2008/03/' title='March 2008'>March 2008</a></li>
+	<li><a href='http://www.avertlabs.com/research/blog/index.php/2008/02/' title='February 2008'>February 2008</a></li>
+	<li><a href='http://www.avertlabs.com/research/blog/index.php/2008/01/' title='January 2008'>January 2008</a></li>
+	<li><a href='http://www.avertlabs.com/research/blog/index.php/2007/12/' title='December 2007'>December 2007</a></li>
+	<li><a href='http://www.avertlabs.com/research/blog/index.php/2007/11/' title='November 2007'>November 2007</a></li>
+	<li><a href='http://www.avertlabs.com/research/blog/index.php/2007/10/' title='October 2007'>October 2007</a></li>
+	<li><a href='http://www.avertlabs.com/research/blog/index.php/2007/09/' title='September 2007'>September 2007</a></li>
+	<li><a href='http://www.avertlabs.com/research/blog/index.php/2007/08/' title='August 2007'>August 2007</a></li>
+	<li><a href='http://www.avertlabs.com/research/blog/index.php/2007/07/' title='July 2007'>July 2007</a></li>
+	<li><a href='http://www.avertlabs.com/research/blog/index.php/2007/06/' title='June 2007'>June 2007</a></li>
+	<li><a href='http://www.avertlabs.com/research/blog/index.php/2007/05/' title='May 2007'>May 2007</a></li>
+	<li><a href='http://www.avertlabs.com/research/blog/index.php/2007/04/' title='April 2007'>April 2007</a></li>
+	<li><a href='http://www.avertlabs.com/research/blog/index.php/2007/03/' title='March 2007'>March 2007</a></li>
+	<li><a href='http://www.avertlabs.com/research/blog/index.php/2007/02/' title='February 2007'>February 2007</a></li>
+	<li><a href='http://www.avertlabs.com/research/blog/index.php/2007/01/' title='January 2007'>January 2007</a></li>
+	<li><a href='http://www.avertlabs.com/research/blog/index.php/2006/12/' title='December 2006'>December 2006</a></li>
+	<li><a href='http://www.avertlabs.com/research/blog/index.php/2006/11/' title='November 2006'>November 2006</a></li>
+	<li><a href='http://www.avertlabs.com/research/blog/index.php/2006/10/' title='October 2006'>October 2006</a></li>
+	<li><a href='http://www.avertlabs.com/research/blog/index.php/2006/09/' title='September 2006'>September 2006</a></li>
+	<li><a href='http://www.avertlabs.com/research/blog/index.php/2006/08/' title='August 2006'>August 2006</a></li>
+	<li><a href='http://www.avertlabs.com/research/blog/index.php/2006/07/' title='July 2006'>July 2006</a></li>
+	<li><a href='http://www.avertlabs.com/research/blog/index.php/2006/06/' title='June 2006'>June 2006</a></li>
+	<li><a href='http://www.avertlabs.com/research/blog/index.php/2006/05/' title='May 2006'>May 2006</a></li>
+	</ul>
+	<form method="get" id="searchform" action="http://www.avertlabs.com/research/blog/">
+<div><input type="text" value="" name="s" id="s" />
+<input type="submit" id="searchsubmit" value="Search" />
+</div>
+</form>
+		
+
+	<h2>Categories</h2>
+	<ul>
+			<li class="cat-item cat-item-21"><a href="http://www.avertlabs.com/research/blog/index.php/category/apple-and-os-x/" title="View all posts filed under Apple and OS X">Apple and OS X</a> (21)
+</li>
+	<li class="cat-item cat-item-3"><a href="http://www.avertlabs.com/research/blog/index.php/category/bot-and-botnet-research/" title="View all posts filed under Bot and BotNet Research">Bot and BotNet Research</a> (132)
+</li>
+	<li class="cat-item cat-item-22"><a href="http://www.avertlabs.com/research/blog/index.php/category/conferences/" title="View all posts filed under Conferences">Conferences</a> (31)
+</li>
+	<li class="cat-item cat-item-26"><a href="http://www.avertlabs.com/research/blog/index.php/category/data-leakage/" title="View all posts filed under Data Leakage">Data Leakage</a> (70)
+</li>
+	<li class="cat-item cat-item-14"><a href="http://www.avertlabs.com/research/blog/index.php/category/data-theft/" title="View all posts filed under Data Theft">Data Theft</a> (173)
+</li>
+	<li class="cat-item cat-item-9"><a href="http://www.avertlabs.com/research/blog/index.php/category/exploit-research/" title="View all posts filed under Exploit Research">Exploit Research</a> (151)
+</li>
+	<li class="cat-item cat-item-25"><a href="http://www.avertlabs.com/research/blog/index.php/category/foundstone/" title="View all posts filed under Foundstone">Foundstone</a> (23)
+</li>
+	<li class="cat-item cat-item-19"><a href="http://www.avertlabs.com/research/blog/index.php/category/general-chatter/" title="View all posts filed under General Chatter">General Chatter</a> (85)
+</li>
+	<li class="cat-item cat-item-15"><a href="http://www.avertlabs.com/research/blog/index.php/category/general-computer-security/" title="View all posts filed under General Computer Security">General Computer Security</a> (357)
+</li>
+	<li class="cat-item cat-item-31"><a href="http://www.avertlabs.com/research/blog/index.php/category/iphone/" title="View all posts filed under iPhone">iPhone</a> (7)
+</li>
+	<li class="cat-item cat-item-2"><a href="http://www.avertlabs.com/research/blog/index.php/category/malware-research/" title="View all posts filed under Malware Research">Malware Research</a> (488)
+</li>
+	<li class="cat-item cat-item-30"><a href="http://www.avertlabs.com/research/blog/index.php/category/mmorpg/" title="View all posts filed under MMORPG">MMORPG</a> (11)
+</li>
+	<li class="cat-item cat-item-4"><a href="http://www.avertlabs.com/research/blog/index.php/category/mobile-security-research/" title="View all posts filed under Mobile Security Research">Mobile Security Research</a> (45)
+</li>
+	<li class="cat-item cat-item-20"><a href="http://www.avertlabs.com/research/blog/index.php/category/podcasts/" title="View all posts filed under PodCasts">PodCasts</a> (9)
+</li>
+	<li class="cat-item cat-item-16"><a href="http://www.avertlabs.com/research/blog/index.php/category/potentially-unwanted-programs/" title="View all posts filed under Potentially Unwanted Programs">Potentially Unwanted Programs</a> (47)
+</li>
+	<li class="cat-item cat-item-28"><a href="http://www.avertlabs.com/research/blog/index.php/category/rockphish/" title="View all posts filed under RockPhish">RockPhish</a> (8)
+</li>
+	<li class="cat-item cat-item-23"><a href="http://www.avertlabs.com/research/blog/index.php/category/rootkits-and-stealth-malware/" title="View all posts filed under Rootkits and Stealth Malware">Rootkits and Stealth Malware</a> (48)
+</li>
+	<li class="cat-item cat-item-29"><a href="http://www.avertlabs.com/research/blog/index.php/category/scams/" title="View all posts filed under Scams">Scams</a> (110)
+</li>
+	<li class="cat-item cat-item-18"><a href="http://www.avertlabs.com/research/blog/index.php/category/security-bulletins/" title="View all posts filed under Security Bulletins">Security Bulletins</a> (21)
+</li>
+	<li class="cat-item cat-item-33"><a href="http://www.avertlabs.com/research/blog/index.php/category/siteadvisor/" title="View all posts filed under SiteAdvisor">SiteAdvisor</a> (11)
+</li>
+	<li class="cat-item cat-item-17"><a href="http://www.avertlabs.com/research/blog/index.php/category/spam-and-phishing/" title="View all posts filed under Spam and Phishing">Spam and Phishing</a> (244)
+</li>
+	<li class="cat-item cat-item-32"><a href="http://www.avertlabs.com/research/blog/index.php/category/testing/" title="View all posts filed under Testing">Testing</a> (8)
+</li>
+	<li class="cat-item cat-item-10"><a href="http://www.avertlabs.com/research/blog/index.php/category/un-patched-vulnerabilities/" title="View all posts filed under Un-Patched Vulnerabilities">Un-Patched Vulnerabilities</a> (73)
+</li>
+	<li class="cat-item cat-item-1"><a href="http://www.avertlabs.com/research/blog/index.php/category/uncategorized/" title="View all posts filed under Uncategorized">Uncategorized</a> (38)
+</li>
+	<li class="cat-item cat-item-24"><a href="http://www.avertlabs.com/research/blog/index.php/category/voip/" title="View all posts filed under VoIP">VoIP</a> (5)
+</li>
+	<li class="cat-item cat-item-12"><a href="http://www.avertlabs.com/research/blog/index.php/category/vulnerability-research/" title="View all posts filed under Vulnerability Research">Vulnerability Research</a> (185)
+</li>
+	<li class="cat-item cat-item-13"><a href="http://www.avertlabs.com/research/blog/index.php/category/web-and-internet-safety/" title="View all posts filed under Web and Internet Safety">Web and Internet Safety</a> (410)
+</li>
+	<li class="cat-item cat-item-27"><a href="http://www.avertlabs.com/research/blog/index.php/category/wireless/" title="View all posts filed under Wireless">Wireless</a> (11)
+</li>
+	<li class="cat-item cat-item-11"><a href="http://www.avertlabs.com/research/blog/index.php/category/zero-day/" title="View all posts filed under Zero-Day">Zero-Day</a> (110)
+</li>
+	</ul>
+		
+	</div>
+
+	<div class="clear"></div>
+	</div> 		<div id="footer">
+			<p>Copyright &copy; 2003 - 2010 McAfee, Inc. All Rights Reserved</p>
+			<ul>
+				<li><a href="http://www.avertlabs.com/research/blog/">Home</a></li>
+				<li><a href="http://mcafee.com">McAfee.com</a></li>
+				<li><a href="http://www.mcafee.com/us/about/privacy.html">Privacy Policy</a></li>
+				<li class="last"><a href="http://www.mcafee.com/us/support/index.html">Support</a></li>
+			</ul>
+</div>
+</div> </body>
+</html>

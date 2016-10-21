@@ -1,0 +1,401 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <title>MySQL Lists: ndb-connectors: Rev 95: Added custom exception support for C#.  in http://bazaar.launchpad.net/~ndb-connectors/ndb-connectors/exceptions
+</title>
+ <link rel="shortcut icon" href="http://www.mysql.com/common/favicon.ico" />
+ <link rel="stylesheet" type="text/css" media="screen" href="/static/screen.css" />
+</head>
+<body>
+
+<div id="header">
+ <div id="logo"><a href="http://dev.mysql.com"><img src="http://www.mysql.com/common/logos/mysql_100x52-64.gif" width="100" height="52" border="0" alt="MySQL" /></a></div>
+ <div id="searchandlogin">
+  <div id="searchbox">
+   <form action="http://search.mysql.com/search" style="float:none;" method="get">
+    <input class="frm" type="text" name="q" size="20" maxlength="255" />
+    <input class="submit2" type="submit" value="Search" />
+   </form>
+  </div>
+  <div id="login">
+   <p class="s"><a href="http://dev.mysql.com/login/?dest=http%3A%2F%2Flists.mysql.com%2Fndb-connectors%2F58">Login</a> / <a href="http://dev.mysql.com/register/">Register</a></p>
+  </div>
+ </div>
+</div>
+
+<div id="nav">
+ <ul>
+  <li><a href="http://dev.mysql.com/">Developer Zone</a></li>
+  <li><a href="/">Lists Home</a></li>
+  <li><a href="/faq.php">FAQ</a></li>
+ </ul>
+</div>
+
+<br clear="both" />
+
+<div id="content">
+<table border="0" cellpadding="2" cellspacing="2" width="100%"><tr><td class="headerlabel">List:</td><td class="headervalue"><a href="/ndb-connectors">NDB Connectors</a></td><td class="headervalue" colspan="2"><a href="/ndb-connectors/57">&laquo; Previous Message</a><a style="float: right" href="/ndb-connectors/59">Next Message &raquo;</a></td></tr><tr><td class="headerlabel">From:</td><td class="headervalue">Monty&nbsp;Taylor</td>
+<td class="headerlabel">Date:</td><td class="headervalue">May&nbsp;3&nbsp;2007&nbsp;5:30am</td></tr>
+<tr><td class="headerlabel">Subject:</td><td class="headervalue" colspan="3">Rev 95: Added custom exception support for C#.  in http://bazaar.launchpad.net/~ndb-connectors/ndb-connectors/exceptions<br />
+</td></tr>
+<tr><td class="headervalue" colspan="4" align="right"><a href="/ndb-connectors/58?f=plain">View as plain text</a> &nbsp;</td></tr></table>
+<pre>------------------------------------------------------------
+revno: 95
+revision-id: mtaylor@<i style="color:#666">stripped</i>
+parent: mtaylor@<i style="color:#666">stripped</i>
+committer: Monty Taylor &lt;mtaylor@<i style="color:#666">stripped</i>&gt;
+branch nick: exceptions
+timestamp: Wed 2007-05-02 20:28:55 -0700
+message:
+  Added custom exception support for C#. 
+  Throwing and catching exceptions works.
+  Code for exceptions uses delegates and callbacks, so it should serve as a decent
+   model for setting up AsyncTransaction callbacks.
+added:
+  csharp/exceptions.cs           exceptions.cs-20070503031240-jegjod5xercecu78-1
+modified:
+  csharp/Makefile.am             makefile.in-20070228073157-gkwqutuh9f3nq7s2-1
+  csharp/ndbapi.i               
+svn-v2:10@5fca6d9a-db22-0410-b55c-899b0a28da89-trunk-csharp%2fndb.i
+  csharp/test2.cs               
+svn-v2:1@5fca6d9a-db22-0410-b55c-899b0a28da89-trunk-csharp%2ftest2.cs
+  java/ndbapi.i                  ndbapi.i-20070130002924-gcvhapmvh0lu1pkd-3
+  java/test.java                 test.java-20070130002924-gcvhapmvh0lu1pkd-4
+  swig/globals.i                 globals.i-20070228021421-qkr4cbpxymyqdrf3-7
+=== added file 'csharp/exceptions.cs'
+--- a/csharp/exceptions.cs	1970-01-01 00:00:00 +0000
++++ b/csharp/exceptions.cs	2007-05-03 03:28:55 +0000
+@@ -0,0 +1,90 @@
++
++namespace MySql.Cluster.NdbApi {
++
++using System; 
++
++  public class NdbApiException : System.ApplicationException {
++    public NdbApiException(string message) 
++      : base(message) {
++    }
++  }
++
++  public class BlobUndefinedException : NdbApiException { 
++    public BlobUndefinedException(string message)
++      : base(message) {
++    }
++  }
++
++
++  public class NdbApiPermanentException : NdbApiException { 
++    public NdbApiPermanentException(string message)
++      : base(message) {
++    }
++  }
++
++
++  public class NdbApiRuntimeException : NdbApiException { 
++    public NdbApiRuntimeException(string message)
++      : base(message) {
++    }
++  }
++
++
++  public class NdbApiTemporaryException : NdbApiException { 
++    public NdbApiTemporaryException(string message)
++      : base(message) {
++    }
++  }
++
++
++  public class NdbApiTimeStampOutOfBoundsException : NdbApiException { 
++    public NdbApiTimeStampOutOfBoundsException(string message)
++      : base(message) {
++    }
++  }
++
++
++  public class NdbApiUserErrorPermanentException : NdbApiPermanentException { 
++    public NdbApiUserErrorPermanentException(string message)
++      : base(message) {
++    }
++  }
++
++
++  public class NdbClusterConnectionPermanentException : NdbApiPermanentException { 
++    public NdbClusterConnectionPermanentException(string message)
++      : base(message) {
++    }
++  }
++
++
++  public class NdbClusterConnectionTemporaryException : NdbApiTemporaryException { 
++    public NdbClusterConnectionTemporaryException(string message)
++      : base(message) {
++    }
++  }
++
++
++  public class NoSuchColumnException : NdbApiException { 
++    public NoSuchColumnException(string message)
++      : base(message) {
++    }
++  }
++
++
++  public class NoSuchIndexException : NdbApiException { 
++    public NoSuchIndexException(string message)
++      : base(message) {
++    }
++  }
++
++
++  public class NoSuchTableException : NdbApiException { 
++    public NoSuchTableException(string message)
++      : base(message) {
++    }
++  }
++
++
++
++}
+
+=== modified file 'csharp/Makefile.am'
+--- a/csharp/Makefile.am	2007-05-02 05:05:05 +0000
++++ b/csharp/Makefile.am	2007-05-03 03:28:55 +0000
+@@ -8,13 +8,13 @@
+ libndbsharp_la_CPPFLAGS = $(PTHREAD_CFLAGS)
+ libndbsharp_la_DEPENDENCIES = MySql.Cluster.NdbApi.dll 
+ 
+-test: test.exe test2.exe libndbsharp_la
++test: test.exe test2.exe 
+ 
+ %.exe: %.cs MySql.Cluster.NdbApi.dll ndbapi.cpp
+ 	$(MCS)  -r:MySql.Cluster.NdbApi.dll -r:$(MYSQL_DLL) $&lt;
+ 
+ MySql.Cluster.NdbApi.dll: 
+-	$(MCS) -target:library -out:$@ ndbapi/*.cs
++	$(MCS) -target:library -out:$@ ndbapi/*.cs exceptions.cs
+ 
+ #$(CSHARP_SOURCES)
+ #.PRECIOUS: %.cpp %.so %.dll
+
+=== modified file 'csharp/ndbapi.i'
+--- a/csharp/ndbapi.i	2007-05-02 05:05:05 +0000
++++ b/csharp/ndbapi.i	2007-05-03 03:28:55 +0000
+@@ -1,3 +1,4 @@
++// -*- mode: c++ -*-
+ /*  ndb-connectors: Wrappers for the NDBAPI
+     Copyright (C) 2006 MySQL, Inc.
+     
+@@ -55,7 +56,77 @@
+ */
+ 
+ %{
+-#define NDB_exception(excp,msg) { SWIG_CSharpException(SWIG_RuntimeError,msg); }
++#define NDB_exception(excp,msg) { SWIG_CSharpSetPendingExceptionCustom(excp,msg); }
++%}
++
++%insert(runtime) %{
++  // Code to handle throwing of C# CustomApplicationException from C/C++ code.
++  // The equivalent delegate to the callback, CSharpExceptionCallback_t, is
+CustomExceptionDelegate
++  // and the equivalent customExceptionCallback instance is customDelegate
++  typedef void (SWIGSTDCALL* CSharpExceptionCallback_t)(int excp, const char *);
++  CSharpExceptionCallback_t customExceptionCallback = NULL;
++
++  extern "C" SWIGEXPORT
++  void SWIGSTDCALL CustomExceptionRegisterCallback(CSharpExceptionCallback_t
+customCallback) {
++    customExceptionCallback = customCallback;
++  }
++
++  // Note that SWIG detects any method calls named starting with
++  // SWIG_CSharpSetPendingException for warning 845
++  static void SWIG_CSharpSetPendingExceptionCustom(int excp, const char *msg) {
++    customExceptionCallback(excp, msg);
++  }
++%}
++
++%pragma(csharp) imclasscode=%{
++  class CustomExceptionHelper {
++    // C# delegate for the C/C++ customExceptionCallback
++    public delegate void CustomExceptionDelegate(int excp, string message);
++    static CustomExceptionDelegate customDelegate =
++                                   new
+CustomExceptionDelegate(SetPendingCustomException);
++
++    [DllImport("$dllimport", EntryPoint="CustomExceptionRegisterCallback")]
++    public static extern
++           void CustomExceptionRegisterCallback(CustomExceptionDelegate customCallback);
++
++    static void SetPendingCustomException(int excp, string message) {
++      // switch the exception classes on excp here
++        if (excp == (int)NdbException.NdbApiException) {
++            SWIGPendingException.Set(new NdbApiException(message));
++        } else if (excp == (int)NdbException.BlobUndefinedException) {
++            SWIGPendingException.Set(new BlobUndefinedException(message));
++        } else if (excp == (int)NdbException.NdbApiPermanentException) {
++            SWIGPendingException.Set(new NdbApiPermanentException(message));
++        } else if (excp == (int)NdbException.NdbApiRuntimeException) {
++            SWIGPendingException.Set(new NdbApiRuntimeException(message));
++        } else if (excp == (int)NdbException.NdbApiTemporaryException) {
++            SWIGPendingException.Set(new NdbApiTemporaryException(message));
++        } else if (excp == (int)NdbException.NdbApiTimeStampOutOfBoundsException) {
++            SWIGPendingException.Set(new NdbApiTimeStampOutOfBoundsException(message));
++        } else if (excp == (int)NdbException.NdbApiUserErrorPermanentException) {
++            SWIGPendingException.Set(new NdbApiUserErrorPermanentException(message));
++        } else if (excp == (int)NdbException.NdbClusterConnectionPermanentException) {
++            SWIGPendingException.Set(new
+NdbClusterConnectionPermanentException(message));
++        } else if (excp == (int)NdbException.NdbClusterConnectionTemporaryException) {
++            SWIGPendingException.Set(new
+NdbClusterConnectionTemporaryException(message));
++        } else if (excp == (int)NdbException.NoSuchColumnException) {
++            SWIGPendingException.Set(new NoSuchColumnException(message));
++        } else if (excp == (int)NdbException.NoSuchIndexException) {
++            SWIGPendingException.Set(new NoSuchIndexException(message));
++        } else if (excp == (int)NdbException.NoSuchTableException) {
++            SWIGPendingException.Set(new NoSuchTableException(message));
++        } else { 
++            Console.WriteLine("DEFAULT EXCEPTION REACHED!");
++        }
++    }
++
++    static CustomExceptionHelper() {
++      CustomExceptionRegisterCallback(customDelegate);
++    }
++  }
++  static CustomExceptionHelper exceptionHelper = new CustomExceptionHelper();
++
++  
+ %}
+ 
+ %include "globals.i"
+
+=== modified file 'csharp/test2.cs'
+--- a/csharp/test2.cs	2007-05-02 05:05:05 +0000
++++ b/csharp/test2.cs	2007-05-03 03:28:55 +0000
+@@ -17,6 +17,7 @@
+ */
+ 
+ 
++using System;
+ using MySql.Cluster.NdbApi; 
+ 
+ class test { 
+@@ -26,8 +27,17 @@
+     ndbapi.ndb_init();
+     
+     NdbClusterConnection connection = NdbFactory.createNdbClusterConnection();
++    try {
++      connection.connect(1,1,1);
++    } catch (NdbApiException e) { 
++      //Console.WriteLine(e.message); 
++      Console.WriteLine("Caught the exception");
++      Console.WriteLine(e);
++      return -1; 
++    } finally { 
++      ndbapi.ndb_end(1);
++    }
+ 
+-    ndbapi.ndb_end(1);
+ 
+     return 0;
+ 
+
+=== modified file 'java/ndbapi.i'
+--- a/java/ndbapi.i	2007-05-02 02:56:57 +0000
++++ b/java/ndbapi.i	2007-05-03 03:28:55 +0000
+@@ -63,7 +63,8 @@
+   strcpy(exception,prefix);
+   strcat(exception,excp);
+ 
+-  jclass clazz = jenv-&gt;FindClass(exception);
++  jclass clazz = jenv-&gt;FindClass("java/lang/RuntimeException");
++  //jclass clazz = jenv-&gt;FindClass(exception);
+   jenv-&gt;ThrowNew(clazz,msg);
+ }
+  %}
+@@ -100,6 +101,7 @@
+ %include "NdbFactory.i"
+ 
+ //%javaexception("com.mysql.cluster.ndbapi.NdbApiException")
+Ndb_cluster_connection::connect;
++%javaexception("java.lang.RuntimeException") Ndb_cluster_connection::connect;
+ //%javaexception("com.mysql.cluster.ndbapi.NdbApiException")
+Ndb_cluster_connection::wait_until_ready;
+ 
+ %include "NdbClusterConnection.i"
+
+=== modified file 'java/test.java'
+--- a/java/test.java	2007-05-02 02:56:57 +0000
++++ b/java/test.java	2007-05-03 03:28:55 +0000
+@@ -85,12 +85,11 @@
+         throw new NdbApiException("Couldn't connect");
+       }*/
+     } catch (Exception e) { 
+-      System.out.println("caught exception");
+-      System.out.println(e.getMessage());
++
++      System.out.println("Caught generic exception");
++      e.printStackTrace();
+       System.exit(-1);
+-    }
+-      
+-
++   }
+     
+     try { 
+       connection.wait_until_ready(30,30);
+
+=== modified file 'swig/globals.i'
+--- a/swig/globals.i	2007-05-02 21:31:41 +0000
++++ b/swig/globals.i	2007-05-03 03:28:55 +0000
+@@ -45,6 +45,22 @@
+   Rollback
+ };
+ 
++enum NdbException {
++    BaseRuntimeError,
++    NdbApiException,
++    BlobUndefinedException,
++    NdbApiPermanentException,
++    NdbApiRuntimeException,
++    NdbApiTemporaryException,
++    NdbApiTimeStampOutOfBoundsException,
++    NdbApiUserErrorPermanentException,
++    NdbClusterConnectionPermanentException,
++    NdbClusterConnectionTemporaryException,
++    NoSuchColumnException,
++    NoSuchIndexException,
++    NoSuchTableException,
++};
++
+ typedef unsigned long long Uint64; 
+ typedef unsigned int Uint32; 
+ typedef signed long long Int64; 
+
+</pre><table class="thread" width="100%"><tr><th colspan="3">Thread</th></tr><tr valign="top"><td>&bull; <b>Rev 95: Added custom exception support for C#.  in http://bazaar.launchpad.net/~ndb-connectors/ndb-connectors/exceptions</td><td>Monty&nbsp;Taylor</td><td>3&nbsp;May</b></td></tr>
+</table>
+
+	
+<div id="footer">
+ <p>&copy; 1995-2008 MySQL AB, 2008-2010 Sun Microsystems, Inc.</p>
+ <ul style="float: right; list-style: none">
+  <li><a href="http://dev.mysql.com/legal/">Privacy Policy</a></li>
+  <li class="last"><a href="http://dev.mysql.com/contact/">Contact Us</a></li>
+ </ul>            
+ <br class="clear" />
+ <p style="float: right">
+Page generated in 0.357 sec. using MySQL 5.1.14-beta-log </p>
+<div id="disclaimer">
+Content reproduced on this site is the property of the
+respective copyright holders. It is not reviewed in advance
+by Oracle and does not necessarily represent the opinion of
+Oracle or any other party.
+</div>
+</div>
+
+<script type="text/javascript" src="http://www.mysql.com/common/js/s_code_remote.js"></script>
+</body>
+</html>

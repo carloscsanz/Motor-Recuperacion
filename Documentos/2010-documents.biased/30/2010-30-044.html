@@ -1,0 +1,499 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<title>Querying and Updating MySQL With C# (C Sharp)</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" type="text/css" href="/style_screen.css" media="screen,projection" />
+		<link rel="stylesheet" type="text/css" href="/style_print.css"  media="print"             />
+		<!--[if lte IE 7]> <style type="text/css">@import "/ie.css";</style> <![endif]-->
+
+      <link type="text/css" rel="stylesheet" href="/php/synhighlight/css/SyntaxHighlighter.css"></link>
+      <script type="application/javascript" src="/php/synhighlight/js/shCore.js"></script>
+      <script type="application/javascript" src="/php/synhighlight/js/shBrushCSharp.js"></script>
+      <script type="application/javascript" src="/php/synhighlight/js/shBrushBash.js"></script>
+      <script type="application/javascript" src="/php/synhighlight/js/shBrushCss.js"></script>
+      <script type="application/javascript">
+       	window.onload = function()
+         {
+            // dp.SyntaxHighlighter.ClipboardSwf = '/php/synhighlight/clipboard.swf';
+            dp.SyntaxHighlighter.HighlightAll('code');
+         }
+      </script>
+	</head>
+
+	<body>
+		<div id="contentwrapper">
+			<div id="banner">
+			</div>
+			
+			<div id="centrewrapper">
+				<div id="menu">
+					<ul>
+						<li ><a href="/">home</a></li>
+						<li ><a href="/blog/">blog</a></li>
+						<li ><a href="/photosets/">photos</a></li>
+						<li ><a href="/garforth/">garforth</a></li>
+						<li ><a href="/genealogy/">genealogy</a></li>
+						<li class="selected"><a href="/computing/">computing</a></li>
+						<li ><a href="/kenpo/">kenpo</a></li>
+						<li ><a href="/leather/">leatherwork</a></li>
+
+					</ul>
+				</div>
+
+				<div id="sidebar">
+
+					<div id="search">
+						<h2>Site Search</h2>
+						<form method="get" action="http://www.google.com/search">
+							<div id="searchForm">
+								<input type="text"   id="searchBox" name="q" size="18" maxlength="255" value="" />
+								<input type="hidden" name="sitesearch" value="ianatkinson.net" />
+								<input type="submit" id="searchButton" value="Submit" />
+							</div>
+						</form>
+					</div>
+
+					<div class="menuBreaker">
+					</div>
+				</div>  <!-- end sidebar -->
+
+				<div id="main">
+			
+					<div id="printOnly">
+						<p>
+							<strong><em>Printing Details</em></strong>
+							<br /><br /> 
+							<strong>URL:</strong> http://www.ianatkinson.net/computing/mysqlcsharp.htm<br /><strong>Date:</strong> 14 Mar 2010 13:34
+						</p>
+						<p>
+							All content &copy; Ian Atkinson 
+							2000&#8211;2010, not to be re-used without permission
+						</p>
+					</div> 
+
+					<h1>Using MySQL With C#</h1>
+
+					<div id="crumbs">
+						<ul>
+							<li id="firstCrumb">
+								<a href="/">Home</a>
+								<ul>
+									<li>
+										<a href="/computing/">Computing</a>
+										<ul>
+											<li>
+												Using MySQL With C#
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+	
+<p>
+	This article gives a basic introduction to using MySQL in conjunction with Microsoft C#.
+</p>
+
+<p>
+	Some of the features in C# are ideally designed to integrate with Microsoft SQL Server, however
+	not everyone will be able to afford SQL Server licenses and it&#8217;s also overkill for many
+	smaller scale developments.
+</p>
+
+<ul class="embeddedMenu">
+   <li><a href="#creating">Creating the Database</a></li>
+   <li><a href="#odbc">Making an ODBC Link</a></li>
+   <li><a href="#classes">Classes</a></li>
+   <li><a href="#example">Example Program</a></li>
+   <li><a href="#output">Example Output</a></li>
+</ul>
+
+<h2 class="withGraphic">Creating the Database</h2>
+<a name="creating"></a>
+
+<p>
+	First let&#8217;s create a simple database to use with our program. All of the techniques that we
+	use in C# later on will scale to much larger programs so this doesn&#8217;t need to be anything
+	complicated.
+</p>
+
+<p>
+	First install MySQL, it doesn&#8217;t matter whether this is on a Windows, Mac or Linux machine. Then we
+	can go ahead and create our database and add a few records with the following commands:
+</p>
+
+<pre class="code">
+<span class="userInput">create database csharpdb;
+use csharpdb;
+CREATE TABLE people (id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY, name VARCHAR(50), employed TINYINT(1) NOT NULL DEFAULT 0, jobtitle VARCHAR(50), age INT(3));
+INSERT INTO people (name, employed, jobtitle, age) VALUES ("Rimmer", 1, "2nd Technician", 28);
+INSERT INTO people (name, employed, jobtitle, age) VALUES ("Lister", 1, "3rd Technician", 25);
+INSERT INTO people (name, employed, jobtitle, age) VALUES ("Cat", 0, null, 15);
+INSERT INTO people (name, employed, jobtitle, age) VALUES ("Kryten", 1, "Mechanoid", 540);
+GRANT ALL ON csharpdb.* to 'csharpuser'@'%' IDENTIFIED BY 'password';</span>
+</pre>
+
+<p>
+	To give us the following:
+</p>
+
+<pre class="code">
+mysql&gt; <span class="userInput">describe people;</span>
++----------+------------------+------+-----+---------+----------------+
+| Field    | Type             | Null | Key | Default | Extra          |
++----------+------------------+------+-----+---------+----------------+
+| id       | int(10) unsigned | NO   | PRI | NULL    | auto_increment |
+| name     | varchar(50)      | YES  |     | NULL    |                |
+| employed | tinyint(1)       | NO   |     | 0       |                |
+| jobtitle | varchar(50)      | YES  |     | NULL    |                |
+| age      | int(3)           | YES  |     | NULL    |                |
++----------+------------------+------+-----+---------+----------------+
+5 rows in set (0.08 sec)
+
+mysql&gt; <span class="userInput">SELECT * FROM people;</span>
++----+--------+----------+----------------+------+
+| id | name   | employed | jobtitle       | age  |
++----+--------+----------+----------------+------+
+|  1 | Rimmer |        1 | 2nd Technician |   28 |
+|  2 | Lister |        1 | 3rd Technician |   25 |
+|  3 | Cat    |        0 | NULL           |   15 |
+|  4 | Kryten |        1 | Mechanoid      |  540 |
++----+--------+----------+----------------+------+
+4 rows in set (0.00 sec)
+</pre>
+
+<a name="odbc"></a>
+<h2 class="withGraphic">Making an ODBC Link</h2>
+
+<p>
+	For this article we will be connecting to MySQL using ODBC though the
+	<a href="http://dev.mysql.com/downloads/connector/odbc/5.1.html">MySQL ODBC Connector</a>.
+	This is not a part of .NET and needs installing but
+	all the other functionality that you need is contained within the .NET framework.
+</p>
+
+<p>
+	There are two ways that you can use the ODBC connector. You can set up a user or system
+	DSN within Windows Control Panel and then simply reference the DSN name from within the program, or you can supply
+	all the connection details within the program.
+</p>
+
+<p>
+	Which method you use will depend on the deployment scenario but obviously if you hard code the
+	parameters into the program then you can not update the connection without re-compiling. 
+</p>
+
+<p>
+	The code in the example program will specify the paramters, but if you want to use a DSN 
+	then see the example just below.
+</p>
+
+<a name="classes"></a>
+<h2 class="withGraphic">Classes</h2>
+
+<p>
+	There are three main classes that we need:
+</p>
+
+<ul>
+	<li><tt>OdbcConnection</tt> the connection to the database</li>
+	<li><tt>OdbcCommand</tt> a SQL statement</li> 
+	<li><tt>OdbcDataReader</tt> works with an <tt>OdbcCommand</tt> where you need to iterate over  
+	a set of results e.g. from a <tt>SELECT</tt> statement</li>
+</ul>
+
+<p>
+	The <tt>OdbcConnection</tt> object is created (and importantly opened) first: 
+</p>
+
+<code>
+	OdbcConnection db = new OdbcConnection("DSN=dsn_name");<br />
+	db.Open();
+</code>
+
+<p>
+	Then the other two classes have that object passed to them so they know
+	which connection to operate on:
+</p>
+
+<code>
+	OdbcCommand update = new OdbcCommand("UPDATE people SET age=10", db);<br />
+	update.ExecuteNonQuery();
+</code>
+
+<code>
+	OdbcCommand query = new OdbcCommand("SELECT name FROM people", db);<br />
+	OdbcDataReader queryResults = query.ExecuteReader();
+</code>
+
+<p>
+	Finally the database connection should be closed once it&#8217;s finished with:
+</p>
+
+<code>
+	db.Close();
+</code>
+
+<a name="example"></a>
+<h2 class="withGraphic">Example Program</h2>
+
+<p>
+	<a href="./mysqlcsharp/mysql_example.cs">Download the code here</a>.
+</p>
+
+<p>
+	The code below puts all of the above together and demonstrates how to connect to the
+	database and retrieve some records which
+	are then used to create <tt>person</tt> objects in the program.
+</p>
+
+<p>
+	Creating a class to match the results from the database in this way seems to me to be the
+	easiest way to manage transactions between MySQL and C#. Once the objects are created in
+	your program it&#8217;s very easy to interact with them, create collections of them and so on. 
+</p>
+
+<p>
+	You have to be careful about writing
+	the translation functions to retrieve and update the data though, especially since MySQL will let you
+	<tt>null</tt> values that C# won&#8217;t, such as <tt>int</tt> types.
+</p>
+
+<p>
+	MySQL also does not have a bool value (as such) so it is necessary to handle the binary
+	<tt>TINYINT</tt> values and set any <tt>bool</tt> types to <tt>true</tt> or <tt>false</tt>
+	accordingly, which can be seen in the example program.
+</p>
+
+<p>
+	Other problems exist as well for example translating MySQL&#8217;s <tt>DATE</tt> type into
+	C# <tt>DateTime</tt> objects, but most of these can be handled with a few small functions.
+</p>
+
+<p>
+	I have not used a lot of error handling in the example in order to keep it as compact 
+	and easy to understand as possible!
+	In real application any sort of database connectivity code should be well wrapped with
+	exception handling.
+</p>
+
+<p>
+	If you were to run the code on a machine other than the MySQL server 
+	then <tt>localhost</tt> would obviously need changing to the server name or IP. If you are using a 
+	different version of the MySQL ODBC driver to 5.1 then the <tt>DRIVER</tt> parameter would
+	also need changing.
+</p>
+
+<pre class="iecode syntax-highlight:c-sharp">
+using System;
+using System.Collections.Generic;
+using System.Data.Odbc;
+
+namespace mysql_example
+{
+    class Program
+    {
+        // globals
+
+        public static List&lt;person&gt; people = new List&lt;person&gt; { };
+        public static OdbcConnection db   = new OdbcConnection();
+
+        public static String conString =
+            "DRIVER={MySQL ODBC 5.1 Driver};" +
+            "SERVER=localhost;"  +
+            "DATABASE=csharpdb;" +
+            "USER=csharpuser;"   +
+            "PASSWORD=password;";
+
+        // main function
+
+        static void Main(string[] args)
+        {
+            // update and show users
+
+            refreshPeople();
+            listPeople();
+
+            // promote Lister and kill Kryten
+
+            Console.WriteLine("Promoting Lister and taking Kryten out of service...");
+
+            db = new OdbcConnection(conString);
+            db.Open();
+
+            String sql = @"UPDATE people SET jobTitle=""Chef"" WHERE name=""Lister""";
+            OdbcCommand update = new OdbcCommand(sql, db);
+            update.ExecuteNonQuery();
+
+            sql = @"DELETE FROM people WHERE name=""Kryten""";
+            update = new OdbcCommand(sql, db);
+            update.ExecuteNonQuery();
+
+            db.Close();
+
+            // update and show users
+
+            refreshPeople();
+            listPeople();
+
+            Console.Read();
+        }
+
+        public static void refreshPeople()
+        {
+            people.Clear();
+
+            // connect to database
+
+            db = new OdbcConnection(conString);
+            db.Open();
+
+            // create and execute query
+
+            String         sql          = "SELECT id, name, employed, jobtitle, age FROM people";
+            OdbcCommand    query        = new OdbcCommand(sql, db);
+            OdbcDataReader queryResults = query.ExecuteReader();
+
+            while (queryResults.Read())
+            {
+                person newPerson = new person();
+
+                try { newPerson.id = queryResults.GetInt16(0); }
+                catch (InvalidCastException) { }
+
+                try { newPerson.name = queryResults.GetString(1); }
+                catch (InvalidCastException) { }
+
+                int isEmployed = 0;
+                isEmployed = queryResults.GetInt16(2);
+
+                if (isEmployed == 1) newPerson.employed = true;
+                else                 newPerson.employed = false;
+
+                try { newPerson.jobTitle = queryResults.GetString(3); }
+                catch (InvalidCastException) { }
+
+                try { newPerson.age = queryResults.GetInt16(4); }
+                catch (InvalidCastException) { }
+
+                people.Add(newPerson);
+            }
+
+            // close connection
+
+            db.Close();
+        }
+
+        public static void listPeople()
+        {
+            Console.WriteLine("\nJMC Personnel\n");
+            Console.WriteLine("==========================================\n");
+
+            foreach (person p in people)
+                p.getDetails();
+
+            Console.WriteLine();
+        }
+    }
+
+    public class person
+    {
+        // class to match the SQL person table
+
+        public int    id       { get; set; }
+        public String name     { get; set; }
+        public bool   employed { get; set; }
+        public String jobTitle { get; set; }
+        public int    age      { get; set; }
+
+        public person() { }
+
+        public String empStatus()
+        {
+            return this.employed ? "employed" : "not employed";
+        }
+
+        public void getDetails()
+        {
+            Console.WriteLine(String.Format("{0,-10} {1,-4} {2,-15} {3,-15}", 
+                name, age, jobTitle, empStatus()));
+        }
+    }
+}
+</pre>
+
+<a name="output"></a>
+<h2 class="withGraphic">Example Output</h2>
+
+<p>
+	Here is the output:
+</p>
+
+<pre class="code">
+c:\mysql_example&gt;<span class="userInput">csc mysql_example.cs</span>
+Microsoft (R) Visual C# 2008 Compiler version 3.5.30729.4926
+for Microsoft (R) .NET Framework version 3.5
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+
+c:\mysql_example&gt;<span class="userInput">mysql_example</span>
+
+JMC Personnel
+
+==========================================
+
+Rimmer     28   2nd Technician  employed
+Lister     25   2nd Technician  employed
+Cat        15                   not employed
+Kryten     540  Mechanoid       employed
+
+Promoting Lister and taking Kryten out of service...
+
+JMC Personnel
+
+==========================================
+
+Rimmer     28   2nd Technician  employed
+Lister     25   Chef            employed
+Cat        15                   not employed
+
+c:\mysql_example&gt;
+</pre>
+
+
+				</div> <!-- end main -->
+
+				<div style="clear: both; height: 0;"></div> <!-- give content to centrewrapper for bg -->
+
+			</div> <!-- end centrewrapper -->
+			
+			<div id="footer">
+				<div id="footertext">
+					<p>
+						All content &copy; Ian Atkinson 2000&#8211;2010, not to be re-used without permission.
+					</p>
+					<p>
+						Validation
+						<a href="http://validator.w3.org/check/referer">XHTML</a> | 
+						<a href="http://jigsaw.w3.org/css-validator/validator?uri=http://www.ianatkinson.net/style_common.css">CSS</a>
+					</p>
+				</div>
+			</div>
+		</div> <!-- end contentWrapper -->
+	
+		<!-- Google Analytics -->
+		<script type="text/javascript">
+			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+			document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+		<script type="text/javascript">
+			var pageTracker = _gat._getTracker("UA-1865534-5");
+			pageTracker._initData();
+			pageTracker._trackPageview();
+		</script>
+		<!-- End Google Analytics -->
+
+	</body>
+</html>

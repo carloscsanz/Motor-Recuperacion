@@ -1,0 +1,361 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang=en-US>
+<head>
+<title>Mac Pro Review: Follow-up</title>
+<meta name="description" content="MacInTouch follows up its review of the Apple Mac Pro with more information and experiences.  FB-DIMM memory performance, Boot Camp, RAID, gaming and hardware.">
+<link href="http://www.macintouch.com/css/global.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div class="banneradtop"><p align=center>
+<A HREF="/images/owc_UDA.raw"><IMG SRC="/images/owc_uda.gif" ALT="Get a universal drive adapter at OWC. . ." WIDTH=468 HEIGHT=60 BORDER=0></A>
+
+</div>
+
+<div id="header">
+<img src="http://www.macintouch.com/special.gif" width="420" height="64" align="bottom" alt="MacInTouch Special Report">
+<pre> <a href="http://www.macintouch.com/advertising.html">Ads</a>     <a href="http://www.macintouch.com/email.html">E-mail</a>     <a href="http://www.macintouch.com/find.raw">Find</a>     <a href="http://www.macintouch.com/index.shtml">Home</a>     <a href="http://www.macintouch.com/resources.html">Resources</a>     <a href="http://www.macintouch.com/contents.html">Sitemap</a> </pre>
+</div><!-- end header -->
+
+
+<div id="main">
+
+<h1><a href="http://www.macintouch.com/reviews/macpro/">Mac Pro Review</a>: Follow-up</h1>
+
+<p class="byline">by Robert Mohns<br>
+<br>
+</p>
+
+
+<div id="toc">
+<p align="center">
+<table>
+<tr>
+<td>
+<a href="#overview">Overview</a> <br>
+<a href="#memory">Memory</a> <br>
+<a href="#bootcamp">Boot Camp</a> <br>
+<a href="#raid">RAID</a> <br>
+<a href="#cores">Cores</a> <br>
+<br>
+<a href="#links">Links</a><br>
+</td>
+</tr>
+</table>
+</div><!-- end TOC -->
+
+
+<h2 id="overview">Overview</h2>
+
+<p>In the time since we published our <a href="http://www.macintouch.com/reviews/macpro/">Mac Pro review</a>, we've continued to test the Mac Pro, adding more memory, experimenting with RAIDs, and testing Apple's latest update to Boot Camp software.  We have also developed a few questions about Mac Pro hardware and reliability.</p>
+
+<p>In the days ahead, we plan to post more updates about RAID, gaming and hardware.</p>
+
+
+
+<h2 id="memory">Memory Performance</h2>
+
+
+<p>We bought a 1GB memory kit from Ramjet, consisting of two 512-MB FB-DIMMs, equipped with heat sinks and installed it quickly and easily, following Apple's instructions (part of which are printed inside its side cover): Turn off the Mac Pro, remove its power cord,open the side panel, pull out the empty memory riser card, insert the memory modules and re-assemble. Fast and easy.</p>
+
+<p>Ramjet's FB-DIMMs have smaller heatsinks than Apple's monsters; there are no protruding cooling fins, and they are lightweight by comparison.  Despite Apple's cautions that non-Apple style heatsinks can increase fan speed and noise, we didn't notice any change in the Mac Pro's volume level.  (It's still too quiet for our decibel meter to register.)</p>
+
+<p>In many previous Macs and PCs, memory performance has increased as much as 5 to 8% when pairing up memory modules.  We wanted to see if the Mac Pro would show similar performance gains from optimally matched memory, despite FB-DIMM's  exotic new serial architecture, which works very differently from traditional parallel, interleaved memory busses.  (We link to more technical details from Anandtech below.)</p>
+
+
+
+<h3>Geekbench</h3>
+
+
+<p>We ran Geekbench 2006 as the initial test of our updated and optimized memory configuration, which requires four matched FB-DIMM modules installed in the correct locations across the two riser cards.  </p>
+
+<p>The Mac Pro's overall Geekbench score increased from an already-impressive 296 to 343 &ndash; nearly twice the score of the Power Mac dual-core 2.0-GHz G5 and about 16% better than the stock, 1-GB Mac Pro configuration.</p>
+
+<p>As we expected, pure CPU benchmarks such as Geekbench processor emulation, encryption, JPEG compression/decompression, and fractal calculations didn't change at all - no discernable improvement in either integer or floating point operations. Presumably these tests stayed within Level 2 cache and failed to exercise the memory bus.</p>
+
+<p>The Geekbench improvements all show up in its memory speed test, which should indicate effects on general application performance, since almost every real application uses far more data than fit in the processors' fast, local caches.  </p>
+
+<p>Memory read performance increased 10% in Geekbench &ndash; a pretty good improvement, but the real speed boost came in memory writes.  Ranging from 16% to 99% faster (double the speed!), these test results really boosted the overall Geekbench score.  The upgraded Mac Pro fared especially well in multi-threaded tests, although even single-threaded tests did very well, ranging from 16% to 33% faster than Apple's stock 1GB configuration.</p>
+
+<p>There were a few odd exceptions, though.  The bzip2 decompression test was 87% <em>slower</em> in the multi-threaded test, yet unchanged in the single-threaded.  And the dot product floating point test was 97% slower with the extra memory! </p>
+
+<p>Overall, even with the strange exceptions, these sorts of speed improvements are nothing short of astonishing.  In the past, interleaved parallel memory has yielded improvements of 5% to 8%.  The various memory and stream performance components of Geekbench averaged a whopping 52% speed-up.</p>
+
+	<p style="text-align:center; margin: 1.5em auto 1.5em auto;"><img src="geekbench_update.png" alt="Geekbench scores chart" width="580" height="320"></p>
+
+<p>As discussed extensively in Anandtech's technical notes, the Mac Pro's serial architecture enables Intel to increase raw throughput, and add more memory slots than traditional designs (in which, the more memory you add, the slower the entire memory system gets).  But the drawback is increased latency (the time required to perform a memory read or write), which can really slow down a system.</p>
+
+<p>So, how does the Mac Pro compare to a Quad G5, the reigning champion of Macintosh memory performance to date?  Results were mixed.  </p>
+
+<p>The Mac Pro's single-threaded, sequential memory read and write scores were 101% and 131% faster (yes, more than double the speed) vs. the G5. Multi-threaded scores were 164% and 23% faster, respectively.  Yet Stdlib write was 50% *slower* than the Quad G5.  </p>
+
+<p>Memory stream performance showed smaller differences; the Mac Pro's scores ranged from 32% faster to 27% slower than the Quad G5.</p>
+
+<p>Overall, the 2GB Mac Pro memory and stream tests averaged 21% faster than the Quad G5's scores.</p>
+
+<h3>Photoshop</h3>
+ 
+<p>Photoshop (which runs via the Rosetta translator) appeared to benefit only slightly from the paired sets of FB-DIMMs.  It got a significant boost simply from having more memory available, as we expected.  The Kaleidoscope test, which uses CPU more than memory or disk, showed a fair improvement of about 15% which we thought could be due to memory speed - but after monitoring Photoshop's memory usage with the command line utility 'top', we concluded the majority of the improvement came from having more memory available, rather than from memory speed per se.</p>
+
+
+
+<h3>Quicktime Export</h3>
+
+<p>Our Quicktime tests showed only minor improvements.  The MPEG-4 and H.264 exports were about 3% faster.  The 3GP export test improved by about a tenth of a second (about 1%), well within the human margin of error for our handheld stopwatch.  Quicktime, it appears, benefits only marginally from paired FB-DIMMs.</p>
+
+<h3>RAW Processing in Aperture</h3>
+
+<p>Aperture fared much better, showing a 16% improvement in our export test.  This test exports 34 RAW images to JPEG.</p>
+
+	<p style="text-align:center; margin: 1.5em auto 1.5em auto;"><img src="aperture.png" alt="Aperture export chart" width="558" height="315"></p>
+ 
+<p>(The images used were from Aperture's sample Tibet Portraits album, shot with a Nikon D2Hs.)</p>
+
+
+
+<h3>Doom 3</h3>
+
+<p>Doom 3 showed significant gains at lower resolutions, but much less at higher resolutions where the video card is the main limiting factor. At &quot;Medium&quot; quality (640x480), Doom 3 ran 22% faster than it did with 1GB, but only 5% faster at &quot;High&quot; quality, and 3% at &quot;Ultra&quot;.</p>
+
+	<p style="text-align:center; margin: 1.5em auto 1.5em auto;"><img src="doom.png" alt="Doom 3 framerates chart" width="537" height="335"></p>
+ 
+<p>We wondered if the low-resolution speedup might be due to higher resolutions requiring more memory, but Doom 3's resident memory size is only a few hundred megabytes during the timedemo, so we think not.</p>
+
+
+
+
+<h2 id="bootcamp">Boot Camp</h2>
+
+
+<p>Apple caused quite a stir when it released Boot Camp, a utility that makes it easy to install Windows XP on an Intel Mac.  Providing Windows drivers, a utility to make a Windows-compatible partition, and step-by-step instructions, Boot Camp appears to have made the Mac a viable multi-OS platform.</p>
+
+<p>MacInTouch has been deluged with questions about Boot Camp's performance.  Chief among the questions is how well Boot Camp runs Photoshop for Windows, from those considering using a Mac Pro or MacBook Pro as a Windows Photoshop platform until Adobe releases a Universal version next year.</p>
+
+<p>We used Boot Camp to install Windows XP Home Edition (service pack 2) on our test Mac Pro.  Compatibility appears good in our limited testing; the Mac was indistinguishable from any other Windows machine...</p>
+
+<p>...except it was slow.  Very, very slow.  For example, the Kaleidoscope Photoshop test that took 20 to 30 seconds on our other machines (including a Dell 9150) took over <em>five minutes</em> in Boot Camp Windows!</p>
+
+<p>Some research quickly turned up Boot Camp's Achilles heel: hard drive access.  Windows XP does not support the modern EFI firmware used in Apple's Mac Pro, only Windows' twenty year old BIOS system.  (Microsoft's latest Vista beta doesn't support EFI, either.)  So, Apple wrote a compatibility layer for EFI to emulate a BIOS - the &quot;Compatibility Support Module&quot;.  The Mac Pro hardware implements very high performance disk modes known as AHCI and NCQ, but Boot Camp's BIOS emulator doesn't put the disks into this mode, instead using an older, slower mode that omits AHCI, NCQ or even direct memory access mode.  This effectively cripples Boot Camp's performance.</p>
+
+<p>[Thanks to Brian Williams for getting to the bottom of this.  See his post in the Apple Discussion Forums, linked below, for more technical detail.]</p>
+
+<p>Did Apple intentionally cripple Boot Camp?  We don't know - but it does appear that the route Apple chose was easier, so there may be technical difficulties to getting Windows XP to run with the Mac Pro's modern firmware and drives at full speed.</p>
+
+<p>What this means, practically speaking, is this: While Boot Camp is excellent for general compatibility purposes, it is unable to run Photoshop at any sort of competitive speed.  </p>
+
+<p>(We don't have a pile of PC games on hand to test, but we suspect gaming performance also may be sub-par, which would be  a pity, since the Mac Pro's <em>hardware</em> is excellent and <em>should</em>  make a fine PC gaming machine.)</p>
+
+<p>We have recently been sent instructions for getting full SATA performance out of Windows XP under Boot Camp.  When we've had a chance to test this, we'll update our Windows benchmarks and this report.</p>
+
+<p>One final performance note: Assuming disk performance is fixed by Apple or is not the bottleneck for your application, those wishing to maximize Windows performance should install Windows XP Pro, because XP Home Edition only supports one processor, not both of the Mac Pro's Xeon CPUs. (However, XP Home does support both processor <em>cores</em> in one Mac Pro CPU or the one Core Duo CPU used in the iMac and MacBook models).</p>
+
+
+
+
+<h2 id="raid">RAID</h2>
+
+<p>The Mac Pro's four fast internal hard drive bays practically beg for high performance RAID storage systems. But, what, exactly, <em>is</em> RAID?</p>
+
+<p>RAID, or &quot;Redundant Array of Inexpensive Disks&quot;, is a set of techniques for combining multiple hard drives into one logical storage volume.  Depending on the implementation, RAIDs can increase storage capacity, speed, fault tolerance, or even all of these at once.</p>
+
+<p>Mac OS X includes software support in the Disk Utility program for two types of RAID, striping (RAID 0) and mirroring (RAID 1).</p>
+
+<p>Striping provides very high data throughput and doubles capacity but offers absolutely no redundancy of data. Statistically, RAID 0 setups will fail more frequently than a single drive.  They are, however, very well suited to working with large files where speed is of critical importance.  Uncompressed video editing and Photoshop scratch disks are two common applications of RAID 0. Just opening applications can be much faster with RAID 0, as programs are loaded from disk into memory.</p>
+
+<p>RAID 1 &ndash; &quot;mirroring&quot; &ndash; provides no improvement in speed and actually halves the capacity of two drives duplicating the entire contents of one onto the other for redundancy.  The failure of one drive will not cause the failure of the whole system, because  the system can ignore the failured drive and keep functioning with the other until a replacement arrives.  This makes it ideal for high-availability applications such as servers that hold critical data.</p>
+
+	<p style="text-align:center; margin: 1.5em 0 1.5em 0;"><img src="raid-diagram.png" alt="RAID types illustration" width="292" height="278" border="1"></p>
+
+<p>RAID 5, or &quot;stripe with parity&quot;, combines high speed, high capacity and fault tolerance.  Data is stored across several disks, along with &quot;parity&quot;error-checking information that allows the RAID to recover from the failure of one disk (or sometimes more, depending on the particulars of the RAID setup).  RAID 5 is among the fastest and most robust RAID variants in use, but it is technically difficult to implement in software and is normally implemented using a dedicated hardware controller instead.</p>
+
+<p>In general, hardware RAID solutions provide the best speed and OS compatibility.  However, due to that extra hardware, they cost more to implement.  (RAID is making its way into consumer devices, though.  LaCie's BigDisk series of Firewire drives uses a hardware RAID controller to join two drives internally, presenting themselves to their host as a single device, and other similar products are also available.)</p>
+
+
+
+<h3>RAID on the Mac Pro</h3>
+
+<p>Intel's logic board chipset for the Xeon includes a number of optional components that manufacturers can use &ndash; or not &ndash; at their discretion.  Among them is support for hardware RAID 0, 1 or 5 configurations, but Apple appears not to have included any of these options in the Mac Pro.  Instead, RAID on the Mac Pro is implemented in software, as before, via the Disk Utility application.</p>
+
+<p>Mac OS X supports mirrored or striped volumes (and even 0+1 and 1+0 combinations).  There has been some confusion about RAID 0 boot support for Intel Macs.  One Apple Knowledge Base article says it is not supported, and we had problems booting the Mac Pro from a RAID 0 configuration (even though the Power Mac G5 <em>can</em> start up from a striped RAID); however, several MacInTouch readers report success booting a Mac Pro from a RAID 0 volume.
+
+<p>
+Even if Mac OS X and the Finder cannot gain the direct benefit of RAID 0 speed on the Mac Pro, other applications and operations can.
+We tested several configurations:</p>
+
+<ul>
+<li>	A pair of mirrored Hitachi 250 GB drives
+<li>	The same Hitachi drives striped into a 500 GB volume
+<li>	The two Hitachis and the Apple-supplied Seagate Barracuda drive striped into a 750 GB volume (booting from a fourth SATA drive, an 80-GB Maxtor drive included originally in a Power Mac G5.)
+</ul>
+
+<p>We confirmed that Mac OS X starts from a mirrored RAID with no problems.  This presents no speed gains (and a slight theoretical slowdown in write speed), but offers data redundancy.</p>
+
+<p>A striped RAID is far more interesting from a performance point of view.  After we moved Photoshop's scratch space to the two-disk RAID, benchmarks improved 10% to 30%.  Extremely disk-intensive tests such as the RetouchArtists action showed the most improvement.  When we used a three-disk RAID, they improved a bit more, though not nearly so dramatically.</p>
+
+	<p style="text-align:center; margin: 1.5em 0 1.5em 0;"><img src="photoshoptest3.png" alt="Photoshop scores chart" width="617" height="425"></p>
+
+<p>Our standard file copy test demonstrated the raw throughput a RAID stripe is capable of.  In stock form, the Mac Pro copied a 207.5 MB folder in 8 seconds &ndash; very good compared to a G5 equipped with a Western Digital Raptor drive, which clocked in at 7.6 seconds.  With a two-disk RAID, the Mac Pro set the mark at 4.5 seconds, far better than our previous record holder (a striped RAID in a low-end Power Mac G5).  With a three-disk RAID, the Mac Pro took just <em>2.7 seconds</em>.</p>
+
+	<p style="text-align:center; margin: 1.5em 0 1.5em 0;"><img src="copy-raid.png" alt="RAID file copy test chart" width="520" height="277"></p>
+
+<p>With RAID 0 and its fast SATA drive bays, the Mac Pro is a disk storage speed demon.</p>
+
+<h3>Limitations</h3>
+
+<p>Traditionally, hardware RAID has provided the ability to start a Mac from a RAID 1 or 5 volume, but this is not an option on the Mac Pro.  Its elegant slide-in drive bays prevent access from the RAID PCI cards we could use with previous Power Macs.  Barred from this expansion option, we would have liked to see Apple including the RAID support Intel designed into the Xeon's chipset. 
+</p>
+
+<p>While Apple also sells the Xserve RAID, and it does provide good value for the dollar as it expands, not everyone has $6,000 to spend on a RAID system, or a server rack to put it in.  With 500 and 750 GB SATA drives getting cheaper all the time, we'd prefer to build our own solution from inexpensive commodity parts.</p>
+
+<p>External RAID systems are an option, but Mac OS X's RAID software can be touchy when combining separate external drives (especially when any error correction delays or latencies are involved), so a hardware-based external RAID system makes a lot more sense. On the software side, though, MacInTouch readers recommend SoftRAID as a more flexible and robust solution (although full SoftRAID Mac Pro support is waiting on an operating system fix from Apple - see <a href="http://www.softraid.com/faq.html#allosx" target=new>SoftRAID FAQ</a>).</p>
+
+<p>Overall, though, we're impressed with the performance available from the Mac Pro.  With four drive bays, we can mirror our startup drive, store working data on a fast two-disk RAID, and perform regular backups to Firewire 800 drives for quick recovery on another Mac if necessary.  That's more expansion options than we've had from an Apple desktop in many years.</p>
+
+
+
+
+
+<h2 id="cores">What are all those cores for?</h2>
+
+<p>The Mac Pro's four processing units, or &quot;cores,&quot; put it squarely into territory once occupied only by &quot;big iron&quot; servers and incredibly expensive workstations &mdash; and one long-departed Mac clone, the Daystar Genesis quad-604 machine.  But what advantage do you really get from all those cores, anyway?</p>
+
+<h3>A word on multi-tasking, -processing and -threading</h3>
+
+<p>Earlier versions of Mac OS, from System 7 through Mac OS 9, supported multiprocessing in a very limited manner.  Only one CPU was used normally, and that CPU did everything.  The other CPUs could be accessed by specially-written programs, including Photoshop (via plug-ins), but provided no general boost to applications.  The main CPU was shared by every task.  When your email client was fetching mail, your word processor wasn't repaginating and your web browser stopped loading its page.</p>
+
+
+	<div class="sidebar">
+		<p><strong>Glossary of terms</strong></p>
+		<dl style="font-size:0.9em;">
+			<dt style="text-decoration:underline;">Multitasking</dt> <dd>Running multiple programs at the same time.</dd>
+
+			<dt style="text-decoration:underline;">Multiprocessing</dt> <dd>Using more than one processor in a single computer.</dd>
+		
+			<dt style="text-decoration:underline;">Multithreading</dt> <dd>Running multiple tasks within a program at the same time; does not require multiprocessing, but it helps.</dd>
+		
+			<dt style="text-decoration:underline;">Symmetric multiprocessing</dt> <dd>Scheme allowing the operating system to allocate any available processor or core to any program at any time.</dd>
+			
+			<dt style="text-decoration:underline;">Core</dt> <dd>A processing unit or CPU.  More than one may be on a single chip, in which case it is referred to as a multi-core chip.</dd>
+		</dl>
+	</div>
+
+
+<p>By switching between tasks (programs) very quickly, or &quot;multitasking,&quot; the computer made it appear that everything was happening simultaneously.  But it wasn't, really, and we could see this, because when we asked the computer to do a lot of multitasking, everything slowed down.</p>
+
+<p>The Mac OS X operating system was built from the ground up for SMP, or symmetric multiprocessing, based on the Mach microkernel. Mach was developed at Carnegie Mellon by Rick Rashid, who now oversees Microsoft Research, and Avie Tevanian, who worked under Steve Jobs for years at NeXT and Apple, but left Apple earlier this year. 
+</p>
+
+<p>
+Mac OS X uses every available processor for the various programs it is running.  When your email client fetches mail, your web browser doesn't have to stop loading a page, because the operating system (which manages tasks) allocates one program to one CPU (or core), and another program to another CPU.  And it moves them from CPU to CPU as needed &mdash; no CPU is solely dedicated to just one process.  (This freeform rebalancing is why it's called &quot;symmetric&quot; multiprocessing.)</p>
+
+<p>Mac OS X also supports multithreading, which is multitasking within a single application.  Multithreading is what enables Word and Mail to check spelling in the background while you type, and Safari and FireFox to load several web pages at once.  Before Mac OS X, applications could manage this within themselves, but each still acted as just one program (or &quot;process&quot;, in Unix-speak) to the system.</p>
+
+<p>With Mac OS X, a program can create threads that the operating system can manage automatically &mdash; and allocate to multiple CPUs.  For example, when typing in Word, a thread on CPU #1 might be handling your typing, while a separate thread on CPU#2 is checking for spelling errors.  Cinebench can render multiple sections of an image simultaneously, each with its own thread and processor. What this means to us computer users is that the computer feels more responsive, because there are more resources (CPUs) working on the various tasks (threads and processes) that need to operate.</p>
+
+<p>And it means that a computer can get more work done because it has more resources on the job.  An analogy would be that there are two ways to ship more apples from state to state: you can get a faster truck, or more trucks. &mdash;more GHz, or more cores.</p>
+
+
+<h3>So more is better, right?</h3>
+
+<p>It seems simple: if one core is good, two is twice as good, and four is four times as good.  Right?</p>
+
+<p>Maybe.</p>
+
+<p>Every modern personal computer operating system has a lot of background processes.  These processes are the infrastructure of your desktop experience &mdash; managing network connections, sync services, file sharing, iTunes, menu bar icons, Dashboard, and much more.  (Open Activity Monitor, found in your Utilities folder, and set its monitor window to show &quot;All Processes&quot;.  It's enlightening.)  These processes are typically designed by their programmers to be fast and take few resources, but en masse, they do require CPU time.</p>
+
+<p>A multiprocessing computer, such as the Dual G4/G5 Macs and Intel Core Duo-based Macs, will feel &quot;faster&quot; and more responsive than a single processor computer, because these background processes can be put on different CPUs than the programs you are actively using.</p>
+
+<p>Most typical productivity programs, such as MS Word, Safari, and Mail, become more responsive (feel &quot;faster&quot;) with two processors but show little additional improvement with four.  They just aren't demanding enough to fully utilize the extra cores.</p>
+
+<p>In our testing on the Quad Xeon Mac Pro, we found that very rarely were all four CPUs fully engaged.  The computer has more computing capacity than a typical home or office user needs.</p>
+
+<p>Media applications such as Photoshop, GarageBand, Final Cut and Aperture are more aggressively optimized to use the extra capacity of a quad-core machine.  Media producers will see a real and measurable benefit &mdash; but our benchmarking still shows that you don't get nearly the extra mileage out of CPUs #3 and #4 that you get out of #1 and #2.</p>
+
+
+<h3>Eight core upgrades</h3>
+
+<p>In early September of this year, Anandtech created an eight-core Mac Pro using pre-production samples of Intel's unreleased quad-core &quot;Clovertown&quot; processors. They wrote, &quot;We definitely had a difficult time stressing 8 cores in the Mac Pro, but if you have a handful of well threaded, CPU intensive tasks, then a pair of slower Clovertowns can easily outperform a pair of dual core Woodcrest based Xeons.&quot;  </p>
+
+<p>Unfortunately, due to non-disclosure agreements with Intel, they were unable to release hard performance numbers.  For that, we had to wait for Cnet to perform a similar test with production versions of those chips in November.  For highly-optimized, multithreaded tests such as Cinebench, they saw performance increase by 31% with eight cores &mdash; not even close to the 100% doubling in available CPU capacity over the four-core Mac Pro, despite all eight cores running at full capacity.  And iTunes encoding and Quake 4 frame rates improved by only 10%.</p>
+
+<p>Traditionally, the barrier to performance for highly multiprocessing computers has been limited I/O capacity &mdash; memory bandwidth and disk performance.  It's difficult to keep even two modern CPUs fed with data at the same time.  Four or eight processors using the same memory and disk rapidly come into competition for resources.  The new high-bandwidth memory bus used in the Mac Pro attempts to deal with this, but we don't know how well it will scale to support eight demanding processor cores.</p>
+
+
+<h3>Core conclusions</h3>
+
+<p>Based on our experience living with single processor, dual-processor and quad-processor Macs, we think that a duallie is the sweet spot for price/performance.  And thanks to the Intel Core Duo series, it's an affordable sweet spot.</p>
+
+<p>The Quad Xeon Mac Pro is costly, but incredibly fast.  Its extra capacity isn't a great value for undemanding users of email, web and word processing.  But if you're working with any sort of media &mdash; graphics, sound or video &mdash; its four cores can't be beat.  They really do make a difference.</p>
+
+<p>There has been a lot of speculation about future eight-core Mac Pros from Apple.  We might see them, but few users will really have any use for them.  Until media applications are better optimized to exploit many CPUs, and memory bandwidth is improved, such an exotic machine would be better suited to a high-capacity server than to a single user's need.</p>
+
+
+
+
+
+
+<div id="links">
+
+<h2>Links</h2>
+
+<div class="subsection">
+
+<h3>Amazon</h3>
+<ul>
+	<li><a href="http://www.amazon.com/exec/obidos/ASIN/B000AO5OMA/macintoucwebsite/ref=nosim">Mac Pro Quad 2.66-GHz</a> [$150 rebate on Aug. 16, 2006]
+</ul>
+
+<h3>Apple</h3>
+<ul>
+	<li><a href="http://docs.info.apple.com/article.html?artnum=106594">How to Use Apple-Supplied RAID Software</a> 
+	<li><a href="http://docs.info.apple.com/article.html?artnum=303692">Intel-based Macs Don't Support RAID Booting</a> 
+	<li><a href="http://docs.info.apple.com/article.html?artnum=58258">Blue G3 Cannot Boot from a RAID Striped Volume</a> 
+</ul>
+
+<h3>MacInTouch</h3>
+<ul>
+	<li><a href="http://www.macintouch.com/reviews/macpro/">MacInTouch Mac Pro Review</a>
+	<li><a href="http://www.macintouch.com/reviews/macpro/benchmarks.html">MacInTouch Mac Pro Benchmarks</a>
+</ul>
+
+<h3>Other</h3>
+<ul>
+	<li><a href="http://discussions.apple.com/message.jspa?messageID=2929487#2929487">Boot Camp SATA Notes by Brian Williams</a> [Apple Discussions]
+	<li><a href="http://www.anandtech.com/mac/showdoc.aspx?i=2811&amp;p=4">Apple's Mac Pro: A Discussion of Specifications</a> [Anandtech]
+<br><br>
+
+			<li><a href="http://en.wikipedia.org/wiki/RAID">RAID</a> [Wikipedia]
+			<li><a href="http://www.softraid.com">SoftRAID</a>
+<br><br>
+			<li><a href="http://anandtech.com/mac/showdoc.aspx?i=2832&amp;p=6">AnandTech's 8-core Mac Pro (Sept 2006)</a>
+			<li><a href="http://reviews.cnet.com/4531-10921_7-6663792.html">Cnet's 8-core Mac Pro, with benchmarks (Nov 2006)</a>
+</ul>
+
+
+
+</div><!-- end links subsection-->
+</div><!-- end links section-->
+
+
+
+
+
+
+
+<div id="respond"><p><a href="http://submit.macintouch.com/"><b>Respond</b></a> to this article</p></div>
+
+</div><!-- end main -->
+
+
+<div id="footer">
+<pre> <a href="http://www.macintouch.com/advertising.html">Ads</a>     <a href="http://www.macintouch.com/email.html">E-mail</a>     <a href="http://www.macintouch.com/find.raw">Find</a>     <a href="http://www.macintouch.com/index.shtml">Home</a>     <a href="http://www.macintouch.com/resources.html">Resources</a>     <a href="http://www.macintouch.com/contents.html">Sitemap</a> </pre>
+<p id="copyright">Copyright 2006 by MacInTouch, Inc. All rights reserved.</p>
+</div><!-- end footer -->
+
+<div class="banneradbottom"><p align=center>
+<A HREF="/images/owc_UDA.raw"><IMG SRC="/images/owc_uda.gif" ALT="Get a universal drive adapter at OWC. . ." WIDTH=468 HEIGHT=60 BORDER=0></A>
+
+</div>
+
+</body>
+</html>

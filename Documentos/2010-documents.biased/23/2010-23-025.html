@@ -1,0 +1,653 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+<meta name="DC.Date.modified" scheme="W3CDTF" content="2010-03-04"  /><title>How to make database connectivity in asp.net</title>
+<meta name="ROBOTS" content="index,follow" />
+<meta name="description" content="Hello, i m looking for the database connectivity in asp.net with sql server 2005 or ms access 2007? please anybody solve my query. thanks in advance, looking for your response." /><link rel="stylesheet" href="/template/forum.css?200911121024" type="text/css" /><link href="http://static.commentcamarche.net/en.kioskea.net/_skin/_common/css/css.php?201002181011" type="text/css" rel="stylesheet" media="screen" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en" />
+<link rel="alternate" type="application/rss+xml" title="Kioskea: News" href="http://en.kioskea.net/rss/actualite.php3" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<script src="http://static.commentcamarche.net/www.commentcamarche.net/_skin/_common/js/js.php?201001111528" type="text/javascript"></script>
+
+</head>
+<body><div id="tt" style="display:none"><div id="tttop"></div><div id="ttcont"></div><div id="ttbot"></div></div><div id="header">    <div id="top">
+        
+        <h1>
+            <a href="/" name="top" title="Kioskea"><img src="http://static.commentcamarche.net/en.kioskea.net/_skin/_local/img/logo.png"  alt="Kioskea" /></a>
+        </h1>
+        <form action="/search/search.php3" method="get" class="headerFooter">
+            <fieldset>
+                <legend>Recherche</legend>
+                <input type="text" id="searchform_input" name="Mot" class="search" value="Search" onfocus="if($('searchform_focused').value==0){ $('searchform_input').value=''; $('searchform_focused').value=1; };" />
+                <input type="hidden" id="searchform_focused" name="already_focused" value="0" />
+                <input type="submit" class="submit" value="OK" />
+            </fieldset>
+        </form><script type="text/javascript">
+//<![CDATA[
+q = refk();
+if($('searchform_input')&&q&&q!=' ') {
+     $('searchform_input').value=q;
+     $('searchform_focused').value=1;
+}
+//]]>
+</script><ul id="topNav">
+        <li>
+        <a class="userName" href="/communaute/inscription.php3">Sign up for free</a>
+    </li>
+        
+
+    <li><a href="/plan/">Site map</a></li>
+        <li id="language">
+        <a href="/communaute/lang.php3" class="boxButton">Language</a>
+        <div class="boxHover">
+            <ul>
+                                        <li><a href="http://www.commentcamarche.net" lang="fr">French</a></li>
+                                            <li><a href="http://de.kioskea.net" lang="de">German</a></li>
+                                            <li><a href="http://en.kioskea.net" lang="en">English</a></li>
+                                            <li><a href="http://es.kioskea.net" lang="es">Spanish</a></li>
+                                            <li><a href="http://it.kioskea.net" lang="it">Italian</a></li>
+                                            <li><a href="http://pt.kioskea.net" lang="pt">Portuguese</a></li>
+                                        </ul>
+        </div>
+    </li>
+                <li id="rss">
+        <a href="#" class="boxButton">RSS</a>
+        <div class="boxHover">
+            <ul>
+                                <li><a href="/rss/actualite.php3">News</a></li>
+                                    <li><a href="/rss/rss_faq_last.php3">FAQ</a></li>
+                                <li><a href="/rss/rss_download_last.php3">Software</a></li>
+                <li><a href="/rss/rss_download_updates.php3">Software - Updates</a></li>
+                                                </ul>
+        </div>
+    </li>
+        <li id="identification">
+        <a href="/communaute/" class="boxButton" id="a_boxbutton">
+                Login        </a>
+        <div class="boxHover" id="div_boxhover">
+            <form action="/forum/affich-61898-how-to-make-database-connectivity-in-asp-net" method="post">
+                <fieldset>
+                    <legend>Identification</legend>
+                                            <label>Username</label>
+                    <input tabindex="1" type="text" name="login" value="" onfocus="$('identification').className='focused';select();return true;" onblur="$('identification').className='';return true;" />
+                    <label>Password</label> ( <a tabindex="3" href="/communaute/motdepasse.php3" class="passLost">forgot?</a> )
+                    <input tabindex="2" type="password" name="pass" value="" onfocus="$('identification').className='focused';select();return true;" onblur="$('identification').className='';return true;" />
+                    <input type="submit" name="log_in" class="submit" onfocus="$('identification').className='focused';return true;" onblur="$('identification').className='';return true;" value="Login" />
+                </fieldset>
+            </form>
+        </div>
+    </li>
+        </ul>
+    </div>
+
+    <!-- MAIN NAVIGATION -->
+
+    <div id="nav">
+	<div class="content">
+	    <ul id="mmenu_ul_id" onmouseout="mmenu.tempo();">
+            <li onmouseover="mmenu.select(this)"><a href="/">Home</a></li>
+            <li class="selected current" onmouseover="mmenu.select(this)">
+                <a href="/forum/">Forum</a>
+            </li>
+            <li onmouseover="mmenu.select(this)">
+                <a href="/faq/">FAQ</a>
+            </li>
+            <li onmouseover="mmenu.select(this)">
+                <a href="/telecharger/">Download</a>
+            </li>
+            <li onmouseover="mmenu.select(this)">
+                <a href="/news/">News</a>
+            </li>
+            <li onmouseover="mmenu.select(this)">
+                <a href="/contents/">Reviews</a>
+            </li>
+            <li onmouseover="mmenu.select(this)">
+                <a href="/guide/">Buying guide</a>
+            </li>
+	    </ul>
+	</div>
+	<div class="bgShadow"></div>
+    </div>
+</div>
+
+<div id="section">
+
+    <div id="topContent">
+<div id="ad_top">
+    <script type="text/javascript">
+<!--
+sas_pageid='10991/82108';
+sas_formatid=4785;
+sas_target='';
+SmartAdServer(sas_pageid,sas_formatid,sas_target);
+//-->
+    </script>
+</div>
+&nbsp;	</div>
+    <div id="content">
+<div id="tit_nav"><a href="/forum/forum-3?Acces=1#ecrire" rel="nofollow" class="do"> Ask your question</a> <a href="/forum/affich-61898-how-to-make-database-connectivity-in-asp-net?printme" class="do gr" rel="nofollow">Print Format</a><a href="#" onclick="if($('bloc_21').className=='show') $('bloc_21').className='hide'; else $('bloc_21').className='show';return false;" class="do gr"> Forum list</a><a href="/forum/sans-reponses?forum_num=3" class="do gr"> Help them</a><a href="/forum/stats.php3" class="do gr"> Statistics</a><a href="#searchbar" class="do" onclick="if($('bloc_forum_actions').className=='show') $('bloc_forum_actions').className='hide'; else  $('bloc_forum_actions').className='show'; return false;"> Search</a><a href="#" class="do gr" rel="nofollow" onclick="if($('charte').innerHTML=='') { new Ajax.Updater('charte', '/remote/charte.php3', { method: 'get',  parameters: 'titre', evalScripts : false } ); $('charte').className='show'; } else { $('charte').innerHTML='';$('charte').className='hide';} return false;"> Charter</a><a href="/forum/" class="first">Forum</a> <a href="/forum/forum-3-programming">Programming</a></div><div><div id="col_left"><div id="contenu"><div id="bloc_21" class="hide"><a name="haut"></a><div id="forum_toc"><span class="titre">Support</span><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td width="20%"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="themes"><tr><td><a href="/forum/forum-11-windows" class="forum">Windows</a></td></tr><tr><td><a href="/forum/forum-13-linux-unix" class="forum">Linux/Unix</a></td></tr><tr><td><a href="/forum/forum-14-macos" class="forum">MacOS</a></td></tr></table></td><td width="20%"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="themes"><tr><td><a href="/forum/forum-26-phones-pda-gps" class="forum">Phones/PDA/GPS</a></td></tr><tr><td><a href="/forum/forum-2-hardware" class="forum">Hardware</a></td></tr><tr><td><a href="/forum/forum-1-software" class="forum">Software</a></td></tr></table></td><td width="20%"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="themes"><tr><td><a href="/forum/forum-25-office-software" class="forum">Office software</a></td></tr><tr><td><a href="/forum/forum-19-video-games" class="forum">Video games</a></td></tr><tr><td><a href="/forum/forum-3-programming" class="forum on">Programming</a></td></tr></table></td><td width="20%"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="themes"><tr><td><a href="/forum/forum-24-webmastering" class="forum">Webmastering</a></td></tr><tr><td><a href="/forum/forum-5-network" class="forum">Network</a></td></tr><tr><td><a href="/forum/forum-7-viruses-security" class="forum">Viruses/security</a></td></tr></table></td><td width="20%"></td></tr></table><span class="titre">Discussions &amp; Opinions</span><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td width="20%"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="themes"><tr><td><a href="/forum/forum-8-news" class="discopi" onmouseover="BulleWrite('Discussions around the news. Feel free to submit your brief.',event);" onmouseout ="BulleHide ();">News</a></td></tr></table></td><td width="20%"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="themes"><tr><td><a href="/forum/forum-9-suggestions" class="discopi" onmouseover="BulleWrite('Improve Kioskea (bugs and proposals).',event);" onmouseout ="BulleHide ();">Suggestions</a></td></tr></table></td><td width="20%"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="themes"><tr><td><a href="/forum/forum-4-member-s-corner" class="discopi" onmouseover="BulleWrite('Humor and laughter are essential.',event);" onmouseout ="BulleHide ();">Member's corner</a></td></tr></table></td><td width="20%"></td><td width="20%"></td></tr></table></div></div><div id="charte"></div><div id="bloc_forum_actions" class="hide"><a name="searchbar"></a><form method="get" action="/forum/index.php3"><table border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td class="b1"></td>
+<td align="center" rowspan="3">
+<table border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td align="right"><strong>Search :</strong></td>
+<td><input type="text" name="Mot" id="Mot" class="mots_cle" /></td>
+<td align="center">in</td>
+<td><select name="forum_num" class="list_rech">
+  <option value="themes">All forums</option>
+            <option value="11">Windows forum</option>
+<option value="13">Linux/Unix forum</option>
+<option value="14">MacOS forum</option>
+<option value="26">Phones/PDA/GPS forum</option>
+<option value="2">Hardware forum</option>
+<option value="1">Software forum</option>
+<option value="25">Office software forum</option>
+<option value="19">Video games forum</option>
+<option value="3">Programming forum</option>
+<option value="24">Webmastering forum</option>
+<option value="5">Network forum</option>
+<option value="7">Viruses/security forum</option>
+<option value="8">Computing news</option>
+<option value="9">Suggestions</option>
+<option value="4">Member's corner</option>
+                 
+                  
+</select></td>
+<td align="center" valign="bottom"><input type="image" name="imageField" id="imageField" src="/template/blocs/bloc_forum_actions/bnt_search.png" onmouseover="BulleWrite('Search',event);" onmouseout ="BulleHide ();" class="search" /></td>
+</tr>
+<tr id="search_options">
+<td height="20" align="right"><strong>By :</strong></td>
+<td height="20" colspan="4" align="left"><input type="radio" name="searchType" id="search-bykeyword" value="byPert" class="radio"  checked="checked" />
+<label for="search-bykeyword">Keywords</label>
+<input type="radio" name="searchType" value="byUser" id="search-byuser" class="radio"  />
+<label for="search-byuser">Username</label></td>
+</tr>
+<tr><td height="20"> </td><td height="20" colspan="4" align="left"><input type="checkbox" name="sansrep" id="search-norep" /><label for="search-norep"> Unanswered messages</label></td></tr>
+</table>
+</td>
+<td class="b2"></td>
+</tr>
+
+<tr>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+	<td class="b4"></td>			
+	<td class="b3"></td>
+</tr>
+</table></form></div><div id="bloc_24"><div class="bhead"><h1 class="titre">How to make database connectivity in asp.net</h1><a href="#18" class="lastxt" onmouseover="BulleWrite('Go to last message',event);" onmouseout="BulleHide ();" rel="nofollow">Last answer on Mar  4, 2010  3:19:58 pm GMT</a> <a name="0"></a><span class="par"><span class="action_03"></span><a href="/communaute/profil-Digvijaysinh" class="pseudo" onmouseover="BulleWrite(String.fromCharCode(60)+'img src=\'/template/blocs/bloc_54/xphoto.jpg\' alt=\'Digvijaysinh\' style=\'float:left\' /'+String.fromCharCode(62)+'14 posted messages(s) since '+'Wednesday January 28, 2009'+'',event);" onmouseout="BulleHide ();">Digvijaysinh</a>, on Jan 29, 2009  8:18:10 am GMT</span><a href="#18" class="last" onmouseover="BulleWrite('Go to last message',event);" onmouseout="BulleHide ();" rel="nofollow">&nbsp;</a><a href="#1" class="next" onmouseover="BulleWrite('Next message',event);" onmouseout="BulleHide ();"></a></div><div class="bcontent" id="c61898"><div class="options">
+                  <a href="/forum/alert.php3?ID=61898&amp;Acces=1" class="action_03" onmouseover="BulleWrite('Report this message to moderators',event);" onmouseout="BulleHide ();" rel="nofollow">&nbsp;</a><span>Report this message to moderators</span></div><div class="" id="limit61898"><div class="limit"><div class="content"><p>Hello,
+<br />i m looking for the database connectivity in asp.net with sql server 2005 or ms access 2007?
+<br />please anybody solve my query.
+<br />thanks in advance, looking for your response.<pre><b>Configuration: </b>Windows XP
+Microsoft visual studio 2008,C#.</pre></p></div></div><a href="#" class="more" id="more61898" onclick="$('limit61898').className = ''; return false;"></a></div></div><script type="text/javascript">
+<!--
+if($('c61898').offsetHeight>190){
+$('limit61898').className="limiter";
+$('more61898').innerHTML="<span>Read more</span>";
+}
+//-->
+</script></div><div id="bloc_simili"><a href="/s/how-to-make-database-connectivity-in-asp-net" id="seeallanswers" class="tit_best" rel="nofollow">Best answers for &laquo;&nbsp;<span id="seeallanswerstxt">How to make database connectivity in asp.net</span>&nbsp;&raquo; in :</a><div class="bloc_tabs" id="bloc_tab_pages"><ul class="bloc_tab"><li><a href="#" onclick="$('bloc_tab_pages').className='bloc_tabs hide';$('bloc_tab_answer').className='blocs_tabs selected'; return false;">This page</a></li><li class="active"><a href="/s/how-to-make-database-connectivity-in-asp-net" rel="nofollow" onclick="return false;">All</a></li><li><a href="/s/how-to-make-database-connectivity-in-asp-net?section=faq" rel="nofollow" onclick="$('bloc_tab_pages').className='bloc_tabs hide';$('bloc_tab_faq').className='blocs_tabs selected'; return false;">Tips</a></li><li><a href="/s/how-to-make-database-connectivity-in-asp-net?section=forum" rel="nofollow" onclick="$('bloc_tab_pages').className='bloc_tabs hide';$('bloc_tab_forum').className='blocs_tabs selected'; return false;">Forum</a></li><li><a href="/s/how-to-make-database-connectivity-in-asp-net?section=download" rel="nofollow" onclick="$('bloc_tab_pages').className='bloc_tabs hide';$('bloc_tab_download').className='blocs_tabs selected'; return false;">Downloads</a></li><li><a href="/s/how-to-make-database-connectivity-in-asp-net?section=guide" rel="nofollow" onclick=" $('bloc_tab_pages').className='bloc_tabs hide';$('bloc_tab_guide').className='blocs_tabs selected'; return false;">Buying guide</a></li><li><a href="/s/how-to-make-database-connectivity-in-asp-net?section=articles" rel="nofollow" onclick="$('bloc_tab_pages').className='bloc_tabs hide';$('bloc_tab_articles').className='blocs_tabs selected'; return false;">Reviews</a></li></ul><div class="result" id="pages_result"><div class="similiitem"><div class="resitem"><a href="/faq/5556-how-to-make-database-connectivity-in-asp-net" class="title"> How to make database connectivity in asp.net? <span>Show</span></a> <span class="description">How to make database connectivity in asp.net?
+
+
+Issue
+Solution
+Note
+
+
+Issue
+
+Im looking for the database connectivity in asp.net with SQL server 2005 or ms access 2007? 
+Please anybody solve my query. 
+Thanks in advance, looking for...</span>
+			</div></div><div class="similiitem"><div class="resitem"><a href="/forum/affich-64782-database-connectivity-with-sql-server-2005" class="title"> Database connectivity with sql server 2005 (Solved) <span>Show</span></a> 
+			</div></div><div class="similiitem"><div class="resitem"><a href="/forum/affich-77999-how-do-connect-sqlserver-to-asp-net" class="title"> How do connect sqlserver to asp.net <span>Show</span></a> 
+			</div></div></div></div><div class="bloc_tabs" id="bloc_tab_faq"><ul class="bloc_tab"><li><a href="#" onclick=" $('bloc_tab_faq').className='bloc_tabs hide';$('bloc_tab_answer').className='blocs_tabs selected'; return false;">This page</a></li><li><a href="/s/how-to-make-database-connectivity-in-asp-net" rel="nofollow" onclick="$('bloc_tab_faq').className='bloc_tabs hide';$('bloc_tab_pages').className='blocs_tabs selected';return false;">All</a></li><li class="active"><a href="/s/how-to-make-database-connectivity-in-asp-net?section=faq" rel="nofollow" onclick="return false;">Tips</a></li><li><a href="/s/how-to-make-database-connectivity-in-asp-net?section=forum" rel="nofollow" onclick="$('bloc_tab_faq').className='bloc_tabs hide';$('bloc_tab_forum').className='blocs_tabs selected';return false;">Forum</a></li><li><a href="/s/how-to-make-database-connectivity-in-asp-net?section=download" rel="nofollow" onclick="$('bloc_tab_faq').className='bloc_tabs hide';$('bloc_tab_download').className='blocs_tabs selected';return false;">Downloads</a></li><li><a href="/s/how-to-make-database-connectivity-in-asp-net?section=guide" rel="nofollow" onclick="$('bloc_tab_faq').className='bloc_tabs hide';$('bloc_tab_guide').className='blocs_tabs selected';return false;">Buying guide</a></li><li><a href="/s/how-to-make-database-connectivity-in-asp-net?section=articles" rel="nofollow" onclick="$('bloc_tab_faq').className='bloc_tabs hide';$('bloc_tab_articles').className='blocs_tabs selected';return false;">Reviews</a></li></ul><div class="result" id="faq_result"><div class="similiitem"><div class="resitem"><a href="/faq/4851-asp-net-using-c-how-to-connect-retrieve-in-database-to-web-a" class="title"> ASP.NET using C# -  How to Connect/Retrieve in database to web a <span>Show</span></a><span class="description">ASP.NET using C# -  How to Connect/Retrieve in database to web application
+
+
+Issue
+Solution
+Note
+
+
+Issue
+
+I am doing my project work, I have one problem 
+My project doing in asp.net but I don't know how to connect the database in asp.net...</span>
+			</div></div><div class="similiitem"><div class="resitem"><a href="/faq/5249-asp-net-error-handling" class="title"> ASP.NET Error Handling <span>Show</span></a><span class="description">ASP.NET Error Handling
+
+
+Introduction
+Prerequisites
+ASP.NET error management with the Global.asax file
+Handling errors occurred at client-side
+Conclusion
+Notes
+
+
+
+
+Introduction
+Here below are some tips to handle exceptions occurring in...</span>
+			</div></div><div class="similiitem"><div class="resitem"><a href="/faq/5246-requesting-asp-net-ajax-synchronously" class="title"> Requesting ASP.NET AJAX synchronously <span>Show</span></a><span class="description">Requesting ASP.NET AJAX synchronously
+
+
+
+Introduction
+Prerequisites
+Definitions
+Techniques
+Implementation
+Conclusion
+Notes
+
+
+Introduction
+Although the acronym AJAX refers directly to an asynchronous request (Asynchronous JavaScript and...</span>
+			</div></div></div></div><div class="bloc_tabs" id="bloc_tab_forum"><ul class="bloc_tab"><li><a href="#" onclick=" $('bloc_tab_forum').className='bloc_tabs hide';$('bloc_tab_answer').className='blocs_tabs selected'; return false;">This page</a></li><li><a href="/s/how-to-make-database-connectivity-in-asp-net" rel="nofollow" onclick="$('bloc_tab_forum').className='bloc_tabs hide';$('bloc_tab_pages').className='blocs_tabs selected';return false;">All</a></li><li><a href="/s/how-to-make-database-connectivity-in-asp-net?section=faq" rel="nofollow" onclick="$('bloc_tab_forum').className='bloc_tabs hide';$('bloc_tab_faq').className='blocs_tabs selected';return false;">Tips</a></li><li class="active"><a href="/s/how-to-make-database-connectivity-in-asp-net?section=forum" rel="nofollow" onclick="return false;">Forum</a></li><li><a href="/s/how-to-make-database-connectivity-in-asp-net?section=download" rel="nofollow" onclick="$('bloc_tab_forum').className='bloc_tabs hide';$('bloc_tab_download').className='blocs_tabs selected';return false;">Downloads</a></li><li><a href="/s/how-to-make-database-connectivity-in-asp-net?section=guide" rel="nofollow" onclick="$('bloc_tab_forum').className='bloc_tabs hide';$('bloc_tab_guide').className='blocs_tabs selected';return false;">Buying guide</a></li><li><a href="/s/how-to-make-database-connectivity-in-asp-net?section=articles" rel="nofollow" onclick="$('bloc_tab_forum').className='bloc_tabs hide';$('bloc_tab_articles').className='blocs_tabs selected';return false;">Reviews</a></li></ul><div class="result" id="forum_result"><div class="similiitem"><div class="resitem"><a href="/forum/affich-240182-mini-project-in-asp-net-with-source-code" class="title"> Mini project  in Asp.net with source code <span>Show</span></a>
+			</div></div><div class="similiitem"><div class="resitem"><a href="/forum/affich-98355-database-connect-and-retrieve-in-c" class="title"> Database connect and retrieve in c# <span>Show</span></a>
+			</div></div><div class="similiitem"><div class="resitem"><a href="/forum/affich-98078-database-connect-and-retrieve-in-c" class="title"> Database connect and retrieve in c# (Solved) <span>Show</span></a>
+			</div></div></div></div><div class="bloc_tabs" id="bloc_tab_download"><ul class="bloc_tab"><li><a href="#" onclick=" $('bloc_tab_download').className='bloc_tabs hide';$('bloc_tab_answer').className='blocs_tabs selected'; return false;">This page</a></li><li><a href="/s/how-to-make-database-connectivity-in-asp-net" rel="nofollow" onclick="$('bloc_tab_download').className='bloc_tabs hide';$('bloc_tab_pages').className='blocs_tabs selected';return false;">All</a></li><li><a href="/s/how-to-make-database-connectivity-in-asp-net?section=faq" rel="nofollow" onclick="$('bloc_tab_download').className='bloc_tabs hide';$('bloc_tab_faq').className='blocs_tabs selected';return false;">Tips</a></li><li><a href="/s/how-to-make-database-connectivity-in-asp-net?section=forum" rel="nofollow" onclick="$('bloc_tab_download').className='bloc_tabs hide';$('bloc_tab_forum').className='blocs_tabs selected';return false;">Forum</a></li><li class="active"><a href="/s/how-to-make-database-connectivity-in-asp-net?section=download" rel="nofollow" onclick="return false;">Downloads</a></li><li><a href="/s/how-to-make-database-connectivity-in-asp-net?section=guide" rel="nofollow" onclick="$('bloc_tab_download').className='bloc_tabs hide';$('bloc_tab_guide').className='blocs_tabs selected';return false;">Buying guide</a></li><li><a href="/s/how-to-make-database-connectivity-in-asp-net?section=articles" rel="nofollow" onclick="$('bloc_tab_download').className='bloc_tabs hide';$('bloc_tab_articles').className='blocs_tabs selected';return false;">Reviews</a></li></ul><div class="result" id="download_result"><div class="similiitem"><div class="resitem"><a href="/telecharger/telecharger-3299-asp-net-ajax-chat" class="title"> Download ASP.NET Ajax Chat <span>Show</span></a>
+			</div></div><div class="similiitem"><div class="resitem"><a href="/telecharger/telecharger-3891-net-framework" class="title"> Download .NET Framework <span>Show</span></a><span class="description">Microsoft .NET Framework 3.5 contains new features which have been built upon .NET Framework 2.0 and 3.0, and includes .NET Framework 2.0 service pack 1 and .NET Framework 3.0 service pack 1. 
+Microsoft .NET Framework 3.5 includes:  
+- ASP .NET AJAX...</span>
+			</div></div><div class="similiitem"><div class="resitem"><a href="/telecharger/telecharger-6966-multiple-database-query-analyzer" class="title"> Download Multiple Database Query Analyzer <span>Show</span></a>
+			</div></div></div></div><div class="bloc_tabs" id="bloc_tab_guide"><ul class="bloc_tab"><li><a href="#" onclick=" $('bloc_tab_guide').className='bloc_tabs hide';$('bloc_tab_answer').className='blocs_tabs selected'; return false;">This page</a></li><li><a href="/s/how-to-make-database-connectivity-in-asp-net" rel="nofollow" onclick="$('bloc_tab_guide').className='bloc_tabs hide';$('bloc_tab_pages').className='blocs_tabs selected';return false;">All</a></li><li><a href="/s/how-to-make-database-connectivity-in-asp-net?section=faq" rel="nofollow" onclick="$('bloc_tab_guide').className='bloc_tabs hide';$('bloc_tab_faq').className='blocs_tabs selected';return false;">Tips</a></li><li><a href="/s/how-to-make-database-connectivity-in-asp-net?section=forum" rel="nofollow" onclick="$('bloc_tab_guide').className='bloc_tabs hide';$('bloc_tab_forum').className='blocs_tabs selected';return false;">Forum</a></li><li><a href="/s/how-to-make-database-connectivity-in-asp-net?section=download" rel="nofollow" onclick="$('bloc_tab_guide').className='bloc_tabs hide';$('bloc_tab_download').className='blocs_tabs selected';return false;">Downloads</a></li><li class="active"><a href="/s/how-to-make-database-connectivity-in-asp-net?section=guide" rel="nofollow" onclick="return false;">Buying guide</a></li><li><a href="/s/how-to-make-database-connectivity-in-asp-net?section=articles" rel="nofollow" onclick="$('bloc_tab_guide').className='bloc_tabs hide';$('bloc_tab_articles').className='blocs_tabs selected';return false;">Reviews</a></li></ul><div class="result" id="guide_result"><div class="similiitem"><div class="resitem"><a href="/guide/981754-project-fashion" class="title"> Project Fashion <span>Show</span></a>
+			</div></div></div></div><div class="bloc_tabs" id="bloc_tab_articles"><ul class="bloc_tab"><li><a href="#" onclick=" $('bloc_tab_articles').className='bloc_tabs hide';$('bloc_tab_answer').className='blocs_tabs selected'; return false;">This page</a></li><li><a href="/s/how-to-make-database-connectivity-in-asp-net" rel="nofollow" onclick="$('bloc_tab_articles').className='bloc_tabs hide';$('bloc_tab_pages').className='blocs_tabs selected';return false;">All</a></li><li><a href="/s/how-to-make-database-connectivity-in-asp-net?section=faq" rel="nofollow" onclick="$('bloc_tab_articles').className='bloc_tabs hide';$('bloc_tab_faq').className='blocs_tabs selected';return false;">Tips</a></li><li><a href="/s/how-to-make-database-connectivity-in-asp-net?section=forum" rel="nofollow" onclick="$('bloc_tab_articles').className='bloc_tabs hide';$('bloc_tab_forum').className='blocs_tabs selected';return false;">Forum</a></li><li><a href="/s/how-to-make-database-connectivity-in-asp-net?section=download" rel="nofollow" onclick="$('bloc_tab_articles').className='bloc_tabs hide';$('bloc_tab_download').className='blocs_tabs selected';return false;">Downloads</a></li><li><a href="/s/how-to-make-database-connectivity-in-asp-net?section=guide" rel="nofollow" onclick="$('bloc_tab_articles').className='bloc_tabs hide';$('bloc_tab_guide').className='blocs_tabs selected';return false;">Buying guide</a></li><li class="active"><a href="/s/how-to-make-database-connectivity-in-asp-net?section=articles" rel="nofollow" onclick="return false;">Reviews</a></li></ul><div class="result" id="articles_result"><div class="similiitem"><div class="resitem"><a href="/contents/configuration-reseau/partage-connexion-internet.php3" class="title"> Sharing an Internet connection <span>Show</span></a><span class="description">Advantages
+
+If you have a local area network (two or more computers connected in a network) with one computer connected to the Internet (via a modem, using a cable, etc.), it may be useful to make the connection accessible to the other computers on...</span>
+			</div></div><div class="similiitem"><div class="resitem"><a href="/contents/configuration-reseau/creer-reseau-wifi-ad-hoc.php3" class="title"> Creating an ad hoc WiFi network <span>Show</span></a><span class="description">Presentation of the ad hoc WiFi network
+
+If you have two or more computers equipped with wireless adapters (WiFi cards), it is possible to easily connect them in a network by setting up a so-called "ad hoc" network, that is, a computer-to-computer...</span>
+			</div></div><div class="similiitem"><div class="resitem"><a href="/contents/entreprise/intranet.php3" class="title"> Intranet and Extranet <span>Show</span></a><span class="description">Intranet
+
+An intranet is a set of Internet services (for example a web server) inside a local network, i.e. only accessible from workstations of a local network, or rather a set of well-defined networks that are invisible (or inaccessible) from the...</span>
+			</div></div></div></div><div class="bloc_tabs selected" id="bloc_tab_answer"><ul class="bloc_tab"><li class="active"><a href="#" rel="nofollow" onclick="return false;">This page</a></li><li><a href="/s/how-to-make-database-connectivity-in-asp-net" rel="nofollow" onclick="$('bloc_tab_answer').className='bloc_tabs hide';$('bloc_tab_pages').className='blocs_tabs selected';return false;">All</a></li><li><a href="/s/how-to-make-database-connectivity-in-asp-net?section=faq" rel="nofollow" onclick="$('bloc_tab_answer').className='bloc_tabs hide';$('bloc_tab_faq').className='blocs_tabs selected';return false;">Tips</a></li><li><a href="/s/how-to-make-database-connectivity-in-asp-net?section=forum" rel="nofollow" onclick="$('bloc_tab_answer').className='bloc_tabs hide';$('bloc_tab_forum').className='blocs_tabs selected';return false;">Forum</a></li><li><a href="/s/how-to-make-database-connectivity-in-asp-net?section=download" rel="nofollow" onclick="$('bloc_tab_answer').className='bloc_tabs hide';$('bloc_tab_download').className='blocs_tabs selected';return false;">Downloads</a></li><li><a href="/s/how-to-make-database-connectivity-in-asp-net?section=guide" rel="nofollow" onclick="$('bloc_tab_answer').className='bloc_tabs hide';$('bloc_tab_guide').className='blocs_tabs selected';return false;">Buying guide</a></li><li><a href="/s/how-to-make-database-connectivity-in-asp-net?section=articles" rel="nofollow" onclick="$('bloc_tab_answer').className='bloc_tabs hide';$('bloc_tab_articles').className='blocs_tabs selected';return false;">Reviews</a></li></ul><div class="result" id="articles_result"><div class="bloc_09" id="bloc_forum_best_answers"><ul><li><a href="/forum/affich-61898-how-to-make-database-connectivity-in-asp-net#p61956" rel="nofollow">Thanx very much, i think i have got my task right.</a><div class="rating5"> </div></li><li><a href="/forum/affich-61898-how-to-make-database-connectivity-in-asp-net#p74070" rel="nofollow">Hi,
+please add the follwoing code in you aspx.cs page.
+
+Step 1 : Add <span>Read more</span></a><div class="rating5"> </div></li><li><a href="/forum/affich-61898-how-to-make-database-connectivity-in-asp-net#p81213" rel="nofollow">Sqlconnection con=new sqlconnection(&quot;database=databasename;user id <span>Read more</span></a><div class="rating5"> </div></li></ul></div></div></div><script type="text/javascript">
+//<![CDATA[
+q = refk();
+if($('seeallanswers')&&q&&q!=' ') {
+     $('seeallanswers').href='/s/'+escape(q);
+     $('seeallanswerstxt').innerHTML=q;
+ }
+//]]>
+</script></div><div class="bloc_forum_actions2"><a href="/forum/forum-3?Acces=1#ecrire" rel="nofollow" class="button2"><span class="button2">Ask your question</span></a> <a href="/forum/affich-61898-how-to-make-database-connectivity-in-asp-net?Acces=1#ecrire" rel="nofollow" class="button"><span class="button">Reply</span></a></div><div id="linkbox"><script type="text/javascript"><!--
+google_ad_client = "pub-3295671961621260";
+google_ad_slot = "6947670919";
+google_ad_width = 673;
+google_ad_height = 15;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="bloc_25 solved"><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr valign="top"><td class="actions"></td><td class="answer_1"><div class="bhead"><p class="num"><a href="#1" name="1">1</a><a name="p61934" class="postid"> </a></p><a href="#2" rel="nofollow" class="next" onmouseover="BulleWrite('Next message',event);" onmouseout="BulleHide();"></a><a href="#0" class="back" onmouseover="BulleWrite('Previous message',event);" onmouseout="BulleHide ();"></a><span class="action_03"></span><a href="/communaute/profil-yashmaur" onmouseover="BulleWrite(String.fromCharCode(60)+'img src=\'/template/blocs/bloc_54/xphoto.jpg\' alt=\'yashmaur\' style=\'float:left\' /'+String.fromCharCode(62)+'49 posted messages(s) since '+'Wednesday April 16, 2008'+'',event);" onmouseout="BulleHide ();" class="pseudo">yashmaur</a>, on <span>Jan 29, 2009 10:02:40 am GMT</span></div><div class="bcontent_on" id="c61934"><ul class="options"><li><b id="n61934" class="nbeval">+6</b></li><li><a class="action_02_on" id="t61934" rel="nofollow" href="#" onclick="new Ajax.Updater('p61934', '/remote/forum_evaluer.php3', { method: 'get',  parameters: 'ID=61934&amp;evaluation=utile', evalScripts : true } );return false;" onmouseover="BulleWrite(''+'6 2 persons have found this message helpful - This message seems useful, vote!',event);" onmouseout="BulleHide ();"></a></li><li><a class="action_01" id="s61934" href="#" onclick="new Ajax.Updater('p61934', '/remote/forum_evaluer.php3', { method: 'get',  parameters: 'ID=61934&amp;evaluation=inutile', evalScripts : true } );return false;" onmouseover="BulleWrite('This message does not seem useful, vote!',event);" onmouseout="BulleHide ();"></a></li><li><a href="/forum/alert.php3?ID=61934&amp;Acces=1&amp;subID=1" class="action_04" onmouseover="BulleWrite('Report this message to moderators',event);" onmouseout="BulleHide ();" rel="nofollow"></a></li></ul><div class="" id="limit61934"><div class="limit"><div class="content"><p>Hi there is al ink by microsoft that i think can help you much on this issue <a href='http://www.microsoft.com/sqlserver/2008/en/us/express.aspx' target='_blank' rel='nofollow'>http://www.microsoft.com/sqlserver/2008/en/us/express.aspx</a></p></div></div><a href="#" class="more" id="more61934" onclick="$('limit61934').className = ''; return false;"></a></div></div><script type="text/javascript">
+<!--
+if($('c61934').offsetHeight>500){ $('limit61934').className="limiter";
+$('more61934').innerHTML="<span>Read more</span>";
+
+}
+//--></script><div class="actions"><a href="#top" class="action_07" onmouseover="BulleWrite('Top',event);" onmouseout="BulleHide();">&nbsp;</a> <a href="/forum/affich-61898-how-to-make-database-connectivity-in-asp-net?Acces=1#ecrire" rel="nofollow" class="action_09" onmouseover="BulleWrite('Bottom (Continue the discussion)',event);" onmouseout="BulleHide();">&nbsp;</a></div><a href="/forum/affich-61934-how-to-make-database-connectivity-in-asp-net?Acces=1#ecrire" rel="nofollow" class="action_repondre_on" id="r61934">Reply to yashmaur</a><div class="bloc_25bis solved"><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr valign="top"><td class="actions"></td><td class="answer_1"><div class="bhead"><p class="num"><a href="#2" name="2">2</a><a name="p61956" class="postid"> </a></p><a href="#3" rel="nofollow" class="next" onmouseover="BulleWrite('Next message',event);" onmouseout="BulleHide();"></a><a href="#1" rel="nofollow" class="back" onmouseover="BulleWrite('Previous message',event);" onmouseout="BulleHide ();"></a><span class="action_anonyme"></span><span  onmouseover="BulleWrite('Anonymous User',event);" onmouseout="BulleHide ();" class="anonyme">Digvijaysinh</span>, on <span>Jan 29, 2009 10:47:08 am GMT</span></div><div class="bcontent_on" id="c61956"><ul class="options"><li><b id="n61956" class="nbeval">+40</b></li><li><a class="action_02_on" id="t61956" rel="nofollow" href="#" onclick="new Ajax.Updater('p61956', '/remote/forum_evaluer.php3', { method: 'get',  parameters: 'ID=61956&amp;evaluation=utile', evalScripts : true } );return false;" onmouseover="BulleWrite(''+'40 2 persons have found this message helpful - This message seems useful, vote!',event);" onmouseout="BulleHide ();"></a></li><li><a class="action_01" id="s61956" href="#" onclick="new Ajax.Updater('p61956', '/remote/forum_evaluer.php3', { method: 'get',  parameters: 'ID=61956&amp;evaluation=inutile', evalScripts : true } );return false;" onmouseover="BulleWrite('This message does not seem useful, vote!',event);" onmouseout="BulleHide ();"></a></li><li><a href="/forum/alert.php3?ID=61956&amp;Acces=1&amp;subID=2" class="action_04" onmouseover="BulleWrite('Report this message to moderators',event);" onmouseout="BulleHide ();" rel="nofollow"></a></li></ul><div class="" id="limit61956"><div class="limit"><div class="content"><p>Thanx very much, i think i have got my task right.</p></div></div><a href="#" class="more" id="more61956" onclick="$('limit61956').className = ''; return false;"></a></div></div><script type="text/javascript">
+<!--
+if($('c61956').offsetHeight>500){ $('limit61956').className="limiter";
+$('more61956').innerHTML="<span>Read more</span>";
+
+}
+//--></script><div class="actions"><a href="#top" class="action_07" onmouseover="BulleWrite('Top',event);" onmouseout="BulleHide();">&nbsp;</a> <a href="/forum/affich-61898-how-to-make-database-connectivity-in-asp-net?Acces=1#ecrire" rel="nofollow" class="action_09" onmouseover="BulleWrite('Bottom (Continue the discussion)',event);" onmouseout="BulleHide();">&nbsp;</a></div><a href="/forum/affich-61956-how-to-make-database-connectivity-in-asp-net?Acces=1#ecrire" rel="nofollow" class="action_repondre_on" id="r61956">Reply to Digvijaysinh</a></td></tr></tbody></table></div></td></tr></tbody></table></div><div class="bloc_25 solved"><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr valign="top"><td class="actions"></td><td class="answer_1"><div class="bhead"><p class="num"><a href="#3" name="3">3</a><a name="p74070" class="postid"> </a></p><a href="#4" rel="nofollow" class="next" onmouseover="BulleWrite('Next message',event);" onmouseout="BulleHide();"></a><a href="#2" rel="nofollow" class="back" onmouseover="BulleWrite('Previous message',event);" onmouseout="BulleHide ();"></a><span class="action_anonyme"></span><span  onmouseover="BulleWrite('Anonymous User',event);" onmouseout="BulleHide ();" class="anonyme">dEVELOPER</span>, on <span>Mar  3, 2009  6:50:09 am GMT</span></div><div class="bcontent_on" id="c74070"><ul class="options"><li><b id="n74070" class="nbeval">+32</b></li><li><a class="action_02_on" id="t74070" rel="nofollow" href="#" onclick="new Ajax.Updater('p74070', '/remote/forum_evaluer.php3', { method: 'get',  parameters: 'ID=74070&amp;evaluation=utile', evalScripts : true } );return false;" onmouseover="BulleWrite(''+'32 2 persons have found this message helpful - This message seems useful, vote!',event);" onmouseout="BulleHide ();"></a></li><li><a class="action_01" id="s74070" href="#" onclick="new Ajax.Updater('p74070', '/remote/forum_evaluer.php3', { method: 'get',  parameters: 'ID=74070&amp;evaluation=inutile', evalScripts : true } );return false;" onmouseover="BulleWrite('This message does not seem useful, vote!',event);" onmouseout="BulleHide ();"></a></li><li><a href="/forum/alert.php3?ID=74070&amp;Acces=1&amp;subID=3" class="action_04" onmouseover="BulleWrite('Report this message to moderators',event);" onmouseout="BulleHide ();" rel="nofollow"></a></li></ul><div class="" id="limit74070"><div class="limit"><div class="content"><p>Hi,
+<br />please add the follwoing code in you aspx.cs page.
+<br />
+<br />Step 1 : Add Namspace &quot;using System.Data.SqlClient;&quot;
+<br />
+<br />Step 2 : Make Sql connection.
+<br />
+<br />Write this code to create Sql connection.
+<br />SqlConnection con = new SqlConnection(&quot;Server=You server name or comp name;Database=Yourdatabasename;Trusted_Connectopn=True&quot;);
+<br />            SqlCommand cmd = new SqlCommand(&quot;Write your sql query here eg. select * from Table name&quot;);
+<br />            con.Open();
+<br />            DataSet ds = new DataSet(cmd,con);
+<br />            SqlDataAdapter da = new SqlDataAdapter();
+<br />            da.Fill(ds);
+<br />            con.Close();
+<br />
+<br />i hope this should work</p></div></div><a href="#" class="more" id="more74070" onclick="$('limit74070').className = ''; return false;"></a></div></div><script type="text/javascript">
+<!--
+if($('c74070').offsetHeight>500){ $('limit74070').className="limiter";
+$('more74070').innerHTML="<span>Read more</span>";
+
+}
+//--></script><div class="actions"><a href="#top" class="action_07" onmouseover="BulleWrite('Top',event);" onmouseout="BulleHide();">&nbsp;</a> <a href="/forum/affich-61898-how-to-make-database-connectivity-in-asp-net?Acces=1#ecrire" rel="nofollow" class="action_09" onmouseover="BulleWrite('Bottom (Continue the discussion)',event);" onmouseout="BulleHide();">&nbsp;</a></div><a href="/forum/affich-74070-how-to-make-database-connectivity-in-asp-net?Acces=1#ecrire" rel="nofollow" class="action_repondre_on" id="r74070">Reply to dEVELOPER</a><div class="bloc_25bis solved"><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr valign="top"><td class="actions"></td><td class="answer_1"><div class="bhead"><p class="num"><a href="#8" name="8">8</a><a name="p99839" class="postid"> </a></p><a href="#9" rel="nofollow" class="next" onmouseover="BulleWrite('Next message',event);" onmouseout="BulleHide();"></a><a href="#7" rel="nofollow" class="back" onmouseover="BulleWrite('Previous message',event);" onmouseout="BulleHide ();"></a><span class="action_anonyme"></span><span  onmouseover="BulleWrite('Anonymous User',event);" onmouseout="BulleHide ();" class="anonyme">av_deepu</span>, on <span>May 26, 2009  6:42:13 am BST</span></div><div class="bcontent_on" id="c99839"><ul class="options"><li><b id="n99839" class="nbeval">+2</b></li><li><a class="action_02_on" id="t99839" rel="nofollow" href="#" onclick="new Ajax.Updater('p99839', '/remote/forum_evaluer.php3', { method: 'get',  parameters: 'ID=99839&amp;evaluation=utile', evalScripts : true } );return false;" onmouseover="BulleWrite(''+'2 2 persons have found this message helpful - This message seems useful, vote!',event);" onmouseout="BulleHide ();"></a></li><li><a class="action_01" id="s99839" href="#" onclick="new Ajax.Updater('p99839', '/remote/forum_evaluer.php3', { method: 'get',  parameters: 'ID=99839&amp;evaluation=inutile', evalScripts : true } );return false;" onmouseover="BulleWrite('This message does not seem useful, vote!',event);" onmouseout="BulleHide ();"></a></li><li><a href="/forum/alert.php3?ID=99839&amp;Acces=1&amp;subID=8" class="action_04" onmouseover="BulleWrite('Report this message to moderators',event);" onmouseout="BulleHide ();" rel="nofollow"></a></li></ul><div class="" id="limit99839"><div class="limit"><div class="content"><p>Hello
+<br />
+<br />in a aspx.cs file i write connection string like 
+<br />System.Data.SqlClient;
+<br />SqlConnection conn = new SqlConnection(&quot;Data Source=SYS014\ELLE;Initial Catalog=bank;User ID=sa;password=root;Integrated Security=True&quot;);
+<br />
+<br />but it is showing error at SYS014\ELLE message is unrecorgnized escape sequence. how to rectify that and how can i connect to database</p></div></div><a href="#" class="more" id="more99839" onclick="$('limit99839').className = ''; return false;"></a></div></div><script type="text/javascript">
+<!--
+if($('c99839').offsetHeight>500){ $('limit99839').className="limiter";
+$('more99839').innerHTML="<span>Read more</span>";
+
+}
+//--></script><div class="actions"><a href="#top" class="action_07" onmouseover="BulleWrite('Top',event);" onmouseout="BulleHide();">&nbsp;</a> <a href="/forum/affich-61898-how-to-make-database-connectivity-in-asp-net?Acces=1#ecrire" rel="nofollow" class="action_09" onmouseover="BulleWrite('Bottom (Continue the discussion)',event);" onmouseout="BulleHide();">&nbsp;</a></div><a href="/forum/affich-99839-how-to-make-database-connectivity-in-asp-net?Acces=1#ecrire" rel="nofollow" class="action_repondre_on" id="r99839">Reply to av_deepu</a><div class="bloc_25bis solved"><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr valign="top"><td class="actions"></td><td class="answer_1"><div class="bhead"><p class="num"><a href="#10" name="10">10</a><a name="p110088" class="postid"> </a></p><a href="#11" rel="nofollow" class="next" onmouseover="BulleWrite('Next message',event);" onmouseout="BulleHide();"></a><a href="#9" rel="nofollow" class="back" onmouseover="BulleWrite('Previous message',event);" onmouseout="BulleHide ();"></a><span class="action_anonyme"></span><span  onmouseover="BulleWrite('Anonymous User',event);" onmouseout="BulleHide ();" class="anonyme">sachith</span>, on <span>Jun 17, 2009  7:33:28 am BST</span></div><div class="bcontent_on" id="c110088"><ul class="options"><li><b id="n110088" class="nbeval">+4</b></li><li><a class="action_02_on" id="t110088" rel="nofollow" href="#" onclick="new Ajax.Updater('p110088', '/remote/forum_evaluer.php3', { method: 'get',  parameters: 'ID=110088&amp;evaluation=utile', evalScripts : true } );return false;" onmouseover="BulleWrite(''+'4 2 persons have found this message helpful - This message seems useful, vote!',event);" onmouseout="BulleHide ();"></a></li><li><a class="action_01" id="s110088" href="#" onclick="new Ajax.Updater('p110088', '/remote/forum_evaluer.php3', { method: 'get',  parameters: 'ID=110088&amp;evaluation=inutile', evalScripts : true } );return false;" onmouseover="BulleWrite('This message does not seem useful, vote!',event);" onmouseout="BulleHide ();"></a></li><li><a href="/forum/alert.php3?ID=110088&amp;Acces=1&amp;subID=10" class="action_04" onmouseover="BulleWrite('Report this message to moderators',event);" onmouseout="BulleHide ();" rel="nofollow"></a></li></ul><div class="" id="limit110088"><div class="limit"><div class="content"><p>Hi,
+<br />
+<br />I think your problem is with the &quot;/&quot; character.
+<br />
+<br />SqlConnection conn = new SqlConnection(&quot;Data Source=SYS014\ELLE;Initial Catalog=bank;User ID=sa;password=root;Integrated Security=True&quot;);
+<br />
+<br />In the above line you use either @ sign in front like this 
+<br />
+<br />SqlConnection conn = new SqlConnection(@&quot;Data Source=SYS014\ELLE;Initial Catalog=bank;User ID=sa;password=root;Integrated Security=True&quot;);
+<br />
+<br />or
+<br />
+<br />use the '/' sign twice like this.
+<br />
+<br />SqlConnection conn = new SqlConnection(&quot;Data Source=SYS014\\ELLE;Initial Catalog=bank;User ID=sa;password=root;Integrated Security=True&quot;);
+<br />
+<br />Hope this will solve your problem</p></div></div><a href="#" class="more" id="more110088" onclick="$('limit110088').className = ''; return false;"></a></div></div><script type="text/javascript">
+<!--
+if($('c110088').offsetHeight>500){ $('limit110088').className="limiter";
+$('more110088').innerHTML="<span>Read more</span>";
+
+}
+//--></script><div class="actions"><a href="#top" class="action_07" onmouseover="BulleWrite('Top',event);" onmouseout="BulleHide();">&nbsp;</a> <a href="/forum/affich-61898-how-to-make-database-connectivity-in-asp-net?Acces=1#ecrire" rel="nofollow" class="action_09" onmouseover="BulleWrite('Bottom (Continue the discussion)',event);" onmouseout="BulleHide();">&nbsp;</a></div><a href="/forum/affich-110088-how-to-make-database-connectivity-in-asp-net?Acces=1#ecrire" rel="nofollow" class="action_repondre_on" id="r110088">Reply to sachith</a></td></tr></tbody></table></div><div class="bloc_25bis solved"><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr valign="top"><td class="actions"></td><td class="answer_1"><div class="bhead"><p class="numlast"><a href="#18" name="18">18</a><a name="p278551" class="postid"> </a></p><span class="vide">&nbsp;</span><a href="#17" rel="nofollow" class="back" onmouseover="BulleWrite('Previous message',event);" onmouseout="BulleHide ();"></a><span class="action_anonyme"></span><span  onmouseover="BulleWrite('Anonymous User',event);" onmouseout="BulleHide ();" class="anonyme">onks</span>, on <span>Mar  4, 2010  3:19:58 pm GMT</span></div><div class="bcontent_on" id="c278551"><ul class="options"><li><b id="n278551" class="nbeval">+1</b></li><li><a class="action_02_on" id="t278551" rel="nofollow" href="#" onclick="new Ajax.Updater('p278551', '/remote/forum_evaluer.php3', { method: 'get',  parameters: 'ID=278551&amp;evaluation=utile', evalScripts : true } );return false;" onmouseover="BulleWrite(''+'1 person have found this message helpful - This message seems useful, vote!',event);" onmouseout="BulleHide ();"></a></li><li><a class="action_01" id="s278551" href="#" onclick="new Ajax.Updater('p278551', '/remote/forum_evaluer.php3', { method: 'get',  parameters: 'ID=278551&amp;evaluation=inutile', evalScripts : true } );return false;" onmouseover="BulleWrite('This message does not seem useful, vote!',event);" onmouseout="BulleHide ();"></a></li><li><a href="/forum/alert.php3?ID=278551&amp;Acces=1&amp;subID=18" class="action_04" onmouseover="BulleWrite('Report this message to moderators',event);" onmouseout="BulleHide ();" rel="nofollow"></a></li></ul><div class="" id="limit278551"><div class="limit"><div class="content"><p>Use this
+<br />
+<br />SqlConnection conn = new SqlConnection(&quot;Data Source=SYS014\\ELLE;Initial Catalog=bank;User ID=sa;password=root;Integrated Security=True&quot;);</p></div></div><a href="#" class="more" id="more278551" onclick="$('limit278551').className = ''; return false;"></a></div></div><script type="text/javascript">
+<!--
+if($('c278551').offsetHeight>500){ $('limit278551').className="limiter";
+$('more278551').innerHTML="<span>Read more</span>";
+
+}
+//--></script><div class="actions"><a href="#top" class="action_07" onmouseover="BulleWrite('Top',event);" onmouseout="BulleHide();">&nbsp;</a> <a href="/forum/affich-61898-how-to-make-database-connectivity-in-asp-net?Acces=1#ecrire" rel="nofollow" class="action_09" onmouseover="BulleWrite('Bottom (Continue the discussion)',event);" onmouseout="BulleHide();">&nbsp;</a></div><a href="/forum/affich-278551-how-to-make-database-connectivity-in-asp-net?Acces=1#ecrire" rel="nofollow" class="action_repondre_on" id="r278551">Reply to onks</a></td></tr></tbody></table></div></td></tr></tbody></table></div></td></tr></tbody></table></div><div class="bloc_25 solved"><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr valign="top"><td class="actions"></td><td class="answer_1"><div class="bhead"><p class="num"><a href="#4" name="4">4</a><a name="p77288" class="postid"> </a></p><a href="#5" rel="nofollow" class="next" onmouseover="BulleWrite('Next message',event);" onmouseout="BulleHide();"></a><a href="#3" rel="nofollow" class="back" onmouseover="BulleWrite('Previous message',event);" onmouseout="BulleHide ();"></a><span class="action_anonyme"></span><span  onmouseover="BulleWrite('Anonymous User',event);" onmouseout="BulleHide ();" class="anonyme">sri</span>, on <span>Mar 13, 2009  9:09:56 am GMT</span></div><div class="bcontent_on" id="c77288"><ul class="options"><li><b id="n77288" class="nbeval">+8</b></li><li><a class="action_02_on" id="t77288" rel="nofollow" href="#" onclick="new Ajax.Updater('p77288', '/remote/forum_evaluer.php3', { method: 'get',  parameters: 'ID=77288&amp;evaluation=utile', evalScripts : true } );return false;" onmouseover="BulleWrite(''+'8 2 persons have found this message helpful - This message seems useful, vote!',event);" onmouseout="BulleHide ();"></a></li><li><a class="action_01" id="s77288" href="#" onclick="new Ajax.Updater('p77288', '/remote/forum_evaluer.php3', { method: 'get',  parameters: 'ID=77288&amp;evaluation=inutile', evalScripts : true } );return false;" onmouseover="BulleWrite('This message does not seem useful, vote!',event);" onmouseout="BulleHide ();"></a></li><li><a href="/forum/alert.php3?ID=77288&amp;Acces=1&amp;subID=4" class="action_04" onmouseover="BulleWrite('Report this message to moderators',event);" onmouseout="BulleHide ();" rel="nofollow"></a></li></ul><div class="" id="limit77288"><div class="limit"><div class="content"><p>I am srikamal doing my project work,ihave one problem 
+<br />my project doing in asp.net 
+<br />but idont know how to connect the database in asp.net useing vb.
+<br />please give the answer my question, urgently.</p></div></div><a href="#" class="more" id="more77288" onclick="$('limit77288').className = ''; return false;"></a></div></div><script type="text/javascript">
+<!--
+if($('c77288').offsetHeight>500){ $('limit77288').className="limiter";
+$('more77288').innerHTML="<span>Read more</span>";
+
+}
+//--></script><div class="actions"><a href="#top" class="action_07" onmouseover="BulleWrite('Top',event);" onmouseout="BulleHide();">&nbsp;</a> <a href="/forum/affich-61898-how-to-make-database-connectivity-in-asp-net?Acces=1#ecrire" rel="nofollow" class="action_09" onmouseover="BulleWrite('Bottom (Continue the discussion)',event);" onmouseout="BulleHide();">&nbsp;</a></div><a href="/forum/affich-77288-how-to-make-database-connectivity-in-asp-net?Acces=1#ecrire" rel="nofollow" class="action_repondre_on" id="r77288">Reply to sri</a><div class="bloc_25bis solved"><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr valign="top"><td class="actions"></td><td class="answer_1"><div class="bhead"><p class="num"><a href="#5" name="5">5</a><a name="p81213" class="postid"> </a></p><a href="#6" rel="nofollow" class="next" onmouseover="BulleWrite('Next message',event);" onmouseout="BulleHide();"></a><a href="#4" rel="nofollow" class="back" onmouseover="BulleWrite('Previous message',event);" onmouseout="BulleHide ();"></a><span class="action_anonyme"></span><span  onmouseover="BulleWrite('Anonymous User',event);" onmouseout="BulleHide ();" class="anonyme">chinni</span>, on <span>Mar 25, 2009 10:08:12 am GMT</span></div><div class="bcontent_on" id="c81213"><ul class="options"><li><b id="n81213" class="nbeval">+13</b></li><li><a class="action_02_on" id="t81213" rel="nofollow" href="#" onclick="new Ajax.Updater('p81213', '/remote/forum_evaluer.php3', { method: 'get',  parameters: 'ID=81213&amp;evaluation=utile', evalScripts : true } );return false;" onmouseover="BulleWrite(''+'13 2 persons have found this message helpful - This message seems useful, vote!',event);" onmouseout="BulleHide ();"></a></li><li><a class="action_01" id="s81213" href="#" onclick="new Ajax.Updater('p81213', '/remote/forum_evaluer.php3', { method: 'get',  parameters: 'ID=81213&amp;evaluation=inutile', evalScripts : true } );return false;" onmouseover="BulleWrite('This message does not seem useful, vote!',event);" onmouseout="BulleHide ();"></a></li><li><a href="/forum/alert.php3?ID=81213&amp;Acces=1&amp;subID=5" class="action_04" onmouseover="BulleWrite('Report this message to moderators',event);" onmouseout="BulleHide ();" rel="nofollow"></a></li></ul><div class="" id="limit81213"><div class="limit"><div class="content"><p>Sqlconnection con=new sqlconnection(&quot;database=databasename;user id =sa;password=....;&quot;)
+<br />sqlcommand cmd=new sqlcommand(&quot;select * from tablename&quot;,con)
+<br />con.open()
+<br />int i=cmd.executenonquery()
+<br />if(i==1)
+<br />messagebox.show(&quot;.....&quot;)
+<br />con.close()
+<br />
+<br />like this u can connect to database.</p></div></div><a href="#" class="more" id="more81213" onclick="$('limit81213').className = ''; return false;"></a></div></div><script type="text/javascript">
+<!--
+if($('c81213').offsetHeight>500){ $('limit81213').className="limiter";
+$('more81213').innerHTML="<span>Read more</span>";
+
+}
+//--></script><div class="actions"><a href="#top" class="action_07" onmouseover="BulleWrite('Top',event);" onmouseout="BulleHide();">&nbsp;</a> <a href="/forum/affich-61898-how-to-make-database-connectivity-in-asp-net?Acces=1#ecrire" rel="nofollow" class="action_09" onmouseover="BulleWrite('Bottom (Continue the discussion)',event);" onmouseout="BulleHide();">&nbsp;</a></div><a href="/forum/affich-81213-how-to-make-database-connectivity-in-asp-net?Acces=1#ecrire" rel="nofollow" class="action_repondre_on" id="r81213">Reply to chinni</a><div class="bloc_25bis solved"><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr valign="top"><td class="actions"></td><td class="answer_1"><div class="bhead"><p class="num"><a href="#7" name="7">7</a><a name="p95962" class="postid"> </a></p><a href="#8" rel="nofollow" class="next" onmouseover="BulleWrite('Next message',event);" onmouseout="BulleHide();"></a><a href="#6" rel="nofollow" class="back" onmouseover="BulleWrite('Previous message',event);" onmouseout="BulleHide ();"></a><span class="action_anonyme"></span><span  onmouseover="BulleWrite('Anonymous User',event);" onmouseout="BulleHide ();" class="anonyme">nithi</span>, on <span>May 14, 2009  1:53:17 pm BST</span></div><div class="bcontent_on" id="c95962"><ul class="options"><li><b id="n95962" class="nbeval">+2</b></li><li><a class="action_02_on" id="t95962" rel="nofollow" href="#" onclick="new Ajax.Updater('p95962', '/remote/forum_evaluer.php3', { method: 'get',  parameters: 'ID=95962&amp;evaluation=utile', evalScripts : true } );return false;" onmouseover="BulleWrite(''+'2 2 persons have found this message helpful - This message seems useful, vote!',event);" onmouseout="BulleHide ();"></a></li><li><a class="action_01" id="s95962" href="#" onclick="new Ajax.Updater('p95962', '/remote/forum_evaluer.php3', { method: 'get',  parameters: 'ID=95962&amp;evaluation=inutile', evalScripts : true } );return false;" onmouseover="BulleWrite('This message does not seem useful, vote!',event);" onmouseout="BulleHide ();"></a></li><li><a href="/forum/alert.php3?ID=95962&amp;Acces=1&amp;subID=7" class="action_04" onmouseover="BulleWrite('Report this message to moderators',event);" onmouseout="BulleHide ();" rel="nofollow"></a></li></ul><div class="" id="limit95962"><div class="limit"><div class="content"><p>Hello sir /mam how to cnnecting net from china mobile</p></div></div><a href="#" class="more" id="more95962" onclick="$('limit95962').className = ''; return false;"></a></div></div><script type="text/javascript">
+<!--
+if($('c95962').offsetHeight>500){ $('limit95962').className="limiter";
+$('more95962').innerHTML="<span>Read more</span>";
+
+}
+//--></script><div class="actions"><a href="#top" class="action_07" onmouseover="BulleWrite('Top',event);" onmouseout="BulleHide();">&nbsp;</a> <a href="/forum/affich-61898-how-to-make-database-connectivity-in-asp-net?Acces=1#ecrire" rel="nofollow" class="action_09" onmouseover="BulleWrite('Bottom (Continue the discussion)',event);" onmouseout="BulleHide();">&nbsp;</a></div><a href="/forum/affich-95962-how-to-make-database-connectivity-in-asp-net?Acces=1#ecrire" rel="nofollow" class="action_repondre_on" id="r95962">Reply to nithi</a></td></tr></tbody></table></div></td></tr></tbody></table></div><div class="bloc_25bis solved"><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr valign="top"><td class="actions"></td><td class="answer_1"><div class="bhead"><p class="num"><a href="#11" name="11">11</a><a name="p114276" class="postid"> </a></p><a href="#12" rel="nofollow" class="next" onmouseover="BulleWrite('Next message',event);" onmouseout="BulleHide();"></a><a href="#10" rel="nofollow" class="back" onmouseover="BulleWrite('Previous message',event);" onmouseout="BulleHide ();"></a><span class="action_anonyme"></span><span  onmouseover="BulleWrite('Anonymous User',event);" onmouseout="BulleHide ();" class="anonyme">rahul</span>, on <span>Jun 25, 2009  9:21:41 am BST</span></div><div class="bcontent_on" id="c114276"><ul class="options"><li><b id="n114276" class="nbeval">+9</b></li><li><a class="action_02_on" id="t114276" rel="nofollow" href="#" onclick="new Ajax.Updater('p114276', '/remote/forum_evaluer.php3', { method: 'get',  parameters: 'ID=114276&amp;evaluation=utile', evalScripts : true } );return false;" onmouseover="BulleWrite(''+'9 2 persons have found this message helpful - This message seems useful, vote!',event);" onmouseout="BulleHide ();"></a></li><li><a class="action_01" id="s114276" href="#" onclick="new Ajax.Updater('p114276', '/remote/forum_evaluer.php3', { method: 'get',  parameters: 'ID=114276&amp;evaluation=inutile', evalScripts : true } );return false;" onmouseover="BulleWrite('This message does not seem useful, vote!',event);" onmouseout="BulleHide ();"></a></li><li><a href="/forum/alert.php3?ID=114276&amp;Acces=1&amp;subID=11" class="action_04" onmouseover="BulleWrite('Report this message to moderators',event);" onmouseout="BulleHide ();" rel="nofollow"></a></li></ul><div class="" id="limit114276"><div class="limit"><div class="content"><p>Step 1 : Add Namspace &quot;using System.Data.SqlClient;&quot; 
+<br />
+<br />Step 2 : Make Sql connection. 
+<br />
+<br />Write this code to create Sql connection. 
+<br />SqlConnection con = new SqlConnection(&quot;Server=You server name or comp name;Database=Yourdatabasename;Trusted_Connectopn=True&quot;); 
+<br />SqlCommand cmd = new SqlCommand(&quot;Write your sql query here eg. select * from Table name&quot;); 
+<br />con.Open(); 
+<br />DataSet ds = new DataSet(cmd,con); 
+<br />SqlDataAdapter da = new SqlDataAdapter(); 
+<br />da.Fill(ds); 
+<br />con.Close();</p></div></div><a href="#" class="more" id="more114276" onclick="$('limit114276').className = ''; return false;"></a></div></div><script type="text/javascript">
+<!--
+if($('c114276').offsetHeight>500){ $('limit114276').className="limiter";
+$('more114276').innerHTML="<span>Read more</span>";
+
+}
+//--></script><div class="actions"><a href="#top" class="action_07" onmouseover="BulleWrite('Top',event);" onmouseout="BulleHide();">&nbsp;</a> <a href="/forum/affich-61898-how-to-make-database-connectivity-in-asp-net?Acces=1#ecrire" rel="nofollow" class="action_09" onmouseover="BulleWrite('Bottom (Continue the discussion)',event);" onmouseout="BulleHide();">&nbsp;</a></div><a href="/forum/affich-114276-how-to-make-database-connectivity-in-asp-net?Acces=1#ecrire" rel="nofollow" class="action_repondre_on" id="r114276">Reply to rahul</a></td></tr></tbody></table></div></td></tr></tbody></table></div><div class="bloc_25 solved"><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr valign="top"><td class="actions"></td><td class="answer_1"><div class="bhead"><p class="num"><a href="#6" name="6">6</a><a name="p87366" class="postid"> </a></p><a href="#7" rel="nofollow" class="next" onmouseover="BulleWrite('Next message',event);" onmouseout="BulleHide();"></a><a href="#5" rel="nofollow" class="back" onmouseover="BulleWrite('Previous message',event);" onmouseout="BulleHide ();"></a><span class="action_anonyme"></span><span  onmouseover="BulleWrite('Anonymous User',event);" onmouseout="BulleHide ();" class="anonyme">kishore kunal</span>, on <span>Apr 15, 2009 12:19:58 pm BST</span></div><div class="bcontent_on" id="c87366"><ul class="options"><li><b id="n87366" class="nbeval">+8</b></li><li><a class="action_02_on" id="t87366" rel="nofollow" href="#" onclick="new Ajax.Updater('p87366', '/remote/forum_evaluer.php3', { method: 'get',  parameters: 'ID=87366&amp;evaluation=utile', evalScripts : true } );return false;" onmouseover="BulleWrite(''+'8 2 persons have found this message helpful - This message seems useful, vote!',event);" onmouseout="BulleHide ();"></a></li><li><a class="action_01" id="s87366" href="#" onclick="new Ajax.Updater('p87366', '/remote/forum_evaluer.php3', { method: 'get',  parameters: 'ID=87366&amp;evaluation=inutile', evalScripts : true } );return false;" onmouseover="BulleWrite('This message does not seem useful, vote!',event);" onmouseout="BulleHide ();"></a></li><li><a href="/forum/alert.php3?ID=87366&amp;Acces=1&amp;subID=6" class="action_04" onmouseover="BulleWrite('Report this message to moderators',event);" onmouseout="BulleHide ();" rel="nofollow"></a></li></ul><div class="" id="limit87366"><div class="limit"><div class="content"><p>If you want to make connectivity with sql server on the local system.just define the connection string
+<br />sqlconnection con=new sqlconnection(&quot;server=. database=&quot;specify the datbase in your system&quot;,uid=sa;pwd=sa;&quot;);
+<br />
+<br />
+<br />
+<br />add namespace using system.dat.sqlclient;
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />happy coding</p></div></div><a href="#" class="more" id="more87366" onclick="$('limit87366').className = ''; return false;"></a></div></div><script type="text/javascript">
+<!--
+if($('c87366').offsetHeight>500){ $('limit87366').className="limiter";
+$('more87366').innerHTML="<span>Read more</span>";
+
+}
+//--></script><div class="actions"><a href="#top" class="action_07" onmouseover="BulleWrite('Top',event);" onmouseout="BulleHide();">&nbsp;</a> <a href="/forum/affich-61898-how-to-make-database-connectivity-in-asp-net?Acces=1#ecrire" rel="nofollow" class="action_09" onmouseover="BulleWrite('Bottom (Continue the discussion)',event);" onmouseout="BulleHide();">&nbsp;</a></div><a href="/forum/affich-87366-how-to-make-database-connectivity-in-asp-net?Acces=1#ecrire" rel="nofollow" class="action_repondre_on" id="r87366">Reply to kishore kunal</a></td></tr></tbody></table></div><div class="bloc_25 solved"><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr valign="top"><td class="actions"></td><td class="answer_1"><div class="bhead"><p class="num"><a href="#9" name="9">9</a><a name="p108949" class="postid"> </a></p><a href="#10" rel="nofollow" class="next" onmouseover="BulleWrite('Next message',event);" onmouseout="BulleHide();"></a><a href="#8" rel="nofollow" class="back" onmouseover="BulleWrite('Previous message',event);" onmouseout="BulleHide ();"></a><span class="action_anonyme"></span><span  onmouseover="BulleWrite('Anonymous User',event);" onmouseout="BulleHide ();" class="anonyme">Krazoo</span>, on <span>Jun 15, 2009 12:12:16 pm BST</span></div><div class="bcontent_on" id="c108949"><ul class="options"><li><b id="n108949" class="nbeval">+7</b></li><li><a class="action_02_on" id="t108949" rel="nofollow" href="#" onclick="new Ajax.Updater('p108949', '/remote/forum_evaluer.php3', { method: 'get',  parameters: 'ID=108949&amp;evaluation=utile', evalScripts : true } );return false;" onmouseover="BulleWrite(''+'7 2 persons have found this message helpful - This message seems useful, vote!',event);" onmouseout="BulleHide ();"></a></li><li><a class="action_01" id="s108949" href="#" onclick="new Ajax.Updater('p108949', '/remote/forum_evaluer.php3', { method: 'get',  parameters: 'ID=108949&amp;evaluation=inutile', evalScripts : true } );return false;" onmouseover="BulleWrite('This message does not seem useful, vote!',event);" onmouseout="BulleHide ();"></a></li><li><a href="/forum/alert.php3?ID=108949&amp;Acces=1&amp;subID=9" class="action_04" onmouseover="BulleWrite('Report this message to moderators',event);" onmouseout="BulleHide ();" rel="nofollow"></a></li></ul><div class="" id="limit108949"><div class="limit"><div class="content"><p>System.Data.SqlClient; 
+<br />SqlConnection conn = new SqlConnection(&quot;Data Source=servername;Initial Catalog=DatabaseName;User ID=sa;password=pwd;Integrated Security=True&quot;); 
+<br />
+<br />
+<br />
+<br />Open Connection.
+<br />User SqlDataAdapter if</p></div></div><a href="#" class="more" id="more108949" onclick="$('limit108949').className = ''; return false;"></a></div></div><script type="text/javascript">
+<!--
+if($('c108949').offsetHeight>500){ $('limit108949').className="limiter";
+$('more108949').innerHTML="<span>Read more</span>";
+
+}
+//--></script><div class="actions"><a href="#top" class="action_07" onmouseover="BulleWrite('Top',event);" onmouseout="BulleHide();">&nbsp;</a> <a href="/forum/affich-61898-how-to-make-database-connectivity-in-asp-net?Acces=1#ecrire" rel="nofollow" class="action_09" onmouseover="BulleWrite('Bottom (Continue the discussion)',event);" onmouseout="BulleHide();">&nbsp;</a></div><a href="/forum/affich-108949-how-to-make-database-connectivity-in-asp-net?Acces=1#ecrire" rel="nofollow" class="action_repondre_on" id="r108949">Reply to Krazoo</a><div class="bloc_25bis"><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr valign="top"><td class="actions"></td><td class="answer_1"><div class="bhead"><p class="num"><a href="#15" name="15">15</a><a name="p149510" class="postid"> </a></p><a href="#16" rel="nofollow" class="next" onmouseover="BulleWrite('Next message',event);" onmouseout="BulleHide();"></a><a href="#14" rel="nofollow" class="back" onmouseover="BulleWrite('Previous message',event);" onmouseout="BulleHide ();"></a><span class="action_anonyme"></span><span  onmouseover="BulleWrite('Anonymous User',event);" onmouseout="BulleHide ();" class="anonyme">Tarun nigam</span>, on <span>Aug 25, 2009 11:54:51 am BST</span></div><div class="bcontent" id="c149510"><ul class="options"><li><b id="n149510" class="nbeval"></b></li><li><a class="action_02" id="t149510" rel="nofollow" href="#" onclick="new Ajax.Updater('p149510', '/remote/forum_evaluer.php3', { method: 'get',  parameters: 'ID=149510&amp;evaluation=utile', evalScripts : true } );return false;" onmouseover="BulleWrite('This message seems useful, vote!',event);" onmouseout="BulleHide ();"></a></li><li><a class="action_01_off" id="s149510" href="#" onclick="new Ajax.Updater('p149510', '/remote/forum_evaluer.php3', { method: 'get',  parameters: 'ID=149510&amp;evaluation=inutile', evalScripts : true } );return false;" onmouseover="BulleWrite('This message does not seem useful, vote!',event);" onmouseout="BulleHide ();"></a></li><li><a href="/forum/alert.php3?ID=149510&amp;Acces=1&amp;subID=15" class="action_04" onmouseover="BulleWrite('Report this message to moderators',event);" onmouseout="BulleHide ();" rel="nofollow"></a></li></ul><div class="" id="limit149510"><div class="limit"><div class="content"><p>R/s sir
+<br />hi
+<br />I have used the coonection string format what u had given in ur example but it not able to connect the system.I am usin gVS 2008 n sql server 2005. please reply on my mail nigam_tarun2003@yahoo.co.in. or tarunnigam.tarunnigam@gmail.com. I m in need very much plzzzzzzzzzzzzzzzzzzzzzzzzzzzzz help me.</p></div></div><a href="#" class="more" id="more149510" onclick="$('limit149510').className = ''; return false;"></a></div></div><script type="text/javascript">
+<!--
+if($('c149510').offsetHeight>500){ $('limit149510').className="limiter";
+$('more149510').innerHTML="<span>Read more</span>";
+
+}
+//--></script><div class="actions"><a href="#top" class="action_07" onmouseover="BulleWrite('Top',event);" onmouseout="BulleHide();">&nbsp;</a> <a href="/forum/affich-61898-how-to-make-database-connectivity-in-asp-net?Acces=1#ecrire" rel="nofollow" class="action_09" onmouseover="BulleWrite('Bottom (Continue the discussion)',event);" onmouseout="BulleHide();">&nbsp;</a></div><a href="/forum/affich-149510-how-to-make-database-connectivity-in-asp-net?Acces=1#ecrire" rel="nofollow" class="action_repondre" id="r149510">Reply to Tarun nigam</a></td></tr></tbody></table></div></td></tr></tbody></table></div><div class="bloc_25 solved"><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr valign="top"><td class="actions"></td><td class="answer_1"><div class="bhead"><p class="num"><a href="#12" name="12">12</a><a name="p118487" class="postid"> </a></p><a href="#13" rel="nofollow" class="next" onmouseover="BulleWrite('Next message',event);" onmouseout="BulleHide();"></a><a href="#11" rel="nofollow" class="back" onmouseover="BulleWrite('Previous message',event);" onmouseout="BulleHide ();"></a><span class="action_anonyme"></span><span  onmouseover="BulleWrite('Anonymous User',event);" onmouseout="BulleHide ();" class="anonyme">rinki</span>, on <span>Jul  4, 2009  7:39:32 am BST</span></div><div class="bcontent_on" id="c118487"><ul class="options"><li><b id="n118487" class="nbeval">+3</b></li><li><a class="action_02_on" id="t118487" rel="nofollow" href="#" onclick="new Ajax.Updater('p118487', '/remote/forum_evaluer.php3', { method: 'get',  parameters: 'ID=118487&amp;evaluation=utile', evalScripts : true } );return false;" onmouseover="BulleWrite(''+'3 2 persons have found this message helpful - This message seems useful, vote!',event);" onmouseout="BulleHide ();"></a></li><li><a class="action_01" id="s118487" href="#" onclick="new Ajax.Updater('p118487', '/remote/forum_evaluer.php3', { method: 'get',  parameters: 'ID=118487&amp;evaluation=inutile', evalScripts : true } );return false;" onmouseover="BulleWrite('This message does not seem useful, vote!',event);" onmouseout="BulleHide ();"></a></li><li><a href="/forum/alert.php3?ID=118487&amp;Acces=1&amp;subID=12" class="action_04" onmouseover="BulleWrite('Report this message to moderators',event);" onmouseout="BulleHide ();" rel="nofollow"></a></li></ul><div class="" id="limit118487"><div class="limit"><div class="content"><p><i></i></p></div></div><a href="#" class="more" id="more118487" onclick="$('limit118487').className = ''; return false;"></a></div></div><script type="text/javascript">
+<!--
+if($('c118487').offsetHeight>500){ $('limit118487').className="limiter";
+$('more118487').innerHTML="<span>Read more</span>";
+
+}
+//--></script><div class="actions"><a href="#top" class="action_07" onmouseover="BulleWrite('Top',event);" onmouseout="BulleHide();">&nbsp;</a> <a href="/forum/affich-61898-how-to-make-database-connectivity-in-asp-net?Acces=1#ecrire" rel="nofollow" class="action_09" onmouseover="BulleWrite('Bottom (Continue the discussion)',event);" onmouseout="BulleHide();">&nbsp;</a></div><a href="/forum/affich-118487-how-to-make-database-connectivity-in-asp-net?Acces=1#ecrire" rel="nofollow" class="action_repondre_on" id="r118487">Reply to rinki</a></td></tr></tbody></table></div><div class="bloc_25 solved"><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr valign="top"><td class="actions"></td><td class="answer_1"><div class="bhead"><p class="num"><a href="#13" name="13">13</a><a name="p127453" class="postid"> </a></p><a href="#14" rel="nofollow" class="next" onmouseover="BulleWrite('Next message',event);" onmouseout="BulleHide();"></a><a href="#12" rel="nofollow" class="back" onmouseover="BulleWrite('Previous message',event);" onmouseout="BulleHide ();"></a><span class="action_anonyme"></span><span  onmouseover="BulleWrite('Anonymous User',event);" onmouseout="BulleHide ();" class="anonyme">QQNeo</span>, on <span>Jul 20, 2009  4:31:30 pm BST</span></div><div class="bcontent_on" id="c127453"><ul class="options"><li><b id="n127453" class="nbeval">+1</b></li><li><a class="action_02_on" id="t127453" rel="nofollow" href="#" onclick="new Ajax.Updater('p127453', '/remote/forum_evaluer.php3', { method: 'get',  parameters: 'ID=127453&amp;evaluation=utile', evalScripts : true } );return false;" onmouseover="BulleWrite(''+'1 person have found this message helpful - This message seems useful, vote!',event);" onmouseout="BulleHide ();"></a></li><li><a class="action_01" id="s127453" href="#" onclick="new Ajax.Updater('p127453', '/remote/forum_evaluer.php3', { method: 'get',  parameters: 'ID=127453&amp;evaluation=inutile', evalScripts : true } );return false;" onmouseover="BulleWrite('This message does not seem useful, vote!',event);" onmouseout="BulleHide ();"></a></li><li><a href="/forum/alert.php3?ID=127453&amp;Acces=1&amp;subID=13" class="action_04" onmouseover="BulleWrite('Report this message to moderators',event);" onmouseout="BulleHide ();" rel="nofollow"></a></li></ul><div class="" id="limit127453"><div class="limit"><div class="content"><p>Use a .UDL object, textual edit to see connection string</p></div></div><a href="#" class="more" id="more127453" onclick="$('limit127453').className = ''; return false;"></a></div></div><script type="text/javascript">
+<!--
+if($('c127453').offsetHeight>500){ $('limit127453').className="limiter";
+$('more127453').innerHTML="<span>Read more</span>";
+
+}
+//--></script><div class="actions"><a href="#top" class="action_07" onmouseover="BulleWrite('Top',event);" onmouseout="BulleHide();">&nbsp;</a> <a href="/forum/affich-61898-how-to-make-database-connectivity-in-asp-net?Acces=1#ecrire" rel="nofollow" class="action_09" onmouseover="BulleWrite('Bottom (Continue the discussion)',event);" onmouseout="BulleHide();">&nbsp;</a></div><a href="/forum/affich-127453-how-to-make-database-connectivity-in-asp-net?Acces=1#ecrire" rel="nofollow" class="action_repondre_on" id="r127453">Reply to QQNeo</a></td></tr></tbody></table></div><div class="bloc_25 solved"><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr valign="top"><td class="actions"></td><td class="answer_1"><div class="bhead"><p class="num"><a href="#14" name="14">14</a><a name="p149411" class="postid"> </a></p><a href="#15" rel="nofollow" class="next" onmouseover="BulleWrite('Next message',event);" onmouseout="BulleHide();"></a><a href="#13" rel="nofollow" class="back" onmouseover="BulleWrite('Previous message',event);" onmouseout="BulleHide ();"></a><span class="action_anonyme"></span><span  onmouseover="BulleWrite('Anonymous User',event);" onmouseout="BulleHide ();" class="anonyme">abhineet</span>, on <span>Aug 25, 2009  9:43:30 am BST</span></div><div class="bcontent_on" id="c149411"><ul class="options"><li><b id="n149411" class="nbeval">+5</b></li><li><a class="action_02_on" id="t149411" rel="nofollow" href="#" onclick="new Ajax.Updater('p149411', '/remote/forum_evaluer.php3', { method: 'get',  parameters: 'ID=149411&amp;evaluation=utile', evalScripts : true } );return false;" onmouseover="BulleWrite(''+'5 2 persons have found this message helpful - This message seems useful, vote!',event);" onmouseout="BulleHide ();"></a></li><li><a class="action_01" id="s149411" href="#" onclick="new Ajax.Updater('p149411', '/remote/forum_evaluer.php3', { method: 'get',  parameters: 'ID=149411&amp;evaluation=inutile', evalScripts : true } );return false;" onmouseover="BulleWrite('This message does not seem useful, vote!',event);" onmouseout="BulleHide ();"></a></li><li><a href="/forum/alert.php3?ID=149411&amp;Acces=1&amp;subID=14" class="action_04" onmouseover="BulleWrite('Report this message to moderators',event);" onmouseout="BulleHide ();" rel="nofollow"></a></li></ul><div class="" id="limit149411"><div class="limit"><div class="content"><p>I want to get the data base connectivity notes in asp.net</p></div></div><a href="#" class="more" id="more149411" onclick="$('limit149411').className = ''; return false;"></a></div></div><script type="text/javascript">
+<!--
+if($('c149411').offsetHeight>500){ $('limit149411').className="limiter";
+$('more149411').innerHTML="<span>Read more</span>";
+
+}
+//--></script><div class="actions"><a href="#top" class="action_07" onmouseover="BulleWrite('Top',event);" onmouseout="BulleHide();">&nbsp;</a> <a href="/forum/affich-61898-how-to-make-database-connectivity-in-asp-net?Acces=1#ecrire" rel="nofollow" class="action_09" onmouseover="BulleWrite('Bottom (Continue the discussion)',event);" onmouseout="BulleHide();">&nbsp;</a></div><a href="/forum/affich-149411-how-to-make-database-connectivity-in-asp-net?Acces=1#ecrire" rel="nofollow" class="action_repondre_on" id="r149411">Reply to abhineet</a></td></tr></tbody></table></div><div class="bloc_25 solved"><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr valign="top"><td class="actions"></td><td class="answer_1"><div class="bhead"><p class="num"><a href="#16" name="16">16</a><a name="p227031" class="postid"> </a></p><a href="#17" rel="nofollow" class="next" onmouseover="BulleWrite('Next message',event);" onmouseout="BulleHide();"></a><a href="#15" rel="nofollow" class="back" onmouseover="BulleWrite('Previous message',event);" onmouseout="BulleHide ();"></a><span class="action_anonyme"></span><span  onmouseover="BulleWrite('Anonymous User',event);" onmouseout="BulleHide ();" class="anonyme">asp.net connectivity</span>, on <span>Dec 26, 2009  3:48:16 am GMT</span></div><div class="bcontent_on" id="c227031"><ul class="options"><li><b id="n227031" class="nbeval">+1</b></li><li><a class="action_02_on" id="t227031" rel="nofollow" href="#" onclick="new Ajax.Updater('p227031', '/remote/forum_evaluer.php3', { method: 'get',  parameters: 'ID=227031&amp;evaluation=utile', evalScripts : true } );return false;" onmouseover="BulleWrite(''+'1 person have found this message helpful - This message seems useful, vote!',event);" onmouseout="BulleHide ();"></a></li><li><a class="action_01" id="s227031" href="#" onclick="new Ajax.Updater('p227031', '/remote/forum_evaluer.php3', { method: 'get',  parameters: 'ID=227031&amp;evaluation=inutile', evalScripts : true } );return false;" onmouseover="BulleWrite('This message does not seem useful, vote!',event);" onmouseout="BulleHide ();"></a></li><li><a href="/forum/alert.php3?ID=227031&amp;Acces=1&amp;subID=16" class="action_04" onmouseover="BulleWrite('Report this message to moderators',event);" onmouseout="BulleHide ();" rel="nofollow"></a></li></ul><div class="" id="limit227031"><div class="limit"><div class="content"><p>Asp.net connection</p></div></div><a href="#" class="more" id="more227031" onclick="$('limit227031').className = ''; return false;"></a></div></div><script type="text/javascript">
+<!--
+if($('c227031').offsetHeight>500){ $('limit227031').className="limiter";
+$('more227031').innerHTML="<span>Read more</span>";
+
+}
+//--></script><div class="actions"><a href="#top" class="action_07" onmouseover="BulleWrite('Top',event);" onmouseout="BulleHide();">&nbsp;</a> <a href="/forum/affich-61898-how-to-make-database-connectivity-in-asp-net?Acces=1#ecrire" rel="nofollow" class="action_09" onmouseover="BulleWrite('Bottom (Continue the discussion)',event);" onmouseout="BulleHide();">&nbsp;</a></div><a href="/forum/affich-227031-how-to-make-database-connectivity-in-asp-net?Acces=1#ecrire" rel="nofollow" class="action_repondre_on" id="r227031">Reply to asp.net connectivity</a></td></tr></tbody></table></div><div class="bloc_25 solved"><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr valign="top"><td class="actions"></td><td class="answer_1"><div class="bhead"><p class="num"><a href="#17" name="17">17</a><a name="p240128" class="postid"> </a></p><a href="#18" rel="nofollow" class="next" onmouseover="BulleWrite('Next message',event);" onmouseout="BulleHide();"></a><a href="#16" rel="nofollow" class="back" onmouseover="BulleWrite('Previous message',event);" onmouseout="BulleHide ();"></a><span class="action_anonyme"></span><span  onmouseover="BulleWrite('Anonymous User',event);" onmouseout="BulleHide ();" class="anonyme">Gareth</span>, on <span>Jan 11, 2010 10:43:54 pm GMT</span></div><div class="bcontent_on" id="c240128"><ul class="options"><li><b id="n240128" class="nbeval">+5</b></li><li><a class="action_02_on" id="t240128" rel="nofollow" href="#" onclick="new Ajax.Updater('p240128', '/remote/forum_evaluer.php3', { method: 'get',  parameters: 'ID=240128&amp;evaluation=utile', evalScripts : true } );return false;" onmouseover="BulleWrite(''+'5 2 persons have found this message helpful - This message seems useful, vote!',event);" onmouseout="BulleHide ();"></a></li><li><a class="action_01" id="s240128" href="#" onclick="new Ajax.Updater('p240128', '/remote/forum_evaluer.php3', { method: 'get',  parameters: 'ID=240128&amp;evaluation=inutile', evalScripts : true } );return false;" onmouseover="BulleWrite('This message does not seem useful, vote!',event);" onmouseout="BulleHide ();"></a></li><li><a href="/forum/alert.php3?ID=240128&amp;Acces=1&amp;subID=17" class="action_04" onmouseover="BulleWrite('Report this message to moderators',event);" onmouseout="BulleHide ();" rel="nofollow"></a></li></ul><div class="" id="limit240128"><div class="limit"><div class="content"><p>Im Having The Same Sort Of Problem With MySql Im Using This Code below And It Keeps Showing Errors On Line 30 If I Can Fix It It May Work For You Too Worth A Shot ?: For A P-Server Call Conquer Online If Your Wondering But I Dont Know If You Can Take Bits Out And Your For Yourself
+<br />
+<br />using System;
+<br />using MySql.Data.MySqlClient;
+<br />
+<br />namespace CoEmu_v2_LoginServer.Database
+<br />{
+<br />	/// &lt;summary&gt;
+<br />	/// Provides MySql resource connections, for multiple connections to a single MySql database.
+<br />	/// This is due to the fact that the server is multi-threaded, so allowing a single connection would
+<br />	/// likely result in errors, or general loss of performance.
+<br />	/// &lt;/summary&gt;
+<br />	public static class DatabaseConnection
+<br />	{
+<br />		public const string USER_NAME = &quot;localhost&quot;;
+<br />		public const string PASSWORD = &quot;1234&quot;;
+<br />		public const string SERVER = &quot;127.0.0.1&quot;;
+<br />		public const string DATA_BASE = &quot;conqueremu&quot;;
+<br />		public static MySqlConnection NewConnection()
+<br />		{
+<br />			MySqlConnection C = null;
+<br />			try{
+<br />			C = new MySqlConnection(&quot;Server=&quot; + SERVER + &quot;;Database='&quot; + DATA_BASE + &quot;';Username='&quot; + USER_NAME + &quot;';Password='&quot; + PASSWORD + &quot;'&quot;);
+<br />			C.Open();
+<br />			}
+<br />			catch(Exception.e)
+<br />			{
+<br />				Console.WriteLine(e.ToString());
+<br />				return null;
+<br />			}
+<br />			return C;
+<br />		}
+<br />	}
+<br />}</p></div></div><a href="#" class="more" id="more240128" onclick="$('limit240128').className = ''; return false;"></a></div></div><script type="text/javascript">
+<!--
+if($('c240128').offsetHeight>500){ $('limit240128').className="limiter";
+$('more240128').innerHTML="<span>Read more</span>";
+
+}
+//--></script><div class="actions"><a href="#top" class="action_07" onmouseover="BulleWrite('Top',event);" onmouseout="BulleHide();">&nbsp;</a> <a href="/forum/affich-61898-how-to-make-database-connectivity-in-asp-net?Acces=1#ecrire" rel="nofollow" class="action_09" onmouseover="BulleWrite('Bottom (Continue the discussion)',event);" onmouseout="BulleHide();">&nbsp;</a></div><a href="/forum/affich-240128-how-to-make-database-connectivity-in-asp-net?Acces=1#ecrire" rel="nofollow" class="action_repondre_on" id="r240128">Reply to Gareth</a></td></tr></tbody></table></div><div class="adsense"><script type="text/javascript"><!--
+	google_ad_client = "pub-3295671961621260";
+	google_language = "en";
+	var ccm_language = "en";
+	google_ad_type = "text";
+	google_ad_channel ="0";
+        var google_adnum = 0;
+        google_ad_output = "js";
+        google_max_num_ads = "4";
+        google_feedback = 'on';
+        google_skip = google_adnum;
+	//-->
+	</script>
+	<script type="text/javascript"
+	src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+	</script></div>
+
+<div class="bloc_forum_actions2"><a href="/forum/forum-3?Acces=1#ecrire" rel="nofollow" class="button2"><span class="button2">Ask your question</span></a> <a href="/forum/affich-61898-how-to-make-database-connectivity-in-asp-net?Acces=1#ecrire" rel="nofollow" class="button"><span class="button">Reply</span></a></div><div style="float:left"><a name="ecrire"></a></div></div></div><div id="col_right"><div id="shortcuts"></div><div class="bloc_11"><script type="text/javascript">
+<!--
+var plus ='<span>More</span>';var moins ='<span>Less</span>';
+//-->
+</script><div class="widget"><div id="similishowhide" class="hide"><span class="titre">See also </span><div class="results" id="simili_container"><ul><li class="last forum"><a href="/forum/affich-98355-database-connect-and-retrieve-in-c" class="img"><img src="/img/pixeltransparent.gif?200909" width="16" height="16" title="Access database reterieve in asp.net c#" alt="Access database reterieve in asp.net c#"/></a> <a href="/s/Access+database+reterieve+in+asp.net+c%23" rel="nofollow"><span>Access database reterieve in asp.net c#</span></a></li> <li class="last forum"><a href="/forum/affich-96268-connecting-to-sql" class="img"><img src="/img/pixeltransparent.gif?200909" width="16" height="16" title="Could not connect to database error in asp.net" alt="Could not connect to database error in asp.net"/></a> <a href="/s/Could+not+connect+to+database+error+in+asp.net" rel="nofollow"><span>Could not connect to database error in asp.net</span></a></li> <li class=" forum"><a href="/forum/affich-240182-mini-project-in-asp-net-with-source-code" class="img"><img src="/img/pixeltransparent.gif?200909" width="16" height="16" title="Database connection in asp net source code" alt="Database connection in asp net source code"/></a> <a href="/s/Database+connection+in+asp+net+source+code" rel="nofollow"><span>Database connection in asp net source code</span></a></li> <li class=" faq"><a href="/faq/5556-how-to-make-database-connectivity-in-asp-net" class="img"><img src="/img/pixeltransparent.gif?200909" width="16" height="16" title="Database connection in asp.net" alt="Database connection in asp.net"/></a> <a href="/s/Database+connection+in+asp.net" rel="nofollow"><span>Database connection in asp.net</span></a></li> <li class=" forum"><a href="/forum/affich-98078-database-connect-and-retrieve-in-c" class="img"><img src="/img/pixeltransparent.gif?200909" width="16" height="16" title="Database connection in asp.net using csharp" alt="Database connection in asp.net using csharp"/></a> <a href="/s/Database+connection+in+asp.net+using+csharp" rel="nofollow"><span>Database connection in asp.net using csharp</span></a></li> <li class=" forum"><a href="/forum/affich-64782-database-connectivity-with-sql-server-2005" class="img"><img src="/img/pixeltransparent.gif?200909" width="16" height="16" title="Database connection in asp.net with sql server" alt="Database connection in asp.net with sql server"/></a> <a href="/s/Database+connection+in+asp.net+with+sql+server" rel="nofollow"><span>Database connection in asp.net with sql server</span></a></li> <li class="last forum"><a href="/forum/affich-76546-pls-help-vb-2008-microsoft-access-2007" class="img"><img src="/img/pixeltransparent.gif?200909" width="16" height="16" title="Database connectivity in vb.net 2008 with ms access and oldb" alt="Database connectivity in vb.net 2008 with ms access and oldb"/></a> <a href="/s/Database+connectivity+in+vb.net+2008+with+ms+access+and+oldb" rel="nofollow"><span>Database connectivity in vb.net 2008 with ms access and oldb</span></a></li> <li class="last forum"><a href="/forum/affich-235216-database-handling-in-asp-net" class="img"><img src="/img/pixeltransparent.gif?200909" width="16" height="16" title="Database handling in asp.net" alt="Database handling in asp.net"/></a> <a href="/s/Database+handling+in+asp.net" rel="nofollow"><span>Database handling in asp.net</span></a></li> <li class=" forum"><a href="/forum/affich-77999-how-do-connect-sqlserver-to-asp-net" class="img"><img src="/img/pixeltransparent.gif?200909" width="16" height="16" title="Example of database connection in asp.net" alt="Example of database connection in asp.net"/></a> <a href="/s/Example+of+database+connection+in+asp.net" rel="nofollow"><span>Example of database connection in asp.net</span></a></li> <li class=" forum"><a href="/forum/affich-78248-vb-net-2008-and-oledb-connection-access" class="img"><img src="/img/pixeltransparent.gif?200909" width="16" height="16" title="How make a connection string asp.net" alt="How make a connection string asp.net"/></a> <a href="/s/How+make+a+connection+string+asp.net" rel="nofollow"><span>How make a connection string asp.net</span></a></li> <li class="last forum"><a href="/forum/affich-64326-how-to-connect-oracle-database-in-another-sys" class="img"><img src="/img/pixeltransparent.gif?200909" width="16" height="16" title="How to make a oracle database connection in asp on linux" alt="How to make a oracle database connection in asp on linux"/></a> <a href="/s/How+to+make+a+oracle+database+connection+in+asp+on+linux" rel="nofollow"><span>How to make a oracle database connection in asp on linux</span></a></li></ul></div><a href="#" onclick="if($('similishowhide').className=='hide'){ $('similishowhide').className='show';$('similishowhidelink').innerHTML=moins;} else{ $('similishowhide').className='hide';$('similishowhidelink').innerHTML=plus;} return false" id="similishowhidelink" title="More / Less"><span>More</span></a></div></div><script type="text/javascript">
+//<![CDATA[
+q=refk();if(q==''){
+    q = "How to make database connectivity in asp.net";
+}
+if($('simili_container')&&q&&q!=' ') {
+a = document.createElement('a');
+a.setAttribute('href','/s/'+escape(q));
+a.className='fake';
+a.innerHTML = q.charAt(0).toUpperCase() + q.substr(1);
+$('simili_container').insertBefore(a,$('simili_container').firstChild);
+}
+h_j(q,$('similishowhide'));
+//]]>
+            </script></div><div class="bloc_09" id="bloc_middle"><script type="text/javascript">
+            <!--
+            sas_pageid='10991/82108';
+            sas_formatid=4784;
+            sas_target='';
+            SmartAdServer(sas_pageid,sas_formatid,sas_target);
+            //-->
+            </script></div><div id="needhelp"><div class="widget"><span class="titre">They need your help</span><ul><li class="options"><a href="/rss/rss_forum_sans_reponses.php3" class="rss"><span>RSS</span></a><a href="#" class="prefs" onclick="new Ajax.Updater('needhelp', '/remote/needhelp.php3', { method: 'get',  parameters: 'needhelp_prefs=1', evalScripts : true } );return false;">Options</a></li><li><span>01:22</span> <a href="/forum/affich-285370-icon-task-bar-no-show-on-lcd">icon/task bar no show on lcd</a> (<a href="/forum/forum-2-hardware">Hardware</a>)</li><li><span>01:14</span> <a href="/forum/affich-285368-language-change-from-spanish-to-english">language change from spanish to english</a> (<a href="/forum/forum-11-windows">Windows</a>)</li><li><span>01:12</span> <a href="/forum/affich-285366-maby-it-did-not-work-well">maby it did not work well</a> (<a href="/forum/forum-19-video-games">Video games</a>)</li><li><span>00:59</span> <a href="/forum/affich-285364-power-meter-and-volume-indicator-not-displayi">power meter and volume indicator not...</a> (<a href="/forum/forum-2-hardware">Hardware</a>)</li><li class="more"><a href="/forum/sans-reponses?" title="All unanswered messages"><span>All unanswered messages</span></a></li></ul><span class="shadow"></span></div><script type="text/javascript">
+            <!--
+            new Ajax.Updater('needhelp','/remote/needhelp.php3',{ method : 'get', evalScripts : false });
+            //-->
+            </script></div><div class="bloc_09" style="margin-bottom:10px"><a target="_blank" rel="nofollow" href="http://www3.smartadserver.com/call/cliccommand/2420026/[timestamp]?"><img src="http://static.commentcamarche.net/en.kioskea.net/_skin/_local/img/regie/supinfo.gif?1" alt=""/></a><img src="http://www3.smartadserver.com/call/pubimppixel/2424537/[timestamp]?" border="0" width="1" height="1" alt=""/></div><div id="bloc_sponsor" class="bloc_09"><script type="text/javascript">
+        sas_pageid='10991/82108';
+        sas_formatid=4787;
+        sas_target='';
+        SmartAdServer(sas_pageid,sas_formatid,sas_target);
+        </script></div></div></div></div></div><div id="footer">
+    <div id="bottom">
+        <ul class="noBorder">
+            <li>Kioskea Network                <ul>
+                                        <li><a href="http://www.commentcamarche.net" lang="fr">www.commentcamarche.net</a></li>
+                                                    <li><a href="http://de.kioskea.net" lang="de">de.kioskea.net</a></li>
+                                                    <li><a href="http://en.kioskea.net" lang="en">en.kioskea.net</a></li>
+                                                    <li><a href="http://es.kioskea.net" lang="es">es.kioskea.net</a></li>
+                                                    <li><a href="http://it.kioskea.net" lang="it">it.kioskea.net</a></li>
+                                                    <li><a href="http://pt.kioskea.net" lang="pt">pt.kioskea.net</a></li>
+                                                    <li><a href="http://salud.kioskea.net" lang="es">salud.kioskea.net</a></li>
+                                        <li><a href="http://www.supinfo.com" rel="nofollow">SUPINFO, &eacute;cole d'ing&eacute;nieurs</a></li>
+                                    </ul>
+            </li>
+        </ul>
+        <ul class="footerBorder">
+            <li>Shortcuts                <ul>
+                    <li><a href="/contents/ccmguide/cgu-conditions-generales.php3">Terms of Use</a></li>
+                    <li><a href="/contents/ccmguide/ccmintro.php3">About us</a></li>
+                    <li><a href="/contact/">Contact</a></li>
+                    <li><a href="/contents/ccmguide/ccmcharte.php3">Charter</a></li>
+                    <li><a href="/telecharger/?top=50">Top 50</a></li>                </ul>
+            </li>
+        </ul>
+        <ul class="footerBorder">
+            <li>
+                Glossary                <div id="glossary">
+                    <a href="/index/a">A</a>
+                    <a href="/index/b">B</a>
+                    <a href="/index/c">C</a>
+                    <a href="/index/d">D</a>
+                    <a href="/index/e">E</a>
+                    <a href="/index/f">F</a>
+                    <a href="/index/g">G</a>
+                    <a href="/index/h">H</a>
+                    <a href="/index/i">I</a>
+                    <a href="/index/j">J</a>
+                    <a href="/index/k">K</a>
+                    <a href="/index/l">L</a>
+                    <a href="/index/m">M</a>
+                    <a href="/index/n">N</a>
+                    <a href="/index/o">O</a>
+                    <a href="/index/p">P</a>
+                    <a href="/index/q">Q</a>
+                    <a href="/index/r">R</a>
+                    <a href="/index/s">S</a>
+                    <a href="/index/t">T</a>
+                    <a href="/index/u">U</a>
+                    <a href="/index/v">V</a>
+                    <a href="/index/w">W</a>
+                    <a href="/index/x">X</a>
+                    <a href="/index/y">Y</a>
+                    <a href="/index/z">Z</a>
+                    <a href="/index/0" class="buttonLarge">0-9</a>
+                </div>
+            </li>
+        </ul>
+        <div class="footerBorder">
+                        <form action="/communaute/inscription.php3" class="headerFooter">
+                <fieldset>
+                    <legend>Join now for free</legend>
+                    <input type="text" class="search" name="email" value="email" onfocus="select()" />
+                    <input type="button" class="submit" value="OK" />
+                </fieldset>
+            </form>
+                </div>
+        <div class="spacer">&nbsp;</div>
+    </div>
+</div><SCRIPT LANGUAGE="JavaScript1.1">
+sas_pageid='10991/82108';
+sas_formatid=4783;			// Format : DHTML 1x1 (Popup, Flash Transp, ...) 1x1
+sas_target='';	// Targeting
+SmartAdServer(sas_pageid,sas_formatid,sas_target);
+</SCRIPT><noscript>
+<a href="http://www3.smartadserver.com/call/pubjumpi/10987/81914/4783/S/[timestamp]/?">
+<img src="http://www3.smartadserver.com/call/pubi/10987/81914/4783/S/[timestamp]/?" border="0" alt="" /></a>
+</noscript><script type="text/javascript">
+<!--
+xtnv = document;
+xtsd = "http://logc15";
+xtsite = "254140";
+xtn2 = "4";
+xtpage = "forum::affich-61898-how-to-make-database-connectivity-in-asp-net";
+xtdmc = ".commentcamarche.net";
+xtprm = "";
+//-->
+</script>
+<script type="text/javascript" src="/remote/xiti.js"></script>
+<noscript>
+    <img width="1" height="1" src="http://logc15.xiti.com/hit.xiti?s=254140&amp;s2=4&amp;p=forum%3A%3Aaffich-61898-how-to-make-database-connectivity-in-asp-net" alt="" />
+</noscript></body>
+</html>

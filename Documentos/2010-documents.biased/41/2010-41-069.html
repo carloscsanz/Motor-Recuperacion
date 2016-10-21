@@ -1,0 +1,950 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+
+<head>
+	<title>The R Statistical Language and C#.NET: Foundations - CodeProject</title> 
+	<link type="text/css" rel="stylesheet" href="/App_Themes/NetCommunity/ForumMobile.css?dt=2.2.0254">
+<link type="text/css" rel="stylesheet" href="/App_Themes/NetCommunity/Mobile.css?dt=2.2.0254">
+
+	
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+<meta name="Description" content="Use the R Language in C#.NET applications.; Author: Jeff B. Cromwell; Section: C#; Chapter: Languages" >
+<meta name="Keywords" content="C#1.0, C#2.0, C#3.0, C#, Windows, .NET, Dev, Intermediate,C#,Languages,Free source code, tutorials" >
+<meta name="Author" content="The Code Project" >
+<meta name="Rating" content="General" >
+<meta name="Robots" content="index, follow" >
+<meta name="Revisit-After" content="1 days" >
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - All topics" href="http://www.codeproject.com/webservices/articlerss.aspx?cat=1" >
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - MFC / C++" href="http://www.codeproject.com/webservices/articlerss.aspx?cat=2" >
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - C#" href="http://www.codeproject.com/webservices/articlerss.aspx?cat=3" >
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - ASP.NET" href="http://www.codeproject.com/webservices/articlerss.aspx?cat=4" >
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - .NET" href="http://www.codeproject.com/webservices/articlerss.aspx?cat=5" >
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - VB.NET" href="http://www.codeproject.com/webservices/articlerss.aspx?cat=6" >
+<link rel="alternate" type="application/rss+xml" title="CodeProject Lounge Postings" href="http://www.codeproject.com/webservices/LoungeRSS.aspx" >
+<link rel="search" type="application/opensearchdescription+xml" title="CodeProject" href="http://www.codeproject.com/info/OpenSearch.xml" >
+	<base target="_top" >
+	<link rel="icon" href="/favicon.ico" type="image/ico" >
+<link rel="shortcut icon" href="/favicon.ico"  type="image/ico" >
+<script type="text/javascript" language="Javascript">//<![CDATA[
+if(top!=self)top.location.href=location.href; if(typeof(DemoUrl)!="undefined")document.write(unescape('%3Cme')+'ta http'+'-equiv="re' +'fresh" con'+'tent="1;url='+DemoUrl+unescape('"%3CE'));
+function LK(e) { var lounge  = document.getElementById("ctl01_TopNavBar_Lounge"); var soapbox = document.getElementById("ctl01_TopNavBar_Soapbox"); if (lounge && soapbox) {   lounge.style.display = e.ctrlKey? "none" : "inline";  soapbox.style.display = e.ctrlKey? "inline" : "none"; }}
+function LC(e) {
+ window.location.href = e.ctrlKey ? '/script/Forums/View.aspx?fid=1536756':'/Lounge.aspx';
+ if (document.all) e.returnValue = false; else e.preventDefault();
+}
+
+//]]>
+</script>
+
+</head>
+
+<body>
+
+<a href="#Main"><img alt="Click here to Skip to main content" class="access-link" 
+	src="/Images/t.gif" /></a>
+
+
+
+<table cellpadding="5" cellspacing="0" width="100%" class="MemberNavBar">
+<tr>
+<td style="font-weight:bold"></td>
+<td align="right">
+
+
+
+<div id="ctl01_MemberMenu_LoggedOffOptions" class="MemberNavBarText" style="margin:0;padding:0;">
+	<a name="SignUp"></a>
+<form name="subForm" id="subForm" action="/script/Membership/LogOn.aspx?rp=%2fKB%2fcs%2fRtoCSharp.aspx" 
+	method="post" style="margin:0;padding:0;">
+
+<!-- This hidden field is used for identifying form which has made post request.
+     (This form posts to another page and we need to know which form did the post request) -->
+<input id="FormName" name="FormName" value="MenuBarForm" type="hidden" />
+
+Email    <input class="small-text" type="text" name="Email" id="Email" style="width:100px" />
+Password <input class="small-text" type="password" name="Password" id="Password" style="width:60px" />
+<input type="submit" value="Sign in" class="button" />
+<script type="text/javascript">
+function Join(){document.location.href='/script/Membership/Modify.aspx';return false;}
+document.write('<input type="button" class="button" onclick="return Join();" value="Join"');
+document.write('<input type="hidden" name="fld_quicksign" value="true" />');
+</script>
+<input type="checkbox" checked = "checked" name="RememberMeCheck" id="RememberMeCheck" value="1"/>
+<label for="RememberMeCheck">Remember me?</label>&nbsp;
+<a id="ctl01_MemberMenu_SendPassword" href="/script/Membership/SendPassword.aspx?rp=%2fKB%2fcs%2fRtoCSharp.aspx"><img align="middle" alt="help" src="/script/Membership/Images/help.gif" width="16px" height="16px" border="0" />Lost your password?</a>
+</form>
+
+</div>
+
+</td>
+</tr>
+</table>
+<div class="header">
+	<a id="ctl01_Logo" title="The Code Project" AlternateText="Home" href="/" style="display:inline-block;"><img title="The Code Project" src="/App_Themes/Std/Img/logo225x40.gif" border="0" /></a>
+</div>
+
+
+<div class="navbar clearfix">
+<ul id="nav">
+
+<li><a href="/">Home</a></li>
+
+
+<li><a id="ctl01_TopNavBar_Art" class="down" href="/script/Articles/Latest.aspx">Articles</a>
+
+</li>
+
+
+
+<li><a id="ctl01_TopNavBar_Answers" href="/script/Answers/List.aspx?tab=latest">Quick Answers</a>
+</li>
+
+
+
+<li><a id="ctl01_TopNavBar_MessageBoards" class="down" href="/script/Forums/List.aspx">Message Boards</a>
+
+</li>
+
+
+
+<li><a id="ctl01_TopNavBar_Job" href="/script/Jobs/List.aspx">Job Board</a>
+</li>
+
+
+
+
+<li><a id="ctl01_TopNavBar_Cat" href="/script/Catalog/List.aspx">Catalog</a>
+</li>
+
+
+
+
+
+
+<li><a id="ctl01_TopNavBar_Help" href="/info/FAQ.aspx">Help!</a>
+
+</li>
+
+
+<li style="float:right">
+<a id="ctl01_TopNavBar_Lounge" href="/Lounge.aspx">Lounge</a>
+<a id="ctl01_TopNavBar_Soapbox" href="javascript:void();" style="display:none">Soapbox</a>
+
+</li>
+
+</ul>
+
+</div>
+
+
+	
+	
+<a name="Main"></a>
+
+
+<!-- Article Starts -->
+
+
+<h2>Introduction</h2>
+
+<p>Over a decade ago, my colleagues and I wrote two books on using different tests for examining the assumptions of time series analysis in both the univariate and multivariate contexts. Back then, the programs to conduct these tests were a mixture of Basic, C, and the use of some batch programs in commercial packages such as RATS, SHAZAM, and TSP.</p>
+
+<ul>
+<li><em>Cromwell, J.B., M.J. Hannan, W.C. Labys, and M. Terraza. 1994. Multivariate Testing for Time Series Models. New York: Sage Publication</em>.</li>
+
+<li><em>Cromwell, J.B., W.C. Labys and M. Terraza. 1994. Univariate Testing for Time Series Models. New York: Sage Publications</em>.</li>
+</ul>
+
+<p>Today, other packages such as SAS, SPSS, Ox, Matlab, and S-Plus can be used to do similar work. However, a favorite open source statistical package of mine was and continues to be developed by researchers at Carnegie Mellon University, known as the statistical language R. The R language can be downloaded from <a href="http://www.r-project.org/" target="_blank">here</a>. Once installed, go to the Package menu in R and select all the packages, and hit Enter. This will install all the libraries so that the baseline Splus and R are the same. R uses the S language, and Fox (2002) and Farnsworth (2006) provide excellent references for doing the time series analysis mentioned in my two books. In a series of papers, I plan to demonstrate using R and C#.NET for a wide variety of statistical and analytical applications that can be built in a typical 3-4 hours of work.</p>
+
+<h2>Background</h2>
+
+<p>Besides using the GUI shown in Figure 1, I wanted to be able to use R as an intelligence component in my research applications. At the University, publication for applied work is always going to need the latest statistical techniques, and for this, a programming language. Because of my background in both .NET and Java, I chose to use C#.NET for the interface language to build these middleware pieces. I downloaded Microsoft Visual C# 2008 Express Edition, and wanted to attach the references for the R .NET component to begin the work of this middleware application. Since there was not a .NET component bundled with R, I used the R-(D) COM interface for the automation.</p>
+
+<div class="caption">Figure 1. The GUI interface to R</div>
+
+<p><a title="Click to enlarge" href="RToCSharp/RInterface.jpg" target="_blank"><img height="375" hspace="0" src="RToCSharp/RInterface_small.jpg" width="600" align="baseline" border="0" /></a></p>
+
+<h2>R in .NET - The R(D) COM interface</h2>
+
+<p>The R-(D) COM interface is a COM server that can connect to applications such as Microsoft Excel to take advantage of the statistical techniques that are constantly being added to the R releases. In addition, there are ActiveX controls that can be included in the application. Thus, data can be transferred in and out of R, and Visual Basic, C#, and Perl can serve as COM clients that enable one to use R as a computational engine that also can render graphics. The COM server can be downloaded and installed by following these steps:</p>
+
+<ol>
+<li>Go to <em>cran.r-project.org</em></li>
+
+<li>Choose &quot;Other&quot; item from the Software menu</li>
+
+<li>Choose R-(D) COM Interface (for Windows)</li>
+
+<li>Choose <em>RServer250.exe</em></li>
+
+<li>Install the application</li>
+</ol>
+
+<p>Once installed, you can add the following COM references to your C#.NET project, as well as these namespaces to your class:</p>
+
+<pre lang="cs"><span class="code-comment">//</span>
+<span class="code-comment">//</span><span class="code-comment"> COM References</span>
+<span class="code-comment">//</span>
+<span class="code-keyword">using</span> STATCONNECTORCLNTLib;
+<span class="code-keyword">using</span> StatConnectorCommonLib;
+<span class="code-keyword">using</span> STATCONNECTORSRVLib;</pre>
+
+<p>Each of these type libraries uses the .NET interoperability feature for operation. Use the <code lang="cs"><span class="code-keyword">using</span></code> statements in the code.</p>
+
+<p>The code to use the .NET component as an interface to R is quite simple, and has only a few statements that can execute data in, process it, and then extract it. For example, to generate twenty random normal numbers, one uses:</p>
+
+<pre lang="cs"><span class="code-keyword">object</span> o1;
+<span class="code-keyword">int</span> n=20;
+StatConnector sc1 = <span class="code-keyword">new</span> StatConnectorSRVLib.StatConnectorClass();
+Sc1.Init(“R”);
+Sc1.SetSymbol(“n1”,n);
+Sc1.Evaluate(“x1&lt;-rnorm(n1)”);
+O1=sc1.GetSymbol(“x1”);
+Xrnd=(<span class="code-keyword">double</span>) o1;</pre>
+
+<p>Once we instantiate the class with <code>sc1</code> and initialize R, we can then generate data with a declaration of <code>n1</code> as the object type in R and <code>n</code> to be the integer type - the number of normal random numbers we want to generate. The <code>SetSymbol()</code> function is used cast the C# type to an R type. Then, we can use the <code>GetSymbol()</code> function to get the variable, and then cast it to an object for processing. For more understanding of the R data types, examine the help documentation that comes with R.</p>
+
+<h3>Importing the data</h3>
+
+<p>While we can generate data within R, it would also be instructive to import data into R. For example, you can read data from more than one data format. The most common format is a text file, with data separated into columns, with a header for each column. I created a list of numbers, one in each line, in Notepad, to import into R. This chooses the file through a dialog.</p>
+
+<pre lang="text">&gt;mydata = read.table( file.chooseO, skip = 1 ) </pre>
+
+<p>The <code>file.choose()</code> function provides the dialog to choose the text file, and the <code>skip=1</code> parameter says to skip the first line for the <code>Header</code> value. The R variable is <code>mydata</code> and the name of values is <code>V1</code>. To see the data:</p>
+
+<pre lang="text">&gt;mydata</pre>
+
+<p>In the dialog window, the values are shown for the variable <code>V1</code>. Suppose, I would like to read in these data values into a variable that represents a yearly time series that represents a stock’s values:</p>
+
+<pre lang="text">&gt;zl &lt;-ts(mydata,start=c(1992,8), 1) 
+&gt;plot(zl) </pre>
+
+<p>I can use the following <code>ts()</code> function that starts with the year 1999, with the frequency being yearly. Of course, I can plot these numbers to verify as well as look at the values of <code>z1</code>. Now that we can do this in the R application, how do we do this in C#.NET and not use the R Windows interface? Importing can be problematic when taking the expressions directly over to C#, so I use a traditional text file or database work to populate the variables and then use the <code>SetSymbol()</code> function to import the values into R and then do transformations. However, we can use the <code>EvaluateNoReturn()</code> function to read in the data with:</p>
+
+<pre lang="cs">Sc1.EvaluateNoReturn(“m1=read.table(file.choose())”);</pre>
+
+<p>The difference between <code>Evaluate()</code> and <code>EvaluateNoReturn()</code> is that the former returns the reference to an object, which is necessary when casting and extracting data from the R environment. As a rule, this is how I prototype and test my statistical components, write them for execution in the R Windows interface, save them to text, and then read the file one line at a time with one evaluate function. Then, you can modify the text files, or combine multiple text files for statistical processing. This provides for a very creative modeling and analytical environment. Besides the computational aspects mentioned, one can also render graphics through the <code lang="cs"><span class="code-keyword">using</span></code> statement:</p>
+
+<pre lang="cs"><span class="code-keyword">using</span> STATCONNECTORCLNTLib; </pre>
+
+<h3>The R graphics device</h3>
+
+<p>The code to generate a histogram plot of twenty normal random variables is provided by:</p>
+
+<pre lang="cs">StatConnector test1= <span class="code-keyword">new</span> STATCONNECTORSRVLib.StatConnectorClass(); 
+test1.Init(<span class="code-string">&quot;</span><span class="code-string">R&quot;</span>); 
+test1.Evaluate(<span class="code-string">&quot;</span><span class="code-string">x&lt;-rnorm(20)&quot;</span>); 
+test1.EvaluateNoReturn(<span class="code-string">&quot;</span><span class="code-string">hist(x)&quot;</span>);<span class="code-comment">//</span><span class="code-comment"> </span></pre>
+
+<p>The R graphics device populates its own dialog window with the histogram results. This nice feature automatically provides additional graphical resources and libraries for doing 2D and 3D charting. The dialog window permits the ability to save in a variety of graphics format, print, and save to the clipboard. Furthermore, you can examine the history and resize options. Again, refer to the R documentation for the necessary expressions and packages.</p>
+
+<div class="caption">Figure 2. Histogram of normal random numbers</div>
+
+<p><img height="637" hspace="0" src="RToCSharp/RHistogram.jpg" width="600" align="baseline" border="0" /></p>
+
+<p>As one can see, an understanding of the R language and the use of the bundled packages permit the opportunity to build a business forecasting or analytical application quickly. Download some stock data from Yahoo!, and throw it into SQL Express and use LINQ for the OEM, and reference the R COM component, download some packages, and forecast some stocks using the latest methods in time series analysis. This is the subject of Part II of the series.</p>
+
+<h2>Conclusion</h2>
+
+<p>Using the open source R statistical language is a good way to incorporate the latest statistical research into your business intelligence prototypes and applications, as it presents a low cost alternative for the development and implementation of statistical algorithms for predictive analytics not available in standard commercial packages. I have used R in this fashion for doing wavelet analysis for price analytics, watershed modeling for acid mine drainage, and for stochastic volatility modeling of stocks using Bayesian Markov Chain Monte Carlo (MCMC) techniques. In future articles, I plan to show how to build these types of applications in 3-4 hours of programming work.</p>
+
+<h2>References</h2>
+
+<ul>
+<li>Farnsworth, G.V. (2006), <a href="http://cran.r-project.org/doc/contrib/Farnsworth-EconometricsInR.pdf" target="_blank">Econometrics in R</a>.</li>
+
+<li>Fox, J. (2002), <em>An R and S-Plus Companion to Applied Regression</em>, Thousand Oaks, CA: Sage Publications.</li>
+</ul>
+
+
+
+
+
+
+
+<a name="_comments"></a><!-- Forum Start -->
+<table id="ForumTable" class="box theme3-background theme1-border fixed-layout tight" cellpadding="0" cellspacing="0">
+	<tr>
+		<td class="forum-header1 highlight"><b>You must <a href="/script/Membership/LogOn.aspx?rp=%2fKB%2fcs%2fRtoCSharp.aspx%3ffid%3d1285909%26df%3d90%26mpp%3d25%26noise%3d3%26sort%3dPosition%26view%3dQuick">Sign In</a> to use this message board.</b></td>
+	</tr><tr>
+		<td><table width="100%" border="0" cellpadding="3px" cellspacing="0">
+			<tr class="forum-header1">
+				<td width="100%">&nbsp;</td><td colspan="2" nowrap="nowrap" align="right"><form action="/script/Forums/Search.aspx?fid=0" method="get">
+					<input type="hidden" name="fid" value="1285909" /><input type="text" class="Frm_Input" name="kw" />&nbsp;<input type="submit" value="Search" name="FrmSrch" class="button" />
+				</form></td>
+			</tr><tr class="forum-header2">
+				<td colspan="3" width="100%"><div align="right">
+					<form action="/script/Forums/SetOptions.aspx?floc=%2fKB%2fcs%2fRtoCSharp.aspx&amp;fid=1285909&amp;df=90&amp;mpp=25&amp;noise=3&amp;sort=Position&amp;view=Quick" method="get">
+						<input type="hidden" name="fid" value="1285909" /><input type="hidden" name="currentQS" value="?floc=%2fKB%2fcs%2fRtoCSharp.aspx&amp;fid=1285909&amp;df=90&amp;mpp=25&amp;noise=3&amp;sort=Position&amp;view=Quick" /><input type="hidden" name="floc" value="/KB/cs/RtoCSharp.aspx" />Per page<select size="1" class="Frm_DropDown" name="mpp">
+							<option value="10">10</option><option selected value="25">25</option><option value="50">50</option>
+						</select>&nbsp;&nbsp;&nbsp;<input type="submit" value="Update" name="SetOpt" class="button" />
+					</form>
+				</div></td>
+			</tr>
+		</table></td>
+	</tr><tr>
+		<td><a name="xx0xx"></a><table border="0" cellpadding="2px" cellspacing="0" width="100%">
+			<tr class="forum-navbar">
+				<td>&nbsp;</td><td align="right" nowrap="nowrap"><span class="toolbar">First</span><span class="toolbar">Prev</span><span class="toolbar">Next</span></td>
+			</tr>
+		</table></td>
+	</tr><tr>
+		<td><table border="0" cellpadding="0" cellspacing="0" width="100%" class="fixed-layout blank-background">
+			<tr>
+				<td><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="5px" alt="" /></td>
+			</tr>
+<!-- Start Message head -->
+
+			<tr class="MsgHd LoVote Rt HdUnSel ">
+				<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="hover-row">
+						<td width="16px" class="Frm_MsgIndent"><a name="xx3079201xx"></a><img height="16px" width="16px" align="top" src="/script/Forums/Images/msg_general.gif" alt="General" /></td><td class="Frm_MsgSubject hover-container">Embed R plot in C# windows form<br />vats85</td><td class="Frm_MsgDate" valign="top" nowrap="nowrap">11:01 12 Jun '09 &nbsp;</td>
+					</tr>
+				</table></td>
+			</tr><!-- End Message head -->
+
+			<tr>
+				<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="Frm_MsgIndent" width="16"><img src="/script/Forums/Images/t.gif" height="1px" width="16px" alt="" /></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+							<tr>
+								<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">I am trying to embed R plots in a visual C# windows form, so that I can have some buttons, and by clicking them, I can plot the chart on that window itself. Do you guys think this is possible to do?<br /></td>
+									</tr><tr valign="middle">
+										<td class="msg-footer"><a class="toolbar" href="/script/Membership/LogOn.aspx?rp=%2fKB%2fcs%2fRtoCSharp.aspx">Sign In</a>·<a class="toolbar" href="/KB/cs/RtoCSharp.aspx?fid=1285909&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=3079201" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="/Messages/3079201/Embed-R-plot-in-Csharp-windows-form.aspx" title="Get permanent link">PermaLink</a></td><td class="msg-footer" align="right"><span id="MVF3079201">1.50/5 </span></td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table></td>
+			</tr><tr class="expanded">
+				<td class="msg-divide"><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="1px" alt="" /></td>
+			</tr>
+<!-- Start Message head -->
+
+			<tr class="MsgHd HdUnSel ">
+				<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="hover-row">
+						<td width="25px" class="Frm_MsgIndent"><a name="xx3123760xx"></a><img height="16px" width="16px" align="top" src="/script/Forums/Images/msg_general.gif" alt="General" /></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="3123760" href="/Messages/3123760/Re-Embed-R-plot-in-Csharp-windows-form.aspx">Re: Embed R plot in C# windows form</a><br />hhhaui</td><td class="Frm_MsgDate" valign="top" nowrap="nowrap">3:13 17 Jul '09 &nbsp;</td>
+					</tr>
+				</table></td>
+			</tr><!-- End Message head -->
+
+			<tr>
+				<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="Frm_MsgIndent" width="25"><img src="/script/Forums/Images/t.gif" height="1px" width="25px" alt="" /></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+							<tr>
+								<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">i have the same problem!~<br /></td>
+									</tr><tr valign="middle">
+										<td class="msg-footer"><a class="toolbar" href="/script/Membership/LogOn.aspx?rp=%2fKB%2fcs%2fRtoCSharp.aspx">Sign In</a>·<a class="toolbar" href="/KB/cs/RtoCSharp.aspx?fid=1285909&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=3079201" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="/Messages/3123760/Re-Embed-R-plot-in-Csharp-windows-form.aspx" title="Get permanent link">PermaLink</a></td><td class="msg-footer" align="right"><span id="MVF3123760"></span></td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table></td>
+			</tr><tr class="expanded">
+				<td class="msg-divide"><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="1px" alt="" /></td>
+			</tr>
+<!-- Start Message head -->
+
+			<tr class="MsgHd HdUnSel ">
+				<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="hover-row">
+						<td width="25px" class="Frm_MsgIndent"><a name="xx3280061xx"></a><img height="16px" width="16px" align="top" src="/script/Forums/Images/msg_general.gif" alt="General" /></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="3280061" href="/Messages/3280061/Re-Embed-R-plot-in-Csharp-windows-form.aspx">Re: Embed R plot in C# windows form</a><br />retool</td><td class="Frm_MsgDate" valign="top" nowrap="nowrap">9:07 21 Nov '09 &nbsp;</td>
+					</tr>
+				</table></td>
+			</tr><!-- End Message head -->
+
+			<tr>
+				<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="Frm_MsgIndent" width="25"><img src="/script/Forums/Images/t.gif" height="1px" width="25px" alt="" /></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+							<tr>
+								<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">If you can tolerate an indirect method you might try creating a pdf or jpeg then pulling that into the C# form. If you want to interact with the plot (using identify etc.) then you are probably stuck with directing the user to the window that R pops up.<br /></td>
+									</tr><tr valign="middle">
+										<td class="msg-footer"><a class="toolbar" href="/script/Membership/LogOn.aspx?rp=%2fKB%2fcs%2fRtoCSharp.aspx">Sign In</a>·<a class="toolbar" href="/KB/cs/RtoCSharp.aspx?fid=1285909&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=3079201" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="/Messages/3280061/Re-Embed-R-plot-in-Csharp-windows-form.aspx" title="Get permanent link">PermaLink</a></td><td class="msg-footer" align="right"><span id="MVF3280061"></span></td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table></td>
+			</tr><tr class="expanded">
+				<td class="root msg-divide"><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="1px" alt="" /></td>
+			</tr>
+<!-- Start Message head -->
+
+			<tr class="MsgHd Rt HdUnSel ">
+				<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="hover-row">
+						<td width="16px" class="Frm_MsgIndent"><a name="xx3052626xx"></a><img height="16px" width="16px" align="top" src="/script/Forums/Images/msg_news.gif" alt="News" /></td><td class="Frm_MsgSubject hover-container">rscproxy package<br />Will Beasley</td><td class="Frm_MsgDate" valign="top" nowrap="nowrap">18:15 23 May '09 &nbsp;</td>
+					</tr>
+				</table></td>
+			</tr><!-- End Message head -->
+
+			<tr>
+				<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="Frm_MsgIndent" width="16"><img src="/script/Forums/Images/t.gif" height="1px" width="16px" alt="" /></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+							<tr>
+								<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">I don't know if something has changed (like a newer version of the COM sever), but I needed to install the R package 'rscproxy'.  Otherwise, the sc1.Init("R") call would not work.  An explanation is given in <a href="http://joachimvandenbogaert.wordpress.com/2009/03/26/r-and-c-on-windows/">http://joachimvandenbogaert.wordpress.com/2009/03/26/r-and-c-on-windows/</a>[<a href="http://joachimvandenbogaert.wordpress.com/2009/03/26/r-and-c-on-windows/" target="_blank" title="New Window">^</a>].<br /><br />Thank you Jeff, this was a helpful article.<br />If it matters, I running R 2.9.0, DCOM2.0-1B5 (posted on CRAN on Nov 10, 2008), Vista Ultimate x64 Sp2, and C# VS2008 Sp1.<br /></td>
+									</tr><tr valign="middle">
+										<td class="msg-footer"><a class="toolbar" href="/script/Membership/LogOn.aspx?rp=%2fKB%2fcs%2fRtoCSharp.aspx">Sign In</a>·<a class="toolbar" href="/KB/cs/RtoCSharp.aspx?fid=1285909&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=3052626" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="/Messages/3052626/rscproxy-package.aspx" title="Get permanent link">PermaLink</a></td><td class="msg-footer" align="right"><span id="MVF3052626"></span></td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table></td>
+			</tr><tr class="expanded">
+				<td class="root msg-divide"><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="1px" alt="" /></td>
+			</tr>
+<!-- Start Message head -->
+
+			<tr class="MsgHd Rt HdUnSel ">
+				<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="hover-row">
+						<td width="16px" class="Frm_MsgIndent"><a name="xx2994198xx"></a><img height="16px" width="16px" align="top" src="/script/Forums/Images/msg_general.gif" alt="General" /></td><td class="Frm_MsgSubject hover-container">Passing data from C# into R<br />Tony4966</td><td class="Frm_MsgDate" valign="top" nowrap="nowrap">1:10 6 Apr '09 &nbsp;</td>
+					</tr>
+				</table></td>
+			</tr><!-- End Message head -->
+
+			<tr>
+				<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="Frm_MsgIndent" width="16"><img src="/script/Forums/Images/t.gif" height="1px" width="16px" alt="" /></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+							<tr>
+								<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">This is great work!<br />Very well explained...<br /><br />But I couldn't pass list/array from C# into R though I can pass an integer from C# into R using SetSymbol() function mentioned in the article.<br /><br />Does anyone know how to pass list and array from C# into R?<br /><br />For example, I have a list of double called MyList wihch is calculated in C# itself and I want to use R to plot MyList.<br /><br />Any help or comment will be appreciated!<br /><br />Thanks.<br /></td>
+									</tr><tr valign="middle">
+										<td class="msg-footer"><a class="toolbar" href="/script/Membership/LogOn.aspx?rp=%2fKB%2fcs%2fRtoCSharp.aspx">Sign In</a>·<a class="toolbar" href="/KB/cs/RtoCSharp.aspx?fid=1285909&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=2994198" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="/Messages/2994198/Passing-data-from-Csharp-into-R.aspx" title="Get permanent link">PermaLink</a></td><td class="msg-footer" align="right"><span id="MVF2994198">3.00/5 </span></td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table></td>
+			</tr><tr class="expanded">
+				<td class="root msg-divide"><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="1px" alt="" /></td>
+			</tr>
+<!-- Start Message head -->
+
+			<tr class="MsgHd HiVote Rt HdUnSel ">
+				<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="hover-row">
+						<td width="16px" class="Frm_MsgIndent"><a name="xx2811105xx"></a><img height="16px" width="16px" align="top" src="/script/Forums/Images/msg_general.gif" alt="General" /></td><td class="Frm_MsgSubject hover-container">I have it running :)<br />zacksz</td><td class="Frm_MsgDate" valign="top" nowrap="nowrap">7:46 18 Nov '08 &nbsp;</td>
+					</tr>
+				</table></td>
+			</tr><!-- End Message head -->
+
+			<tr>
+				<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="Frm_MsgIndent" width="16"><img src="/script/Forums/Images/t.gif" height="1px" width="16px" alt="" /></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+							<tr>
+								<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">I will put up a post later today with the bugs I have found they are all small things but I got it to work.<br /><br /><br />Zack<br /></td>
+									</tr><tr valign="middle">
+										<td class="msg-footer"><a class="toolbar" href="/script/Membership/LogOn.aspx?rp=%2fKB%2fcs%2fRtoCSharp.aspx">Sign In</a>·<a class="toolbar" href="/KB/cs/RtoCSharp.aspx?fid=1285909&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=2811105" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="/Messages/2811105/I-have-it-running.aspx" title="Get permanent link">PermaLink</a></td><td class="msg-footer" align="right"><span id="MVF2811105">5.00/5 </span></td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table></td>
+			</tr><tr class="expanded">
+				<td class="root msg-divide"><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="1px" alt="" /></td>
+			</tr>
+<!-- Start Message head -->
+
+			<tr class="MsgHd LoVote Rt HdUnSel ">
+				<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="hover-row">
+						<td width="16px" class="Frm_MsgIndent"><a name="xx2729637xx"></a><img height="16px" width="16px" align="top" src="/script/Forums/Images/msg_general.gif" alt="General" /></td><td class="Frm_MsgSubject hover-container">problem with code???<br />Ben Linnecar</td><td class="Frm_MsgDate" valign="top" nowrap="nowrap">5:04 18 Sep '08 &nbsp;</td>
+					</tr>
+				</table></td>
+			</tr><!-- End Message head -->
+
+			<tr>
+				<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="Frm_MsgIndent" width="16"><img src="/script/Forums/Images/t.gif" height="1px" width="16px" alt="" /></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+							<tr>
+								<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">Thanks for a useful article.  I have downloaded the R(D)COM server and R itself and most things are working well.  However, I am unable to use the command that you've given to read in data.  i.e. mydata=read.table('c:\\temp.dat').  If I enter the line in the R-Gui, the data is loaded fine, but I get a COM exception when I try to do it through COM in c# environment.  Any thoughts?<br /></td>
+									</tr><tr valign="middle">
+										<td class="msg-footer"><a class="toolbar" href="/script/Membership/LogOn.aspx?rp=%2fKB%2fcs%2fRtoCSharp.aspx">Sign In</a>·<a class="toolbar" href="/KB/cs/RtoCSharp.aspx?fid=1285909&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=2729637" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="/Messages/2729637/problem-with-code.aspx" title="Get permanent link">PermaLink</a></td><td class="msg-footer" align="right"><span id="MVF2729637">2.00/5 </span></td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table></td>
+			</tr><tr class="expanded">
+				<td class="msg-divide"><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="1px" alt="" /></td>
+			</tr>
+<!-- Start Message head -->
+
+			<tr class="MsgHd HdUnSel ">
+				<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="hover-row">
+						<td width="25px" class="Frm_MsgIndent"><a name="xx2733473xx"></a><img height="16px" width="16px" align="top" src="/script/Forums/Images/msg_general.gif" alt="General" /></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="2733473" href="/Messages/2733473/Re-problem-with-code.aspx">Re: problem with code???</a><br />dingyu</td><td class="Frm_MsgDate" valign="top" nowrap="nowrap">18:44 21 Sep '08 &nbsp;</td>
+					</tr>
+				</table></td>
+			</tr><!-- End Message head -->
+
+			<tr>
+				<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="Frm_MsgIndent" width="25"><img src="/script/Forums/Images/t.gif" height="1px" width="25px" alt="" /></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+							<tr>
+								<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">I met similar questions,My msn : dingzao2005@hotmail.com . Welcome farther discussion.<br /><img src="/script/Forums/Images/smiley_laugh.gif" align="top" alt="Laugh" /> <br /></td>
+									</tr><tr valign="middle">
+										<td class="msg-footer"><a class="toolbar" href="/script/Membership/LogOn.aspx?rp=%2fKB%2fcs%2fRtoCSharp.aspx">Sign In</a>·<a class="toolbar" href="/KB/cs/RtoCSharp.aspx?fid=1285909&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=2729637" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="/Messages/2733473/Re-problem-with-code.aspx" title="Get permanent link">PermaLink</a></td><td class="msg-footer" align="right"><span id="MVF2733473"></span></td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table></td>
+			</tr><tr class="expanded">
+				<td class="msg-divide"><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="1px" alt="" /></td>
+			</tr>
+<!-- Start Message head -->
+
+			<tr class="MsgHd HdUnSel ">
+				<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="hover-row">
+						<td width="25px" class="Frm_MsgIndent"><a name="xx3374813xx"></a><img height="16px" width="16px" align="top" src="/script/Forums/Images/msg_general.gif" alt="General" /></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="3374813" href="/Messages/3374813/Re-problem-with-code.aspx">Re: problem with code???</a><br />Member 3357848</td><td class="Frm_MsgDate" valign="top" nowrap="nowrap">5:46 19 Feb '10 &nbsp;</td>
+					</tr>
+				</table></td>
+			</tr><!-- End Message head -->
+
+			<tr>
+				<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="Frm_MsgIndent" width="25"><img src="/script/Forums/Images/t.gif" height="1px" width="25px" alt="" /></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+							<tr>
+								<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">My guess is that you should directly inject the R thru COM interface with C#'s objects. You are using the R COM interface to make this easier anyway.<br /></td>
+									</tr><tr valign="middle">
+										<td class="msg-footer"><a class="toolbar" href="/script/Membership/LogOn.aspx?rp=%2fKB%2fcs%2fRtoCSharp.aspx">Sign In</a>·<a class="toolbar" href="/KB/cs/RtoCSharp.aspx?fid=1285909&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=2729637" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="/Messages/3374813/Re-problem-with-code.aspx" title="Get permanent link">PermaLink</a></td><td class="msg-footer" align="right"><span id="MVF3374813"></span></td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table></td>
+			</tr><tr class="expanded">
+				<td class="root msg-divide"><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="1px" alt="" /></td>
+			</tr>
+<!-- Start Message head -->
+
+			<tr class="MsgHd Rt HdUnSel ">
+				<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="hover-row">
+						<td width="16px" class="Frm_MsgIndent"><a name="xx2626411xx"></a><img height="16px" width="16px" align="top" src="/script/Forums/Images/msg_general.gif" alt="General" /></td><td class="Frm_MsgSubject hover-container">Fully Utilize R Graphics in C# [modified]<br />OwenYangCS</td><td class="Frm_MsgDate" valign="top" nowrap="nowrap">13:43 6 Jul '08 &nbsp;</td>
+					</tr>
+				</table></td>
+			</tr><!-- End Message head -->
+
+			<tr>
+				<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="Frm_MsgIndent" width="16"><img src="/script/Forums/Images/t.gif" height="1px" width="16px" alt="" /></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+							<tr>
+								<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">First of all, this is an awesome and decent article to equip C# with the powerful R engine! I really appreciate your clearly sharing helpful knowledge with us. <img src="/script/Forums/Images/smiley_smile.gif" align="top" alt="Smile" />  This is especailly useful for me since it provides an alternative to matlab engine plus the better compatibility with C#. Most important, matlab is not free or available in every machine.<br /><br />However, there is a pity I can't overcome in R Graphics. In the example you provide, R graphics will pop out a completely seperate window, which is a little bit annoying when you have many plots to align. Besides, these plots lost the benefits of integration with C# interface, which is what we intend to have. <br /><br />Based on my search, there is a possible solution to this problem. However, it simply copys the R graphic as an image file into clipboard and then pastes to C# window. In this way, we will lose many nice features, such as resolution, resizing font, and many functionalities (especailly for 3-D plot) provided by R graphics. <br /><br />I hope I can make it short but I think reporting to you the motication and what I found so far on this topic is necessary. If possible, would you please give me a hand on this issue? Even a hint would be very much appreciated. I know you must be very busy. <img src="/script/Forums/Images/smiley_smile.gif" align="top" alt="Smile" /> <br /><br />If you prefer to talk about this in private, please use: owenyang AT gmail DOT com<br /><br />Best regards, <br /><br /><div class="ForumMod">modified on Sunday, July 6, 2008 7:25 PM</div><br /></td>
+									</tr><tr valign="middle">
+										<td class="msg-footer"><a class="toolbar" href="/script/Membership/LogOn.aspx?rp=%2fKB%2fcs%2fRtoCSharp.aspx">Sign In</a>·<a class="toolbar" href="/KB/cs/RtoCSharp.aspx?fid=1285909&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=2626411" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="/Messages/2626411/Fully-Utilize-R-Graphics-in-Csharp-modified.aspx" title="Get permanent link">PermaLink</a></td><td class="msg-footer" align="right"><span id="MVF2626411">4.20/5 </span></td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table></td>
+			</tr><tr class="expanded">
+				<td class="root msg-divide"><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="1px" alt="" /></td>
+			</tr>
+<!-- Start Message head -->
+
+			<tr class="MsgHd LoVote Rt HdUnSel ">
+				<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="hover-row">
+						<td width="16px" class="Frm_MsgIndent"><a name="xx2603593xx"></a><img height="16px" width="16px" align="top" src="/script/Forums/Images/msg_general.gif" alt="General" /></td><td class="Frm_MsgSubject hover-container">Nice Article<br />SatheeshV</td><td class="Frm_MsgDate" valign="top" nowrap="nowrap">19:24 18 Jun '08 &nbsp;</td>
+					</tr>
+				</table></td>
+			</tr><!-- End Message head -->
+
+			<tr>
+				<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="Frm_MsgIndent" width="16"><img src="/script/Forums/Images/t.gif" height="1px" width="16px" alt="" /></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+							<tr>
+								<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">Very good article.<br /><br />Eager to read the Part II<br />(Jeff B. Cromwell: Download some stock data from yahoo and throw it into SQL Express and use LINQ for the OEM and reference the R COM component download some packages and forecast some stocks using the latest methods in time series analysis. This is the subject of Part II of the series.)<br /></td>
+									</tr><tr valign="middle">
+										<td class="msg-footer"><a class="toolbar" href="/script/Membership/LogOn.aspx?rp=%2fKB%2fcs%2fRtoCSharp.aspx">Sign In</a>·<a class="toolbar" href="/KB/cs/RtoCSharp.aspx?fid=1285909&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=2603593" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="/Messages/2603593/Nice-Article.aspx" title="Get permanent link">PermaLink</a></td><td class="msg-footer" align="right"><span id="MVF2603593">2.33/5 </span></td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table></td>
+			</tr><tr class="expanded">
+				<td class="msg-divide"><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="1px" alt="" /></td>
+			</tr>
+<!-- Start Message head -->
+
+			<tr class="MsgHd HdUnSel ">
+				<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="hover-row">
+						<td width="25px" class="Frm_MsgIndent"><a name="xx2733479xx"></a><img height="16px" width="16px" align="top" src="/script/Forums/Images/msg_general.gif" alt="General" /></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="2733479" href="/Messages/2733479/Re-Nice-Article.aspx">Re: Nice Article</a><br />dingyu</td><td class="Frm_MsgDate" valign="top" nowrap="nowrap">18:53 21 Sep '08 &nbsp;</td>
+					</tr>
+				</table></td>
+			</tr><!-- End Message head -->
+
+			<tr>
+				<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="Frm_MsgIndent" width="25"><img src="/script/Forums/Images/t.gif" height="1px" width="25px" alt="" /></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+							<tr>
+								<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">I met some application questions,My msn : dingzao2005@hotmail.com . Welcome farther discussion.<br /></td>
+									</tr><tr valign="middle">
+										<td class="msg-footer"><a class="toolbar" href="/script/Membership/LogOn.aspx?rp=%2fKB%2fcs%2fRtoCSharp.aspx">Sign In</a>·<a class="toolbar" href="/KB/cs/RtoCSharp.aspx?fid=1285909&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=2603593" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="/Messages/2733479/Re-Nice-Article.aspx" title="Get permanent link">PermaLink</a></td><td class="msg-footer" align="right"><span id="MVF2733479"></span></td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table></td>
+			</tr><tr class="expanded">
+				<td class="root msg-divide"><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="1px" alt="" /></td>
+			</tr>
+<!-- Start Message head -->
+
+			<tr class="MsgHd Rt HdUnSel ">
+				<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="hover-row">
+						<td width="16px" class="Frm_MsgIndent"><a name="xx2591503xx"></a><img height="16px" width="16px" align="top" src="/script/Forums/Images/msg_general.gif" alt="General" /></td><td class="Frm_MsgSubject hover-container">GGobi and C#<br />Xiuzhan</td><td class="Frm_MsgDate" valign="top" nowrap="nowrap">13:03 10 Jun '08 &nbsp;</td>
+					</tr>
+				</table></td>
+			</tr><!-- End Message head -->
+
+			<tr>
+				<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="Frm_MsgIndent" width="16"><img src="/script/Forums/Images/t.gif" height="1px" width="16px" alt="" /></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+							<tr>
+								<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">Hi Jeff,<br />I tried to use GGobi with C# but it seems not work well (in most cases not reponding).<br />I was wondering if you use GGobi with C# through R (D)Com. Thanks.<br />-james <br /></td>
+									</tr><tr valign="middle">
+										<td class="msg-footer"><a class="toolbar" href="/script/Membership/LogOn.aspx?rp=%2fKB%2fcs%2fRtoCSharp.aspx">Sign In</a>·<a class="toolbar" href="/KB/cs/RtoCSharp.aspx?fid=1285909&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=2591503" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="/Messages/2591503/GGobi-and-Csharp.aspx" title="Get permanent link">PermaLink</a></td><td class="msg-footer" align="right"><span id="MVF2591503"></span></td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table></td>
+			</tr><tr class="expanded">
+				<td class="msg-divide"><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="1px" alt="" /></td>
+			</tr>
+<!-- Start Message head -->
+
+			<tr class="MsgHd HdUnSel ">
+				<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="hover-row">
+						<td width="25px" class="Frm_MsgIndent"><a name="xx2733483xx"></a><img height="16px" width="16px" align="top" src="/script/Forums/Images/msg_general.gif" alt="General" /></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="2733483" href="/Messages/2733483/Re-GGobi-and-Csharp.aspx">Re: GGobi and C#</a><br />dingyu</td><td class="Frm_MsgDate" valign="top" nowrap="nowrap">18:58 21 Sep '08 &nbsp;</td>
+					</tr>
+				</table></td>
+			</tr><!-- End Message head -->
+
+			<tr>
+				<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="Frm_MsgIndent" width="25"><img src="/script/Forums/Images/t.gif" height="1px" width="25px" alt="" /></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+							<tr>
+								<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">I met similar questions,My msn : dingzao2005@hotmail.com . Welcome farther discussion.<br /></td>
+									</tr><tr valign="middle">
+										<td class="msg-footer"><a class="toolbar" href="/script/Membership/LogOn.aspx?rp=%2fKB%2fcs%2fRtoCSharp.aspx">Sign In</a>·<a class="toolbar" href="/KB/cs/RtoCSharp.aspx?fid=1285909&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=2591503" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="/Messages/2733483/Re-GGobi-and-Csharp.aspx" title="Get permanent link">PermaLink</a></td><td class="msg-footer" align="right"><span id="MVF2733483">3.00/5 </span></td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table></td>
+			</tr><tr class="expanded">
+				<td class="root msg-divide"><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="1px" alt="" /></td>
+			</tr>
+<!-- Start Message head -->
+
+			<tr class="MsgHd LoVote Rt HdUnSel ">
+				<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="hover-row">
+						<td width="16px" class="Frm_MsgIndent"><a name="xx2550988xx"></a><img height="16px" width="16px" align="top" src="/script/Forums/Images/msg_general.gif" alt="General" /></td><td class="Frm_MsgSubject hover-container">Please fix article and links<br />Helmut Zahi</td><td class="Frm_MsgDate" valign="top" nowrap="nowrap">8:03 13 May '08 &nbsp;</td>
+					</tr>
+				</table></td>
+			</tr><!-- End Message head -->
+
+			<tr>
+				<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="Frm_MsgIndent" width="16"><img src="/script/Forums/Images/t.gif" height="1px" width="16px" alt="" /></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+							<tr>
+								<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">Hi,<br /><br />Thank you for providing this article. This is an interesting topic and I look forward to your articles. However, I have a couple of issues: <br /><br />"The COM server can be downloaded from http://cran.rproject.org/contrib/extra/dcom/ and some examples are provided for use. Once installed, you can add the following COM references to your C#.NET project."<br /><br />1. It does not work. After installing the server and adding the using directives, you will get an error. Please describe the steps you took to get a running program.<br /><br />2. Wrong URL<br />The domain is r-project.org, not rproject.org.<br /><br />3. Wrong URL<br />"References<br /><br />Farnsworth, G.V. (2006), Econometrics in R. http://cran.hostingzero .com/ doc/ contrib/F arnsworth- EconometricsInR. pdf"<br /><br />Again, this is not a valid URL for the reference. It is also r-project.org<br /><br />4. No source code.<br />It would be if you provide source project files / source code <br /><br />It would be great, if you could fix these issues.<br /><br />Helmut <br /></td>
+									</tr><tr valign="middle">
+										<td class="msg-footer"><a class="toolbar" href="/script/Membership/LogOn.aspx?rp=%2fKB%2fcs%2fRtoCSharp.aspx">Sign In</a>·<a class="toolbar" href="/KB/cs/RtoCSharp.aspx?fid=1285909&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=2550988" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="/Messages/2550988/Please-fix-article-and-links.aspx" title="Get permanent link">PermaLink</a></td><td class="msg-footer" align="right"><span id="MVF2550988">1.50/5 </span></td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table></td>
+			</tr><tr class="expanded">
+				<td class="msg-divide"><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="1px" alt="" /></td>
+			</tr>
+<!-- Start Message head -->
+
+			<tr class="MsgHd LoVote HdUnSel ">
+				<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="hover-row">
+						<td width="25px" class="Frm_MsgIndent"><a name="xx2552602xx"></a><img height="16px" width="16px" align="top" src="/script/Forums/Images/msg_general.gif" alt="General" /></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="2552602" href="/Messages/2552602/Re-Please-fix-article-and-links.aspx">Re: Please fix article and links</a><br />Jeff B. Cromwell</td><td class="Frm_MsgDate" valign="top" nowrap="nowrap">5:25 14 May '08 &nbsp;</td>
+					</tr>
+				</table></td>
+			</tr><!-- End Message head -->
+
+			<tr>
+				<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="Frm_MsgIndent" width="25"><img src="/script/Forums/Images/t.gif" height="1px" width="25px" alt="" /></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+							<tr>
+								<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">Thanks for your comments.  Issues (1)-(3) have been adressed and (4) shortly. <br /></td>
+									</tr><tr valign="middle">
+										<td class="msg-footer"><a class="toolbar" href="/script/Membership/LogOn.aspx?rp=%2fKB%2fcs%2fRtoCSharp.aspx">Sign In</a>·<a class="toolbar" href="/KB/cs/RtoCSharp.aspx?fid=1285909&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=2550988" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="/Messages/2552602/Re-Please-fix-article-and-links.aspx" title="Get permanent link">PermaLink</a></td><td class="msg-footer" align="right"><span id="MVF2552602">2.00/5 </span></td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table></td>
+			</tr><tr class="expanded">
+				<td class="msg-divide"><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="1px" alt="" /></td>
+			</tr>
+<!-- Start Message head -->
+
+			<tr class="MsgHd HdUnSel ">
+				<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="hover-row">
+						<td width="34px" class="Frm_MsgIndent"><a name="xx2726330xx"></a><img height="16px" width="16px" align="top" src="/script/Forums/Images/msg_general.gif" alt="General" /></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="2726330" href="/Messages/2726330/Re-Please-fix-article-and-links.aspx">Re: Please fix article and links</a><br />Elcaro12345</td><td class="Frm_MsgDate" valign="top" nowrap="nowrap">8:37 16 Sep '08 &nbsp;</td>
+					</tr>
+				</table></td>
+			</tr><!-- End Message head -->
+
+			<tr>
+				<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="Frm_MsgIndent" width="34"><img src="/script/Forums/Images/t.gif" height="1px" width="34px" alt="" /></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+							<tr>
+								<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">This is great stuff. But i still could not get my first simple test run.<br /><br />I got this error message :internal error: unsupported data format passed to interpreter<br />in method SetSymbol. <br /><br />Could you please shed some light on what could be wrong. Thanks.<br /></td>
+									</tr><tr valign="middle">
+										<td class="msg-footer"><a class="toolbar" href="/script/Membership/LogOn.aspx?rp=%2fKB%2fcs%2fRtoCSharp.aspx">Sign In</a>·<a class="toolbar" href="/KB/cs/RtoCSharp.aspx?fid=1285909&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=2550988" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="/Messages/2726330/Re-Please-fix-article-and-links.aspx" title="Get permanent link">PermaLink</a></td><td class="msg-footer" align="right"><span id="MVF2726330"></span></td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table></td>
+			</tr><tr class="expanded">
+				<td class="msg-divide"><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="1px" alt="" /></td>
+			</tr>
+<!-- Start Message head -->
+
+			<tr class="MsgHd HdUnSel ">
+				<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="hover-row">
+						<td width="43px" class="Frm_MsgIndent"><a name="xx2726378xx"></a><img height="16px" width="16px" align="top" src="/script/Forums/Images/msg_general.gif" alt="General" /></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="2726378" href="/Messages/2726378/Re-Please-fix-article-and-links.aspx">Re: Please fix article and links</a><br />Elcaro12345</td><td class="Frm_MsgDate" valign="top" nowrap="nowrap">9:13 16 Sep '08 &nbsp;</td>
+					</tr>
+				</table></td>
+			</tr><!-- End Message head -->
+
+			<tr>
+				<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="Frm_MsgIndent" width="43"><img src="/script/Forums/Images/t.gif" height="1px" width="43px" alt="" /></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+							<tr>
+								<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">OK. I guess that I need to install 1.35 instead of 2.50 since my R is version 2.0.1.<br /><br />Here is the sample code working for me.<br /><br />            Double[] o1;<br />            int n = 20;<br />            <br />            StatConnector sc1 = new StatConnectorClass();<br />            sc1.Init("R");<br />            sc1.SetSymbol("n", n);<br /><br />            sc1.Evaluate("x&lt;-rnorm(n)");<br />            o1 = (Double[]) sc1.GetSymbol("x");<br />                <br />            double d = o1[0];          <br /><br />            ms_logger.Debug("Random from R : " + d);<br /></td>
+									</tr><tr valign="middle">
+										<td class="msg-footer"><a class="toolbar" href="/script/Membership/LogOn.aspx?rp=%2fKB%2fcs%2fRtoCSharp.aspx">Sign In</a>·<a class="toolbar" href="/KB/cs/RtoCSharp.aspx?fid=1285909&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=2550988" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="/Messages/2726378/Re-Please-fix-article-and-links.aspx" title="Get permanent link">PermaLink</a></td><td class="msg-footer" align="right"><span id="MVF2726378">3.00/5 </span></td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table></td>
+			</tr><tr class="expanded">
+				<td class="msg-divide"><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="1px" alt="" /></td>
+			</tr>
+<!-- Start Message head -->
+
+			<tr class="MsgHd HdUnSel ">
+				<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="hover-row">
+						<td width="52px" class="Frm_MsgIndent"><a name="xx2733482xx"></a><img height="16px" width="16px" align="top" src="/script/Forums/Images/msg_general.gif" alt="General" /></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="2733482" href="/Messages/2733482/Re-Please-fix-article-and-links.aspx">Re: Please fix article and links</a><br />dingyu</td><td class="Frm_MsgDate" valign="top" nowrap="nowrap">18:56 21 Sep '08 &nbsp;</td>
+					</tr>
+				</table></td>
+			</tr><!-- End Message head -->
+
+			<tr>
+				<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="Frm_MsgIndent" width="52"><img src="/script/Forums/Images/t.gif" height="1px" width="52px" alt="" /></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+							<tr>
+								<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">I met some similar questions. My msn: dingzao2005@hotmail.com  .Welcome farther discussion.<br /></td>
+									</tr><tr valign="middle">
+										<td class="msg-footer"><a class="toolbar" href="/script/Membership/LogOn.aspx?rp=%2fKB%2fcs%2fRtoCSharp.aspx">Sign In</a>·<a class="toolbar" href="/KB/cs/RtoCSharp.aspx?fid=1285909&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=2550988" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="/Messages/2733482/Re-Please-fix-article-and-links.aspx" title="Get permanent link">PermaLink</a></td><td class="msg-footer" align="right"><span id="MVF2733482">4.00/5 </span></td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table></td>
+			</tr><tr class="expanded">
+				<td class="root msg-divide"><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="1px" alt="" /></td>
+			</tr>
+<!-- Start Message head -->
+
+			<tr class="MsgHd Rt HdUnSel ">
+				<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="hover-row">
+						<td width="16px" class="Frm_MsgIndent"><a name="xx2546894xx"></a><img height="16px" width="16px" align="top" src="/script/Forums/Images/msg_general.gif" alt="General" /></td><td class="Frm_MsgSubject hover-container">Missing Link<br />ctorob</td><td class="Frm_MsgDate" valign="top" nowrap="nowrap">3:03 10 May '08 &nbsp;</td>
+					</tr>
+				</table></td>
+			</tr><!-- End Message head -->
+
+			<tr>
+				<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="Frm_MsgIndent" width="16"><img src="/script/Forums/Images/t.gif" height="1px" width="16px" alt="" /></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+							<tr>
+								<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">Interesting post.  Is there an associated project to download?  I did not see it. <br /><br /><div class="ForumSig">ctorob</div><br /></td>
+									</tr><tr valign="middle">
+										<td class="msg-footer"><a class="toolbar" href="/script/Membership/LogOn.aspx?rp=%2fKB%2fcs%2fRtoCSharp.aspx">Sign In</a>·<a class="toolbar" href="/KB/cs/RtoCSharp.aspx?fid=1285909&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=2546894" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="/Messages/2546894/Missing-Link.aspx" title="Get permanent link">PermaLink</a></td><td class="msg-footer" align="right"><span id="MVF2546894"></span></td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table></td>
+			</tr><tr class="expanded">
+				<td class="root msg-divide"><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="1px" alt="" /></td>
+			</tr>
+<!-- Start Message head -->
+
+			<tr class="MsgHd Rt HdUnSel ">
+				<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="hover-row">
+						<td width="16px" class="Frm_MsgIndent"><a name="xx2537682xx"></a><img height="16px" width="16px" align="top" src="/script/Forums/Images/msg_general.gif" alt="General" /></td><td class="Frm_MsgSubject hover-container">just great<br />mariahayek</td><td class="Frm_MsgDate" valign="top" nowrap="nowrap">13:00 5 May '08 &nbsp;</td>
+					</tr>
+				</table></td>
+			</tr><!-- End Message head -->
+
+			<tr>
+				<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="Frm_MsgIndent" width="16"><img src="/script/Forums/Images/t.gif" height="1px" width="16px" alt="" /></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+							<tr>
+								<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">just a great post, thank you very much..<br /><a href="http://station4web.com/" font="" style="font-size:1pt;" title="station4web" target="_blank">b</a><a href="http://supportinglinks.com/" font="" style="font-size:1pt;" title="supportinglinks" target="_blank">b</a><a href="http://lordoflinks.net/" font="" style="font-size:1pt;" title="lordoflinks" target="_blank">b</a><a href="http://coco4info.com/" font="" style="font-size:1pt;" title="coco4info" target="_blank">b</a><a href="http://directoriest.com/" font="" style="font-size:1pt;" title="directoriest" target="_blank">b</a> <br /></td>
+									</tr><tr valign="middle">
+										<td class="msg-footer"><a class="toolbar" href="/script/Membership/LogOn.aspx?rp=%2fKB%2fcs%2fRtoCSharp.aspx">Sign In</a>·<a class="toolbar" href="/KB/cs/RtoCSharp.aspx?fid=1285909&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=2537682" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="/Messages/2537682/just-great.aspx" title="Get permanent link">PermaLink</a></td><td class="msg-footer" align="right"><span id="MVF2537682"></span></td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table></td>
+			</tr><tr>
+				<td><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="5px" alt="" /></td>
+			</tr>
+		</table></td>
+	</tr><tr>
+		<td><table width="100%" cellpadding="2px" cellspacing="0">
+			<tr class="forum-footer">
+				<td>Last Visit: 4:31 14 Mar '10  &nbsp; &nbsp; Last Update: 4:31 14 Mar '10 </td><td align="right" nowrap="nowrap"><input id="_mbnUrl" type="hidden" value="/KB/cs/RtoCSharp.aspx?fid=1285909&amp;df=90&amp;mpp=25&amp;noise=3&amp;sort=Position&amp;view=Quick&amp;fr=22" /><b>1</b></td>
+			</tr>
+		</table></td>
+	</tr>
+</table><p class="small-text"></p>
+<!-- Forum End -->
+
+
+
+
+<br />
+
+
+
+<div class="tiny-text">
+<span id="ctl01_LastUpdatedLabel">Last Updated 14 May 2008</span> | 
+<a id="ctl01_AdvertiseLink" href="/info/MediaKit.aspx">Advertise</a> | 
+<a id="ctl01_PrivacyLink" href="/info/privacy.aspx">Privacy</a> |
+<a id="ctl01_TermsOfUseLink" href="/info/TermsOfUse.aspx">Terms of Use</a> |
+Copyright &copy; <a href="mailto:webmaster@codeproject.com">CodeProject</a>, 1999-2010 
+</div>
+
+
+
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+if (typeof(_gat) != "undefined" && _gat)
+{ 
+	var pageTracker = _gat._getTracker("UA-1735123-1");
+	pageTracker._setDomainName("www.codeproject.com");
+	pageTracker._setSessionTimeout("1200"); // 20 mins
+	pageTracker._initData();
+	pageTracker._trackPageview();
+}
+</script>
+</body>
+</html>

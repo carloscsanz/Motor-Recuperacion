@@ -1,0 +1,489 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Judy's XHTML Tutorial</title>
+<link href="tutorial.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+<h2>XHTML Tutorial</h2>
+<p style="text-align:center">Created by  Judy Jacobs Miller for ITE 115 at Northern Virginia Community College<br />
+Comments to <a href="mailto:jumiller@nvcc.edu">jumiller@nvcc.edu</a><br />
+Alternative design by <a href="http://novaonline.nvcc.edu/Descriptions/ite115mr/tutorial/start.html">Rong Zhu</a> for ELI students <br />
+Last updated January 19, 2010</p>
+<ol>
+  <li><a href="#getting_started">Getting Started</a></li>
+  <li><a href="#first">Creating your first web page</a></li>
+  <li><a href="#naming">Naming your web page</a> </li>
+  <li><a href="#viewing">Viewing your web page in the browser</a> </li>
+  <li><a href="#revising">Revising your web page</a> </li>
+  <li><a href="#validation">Validation</a></li>
+  <li><a href="#ftp">FTPing to the server</a> </li>
+  <li><a href="#linking"></a><a href="#linking">Linking</a></li>
+  <li><a href="#images">Images</a></li>
+  <li><a href="#lists">Lists</a></li>
+  <li><a href="#styling">Styling</a></li>
+  <li><a href="#embedded">Embedded CSS</a> </li>
+  <li><a href="#external">External CSS</a></li>
+  <li><a href="#tables">Tables</a></li>
+  <li><a href="#summary">Summary</a></li>
+</ol>
+<h3>Getting Started <a name="getting_started" id="getting_started"></a></h3>
+<p>So you want to make a web site. It's easy. You don't need any fancy software. Just a computer and you're set. The software you will use is already on most computers that are sold today. So what do we need? </p>
+<ol><li>A text editor </li>
+  <li>A browser</li>
+</ol>
+<p>A text editor is a program that let's you write text. Actually, ASCII text. What's ASCII text? Basically, the characters on your keyboard. On Windows computers the text editor program is called Notepad. You open it up by selecting: Start &gt; Programs &gt; Accessories &gt; Notepad. Don't confuse a text editor with a word processor. Using a word processor, like Word Pad or Word, will mess you up. Be sure you use Notepad.</p>
+<p>A browser is software that let's you view a web page. It takes what's written on Notepad and interprets it. The browser shows you all the formatting; it's what makes the page look pretty, or ugly, or whatever. There are lots of browsers. Two popular browsers are Internet Explorer and Firefox. To open a browser, either double click on the browser icon on your desktop, or select Start &gt; Programs &gt; Internet Explorer (or Firefox). </p>
+<p>Let's do a little experiment. Open a web page, say <a href="http://www.amazon.com/">http://www.amazon.com</a>. Now that you have Amazon open, right-click on the web page and choose &quot;View Source&quot; or &quot;View Page Source.&quot; . What do you see? Lots of XHTML code. Don't worry if it looks a little complicated.  It's really pretty easy. You'll make a web page in less than an hour. Just keep reading. </p>
+<p>So what have we learned? You create a web page using Notepad. You view a web page using a browser. Lets make a web page!</p>
+<h3>Creating Your  First Web Page  <a name="first" id="first"></a></h3>
+<p>The best way to make a web page is to just dive right in. Open Notepad (Start &gt; Programs &gt; Accessories &gt; Notepad) and start typing (or if you're lazy, like me, just copy and paste): </p>
+<table class="notepad_table">
+  <tr>
+    <td class="notepad_td"><p>&lt;html&gt;</p>
+      <p>&lt;head&gt;<br />
+        &lt;title&gt;The title goes here&lt;/title&gt;<br />
+        &lt;/head&gt;</p>
+      <p>&lt;body&gt;</p>
+      <p>&lt;h1&gt;This is a level one heading&lt;/h1&gt;</p>
+      <p>&lt;p&gt;My first lovely paragraph. Wow. This is fun.&lt;/p&gt;</p>
+      <p>&lt;p&gt;My second lovely paragraph. We can make paragraphs forever.&lt;/p&gt;</p>
+      <p>&lt;h2&gt;This is a level two heading&lt;/h2&gt;</p>
+      <p>&lt;p&gt;This is my third paragraph. Notice how the paragraph tag sets off the text. Also notice that every beginning tag has an ending tag.&lt;/p&gt; </p>
+      <p>&lt;/body&gt;</p>
+    <p>&lt;/html&gt;</p></td>
+  </tr>
+</table>
+<p>What does all this mean? The stuff between the &lt; and the &gt; symbols are &quot;tags.&quot; Tags (mostly) come in pairs, a beginning tag and an ending tag. The ending tag repeats the beginning tag, with a forward slash in it. For example, the web page starts with &lt;html&gt; and ends with &lt;/html&gt;.</p>
+<p>Each web page has two parts:</p>
+<ol>
+  <li>The head, which begins with &lt;head&gt; and ends with &lt;/head&gt;, and</li>
+  <li>The body, which begins with &lt;body&gt; and ends with &lt;/body&gt;</li>
+</ol>
+<p>Beginning to get the idea? It's easy.</p>
+<p>So what goes in the head? The title. The title is what appears at the top of the browser, in the blue &quot;title bar.&quot; Everything else goes in the body, that is, between the body tags.</p>
+<p>Most of what you have to say goes in paragraphs, just like in real life. A paragraph starts with &lt;p&gt; and ends with &lt;/p&gt;. You can also put stuff between heading tags, which come in various sizes, from &lt;h1&gt;, &lt;h2&gt;, ... through &lt;h6&gt;. Headings are usually used for, well, headings. The &lt;h1&gt; heading will make text bold and large. &lt;h2&gt; is a little smaller, and so forth. &lt;h6&gt; headings are quite small. Now, it may seem like a heading tag would go in the head, but it doesn't. Headings go in the body, just like everything else (except the title). </p>
+<p>After you create the web page, you must name it and save it. Naming a web page the right way is critical, so we devote a whole section to naming. Read on.</p>
+<h3>Naming Your Page<a name="naming" id="naming"></a></h3>
+<p>Before you name your web page, create a folder to hold all of your web pages. The folder can be anywhere ( a: drive, c: drive, flash drive), it doesn't mater. Just be sure you know where it is so you can find it again. Name the folder &quot;website&quot;. Now you can save the text file that you just created using Notepad in the folder called &quot;website.&quot; As you save the text file, name it &quot;first.html&quot;. </p>
+<p>Naming a web page correctly is easy if you follow these three rules:</p>
+<ol>
+  <li>No spaces</li>
+  <li>No capitals</li>
+  <li>The file extension is .html (that's dot html)</li>
+</ol>
+<p>If you want to know the why behind these rules, read on.</p>
+<p>Spaces  in filenames can confuse browsers and email programs. Browsers usually substitute &quot;%20&quot; for a space. Email programs sometimes cut off URLs after a space. If you want to use a space for clarity, use an underscore instead. For example,  &quot;onion recipe.html&quot; becomes &quot;onion_recipe.html&quot;</p>
+<p>Capitals matter. You're probably creating your first web page in a Windows operating system environment. If so, Windows is pretty lax about file names. But once you're done creating your page, and you upload it to a server (so that Aunt Tilly in Iowa can see it), the server may be using an entirely different operating system, like Unix or Linux. Unix and Linux care about capitals. MyFile.htm is a totally different file than myfile.htm in a Unix or Linux environment. You can use capitals in your file names,  but when you create your links (which we'll get to real soon), they won't work if your link file name doesn't match your actual file name.  If you use all lowercase, you don't have to try to remember &quot;Did I use a capital or not?&quot;</p>
+<p>File extensions. Extensions matter. Your web page extension must be either .htm or .html. It doesn't matter which, but you've got to be consistent. If you create a link to myfile.html and the page is named myfile.htm, the link  won't work.</p>
+<p>Ok, now that we've saved our first web page with the name &quot;first.html&quot; let's take a look at it in the browser. </p>
+<h3>Viewing Your Web Page in a Browser<a name="viewing" id="viewing"></a></h3>
+<p>Now that we've created our web page with Notepad, and saved it as &quot;first.html&quot;, we want to see what it looks like in the browser. The easiest way to open a webpage in a browser is to double-click on the filename in &quot;Windows Explorer&quot; or &quot;My Computer.&quot; You can also right-click the name of the file, then choose either &quot;Firefox&quot; or &quot;Internet Explorer.&quot;</p>
+<p>There, you've done it. You've made your first web page, and viewed it in the browser. Don't worry, we'll soon learn how to jazz it up.</p>
+<h3>Revising Your Web Page<a name="revising" id="revising"></a></h3>
+<p>Ok, your page is a bit boring. For example, the title bar says &quot;The title goes here.&quot; Let's put in a better title. Go back to Notepad. You've still got your web page open in Notepad, don't you? If not, don't worry. Just open the webpage in notepad to see the html code. The easiest way to open the webpage in notepad is to right-click on the filename in &quot;Windows Explorer&quot; or &quot;My Computer,&quot;  then choose Open With &gt; Notepad. If you are using Internet Explorer, you can also right-click on the webpage and choose View &gt; Source to view the code in Notepad. (This won't work in Firefox.)</p>
+<p>Now change the title to something good, like &quot;Marvin's awesome first page&quot;, or whatever. If you're not Marvin you might want to change the name. Also, change the level one heading (that's the stuff between the beginning &lt;h1&gt; tag and the ending &lt;/h1&gt; tag) to something better. Maybe &quot;Marvin Rocks&quot; or whatever. </p>
+<p>Now you've made the changes in Notepad. But you don't see &quot;Marvin Rocks&quot; in your browser. There are two things you have to do to make the changes in Notepad show up in the browser. </p>
+<ol>
+  <li>Do a &quot;File &gt; Save&quot; in Notepad</li>
+  <li>Hit the &quot;refresh&quot; or &quot;reload&quot; button on your browser</li>
+</ol>
+<p>Awesome. You did it. You made your first web page.</p>
+<h3>Validation<a name="validation" id="validation"></a></h3>
+<p>You may think that if your web page shows up in the browser, the code is correct. Not so. Browser software is designed to attempt to correct coding errors. Incorrect code may  appear the way you intended in one browser, may appear odd in another browser, and may not appear at all in a third browser.</p>
+<p>There's an easy way to find out if your code is correct. Validate! The World Wide Web Consortium offers a nifty validator. It's at <a href="http://validator.w3.org/">http://validator.w3.org/</a>. Now, there's one little catch. You have to tell the validator what version of xhtml you're using, so it knows what to validate. That's easy, just add a DOCTYPE at the top of your web page. You've also got to add some namespace and character encoding information. Well, all this technical stuff is beyond me, so I just copy and paste.</p>
+<table class="notepad_table">
+  <tr>
+    <td class="notepad_td"><p><strong>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;</strong></p>
+<p><strong>&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; xml:lang=&quot;en&quot; lang=&quot;en&quot;&gt;</strong></p>
+      <p>&lt;head&gt;<br />
+        <strong>&lt;meta http-equiv=&quot;Content-type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;</strong> <br />
+        &lt;title&gt;The title goes here&lt;/title&gt;<br />
+        &lt;/head&gt;<br />
+      </p>
+<p>&lt;body&gt;</p>
+      <p>&lt;h1&gt;This is a level one heading&lt;/h1&gt;</p>
+      <p>&lt;p&gt;My first lovely paragraph. Wow. This is fun.&lt;/p&gt;</p>
+      <p>&lt;p&gt;My second lovely paragraph. We can make paragraphs forever.&lt;/p&gt;</p>
+      <p>&lt;h2&gt;This is a level two heading&lt;/h2&gt;</p>
+      <p>&lt;p&gt;Thi is my third paragraph. Notice how the paragraph tag sets off the text. Also notice that every beginning tag has an ending tag.&lt;/p&gt; </p>
+      <p>&lt;/body&gt;</p>
+      <p>&lt;/html&gt;</p>    </td>
+  </tr>
+</table>
+<p>Do not try to type this. Just copy and paste it at the top of the web page you're making in Notepad. Be sure to remove the old &lt;html&gt; tag that you had, so you don't have two html tags. Don't forget to save the file again.</p>
+<p>The DOCTYPE tells the validator what version of xhtml you are using. There are several different versions of html and xhtml. We're learning xhtml 1.0 strict. </p>
+<p>Now you're ready to validate. Here's the link again:  <a href="http://validator.w3.org/">http://validator.w3.org/</a>. When you get to the W3C validation page, click the tab that says &quot;Validate by File Upload.&quot; Browse to the correct file, then click the &quot;Check&quot; button.</p>
+<p>If the code validates, you'll see  &quot;This Page Is Valid XHTML 1.0 Strict!&quot; on a green background. Green is good. If the code does not validate, you'll see &quot; This page is <strong>not</strong> Valid XHTML 1.0 Strict!&quot; on a red background. Red is bad. If your code does not validate, the validator will tell you what is wrong. Read the feedback from the validator, change your code in Notepad, save, then validate again. </p>
+<p>The validator generates error messages that are usually pretty helpful, but because of the way it parses documents, occasionally its feedback is cryptic. You'll get used to this, but here are some   tips to help you get started:</p>
+<ul>
+  <li>Validation errors cascade. Don't get discouraged if you see you have 36 errors in your document! Fix the first one, then validate again. This will often fix many of the following errors, especially those that pertain to the structure of the document.</li>
+  <li>You can have only one html statement per document. If you copy and paste <strong>&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; xml:lang=&quot;en&quot; lang=&quot;en&quot;&gt;</strong> into your document, take out the old &lt;html&gt;.</li>
+  <li>You can only have one body tag in your document. Later, when we get to styling the body tag, be sure you don't have two body tags.</li>
+  <li>Code must always be within a &quot;containing&quot; element, such as a set of &lt;p&gt; tags or &lt;h1&gt; tags. For example, &lt;img&gt; tags, which are used to put images on a web page, must be inside a &lt;p&gt; tag or another containing element.</li>
+  <li>The validator may object to code which is correct, but is in the wrong location. For example</li>
+</ul>
+<p>&nbsp;</p>
+<table class="notepad_table">
+  <tr>
+    <td class="notepad_td"><p>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;</p>
+<p>&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; xml:lang=&quot;en&quot; lang=&quot;en&quot;&gt;</p>
+      <p>&lt;head&gt;<br />
+       &lt;meta http-equiv=&quot;Content-type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;<br />
+        &lt;title&gt;The title goes here&lt;/title&gt;<br />
+        &lt;/head&gt;<br />
+      </p>
+<p>&lt;body&gt;</p>
+      <p>&lt;h1&gt;This is a level one heading&lt;/h1&gt;</p>
+      <p>&lt;p&gt;<strong>This is BAD CODE EXAMPLE. Don't copy it</strong>&lt;/p&gt;</p>
+      <p>&lt;p&gt;My second lovely paragraph. &lt;/p&gt;</p>
+      <p>&lt;/body&gt; </p>
+      <p>&lt;h2&gt;This is a level two heading&lt;/h2&gt;</p>
+      <p>&lt;p&gt;Thi is my third paragraph. &lt;/p&gt;<br />
+      </p>
+<p>&lt;/html&gt;</p>    </td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p>The above code generates the following validation error:</p>
+<div style="text-align: center">
+  <p><img src="http://validator.w3.org/images/info_icons/error.png" alt="Error" title="Error" /> <em>Line 21, Column 4</em>:          document type does not allow element &quot;h2&quot; here  </p>
+  <p>&lt;h2&gt;This is a level two heading&lt;/h2&gt;</p>
+</div>
+<p>There is nothing wrong with the code for the h2 statement; the validator is objecting to its location. The previous statement, the &lt;/body&gt; statement, is in the wrong place. The closing body tag must come after all statements and right before the &lt;/html&gt; statement.  In this case the error was actually located at the statement  above the statement pointed to by the validator. </p>
+<h3>FTPing to the Server<a name="ftp" id="ftp"></a></h3>
+<p>You made a web page. Great! You probably created the web page on  the C: drive or on a flash drive. It looks good and it validates. Now you want your Aunt Tilly in Iowa to see the page. How are you going to do this? Aunt Tilly cannot see your C: drive or your flash drive. In order for Aunt Tilly to see the web page, you must put it on a web server. A web server is a computer that's hooked up to the Internet (hopefully with a reliable, fast connection) and   that has special server software on it. The server software and fast Internet connection allow this computer to act as a web server. So it can serve up web pages, just like a waiter serves up your food. Well, sort of. The web pages don't taste as good.</p>
+<p>So how do you get your web page to the server? There are several ways. One way is to use an FTP program. FTP stands for &quot;file transfer protocol,&quot; which is one of the protocols, or set of rules, used to transfer files on the Internet. </p>
+<p>At Northern Virginia Community College we use an FTP program called Core FTP LIte. Why? Because it's cheap and it's good.  Core FTP is already loaded on the computers in the NVCC open labs. If you want to use the program at home, you can download it from <a href="http://www.coreftp.com/">www.coreftp.com</a>. (Click on the &quot;Download&quot; tab, then download  Core FTP LE, which is the free version.)</p>
+<p>All NVCC students have 10 MB of server space. It's free, and it will exist as long as you are enrolled in classes. In order to send your web page to your NVCC server space, you  need to know three things:</p>
+<ol>
+  <li>Hostname: www.student.nvcc.edu
+    <ul>
+        <li>This is the name of NVCC's student web server. </li>
+    </ul>
+  </li>
+  <li>NVCC Web  ID :  look it up here: <a href="https://www.nvcc.edu/Stu_Id/search.asp">https://www.nvcc.edu/Stu_Id/search.asp</a></li>
+  <li>Password: 8 digits long
+    <ul>
+        <li> The first 2 digits are the month you were born</li>
+      <li>The next 2 digits are the day you were born</li>
+      <li>The next 4 digits are the last four digits of your social security number
+        <ul>
+              <li>For a very few students , the last four digits of your password will be the year you were born</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ol>
+<p>Let's get started. Open the Core FTP Lite program by double-clicking on the icon on the desktop. If the Site Manager Window is not open, open it by clicking on &quot; File &gt; Connect.&quot; In the Site Manager window, click the New Site button in the lower left corner. Fill in the following information: </p>
+<p style="text-align: center"><img src="images/coreftp_1.jpg" alt="Core FTP Connect Dialog Box" width="519" height="538" /></p>
+<p>Click the Connect button. The files on the left are the the files on your local computer. The files on the right are the files on the server. You'll know you connected successfully if you see your WebID on the right. Each student has a folder, the name of which is his or her WebID, on the NVCC student server. All of the student folders are contained in a folder called &quot;home.&quot; If you were unable to connect successfully, call (not email) the IT help desk at 703.426.4141.</p>
+<p>You navigate around your files in the CORE program much as you would navigate around Windows Explorer. Double click on a folder to open it. Double click on the two dots at the top of the folder listing to see the parent folder. The only tricky thing is when you want to see another drive, such as your A: drive or your flash drive. There is a little icon on the left, called Directory Tree. I think it's supposed to look like a folder tree in Windows Explorer. If you click it you will see all of your drives. </p>
+<p>To upload your web pages to the NVCC student server, first highlight the local file or folder on the left side of the CORE window, and click the blue right arrow. The file or folder will be transferred to the server on the right. After an upload, you should see the file or folder name listed on the right. </p>
+<p style="text-align: center"><img src="images/coreftp_2.jpg" alt="Transferring Files" width="753" height="496" /></p>
+<p>Once you've uploaded your web page, Aunt Tilly in Iowa, or anyone in the world connected to the Internet, can see it. How? By typing  the URL in the web browser address bar: </p>
+<p style="text-align: center">http://www.student.nvcc.edu/home/YourUserID/filename.html</p>
+<p>Of course, replace YourUserID with your actual userid, and replace filename.html with the actual name of the file. If you have created a folder within your web space, be sure to include the folder name as well in the URL. </p>
+<p>Always  open your browser and check out your web page as it appears on the server. Sometimes things look great on your local computer, but look different on the server.</p>
+<h3>Linking<a name="linking" id="linking"></a></h3>
+<p>Linking two pages together requires the following code:</p>
+<p style="text-align: center">&lt;p&gt;&lt;a href=&quot;filename.html&quot;&gt;words for the user to click on&lt;/a&gt;&lt;/p&gt;</p>
+<p>Where do you put this code? Where you want the link to appear. Make sure it's between the body tags, just as all other content on you web page should be. </p>
+<p>The filename.html gets replaced by the name of the file you are linking to. The filename in the link must match exactly the actual name of the file. If you've named your file as I've suggested, it has no capitals, no spaces, and ends with .html. That makes it easier when you're linking.</p>
+<p> The &quot;words for the user to click on&quot; should be something that describes where the link will take the user.  So &quot;Click Here!&quot; would not be very helpful to the user, whereas &quot;Learn more about zebras&quot; would give the user a clue about where the link leads.</p>
+<p>For example, if you are linking to a file which contains a description of your favorite movies, the link code might look like this:</p>
+<p style="text-align: center">&lt;p&gt;&lt;a href=&quot;fav_movies.html&quot;&gt;Learn about Judy's favorite movies.&lt;/a&gt;&lt;/p&gt;</p>
+<p>This code will work only when the file to which you are linking is in the same folder as the file from which you are linking. If the files are in different folders, you must do some relative pathing, which is beyond the scope of this tutorial.</p>
+<p> The paragraph tags surround the link so that the code will validate. You can have a text and links in the same pargraph, if you'd like. </p>
+<p>Once you've created the link, test it out, twice. First, test it on your local computer. Then, test it on the server. Don't forget to send both files to the server: the file you are linking from and the file you are linking to. If your link doesn't work, check the following.</p>
+<ul>
+  <li>Is the filename in the link code exactly the same as the actual filename?
+    <ul>
+        <li>Beware: sometimes you don't see the entire filename on your computer. The Windows operating system typically hides file extensions. To see your file extensions, open Windows Explorer and select: Tools &gt; Folder Options &gt; View, or Organize &gt; Folder and Search Options &gt; View. Then uncheck &quot;Hide extensions for known file types.&quot; </li>
+    </ul>
+  </li>
+  <li>Are both the file you are linking from and the file you are linking to in the same folder?
+    <ul>
+        <li>Don't forget to  send both files to the server. </li>
+    </ul>
+  </li>
+  <li>Never start the filename in your link code with c:/ or e:/ or any other drive.
+    <ul>
+      <li>This may work on your local computer, but when a user on another computer tries to access the link, it will fail. The server doesn't have a clue what is on your computer.</li>
+    </ul>
+  </li>
+</ul>
+<p>If you want to link to another web site, the link code should include the entire URL, as follows:</p>
+<p style="text-align: center">&lt;p&gt;For a great place to buy books, visit &lt;a href=&quot;http://www.amazon.com&quot;&gt;Amazon.&lt;/a&gt;&lt;/p&gt;</p>
+<p>Links within your site will also work if you start them with http:// ... etc. For example, you could link to a page within your site as follows: </p>
+<p style="text-align: center">&lt;p&gt;&lt;a href=&quot; http://www.student.nvcc.edu/home/YourUserID/fav_movies.html&quot;&gt;Link to My Favorite Movies&lt;/a&gt;&lt;/p&gt; </p>
+<p>The link would work, but this  is a bad way to link to pages within your own site, for two reasons: 1) link access time is increased and 2) when you want to move your web site to another server, you have to change all your links.</p>
+<h3>Images<a name="images" id="images"></a></h3>
+<p>Adding images can really spice up a web page. Images which appear on web pages are typically jpg file or gif files; these are two popular compression formats which are universally recognized by browsers. Do not use another format, such as .bmp or .art.</p>
+<p>Please make sure you either own the image or have permission from the owner to use the image. Here are a few web sites that have some free images available for your use:</p>
+<ul>
+  <li><a href="http://www.digitalblasphemy.com/">http://www.digitalblasphemy.com/ </a></li>
+  <li><a href="http://www.freefoto.com/index.jsp">http://www.freefoto.com/index.jsp</a></li>
+  <li><a href="http://www.morguefile.com/">http://www.morguefile.com/</a></li>
+  <li><a href="http://www.pdphoto.org/">http://www.pdphoto.org/</a></li>
+</ul>
+<p>To download an image, place your cursor over the image, right-click, and select &quot;Save Picture As&quot; or &quot;Save Image As.&quot; Save the image in the same folder as the web page on which you want the image to appear. The following code will add an image to your web page: </p>
+<p style="text-align: center">&lt;p&gt;&lt;img src=&quot;imagename.jpg&quot; alt=&quot;alternative text&quot; /&gt;&lt;/p&gt;</p>
+<p>Imagename.jpg gets replaced by the name of the image file. The alt attribute provides alternative text for those users who cannot or prefer not to view images. For example, if you want an image of a turtle to appear on your web page, the code might look like this </p>
+<p style="text-align: center">&lt;p&gt;&lt;img src=&quot;turtle.jpg&quot; alt=&quot;Pretty Box Turtle &quot; /&gt;&lt;/p&gt;</p>
+<p>The paragraph tags surround the img  so the code will validate. You can have text and images in the same paragraph, if you'd like. </p>
+<p>The image code will work only when the image file and the html file are in the same folder. If the files are in different directories, you must do some relative pathing, which is beyond the scope of this tutorial. </p>
+<p>If the image does not appear on your web page, check the following:</p>
+<ul>
+  <li>Is the filename in the image code exactly the same as the actual filename?
+    <ul>
+        <li>Beware: sometimes you don't see the entire filename on your computer. The Windows operating system typically hides file extensions. To see your file extensions, open Windows Explorer and select: Tools &gt; Folder Options &gt; View, or Organize &gt; Folder and Search Options &gt; View. Then uncheck &quot;Hide extensions for known file types.&quot; </li>
+    </ul>
+  </li>
+  <li>Are both the html file and the image file in the same folder?
+    <ul>
+        <li>Don't forget to  send the image file to the server, along with the html file. </li>
+    </ul>
+  </li>
+  <li>Never start the image filename with c:/ or e:/ or any other drive.
+    <ul>
+        <li>This may work on your local computer, but when a user on another computer tries to view the web page, the image will not appear. The server doesn't have a clue what is on your computer.</li>
+    </ul>
+  </li>
+</ul>
+<h3>Lists<a name="lists" id="lists"></a></h3>
+<p>Let's make some lists. First we'll make an ordered list; this is a list that has numbers. Here's how:</p>
+<table class="notepad_table">
+  <tr>
+    <td class="notepad_td"><p>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;</p>
+<p>&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; xml:lang=&quot;en&quot; lang=&quot;en&quot;&gt;</p>
+      <p>&lt;head&gt;<br />
+        &lt;meta http-equiv=&quot;Content-type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;        <br />
+        &lt;title&gt;Fun With Lists&lt;/title&gt;<br />
+        &lt;/head&gt;<br />
+      </p>
+<p>&lt;body&gt;</p>
+      <p>&lt;h1&gt;Judy's Shopping List &lt;/h1&gt;</p>
+      <p class="style4"><strong>&lt;ol&gt;<br />
+       &nbsp;&nbsp;&lt;li&gt;Milk&lt;/li&gt;<br />
+       &nbsp;&nbsp;&lt;li&gt;Sugar&lt;/li&gt;<br />
+       &nbsp;&nbsp;&lt;li&gt;Candy&lt;/li&gt;<br />
+       &nbsp;&nbsp;&lt;li&gt;Bread&lt;/li&gt;<br />
+      &lt;/ol&gt;</strong></p>
+      <p> &lt;/body&gt;</p>
+      <p>&lt;/html&gt;</p>
+    </td>
+  </tr>
+</table>
+<p>Give it a try. Copy the code into Notepad, save it with the name &quot;shop.htm&quot;, then open it in the browser and see how it looks. </p>
+<p>You might have figured out that the &quot;ol&quot; in the code stands for &quot;ordered list.&quot; The &quot;li&quot; in the code stands for &quot;list item.&quot; Notice, every beginning tag has an ending tag. </p>
+<p>Now try an unordered list. You may have already figured it out: replace the &lt;ol&gt; tag with &lt;ul&gt;, and the &lt;/ol&gt; tag with &lt;/ul&gt;. Yes, &quot;ul&quot; stands for &quot;unordered list.&quot; </p>
+<h3>Styling<a name="styling" id="styling"></a></h3>
+<p>Cascading Style Sheets add style to your web pages. There are three different kinds of styles: inline, embedded (also called internal), and external. We'll learn about inline styles here. </p>
+<p>With inline styles, you change the appearance of one tag. For example, if you want to make the body have a pink background color, you change the body tag, like this:</p>
+<table class="notepad_table">
+  <tr>
+    <td class="notepad_td"><p>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;</p>
+      <p>&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; xml:lang=&quot;en&quot; lang=&quot;en&quot;&gt;</p>
+      <p>&lt;head&gt;<br />
+        &lt;meta http-equiv=&quot;Content-type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;        <br />
+  &lt;title&gt;The title goes here&lt;/title&gt;<br />
+  &lt;/head&gt;</p>
+<p>&lt;body <strong>style=&quot;background-color: #FFCCFF&quot;</strong>&gt;</p>
+      <p>&lt;h1&gt;This is a level one heading&lt;/h1&gt;</p>
+      <p>&lt;p&gt;My first lovely paragraph. Wow. This is fun.&lt;/p&gt;</p>
+      <p>&lt;/body&gt;</p>
+    <p>&lt;/html&gt;</p></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p>If you want to make your page have navy blue font, you do it like this:</p>
+<p style="text-align: center"> &lt;body style=&quot;color: #000066&quot;&gt;</p>
+<p>And if you want to make your page have a pink background and navy blue font, it's like this: </p>
+<p style="text-align: center">&lt;body style=&quot;background-color: #FFCCFF; color: #000066&quot;&gt;</p>
+<p>What are those funny numbers that change the color? They're the hexadecimal representation of the amount of red, green and blue that make up the color. You can find a list at <a href="http://www.devguru.com/Technologies/html/quickref/color_chart.html">http://www.devguru.com/Technologies/html/quickref/color_chart.html</a> or  <a href="http://www.visibone.com/colorlab/">http://www.visibone.com/colorlab/</a>.</p>
+<p>You can take any tag and apply styling. If you want to make a paragraph have a red Arial font that is 18 pixels high, it's like this: </p>
+<p style="text-align: center">&lt;p style=&quot;color: red; font-family: Arial; font-size: 18px&quot;&gt;Hello&lt;/p&gt;</p>
+<p>If you want to make a level two heading have a red background, white font 24 pixels high, and be aligned to the center it's like this: </p>
+<p style="text-align: center">&lt;h2 style=&quot;text-align: center; color: #FFFFFF; background-color: #FF0000; font-size: 24px&quot;&gt;Awesome&lt;/h2&gt;</p>
+<p>Notice you can use the name of a color, like red or white, rather than the hexidecimal value, for the more common colors. But you'll have a greater selection of colors and more predictability by using hexidecimal values. </p>
+<p>Do you like to style? You can find many more style properties and values at <a href="http://www.w3schools.com/css/css_reference.asp">http://www.w3schools.com/css/css_reference.asp</a>. Here are a few of the more common properties and values:</p>
+<table style="margin-left: auto; margin-right: auto">
+  
+  <tr>
+    <th>Property</th>
+    <th>Possible Values</th>
+  </tr>
+  <tr>
+    <td>background-color</td>
+    <td>hex value </td>
+  </tr>
+  <tr>
+    <td>border-color</td>
+    <td>hex value </td>
+  </tr>
+  <tr>
+    <td>border-style</td>
+    <td>solid, double, dotted</td>
+  </tr>
+  <tr>
+    <td>color</td>
+    <td>hex value </td>
+  </tr>
+  <tr>
+    <td>font-family</td>
+    <td>arial, courier, etc </td>
+  </tr>
+  <tr>
+    <td>font-size</td>
+    <td># of pixels</td>
+  </tr>
+  <tr>
+    <td>letter-spacing</td>
+    <td># of pixels </td>
+  </tr>
+  <tr>
+    <td>line-height</td>
+    <td># of pixels </td>
+  </tr>
+  <tr>
+    <td>text-align</td>
+    <td>right, left, center </td>
+  </tr>
+</table>
+<h3>Embedded CSS <a name="embedded" id="embedded"></a></h3>
+<p>Above we learned that Cascading Style Sheets come in three types:</p>
+<ul>
+  <li>Inline (we learned this already) </li>
+  <li>Embedded (also called &quot;internal&quot;) </li>
+  <li>External (not covered by this tutorial) </li>
+</ul>
+<p>We have already learned how to do inline styles: the style code is placed within each tag, and affects one tag and one tag only.  With embedded CSS, we specify the style for a particular tag, and every time that tag is used on a page, the style is applied. Embedded CSS is placed in the head of the document, right after the ending title tag, like this: </p>
+<table class="notepad_table">
+  <tr>
+    <td class="notepad_td"><p>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;</p>
+      <p>&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; xml:lang=&quot;en&quot; lang=&quot;en&quot;&gt;</p>
+      <p>&lt;head&gt;<br />
+        &lt;meta http-equiv=&quot;Content-type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;        <br />
+      &lt;title&gt;Embedded CSS Example&lt;/title&gt;<br />
+      <strong>&lt;style type=&quot;text/css&quot;&gt;</strong></p>
+      <p><strong>        h2<br />
+        {<br />
+        color: #FF0000;
+        <br />
+        }</strong></p>
+      <p><strong>p<br />
+{<br />
+color: #0000FF;<br />
+font-family: Verdana; <br />
+}</strong></p>
+      <p><strong>&lt;/style&gt;</strong><br />
+        &lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+      <p>&lt;h2&gt;Cardinals&lt;/h2&gt;</p>
+      <p>&lt;p&gt;The male cardinal is a beautiful bright red, whereas the female is a less colorful brown.&lt;/p&gt;</p>
+      <p>&lt;h2&gt;Bluebirds&lt;/h2&gt;</p>
+      <p>&lt;p&gt;Bluebirds are a beautiful shade of blue, but are difficult to attract to your garden. &lt;/p&gt;</p>
+      <p>&lt;/body&gt;<br />
+  &lt;/html&gt;</p></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p>The above code says make every level two heading in the document appear in red text, and make every paragraph on the page appear in blue text with a Verdana style font. </p>
+<p>Embedded styles are convenient if you want several tags on your page to appear the same. If you use inline and embedded styles for the same tag, the inline style will take precedence. For example, you could use embedded CSS to make every paragraph appear  blue  (as we did above), then use an inline style to make just one paragraph appear green. </p>
+<h3>Tables <a name="tables" id="tables"></a></h3>
+<p>Here's how to add a simple table to your web page. This table has two rows and three cells in each row: </p>
+<table class="notepad_table">
+  <tr>
+    <td class="notepad_td"><p>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot;   &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt; </p>
+        <p>&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; xml:lang=&quot;en&quot;   lang=&quot;en&quot;&gt;</p>
+        <p>&lt;head&gt;<br />
+          &lt;meta http-equiv=&quot;Content-type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;          <br />
+  &lt;title&gt;Tables are Fun &lt;/title&gt;<br />
+      <strong>&lt;style type=&quot;text/css&quot;&gt;</strong></p>
+        <p><strong>table</strong><br />
+          <strong>{<br />
+        </strong><strong>border-style: solid;</strong><br />
+        <strong>}</strong></p>
+        <p><strong>          td<br />
+          {<br />
+          border-style: solid; <br />
+          border-color: #FF66FF;<br />
+          padding: 10px;<br />
+          }<br />
+          &lt;/style&gt;</strong><br />
+          &lt;/head&gt;</p>
+        <p>&lt;body&gt;<br />
+        &lt;h1&gt;My Lovely Table &lt;/h1&gt;<br />
+        <strong>&lt;table&gt;<br />
+        &lt;tr&gt;<br />
+        &nbsp;&nbsp;&lt;td&gt;1st Cell&lt;/td&gt;<br />
+        &nbsp;&nbsp;&lt;td&gt;2nd Cell&lt;/td&gt;<br />
+        &nbsp;&nbsp;&lt;td&gt;3rd Cell&lt;/td&gt;<br />
+        &lt;/tr&gt;<br />
+        &lt;tr&gt;<br />
+        &nbsp;&nbsp;&lt;td&gt;4th Cell&lt;/td&gt;<br />
+        &nbsp;&nbsp;&lt;td&gt;5th Cell&lt;/td&gt;<br />
+        &nbsp;&nbsp;&lt;td&gt;6th Cell&lt;/td&gt;<br />
+        &lt;/tr&gt;<br />
+        &lt;/table&gt;</strong><br />
+        &lt;/body&gt;<br />
+        &lt;/html&gt;</p></td>
+  </tr>
+</table>
+<p>Let's analyze this code. The &lt;table&gt; tag starts the table, the &lt;tr&gt; tag starts the row, and the &lt;td&gt; tag starts the cell. (I think it stands for &quot;table data.&quot;) Every opening tag has a corresponding ending tag. I've used  embedded CSS to style the &lt;table&gt; and &lt;td&gt; tags. The table itself has a solid border. Each cell appears with a solid pink border, and each cell has  10 pixels of padding. Cell padding is the space between the contents of the cell and the cell border. </p>
+<h3>External CSS<a name="external" id="external"></a></h3>
+<p>Just a word or two about external CSS. It is by far the most powerful of the three types of CSS, and is also the easiest to use when you're styling a website with lots of pages. With external CSS, you don't put the CSS styling in the html document; you pull it out and put it in another document that has a .css extention. Each html page gets &quot;linked&quot; up to the external css page. This way, you can create one  CSS document which styles hundreds of pages. It's also alot easier to maintain, because if you decide to change the color of all  level three headings in your site, you can do it with one new line of code. If you're interested in learning about external CSS, visit my <a href="http://www.nvcc.edu/home/jumiller/170/css_tutorial/css_tutorial.html">CSS Tutorial</a>.</p>
+<h3>Summary<a name="summary" id="summary"></a></h3>
+<p>We've learned how to create web pages with images, links, lists, tables, and styles. We've also learned how to ftp our pages to the server. In short, we've made a web site. Here's a list of the xhtml tags we've used:</p>
+<ul>
+  <li>html
+    <ul>
+      <li>head
+        <ul>
+          <li>title</li>
+        </ul>
+      </li>
+      <li>body
+        <ul>
+          <li>h1 through h6 (headings)</li>
+          <li>p (paragraphs)</li>
+          <li>ol (ordered list)
+            <ul>
+              <li>li (list item)</li>
+            </ul>
+          </li>
+          <li>ul (unordered list)
+            <ul>
+              <li>li (list item)</li>
+            </ul>
+          </li>
+          <li>img (image) - requires a src attribute to indicate the source file of the image</li>
+          <li>a (anchor - makes a link) - requires an ahref attribute to indicate where the link goes</li>
+          <li>table
+            <ul>
+              <li>tr (table row)</li>
+              <li>td (table data - makes a cell)</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+<p>Have fun building your web sites! </p>
+<p style="text-align: center">
+    <a href="http://validator.w3.org/check?uri=referer"><img
+        src="http://www.w3.org/Icons/valid-xhtml10-blue"
+        alt="Valid XHTML 1.0 Strict" height="31" width="88" /></a>
+  </p>
+
+
+  <p style="text-align: center">This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/us/">Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 United States License</a>.</p>
+<p style="text-align: center"><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-nd/3.0/us/88x31.png"/></a>
+</p>
+</body>
+</html>

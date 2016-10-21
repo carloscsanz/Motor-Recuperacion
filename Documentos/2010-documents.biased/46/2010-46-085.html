@@ -1,0 +1,1023 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Language" content="en-us" />
+	<meta name="robots" content="all" />
+	<meta name="MSSmartTagsPreventParsing" content="true" />
+	<meta name="Description" content="We take an in-depth look at memory scaling on the Core i7 platform to determine if there is any value in using memory faster than DDR3-1066." />
+	<title>AnandTech: Memory Scaling on Core i7 - Is DDR3-1066 Really the Best Choice?</title>
+	
+    <script src="/js/jquery-1.2.1.pack.js" type="text/javascript"></script>
+    <script src="http://content.dl-rms.com/rms/mother/20965/nodetag.js"></script>	
+    
+	
+	<link rel="stylesheet" href="/css/commenttree07.css" type="text/css" />
+	<link rel="stylesheet" href="/css/anandtech07.css" type="text/css" />
+	
+	
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+	
+	<link rel="stylesheet" href="/css/smalltext07.css" media="all" type="text/css" title="smalltext" />
+	<link rel="alternate stylesheet" href="/css/mediumtext07.css" media="all" type="text/css" title="mediumtext" />
+	<link rel="alternate stylesheet" href="/css/largetext07.css" media="all" type="text/css" title="largetext" />
+	
+	<link rel="alternate" title="Latest news from AnandTech" href="http://www.anandtech.com/rss/newsfeed.aspx" type="application/rss+xml" />
+	<link rel="alternate" title="Latest articles from AnandTech" href="http://www.anandtech.com/rss/articlefeed.aspx" type="application/rss+xml" />
+	
+	<script src="/js/anandtech.js" language="Javascript" type="text/javascript"></script>
+	
+
+	
+</head>
+
+<body class="atbody" onload="setFont()" id="atbody">
+
+<!-- FM Tracking Pixel -->
+<script type='text/javascript' src='http://static.fmpub.net/site/anandtech'></script>
+<!-- FM Tracking Pixel -->
+
+
+
+<map name="m_MastHead" id="m_MastHead">
+			
+      <area shape="rect" alt="Motherboards" coords="39,76,134,96" href="/mb/">
+      <area shape="rect" alt="Memory" coords="141,76,206,96" href="/memory/">
+      <area shape="rect" alt="Storage" coords="213,76,276,96" href="/storage/">
+      <area shape="rect" alt="Cases/Cooling/PSUs" coords="283,76,354,96" href="/gadgets/">
+      <area shape="rect" alt="IT Computing" coords="361,76,460,96" href="http://it.anandtech.com/">
+      <area shape="rect" alt="Displays" coords="468,76,535,96" href="/displays/">
+      <area shape="rect" alt="Mobile" coords="542,76,599,96" href="/mobile/">
+      <area shape="rect" alt="Mac" coords="607,76,652,96" href="/mac/">
+      <area shape="rect" alt="CPUs &amp; Chipsets" coords="12,98,102,118" href="/cpuchipsets/">
+      <area shape="rect" alt="Video" coords="111,98,163,118" href="/video/">
+      <area shape="rect" alt="Digital Cameras" coords="171,98,278,118" href="/digitalcameras/">
+      <area shape="rect" alt="Linux" coords="286,98,339,118" href="/linux/">
+      <area shape="rect" alt="Gadgets" coords="348,98,474,118" href="/casecoolingpsus/">
+      <area shape="rect" alt="Systems" coords="482,98,543,118" href="/systems/">
+      <area shape="rect" alt="Trade Shows" coords="550,98,641,118" href="/tradeshows/">
+      <area shape="rect" alt="Guides" coords="649,98,714,118" href="/guides/">
+      <area shape="rect" alt="Home" coords="49,7,331,58" href="/">
+			
+</map>
+
+
+<map name="m_MastHeadRight" id="m_MastHeadRight">
+<area shape="rect" alt="Increase Font Size" coords="125,20,146,36" href="javascript:setActiveStyleSheet('larger');">
+<area shape="rect" alt="Decrease Font Size" coords="149,20,170,36" href="javascript:setActiveStyleSheet('smaller');">
+<area shape="rect" alt="Change Page Size" coords="174,20,194,36" href="/memory/showdoc.aspx?sitesize=yes&amp;i=3589&amp%3bp=7&amp%3bcp=2">
+</map>
+
+
+<div id="iehackwrap">
+	<div id="boxwrap">
+		
+		<div id="boxheader">
+			<form action="/searchresults.aspx" method="get" style="margin:0px">	
+			
+
+
+<table border="0" cellpadding="0" cellspacing="0" bgcolor="#18609A" class="newLogoTable">
+
+  <tr>
+   <td rowspan="2"><img name="MastHead" src="/i/atlogo_top.gif" width="804" height="125" border="0" id="MastHead" usemap="#m_MastHead" alt="" /></td>
+
+
+
+   <td valign="bottom">
+
+   <table>
+   <tr>
+   <td style="width:130px;">
+
+       <a href="/search.aspx"><img src="/i/search_text.gif" style="border: none;"  /></a>
+       <input type="text" name="keyword" style="background-color:#526165; border-width:1px; border-color:#A8D1F7; border-style:solid; margin-bottom:18px; color:#ffffff; font-size: 9pt; padding: 2px; width: 125px;" />
+       
+   </td>
+   <td><input name="submit" type="image" value="search" src="/i/search_go_button.gif"/></td>   
+   </tr>
+   </table>      
+     </td>   <td><img src="/i/spacer.gif" width="1" height="89" border="0" alt="" /></td>
+  </tr>
+  <tr>
+   <td><img name="MastHeadRight" src="/i/atlogo_top_right.gif" width="199" height="36" border="0" id="MastHeadRight" usemap="#m_MastHeadRight" alt="" /></td>
+   <td><img src="/i/spacer.gif" width="1" height="36" border="0" alt="" /></td>
+  </tr>
+</table>
+		
+		
+		</form>
+		
+		</div>
+		 <div id="boxleft">
+				
+					<div class="atsidenav" id="menu0" onclick="location.href='/default.aspx'" onmouseover="this.style.cursor='pointer';" title="Home">
+					<a href="/default.aspx" class="menulinknav">Home</a>
+					</div>
+			   
+					<div class="atsidenav" id="menu1" onclick="location.href='http://www.anandtech.com/siteinfo.aspx'" onmouseover="this.style.cursor='pointer';" title="About">
+					<a href="http://www.anandtech.com/siteinfo.aspx" class="menulinknav">About</a>
+					</div>
+			   
+					<div class="atsidenav" id="menu2" onclick="location.href='http://forums.anandtech.com'" onmouseover="this.style.cursor='pointer';" title="Forums">
+					<a href="http://forums.anandtech.com" class="menulinknav">Forums</a>
+					</div>
+			   
+					<div class="atsidenav" id="menu3" onclick="location.href='http://www.anandtech.com/mobile.aspx'" onmouseover="this.style.cursor='pointer';" title="RSS/Mobile Users">
+					<a href="http://www.anandtech.com/mobile.aspx" class="menulinknav">RSS/Mobile Users</a>
+					</div>
+			   
+					<div class="atsidenav" id="menu4" onclick="location.href='http://www.dailytech.com'" onmouseover="this.style.cursor='pointer';" title="News">
+					<a href="http://www.dailytech.com" class="menulinknav">News</a>
+					</div>
+			   
+					<div class="atsidenav" id="menu5" onclick="location.href='http://www.anandtech.com/myanandtech.aspx'" onmouseover="this.style.cursor='pointer';" title="My AnandTech">
+					<a href="http://www.anandtech.com/myanandtech.aspx" class="menulinknav">My AnandTech</a>
+					</div>
+			   
+					<div class="atsidenav" id="menu6" onclick="location.href='/weblog/default.aspx'" onmouseover="this.style.cursor='pointer';" title="Blogs">
+					<a href="/weblog/default.aspx" class="menulinknav">Blogs</a>
+					</div>
+			   
+					<div class="atsidenav" id="menu7" onclick="location.href='http://www.anandtech.com/Galleries.aspx'" onmouseover="this.style.cursor='pointer';" title="Galleries">
+					<a href="http://www.anandtech.com/Galleries.aspx" class="menulinknav">Galleries</a>
+					</div>
+			   
+					<div class="atsidenav" id="menu8" onclick="location.href='http://www.anandtech.com/bench/'" onmouseover="this.style.cursor='pointer';" title="Bench (beta)">
+					<a href="http://www.anandtech.com/bench/" class="menulinknav">Bench (beta)</a>
+					</div>
+			   
+					<div class="atsidenav" id="menu9" onclick="location.href='http://www.anandtech.com/bench/default.aspx?c=1'" onmouseover="this.style.cursor='pointer';" title="&nbsp;&nbsp;&nbsp;- CPU">
+					<a href="http://www.anandtech.com/bench/default.aspx?c=1" class="menulinknav">&nbsp;&nbsp;&nbsp;- CPU</a>
+					</div>
+			   
+					<div class="atsidenav" id="menu10" onclick="location.href='http://www.anandtech.com/bench/default.aspx?c=2'" onmouseover="this.style.cursor='pointer';" title="&nbsp;&nbsp;&nbsp;- SSD">
+					<a href="http://www.anandtech.com/bench/default.aspx?c=2" class="menulinknav">&nbsp;&nbsp;&nbsp;- SSD</a>
+					</div>
+			   
+
+<div id="leftcolumn">
+
+
+	<div class="adcontainer"><center><script type='text/javascript'><!--//<![CDATA[
+   var m3_u = (location.protocol=='https:'?'https://dynamic1.anandtech.com/www/delivery/ajs.php':'http://dynamic1.anandtech.com/www/delivery/ajs.php');
+   var m3_r = Math.floor(Math.random()*99999999999);
+   if (!document.MAX_used) document.MAX_used = ',';
+   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+   document.write ("?zoneid=202");
+   document.write ('&amp;cb=' + m3_r);
+   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+   document.write ("&amp;loc=" + escape(window.location));
+   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+   if (document.context) document.write ("&context=" + escape(document.context));
+   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+   document.write ("'><\/scr"+"ipt>");
+//]]>--></script><noscript><a href='http://dynamic1.anandtech.com/www/delivery/ck.php?n=ab63a84f&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://dynamic1.anandtech.com/www/delivery/avw.php?zoneid=202&amp;n=ab63a84f' border='0' alt='' /></a></noscript></center></div> 
+		
+	
+	
+	<div class="adcontainer"><center><script type='text/javascript'><!--//<![CDATA[
+   var m3_u = (location.protocol=='https:'?'https://dynamic1.anandtech.com/www/delivery/ajs.php':'http://dynamic1.anandtech.com/www/delivery/ajs.php');
+   var m3_r = Math.floor(Math.random()*99999999999);
+   if (!document.MAX_used) document.MAX_used = ',';
+   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+   document.write ("?zoneid=203");
+   document.write ('&amp;cb=' + m3_r);
+   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+   document.write ("&amp;loc=" + escape(window.location));
+   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+   if (document.context) document.write ("&context=" + escape(document.context));
+   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+   document.write ("'><\/scr"+"ipt>");
+//]]>--></script><noscript><a href='http://dynamic1.anandtech.com/www/delivery/ck.php?n=a05963b0&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://dynamic1.anandtech.com/www/delivery/avw.php?zoneid=203&amp;n=a05963b0' border='0' alt='' /></a></noscript></center></div>
+	
+	
+	
+	<div class="adcontainer"><center><script type='text/javascript'><!--//<![CDATA[
+   var m3_u = (location.protocol=='https:'?'https://dynamic1.anandtech.com/www/delivery/ajs.php':'http://dynamic1.anandtech.com/www/delivery/ajs.php');
+   var m3_r = Math.floor(Math.random()*99999999999);
+   if (!document.MAX_used) document.MAX_used = ',';
+   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+   document.write ("?zoneid=204");
+   document.write ('&amp;cb=' + m3_r);
+   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+   document.write ("&amp;loc=" + escape(window.location));
+   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+   if (document.context) document.write ("&context=" + escape(document.context));
+   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+   document.write ("'><\/scr"+"ipt>");
+//]]>--></script><noscript><a href='http://dynamic1.anandtech.com/www/delivery/ck.php?n=af06e183&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://dynamic1.anandtech.com/www/delivery/avw.php?zoneid=204&amp;n=af06e183' border='0' alt='' /></a></noscript></center></div>
+
+	
+	
+	
+
+</div>
+
+
+		
+    
+		</div>
+		
+			<div id="topmarq">
+				<div style="float:left;height:90px;"></div>
+				
+								    
+				<div class="adcontainer"><center><script type='text/javascript'><!--//<![CDATA[
+   var m3_u = (location.protocol=='https:'?'https://dynamic1.anandtech.com/www/delivery/ajs.php':'http://dynamic1.anandtech.com/www/delivery/ajs.php');
+   var m3_r = Math.floor(Math.random()*99999999999);
+   if (!document.MAX_used) document.MAX_used = ',';
+   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+   document.write ("?zoneid=201");
+   document.write ('&amp;cb=' + m3_r);
+   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+   document.write ("&amp;loc=" + escape(window.location));
+   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+   if (document.context) document.write ("&context=" + escape(document.context));
+   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+   document.write ("'><\/scr"+"ipt>");
+//]]>--></script><noscript><a href='http://dynamic1.anandtech.com/www/delivery/ck.php?n=a92a162a&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://dynamic1.anandtech.com/www/delivery/avw.php?zoneid=201&amp;n=a92a162a' border='0' alt='' /></a></noscript></center></div>
+			</div>
+				
+		<div id="boxbody">
+			<div id="boxcenter">
+
+
+
+
+
+	
+	
+		<div class="newTopTop" style="background-color:#49585C;">
+
+                
+	            <div class="adcontainer"><center><script type='text/javascript'><!--//<![CDATA[
+   var m3_u = (location.protocol=='https:'?'https://dynamic1.anandtech.com/www/delivery/ajs.php':'http://dynamic1.anandtech.com/www/delivery/ajs.php');
+   var m3_r = Math.floor(Math.random()*99999999999);
+   if (!document.MAX_used) document.MAX_used = ',';
+   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+   document.write ("?zoneid=189");
+   document.write ('&amp;cb=' + m3_r);
+   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+   document.write ("&amp;loc=" + escape(window.location));
+   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+   if (document.context) document.write ("&context=" + escape(document.context));
+   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+   document.write ("'><\/scr"+"ipt>");
+//]]>--></script><noscript><a href='http://dynamic1.anandtech.com/www/delivery/ck.php?n=aa715a93&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://dynamic1.anandtech.com/www/delivery/avw.php?zoneid=189&amp;n=aa715a93' border='0' alt='' /></a></noscript></center></div>
+				
+			</div>
+
+		<div class="docTopMiddle">
+
+	                <div class="topText" style="margin-left: 15px;">Memory Scaling on Core i7 - Is DDR3-1066 Really the Best Choice?</div>
+					<div style="float: right; padding-right: 5px; padding-left: 5px; padding-top: 0px; width:336px;">
+					
+					
+					<div class="adcontainer"><center><script type='text/javascript'><!--//<![CDATA[
+   var m3_u = (location.protocol=='https:'?'https://dynamic1.anandtech.com/www/delivery/ajs.php':'http://dynamic1.anandtech.com/www/delivery/ajs.php');
+   var m3_r = Math.floor(Math.random()*99999999999);
+   if (!document.MAX_used) document.MAX_used = ',';
+   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+   document.write ("?zoneid=208");
+   document.write ('&amp;cb=' + m3_r);
+   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+   document.write ("&amp;loc=" + escape(window.location));
+   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+   if (document.context) document.write ("&context=" + escape(document.context));
+   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+   document.write ("'><\/scr"+"ipt>");
+//]]>--></script><noscript><a href='http://dynamic1.anandtech.com/www/delivery/ck.php?n=abe11085&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://dynamic1.anandtech.com/www/delivery/avw.php?zoneid=208&amp;n=abe11085' border='0' alt='' /></a></noscript></center></div>					
+					</div>
+					
+					<table cellpadding="0" cellspacing="0" border="0" style="padding-top: 15px; padding-left: 15px;">
+						<tr>
+							<td valign="top" width="75">
+				
+								<div class="topBoxDoc">
+							
+								<a href="http://www.patriotmemory.com/" target="_new"><img src="http://images.anandtech.com/doci/i7memlogoS.jpg" alt="Memory Scaling on Core i7 - Is DDR3-1066 Really the Best Choice?" border="0" width="60" height="75" /></a><br />
+							
+
+								</div>
+								
+							</td><td width="182">
+							
+						<div class="topComments">
+						<b>Date:</b> June 24th, 2009<br />
+						<b>Topic:</b> 
+							
+									<a href="/memory/default.aspx">Memory</a>
+								
+						<br />
+						<b>Manufacturer:</b> <a href="http://www.patriotmemory.com/" target="_blank">Patriot</a><br />
+						
+						<b>Author:</b> <a href="mailto:gary.key@anandtech.com">						
+						    Gary Key</a>
+						
+						</div>
+
+					
+							</td>
+						</tr>
+					</table>
+		
+
+					<div style="text-align: left; padding-left: 15px; padding-top: 5px; padding-bottom: 32px; ">
+					
+						
+						<div class="topComments" style="padding-top: 18px;">
+						
+								
+					 				
+					 					<div style="width:250px">
+					 						
+			<span>								
+				<span class="smallbluelink" rel="nofollow"> Buy the PATRIOT PVV34G1333LLK Sector 5 4GB</span><br />
+				<img alt="Blank" src="/i/f.gif" width="129" height="6"><br />
+					<table>
+
+				
+					<tr>
+					<td>
+					&nbsp;<a href="http://redirectby.com/cgi-bin/redirect.pl?lid=l000105203538&user=u00000258&time=1268571481" target="_blank" class="smallbluelink" rel="nofollow"><img src="http://detonator.dynamitedata.com/cgi-bin/display_image.pl?file=88x31s.png&reseller=r00100020" alt="CircuitCity" style="border: none;" /></a>
+					</td>
+					<td>
+					<font size="1">$149.99 <br />10.00 rebate</font> 
+					</td>
+					</tr>
+					
+					<tr>
+					<td>
+					&nbsp;<a href="http://redirectby.com/cgi-bin/redirect.pl?lid=l79013770&user=u00000258&time=1268571481" target="_blank" class="smallbluelink" rel="nofollow"><img src="http://detonator.dynamitedata.com/cgi-bin/display_image.pl?file=88x31s.png&reseller=r00100003" alt="Amazon" style="border: none;" /></a>
+					</td>
+					<td>
+					<font size="1">$130.64 <br />10.00 rebate</font> 
+					</td>
+					</tr>
+					
+					<tr>
+					<td>
+					&nbsp;<a href="http://redirectby.com/cgi-bin/redirect.pl?lid=l98407906&user=u00000258&time=1268571481" target="_blank" class="smallbluelink" rel="nofollow"><img src="http://detonator.dynamitedata.com/cgi-bin/display_image.pl?file=88x31s.png&reseller=r00000001" alt="ZipZoomFly" style="border: none;" /></a>
+					</td>
+					<td>
+					<font size="1">$122.99</font> 
+					</td>
+					</tr>
+					
+					</table>
+
+			</span>
+			<img src="http://detonator.dynamitedata.com/cgi-bin/clear.gif?u=u00000258&p=p14400911&l=l000105203538,l79013770,l98407906&q=Patriot%20Viper%20DDR3-1333%206GB" width="1" height="1" border="0" />
+		
+										</div>
+													
+						</div>
+						
+					</div>
+					
+				
+				
+			</div>		
+			
+				
+
+
+			<div class="newTopBottom" style="clear:both;">
+			
+			<div style="position: relative; top: -20px; left: 4px;">
+
+				&nbsp;<br />&nbsp;
+				</div>
+				
+				
+				<div style="padding-left: 15px; padding-right: 15px;">
+	
+				</div>
+						
+			</div>
+
+<div id="middlecontent">
+
+
+	
+	
+	<br />
+	<!-- google_ad_section_start -->
+	<div id="intelliTxt">
+		
+		
+		<span class="content"><p>And we begin, with a graph:</p>
+<p align="center"><img src="http://images.anandtech.com/reviews/memory/2009/ddr3scaling/i7kitcosta.jpg" alt="" width="550" height="363" /></p>
+<p>The graph above represents the cost, from Newegg.com, of 11 different 6GB DDR3 memory kits (1066 C7/C5 are the same kit). The only variables are the manufacturer and speed of the DDR3 memory included in the kit.</p>
+<p> The least expensive DDR3-1066 6GB kit we purchased sells for $80, the most
+expensive 6GB kit? $289. That&#8217;s over a $200 difference; that and
+some pocket change is enough to pay for a sweet new video <a href="http://detonator.dynamitedata.com/cgi-bin/redirect.pl?user=u00000626&amp;url=http%3a%2f%2fwww.newegg.com%2fProduct%2fProduct.aspx%3fItem%3dN82E16814127427">card</a>,
+a nice 22&#8221; <a href="http://detonator.dynamitedata.com/cgi-bin/redirect.pl?user=u00000626&amp;url=http%3a%2f%2fwww.newegg.com%2fProduct%2fProduct.aspx%3fItem%3dN82E16824009174">monitor</a>, or even a iPhone <a href="http://www.anandtech.com/gadgets/showdoc.aspx?i=3579">3GS</a>. </p>
+<p>All of that extra money is going somewhere: frequency and latency. The lowest end kit has a data rate of 1066MHz and a CAS latency of 7 cycles. The most expensive kit has a 1866MHz data rate at the same CAS latency; that&#8217;s a 75% increase in data rate. </p>
+<p>A 10% increase in CPU speed rarely yields more than a 4 or 5% increase in performance, but what about a 75% increase in memory speed? We don&#8217;t have a single page on AnandTech to point you to that would answer that question. At least we didn&#8217;t, until today.</p>
+<h3>A Brief History of DDR3</h3>
+<p>We first met <a href="http://www.anandtech.com/memory/showdoc.aspx?i=2989">DDR3</a> alongside Intel&#8217;s P35 chipset. It&#8217;s performance at the time was at best equal to or usually worse than DDR2 while carrying a significant price premium. It wasn&#8217;t until the release of the Intel X48 and NVIDIA 790i chipsets that Socket 775 users could even see an advantage to using DDR3 and even then, it was primarily for benchmarking contests - hooray, because we all know how important those are.</p>
+<p>There were some tangible advantages to DDR3 from the start, the biggest being it&#8217;s lower operating voltage. DDR2 memory required 1.8V while DDR3 could run at 1.5V, this made DDR3 particularly attractive for notebooks but on the desktop the advantage was sort of abused.</p>
+<p>In order to take advantage of DDR3&#8217;s higher memory speed, benchmarking enthusiasts often had to use DDR3-1866/2000 kits that required voltages in the 1.8V~2.0V range to reach these clock speeds. Performance improvements in certain benchmarks were available through brute force use of voltages and ICs that allowed high memory speeds at decent latencies. In the end, improvements in actual applications were just not worth the cost or trouble of using DDR3 compared to DDR2. </p>
+<p>Intel made no secret of its plans to move the vast majority of their processor lineups to DDR3 memory a few years ago. They truly wanted/desired that DDR3 would be the standard memory of choice by the time P45/X48 launched, but DDR3&#8217;s limited availability, middling performance, and a price premium that was truly prohibitive for the mainstream crowd, let alone the enthusiast market space made this desire impossible. As such, this left users with memory controllers not truly optimized for either memory technology that resulted in performance not significantly different from earlier Core 2 supporting S775 chipsets. </p>
+<p>AMD recently released the AM3 platform and their AM3 based Phenom II processors support both DDR2 and DDR3 allowing users to either upgrade to AM3 boards or keep using their DDR2 based AM2+ boards, a simple if not elegant solution. With the recent release of new boards, BIOS optimizations, and near cost parity with DDR2, we now think DDR3 is a viable option for AMD users. </p>
+<br />
+<div align="center"><img src="http://images.anandtech.com/reviews/memory/2009/ddr3scaling/i7patS.jpg" alt="" width="550" height="260" /></div>
+<br />
+<p>That said, DDR3 started coming into its prime last fall as the release of second and third generation DDR3 devices along with Intel&#8217;s Core i7. Core i7 and the X58 platform introduced Intel&#8217;s first on-die memory controller. Aside from other architectural improvements, Core i7 supports three DDR3 memory channels compared to the standard two channel setup, yielding some impressive bandwidth numbers.</p>
+<p>There was one problem with this new design, a real fly in the ointment actually for the memory suppliers. Current JDEC specifications list 1.50V as the official voltage specification for DDR3 with a move to 1.35V in the near future and eventually to 1.20V. However, most of the performance oriented DDR3 modules released for the Core 2 platforms generally operated at 1.8V~2.0V in order to hit high speeds with decent latencies. In essence, the memory kits were already overclocked to hit clock speeds that made DDR3 a performance consideration on S775. The memory controllers on the Core 2 based Northbridge products could easily handle these voltages and surprisingly enough, so could the ICs. </p>
+<p>Well, Intel officially released their recommended memory voltages for the Core i7 several months before launch with 1.50V as the recommended base voltage and 1.65V as the suggested maximum along with 1.35V for VTT (QPI) maximum. This left the memory suppliers in a bind as true high-speed low-voltage ICs were not going to appear until after the Core i7 launch. Intel extended official support to DDR3-800/1066 speeds only, although most current X58 motherboards support speeds up to DDR3-2133 or higher. </p>
+<p>At the Core i7 launch, the market ended up with a bevy of DDR3-1066/1333 low-voltage kits with a sprinkling of higher speed DDR3-1600 and DDR3-1866 kits based on highly binned ICs that met the 1.65V recommendation. One other twist was that the memory suppliers had to package low-voltage higher-speed 3-DIMM kits instead of the normal 2-DIMM configuration in order to satisfy triple channel owners. </p>
+<p>Fast forward to today and we see the wide availability of high-speed low-voltage DDR3 products with more choices coming on a daily basis. In fact, the availability of DDR3 products almost matches that of DDR2 with similar price points. By the end of this year, DDR3 products will outnumber DDR2 offerings although it will be a couple of years before DDR3 usage overtakes DDR2. </p></span>
+	</div>
+	<!-- google_ad_section_end -->
+	
+	
+	
+	<div class="adcontainer"></div>
+
+		
+	<table border="0" width="100%">
+		<tr>
+			<td align="right" colspan="2">
+				
+					<table border="0" cellpadding="0" cellspacing="0">
+						<tr>
+							<td><strong><a href="showdoc.aspx?i=3589&amp;p=2" class="smalllink">Memory Pricing and Other Stuff</a></strong></td>
+							<td>&nbsp;</td>
+							<td><strong>
+								<a href="showdoc.aspx?i=3589&amp;p=2"><img src="/i/rightarr.gif" align="middle" border="0" alt="Next Page" /></a>
+								</strong>
+							</td>
+						</tr>
+					</table>
+				
+			</td>
+		</tr>
+	</table>
+		
+	<br />
+		
+		<div class="HeaderSurround">
+			<div class="atheader">&nbsp;</div>
+			<form style="margin-top:0px;margin-bottom:0px; margin-left: 20px;" action="">
+				&nbsp; <span class="smallfontblack"><strong>Index</strong></span><br /> <select name="url" size="1" onchange="location.href=form.url.options[form.url.selectedIndex].value" class="smallform_input">
+				<option value="showdoc.aspx?i=3589&amp;p=1">Article Index</option>
+				<option value="showdoc.aspx?i=3589&amp;p=1">Page: 1 - Index</option>
+				
+					<option value="showdoc.aspx?i=3589&amp;p=2">Page: 2 - Memory Pricing and Other Stuff</option>
+					 
+					<option value="showdoc.aspx?i=3589&amp;p=3">Page: 3 - The Kits, Pricing and Designations</option>
+					 
+					<option value="showdoc.aspx?i=3589&amp;p=4">Page: 4 - The Test</option>
+					 
+					<option value="showdoc.aspx?i=3589&amp;p=5">Page: 5 - Synthetic Performance</option>
+					 
+					<option value="showdoc.aspx?i=3589&amp;p=6">Page: 6 - Sometimes Memory Bandwidth Makes a Diffe...</option>
+					 
+					<option value="showdoc.aspx?i=3589&amp;p=7">Page: 7 - Heavy Multitasking: The Other Safe Haven...</option>
+					 
+					<option value="showdoc.aspx?i=3589&amp;p=8">Page: 8 - Media Encoding Performance: Nothing to S...</option>
+					 
+					<option value="showdoc.aspx?i=3589&amp;p=9">Page: 9 - General Apps That Don't Show an Improvem...</option>
+					 
+					<option value="showdoc.aspx?i=3589&amp;p=10">Page: 10 - Impact of Memory Speed on 3D Rendering A...</option>
+					 
+					<option value="showdoc.aspx?i=3589&amp;p=11">Page: 11 - Choosing a DDR3 Kit for an Overclocked C...</option>
+					 
+					<option value="showdoc.aspx?i=3589&amp;p=12">Page: 12 - Overclock your game and add SLI to the m...</option>
+					 
+					<option value="showdoc.aspx?i=3589&amp;p=13">Page: 13 - The End...</option>
+					 
+				</select>	
+				</form>	
+				<br />
+				<div style="margin-left:20px; margin-top: 20px; margin-bottom: 20px;">
+				<table border="0" width="100%">
+				<tr>
+				<td><span class="smallfontblack"><strong>Tools</strong></span></td>
+				<td><span class="smallfontblack"><strong>Share</strong></span></td>
+				</tr>
+				<tr>
+				<td>
+					
+					
+							<a href="http://anandtech.dealtime.com/xPP-Random_Access_Memory~linkin_id-3040004"><img src="/i/mag_glass.gif" alt="Find lowest prices" align="middle" border="0" /></a>
+							<a href="http://anandtech.dealtime.com/xPP-Random_Access_Memory~linkin_id-3040004" class="smalllink">Find the lowest prices</a> 
+							<script language="javascript" type="text/javascript">
+									if(typeof DEALTIMEBOTTOMLINK != 'undefined'){
+										if(DEALTIMEBOTTOMLINK.length > 0){
+											document.write(DEALTIMEBOTTOMLINK);
+										}
+									}
+								</script>
+						
+			    </td>
+			    <td>
+			      <table class="ArticleToolBar" border="0" cellpadding="1" cellspacing="0">
+                    <tr>         
+                        
+                        <td width="11"><a onclick="window.open('http://digg.com/submit?phase=2&amp;url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent('Memory Scaling on Core i7 - Is DDR3-1066 Really the Best Choice?')+'&amp;topic=tech_news'); return false;" href="http://digg.com/submit"><img src="/i/16x16-digg-guy.gif" style="border-width:0px;" /></a></td>
+                        <td width="25"><a class="smalllink" onclick="window.open('http://digg.com/submit?phase=2&amp;url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent('Memory Scaling on Core i7 - Is DDR3-1066 Really the Best Choice?')+'&amp;topic=tech_news'); return false;" href="http://digg.com/submit">Digg</a></td>
+                        <td width="8">&nbsp;</td>
+                        <td width="11"><a onclick="window.open('http://del.icio.us/post?v=4&amp;noui&amp;jump=close&amp;url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent('Memory Scaling on Core i7 - Is DDR3-1066 Really the Best Choice?'), 'delicious','toolbar=no,width=700,height=400'); return false;" href="http://del.icio.us/post"><img src="/i/delicious_small.gif" style="border-width:0px;" /></a></td>
+                        <td width="50"><a class="smalllink" onclick="window.open('http://del.icio.us/post?v=4&amp;noui&amp;jump=close&amp;url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent('Memory Scaling on Core i7 - Is DDR3-1066 Really the Best Choice?'), 'delicious','toolbar=no,width=700,height=400'); return false;" href="http://del.icio.us/post">del.icio.us</a></td>
+                        <td width="8">&nbsp;</td>
+                        <td width="11"><a href="javascript:WinOpen('/emailarticle.aspx?id=3589','610','450');"><img src="/i/mail.gif" style="border-width:0px;" /></a></td>
+                        <td width="35"><a class="smalllink" href="javascript:WinOpen('/emailarticle.aspx?id=3589','610','450');">E-mail</a></td>
+                        <td width="5">&nbsp;</td>
+                      </tr>
+                  </table>
+
+			    </td>
+				</tr>
+				<tr>
+				<td>
+                    		<a href="javascript:PrintWindow('/printarticle.aspx?i=3589','610','450');"><img src="/i/document.gif" alt="Print This Article" border="0" /></a>
+							<a href="javascript:PrintWindow('/printarticle.aspx?i=3589','610','450');" class="smalllink">Print this article</a>
+				</td>
+				<td>
+				&nbsp;
+                </td>
+				</tr>
+				
+				
+						
+
+				
+				</table>
+				</div>				
+	    </div>
+	<br />
+	<a name="comments"></a> 
+		<form name="aspnetForm" method="post" action="/memory/showdoc.aspx?i=3589&amp;amp%3bp=7&amp;amp%3bcp=2" id="aspnetForm" class="Forms">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTQ2MzExNDkyNQ9kFgJmD2QWAgIFD2QWAmYPZBYkAgEPDxYEHgtOYXZpZ2F0ZVVybAV6L1Bvc3ROZXdDb21tZW50LmFzcHg/ZnJtUmVzb3VyY2VJRD0zNTg5JmZybVdoZXJlPTImcmV0dXJuPSUyZm1lbW9yeSUyZnNob3dkb2MuYXNweCUzZmklM2QzNTg5JTI2YW1wJTNicCUzZDclMjZhbXAlM2JjcCUzZDIeB1Zpc2libGVoZGQCAw8PFgIeDU9uQ2xpZW50Q2xpY2sFKiQoJyNjb21tZW50bG9naW4nKS50b2dnbGUoKTsgcmV0dXJuIGZhbHNlO2RkAgcPDxYCHwFoZGQCCQ8PFgIfAAV8L0NyZWF0ZU5ld0FjY291bnQuYXNweD9mcm1SZXNvdXJjZUlEPTM1ODkmZnJtV2hlcmU9MiZyZXR1cm49JTJmbWVtb3J5JTJmc2hvd2RvYy5hc3B4JTNmaSUzZDM1ODklMjZhbXAlM2JwJTNkNyUyNmFtcCUzYmNwJTNkMmRkAg0PDxYCHwAFeS9SZXNldFBhc3N3b3JkLmFzcHg/ZnJtUmVzb3VyY2VJRD0zNTg5JmZybVdoZXJlPTImcmV0dXJuPSUyZm1lbW9yeSUyZnNob3dkb2MuYXNweCUzZmklM2QzNTg5JTI2YW1wJTNicCUzZDclMjZhbXAlM2JjcCUzZDJkZAIPDxYCHgRUZXh0BSc1MiBDb21tZW50cyAtIExhc3QgYnkgcnJlZSwgNjYgZGF5cyBhZ29kAiMPDxYCHwFoZGQCJQ8PFggfAwUFWyAxIF0fAAU6L21lbW9yeS9zaG93ZG9jLmFzcHg/aT0zNTg5JmFtcDtwPTcmYW1wO2NwPTImY3A9MSNjb21tZW50cx4JRm9udF9Cb2xkZx4EXyFTQgKAEGRkAicPFgIfAWhkAigPDxYEHwMFBVsgMiBdHwAFOi9tZW1vcnkvc2hvd2RvYy5hc3B4P2k9MzU4OSZhbXA7cD03JmFtcDtjcD0yJmNwPTIjY29tbWVudHNkZAIqDw8WBB8DBQVbIDMgXR8ABTovbWVtb3J5L3Nob3dkb2MuYXNweD9pPTM1ODkmYW1wO3A9NyZhbXA7Y3A9MiZjcD0zI2NvbW1lbnRzZGQCLA8PFgQfAwUFWyA0IF0fAAU6L21lbW9yeS9zaG93ZG9jLmFzcHg/aT0zNTg5JmFtcDtwPTcmYW1wO2NwPTImY3A9NCNjb21tZW50c2RkAi4PDxYEHwMFBVsgNSBdHwAFOi9tZW1vcnkvc2hvd2RvYy5hc3B4P2k9MzU4OSZhbXA7cD03JmFtcDtjcD0yJmNwPTUjY29tbWVudHNkZAIwDw8WBB8DBQVbIDYgXR8ABTovbWVtb3J5L3Nob3dkb2MuYXNweD9pPTM1ODkmYW1wO3A9NyZhbXA7Y3A9MiZjcD02I2NvbW1lbnRzZGQCMg8WAh8BaGQCMw8PFgIfAWhkZAI1Dw8WAh8ABTovbWVtb3J5L3Nob3dkb2MuYXNweD9pPTM1ODkmYW1wO3A9NyZhbXA7Y3A9MiZjcD0yI2NvbW1lbnRzZGQCNw8WAh8DBRRDb21tZW50cyBQYWdlIDEgb2YgNmQYAQUeX19Db250cm9sc1JlcXVpcmVQb3N0QmFja0tleV9fFgEFGXNob3dkb2MkdGFsazEkZnJtUmVtZW1iZXJWUNHiN3U7s6e5ml5aT3nSvXWrKA==" />
+
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWBgLnuffzAgKw5JIuAv6V+ogBAp/dxcYNAo23yKQJAveD9pYFkQAXbAojesS+Z3DUladU+FLuCZ8=" />
+    <div class="HeaderSurround">
+        <div class="atheader"><div class="CommentFloat">
+            
+            <a onclick="$('#commentlogin').toggle(); return false;" id="showdoc_talk1_lnkLogin" href="javascript:__doPostBack('showdoc$talk1$lnkLogin','')">Login</a>
+            &nbsp;|&nbsp;
+            
+            <a id="showdoc_talk1_lnkCreate" CausesValidation="false" href="/CreateNewAccount.aspx?frmResourceID=3589&amp;frmWhere=2&amp;return=%2fmemory%2fshowdoc.aspx%3fi%3d3589%26amp%3bp%3d7%26amp%3bcp%3d2">Create Account</a>
+            &nbsp;|&nbsp;
+            <a id="showdoc_talk1_lnkReset" CausesValidation="false" href="/ResetPassword.aspx?frmResourceID=3589&amp;frmWhere=2&amp;return=%2fmemory%2fshowdoc.aspx%3fi%3d3589%26amp%3bp%3d7%26amp%3bcp%3d2">Reset Password</a>
+            </div>52 Comments - Last by rree, 66 days ago</div>
+        <div id="commentlogin">
+		    <span id="showdoc_talk1_frmError"><b><font color="SteelBlue"></font></b></span>
+			<table cellspacing="0" cellpadding="1" border="0">
+					<tr>
+						<td valign="top"><span id="showdoc_talk1_Label1">Username:</span><input name="showdoc$talk1$frm_username" type="text" id="showdoc_talk1_frm_username" class="smallform_input" /><br />
+							</td>
+						<td></td>
+						<td valign="top"><span id="showdoc_talk1_Label2">Password:</span><input name="showdoc$talk1$frm_password" type="password" id="showdoc_talk1_frm_password" class="smallform_input" /><br />
+							</td>
+						<td valign="top"><input type="submit" name="showdoc$talk1$btnLogin" value="Login" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;showdoc$talk1$btnLogin&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="showdoc_talk1_btnLogin" />
+							<span><input id="showdoc_talk1_frmRemember" type="checkbox" name="showdoc$talk1$frmRemember" /><label for="showdoc_talk1_frmRemember">remember me</label></span>
+						</td>
+					</tr>
+			</table>
+        </div>
+        <div class="TreeBody">
+            <div class="boxclear"></div>
+            <div class="myTree">
+                <div id="showdoc_talk1_TreeContainer" class="TreeContainer">
+	<div id="showdoc_talk1_ctl00_CommentSurround" class="CommentSurround" style="margin-left:0px;">
+    <div id="showdoc_talk1_ctl00_CommentHeaderDiv" class="CommentHeader">
+    <div class="CHeaderText">
+    Windows 7?
+        <strong>by</strong> <span class="Author">
+            darklight0tr</span>, 262 days ago</div>
+    </div>
+    <div class="CommentBody">
+        You kinda lost me at the Windows 7 admission.  Why use an unreleased OS that most of us don't have access to? 
+        <br />
+        <br />
+        <a id="showdoc_talk1_ctl00_lnkReply" href="/PostNewComment.aspx?frmResourceID=3589&amp;frmWhere=2&amp;frmParent=173614&amp;prevSubj=Windows+7%3f&amp;return=%2fmemory%2fshowdoc.aspx%3fi%3d3589%26amp%3bp%3d7%26amp%3bcp%3d2">Reply</a>
+        
+    </div>
+</div>
+<div id="showdoc_talk1_ctl01_CommentSurround" class="CommentSurround" style="margin-left:20px;">
+    <div id="showdoc_talk1_ctl01_CommentHeaderDiv" class="CommentHeader">
+    <div class="CHeaderText">
+    RE: Windows 7?
+        <strong>by</strong> <span class="Author">
+            crimson117</span>, 262 days ago</div>
+    </div>
+    <div class="CommentBody">
+        <a target=_blank class=ftalternatingbarlinklarge href="http://www.microsoft.com/windows/windows-7/download.aspx">http://www.microsoft.com/windows/windows-7/download.aspx</a><br /><br />There, now everyone here has access to it. 
+        <br />
+        <br />
+        <a id="showdoc_talk1_ctl01_lnkReply" href="/PostNewComment.aspx?frmResourceID=3589&amp;frmWhere=2&amp;frmParent=173617&amp;prevSubj=RE%3a+Windows+7%3f&amp;return=%2fmemory%2fshowdoc.aspx%3fi%3d3589%26amp%3bp%3d7%26amp%3bcp%3d2">Reply</a>
+        
+    </div>
+</div>
+<div id="showdoc_talk1_ctl02_CommentSurround" class="CommentSurround" style="margin-left:40px;">
+    <div id="showdoc_talk1_ctl02_CommentHeaderDiv" class="CommentHeader">
+    <div class="CHeaderText">
+    RE: Windows 7?
+        <strong>by</strong> <span class="Author">
+            philosofa</span>, 262 days ago</div>
+    </div>
+    <div class="CommentBody">
+        I lol'd :) Nicely done.<br /><br />Re the article itself; fantastic and thorough work as always!  Great to see the debate and various titbits of benching replaced by such a systematic multi-app examination of i7 memory speed &amp; latency effects.  Also, cheers for the analysis of min frame rates - this is something that's been on-and-off for a while now, and I, like a lot of others, agree that it's as least as important as average FPS.<br /><br />Cheers Gary.<br /><br /> 
+        <br />
+        <br />
+        <a id="showdoc_talk1_ctl02_lnkReply" href="/PostNewComment.aspx?frmResourceID=3589&amp;frmWhere=2&amp;frmParent=173618&amp;prevSubj=RE%3a+Windows+7%3f&amp;return=%2fmemory%2fshowdoc.aspx%3fi%3d3589%26amp%3bp%3d7%26amp%3bcp%3d2">Reply</a>
+        
+    </div>
+</div>
+<div id="showdoc_talk1_ctl03_CommentSurround" class="CommentSurround" style="margin-left:60px;">
+    <div id="showdoc_talk1_ctl03_CommentHeaderDiv" class="CommentHeader">
+    <div class="CHeaderText">
+    RE: Windows 7?
+        <strong>by</strong> <span class="Author">
+            Matt Campbell</span>, 262 days ago</div>
+    </div>
+    <div class="CommentBody">
+        Great job as always Gary, fantastic detail. 
+        <br />
+        <br />
+        <a id="showdoc_talk1_ctl03_lnkReply" href="/PostNewComment.aspx?frmResourceID=3589&amp;frmWhere=2&amp;frmParent=173630&amp;prevSubj=RE%3a+Windows+7%3f&amp;return=%2fmemory%2fshowdoc.aspx%3fi%3d3589%26amp%3bp%3d7%26amp%3bcp%3d2">Reply</a>
+        
+    </div>
+</div>
+<div id="showdoc_talk1_ctl04_CommentSurround" class="CommentSurround" style="margin-left:80px;">
+    <div id="showdoc_talk1_ctl04_CommentHeaderDiv" class="CommentHeader">
+    <div class="CHeaderText">
+    RE: Windows 7?
+        <strong>by</strong> <span class="Author">
+            aileen</span>, 254 days ago</div>
+    </div>
+    <div class="CommentBody">
+         Thanks for writing this. It was very helpful. Keep writing.<br /><a target=_blank class=ftalternatingbarlinklarge href="http://www.freshsmileclinic.co.uk/dental-implants-dentist-huddersfield.html">http://www.freshsmileclinic.co.uk/dental-implants-dentist-huddersfield.html</a><br /><a target=_blank class=ftalternatingbarlinklarge href="http://www.freshsmileclinic.co.uk/dental-implant-dentist-halifax.html">http://www.freshsmileclinic.co.uk/dental-implant-dentist-halifax.html</a><br /><br /><br /><br /><br /> <br /><br /><br /><br /><br /><br /> <br /><br /> 
+        <br />
+        <br />
+        <a id="showdoc_talk1_ctl04_lnkReply" href="/PostNewComment.aspx?frmResourceID=3589&amp;frmWhere=2&amp;frmParent=173982&amp;prevSubj=RE%3a+Windows+7%3f&amp;return=%2fmemory%2fshowdoc.aspx%3fi%3d3589%26amp%3bp%3d7%26amp%3bcp%3d2">Reply</a>
+        
+    </div>
+</div>
+<div id="showdoc_talk1_ctl05_CommentSurround" class="CommentSurround" style="margin-left:40px;">
+    <div id="showdoc_talk1_ctl05_CommentHeaderDiv" class="CommentHeader">
+    <div class="CHeaderText">
+    RE: Windows 7?
+        <strong>by</strong> <span class="Author">
+            darklight0tr</span>, 262 days ago</div>
+    </div>
+    <div class="CommentBody">
+        LOL.  You got me there, my brain hadn't arrived at work yet when I posted that comment.<br /><br />Still, I don't see the point of replacing the released, established OS with an unreleased one.  Testing on both would have made more sense if you wanted to do it that way. 
+        <br />
+        <br />
+        <a id="showdoc_talk1_ctl05_lnkReply" href="/PostNewComment.aspx?frmResourceID=3589&amp;frmWhere=2&amp;frmParent=173619&amp;prevSubj=RE%3a+Windows+7%3f&amp;return=%2fmemory%2fshowdoc.aspx%3fi%3d3589%26amp%3bp%3d7%26amp%3bcp%3d2">Reply</a>
+        
+    </div>
+</div>
+<div id="showdoc_talk1_ctl06_CommentSurround" class="CommentSurround" style="margin-left:20px;">
+    <div id="showdoc_talk1_ctl06_CommentHeaderDiv" class="CommentHeader">
+    <div class="CHeaderText">
+    RE: Windows 7?
+        <strong>by</strong> <span class="Author">
+            Gary Key</span>, 262 days ago</div>
+    </div>
+    <div class="CommentBody">
+        I debated about using Win7, but we have some interesting virtualization benches coming in a couple of weeks with XP mode running on it, both for these tests and looking at 12GB and 24GB loads. <br />Also, memory management and several other performance metrics are just better under Win7 than Vista.  I ran most of these tests under Vista 64 and the results (percentage wise) were the same as Win7. I also tried the latest RC version of Win7 (7232), no differences in performance.  Not that I expected any as the core code for Win7 has been done for a while but it was to double check. I did not use 7232 since it is not &quot;officially&quot; available for the public. ;) 
+        <br />
+        <br />
+        <a id="showdoc_talk1_ctl06_lnkReply" href="/PostNewComment.aspx?frmResourceID=3589&amp;frmWhere=2&amp;frmParent=173646&amp;prevSubj=RE%3a+Windows+7%3f&amp;return=%2fmemory%2fshowdoc.aspx%3fi%3d3589%26amp%3bp%3d7%26amp%3bcp%3d2">Reply</a>
+        
+    </div>
+</div>
+<div id="showdoc_talk1_ctl07_CommentSurround" class="CommentSurround" style="margin-left:20px;">
+    <div id="showdoc_talk1_ctl07_CommentHeaderDiv" class="CommentHeader">
+    <div class="CHeaderText">
+       jordan shoes$32,ugg boots$50,Handbags$35,Jewerly $20JEANs$30,Free shipping
+        <strong>by</strong> <span class="Author">
+            wwrr</span>, 92 days ago</div>
+    </div>
+    <div class="CommentBody">
+        <a target=_blank class=ftalternatingbarlinklarge href="http://elurl.com/42v">http://elurl.com/42v</a><br /><br />Air jordan(1-24)shoes $33<br /><br />UGG BOOT $50<br /><br />Jewerly $20<br /><br />Nike shox(R4,NZ,OZ,TL1,TL2,TL3) $35<br />Handbags(Coach lv fendi d&amp;g) $35<br />Tshirts (Polo ,ed hardy,lacoste) $16<br /><br />Jean(True Religion,ed hardy,coogi) $30<br />Sunglasses(Oakey,coach,gucci,Armaini) $16<br />New era cap $15<br /><br />Bikini (Ed hardy,polo) $25<br /><br />FREE sHIPPING<br /><a target=_blank class=ftalternatingbarlinklarge href="http://www.elivebuy.com">http://www.elivebuy.com</a><br /> 
+        <br />
+        <br />
+        <a id="showdoc_talk1_ctl07_lnkReply" href="/PostNewComment.aspx?frmResourceID=3589&amp;frmWhere=2&amp;frmParent=193650&amp;prevSubj=+++jordan+shoes%2432%2cugg+boots%2450%2cHandbags%2435%2cJewerly+%2420JEANs%2430%2cFree+shipping&amp;return=%2fmemory%2fshowdoc.aspx%3fi%3d3589%26amp%3bp%3d7%26amp%3bcp%3d2">Reply</a>
+        
+    </div>
+</div>
+<div id="showdoc_talk1_ctl08_CommentSurround" class="CommentSurround" style="margin-left:20px;">
+    <div id="showdoc_talk1_ctl08_CommentHeaderDiv" class="CommentHeader">
+    <div class="CHeaderText">
+    RE: Windows 7?
+        <strong>by</strong> <span class="Author">
+            fox12789</span>, 73 days ago</div>
+    </div>
+    <div class="CommentBody">
+        <a target=_blank class=ftalternatingbarlinklarge href="http://www.brand-bar.com">http://www.brand-bar.com</a><br />sneaker: airmax 90, 95 etc $35-42 free shiping.<br />boots:  UGG etc $60 free shiping.<br />Jeans : polo etc $35-49 free shipping<br />T-shirts : A&amp;f etc $12-18 free shipping.<br />hoodies: 5ive etc $28-40 free shipping<br />handbags: Ed hardy etc $35-68 free shipping<br />Sunglasses: LV etc $17 free shipping<br />Belts: BOSS etc $15 free shipping<br />Caps: red bull etc  $12-15 free shipping<br />Watches:rolex etc $80 free shipping<br /><a target=_blank class=ftalternatingbarlinklarge href="http://www.brand-bar.com">http://www.brand-bar.com</a> 
+        <br />
+        <br />
+        <a id="showdoc_talk1_ctl08_lnkReply" href="/PostNewComment.aspx?frmResourceID=3589&amp;frmWhere=2&amp;frmParent=194842&amp;prevSubj=RE%3a+Windows+7%3f&amp;return=%2fmemory%2fshowdoc.aspx%3fi%3d3589%26amp%3bp%3d7%26amp%3bcp%3d2">Reply</a>
+        
+    </div>
+</div>
+<div id="showdoc_talk1_ctl09_CommentSurround" class="CommentSurround" style="margin-left:20px;">
+    <div id="showdoc_talk1_ctl09_CommentHeaderDiv" class="CommentHeader">
+    <div class="CHeaderText">
+     jordan shoes$32,ugg boots$50,Handbags$35,Jewerly $20JEANs$30,Free shipping
+        <strong>by</strong> <span class="Author">
+            rree</span>, 66 days ago</div>
+    </div>
+    <div class="CommentBody">
+        <a target=_blank class=ftalternatingbarlinklarge href="http://ecartshopping.biz">http://ecartshopping.biz</a><br /><br />Air jordan(1-24)shoes $33<br /><br />Nike shox(R4,NZ,OZ,TL1,TL2,TL3) $35<br />Handbags(Coach lv fendi d&amp;g) $35<br />Tshirts (Polo ,ed hardy,lacoste) $16<br /><br />Jean(True Religion,ed hardy,coogi) $30<br />Sunglasses(Oakey,coach,gucci,Armaini) $16<br />New era cap $15<br /><br />Bikini (Ed hardy,polo) $25<br /><br />FREE sHIPPING<br /><a target=_blank class=ftalternatingbarlinklarge href="http://ecartshopping.biz">http://ecartshopping.biz</a> 
+        <br />
+        <br />
+        <a id="showdoc_talk1_ctl09_lnkReply" href="/PostNewComment.aspx?frmResourceID=3589&amp;frmWhere=2&amp;frmParent=195513&amp;prevSubj=+jordan+shoes%2432%2cugg+boots%2450%2cHandbags%2435%2cJewerly+%2420JEANs%2430%2cFree+shipping&amp;return=%2fmemory%2fshowdoc.aspx%3fi%3d3589%26amp%3bp%3d7%26amp%3bcp%3d2">Reply</a>
+        
+    </div>
+</div>
+<div>
+
+	</div>
+</div>
+            </div>
+        </div>
+        <div class="TreePages">
+        <div class="PagesFloat">        
+         <a id="showdoc_talk1_lnkFirst" href="/memory/showdoc.aspx?i=3589&amp;amp;p=7&amp;amp;cp=2&amp;cp=1#comments"><b>[ 1 ]</b></a> <a id="showdoc_talk1_lnkOne" href="/memory/showdoc.aspx?i=3589&amp;amp;p=7&amp;amp;cp=2&amp;cp=2#comments">[ 2 ]</a> <a id="showdoc_talk1_lnkTwo" href="/memory/showdoc.aspx?i=3589&amp;amp;p=7&amp;amp;cp=2&amp;cp=3#comments">[ 3 ]</a> <a id="showdoc_talk1_lnkThree" href="/memory/showdoc.aspx?i=3589&amp;amp;p=7&amp;amp;cp=2&amp;cp=4#comments">[ 4 ]</a> <a id="showdoc_talk1_lnkFour" href="/memory/showdoc.aspx?i=3589&amp;amp;p=7&amp;amp;cp=2&amp;cp=5#comments">[ 5 ]</a> <a id="showdoc_talk1_lnkFive" href="/memory/showdoc.aspx?i=3589&amp;amp;p=7&amp;amp;cp=2&amp;cp=6#comments">[ 6 ]</a>  <a id="showdoc_talk1_lnkNext" href="/memory/showdoc.aspx?i=3589&amp;amp;p=7&amp;amp;cp=2&amp;cp=2#comments">Next</a>
+        </div>
+        Comments Page 1 of 6        
+        </div>
+    </div>
+</form>
+
+
+	<br />
+	
+	
+	
+	<div class="adcontainer"><center><script type='text/javascript'><!--//<![CDATA[
+   var m3_u = (location.protocol=='https:'?'https://dynamic1.anandtech.com/www/delivery/ajs.php':'http://dynamic1.anandtech.com/www/delivery/ajs.php');
+   var m3_r = Math.floor(Math.random()*99999999999);
+   if (!document.MAX_used) document.MAX_used = ',';
+   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+   document.write ("?zoneid=198");
+   document.write ('&amp;cb=' + m3_r);
+   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+   document.write ("&amp;loc=" + escape(window.location));
+   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+   if (document.context) document.write ("&context=" + escape(document.context));
+   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+   document.write ("'><\/scr"+"ipt>");
+//]]>--></script><noscript><a href='http://dynamic1.anandtech.com/www/delivery/ck.php?n=a38ac5ce&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://dynamic1.anandtech.com/www/delivery/avw.php?zoneid=198&amp;n=a38ac5ce' border='0' alt='' /></a></noscript></center></div>	
+	
+	<div class="HeaderSurround">
+	<div class="atheader">&nbsp;<a href="http://www.industrybrains.com/MoreInformation.asp" class="headerLink">Sponsored Links (Get Listed)</a></div>
+	<div style="padding:4px;">
+<div style="padding-bottom:7px;padding-left:2px;padding-right:2px;"><div style="margin-bottom:5px;"><a target="_blank" style="font-weight:bold;color:#016a96" href="http://links.industrybrains.com/click?sid=31&amp;rqctid=39&amp;pos=1&amp;lid=568308&amp;cid=142744&amp;pr=2&amp;tstamp=20090829120002&amp;iip=208.65.201.98&amp;url=http://www.smsassembly.com/buymem.php">We Buy Laptop and PC Memory! Sell to Us!</a><br/>Min of 25 pieces required. Call us today at 239.354.1230.</div><div style="margin-bottom:5px;"><a target="_blank" style="font-weight:bold;color:#016a96" href="http://links.industrybrains.com/click?sid=31&amp;rqctid=39&amp;pos=2&amp;lid=543451&amp;cid=140476&amp;pr=2&amp;tstamp=20090829120002&amp;iip=208.65.201.98&amp;url=https://reporting.bsa.org/usa/home.aspx%3f">Unlicensed Software at Your Last Company</a><br/>Anonymously Report Unlicensed Software with Our Form Now. Get Up to $1 Million.</div><div style="margin-bottom:5px;"><a target="_blank" style="font-weight:bold;color:#016a96" href="http://links.industrybrains.com/click?sid=31&amp;rqctid=39&amp;pos=3&amp;lid=548367&amp;cid=141164&amp;pr=2&amp;tstamp=20090829120002&amp;iip=208.65.201.98&amp;url=http://clk.atdmt.com/MRT/go/159835108/direct/01/%3fqstr%3dwt.mc_id%3dvspdsrch">Microsoft Visual Studio ® Team System - Free Trial</a><br/>Collaborate and Develop Apps Faster. Get the Tools &amp; Processes That Help Teams Work Effectively.</div><div style="margin-bottom:5px;"><a target="_blank" style="font-weight:bold;color:#016a96" href="http://links.industrybrains.com/click?sid=31&amp;rqctid=39&amp;pos=4&amp;lid=576389&amp;cid=106121&amp;pr=2&amp;tstamp=20090829120002&amp;iip=208.65.201.98&amp;url=https://www.economistsubscriptions.com/root12/na/index.php%3foff2on_login_url%3d/banners%26off2on_code%3dQWQ20">Special Offer from The Economist</a><br/>Get 12 issues of The Economist for $12. US subscribers only.</div><div style="margin-bottom:5px;"><a target="_blank" style="font-weight:bold;color:#016a96" href="http://links.industrybrains.com/click?sid=31&amp;rqctid=39&amp;pos=5&amp;lid=564299&amp;cid=142488&amp;pr=2&amp;tstamp=20090829120002&amp;iip=208.65.201.98&amp;url=http://clickserve.dartsearch.net/link/click%3flid%3d43000000203219492">SAP Risk and Compliance Resources</a><br/>Register to Access SAP's Risk Management Resource Center today.</div></div></div>
+	</div>
+
+	<br />
+	<br /><br /><br />
+</div>
+
+
+
+
+			</div>
+			<div id="boxright">
+				
+
+<div id="rightcontainer">
+
+	<div class="adcontainer"></div>
+	<div class="adcontainer"><center><script type='text/javascript'><!--//<![CDATA[
+   var m3_u = (location.protocol=='https:'?'https://dynamic1.anandtech.com/www/delivery/ajs.php':'http://dynamic1.anandtech.com/www/delivery/ajs.php');
+   var m3_r = Math.floor(Math.random()*99999999999);
+   if (!document.MAX_used) document.MAX_used = ',';
+   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+   document.write ("?zoneid=205");
+   document.write ('&amp;cb=' + m3_r);
+   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+   document.write ("&amp;loc=" + escape(window.location));
+   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+   if (document.context) document.write ("&context=" + escape(document.context));
+   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+   document.write ("'><\/scr"+"ipt>");
+//]]>--></script><noscript><a href='http://dynamic1.anandtech.com/www/delivery/ck.php?n=a7616b44&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://dynamic1.anandtech.com/www/delivery/avw.php?zoneid=205&amp;n=a7616b44' border='0' alt='' /></a></noscript></center></div>
+
+
+	
+	
+	<div class="atheaderdark" onmouseover="this.style.cursor='pointer';" style="padding-bottom:8px;" onclick="location.href='http://www.dailytech.com'">
+	    <div style="float:left;margin-top:2px;">Latest news by</div>
+		<div style="float:left;width:100px;padding-left:4px;"><a href="http://www.dailytech.com"><img src="/i/dailytechsmaller.gif" border="0" alt="DailyTech" /></a></div>
+	</div>
+	
+		<p align="center" style="margin-top:0px;margin-bottom:5px;color:#777;font-size:11px">&nbsp;<strong>March 12, 2010</strong><br /></p>
+		
+	
+	<div class="columncontainer"><a href="http://www.dailytech.com/article.aspx?newsid=17886" class="sidemenuLink">Will Shatner Creates Sci-Fi Social Network Site MyOuterSpace</a><br /></div>
+	<div class="dotline"><img alt="Blank" src="/i/f.gif" height="5" width="1" border="0" /></div>
+	
+	<div class="columncontainer"><a href="http://www.dailytech.com/article.aspx?newsid=17860" class="sidemenuLink">Military: Technology Will Not Replace GIs</a><br /></div>
+	<div class="dotline"><img alt="Blank" src="/i/f.gif" height="5" width="1" border="0" /></div>
+	
+	<div class="columncontainer"><a href="http://www.dailytech.com/article.aspx?newsid=17885" class="sidemenuLink">3/12/2010 Daily Hardware Reviews</a><br /></div>
+	<div class="dotline"><img alt="Blank" src="/i/f.gif" height="5" width="1" border="0" /></div>
+	
+	<div class="columncontainer"><a href="http://www.dailytech.com/article.aspx?newsid=17883" class="sidemenuLink">Microsoft, Palm Plunge in Smartphone Market Share, Android is Big Winner</a><br /></div>
+	<div class="dotline"><img alt="Blank" src="/i/f.gif" height="5" width="1" border="0" /></div>
+	
+	<div class="columncontainer"><a href="http://www.dailytech.com/article.aspx?newsid=17881" class="sidemenuLink">Windows Phone 7 Series Shacks up With AMD, Will Bring 480x800 Xbox Live Titles</a><br /></div>
+	<div class="dotline"><img alt="Blank" src="/i/f.gif" height="5" width="1" border="0" /></div>
+	
+	<div class="columncontainer"><a href="http://www.dailytech.com/article.aspx?newsid=17882" class="sidemenuLink">Xbox 360 Top Console in February Says NPD</a><br /></div>
+	<div class="dotline"><img alt="Blank" src="/i/f.gif" height="5" width="1" border="0" /></div>
+	
+		<p align="center" style="margin-top:0px;margin-bottom:5px;color:#777;font-size:11px">&nbsp;<strong>March 11, 2010</strong><br /></p>
+		
+	
+	<div class="columncontainer"><a href="http://www.dailytech.com/article.aspx?newsid=17880" class="sidemenuLink">Japanese Create "Caring, Mothering System" of Cell Phone Snooping</a><br /></div>
+	<div class="dotline"><img alt="Blank" src="/i/f.gif" height="5" width="1" border="0" /></div>
+	
+	<div class="columncontainer"><a href="http://www.dailytech.com/article.aspx?newsid=17879" class="sidemenuLink">3/11/2010 Daily Hardware Reviews</a><br /></div>
+	<div class="dotline"><img alt="Blank" src="/i/f.gif" height="5" width="1" border="0" /></div>
+	
+	<div class="columncontainer"><a href="http://www.dailytech.com/article.aspx?newsid=17874" class="sidemenuLink">First Family Genome Sequenced, Offers Insight on Disease</a><br /></div>
+	<div class="dotline"><img alt="Blank" src="/i/f.gif" height="5" width="1" border="0" /></div>
+	
+	<div class="columncontainer"><a href="http://www.dailytech.com/article.aspx?newsid=17872" class="sidemenuLink">Bing, Opera Mini 5 Come to Android, Motorola Banks on Android in China</a><br /></div>
+	<div class="dotline"><img alt="Blank" src="/i/f.gif" height="5" width="1" border="0" /></div>
+	
+		<div class="adcontainer" style="padding-top:2px;padding-bottom:2px;"><center><script type='text/javascript'><!--//<![CDATA[
+   var m3_u = (location.protocol=='https:'?'https://dynamic1.anandtech.com/www/delivery/ajs.php':'http://dynamic1.anandtech.com/www/delivery/ajs.php');
+   var m3_r = Math.floor(Math.random()*99999999999);
+   if (!document.MAX_used) document.MAX_used = ',';
+   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+   document.write ("?zoneid=206");
+   document.write ('&amp;cb=' + m3_r);
+   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+   document.write ("&amp;loc=" + escape(window.location));
+   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+   if (document.context) document.write ("&context=" + escape(document.context));
+   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+   document.write ("'><\/scr"+"ipt>");
+//]]>--></script><noscript><a href='http://dynamic1.anandtech.com/www/delivery/ck.php?n=a3a78a57&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://dynamic1.anandtech.com/www/delivery/avw.php?zoneid=206&amp;n=a3a78a57' border='0' alt='' /></a></noscript></center></div>
+	
+	<div class="columncontainer"><a href="http://www.dailytech.com/article.aspx?newsid=17878" class="sidemenuLink">Report: IPhone OS 4.0 Will Bring True Multitasking This Summer</a><br /></div>
+	<div class="dotline"><img alt="Blank" src="/i/f.gif" height="5" width="1" border="0" /></div>
+	
+	<div class="columncontainer"><a href="http://www.dailytech.com/article.aspx?newsid=17876" class="sidemenuLink">NEC Develops "Minority Report" Advertising System</a><br /></div>
+	<div class="dotline"><img alt="Blank" src="/i/f.gif" height="5" width="1" border="0" /></div>
+	
+	<div class="columncontainer"><a href="http://www.dailytech.com/article.aspx?newsid=17870" class="sidemenuLink">Sony PlayStation Move Motion Controller Gets Official</a><br /></div>
+	<div class="dotline"><img alt="Blank" src="/i/f.gif" height="5" width="1" border="0" /></div>
+	
+	<div class="columncontainer"><a href="http://www.dailytech.com/article.aspx?newsid=17877" class="sidemenuLink">Lexus CT 200h Compact Hatchback Hybrid Coming to U.S.</a><br /></div>
+	<div class="dotline"><img alt="Blank" src="/i/f.gif" height="5" width="1" border="0" /></div>
+	
+	<div class="columncontainer"><a href="http://www.dailytech.com/article.aspx?newsid=17873" class="sidemenuLink">OCZ's New 30GB Onyx SSD to Debut for Under $100</a><br /></div>
+	<div class="dotline"><img alt="Blank" src="/i/f.gif" height="5" width="1" border="0" /></div>
+	
+	<div class="columncontainer"><a href="http://www.dailytech.com/article.aspx?newsid=17871" class="sidemenuLink">3/11/2010 Daily Hardware Reviews -- Intel Core i7-980X Extreme Edition "Gulftown"</a><br /></div>
+	<div class="dotline"><img alt="Blank" src="/i/f.gif" height="5" width="1" border="0" /></div>
+	
+		<p align="center" style="margin-top:0px;margin-bottom:5px;color:#777;font-size:11px">&nbsp;<strong>March 10, 2010</strong><br /></p>
+		
+	
+	<div class="columncontainer"><a href="http://www.dailytech.com/article.aspx?newsid=17869" class="sidemenuLink">HDD Makers Adopt Improved Storage Format, Windows XP Users Beware</a><br /></div>
+	<div class="dotline"><img alt="Blank" src="/i/f.gif" height="5" width="1" border="0" /></div>
+	
+
+
+<div style="margin-top:4px;margin-bottom:3px;margin-left:3px;"><a href="http://www.dailytech.com/headlines.aspx" class="smallbluelink"><strong>more Headlines</strong></a></div>
+
+	<br />
+	<div class="spacer"> </div>	
+	
+	
+	<div class="spacer"> </div>
+	<div id="anandblog">
+		<div class="atheaderdark" onmouseover="this.style.cursor='pointer';" onclick="location.href='/weblog/default.aspx'">AnandTech Blogs</div>
+		<br />
+		
+		<div class="columncontainer"><a href="/weblog/default.aspx#675" class="sidemenuLink">Designing Our Next GPU Test Suite</a></div>
+		
+			<div class="dotline"><img alt="Blank" src="/i/f.gif" height="5" width="1" border="0" /></div>
+		
+		<div class="columncontainer"><a href="/weblog/default.aspx#674" class="sidemenuLink">AVADirect Clevo X8100 SLI Gaming Notebook</a></div>
+		
+			<div class="dotline"><img alt="Blank" src="/i/f.gif" height="5" width="1" border="0" /></div>
+		
+		<div class="columncontainer"><a href="/weblog/default.aspx#673" class="sidemenuLink">NVIDIA 196.75 Driver Alert</a></div>
+		
+			<div class="dotline"><img alt="Blank" src="/i/f.gif" height="5" width="1" border="0" /></div>
+		
+		<div class="columncontainer"><a href="/weblog/default.aspx#672" class="sidemenuLink">New MSI Classic Notebooks</a></div>
+		
+			<div class="dotline"><img alt="Blank" src="/i/f.gif" height="5" width="1" border="0" /></div>
+		
+		<div class="columncontainer"><a href="/weblog/default.aspx#671" class="sidemenuLink">NVIDIA's GTX 400 Series Gets A Launch Date: March 26th</a></div>
+		
+	</div>
+	
+	
+	<div class="adcontainer right2 document_right_2"><center><script type='text/javascript'><!--//<![CDATA[
+   var m3_u = (location.protocol=='https:'?'https://dynamic1.anandtech.com/www/delivery/ajs.php':'http://dynamic1.anandtech.com/www/delivery/ajs.php');
+   var m3_r = Math.floor(Math.random()*99999999999);
+   if (!document.MAX_used) document.MAX_used = ',';
+   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+   document.write ("?zoneid=207");
+   document.write ('&amp;cb=' + m3_r);
+   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+   document.write ("&amp;loc=" + escape(window.location));
+   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+   if (document.context) document.write ("&context=" + escape(document.context));
+   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+   document.write ("'><\/scr"+"ipt>");
+//]]>--></script><noscript><a href='http://dynamic1.anandtech.com/www/delivery/ck.php?n=a33962b1&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://dynamic1.anandtech.com/www/delivery/avw.php?zoneid=207&amp;n=a33962b1' border='0' alt='' /></a></noscript></center></div>
+	
+
+	
+	
+		<div class="atheaderdark"><a href="http://forums.anandtech.com/categories.aspx?catid=27" class="headerLink">Latest Memory Forum Posts</a></div>
+		<br />
+			
+		<a href="http://forums.anandtech.com/categories.aspx?catid=27" class="menulink"><u>more Memory Discussions</u></a><br />
+	
+	<!-- /memory/showdoc.aspx -->
+	<div class="adcontainer adright3 document_right_3"></div>
+	
+	
+	<br /><br />
+</div>
+
+
+				
+				
+				<div class="adcontainer"></div>	
+			</div>
+			<div class="boxclear"> </div>
+		</div>
+		
+		 <div class="boxclear"> </div>
+		 <div id="boxfooter">
+		 	<div id="leftfooter"> </div>
+			<div id="rightfooter"> 
+				<div style="float:left;height:117px;"></div>
+				
+				
+				<div class="adcontainer"><center><!--/* LMCD-AnandTech 2007 Javascript Tag v2.3.38-beta */-->
+
+<script type='text/javascript'><!--//<![CDATA[
+   var m3_u = (location.protocol=='https:'?'https://dynamic1.anandtech.com/www/delivery/ajs.php':'http://dynamic1.anandtech.com/www/delivery/ajs.php');
+   var m3_r = Math.floor(Math.random()*99999999999);
+   if (!document.MAX_used) document.MAX_used = ',';
+   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+   document.write ("?zoneid=200");
+   document.write ('&amp;cb=' + m3_r);
+   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+   document.write ("&amp;loc=" + escape(window.location));
+   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+   if (document.context) document.write ("&context=" + escape(document.context));
+   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+   document.write ("'><\/scr"+"ipt>");
+//]]>--></script><noscript><a href='http://dynamic1.anandtech.com/www/delivery/ck.php?n=a65f659d&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://dynamic1.anandtech.com/www/delivery/avw.php?zoneid=200&amp;n=a65f659d' border='0' alt='' /></a></noscript>
+</center></div>	
+			</div>
+		 </div>
+		  <div class="boxclear"> </div>
+	</div>
+	<div class="bottomFooter">
+	<br />
+	<div style="float:right;width: 250px; text-align: right; padding: 0px 15px 0px 0px; ">
+	<a href="http://www.pipeboost.com/" target="_blank"><img src="/i/pipeboost.gif" border="0" alt="pipeboost" /></a>
+	</div>	    
+	Copyright &copy; 1997-2010 AnandTech, Inc. All rights reserved. <a href="/terms.aspx" style="font-family:arial;color:white;font-size:8pt;">Terms, Conditions and Privacy Information.</a><br />
+		<a href="http://www.anandtech.com/advertising.aspx" style="color:#B3CBD3;font-size:8pt;">Click Here for Advertising Information</a></div>
+
+	
+  </div>	  
+	
+	<script type="text/javascript">
+	    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+            
+<script type="text/javascript">
+    var pageTracker = _gat._getTracker("UA-1721979-1");
+    pageTracker._initData();
+    pageTracker._trackPageview();
+</script>    
+    
+<script>
+    var strProtocol = document.location.protocol + "//";
+    var strAddInEyeSrc = "ds.serving-sys.com/BurstingScript/addineye.js";
+    if (strProtocol == "https://")
+        strAddInEyeSrc = "secure-" + strAddInEyeSrc;
+    strAddInEyeSrc = strProtocol + strAddInEyeSrc;
+    document.write("<scr" + "ipt src=" + strAddInEyeSrc + "></scr" + "ipt>");
+</script>
+</body>
+</html>

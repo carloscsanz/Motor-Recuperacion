@@ -1,0 +1,476 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>XHTML: The power of two languages</title>
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))'/>
+<link rel="schema.DC" href="http://purl.org/DC/elements/1.0/"/>
+<link rel="SHORTCUT ICON" href="http://www.ibm.com/favicon.ico"/>
+<meta name="Owner" content="developerWorks Content/Raleigh/IBM"/>
+<meta name="DC.Language" scheme="rfc1766" content="en"/>
+<meta name="IBM.Country" content="ZZ"/>
+<meta name="Security" content="Public"/>
+<meta name="IBM.SpecialPurpose" content="SP001"/>
+<meta name="IBM.PageAttributes" content="sid=1003"/>
+<meta name="Source" content="v16 Template Generator"/>
+<meta name="Robots" content="index,follow"/>
+<meta name="Abstract" content="This article takes a pragmatic look at XHTML, a markup language that effectively bridges the gap between the simplicity of HTML and the extensibility of XML. It also covers the essential features of the various flavors of XHTML and includes discussions of the language and a number of real-world applications."/>
+<meta name="Description" content="This article takes a pragmatic look at XHTML, a markup language that effectively bridges the gap between the simplicity of HTML and the extensibility of XML. It also covers the essential features of the various flavors of XHTML and includes discussions of the language and a number of real-world applications."/>
+<meta name="Keywords" content="[xhtml, Sathyan Munirathinam, ibm, developerworks, html, xml], tttxca, tttwaca"/>
+<meta name="DC.Date" scheme="iso8601" content="2002-07-01"/>
+<meta name="DC.Type" scheme="IBM_ContentClassTaxonomy" content="CT316"/>
+<meta name="DC.Subject" scheme="IBM_SubjectTaxonomy" content="TTC00"/>
+<meta scheme="IBM_WTMCategory" name="IBM.WTMCategory" content="SOFDCXMLZZ" />
+<meta name="DC.Rights" content="© Copyright IBM Corporation 2002"/>
+<meta name="IBM.Effective" scheme="W3CDTF" content="2002-07-01"/>
+<meta name="title" content="XHTML: The power of two languages"/>
+
+<!-- HEADER_SCRIPTS_AND_CSS_INCLUDE -->
+<link href="//a248.e.akamai.net/f/248/47542/30d/www.ibm.com/common/v16/css/all.css" media="all" rel="stylesheet" title="www" type="text/css"/>
+<link href="//a248.e.akamai.net/f/248/47542/30d/www.ibm.com/common/v16/css/screen.css" media="screen,projection" rel="stylesheet" title="www" type="text/css"/>
+<link href="//a248.e.akamai.net/f/248/47542/30d/www.ibm.com/common/v16/css/screen-uas.css" media="screen,projection" rel="stylesheet" title="www" type="text/css"/>
+<link href="//a248.e.akamai.net/f/248/47542/30d/www.ibm.com/common/v16/css/zz/en/screen-fonts.css" media="screen,projection" rel="stylesheet" title="www" type="text/css"/>
+<link href="//a248.e.akamai.net/f/248/47542/30d/www.ibm.com/common/v16/css/handheld.css" media="handheld" rel="stylesheet" title="www" type="text/css"/>
+<link href="//a248.e.akamai.net/f/248/47542/30d/www.ibm.com/common/v16/css/print.css" media="print" rel="stylesheet" title="www" type="text/css"/>
+<link href="//a248.e.akamai.net/f/248/47542/30d/www.ibm.com/common/v16/css/overlay.css" media="screen,projection" rel="stylesheet" title="www" type="text/css"/>
+
+<!-- dW-specific CSS -->
+<link href="//a248.e.akamai.net/f/248/69561/1d/www.ibm.com/developerworks/css/dw-screen.css" media="screen,projection" rel="stylesheet" title="www" type="text/css"/>
+<link href="//a248.e.akamai.net/f/248/69561/1d/www.ibm.com/developerworks/js/jquery/cluetip98/jquery.cluetip.css" media="screen,projection" rel="stylesheet"  title="www" type="text/css" />
+
+<script src="//a248.e.akamai.net/f/248/47542/30d/www.ibm.com/common/js/ibmcommon.js" type="text/javascript">//</script>
+<script src="//a248.e.akamai.net/f/248/47542/30d/www.ibm.com/common/js/dynamicnav.js" type="text/javascript">//</script>
+
+<!-- dW functional JS -->
+<script language="JavaScript" src="//a248.e.akamai.net/f/248/69561/1d/www.ibm.com/developerworks/js/urltactic.js" type="text/javascript"></script>
+<!-- Rating_START -->
+<script language="JavaScript" src="//a248.e.akamai.net/f/248/69561/1d/www.ibm.com/developerworks/js/artrating/artrating.js" type="text/javascript"></script>
+<style type="text/css">
+.metavalue {
+  display: none;
+}
+</style>
+<!-- Rating_END --><!-- RESERVED_HEADER_INCLUDE -->
+<script language="javascript" src="//a248.e.akamai.net/f/248/69561/1d/www.ibm.com/developerworks/js/ajax1.js" type="text/javascript"></script>
+<script language="javascript" src="//a248.e.akamai.net/f/248/69561/1d/www.ibm.com/developerworks/js/search_counter-maverick.js" type="text/javascript"></script>
+<script language="javascript" src="//a248.e.akamai.net/f/248/69561/1d/www.ibm.com/developerworks/js/request_referer_capture-maverick.js" type="text/javascript"></script>
+<script language="JavaScript" type="text/javascript">
+ <!--
+ setDefaultQuery('');
+ //-->
+</script>
+<script language="JavaScript" type="text/javascript">
+ <!--
+ function openNewWindow(url,tar,arg){window.open(url,tar,arg);}
+ //-->
+</script>
+<!-- Include file support -->
+<script language="JavaScript" type="text/javascript">
+(function($) {
+	jQuery.extend({
+		getInc: function(u,d){
+			if(u==null)return;
+			jQuery.ajax({
+	    		type: "GET",
+			url: u,
+			dataType: "text",
+	        	success: function(t) {
+				jQuery(d).html(t);
+			},
+			async: true
+			});
+		}
+	});
+})(jQuery);
+</script>
+</head>
+
+<body id="ibm-com">
+<div id="ibm-top" class="ibm-landing-page">
+
+<!-- MASTHEAD_BEGIN -->
+<div class="ibm-access"><a href="#ibm-content">Skip to main content</a></div>
+<div id="ibm-masthead">
+<div id="ibm-logo"><a href="http://www.ibm.com/"><img height="50" src="//www.ibm.com/i/v16/t/ibm-logo.gif" width="110" alt="IBM®" /></a></div>
+<ul id="ibm-geo"><li id="ibm-country" class="ibm-first">Country/region</li><li id="ibm-change-country">[ <a href="http://www.ibm.com/developerworks/country/">select</a> ]</li></ul>
+  <form id="ibm-search-form" action="//www.ibm.com/developerworks/search/searchResults.jsp" method="get" name="form1"><input type="hidden" name="searchType" value="1"/><input type="hidden" name="searchSite" value="dW"/><p>
+<span id="ibm-search-scope">
+<label for="sn"><img src="//www.ibm.com/i/c.gif" width="1" height="1" alt="Search in:"/></label>
+<select name="searchScope" id="sn">
+<option value="dW" selected="selected">All of dW</option>
+<option value="dW">-----------------</option>
+<option value="aixunix">&nbsp;AIX and UNIX</option>
+<option value="db2">&nbsp;Information Mgmt</option>
+<option value="lotus">&nbsp;Lotus</option>
+<option value="rdd">&nbsp;Rational</option>
+<option value="tivoli">&nbsp;Tivoli</option>  
+<option value="WSDD">&nbsp;WebSphere</option>
+<option value="dW">-----------------</option> 
+<option value="javaZ">&nbsp;Java technology</option> 
+<option value="linuxZ">&nbsp;Linux</option> 
+<option value="opensrcZ">&nbsp;Open source</option>
+<option value="webservZ">&nbsp;SOA/Web services</option>
+<option value="webarchZ">&nbsp;Web development</option>  
+<option value="xmlZ">&nbsp;XML</option>
+<option value="dW">-----------------</option>
+<option value="forums">&nbsp;dW forums</option> 
+<option value="dW">-----------------</option>
+<option value="aI">University</option>
+<option value="dW">-----------------</option>
+<option value="aW">alphaWorks</option>
+<option value="dW">-----------------</option>
+<option value="all">All of IBM</option>
+</select>
+</span>
+
+<label for="q"><img alt="Search for:" height="1" width="1" src="//www.ibm.com/i/c.gif" /></label><input type="text" name="query" maxlength="100" id="q"/><input type="submit" id="ibm-search" class="ibm-btn-search" name="Search" value="Search" /></p></form>
+<div id="ibm-site-name">
+<!-- IBM site name container -->
+</div>
+<div id="ibm-universal-nav">
+<ul><li id="ibm-unav-home" class="ibm-first"><a href="http://www.ibm.com/">Home</a></li><li id="ibm-unav-solutions"><a href="http://www.ibm.com/solutions/">Solutions</a></li><li id="ibm-unav-services"><a href="http://www.ibm.com/technologyservices/">Services</a></li><li id="ibm-unav-products"><a href="http://www.ibm.com/products/">Products</a></li><li id="ibm-unav-support"><a href="http://www.ibm.com/support/">Support &amp; downloads</a></li><li id="ibm-unav-myibm"><a href="http://www.ibm.com/account/">My IBM</a></li></ul>
+</div>
+</div>
+<!-- MASTHEAD_END -->
+
+<div id="ibm-pcon">
+
+<!-- CONTENT_BEGIN -->
+<div id="ibm-content">
+
+<!-- Navigation_Trail_BEGIN -->
+<!-- &nbsp; -->
+      <div id="ibm-content-head"><ul id="ibm-navigation-trail"><li class="ibm-first"><a href="http://www.ibm.com/developerworks/">developerWorks</a></li><li><a href="http://www.ibm.com/developerworks/xml/">XML</a></li><li><a href="http://www.ibm.com/developerworks/views/xml/library.jsp">Technical library</a></li></ul></div>
+<!-- Navigation_Trail_END -->
+
+<!-- dW_Summary Area_START -->
+<div id="dw-summary-article">
+
+<div class="dw-content-head">
+<h1>XHTML: The power of two languages</h1><p><em>Extensible Hypertext Markup Language is a reformulation of HTML 4 in XML</em></p>
+</div>
+
+<div class="ibm-container-body ibm-two-column">
+
+<div class="ibm-column ibm-first">
+<div class="author"><a class="dwauthor" rel="#authortip1" href="#author1">Sathyan Munirathinam</a> (<a href="mailto:sat_hyan@yahoo.com?subject=XHTML: The power of two languages">sat_hyan@yahoo.com</a>), Software Engineer, Aztec Software</div><div id="authortip1" class="dwauthor-onload-state ibm-no-print">
+Sathyan Munirathinam holds a Bachelor of Science in Computer Science and Master of Computer Applications from Madurai Kamaraj University. He has more than two years experience in information technology working as a software engineer at Aztec Software.  His professional interests are in database systems and networking, and his personal interests are reading technical journals, hacking network systems, and playing cricket.  You can reach him at <a href="mailto:sat_hyan@yahoo.com">sat_hyan@yahoo.com</a>.
+</div>
+<p></p>
+<p><b>Summary:</b>&nbsp; This article takes a pragmatic look at XHTML, a markup language that effectively bridges the gap between the simplicity of HTML and the extensibility of XML. It also covers the essential features of the various flavors of XHTML and includes discussions of the language and a number of real-world applications.</p>
+
+<div id="dw-tag-content" class="ibm-no-print"></div><div id="dw-moretags-access" class="ibm-access"></div>
+<p class="ibm-no-print"><div id="dw-tag-this" class="ibm-no-print"><a class="ibm-external-link" onclick="jQuery.launchTagThisWindow(); return false;" href="#">Tag this!</a></div><div id="interestShow" class="ibm-no-print"></div></p>
+</div>
+
+<div class="ibm-column ibm-second">
+<p class="leading"><b>Date:</b>&nbsp; 01 Jul  2002
+<br /><b>Level: </b>&nbsp;Introductory
+
+
+
+
+
+
+
+
+
+<br />
+<br /><b>Activity:</b>&nbsp; 5315 views
+<br /><b>Comments:</b> &nbsp; <span id="nCmts"><img alt="" src="//www.ibm.com/developerworks/i/circle-preloader.gif" height="12" width="50" /><img alt="" src="//www.ibm.com/i/gif" height="14" width="1" /></span>
+<!-- Rating_Area_Begin -->
+<!-- Ensure that div id is based on input id and ends with -widget -->	
+<input id="art-rating" name="ratinga" type="hidden" value="0"/><div id="art-rating-widget"></div>
+<script language="JavaScript" type="text/javascript">
+// <![CDATA[
+   // widget div id and article id as args
+   window.artRating.init('art-rating-widget');
+// ]]>
+</script>
+<!-- Rating_Area_End -->
+</p>
+</div>
+
+</div>
+</div>
+<!-- dW_Summary_Area_END -->
+
+<!-- CONTENT_BODY -->
+<div id="ibm-content-body">
+
+<!-- MAIN_COLUMN_BEGIN -->
+<div id="ibm-content-main">
+
+<!-- Related_Searches_Area -->
+<!-- Related_Searches_Area_Begin -->
+<script type="text/javascript" language="javascript">
+	     capture_referrer();
+</script>
+
+<div id="dw-related-searches-article" style="display:none">
+<div class="ibm-container ibm-alternate-two">
+<div class="ibm-container-body">
+
+<!--  START : HTML FOR ARTICLE SEARCH -->
+  <div id="article_results" style="display:block"></div>
+<!--  END : HTML FOR ARTICLE SEARCH -->
+
+</div>
+</div>
+</div>
+<!-- Related_Searches_Area_End -->
+<!-- MAIN_COLUMN_CONTAINER_BEGIN -->
+<div class="ibm-container">
+
+<!-- MAIN_COLUMN_CONTENT_BEGIN -->
+<p>Being a Web developer is a tough job. Not only do you have to steer clear of the traps and pitfalls that the popular browsers throw at you on a daily basis, but you also have to keep at least half an eye on the myriad developments that may (or may not) have an impact on your job. You may have just barely mastered style sheets and DHTML, yet new techniques clamor for your attention. Which ones do you need to learn right away? Which ones can you dismiss for now? Traditional HTML may ultimately be put out to pasture with the emergence of Extensible Hypertext Markup Language, or XHTML.</p><p><a name="N10047"><span class="atitle">XHTML overview</span></a></p><p>
+	
+XHTML is a hybrid of HTML and XML that's specifically designed for Net device displays (which include Web browsers, PDA devices, and cell phones). January 26, 2002 marked the second birthday of XHTML 1.0 as the official W3C recommendation for Web markup. But XHTML has yet to toddle, yet to smile, and yet to cry loud enough to get the attention of most Web designers.</p><p>W3C director Tim Berners-Lee put it this way: "XHTML 1.0 connects the present Web to the future Web...It provides the bridge to page and site authors for entering the structured data, XML world, while still being able to maintain operability with user agents that support HTML 4."</p><p>XHTML is a fairly rigid markup language. Its rules are very straightforward, and it really has very little extensibility -- that is, you can't write your own definitions to dictate how the language behaves; you've got to follow its rules. XHTML 1.0 adopts concepts that were introduced in HTML 4.0, which requires structured and methodological behavior before it is valid. </p><p>XHTML can be used with cascading style sheets (CSS) to achieve presentation goals. XHTML also allows you to use Extensible Stylesheet Language (XSL) with transformations. By using this XML-based style technology, you can actually transform a document from one type to another -- say, from an HTML document to a PDF document.</p><div class="ibm-alternate-rule"><hr/></div><p class="ibm-ind-link ibm-back-to-top"><a href="#ibm-pcon" class="ibm-anchor-up-link">Back to top</a></p><p><a name="N10054"><span class="atitle">Why would you want to use XHTML?</span></a></p><p>
+
+Normally, you might upgrade to a new version of a technology for new functions, or because problems with the previous version have been fixed. However, XHTML is a fairly faithful copy of HTML 4, as far as tag functionalities go, so don't expect any fancy new tags.</p><p>The W3C states that the primary advantages of XHTML are <i>extensibility </i> and <i>portability</i>:</p><p><a name="N10063"><span class="smalltitle">Extensibility</span></a></p><p>
+
+XML documents are required to be well-formed (with elements nested properly). With HTML, the addition of a new group of elements requires alteration of the entire DTD. In an XML-based DTD, a new set of elements simply needs to be internally consistent and well-formed to be added to an existing DTD. This greatly eases the development and integration of new collections of elements.</p><p><a name="N1006A"><span class="smalltitle">Portability</span></a></p><p>
+
+Non-desktop devices are being used more and more frequently to access Internet documents. In most cases, these devices do not have the computing power of a desktop computer and aren't designed to accommodate ill-formed HTML, as standard desktop browsers tend to do. In fact, if these non-desktop browsers do not receive well-formed markup (HTML or XHTML), they may simply fail to display the document.</p><div class="ibm-alternate-rule"><hr/></div><p class="ibm-ind-link ibm-back-to-top"><a href="#ibm-pcon" class="ibm-anchor-up-link">Back to top</a></p><p><a name="N10071"><span class="atitle">XHTML document structure</span></a></p><p>
+
+An XHTML document consists of three main parts:</p><ul><li>DOCTYPE</li><li>Head</li><li>Body</li></ul><p>The basic document structure is:</p><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td class="code-outline"><pre class="displaycode">
+&lt;!DOCTYPE ...&gt;
+&lt;html  ... &gt;
+&lt;head&gt; ... &lt;/head&gt;
+&lt;body&gt; ... &lt;/body&gt;
+&lt;/html&gt;
+</pre></td></tr></table><br /><p>The <code>&lt;head&gt;</code> area contains information about the document, such as ownership, copyright, and keywords; and the <code>&lt;body&gt;</code> area contains the content of the document to be displayed.</p><p>Listing 1 shows you how this structure might be used in practice:</p><br /><a name="code1"><b>Listing 1. An XHTML example</b></a><br /><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td class="code-outline"><pre class="displaycode">
+
+1.  &lt;?xml version="1.0"?&gt;
+2.  &lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0   
+    Transitional//EN"  "DTD/xhtml1-transitional.dtd"&gt;
+3.  &lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"  
+                     lang="en"&gt;
+4.  &lt;head&gt;
+    &lt;title&gt;My XHTML Sample Page&lt;/title&gt;
+    &lt;/head&gt;
+5.  &lt;body bgcolor="white"&gt;
+    &lt;center&gt;&lt;h1&gt;Welcome to XHTML !&lt;/h1&gt;&lt;/center&gt;
+    &lt;/body&gt;
+6.  &lt;/html&gt;
+</pre></td></tr></table><br /><p><b>Line 1:</b> Since XHTML is HTML expressed in an XML document, it must include the initial XML declaration <code>&lt;?xml version="1.0"?&gt;</code> at the top of the document.</p><p><b>Line 2:</b> XHTML documents must be identified by one of three standard sets of rules. These rules are stored in a separate document called a Document Type Declaration (DTD), and are utilized to validate the accuracy of the XHTML document structure. The purpose of a DTD is to describe, in precise terms, the language and syntax allowed in XHTML.</p><p><b>Line 3:</b> The second tag in an XHTML document must include the opening &lt;html&gt; tag with the XML namespace identified by the <code>xmlns=http://www.w3.org/1999/xhtml</code> attribute. The XML namespace identifies the range of tags used by the XHTML document. It is used to ensure that names used by one DTD don't conflict with user-defined tags or tags defined in other DTDs.</p><p><b>Line 4:</b> XHTML documents must include a full header area. This area contains the opening <code>&lt;head&gt;</code> tag and the title tags (<code>&lt;title&gt;&lt;/title&gt;</code>), and is then completed with the closing <code>&lt;/head&gt;</code>  tag.</p><p><b>Line 5:</b> XHTML documents must include opening and closing <code>&lt;body&gt;&lt;/body&gt;</code> tags. Within these tags you can place your traditional HTML coding tags. To be XHTML conformant, the coding of these tags must be well-formed.</p><p><b>Line 6:</b> Finally, the XHTML document is completed with the closing <code>&lt;/html&gt;</code> tag.</p><div class="ibm-alternate-rule"><hr/></div><p class="ibm-ind-link ibm-back-to-top"><a href="#ibm-pcon" class="ibm-anchor-up-link">Back to top</a></p><p><a name="N100CE"><span class="atitle">XHTML DTD</span></a></p><p>
+	
+When an XHTML document is created, the DTD to which it conforms is declared at the top of the document. Each DTD may be recognized by a unique label called a <i>Formal Public Identifier</i>, or FPI. The literal, or quoted, text following the word  <code>PUBLIC</code> is an FPI referring to the W3C's XHTML 1.0 DTD.</p><p>Currently, there are three XHTML document types:</p><ul><li>Strict</li><li>Transitional</li><li>Frameset</li></ul><p><a name="N100E5"><span class="smalltitle">Strict DTD</span></a></p><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td class="code-outline"><pre class="displaycode">
+&lt;! DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+		"DTD/xhtml1-strict.dtd"&gt;
+</pre></td></tr></table><br /><p>Use this with CSS when you want really clean markup, free of presentational clutter. Several tags have been removed from the language (like  <code>&lt;center&gt;</code>), and even some attributes of other tags have been removed too (like the <code>align</code> attribute of the H1 tag).</p><p><a name="N100F9"><span class="smalltitle">Transitional DTD</span></a></p><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td class="code-outline"><pre class="displaycode">
+&lt;! DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"DTD/xhtml1-transitional.dtd"&gt;
+</pre></td></tr></table><br /><p>Use this when you need to take advantage of HTML's presentation features; many of your readers don't have the latest browsers that understand CSS. The transitional DTD supports most of the standard HTML 4 tags and attributes.</p><p><a name="N10105"><span class="smalltitle">Frameset DTD</span></a></p><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td class="code-outline"><pre class="displaycode">
+&lt;! DOCTYPE html PUBLIC 	"-//W3C//DTD XHTML 1.0 Frameset//EN"
+		"DTD/xhtml1-frameset.dtd"&gt;
+</pre></td></tr></table><br /><p>This enables you to use HTML frames to partition the browser window into two or more frames. This DTD holds the frameset definitions.</p><div class="ibm-alternate-rule"><hr/></div><p class="ibm-ind-link ibm-back-to-top"><a href="#ibm-pcon" class="ibm-anchor-up-link">Back to top</a></p><p><a name="N10111"><span class="atitle">XHTML validation rules</span></a></p><p>
+
+An XHTML document <i>must</i> be well-formed XML. It must conform to basic XML syntax:</p><p><b>Tag and attribute names must be written in lower-case.</b></p><table border="1" cellpadding="3" cellspacing="0" class="ibm-data-table" width="100%"><tr valign="top"><td><b>HTML</b></td><td><b>XHTML</b></td></tr><tr valign="top"><td><code>&lt;TD BGCOLOR="#ffcc33"&gt;</code></td><td><code>&lt;<strong>td bgcolor</strong>="#ffcc33"&gt;</code></td></tr></table><p><b>Elements must nest; no overlapping.</b> With XML and XHTML, you need to close the tags in reverse order -- in other words: last opened, first closed.</p><table border="1" cellpadding="3" cellspacing="0" class="ibm-data-table" width="100%"><tr valign="top"><td><b>HTML</b></td><td><b>XHTML</b></td></tr><tr valign="top"><td><code>&lt;p&gt;Be &lt;b&gt;bold!&lt;/p&gt;&lt;/b&gt;</code></td><td><code>&lt;p&gt;Be &lt;b&gt;bold!<strong>&lt;/b&gt;&lt;/p&gt;</strong></code></td></tr></table><p><b>All non-empty elements must be closed.</b> For example, with HTML, many people use the  <code>&lt;p&gt;</code> tag to separate paragraphs. This tag is designed to mark the beginning and (with the closing  <code>&lt;/p&gt;</code> tag) end of a paragraph. That makes it a <i>non-empty</i> tag since it contains the paragraph text. </p><table border="1" cellpadding="3" cellspacing="0" class="ibm-data-table" width="100%"><tr valign="top"><td><b>HTML</b></td><td><b>XHTML</b></td></tr><tr valign="top"><td><code>First paragraph&lt;p&gt; 
+Second paragraph&lt;p&gt;</code></td><td><code> &lt;p&gt;First paragraph&lt;/p&gt; 
+&lt;p&gt;Second paragraph<strong>&lt;/p&gt;</strong></code></td></tr></table><p>Affected elements: &lt;basefont&gt;, &lt;body&gt;, &lt;colgroup&gt;, &lt;dd&gt;, &lt;dt&gt;, &lt;head&gt;, &lt;html&gt;, &lt;li&gt;, &lt;p&gt;, &lt;tbody&gt;, &lt;thead&gt;, &lt;tfoot&gt;, &lt;th&gt;, &lt;td&gt;, &lt;tr&gt;.</p><p><b>Empty elements must be terminated.</b> All empty elements must use the XML <i>empty tag</i> syntax with a trailing forward slash before the end bracket (for example,  <code>&lt;br&gt;</code> becomes  <code>&lt;br /&gt;</code>). Note the space after the element text and the closing delimiter,  <code>/&gt;</code>. This is for compatibility with current browsers. 
+</p><table border="1" cellpadding="3" cellspacing="0" class="ibm-data-table" width="100%"><tr valign="top"><td><b>HTML</b></td><td><b>XHTML</b></td></tr><tr valign="top"><td><code>&lt;hr&gt;</code></td><td><code>&lt;hr /&gt;</code></td></tr><tr valign="top"><td><code>&lt;br&gt;</code></td><td><code>&lt;br /&gt;</code></td></tr><tr valign="top"><td><code>&lt;input ... &gt;</code></td><td><code>&lt;input ... /&gt;</code></td></tr><tr valign="top"><td><code>&lt;param ... &gt;</code></td><td><code>&lt;param ... /&gt;</code></td></tr><tr valign="top"><td><code>&lt;img src="valid.gif"&gt;</code></td><td><code>&lt;img src="valid.gif" /&gt;</code></td></tr></table><p>Affected elements: &lt;area&gt;, &lt;base&gt;, &lt;br&gt;, &lt;col&gt;, &lt;frame&gt;, &lt;hr&gt;, &lt;img&gt;, &lt;input&gt;, &lt;isindex&gt;, &lt;link&gt;, &lt;meta&gt;, &lt;option&gt;, &lt;param&gt;.</p><p><b>Attribute values must be quoted.</b> No more <code>&lt;img ... border=0&gt;</code>. You now need to put quotes around every attribute, even if it's numeric.</p><table border="1" cellpadding="3" cellspacing="0" class="ibm-data-table" width="100%"><tr valign="top"><td><b>HTML</b></td><td><b>XHTML</b></td></tr><tr valign="top"><td><code>&lt;img ... border=0&gt;</code></td><td><code>&lt;img ... border=<strong>"0"</strong> /&gt;</code></td></tr></table><p><b>Attribute value pairs cannot be minimized.</b> No stand alone attributes (also known as minimized attributes) are allowed. For example,  <code>&lt;option selected&gt;</code> is no longer valid. Instead, you must use  <code>&lt;option selected="selected"&gt;</code>.</p><p><b>Inline tags cannot contain block-level tags.</b> For example, an anchor tag cannot enclose a table.</p><p><b>Scripting elements pose a problem for XHTML compatibility.</b> The XML parser will parse the script as an XML document unless you enclose your script in a CDATA block. Therefore, a JavaScript element would now look like this:</p><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td class="code-outline"><pre class="displaycode">
+&lt;script type="text/javascript"&gt;
+&lt;![CDATA[ alert("hello"); ]]&gt;
+&lt;/script&gt;
+</pre></td></tr></table><br /><p>This can be a problem for most current browsers, as they do not like the CDATA block. For now, the only solution is to call the JavaScript from an external file. For example:</p><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td class="code-outline"><pre class="displaycode">
+&lt;script language="JavaScript" type="text/javascript" src="main.js"&gt;&lt;/script&gt; 
+</pre></td></tr></table><br /><p>For server-side programmers, this can be a problem when the JavaScript is modified dynamically. Using a separate file source for your JavaScript prevents you from being able to dynamically change your JavaScript. Because the JavaScript is included on the client side, the server side isn't able to touch it. When modifying JavaScript using ASP, JSP, or PHP scripting, use the standard HTML method of script declaration. This is the one place where making JSP or ASP 100% compatible with XHTML will be most problematic. Remember, however, the goal is not to be 100% compatible with XHTML, but to begin incorporating XHTML where feasible, allowing a quick and easy transition when that is necessary. When that time arrives, new compatible browsers should be available and you'll be set to make the jump to 100% compatibility.</p><div class="ibm-alternate-rule"><hr/></div><p class="ibm-ind-link ibm-back-to-top"><a href="#ibm-pcon" class="ibm-anchor-up-link">Back to top</a></p><p><a name="N1021F"><span class="atitle">XHTML Basic to replace CHTML and WML</span></a></p><p>
+
+A fundamental problem for developers who want to create mobile versions of their Web sites is that they currently have to format their pages in HTML for desktop browsing, in Wireless Markup Language (WML) for WAP devices, and in Compact HTML (CHTML) for iMode devices. This has led to a new industry devoted to converting existing Web sites into WML or CHTML. WML is based on XML, and replaces the near-obsolete Handheld Device Markup Language (HDML), while CHTML is based on HTML. Although these markup languages are similar, the differences between them prevent a Web page from being viewable by both WAP and iMode devices. XHTML Basic will be understood by all devices and will be a universal markup language.</p><p>The complete XHTML Basic specification (see <a href="#resources">Resources</a>) is available in English in several formats, including HTML, plain text, PostScript, and PDF. You can expect an inevitable push to replace languages like HDML and WML with XHTML Basic. However, it's important to remember that WML and HDML also define <i>actions</i> as well as content. These currently have no equivalent in XHTML. So, in the short term at least, WML and HDML aren't going to disappear. It will be interesting to see who wins out in the end. Plan on supporting all three markup languages at some point.</p><div class="ibm-alternate-rule"><hr/></div><p class="ibm-ind-link ibm-back-to-top"><a href="#ibm-pcon" class="ibm-anchor-up-link">Back to top</a></p><p><a name="N1022F"><span class="atitle">Future work in XHTML</span></a></p><p>
+
+One aspect of XHTML that's still under construction is <i>device profiling</i>, also known as Composite Capability Preference Profiles (CCPP). CCPP allows a device such as a cell phone to identify itself to a Web server, describe its limitations, and download only the information that it's capable of displaying. CCPP works because XHTML documents can be split into modules that can be downloaded separately.</p><p>The W3C is working on CCPP in collaboration with the WAP Forum, among others. In the summer of 2001, work began on XHTML 2.0, the final step on the bridge between HTML and XML.  XHTML 2.0 is forward-looking with its incorporation of XML technologies such as XLink, XPointer, XPath, and XInclude -- all of which are currently in development or recently released by the W3C (see the roadmap in <a href="#resources">Resources</a>).</p><div class="ibm-alternate-rule"><hr/></div><p class="ibm-ind-link ibm-back-to-top"><a href="#ibm-pcon" class="ibm-anchor-up-link">Back to top</a></p><p><a name="N1023F"><span class="atitle">Conclusion</span></a></p><p>
+
+XHTML breaks new ground on the Web, giving authors a way to mix and match various XML-based languages and documents on their Web pages. It also provides a framework for nontraditional Web access devices -- from toasters to television sets -- to identify themselves and their capabilities to Web servers, pulling down only information that those devices can display.  Thanks to XHTML, you can continue writing in the HTML you've come to know and love. You may just need to clean it up a bit. My guess is that XHTML 2.0 (see <a href="#resources">Resources</a>) will specifically clean up HTML tags and their usage.</p><p>In conclusion, XHTML makes it easy to create documents that can be seen by all kinds of new devices. Additionally, with a little studying, you can create much more powerful pages than ever before. Lastly, XHTML is the bridge to XML -- the future language of the Internet.
+</p><!-- CMA ID: 11681 --> <!-- Site ID: 1 --><!--XSLT stylesheet used to transform this file: dw-document-html-6.0.xsl-->
+<br />
+<p><a name="resources"><span class="atitle">Resources</span></a></p><ul><li>Review the <a href="http://www.w3.org/TR/xhtml1/">W3C XHTML 1.0 specification</a>, which defines a reformulation of HTML 4 as an XML 1.0 application, and three DTDs corresponding to the ones defined by HTML 4.<br /><br /></li><li>Check out <a href="http://www.xhtml.org/">XHTML.org</a> for news and information about XHTML.<br /><br /></li><li>Read <a href="http://www.wdvl.com/Authoring/Languages/XML/XHTML/">an introduction and overview of XHTML</a>  that includes an explanation of the differences between XHMTL and HTML 4.<br /><br /></li><li>Find out more about  <a href="http://www.w3.org/TR/xhtml-basic/">XHTML Basic</a>.<br /><br /></li><li>Look at <a href="http://www.w3.org/MarkUp/xhtml-roadmap/">HTML Working Group Roadmap</a>, which lays out a clear picture of future development in XHTML, including information on XHTML 2.0.<br /><br /></li><li>View <a href="http://encyclozine.com/">Encyclozine.com</a>, an example of a site built in XHTML.<br /><br /></li><li>To validate an XHTML page, try the <a href="http://validator.w3.org/">W3C HTML Validation Service</a>.<br /><br /></li><li>Find more XML resources on the <a href="http://www.ibm.com/developerworks/xml/">developerWorks
+XML technology zone</a>.<br /><br /></li><li>Find more Web resources in the <a href="http://www.ibm.com/developerworks/web/">developerWorks
+Web development topic</a>.<br /><br /></li><li>Get <a href="http://www.ibm.com/software/awdtools/developer/application/">Rational Application Developer for WebSphere Software</a>, an easy-to-use, integrated development environment for building, testing, and deploying J2EE applications, including generating XML documents from DTDs and schemas.<br /><br /></li><li>Find out how you can become an <a href="http://www.ibm.com/certify/certs/01001503.shtml">IBM Certified Developer in XML and related technologies</a>.<br /><br /></li></ul>
+<p><a name="author"><span class="atitle">About the author</span></a></p><div class="ibm-container ibm-portrait-module ibm-alternate-two"><div class="ibm-container-body"><p><a name="author1"></a>
+Sathyan Munirathinam holds a Bachelor of Science in Computer Science and Master of Computer Applications from Madurai Kamaraj University. He has more than two years experience in information technology working as a software engineer at Aztec Software.  His professional interests are in database systems and networking, and his personal interests are reading technical journals, hacking network systems, and playing cricket.  You can reach him at <a href="mailto:sat_hyan@yahoo.com">sat_hyan@yahoo.com</a>.
+</p></div></div>
+<!-- MAIN_COLUMN_CONTENT_END -->
+
+<!-- INLINE_COMMENTS_START -->
+<p class="ibm-no-print"><span class="atitle"><a name="icomments">Comments</a></span></p>
+<div id="dw-icomments-container" class="ibm-no-print">
+<div class="ibm-alternate-rule"><hr /></div>
+<div class="ibm-alternate-rule"><hr /></div>
+<!-- Comment_Script -->
+<a id="comments" href="comments"></a>
+<script language="JavaScript" src="//a248.e.akamai.net/f/248/69561/1d/www.ibm.com/developerworks/js/insertcomment.js" type="text/javascript">//</script>
+<div id="threadShow"></div>
+<script language="JavaScript" type="text/javascript">
+// <![CDATA[
+ jQuery('threadShow').insertComment('95%',5,'nCmts','icomments');
+// ]]>
+</script>
+</div>
+<!-- INLINE_COMMENTS_END -->
+
+<p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-pcon">Back to top</a></p>
+<p><a href="http://www.ibm.com/developerworks/ibm/trademarks/">Trademarks</a> &nbsp;|&nbsp; <a href="https://www.ibm.com/developerworks/mydeveloperworks/terms/">My developerWorks terms and conditions</a></p>
+
+<!-- Overlays -->
+<!-- Zone/Leaf_Interest_Overlay_Start -->
+<div class="ibm-common-overlay ibm-no-print" id="dwmyinterestadd">
+<div class="ibm-head"><p><a class="ibm-common-overlay-close" href="#close">Close [x]</a></p></div>
+<div class="ibm-body">
+<div class="ibm-main">
+<a class="ibm-access" name="dwmyinterestaddhelp">Help: Update or add to My dW interests</a>   
+<div class="ibm-title"><h1>What's this?</h1></div>
+<div class="ibm-container ibm-alternate">
+<p>This little timesaver lets you update your My developerWorks profile with just one click!  The general subject of this content (AIX and UNIX, Information Management, Lotus, Rational, Tivoli, WebSphere, Java, Linux, Open source, SOA and Web services, Web development, or XML) will be added to the interests section of your profile, if it's not there already.  You only need to be logged in to My developerWorks.</p>
+<p>And what's the point of adding your interests to your profile?  That's how you find other users with the same interests as yours, and see what they're reading and contributing to the community.  Your interests also help us recommend relevant developerWorks content to you.</p>
+<p><a href="https://www.ibm.com/developerworks/mydeveloperworks/profiles/home.do?lang=en">View your My developerWorks profile</a></p>
+<p class="ibm-access"><a href="#interestShow">Return from help</a></p>
+</div> 
+</div>
+</div>
+<div class="ibm-footer"></div>
+</div>
+
+<div class="ibm-common-overlay ibm-no-print" id="dwmyinterestremove">
+<div class="ibm-head"><p><a class="ibm-common-overlay-close" href="#close">Close [x]</a></p></div>
+<div class="ibm-body">
+<div class="ibm-main">
+<a class="ibm-access" name="dwmyinterestremovehelp">Help: Remove from My dW interests</a> 
+<div class="ibm-title"><h1>What's this?</h1></div>
+<div class="ibm-container ibm-alternate">
+<p>Removing this interest does not alter your profile, but rather removes this piece of content from a list of all content for which you've indicated interest.  In a future enhancement to My developerWorks, you'll be able to see a record of that content.</p>
+<p><a href="https://www.ibm.com/developerworks/mydeveloperworks/profiles/home.do?lang=en">View your My developerWorks profile</a></p>
+<p class="ibm-access"><a href="#interestShow">Return from help</a></p>
+</div> 
+</div>
+</div>
+<div class="ibm-footer"></div>
+</div>
+<!-- Zone/Leaf_Interest_Overlay_End --></div>
+<!-- MAIN_COLUMN_CONTAINER_END -->
+
+<!-- Rating_Meta_BEGIN -->
+<!--Rating_Meta_BEGIN--><div class="metavalue">static.content.url=http://www.ibm.com/developerworks/js/artrating/</div><div class="metavalue">SITE_ID=1</div><div class="metavalue">Zone=XML, Web development</div><div class="metavalue">ArticleID=11681</div><div class="metavalue">ArticleTitle=XHTML: The power of two languages</div><div class="metavalue">publish-date=07012002</div><div class="metavalue">author1-email=sat_hyan@yahoo.com</div><div class="metavalue">author1-email-cc=</div><script language="javascript" type="text/javascript">document.write('<div class="metavalue">url='+location.href+'</div>');</script><!--Rating_Meta_END-->
+<!-- Rating_Meta_END -->
+
+</div>
+<!-- MAIN_COLUMN_END-->
+
+<!-- RIGHT_COLUMN_BEGIN -->
+<div id="ibm-content-sidebar">
+
+<!-- RIGHT_COLUMN_CONTENT_BEGIN --> 
+<div class="ibm-container"><h2>Table of contents</h2><div class="ibm-container-body"><img alt="" height="1" width="1" src="//www.ibm.com/i/c.gif"/><ul class="ibm-bullet-list"><li><a class="ibm-feature-link" href="#N10047">XHTML overview</a></li><li><a class="ibm-feature-link" href="#N10054">Why would you want to use XHTML?</a></li><li><a class="ibm-feature-link" href="#N10071">XHTML document structure</a></li><li><a class="ibm-feature-link" href="#N100CE">XHTML DTD</a></li><li><a class="ibm-feature-link" href="#N10111">XHTML validation rules</a></li><li><a class="ibm-feature-link" href="#N1021F">XHTML Basic to replace CHTML and WML</a></li><li><a class="ibm-feature-link" href="#N1022F">Future work in XHTML</a></li><li><a class="ibm-feature-link" href="#N1023F">Conclusion</a></li><li><a class="ibm-feature-link" href="#resources">Resources</a></li><li><a class="ibm-feature-link" href="#author">About the author</a></li><li><a class="ibm-feature-link" href="#icomments">Comments</a></li></ul></div></div>
+<!--XSLT stylesheet used to transform this content: s-nextsteps.xsl--><div class="ibm-container"><h2>Next steps from IBM</h2><div class="ibm-container-body"><img width="188" height="58" border="0" alt="" src="//www.ibm.com/developerworks/i/spot-nextsteps.jpg"/><p>With the no-charge DB2 Express-C,  pureXML, Zend Core PHP, and Java you can develope advanced Web 2.0 applications quickly that matter.</p><div class="ibm-rule"><hr/></div><ul class="ibm-bullet-list"><li><a href="http://www.ibm.com/developerworks/downloads/im/udbexp/learn.html?S_TACT=105AGY17&amp;S_CMP=TECHSUG" class="ibm-feature-link">Try: Download a free trial version of DB2 Express-C, which includes Zend Core PHP and pureXML technology that is ideally suited for managing both XML and relational data.</a></li><li><a href="http://www.ibm.com/developerworks/db2/library/techarticle/dm-0803faraaz/?S_TACT=105AGY17&amp;S_CMP=TECHSUG" class="ibm-feature-link">Article: See how DB2 pureXML schema capabilities can evolve schemas without making any changes to your applications.</a></li><li><a href="http://www.ibm.com/developerworks/edu/dm-dw-dm-0709devlin-i.html?S_TACT=105AGY17&amp;S_CMP=TECHSUG" class="ibm-feature-link">Tutorial: This tutorial shows you how to use DB2's pureXML to expose the native XML capabilities of DB2.</a></li><li><a href="http://www.ibm.com/software/dre/h2b/buildh2bpage.wss?synkey=I432401F08084L16&amp;S_TACT=105AGY17&amp;S_CMP=TECHSUG" class="ibm-feature-link">Buy: DB2 9 for Linux, UNIX and Windows</a></li></ul></div></div>
+<!--XSLT stylesheet used to transform this content: s-community.xsl--><div class="ibm-container"><h2>My developerWorks community</h2><div class="ibm-container-body"><p>Interact, share, and communicate with developers worldwide.</p><div class="ibm-rule"><hr/></div><ul class="ibm-bullet-list"><li><a href="https://www.ibm.com/developerworks/mydeveloperworks/homepage/web/getuserpref?ca=dma-" class="ibm-feature-link">My Home</a></li><li><a href="https://www.ibm.com/developerworks/mydeveloperworks/profiles/home.do?lang=en&amp;ca=dma-" class="ibm-feature-link">Profiles</a></li><li><a href="https://www.ibm.com/developerworks/mydeveloperworks/groups/service/html/allcommunities?ca=dma-" class="ibm-feature-link">Groups</a></li><li><a href="https://www.ibm.com/developerworks/mydeveloperworks/blogs/?ca=dma-" class="ibm-feature-link">Blogs</a></li><li><a href="https://www.ibm.com/developerworks/mydeveloperworks/bookmarks/?ca=dma-" class="ibm-feature-link">Bookmarks</a></li><li><a href="https://www.ibm.com/developerworks/mydeveloperworks/activities/service/html/mainpage?ca=dma-" class="ibm-feature-link">Activities</a></li><li><a href="http://www.ibm.com/developerworks/spaces/?ca=dma-" class="ibm-feature-link">Spaces</a></li><li><a href="http://www.ibm.com/developerworks/forums/index.html?ca=dma-" class="ibm-feature-link">Forums</a></li><li><a href="http://www.ibm.com/developerworks/wikis/dashboard.action?ca=dma-" class="ibm-feature-link">Wikis</a></li><li><a href="http://www.ibm.com/developerworks/podcast/?ca=dma-" class="ibm-feature-link">Podcasts</a></li><li><a href="http://www.ibm.com/developerworks/exchange/dw_index.jspa?ca=dma-" class="ibm-feature-link">Exchange</a></li></ul><div class="ibm-rule"><hr/></div><p class="ibm-ind-link"><a href="https://www.ibm.com/developerworks/mydeveloperworks/?ca=dma-" class="ibm-forward-link">My developerWorks overview</a></p></div></div>
+<!-- Tagging_Start -->
+<div id="dw-tag-cloud-container" class="ibm-container dw-hidetag"><h2>Tags</h2>
+<div id="dw-tag-help"><a class="dwauthor" rel="#tagtip" id="dwtagtip"><img alt="Help" height="16" width="16" align="top" src="//www.ibm.com/developerworks/i/help_icon.gif"/></a></div>
+<div id="tagtip" class="dwauthor-onload-state ibm-no-print">Use the <strong>search field</strong> to find all types of content in My developerWorks with that tag.<p>Use the <strong>slider bar</strong> to see more or fewer tags.</p><p><strong>Popular tags</strong> shows the top tags for this particular content zone (for example, Java technology, Linux, WebSphere).</p><p><strong>My tags</strong> shows your tags for this particular content zone (for example, Java technology, Linux, WebSphere).</p></div>
+<div class="ibm-access">Use the search field to find all types of content in My developerWorks with that tag.  <em>Popular tags</em> shows the top tags for this particular content zone (for example, Java technology, Linux, WebSphere).  <em>My tags</em> shows your tags for this particular content zone (for example, Java technology, Linux, WebSphere).</div>
+<div class="ibm-container-body">
+<div class="dw-tag-search"><form action="//www.ibm.com/developerworks/mydeveloperworks/bookmarks/html?lang=en" method="get" id="actualtagform" onsubmit="popupform(this, 'join')">
+<p><label for="tagfield"><strong>Search all tags</strong></label><input id="tagfield" name="tag" type="text" maxlength="20" size="17" />&nbsp;<input src="//www.ibm.com/i/v16/buttons/short-btn.gif" type="image" class="ibm-btn-view" alt="submit search" title="submit search" value="Search" /></p></form></div>
+<div class="ibm-rule"><hr/></div>
+<div id="dw-tag-select">
+<div id="dw-tag-select-popular"><p><strong>Popular article tags</strong>&nbsp;|&nbsp;<br /><a id="a-my" href="javascript:;">My article tags</a><a href="#dw-tag-access" class="ibm-access">Skip to tags list</a></p></div>
+<div id="dw-tag-select-my" class="dw-hidetag"><p><a id="a-popular" href="javascript:;">Popular article tags</a>&nbsp;|&nbsp;<br /><strong>My article tags</strong></p><a href="#dw-tag-access" class="ibm-access">Skip to tags list</a></div>
+<div id="dw-tag-cloud"></div>  
+</div>   
+</div>
+</div>
+<!-- Tagging_End -->
+<!-- Dig_Deeper -->
+<div class="ibm-container"><h2>Dig deeper into XML on developerWorks</h2><div class="ibm-container-body"><ul class="ibm-link-list"><li class="ibm-first"><a href="http://www.ibm.com/developerworks/xml/" class="ibm-forward-link">Overview</a></li><li><a href="http://www.ibm.com/developerworks/xml/newto/" class="ibm-forward-link">New to XML</a></li><li><a href="http://www.ibm.com/developerworks/views/xml/downloads.jsp" class="ibm-forward-link">Downloads and products</a></li><li><a href="http://www.ibm.com/developerworks/views/xml/projects.jsp" class="ibm-forward-link">Open source projects</a></li><li><a href="http://www.ibm.com/developerworks/xml/standards/" class="ibm-forward-link">Standards</a></li><li><a href="http://www.ibm.com/developerworks/views/xml/library.jsp" class="ibm-forward-link">Technical library (articles, tutorials, and more)</a></li><li><a href="http://www.ibm.com/developerworks/xml/training/" class="ibm-forward-link">Training</a></li><li><a href="http://www.ibm.com/developerworks/forums/dw_xforums.jsp" class="ibm-forward-link">Forums</a></li><li><a href="http://www.ibm.com/developerworks/views/xml/events.jsp" class="ibm-forward-link">Events</a></li></ul></div></div>
+<!-- High_Visibility_Offer -->
+<!--XSLT stylesheet used to transform this content: s-highvisibilityoffer.xsl--><div class="ibm-container"><h2>Cloud computing for developers</h2><div class="ibm-container-body"><img width="188" height="70" border="0" alt="Learn about technologies that can help solve your business and technical&#10;&#9;&#9;&#9;    challenges in the cloud." src="//www.ibm.com/developerworks/i/hivis-w-cc4d.jpg"/><p class="ibm-ind-link"><a href="http://www.ibm.com/developerworks/offers/techbriefings/details/cloudfordevelopers.html?ca=dth-cloudc4d2&amp;S_TACT=105AGy06&amp;S_CMP=HIVIS&amp;ca=dti-hiviscloudc4d2" class="ibm-forward-link">Virtual workshop: Learn how to build a cloud infrastructure and develop/deploy
+			    cloud-based applications. (6-8 Apr 2010)</a></p></div></div>
+<!-- Special_Offers -->
+<div class="ibm-container"><h2>Special offers</h2><div class="ibm-container-body"><p class="dw-special-offers"><a href="https://www.ibm.com/developerworks/wikis/display/db2oncampus/FREE+ebook+-+Getting+started+with+IBM+Data+Studio+for+DB2?S_TACT=105AGX06&amp;S_CMP=TILE&amp;ca=dth-ebook&amp;ca=dti-tiledstudioebook"><img src="//www.ibm.com/developerworks/i/tile_v16_datastudio3.gif" width="158" height="50" border="0" alt="Free Getting Started with IBM Data Studio e-book" /></a></p><p class="dw-special-offers"><a href="http://www.ibm.com/developerworks/downloads/r/appscan/index.html?S_TACT=105AGX06&amp;S_CMP=TILE&amp;ca-dti-tileratappscantry&amp;ca=dth-r"><img src="//www.ibm.com/developerworks/i/tile_v16_ratappscan2.gif" width="158" height="50" border="0" alt="Trial download: Rational AppScan Standard Edition " /></a></p><p class="dw-special-offers"><a href="http://www.ibmpressbooks.com/bookstore/product.asp?isbn=9780137000531&amp;S_TACT=105AGX06&amp;S_CMP=TILE&amp;ca=dti-tilepresslotusconnect&amp;ca=dth-l"><img src="//www.ibm.com/developerworks/i/tile_v16_connectpress.gif" width="158" height="50" border="0" alt="Make social net- working pay off! 35% off: IBM0531" /></a></p><div class="ibm-rule"><hr/></div><p class="ibm-ind-link"><a class="ibm-forward-link" href="http://www.ibm.com/developerworks/downloads/?ca=dti-tilemoreoffers">Trial software offers</a></p></div></div>
+<!-- RIGHT_COLUMN_CONTENT_END -->
+
+</div>
+<!-- RIGHT_COLUMN_END -->
+
+<!-- CONTENT_BODY_END -->
+</div>
+
+</div>
+<!-- CONTENT_END -->
+
+ <!-- END_IBM-PCON -->
+</div>
+
+<!-- FOOTER_BEGIN -->
+<div id="ibm-page-tools">
+<!-- IBM page tools container -->
+</div>
+<div id="ibm-footer">
+<ul>
+<li class="ibm-first"><a href="http://www.ibm.com/ibm/">About IBM</a></li>
+<li><a href="http://www.ibm.com/privacy/">Privacy</a></li>
+<li><a href="http://www.ibm.com/contact/">Contact</a></li>
+<li><a href="http://www.ibm.com/legal/">Terms of use</a></li>
+</ul>
+</div>
+<!-- FOOTER_END -->
+
+ <!-- END_IBM-TOP -->
+</div>
+ 
+ <!-- SCRIPTS_INCLUDE_BEGIN -->
+<!-- JQuery start -->
+<script type="text/javascript" language="JavaScript" src="//a248.e.akamai.net/f/248/69561/1d/www.ibm.com/developerworks/js/jquery/cluetip98/jquery.dimensions-1.2.js"></script>
+<script type="text/javascript" language="JavaScript" src="//a248.e.akamai.net/f/248/69561/1d/www.ibm.com/developerworks/js/jquery/cluetip98/jquery.hoverIntent.minified.js"></script>
+<script type="text/javascript" language="JavaScript" src="//a248.e.akamai.net/f/248/69561/1d/www.ibm.com/developerworks/js/jquery/cluetip98/jquery.cluetip.js"></script>
+<script type="text/javascript" language="JavaScript" src="//a248.e.akamai.net/f/248/69561/1d/www.ibm.com/developerworks/js/jquery/tagging/ui.core-1.7.1.js"></script>
+<script type="text/javascript" language="JavaScript" src="//a248.e.akamai.net/f/248/69561/1d/www.ibm.com/developerworks/js/jquery/tagging/ui.slider-1.7.1.js"></script>
+<script type="text/javascript" language="JavaScript" src="//www.ibm.com/developerworks/js/jquery/tagging/dwjquerytags.js"></script>
+<script type="text/javascript" language="JavaScript">
+	jQuery.noConflict();     
+	// Put all your code in your document ready area
+	jQuery(document).ready(function(jQuery) {
+	// Do jQuery stuff using jQuery 
+	jQuery('a.dwauthor').cluetip({
+		local: true,
+		showTitle: false,
+		positionBy: 'bottomTop',
+		sticky: true,	
+		mouseOutClose: true,
+		closeText: '<img src="//www.ibm.com/developerworks/js/jquery/cluetip98/i/x.gif" alt="Close" />',
+		arrows: false,
+		dropShadow: true,
+		cluetipClass: 'dwbasic'
+		});   	
+	});
+ </script>
+ <!-- JQuery end -->
+ <!-- Overlay js -->
+<script language="JavaScript" src="//a248.e.akamai.net/f/248/47542/30d/www.ibm.com/common/js/overlay.js" type="text/javascript"></script>
+<!-- My dW Interest article -->
+<script language="JavaScript" src="//a248.e.akamai.net/f/248/69561/1d/www.ibm.com/developerworks/js/showinterest.js" type="text/javascript">//</script>
+<script language="JavaScript" type="text/javascript">
+        // <![CDATA[
+			var contentId = '';
+			var contentAreas = '';
+			var caArr = [];
+			contentId = '11681';
+			contentAreas = 'xml,web';
+			if(contentAreas != ''){caArr = contentAreas.split(',');}
+			var loginLink = 'https://www.ibm.com/developerworks/dwwi/DWAuthRouter?m=loginpage&d=' + encodeURIComponent(window.location);jQuery('interestShow').showInterest(contentId,'dw-article',{'int_tops':[51,69,11,121],'int_prods':[], 'int_prod_fam':[],'int_cont_area':caArr},
+'<div id="dw-interest-anon"><a id="intAnonBtn" class="ibm-external-link" href="">Update My dW interests</a> (<a class="dw-interest" href="' + loginLink + '">Log in</a> | <a class="dw-interest" href="#overlay" onclick="ibmCommon.Overlays.show(\'dwmyinterestadd\', this);return false;">What\'s this?</a>) <a class="ibm-access" href="#dwmyinterestaddhelp">Skip to help for Update My dW interests</a></div>',
+'<div id="dw-interest-add"><a id="intSelectBtn" class="ibm-external-link" href="">Add to My dW interests</a> (<a class="dw-interest" href="#overlay" onclick="ibmCommon.Overlays.show(\'dwmyinterestadd\', this);return false;">What\'s this?</a>) <a class="ibm-access" href="#dwmyinterestaddhelp">Skip to help for Add to My dW interests</a></div>',
+'<div id="dw-interest-remove">Added to My dW interests (<a class="dw-interest" href="https://www.ibm.com/developerworks/mydeveloperworks/profiles/html/myProfileView.do?lang=en">Edit</a>)</div>'
+);
+// ]]>
+</script>
+<!-- SCRIPTS_INCLUDE_END -->
+
+<div id="ibm-metrics">
+<script src="//a248.e.akamai.net/f/248/47542/30d/www.ibm.com/common/stats/stats.js" type="text/javascript">//</script>
+</div>
+
+</body>
+</html>

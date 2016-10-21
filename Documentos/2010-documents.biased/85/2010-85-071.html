@@ -1,0 +1,719 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+  <title>HowTo NNTP in C# - Programmer's Heaven</title>
+  <meta name="Robots" content="noodp,all" />
+<link rel="meta" href="http://www.programmersheaven.com/labels.xml" type="application/rdf+xml" title="ICRA labels" />
+<meta content="TRUE" name="MSSmartTagsPreventParsing" />
+<meta content="general" name="rating" />
+
+  
+  <style id="ctl00_ctl00_StyleTag" type="text/css">@import url(/css/nav.css);
+@import url(/css/ph.css);
+@import url(/css/wiki.css);
+</style>
+  <!--[if IE]>
+  <style type="text/css">
+    .NavSearchButton { top: 0px }
+  </style>
+  <![endif]-->
+  
+  <script type="text/javascript" src="/js/menu.js"></script>
+
+  <script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
+
+
+  <script type="text/javascript" src="http://ads.communityheaven.com/www/delivery/spcjs.php?id=1"></script> 
+
+  
+</head>
+<body>
+<div id="ctl00_ctl00_HideTopBar">
+	
+  <table style="border-style: none" cellspacing="2" cellpadding="0">
+    <tr>
+      <td align="left"><span><script type='text/javascript'><!--//<![CDATA[
+   var m3_u = (location.protocol=='https:'?'https://ads.communityheaven.com/www/delivery/ajs.php':'http://ads.communityheaven.com/www/delivery/ajs.php');
+   var m3_r = Math.floor(Math.random()*99999999999);
+   if (!document.MAX_used) document.MAX_used = ',';
+   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+   document.write ("?zoneid=58");
+   document.write ('&amp;cb=' + m3_r);
+   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+   document.write (document.charset ? '&amp;charset='+document.charset : (document.characterSet ? '&amp;charset='+document.characterSet : ''));
+   document.write ("&amp;loc=" + escape(window.location));
+   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+   if (document.context) document.write ("&context=" + escape(document.context));
+   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+   document.write ("'><\/scr"+"ipt>");
+//]]>--></script><noscript><a href='http://ads.communityheaven.com/www/delivery/ck.php?n=acf2ff42&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://ads.communityheaven.com/www/delivery/avw.php?zoneid=58&amp;n=acf2ff42' border='0' alt='' /></a></noscript></span></td>
+      <td align="right"><span><script type='text/javascript'><!--//<![CDATA[
+   var m3_u = (location.protocol=='https:'?'https://ads.communityheaven.com/www/delivery/ajs.php':'http://ads.communityheaven.com/www/delivery/ajs.php');
+   var m3_r = Math.floor(Math.random()*99999999999);
+   if (!document.MAX_used) document.MAX_used = ',';
+   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+   document.write ("?zoneid=59");
+   document.write ('&amp;cb=' + m3_r);
+   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+   document.write (document.charset ? '&amp;charset='+document.charset : (document.characterSet ? '&amp;charset='+document.characterSet : ''));
+   document.write ("&amp;loc=" + escape(window.location));
+   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+   if (document.context) document.write ("&context=" + escape(document.context));
+   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+   document.write ("'><\/scr"+"ipt>");
+//]]>--></script><noscript><a href='http://ads.communityheaven.com/www/delivery/ck.php?n=acbfa939&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://ads.communityheaven.com/www/delivery/avw.php?zoneid=59&amp;n=acbfa939' border='0' alt='' /></a></noscript></span></td>
+    </tr>
+  </table>
+
+  <div class="topbar">
+    <div class="topbar_login">
+      
+          <form method="post" action="/Common/Login.aspx">
+            <input type="text" style="width: 105px" maxlength="60" name="LoginBar_Account"
+              value="Username" onclick="if(this.value=='Username')this.value=''" /><br />
+            <input type="password" style="width: 105px" maxlength="30" name="LoginBar_Password"
+              value="Password" onfocus="if(this.value=='Password')this.value=''" /><br />
+            <input type="checkbox" value="1" checked="checked" name="LoginBar_RememberMe" style="border: none; background-color: Transparent" />
+              <label for="LoginBar_RememberMe">Save</label>
+              <input type="submit" name="LoginBar_Submit" value="Sign In" /><br />
+            <a href="/Common/ForgotPassword.aspx">Forgot Password</a><br />
+            <a href="/Common/Register.aspx">Register Here</a>
+          </form>
+        
+    </div>
+    <div class="topad">
+      <span><script type='text/javascript'><!--// <![CDATA[
+    /* [id1] TopOfPage */
+    OA_show(1);
+// ]]> --></script><noscript><a href='http://ads1.communityheaven.com/www/delivery/ck.php?n=abb01b14&amp;cb=481771924' target='_blank'><img src='http://ads1.communityheaven.com/www/delivery/avw.php?zoneid=1&amp;cb=481771924&amp;n=abb01b14&amp;channel=2' border='0' alt='' /></a></noscript></span>
+    </div>
+    <div class="topbar_logo">
+      <a href="/"><img src="http://pheaven.cachefly.net/images/site/logo.png" width="158" height="59" alt="Programmer's Heaven" border="0" /></a>
+    </div>
+  </div>
+  <div class="action_call">
+    Are you blogging on PH? Get <a href="/Common/CallToAction.aspx?ID=14&URL=/blog/">your free blog</a>.
+  </div>
+
+</div>
+<div id="ctl00_ctl00_HideMiddleContent">
+	
+  <form action="/ph/Search/Search.aspx" method="get" style="margin: 0 0 0 0; padding: 0 0 0 0">
+    <div class="navbar">
+      
+      <div class="NavLinksContainer">
+        <ul id="qm0" class="qmmc">
+          <li><a class="qmparent" href="/tags/">Resources</a>
+            <ul>
+		      <li><a class="qmparent" href="javascript:void(0)">Applications</a>
+                <ul>
+                  <li><a href="/tags/AI/">AI</a></li><li><a href="/tags/Business/">Business</a></li><li><a href="/tags/Components+and+Libraries/">Components and Libraries</a></li><li><a href="/tags/Computer+Science/">Computer Science</a></li><li><a href="/tags/Database/">Database</a></li><li><a href="/tags/Documents+And+Specifications/">Documents And Specifications</a></li><li><a href="/tags/Enterprise+Application+Integration/">Enterprise Application Integration</a></li><li><a href="/tags/Game/">Game</a></li><li><a href="/tags/Hardware/">Hardware</a></li><li><a href="/tags/Multimedia/">Multimedia</a></li><li><a href="/tags/Network/">Network</a></li><li><a href="/tags/Security/">Security</a></li><li><a href="/tags/Tools+And+Utilities/">Tools And Utilities</a></li><li><a href="/tags/Training+And+Certification/">Training And Certification</a></li><li><a href="/tags/Web/">Web</a></li>
+                </ul>
+              </li>
+              <li><a class="qmparent" href="javascript:void(0)">Languages</a>
+                <ul>
+                  <li><a href="/tags/Assembly/">Assembly</a></li><li><a href="/tags/Basic/">Basic</a></li><li><a href="/tags/C/">C</a></li><li><a href="/tags/C%23/">C#</a></li><li><a href="/tags/C%2b%2b/">C++</a></li><li><a href="/tags/Delphi/">Delphi</a></li><li><a href="/tags/Java/">Java</a></li><li><a href="/tags/JavaScript/">JavaScript</a></li><li><a href="/tags/Other+Languages/">Other Languages</a></li><li><a href="/tags/Pascal/">Pascal</a></li><li><a href="/tags/Perl/">Perl</a></li><li><a href="/tags/PHP/">PHP</a></li><li><a href="/tags/Python/">Python</a></li><li><a href="/tags/Ruby/">Ruby</a></li><li><a href="/tags/VB-Script/">VB-Script</a></li><li><a href="/tags/Visual+Basic/">Visual Basic</a></li>
+                </ul>
+              </li>
+              <li><a class="qmparent" href="javascript:void(0);">Platforms</a>
+                <ul>
+                  <li><a href="/tags/.NET/">.NET</a></li><li><a href="/tags/Browser+Based/">Browser Based</a></li><li><a href="/tags/Consoles/">Consoles</a></li><li><a href="/tags/CPU/">CPU</a></li><li><a href="/tags/Embedded/">Embedded</a></li><li><a href="/tags/Java+Platform/">Java Platform</a></li><li><a href="/tags/Legacy+Platforms/">Legacy Platforms</a></li><li><a href="/tags/Linux/">Linux</a></li><li><a href="/tags/Macintosh/">Macintosh</a></li><li><a href="/tags/Mobile+Platforms/">Mobile Platforms</a></li><li><a href="/tags/MS-DOS/">MS-DOS</a></li><li><a href="/tags/Remotely+Hosted/">Remotely Hosted</a></li><li><a href="/tags/UNIX/">UNIX</a></li><li><a href="/tags/WEB+Service/">WEB Service</a></li><li><a href="/tags/Windows/">Windows</a></li>
+                </ul>
+              </li>
+		    </ul>
+          </li>
+          <li><a href="/mb/" class="qmparent">Forums</a>
+            <ul>
+              <li><a href="/mb/Latest.aspx?mode=unanswered">Unanswered Posts</a></li>
+              <li><a href="/mb/Latest.aspx?mode=threads">Latest Threads</a></li>
+              <li><a href="/mb/Latest.aspx?mode=posts">Latest Posts</a></li>
+              <li><span class="qmdivider qmdividerx" ></span></li>
+              <li><a href="javascript:void(0)" class="qmparent">Programming Languages</a><ul><li><a href="/mb/pharabee/Board.aspx">Assembler Developer</a></li><li><a href="/mb/basic/Board.aspx">Basic</a></li><li><a href="/mb/CandCPP/Board.aspx">C and C++</a></li><li><a href="/mb/csharp/Board.aspx">C#</a></li><li><a href="/mb/delphikylix/Board.aspx">Delphi and Kylix</a></li><li><a href="/mb/java/Board.aspx">Java</a></li><li><a href="/mb/pasprog/Board.aspx">Pascal</a></li><li><a href="/mb/perl/Board.aspx">Perl</a></li><li><a href="/mb/phpstuff/Board.aspx">PHP</a></li><li><a href="/mb/python/Board.aspx">Python</a></li><li><a href="/mb/ruby/Board.aspx">Ruby</a></li><li><a href="/mb/VBNET/Board.aspx">VB.NET</a></li><li><a href="/mb/vba/Board.aspx">VBA</a></li><li><a href="/mb/VBasic/Board.aspx">Visual Basic</a></li></ul></li><li><a href="javascript:void(0)" class="qmparent">Applications</a><ul><li><a href="/mb/graphics/Board.aspx">Computer Graphics</a></li><li><a href="/mb/hardware/Board.aspx">Computer Hardware</a></li><li><a href="/mb/database/Board.aspx">Database &amp; SQL</a></li><li><a href="/mb/electronics/Board.aspx">Electronics development</a></li><li><a href="/mb/game/Board.aspx">Game programming</a></li><li><a href="/mb/ctocplusplustomatlab/Board.aspx">Matlab</a></li><li><a href="/mb/sound/Board.aspx">Sound &amp; Music</a></li><li><a href="/mb/xml/Board.aspx">XML Development</a></li></ul></li><li><a href="javascript:void(0)" class="qmparent">Classifieds</a><ul><li><a href="/mb/coopprojects/Board.aspx">Co-operative Projects</a></li><li><a href="/mb/forsale/Board.aspx">For sale</a></li><li><a href="/mb/FreeLanceSoftCity/Board.aspx">FreeLance Software City</a></li><li><a href="/mb/jobs-available/Board.aspx">Jobs Available</a></li><li><a href="/mb/jobs-wanted/Board.aspx">Jobs Wanted</a></li><li><a href="/mb/wanted/Board.aspx">Wanted</a></li></ul></li><li><a href="javascript:void(0)" class="qmparent">Microsoft .NET</a><ul><li><a href="/mb/dotnet/Board.aspx">.NET General</a></li><li><a href="/mb/ASPNET/Board.aspx">ASP.NET</a></li></ul></li><li><a href="javascript:void(0)" class="qmparent">Miscellaneous</a><ul><li><a href="/mb/redesign/Board.aspx">Comments on the PH Re-design</a></li><li><a href="/mb/pheaven/Board.aspx">Comments on this site</a></li><li><a href="/mb/emulation/Board.aspx">Computer Emulators</a></li><li><a href="/mb/general/Board.aspx">General programming</a></li><li><a href="/mb/languages/Board.aspx">New programming languages</a></li><li><a href="/mb/offtopic/Board.aspx">Off topic board</a></li></ul></li><li><a href="javascript:void(0)" class="qmparent">Mobile &amp; Wireless</a><ul><li><a href="/mb/palm/Board.aspx">Palm Pilot</a></li></ul></li><li><a href="javascript:void(0)" class="qmparent">Multimedia</a><ul><li><a href="/mb/demo/Board.aspx">Demo programming</a></li><li><a href="/mb/MP3/Board.aspx">MP3 programming</a></li></ul></li><li><a href="javascript:void(0)" class="qmparent">Operating Systems &amp; Platforms</a><ul><li><a href="/mb/embedded/Board.aspx">Embedded / RTOS</a></li><li><a href="/mb/freeBSD/Board.aspx">FreeBSD</a></li><li><a href="/mb/Linux/Board.aspx">LINUX programming</a></li><li><a href="/mb/MS-DOS/Board.aspx">MS-DOS</a></li><li><a href="/mb/pocket-pc/Board.aspx">Windows CE &amp; Pocket PC</a></li><li><a href="/mb/windows/Board.aspx">Windows programming</a></li></ul></li><li><a href="javascript:void(0)" class="qmparent">Software Development</a><ul><li><a href="/mb/Algorithms/Board.aspx">Algorithms</a></li><li><a href="/mb/objects/Board.aspx">Object Orientation</a></li><li><a href="/mb/projects/Board.aspx">Project Management</a></li><li><a href="/mb/quality/Board.aspx">Quality &amp; Testing</a></li><li><a href="/mb/Security/Board.aspx">Security</a></li></ul></li><li><a href="javascript:void(0)" class="qmparent">WEB-Development</a><ul><li><a href="/mb/aspfaq/Board.aspx">Active Server Pages</a></li><li><a href="/mb/ajax/Board.aspx">AJAX</a></li><li><a href="/mb/CGI/Board.aspx">CGI Development</a></li><li><a href="/mb/ColdFusion/Board.aspx">ColdFusion</a></li><li><a href="/mb/flash/Board.aspx">Flash development</a></li><li><a href="/mb/html/Board.aspx">HTML &amp; WEB-Design</a></li><li><a href="/mb/internet/Board.aspx">Internet Development</a></li><li><a href="/mb/java-script/Board.aspx">JavaScript</a></li><li><a href="/mb/other-web-servers/Board.aspx">WEB Servers</a></li><li><a href="/mb/web-services/Board.aspx">WEB-Services / SOAP</a></li></ul></li>
+            </ul>
+          </li>
+          <li><a href="/blog/" class="qmparent">Blogs</a>
+            <ul>
+              <li><a href="/blog/">Blog Startpage</a></li>
+              
+              <li><a href="/blog/LatestBlogPosts.aspx">Latest Blog Posts</a></li>
+            </ul>
+          </li>
+          <li><a href="/submit/" class="qmparent">Submit</a>
+            <ul>
+              <li><a href="/submit/article/">Article</a></li>
+              <li><a href="/submit/book/">Book</a></li>
+              <li><a href="/submit/file/">File</a></li>
+              <li><a href="/submit/link/">Link</a></li>
+              <li><a href="/submit/news/">News</a></li>
+              <li><a href="/submit/pad/PADSubmission.aspx">PAD File</a></li>
+              <li><a href="/submit/wikiarticle/">Wiki Article</a></li>
+            </ul>
+          </li>
+          <li><a href="/jobs/" class="qmparent">Jobs</a></li>
+          <li><a href="http://tools.programmersheaven.com/" class="qmparent">Dev Tools</a></li>
+          <li><a href="/ph/" class="qmparent">PH</a>
+            <ul>
+              <li><a href="/ph/search/search.aspx">Search</a></li>
+              <li><a href="/ph/newsletter/newsletter.aspx">Newsletter</a></li>
+              <li><a href="http://www.bytelove.com/partners/programmers-heaven/cat_24.html?utm_source=PH&utm_medium=partner&utm_campaign=PH%2Bcategory" target="_blank">Merchandise</a></li>
+              <li><a href="/ph/TopUsers.aspx">Top User Lists</a></li>
+              <li><a href="/ph/GettingStarted.aspx">Getting Started Guide</a></li>
+              <li><a href="/2/ProgrammersHeaven_Help">Help</a></li>
+              <li><a href="/ph/advertise.aspx">Advertise</a></li>
+              <li><a href="/ph/contact.aspx">Contact Us</a></li>
+            </ul>
+          </li>
+          <li class="qmclear">&nbsp;</li>
+        </ul>
+      </div>
+
+      <div class="NavSearchContainer">
+        Search <input type="text" name="query" class="NavSearchInput" /><input type="image" style="vertical-align: text-top" src="/images/site/search_icon.png" width="21" height="20" border="0" class="NavSearchButton" />
+        <a href="/ph/search/search.aspx">(Advanced Search)</a>
+      </div>
+    </div>
+    <!-- Create Menu Settings: (Menu ID, Is Vertical, Show Timer, Hide Timer, On Click ('all', 'main' or 'lev2'), Right to Left, Horizontal Subs, Flush Left, Flush Top) -->
+    <script type="text/javascript">qm_create(0,false,100,400,false,false,false,false,false);</script>
+    
+    <div id="ctl00_ctl00_BreadCrumbTrailDiv" class="BreadCrumbTrail" onclick="CloseAnyDD()">
+      
+          <a href="/">HOME</a>
+          
+          
+         &nbsp;&gt;&nbsp; 
+          <a href="/2/Art_CSharp_4">HowTo NNTP in C#</a>
+          
+          
+        
+    </div>
+  </form>
+
+</div>
+
+  <form method="post" style="margin: 0 0 0 0; padding: 0 0 0 0" id="aspnetForm">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTc0NTk1NDY5NQ9kFgJmD2QWAmYPZBYCAgMPZBYCAgMPZBYEZg8WAh4JaW5uZXJodG1sBRBIb3dUbyBOTlRQIGluIEMjZAICD2QWAgIBDxYCHgdWaXNpYmxlZ2QYAgUlY3RsMDAkY3RsMDAkUGFnZUJvZHkkTGVmdCRDdXJyZW50Vmlldw8PZGZkBRRjdGwwMCRjdGwwMCRMb2dpbkJhcg8PZGZkS5rC9fmUvD4jI7qwS+UDVIYrl+I=" />
+
+
+    <div onclick="CloseAnyDD();">
+      
+  <div class="TwoColumnWrap">
+    <div class="TwoColumnInnerWrap">
+      <div class="LeftColumnWrap">
+        <div class="StandardLeftColumn">
+          <!--<div class="PageHeading">
+            <h1 id="ctl00_ctl00_PageBody_PageHeadingTitle" class="PageTitle">HowTo NNTP in C#</h1>
+          </div>-->
+          <div class="ContentBoxContent_leftcolumn">
+            <!-- google_ad_section_start -->
+            
+  
+      <div style="float: right; border: solid 4px white; background-color: White">
+        <span><script type='text/javascript'><!--// <![CDATA[
+    /* [id2] LargeRectangle */
+    OA_show(2);
+// ]]> --></script><noscript><a href='http://ads1.communityheaven.com/www/delivery/ck.php?n=ac3d6a13&amp;cb=481771924' target='_blank'><img src='http://ads1.communityheaven.com/www/delivery/avw.php?zoneid=2&amp;cb=481771924&amp;n=ac3d6a13&amp;channel=2' border='0' alt='' /></a></noscript></span>
+        <div style="margin-top: 4px">
+          <span><script type='text/javascript'><!--// <![CDATA[
+    /* [id30] ContentAreaUnit */
+    OA_show(30);
+// ]]> --></script><noscript><a href='http://ads.communityheaven.com/www/delivery/ck.php?n=adc3a713&amp;cb=481771924' target='_blank'><img src='http://ads.communityheaven.com/www/delivery/avw.php?zoneid=30&amp;cb=481771924&amp;n=adc3a713&amp;channel=2' border='0' alt='' /></a></noscript></span>
+        </div>
+      </div>
+      <strong><span style="font-size: small;">HowTo NNTP in C#</span></strong><br />
+by Randy Charles Morin<br /><br />
+This is the third in a series of articles on Internet programming with Microsoft's new C# programming language. In the first two articles, I wrote two simple TCP/IP classes for SMTP and POP3 clients.  In this article, I'm going to write a simple NNTP class.<br /><br />
+NNTP is an older fading protocol in the Internet protocol family. The protocol is used to retrieve news from news server, a.k.a. NetNews servers. The protocol works by posting messages into various forums, a.k.a. newsgroups. Then other end-users can read the recent posts in the forums. There also exist protocols for distributing NetNews contents amongst various NetNews servers, allowing thousands of servers to share news and forums. The most popular news server is of course [[nntp://news.microsoft.com | Microsoft's]]. More often than not, you can launch your NetNews client by typing the nntp URL in your browser's address bar.<br /><br />
+<strong>Listing 1: Exception Class</strong><br />
+<pre class="sourcecode">public class NntpException : System.ApplicationException
+{
+    public NntpException(string str) 
+        :base(str)
+    {
+    }
+};</pre><br /><br />
+I'm still unsure how best to implement exception classes in dot-NET and as such I've remained faithful to my C++ roots. I'm investigating otherwise and might consider writing a brief article on just this subject. We'll see.<br /><br />
+Next step is the class declaration. I'm deriving the Nntp class from the TcpClient class in the System.Net.Sockets namespace of the dot-NET framework. <br /><br />
+<strong>Listing 2: Nntp Class Declaration</strong><br />
+<pre class="sourcecode">public class Nntp : System.Net.Sockets.TcpClient</pre><br /><br />
+We'll inherit a lot of basic functionality from the TcpClient class.
+The first method of our Nntp client class is the Connect method. This method takes a server name that represents the remote NNTP server that will service our requests. <br /><br />
+<strong>Listing 3: Connect Method</strong><br />
+<pre class="sourcecode">public void Connect(string server)
+{
+    string response;
+ 
+    Connect(server, 119);
+    response = Response();
+    if (response.Substring( 0, 3) != "200")
+    {
+        throw new NntpException(response);
+    }
+}</pre><br /><br />
+We call the Connect method of our base TcpClient class with the server name and port 119. Port 119 is the well-known port for NNTP servers. The server should respond with a 200 status-code indicating that connection was successful.<br /><br />
+When you are finished calling methods to the Nntp client object, then you should call the Disconnect method to terminate the connection.<br /><br />
+<strong>Listing 4: Disconnect Method</strong><br />
+<pre class="sourcecode">public void Disconnect()
+{
+    string message;
+    string response;
+ 
+    message = "QUIT\r\n";
+    Write(message);
+    response = Response();
+    if (response.Substring( 0, 3) != "205")
+    {
+        throw new NntpException(response);
+    }
+}</pre><br /><br />
+The method will send a QUIT message to the server and the server should respond with a 205 status-code indicating that the it is disconnecting the socket.<br /><br />
+When you first instantiate the Nntp object you should call the Connect method and when you are finished you should call the Disconnect method. In between, you can call three method, GetNewsgroups, GetNews and Post, to receive and send news to the NNTP server. <br /><br />
+The GetNewsgroups method, receives from the NNTP server all the forums that are supported by the server.<br /><br />
+<strong>Listing 5: GetNewsgroups Method</strong><br />
+<pre class="sourcecode">public ArrayList GetNewsgroups()
+{
+    string message;
+    string response;
+ 
+    ArrayList retval = new ArrayList();
+ 
+    message = "LIST\r\n";
+    Write(message);
+    response = Response();
+    if (response.Substring( 0, 3) != "215")
+    {
+        throw new NntpException(response);
+    }
+ 
+    while (true)
+    {
+        response = Response();
+        if (response == ".\r\n" ||
+            response == ".\n")
+        {
+            return retval;
+        }
+        else
+        {
+            char[] seps = { ' ' };
+            string[] values =
+              response.Split(seps);
+            retval.Add(values&#91;0&#93;);
+            continue;
+        }
+    }
+}</pre><br /><br />
+The GetNewsgroups method begins by sending a LIST message to the NNTP server. The NNTP server will respond initially with the 215 status-code indicating that it successfully received the LIST message. Then the NNTP server will respond with a series of lines, each representing one forum on the NNTP server. After all the forums are sent, the NNTP server will send one line with a single period, indicating the end of the forum list. The list of forums is returned from the GetNewsgroups method as an ArrayList of strings.<br /><br />
+From the list of forums, you can select one forum and receive from the GetNews method all the news for that forum. Call GetNews passing the name of the forum to receive the news postings.<br /><br />
+<strong>Listing 6: GetNews Method</strong><br />
+<pre class="sourcecode">public ArrayList GetNews(string newsgroup)
+{
+    string message;
+    string response;
+ 
+    ArrayList retval = new ArrayList();
+ 
+    message = "GROUP " + newsgroup + "\r\n";
+    Write(message);
+    response = Response();
+    if (response.Substring( 0, 3) != "211")
+    {
+        throw new NntpException(response);
+    }
+ 
+    char[] seps = { ' ' };
+    string[] values = response.Split(seps);
+ 
+    long start = Int32.Parse(values&#91;2&#93;);
+    long end = Int32.Parse(values&#91;3&#93;);
+ 
+    if (start+100 &lt; end &amp;&amp; end &gt; 100)
+    {
+        start = end-100;
+    }
+ 
+    for (long i=start;i&lt;end;i++)
+    {
+        message = "ARTICLE " + i + "\r\n";
+        Write(message);
+        response = Response();
+        if (response.Substring( 0, 3) == "423")
+        {
+            continue;
+        }
+        if (response.Substring( 0, 3) != "220")
+        {
+            throw new NntpException(response);
+        }
+ 
+        string article = "";
+        while (true)
+        {
+            response = Response();
+            if (response == ".\r\n")
+            {
+                break;
+            }
+ 
+            if (response == ".\n")
+            {
+                break;
+            }
+                        
+            if (article.Length &lt; 1024)
+            {
+                article += response;
+            };
+        }
+ 
+        retval.Add(article);
+    }
+ 
+    return retval;
+}</pre><br /><br />
+The GetNews method sends a GROUP message to the NNTP server. The NNTP server will responds with a status-code of 211, indicating success, the numbers of articles in the forum present the server, the lowest message number for an article in the forum and the highest message number for an article in the forum. The method then repeatedly sends an ARTICLE message requesting each article between the lowest and highest message numbers. The NNTP server responds with a 423 status-code if the article is not present on the server and a 220 status-code if the article is present. When we receive a 423 status-code, then we skip to the next message number. When we receive a 220 status-code, the status line is followed by the content of the message and terminated with the now familiar with line with only one period. As the articles are received then are placed into an ArrayList object and returned from the GetNews function once all messages are received. <br /><br />
+Finally, the Post method is used to add new articles to the forums. The post method takes four parameters; the newsgroup name, the subject, the sender and the body of the message.<br /><br />
+<strong>Listing 7: Post Method</strong><br />
+<pre class="sourcecode">public void Post(string newsgroup, string subject,
+                 string from, string content)
+{
+    string message;
+    string response;
+ 
+    message = "POST " + newsgroup + "\r\n";
+    Write(message);
+    response = Response();
+    if (response.Substring( 0, 3) != "340")
+    {
+        throw new NntpException(response);
+    }
+ 
+    message = "From: " + from + "\r\n"
+        + "Newsgroups: " + newsgroup + "\r\n"
+        + "Subject: " + subject + "\r\n\r\n"
+        + content + "\r\n.\r\n";
+    Write(message);
+    response = Response();
+    if (response.Substring( 0, 3) != "240")
+    {
+        throw new NntpException(response);
+    }
+}</pre><br /><br />
+The Post method sends a POST message to the NNTP server. The POST message takes the newsgroup names as its only parameter. The NNTP server should respond with a 340 status-code indicating that you may post. The headers and content of the post can then be sent to the server with a terminating single line containing one period. If the message is received correctly, the NNTP server will respond with a 240 status-code.<br /><br />
+Our public methods used two private methods, Write and Response. The Write method sends a string of bytes to the NNTP server.<br /><br />
+<strong>Listing 8: Write Method</strong><br />
+<pre class="sourcecode">private void Write(string message)
+{
+    System.Text.ASCIIEncoding en =
+      new System.Text.ASCIIEncoding() ;
+ 
+    byte[] WriteBuffer = new byte&#91;1024&#93; ;
+    WriteBuffer = en.GetBytes(message) ;
+ 
+    NetworkStream stream = GetStream() ;
+    stream.Write(WriteBuffer,0,WriteBuffer.Length);
+ 
+    Debug.WriteLine("WRITE:" + message);
+}</pre><br /><br />
+It is important that we convert the dot-NET string to a series of bytes using ASCIIEncoding before it is sent to the server. I also call the Debug.WriteLine method to send the output string to the debug console to help with debugging this component.<br /><br />
+The second private method is the Response method. The Response method receives one line of input from the NNTP server.<br /><br />
+<strong>Listing 9: Response Method</strong><br />
+<pre class="sourcecode">private string Response()
+{
+    System.Text.ASCIIEncoding enc =
+      new System.Text.ASCIIEncoding();
+    byte []serverbuff = new Byte&#91;1024&#93;;
+    NetworkStream stream = GetStream();
+    int count = 0;
+    while (true)
+    {
+        byte []buff = new Byte&#91;2&#93;;
+        int bytes = stream.Read( buff, 0, 1 );    
+        if (bytes == 1)
+        {
+            serverbuff&#91;count&#93; = buff&#91;0&#93;;
+            count++;
+ 
+            if (buff&#91;0&#93; == '\n')
+            {
+                break;
+            }
+        }
+        else
+        {
+            break;
+        };
+    };
+ 
+    string retval =
+      enc.GetString( serverbuff, 0, count );
+    Debug.WriteLine("READ:" + retval);
+    return retval;
+}</pre><br /><br />
+After receiving the single line of bytes, the data is translated into a dot-NET string from its ASCII encoded bytes.<br /><br />
+Using our NNTP class is quite trivial. An example follows.<br /><br />
+<strong>Listing 10: Usage</strong><br />
+<pre class="sourcecode">static void Main(string[] args)
+{
+    try
+    {
+        Nntp obj = new Nntp();
+        obj.Connect("news.devx.com");
+        ArrayList list = obj.GetNewsgroups();
+        foreach (string newsgroup in list)
+        {
+            System.Console.WriteLine
+              ("Newsgroup :{0}", newsgroup);
+        }
+        list = obj.GetNews("test");
+        foreach (string article in list)
+        {
+            System.Console.WriteLine("{0}", article);
+        }
+        obj.Post("test", "Hello", "randy@kbcafe.com
+                 (Randy Charles Morin)", "Goodbye");
+        obj.Disconnect();
+    }
+    catch ( NntpException e )
+    {
+        System.Console.WriteLine(e.ToString());
+    }
+    catch ( System.Exception )
+    {
+        System.Console.WriteLine
+          ("Unhandled Exception");
+    }
+}</pre><br /><br />
+Instantiate an Nntp object and call Connect passing the NNTP server name. Then we can repeatedly call GetNewsgroups, GetNews and Post to receive and post articles in the forums found on the NNTP server. Finally you call the Disconnect method to release the socket connection to our NNTP server. <br /><br />
+The RFC for NNTP is <a href="http://www.ietf.org/rfc/rfc0977.txt?number=977">RFC 977</a> and can be found at the IETF website. You should also review the RFC for the USENET news message format as presented in  <a href="http://www.ietf.org/rfc/rfc0850.txt?number=850">RFC 850</a>.<br /><br />
+<strong>About the Author</strong><br />
+Randy Charles Morin is the Chief Architect of SportMarkets Development from Toronto, Canada and lives with his wife, Bernadette and two kids, Adelaine and Brayden in Brampton, Canada. He is the author of the <a href="http://www.kbcafe.com">KBCafe.com</a> website , many programming books and many articles.<br /><br />
+Copyright 2002-2003 Randy Charles Morin<br /><br />
+<br /><br />
+
+
+
+    
+
+
+		
+            <!-- google_ad_section_end -->
+            <div style="clear: both">&nbsp;</div>
+
+		
+          </div>
+          <!--
+          <div class="ContentBoxBottom"><div class="ContentBoxBottomInner"><img src="http://pheaven.cachefly.net/images/site/edge_blue_r.png" alt="corner" height="8" width="8" /></div></div>
+          -->
+        </div>
+      </div>
+      <div class="StandardRightColumn">
+        
+  <div style="width: inherit"><div class="ContentBoxHeading"><h1 class="ContentBoxTitle">Other Views</h1></div><div class="ContentBoxContent">
+    <a href="/2/Art_CSharp_4/?PrinterFriendly=1" rel="nofollow">Printer Friendly</a>
+  </div><div class="ContentBoxBottom"><div class="ContentBoxBottomInner"><img src="/images/site/edge_blue_r.png" alt="corner" height="8" width="8" /></div></div></div>
+  
+  
+
+        
+        <div style="text-align: center; border-style: none;">
+          <span><script type='text/javascript'><!--// <![CDATA[
+    /* [id2] LargeRectangle */
+    OA_show(2);
+// ]]> --></script><noscript><a href='http://ads1.communityheaven.com/www/delivery/ck.php?n=ac3d6a13&amp;cb=481771924' target='_blank'><img src='http://ads1.communityheaven.com/www/delivery/avw.php?zoneid=2&amp;cb=481771924&amp;n=ac3d6a13&amp;channel=2' border='0' alt='' /></a></noscript></span>
+        </div>
+        <table style="border: none 0 white; padding: 0 0 0 0; width: 336px">
+          <tr>
+            <td align="center"><span><script type='text/javascript'><!--// <![CDATA[
+    /* [id10] Button_1 */
+    OA_show(10);
+// ]]> --></script><noscript><a href='http://ads2.communityheaven.com/www/delivery/ck.php?n=a3282d70&amp;cb=481771924' target='_blank'><img src='http://ads2.communityheaven.com/www/delivery/avw.php?zoneid=10&amp;cb=481771924&amp;n=a3282d70&amp;channel=2' border='0' alt='' /></a></noscript></span></td>
+            <td align="center"><span><script type='text/javascript'><!--// <![CDATA[
+    /* [id13] Button_2 */
+    OA_show(13);
+// ]]> --></script><noscript><a href='http://ads2.communityheaven.com/www/delivery/ck.php?n=a81eea25&amp;cb=481771924' target='_blank'><img src='http://ads2.communityheaven.com/www/delivery/avw.php?zoneid=13&amp;cb=481771924&amp;n=a81eea25&amp;channel=2' border='0' alt='' /></a></noscript></span></td>
+          </tr>
+          <tr>
+            <td align="center"><span><script type='text/javascript'><!--// <![CDATA[
+    /* [id14] Button_3 */
+    OA_show(14);
+// ]]> --></script><noscript><a href='http://ads2.communityheaven.com/www/delivery/ck.php?n=a404fa54&amp;cb=481771924' target='_blank'><img src='http://ads2.communityheaven.com/www/delivery/avw.php?zoneid=14&amp;cb=481771924&amp;n=a404fa54&amp;channel=2' border='0' alt='' /></a></noscript></span></td>
+            <td align="center"><span><script type='text/javascript'><!--// <![CDATA[
+    /* [id15] Button_4 */
+    OA_show(15);
+// ]]> --></script><noscript><a href='http://ads3.communityheaven.com/www/delivery/ck.php?n=a690fc4d&amp;cb=481771924' target='_blank'><img src='http://ads3.communityheaven.com/www/delivery/avw.php?zoneid=15&amp;cb=481771924&amp;n=a690fc4d&amp;channel=2' border='0' alt='' /></a></noscript></span></td>
+          </tr>
+          <tr>
+            <td align="center"><span><script type='text/javascript'><!--// <![CDATA[
+    /* [id16] Button_5 */
+    OA_show(16);
+// ]]> --></script><noscript><a href='http://ads3.communityheaven.com/www/delivery/ck.php?n=a116290b&amp;cb=481771924' target='_blank'><img src='http://ads3.communityheaven.com/www/delivery/avw.php?zoneid=16&amp;cb=481771924&amp;n=a116290b&amp;channel=2' border='0' alt='' /></a></noscript></span></td>
+            <td align="center"><span><script type='text/javascript'><!--// <![CDATA[
+    /* [id17] Button_6 */
+    OA_show(17);
+// ]]> --></script><noscript><a href='http://ads3.communityheaven.com/www/delivery/ck.php?n=acebfb31&amp;cb=481771924' target='_blank'><img src='http://ads3.communityheaven.com/www/delivery/avw.php?zoneid=17&amp;cb=481771924&amp;n=acebfb31&amp;channel=2' border='0' alt='' /></a></noscript></span></td>
+          </tr>
+          <tr>
+            <td align="center"><span><script type='text/javascript'><!--// <![CDATA[
+    /* [id18] Button_7 */
+    OA_show(18);
+// ]]> --></script><noscript><a href='http://ads3.communityheaven.com/www/delivery/ck.php?n=a85b3341&amp;cb=481771924' target='_blank'><img src='http://ads3.communityheaven.com/www/delivery/avw.php?zoneid=18&amp;cb=481771924&amp;n=a85b3341&amp;channel=2' border='0' alt='' /></a></noscript></span></td>
+            <td align="center"><span><script type='text/javascript'><!--// <![CDATA[
+    /* [id19] Button_8 */
+    OA_show(19);
+// ]]> --></script><noscript><a href='http://ads4.communityheaven.com/www/delivery/ck.php?n=a23e7c8f&amp;cb=481771924' target='_blank'><img src='http://ads4.communityheaven.com/www/delivery/avw.php?zoneid=19&amp;cb=481771924&amp;n=a23e7c8f&amp;channel=2' border='0' alt='' /></a></noscript></span></td>
+          </tr>
+          <tr>
+            <td align="center"><span><script type='text/javascript'><!--// <![CDATA[
+    /* [id20] Button_9 */
+    OA_show(20);
+// ]]> --></script><noscript><a href='http://ads4.communityheaven.com/www/delivery/ck.php?n=aa5687bd&amp;cb=481771924' target='_blank'><img src='http://ads4.communityheaven.com/www/delivery/avw.php?zoneid=20&amp;cb=481771924&amp;n=aa5687bd&amp;channel=2' border='0' alt='' /></a></noscript></span></td>
+            <td align="center"><span><script type='text/javascript'><!--// <![CDATA[
+    /* [id21] Button_10 */
+    OA_show(21);
+// ]]> --></script><noscript><a href='http://ads4.communityheaven.com/www/delivery/ck.php?n=ac05192e&amp;cb=481771924' target='_blank'><img src='http://ads4.communityheaven.com/www/delivery/avw.php?zoneid=21&amp;cb=481771924&amp;n=ac05192e&amp;channel=2' border='0' alt='' /></a></noscript></span></td>
+          </tr>
+          <tr>
+            <td align="center"><span><script type='text/javascript'><!--// <![CDATA[
+    /* [id6] WideSkyscraper */
+    OA_show(6);
+// ]]> --></script><noscript><a href='http://ads2.communityheaven.com/www/delivery/ck.php?n=a2f8feff&amp;cb=481771924' target='_blank'><img src='http://ads2.communityheaven.com/www/delivery/avw.php?zoneid=6&amp;cb=481771924&amp;n=a2f8feff&amp;channel=2' border='0' alt='' /></a></noscript></span></td>
+            <td align="center"><span><script type='text/javascript'><!--// <![CDATA[
+    /* [id7] WideSkyscraper2 */
+    OA_show(7);
+// ]]> --></script><noscript><a href='http://ads3.communityheaven.com/www/delivery/ck.php?n=af319062&amp;cb=481771924' target='_blank'><img src='http://ads3.communityheaven.com/www/delivery/avw.php?zoneid=7&amp;cb=481771924&amp;n=af319062&amp;channel=2' border='0' alt='' /></a></noscript></span></td>
+          </tr>
+        </table>
+        <div style="text-align: center; margin-top: 4px; border-top: solid 1px #000000; padding-top: 4px">
+          <span><script type='text/javascript'><!--// <![CDATA[
+    /* [id23] LargeRectangle_2 */
+    OA_show(23);
+// ]]> --></script><noscript><a href='http://ads.communityheaven.com/www/delivery/ck.php?n=a51be0be&amp;cb=481771924' target='_blank'><img src='http://ads.communityheaven.com/www/delivery/avw.php?zoneid=23&amp;cb=481771924&amp;n=a51be0be&amp;channel=2' border='0' alt='' /></a></noscript></span>
+        </div>
+        <div style="text-align: center; border-style: none; margin-top: 4px">
+          <span><script type='text/javascript'><!--// <![CDATA[
+    /* [id24] LargeRectangle_3 */
+    OA_show(24);
+// ]]> --></script><noscript><a href='http://ads.communityheaven.com/www/delivery/ck.php?n=a8504fbf&amp;cb=481771924' target='_blank'><img src='http://ads.communityheaven.com/www/delivery/avw.php?zoneid=24&amp;cb=481771924&amp;n=a8504fbf&amp;channel=2' border='0' alt='' /></a></noscript></span>
+        </div>
+        <table style="border: none 0 white; padding: 0 0 0 0; width: 336px">
+          <tr>
+            <td align="center"><span><script type='text/javascript'><!--// <![CDATA[
+    /* [id25] Button_11 */
+    OA_show(25);
+// ]]> --></script><noscript><a href='http://ads.communityheaven.com/www/delivery/ck.php?n=ade50764&amp;cb=481771924' target='_blank'><img src='http://ads.communityheaven.com/www/delivery/avw.php?zoneid=25&amp;cb=481771924&amp;n=ade50764&amp;channel=2' border='0' alt='' /></a></noscript></span></td>
+            <td align="center"><span><script type='text/javascript'><!--// <![CDATA[
+    /* [id26] Button_12 */
+    OA_show(26);
+// ]]> --></script><noscript><a href='http://ads.communityheaven.com/www/delivery/ck.php?n=a6d76c6a&amp;cb=481771924' target='_blank'><img src='http://ads.communityheaven.com/www/delivery/avw.php?zoneid=26&amp;cb=481771924&amp;n=a6d76c6a&amp;channel=2' border='0' alt='' /></a></noscript></span></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+    </div>
+
+
+<div id="ctl00_ctl00_HideBottomContent">
+	    
+
+    <div class="bottomlinks">
+      <a href="/">Home</a>
+      <a href="/ph/about.aspx">About PH</a>
+      <a href="/ph/privacy.aspx">Privacy Statement</a>
+      <a href="http://tools.programmersheaven.com/">Hosted SubVersion</a>
+      <a href="http://tools.programmersheaven.com/">Hosted Bugtracker</a>
+      <a href="/ph/contact.aspx">Contact Us</a>
+      <a href="/ph/advertise.aspx">Advertise Here</a>
+    </div>
+    
+    <div class="bottomjumps">
+
+      <b>Official Programmer's Heaven Blogs</b>	
+      <br/>
+      <a href="http://programmersheaven.com/web-hosting/">Web Hosting</a> |
+      <a href="http://programmersheaven.com/browser-games-social-gaming/">Browser and Social Games</a> |
+      <a href="http://programmersheaven.com/gadgets/">Gadgets</a>
+
+      <br/><br/>
+
+      Popular resources on Programmersheaven.com<br />
+      <a href="/tags/Assembly/">Assembly</a> |
+	  <a href="/tags/Basic/">Basic</a> |
+      <a href="/tags/C/">C</a> |
+      <a href="/tags/C%23/">C#</a> |
+      <a href="/tags/C%2b%2b/">C++</a> | 
+      <a href="/tags/Delphi/">Delphi</a> |
+      <a href="/tags/Java/">Java</a> |
+      <a href="/tags/JavaScript/">JavaScript</a> |
+      <a href="/tags/Pascal/">Pascal</a> |
+      <a href="/tags/Perl/">Perl</a> |
+      <a href="/tags/PHP/">PHP</a> |
+      <a href="/tags/Python/">Python</a> |
+      <a href="/tags/Ruby/">Ruby</a> |
+      <a href="/tags/Visual+Basic/">Visual Basic</a>
+
+
+    </div>
+    
+    
+    <div class="legaltext">
+      &copy; Copyright 2010 Programmersheaven.com - All rights reserved.<br />
+        Reproduction in whole or in part, in any form or medium without express written
+        permission is prohibited.<br />
+        Violators of this policy may be subject to legal action. Please read our
+        <a href="/ph/tos.aspx">Terms Of Use</a> and <a href="/ph/privacy.aspx">Privacy
+        Statement</a> for more information.
+        <br />
+
+      <img src="/images/site/boostraplabs-icon.png" style="width: 16px; height: 14" alt="bootstrapLabs Logo" />
+        A <a href="http://bootstraplabs.com/">BootstrapLabs</a> project.
+    </div>
+
+</div>
+  </form>
+  
+  <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  <script type="text/javascript">
+    var pageTracker = _gat._getTracker("UA-260649-1");
+    pageTracker._initData();
+    pageTracker._trackPageview();
+    
+  </script>
+
+  <script type="text/javascript" src="http://track.netshelter.net/js/sites/programmersheaven.com.js"></script>
+  
+
+  <span><script type='text/javascript'><!--// <![CDATA[
+    /* [id11] INTERSTITIAL_1 */
+    OA_show(11);
+// ]]> --></script></span>
+  <span><script type='text/javascript'><!--// <![CDATA[
+    /* [id12] POPUP_1 */
+    OA_showpop(12);
+// ]]> --></script></span>
+  <span><script type='text/javascript'><!--// <![CDATA[
+    /* [id22] POPUNDER_1 */
+    OA_showpop(22);
+// ]]> --></script></span>
+
+  <script type='text/javascript'><!--// <![CDATA[
+    /* [id71] BEFORE_END_BODY */
+    OA_show(71);
+// ]]> --></script><noscript><a target='_blank' href='http://ads.communityheaven.com/www/delivery/ck.php?n=9339838'><img border='0' alt='' src='http://ads.communityheaven.com/www/delivery/avw.php?zoneid=71&amp;n=9339838' /></a></noscript>
+  
+<!-- Kontera ContentLink(TM);-->
+<script type='text/javascript'>
+var dc_AdLinkColor = '#0000ff' ; 
+var dc_PublisherID = 124766 ; 
+</script>
+<script type='text/javascript' src='http://kona.kontera.com/javascript/lib/KonaLibInline.js'>
+</script>
+
+  
+</body>
+</html>

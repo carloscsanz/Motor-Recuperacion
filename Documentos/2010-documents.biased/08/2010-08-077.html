@@ -1,0 +1,1666 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-gb" xml:lang="en-gb">
+	<head>
+	<title>interop, How to change the text of an Excel.Shape in C#</title>
+		<link href="/styles/main.css" rel="stylesheet" type="text/css"  />
+	</head>
+	<body id="mofeel" class="section-viewtopic ltr">
+		<div id="wrap">
+			<div id="page-header">
+				<div class="headerbar">
+					<div class="inner"><span class="corners-top"><span></span></span>
+					<div id="site-description">
+<h1>interop, How to change the text of an Excel.Shape in C#</h1> 
+<p>microsoft.public.dotnet.framework.interop</p>
+</div>
+					</div>
+				
+					<span class="corners-bottom"><span></span></span>
+				</div>
+				<div class="navbar">
+					<div class="inner"><span class="corners-top"><span></span></span>
+					<ul class="linklist navlinks">
+						<li><a class="icon-home" href="/" accesskey="h">Mofeel Groups Index</a>  <strong>&#8249;</strong> <a href="/forum/61/index.aspx">microsoft.public.dotnet.framework.interop</a></li>
+											<li class="rightside">
+ <ul id="archivenav"> 
+ <li><a href="/archive/61/index.aspx">Archive</a>
+ <ul><li><a href="/archive/852/17.aspx">comp.programming</a></li>
+ <li><a href="/archive/681/25.aspx">comp.sys.ibm.pc.games.action</a></li>
+ <li><a href="/archive/15/16.aspx">microsoft.public.access.security</a></li>
+ <li><a href="/archive/1114/160.aspx">comp.os.linux.advocacy</a></li>
+ <li><a href="/archive/1027/13.aspx">microsoft.public.windowsxp.configuration_manage</a></li>
+ <li><a href="/archive/94/28.aspx">microsoft.public.exchange.misc</a></li>
+ <li><a href="/archive/72/68.aspx">microsoft.public.dotnet.general</a></li>
+ <li><a href="/archive/81/264.aspx">microsoft.public.excel.misc</a></li>
+ <li><a href="/archive/1010/9.aspx">microsoft.public.windows.server.clustering</a></li>
+ <li><a href="/archive/810/16.aspx">comp.text.xml</a></li>
+ </ul>
+ </li> 
+ </ul> 
+											</li>
+					</ul>
+					<ul class="linklist">
+											<li class="rightside">
+
+<ul id="nav">
+<li><a href="#">Previous</a> <ul>
+<li>1 
+ <ul><li><a href="/61-microsoft-public-dotnet-framework-interop/4383.aspx">Cannot load .NET COM Object into ASP (Classic) Application Object</a><br/>Hello all,<br/>
+<br/>
+I am trying to implement some objects that need to be called from both<br/>
+ASP.NET and ASP Classic.<br/>
+<br/>
+On the ASP Classic side, the objects will be cached in the ASP Application<br/>
+object.<br/>
+<br/>
+I have built COM objects in .NET before, and have created an ASP Classic web<br/>
+site that uses some of the .NET WebControls (an interesting experiment).<br/>
+<br/>
+When I tried to put my first COM object into the ASP Application, I got the<br/>
+following error:<br/>
+<br/>
+"Cannot add object with apartment model behavior to the application<br/>
+intrinsic object"<br/>
+<br/>
+This is a threading issue, which is well documented in the following MSKB<br/>
+article:<br/>
+http://support.microsoft.com/default.aspx/kb/822828<br/>
+<br/>
+However, after translating the code in the article to VB.NET (all my code is<br/>
+VB.NET), I still got the same error.<br/>
+<br/>
+In the event that I had made a mistake in my conversion, I copied the C#<br/>
+code from the article verbatim, created a COM-visible C# DLL and the result<br/>
+was....<br/>
+<br/>
+Exactly the same error!<br/>
+<br/>
+So I have the following questions:<br/>
+<br/>
+Has anyone successfully built a .NET COM DLL that loads in the ASP Classic<br/>
+Application object?  If so, what exactly did you have to do to get it<br/>
+working?<br/>
+<br/>
+Does anyone have any pointers to articles (in any language) that show how to<br/>
+do this?<br/>
+<br/>
+Has anyone tried the code in KB 822828?  What were your results?<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+</li></ul></li>
+<li>2 
+ <ul><li><a href="/61-microsoft-public-dotnet-framework-interop/5869.aspx">CDO COM Component Not Released?!</a><br/>Hi,<br/>
+<br/>
+I have an ASP.NET application that calls a CDO wrapper component for reading <br/>
+electronic messages (*.eml) files but fails to release an object from memory. <br/>
+ I have tried using Interop Marshal.ReleaseComObject(Object) with no luck. <br/>
+The following code snippet has been implemented:<br/>
+<br/>
+CDO.DropDirectory objDropDirectory = null;<br/>
+CDO.MessageClass objEmailMessage = new CDO.MessageClass();<br/>
+CDO.IMessages objMessageList;<br/>
+string[] strMessageList = null;<br/>
+objDropDirectory = new CDO.DropDirectory();<br/>
+objMessageList = objDropDirectory.GetMessages(strPath);<br/>
+int intCount = objMessageList.Count;<br/>
+strMessageList = new string[intCount];<br/>
+int intSelection = 0;<br/>
+foreach (CDO.IMessage objMessage in objMessageList)<br/>
+{<br/>
+string strMessage = objMessage.HTMLBody.ToString();<br/>
+strMessageList.SetValue(strMessage,intSelection);<br/>
+intSelection = intSelection + 1;<br/>
+}<br/>
+System.Runtime.InteropServices.Marshal.ReleaseComObject(objMessageList);<br/>
+System.Runtime.InteropServices.Marshal.ReleaseComObject(objDropDirectory);<br/>
+//objMessageList.DeleteAll();<br/>
+objMessageList = null;<br/>
+objDropDirectory = null;<br/>
+return strMessageList;<br/>
+<br/>
+Any help much appreciated.<br/>
+<br/>
+<br/>
+Andrew<br/>
+</li></ul></li>
+<li>3 
+ <ul><li><a href="/61-microsoft-public-dotnet-framework-interop/7177.aspx">AxImp & VB .Net</a><br/>Hello,<br/>
+<br/>
+I used AxImp on one ActiveX I've written (VC++6), and I'm trying to use the<br/>
+generated assemblies in VB. Net.<br/>
+<br/>
+it seems that the underlying ocx is not created when I'm calling the<br/>
+AboutBox method<br/>
+(or any method/member of my activex).<br/>
+<br/>
+What am I missing ?<br/>
+<br/>
+Thanks,<br/>
+Laurent<br/>
+<br/>
+Imports AxEARAXLib<br/>
+<br/>
+Public Class Form1<br/>
+<br/>
+Inherits System.Windows.Forms.Form<br/>
+<br/>
+Dim myax As New AxEarAX()<br/>
+<br/>
+Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As<br/>
+System.EventArgs) Handles MyBase.Load<br/>
+<br/>
+Debug.WriteLine(myax.ProductName)<br/>
+<br/>
+Try<br/>
+<br/>
+myax.AboutBox() ' InvalidActiveXStateException thrown here --- myax.ocx =<br/>
+Nothing :(<br/>
+<br/>
+Catch ex As Exception<br/>
+<br/>
+Debug.WriteLine(ex.Message)<br/>
+<br/>
+Debug.WriteLine(ex.StackTrace())<br/>
+<br/>
+End Try<br/>
+<br/>
+End Sub<br/>
+<br/>
+End Class<br/>
+<br/>
+<br/>
+</li></ul></li>
+<li>4 
+ <ul><li><a href="/61-microsoft-public-dotnet-framework-interop/7705.aspx">authentication problem when launching excel from asp.net and import xml via http</a><br/>hello,<br/>
+<br/>
+i am working on excel automation (asp.net-windows server 2003 iis<br/>
+6-excel 2003).<br/>
+everything is fine after some (well known, i think) permission issue.<br/>
+but... now i have to move to another box, eg deploy the application<br/>
+into a very similar but new environment, installed not by me.<br/>
+well, my solution: invoke excel and based on the opened template's xml<br/>
+map do xml import via http(!).<br/>
+till' now (on the actual box) it worked fine: excel sends auth info to<br/>
+the http source (which is served by an iis 6 virtual directory with<br/>
+windows integrated authentication) but on the new box it does not.<br/>
+to make it clear: i can start excel, i can do xml import from local<br/>
+resource (and it works with http too, but only with anonymously<br/>
+accessible urls), there's one thing i doesn't know: on the new box, why<br/>
+can't excel authenticate with iis using kerberos/ntlm.<br/>
+at dcomcnfg i tried to set identity for the 'launching user' (which is<br/>
+network service in this case, without impersonation of course), and<br/>
+tried set my account too (which is a domain admin) -- it didn't send<br/>
+the auth info.<br/>
+<br/>
+any idea is welcome,<br/>
+thanks,<br/>
+peter<br/>
+<br/>
+</li></ul></li>
+<li>5 
+ <ul><li><a href="/61-microsoft-public-dotnet-framework-interop/1178.aspx">.NET1.1 SP1 breaks VSTO 2003: Excel process not exiting</a><br/>A simple .NET program that reads an Excel file and exit leaves an Excel.exe <br/>
+process in memory after exit if:<br/>
+- the Excel file it reads refers a VSTO 2003 assembly (even doing nothing)<br/>
+- the .NET framework SP1 is installed.<br/>
+<br/>
+Steps to reproduce:<br/>
+1) Create a new VSTO Excel C# spreadsheet project with VSTO2003 (no changes, <br/>
+just build it)<br/>
+2) Create a new simple C# application that uses Excel PIA's:<br/>
+Excel.Application excelApp = new Excel.ApplicationClass();			<br/>
+Excel.Workbook excelWorkbook = excelApp.Workbooks.Open("EXCEL_FILE", <br/>
+Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, <br/>
+Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, <br/>
+Type.Missing, Type.Missing, Type.Missing, Type.Missing);	<br/>
+excelApp.Quit();<br/>
+<br/>
+Results:<br/>
+With .NET Framework 1.1, Excel process is cleanned whether EXCEL_FILE is <br/>
+VSTO enabled (the one created at step 1), or not (regular Excel file).<br/>
+With .NET Framework 1.1 SP1, Excel process stays after exit if EXCEL_FILE is <br/>
+VSTO enabled.<br/>
+<br/>
+Any hint? Is this a bug?<br/>
+<br/>
+Thanks<br/>
+<br/>
+<br/>
+</li></ul></li>
+<li>6 
+ <ul><li><a href="/61-microsoft-public-dotnet-framework-interop/4817.aspx">.NET generated IDL to C++ proxy stub</a><br/>Hi all,<br/>
+<br/>
+I have been following Amit Dey's example of ActiveX event sources and VC++<br/>
+clients at codeproject.com<br/>
+(http://www.codeproject.com/com/vbeventswithvc.asp#xx846270xx). My<br/>
+requirement is somewhat different however, in that I have a .NET assembly<br/>
+that needs to provide a COM interface to events that will be handled by my<br/>
+C++ app.<br/>
+<br/>
+I recompiled Amit's VB6 project using the .NET upgrade wizard (then used<br/>
+regasm X.dll /tlb:X.tlb /codebase in order to make the assembley usable via<br/>
+COM)and attempted to use the MIDL compiler in VS.NET 2k3 to generate the<br/>
+Xi_.c and X.h files. Unfortunately, the IDL files produced are subtely<br/>
+different producing MIDL2035 errors on the second parameter of the'custom()'<br/>
+attribute eg:<br/>
+custom(90883F05-3D28-11D2-8F17-00A0C9A6186D, VBEvents,<br/>
+Version=1.0.2025.17224, Culture=neutral, PublicKeyToken=null)<br/>
+<br/>
+I'm not a COM expert, but I assume that MIDL is meant to create a proxy<br/>
+class via the Xi_.c and the X.h files. Is this correct? If so, why can't<br/>
+MIDL handle the IDL file produced from a regasm'd .tlb?<br/>
+<br/>
+Best regards,<br/>
+<br/>
+<br/>
+<br/>
+-- <br/>
+Nick Wilton BSc MInstP MCP<br/>
+C++ Architect<br/>
+www.darwinconsultants.co.uk<br/>
+<br/>
+<br/>
+</li></ul></li>
+
+</ul></li>
+</ul>
+											</li>
+					</ul>
+					<span class="corners-bottom"><span></span></span></div>
+				</div>
+			</div>
+            
+			<div id="page-body">
+			
+<div  class="post bg2"> 
+ <div class="inner"><span class="corners-top"><span></span></span> 
+ <div class="postbody"><h3 > How to change the text of an Excel.Shape in C# </h3> 
+ <p class="author">by <strong>Alpy</strong> &raquo; Mon, 18 Jul 2005 21:45:10 GMT</p> 
+ <div class="content"><br /><script type="text/javascript" src="/include/floor1_1.js"></script><br /> Hi all,<br/>
+<br/>
+I have to create Shapes and format them in Excel using C#.<br/>
+<br/>
+I have tried to transcribe this VBA macro into C# :<br/>
+<br/>
+Sub ShapeOval()<br/>
+<br/>
+    ActiveSheet.Shapes.AddShape(msoShapeOval, 179.25, 76.5, 393#,<br/>
+393#).Select<br/>
+    Selection.Characters.Text = "My text"<br/>
+    Selection.HorizontalAlignment = xlCenter<br/>
+<br/>
+End Sub<br/>
+<br/>
+It's working fine in Excel as a macro.<br/>
+<br/>
+I can create the shape and add it to the collection in C#.<br/>
+<br/>
+sheet.Shapes.AddShape(Microsoft.Office.Core.MsoAutoShapeType.msoShapeOval,<br/>
+			                        50,150,50,50) ;<br/>
+<br/>
+The problem is to set the text as done in VBA.<br/>
+<br/>
+I don't know how to change it.<br/>
+<br/>
+I've tried to select the shape, cast it as an Oval and change the text,<br/>
+but the code raised a casting exception...<br/>
+<br/>
+Characters is a property of the Oval class in the Excel object model<br/>
+but I can't change it.<br/>
+<br/>
+Have you ever done this before ?<br/>
+Any idea ?<br/>
+<br/>
+Thanks in advance<br/>
+<br/>
+Patrick<br/>
+<br/>
+<br /><br /></div></div> 
+ <div class="back2top"><a href="#wrap" class="top" title="Top">Top</a></div> 
+ <span class="corners-bottom"><span></span></span> 
+ </div></div> 
+ <hr class="divider" /> 
+
+
+			</div>
+
+
+
+<div id="page-footer">
+				<div class="navbar">
+					<div class="inner"><span class="corners-top"><span></span></span>
+						<ul class="linklist">
+							<li>
+							<a class="icon-home" href="/" accesskey="h">Index</a>  </li>
+							<li class="rightside">
+<ul id="nav">
+<li><a href="#">Next</a> <ul>
+<li>1 
+ <ul><li><a href = "/61-microsoft-public-dotnet-framework-interop/3744.aspx">TypeLoadException Error</a><br/>Hi I'm gettign this exception:<br/>
+<br/>
+Runtime-implemented method with non-zero RVA.<br/>
+<br/>
+Any help ?<br/>
+<br/>
+Thx,<br/>
+Fede <br/>
+<br/>
+<br/>
+</li></ul></li>
+<li>2 
+ <ul><li><a href = "/61-microsoft-public-dotnet-framework-interop/1103.aspx">.NET and J2EE Webservices Interop Questions</a><br/>Hello,<br/>
+<br/>
+<br/>
+I have webservice created with Axis 1.2.1 and that I am trying to<br/>
+consuming in .NET (VB) using the Microsoft provided tools. While I am<br/>
+able to consume methods on the service that return simple type, I<br/>
+cannot consume methods that return complex objects. I have tried<br/>
+experimenting, with this, but am at a bit of loss on where the problem<br/>
+lies. When I call the services from a browser, I do get back the<br/>
+response that contains valid data. Any help on this would be greatly<br/>
+appreciated.   I have attached supporting files.  For the purpose of an<br/>
+<br/>
+example, I have used the getLogin() method.<br/>
+<br/>
+<br/>
+Thanks in advance.<br/>
+Leslie<br/>
+<br/>
+<br/>
+--------------WSDL:----------------&lt;<wsdl:definitions<br/>
+targetNamespace="http://localhost:9082/axis/services/AuthLogin"<br/>
+xmlns:apachesoap="http://xml.apache.org/xml-soap"<br/>
+xmlns:impl="http://localhost:9082/axis/services/AuthLogin"xmlns:intf="http://localhost:9082/axis/services/AuthLogin"<br/>
+<br/>
+xmlns:tns1="urn:AuthLogin" xmlns:tns2="http://security.ws.diamelle"<br/>
+xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"<br/>
+xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"xmlns:xsd="http://www.w3.org/2001/XMLSchema&gt;><br/>
+&lt;<!--WSDL created by Apache Axis version: 1.2.1<br/>
+Built on Jun 14, 2005 (09:15:57 EDT)-&gt;><br/>
+&lt;<wsdl:type&gt;><br/>
+ &lt;<schema elementFormDefault="qualified"<br/>
+targetNamespace="urn:AuthLoginxmlns="http://www.w3.org/2001/XMLSchem&gt;"><br/>
+<br/>
+ &lt; <import namespace="http://xml.apache.org/xml-soap&gt;/><br/>
+ &lt; <import namespace="http://localhost:9082/axis/services/AuthLogin&gt;/><br/>
+ &lt; <element name="authenticat&gt;"><br/>
+  &lt; <complexTy&gt;e><br/>
+   &lt; <sequen&gt;e><br/>
+    &lt; <element name="serviceId" type="xsd:string&gt;/><br/>
+    &lt; <element name="login" type="xsd:string&gt;/><br/>
+    &lt; <element name="password" type="xsd:string&gt;/><br/>
+   &lt; </sequen&gt;e><br/>
+  &lt; </complexTy&gt;e><br/>
+ &lt; </eleme&gt;t><br/>
+ &lt; <element name="authenticateRespons&gt;"><br/>
+  &lt; <complexTy&gt;e><br/>
+   &lt; <sequen&gt;e><br/>
+    &lt; <element name="authenticateResponse" type="tns1:SSOSubject&gt;/><br/>
+   &lt; </sequen&gt;e><br/>
+  &lt; </complexTy&gt;e><br/>
+ &lt; </eleme&gt;t><br/>
+ &lt; <complexType name="SSOSubjec&gt;"><br/>
+  &lt; <sequen&gt;e><br/>
+   &lt; <element name="authenticatingAuthority" nillable="true"<br/>
+type="xsd:string&gt;/><br/>
+   &lt; <element name="entitlements" nillable="true"<br/>
+type="impl:ArrayOf_xsd_anyType&gt;"/><br/>
+   &lt; <element name="expirationTime" type="xsd:lon&gt;"/><br/>
+   &lt; <element name="permissions" nillable="true"<br/>
+type="impl:ArrayOf_xsd_anyTyp&gt;/><br/>
+  &lt;  <element name="principals" nillable="true"<br/>
+type="impl:ArrayOf_xsd_anyTy&gt;e/><br/>
+ &lt;   <element name="privateCredentials" nillable="true"<br/>
+type="impl:ArrayOf_xsd_anyT&gt;pe/><br/>
+&lt;    <element name="publicCredentials" nillable="true"<br/>
+type="impl:ArrayOf_xsd_any&gt;ype/>&lt;     <element name="readOnly" type="xsd:bo&gt;lean"/>&lt;     <element name="userACLs" nillable="true"<br/>
+type="impl:ArrayOf_xsd_an&gt;Type/>&lt;
+     <element name="userGroups" nillable="true"<br/>
+type="impl:ArrayOf_xsd_a&gt;yType/&lt;<br/>
+     <element name="userId" nillable="true" type="xsd&gt;string"/&lt;<br/>
+     <element name="userRoles" nillable="true"<br/>
+type="impl:ArrayOf_xsd_&gt;nyType/><br/>
+    &gt;/seque&lt;ce><br/>
+   </c&gt;mplexT&lt;pe><br/>
+   <element name="&gt;etUserI&lt;"><br/>
+    <c&gt;mplexType>&lt;    &gt;<sequence&lt;<br/>
+      <element name="serviceId" type="xs&gt;:string"/&lt;<br/>
+      <element name="login" type="xs&gt;:string"/&lt;<br/>
+      <element name="password" type="xs&gt;:string"/><br/>
+     &gt;/sequen&lt;e><br/>
+    </c&gt;mplexType&lt;<br/>
+  &gt;</elem&lt;nt><br/>
+   <element name="getUserI&gt;Respons&lt;"><br/>
+    <c&gt;mplexType>&lt;    &gt;<sequence&lt;<br/>
+      <element name="getUserIdResponse" type="xs&gt;:string"/><br/>
+     &gt;/sequen&lt;e><br/>
+    </c&gt;mplexType&lt;<br/>
+  &gt;</elem&lt;nt><br/>
+   <element name="autoRese&gt;Passwor&lt;"><br/>
+    <c&gt;mplexType>&lt;    &gt;<sequence&lt;<br/>
+      <element name="serviceId" type="xs&gt;:string"/&lt;<br/>
+      <element name="login" type="xs&gt;:string"/><br/>
+     &gt;/sequen&lt;e><br/>
+    </c&gt;mplexType&lt;<br/>
+  &gt;</elem&lt;nt><br/>
+   <element name="autoResetPassword&gt;esponslt;"><br/>
+    <c&gt;mplexType>&lt;    &gt;<sequence&lt;<br/>
+      <element name="autoResetPasswordRespons" type="xs&gt;:string"/><br/>
+     &gt;/sequen&lt;e><br/>
+    </c&gt;mplexType&lt;<br/>
+  &gt;</elem&lt;nt><br/>
+   <element name=&gt;getLogi&lt;"><br/>
+    <c&gt;mplexType>&lt;    &gt;<sequence&lt;<br/>
+      <element name="serviceId" type="xs&gt;:string"/&lt;<br/>
+      <element name="login" type="xs&gt;:string"/><br/>
+     &gt;/sequen&lt;e><br/>
+    </c&gt;mplexType&lt;<br/>
+  &gt;</elem&lt;nt><br/>
+   <element name="getLogi&gt;Respons&lt;"><br/>
+    <c&gt;mplexType>&lt;    &gt;<sequence&lt;<br/>
+      <element name="getLoginResponse" type="tns1:WSLo&gt;inValue"/><br/>
+     &gt;/sequen&lt;e><br/>
+    </c&gt;mplexType&lt;<br/>
+  &gt;</elem&lt;nt><br/>
+   <complexType name="WSL&gt;ginValue">&lt;
+   &gt;<sequenc&lt;><br/>
+     <element name="authFailureCount" type=&gt;xsd:int"&lt;><br/>
+     <element name="changePassword" nillable="true"<br/>
+type="xsd:&gt;ateTime"&lt;><br/>
+     <element name="createDate" nillable="true" type="xsd:&gt;ateTime"&lt;><br/>
+     <element name="createdBy" nillable="true" type="xs&gt;:string"&lt;><br/>
+     <element name="currentLoginHost" nillable="true"<br/>
+type="xs&gt;:string"&lt;><br/>
+     <element name="gracePeriodExp" nillable="true"<br/>
+type="xsd:&gt;ateTime"&lt;><br/>
+     <element name="guest" type="xsd&gt;boolean"&lt;><br/>
+     <element name="lastAuthAttempt" nillable="true"<br/>
+type="xsd:&gt;ateTime"&lt;><br/>
+     <element name="locked" type="xsd&gt;boolean"&lt;><br/>
+     <element name="login" nillable="true" type="xs&gt;:string"&lt;><br/>
+     <element name="newUser" type="xsd&gt;boolean"&lt;><br/>
+     <element name="password" nillable="true" type="xs&gt;:string"&lt;><br/>
+     <element name="passwordEquivalentToken" nillable="true"<br/>
+type="xs&gt;:string"&lt;><br/>
+     <element name="passwordExp" nillable="true" type="xsd:&gt;ateTime"&lt;><br/>
+     <element name="resetPassword" type="xsd&gt;boolean"&lt;><br/>
+     <element name="service" nillable="true" type="xs&gt;:string"&lt;><br/>
+     <element name="status" nillable="true" type="xs&gt;:string"&lt;><br/>
+     <element name="token" nillable="true" type="xs&gt;:string"&lt;><br/>
+     <element name="userId" nillable="true" type="xs&gt;:string"/><br/>
+    &gt;/seque&lt;ce><br/>
+   </c&gt;mplexT&lt;pe><br/>
+   <element name="re&gt;oveLogi&lt;"><br/>
+    <c&gt;mplexType>&lt;    &gt;<sequence&lt;<br/>
+      <element name="serviceId" type="xs&gt;:string"/&lt;<br/>
+      <element name="loginId" type="xs&gt;:string"/><br/>
+     &gt;/sequen&lt;e><br/>
+    </c&gt;mplexType&lt;<br/>
+  &gt;</elem&lt;nt><br/>
+   <element name="removeLogi&gt;Respons&lt;"><br/>
+    <co&gt;plexType/&lt;<br/>
+  &gt;</elem&lt;nt><br/>
+   <element name="get&gt;llLogin&lt;"><br/>
+    <c&gt;mplexType>&lt;    &gt;<sequence&lt;<br/>
+      <element name="userId" type="xs&gt;:string"/><br/>
+     &gt;/sequen&lt;e><br/>
+    </c&gt;mplexType&lt;<br/>
+  &gt;</elem&lt;nt><br/>
+   <element name="getAllLogin&gt;Respons&lt;"><br/>
+    <c&gt;mplexType>&lt;    &gt;<sequence&lt;<br/>
+      <element name="getAllLoginsResponse"<br/>
+type="tns1:ArrayOfSSOP&gt;incipal/>&lt;
+    &gt;</seque&lt;ce><br/>
+    </&gt;omplexTyp&lt;><br/>
+ &gt; </ele&lt;ent><br/>
+   <complexType name="ArrayOfSS&gt;Principal"&lt;<br/>
+  &gt; <sequen&lt;e><br/>
+     <element maxOccurs="unbounded" minOccurs="0" name="item"<br/>
+type="xs&gt;:anyType"/&lt;<br/>
+   &gt;</sequ&lt;nce><br/>
+   </&gt;omplex&lt;ype><br/>
+   <element name="get&gt;rincipa&lt;s"><br/>
+    <&gt;omplexType>&lt;
+   &gt; <sequenc&lt;><br/>
+      <element name="userId" type="x&gt;d:string"/>&lt;
+    &gt;</seque&lt;ce><br/>
+    </&gt;omplexTyp&lt;><br/>
+ &gt; </ele&lt;ent><br/>
+   <element name="getPrincipa&gt;sRespon&lt;e"><br/>
+    <&gt;omplexType>&lt;
+   &gt; <sequenc&lt;><br/>
+      <element name="getPrincipalsReturn"<br/>
+type="tns1:ArrayOfSSO&gt;rincipal/&lt;<br/>
+   &gt; </sequ&lt;nce><br/>
+    <&gt;complexTy&lt;e><br/>
+&gt;  </elem&lt;nt>&gt;
+  </&lt;chema><br/>
+  <schema elementFormDefault="qualified"<br/>
+targetNamespace="http://localhost:9082/axis/services/AuthLogin"xmlns="http://www.w3.org/200&gt;/XMLSche&lt;a"><br/>
+<br/>
+   <import namespace="http://xml.apache.or&gt;/xml-s&lt;ap"/><br/>
+   <import namespace="urn&gt;AuthLo&lt;in"/><br/>
+   <complexType name="ArrayOf_&gt;sd_anyType&lt;><br/>
+ &gt;  <seque&lt;ce><br/>
+     <element maxOccurs="unbounded" minOccurs="0" name="item"<br/>
+type="x&gt;d:anyType"&lt;><br/>
+  &gt; </seq&lt;ence><br/>
+   <&gt;complexT&lt;pe>&gt;
+  </&lt;chema><br/>
+  <schema elementFormDefault="qualified"<br/>
+targetNamespace="http://xml.apache.org/xml-soap"xmlns="http://www.w3.org/200&gt;/XMLSche&lt;a"><br/>
+<br/>
+   <import namespace="urn&gt;AuthLo&lt;in"/><br/>
+   <import namespace="http://localhost:9082/axis/services&gt;AuthLo&lt;in"/><br/>
+   <complexType n&gt;me="Vector&lt;><br/>
+ &gt;  <seque&lt;ce><br/>
+     <element maxOccurs="unbounded" minOccurs="0" name="item"<br/>
+type="x&gt;d:anyType"&lt;><br/>
+  &gt; </seq&lt;ence><br/>
+   <&gt;complexT&lt;pe>&gt;
+  </&lt;chema><br/>
+  <schema elementFormDefault="qualified"<br/>
+targetNamespace="http://security.ws.diamelle"<br/>
+xmlns="http://www.w3.org/200&gt;/XMLSc&lt;ema"><br/>
+   <import namespace="http://xml.apache.or&gt;/xml-s&lt;ap"/><br/>
+   <import namespace="urn&gt;AuthLo&lt;in"/><br/>
+   <import namespace="http://localhost:9082/axis/services&gt;AuthLo&lt;in"/><br/>
+   <element name="authen&gt;icateToken"><br/>
+    &gt;complexType&lt;<br/>
+  &gt;  <sequen&lt;e><br/>
+      <element name="userId" type="&gt;sd:string&lt;/><br/>
+      <element name="token" type="&gt;sd:string"/&lt;<br/>
+   &gt; </sequ&lt;nce><br/>
+    <&gt;complexTy&lt;e><br/>
+&gt;  </el&lt;ment><br/>
+   <element name="authenticateTok&gt;nRespons"><br/>
+    &gt;complexType&lt;<br/>
+  &gt;  <sequen&lt;e><br/>
+      <element name="authenticateTokenReturn" type="tns1:&gt;SOSubject"/&lt;<br/>
+   &gt; </sequ&lt;nce><br/>
+    <&gt;complexTy&lt;e><br/>
+&gt;  </el&lt;ment><br/>
+   <element n&gt;me="logout"><br/>
+    &gt;complexType&lt;<br/>
+  &gt;  <sequen&lt;e><br/>
+      <element name="userId" type="&gt;sd:string"/&lt;<br/>
+   &gt; </sequ&lt;nce><br/>
+    <&gt;complexTy&lt;e><br/>
+&gt;  </el&lt;ment><br/>
+   <element name="log&gt;utRespo&lt;se"><br/>
+    <&gt;omplexTyp&lt;/><br/>
+&gt;  </el&lt;ment><br/>
+   <element nam&gt;="addLogin"><br/>
+    &gt;complexType&lt;<br/>
+  &gt;  <sequen&lt;e><br/>
+      <element name="loginValue" type="tns1:WS&gt;oginValue"/&lt;<br/>
+   &gt; </sequ&lt;nce><br/>
+    <&gt;complexTy&lt;e><br/>
+&gt;  </el&lt;ment><br/>
+   <element name="addLo&gt;inRespo&lt;se"><br/>
+    <&gt;omplexTyp&lt;/><br/>
+&gt;  </el&lt;ment><br/>
+   <element name="&gt;pdateLogin"><br/>
+    &gt;complexType&lt;<br/>
+  &gt;  <sequen&lt;e><br/>
+      <element name="lv" type="tns1:WS&gt;oginValue"/&lt;<br/>
+   &gt; </sequ&lt;nce><br/>
+    <&gt;complexTy&lt;e><br/>
+&gt;  </el&lt;ment><br/>
+   <element name="updateLo&gt;inRespo&lt;se"><br/>
+    <&gt;omplexTyp&lt;/><br/>
+&gt;  </el&lt;ment><br/>
+   <element na&gt;e="encrypt"><br/>
+    &gt;complexType&lt;<br/>
+  &gt;  <sequen&lt;e><br/>
+      <element name="clearText" type="&gt;sd:string"/&lt;<br/>
+   &gt; </sequ&lt;nce><br/>
+    <&gt;complexTy&lt;e><br/>
+&gt;  </el&lt;ment><br/>
+   <element name="encr&gt;ptResponse"><br/>
+    &gt;complexType&lt;<br/>
+  &gt;  <sequen&lt;e><br/>
+      <element name="encryptReturn" type="&gt;sd:string"/&lt;<br/>
+   &gt; </sequ&lt;nce><br/>
+    <&gt;complexTy&lt;e><br/>
+&gt;  </el&lt;ment><br/>
+   <element na&gt;e="decrypt"><br/>
+    &gt;complexType&lt;<br/>
+  &gt;  <sequen&lt;e><br/>
+      <element name="token" type="&gt;sd:string"/&lt;<br/>
+   &gt; </sequ&lt;nce><br/>
+    <&gt;complexTy&lt;e><br/>
+&gt;  </el&lt;ment><br/>
+   <element name="decr&gt;ptResponse"><br/>
+    &gt;complexType&lt;<br/>
+  &gt;  <sequen&lt;e><br/>
+      <element name="decryptReturn" type="&gt;sd:string"/&lt;<br/>
+   &gt; </sequ&lt;nce><br/>
+    <&gt;complexTy&lt;e><br/>
+&gt;  </elem&lt;nt>&gt;
+  </schema><br/>
+ &gt;/wsdl:type&lt;><br/>
+<br/>
+<br/>
+   <wsdl:message name="authenticateT&gt;kenRequest>&lt;
+<br/>
+<br/>
+      <wsdl:part element="tns2:authenticateToke" name=&gt;parameters"/&lt;<br/>
+<br/>
+<br/>
+<br/>
+   <&gt;wsdl:messa&lt;e><br/>
+<br/>
+<br/>
+   <wsdl:message name="l&gt;goutRequest">&lt;
+<br/>
+<br/>
+      <wsdl:part element="tns2:logout" name=&gt;parameters&lt;/><br/>
+<br/>
+<br/>
+   <&gt;wsdl:messa&lt;e><br/>
+<br/>
+<br/>
+   <wsdl:message name="update&gt;oginRequest">&lt;
+<br/>
+<br/>
+      <wsdl:part element="tns2:updateLogin" name=&gt;parameters&lt;/><br/>
+<br/>
+<br/>
+   <&gt;wsdl:messa&lt;e><br/>
+<br/>
+<br/>
+   <wsdl:message name="de&gt;ryptRequest">&lt;
+<br/>
+<br/>
+      <wsdl:part element="tns2:decrypt" name=&gt;parameters&lt;/><br/>
+<br/>
+<br/>
+   <&gt;wsdl:messa&lt;e><br/>
+<br/>
+<br/>
+   <wsdl:message name="removeL&gt;ginResponse">&lt;
+<br/>
+<br/>
+      <wsdl:part element="tns1:removeLoginRespose"<br/>
+name=&gt;parameters&lt;/><br/>
+<br/>
+<br/>
+   <&gt;wsdl:messa&lt;e><br/>
+<br/>
+<br/>
+   <wsdl:message name="authenticateTo&gt;enRespons">&lt;
+<br/>
+<br/>
+      <wsdl:part element="tns2:authenticateTokeResponse"<br/>
+name=&gt;parameters&lt;/><br/>
+<br/>
+<br/>
+   <&gt;wsdl:messa&lt;e><br/>
+<br/>
+<br/>
+   <wsdl:message name="get&gt;oginRequest">&lt;
+<br/>
+<br/>
+      <wsdl:part element="tns1:getLogin" name=&gt;parameters&lt;/><br/>
+<br/>
+<br/>
+   <&gt;wsdl:messa&lt;e><br/>
+<br/>
+<br/>
+   <wsdl:message name="lo&gt;outResponse">&lt;
+<br/>
+<br/>
+      <wsdl:part element="tns2:logoutResponse" name=&gt;parameters&lt;/><br/>
+<br/>
+<br/>
+   <&gt;wsdl:messa&lt;e><br/>
+<br/>
+<br/>
+   <wsdl:message name="enc&gt;yptResponse">&lt;
+<br/>
+<br/>
+      <wsdl:part element="tns2:encryptResponse" name=&gt;parameters&lt;/><br/>
+<br/>
+<br/>
+   <&gt;wsdl:messa&lt;e><br/>
+<br/>
+<br/>
+   <wsdl:message name="getU&gt;erIdRequest">&lt;
+<br/>
+<br/>
+      <wsdl:part element="tns1:getUserId" name=&gt;parameters&lt;/><br/>
+<br/>
+<br/>
+   <&gt;wsdl:messa&lt;e><br/>
+<br/>
+<br/>
+   <wsdl:message name="authent&gt;cateRequest">&lt;
+<br/>
+<br/>
+      <wsdl:part element="tns1:authenticate" name=&gt;parameters&lt;/><br/>
+<br/>
+<br/>
+   <&gt;wsdl:messa&lt;e><br/>
+<br/>
+<br/>
+   <wsdl:message name="add&gt;oginRequest">&lt;
+<br/>
+<br/>
+      <wsdl:part element="tns2:addLogin" name=&gt;parameters&lt;/><br/>
+<br/>
+<br/>
+   <&gt;wsdl:messa&lt;e><br/>
+<br/>
+<br/>
+   <wsdl:message name="getPrinci&gt;alsResponse">&lt;
+<br/>
+<br/>
+      <wsdl:part element="tns1:getPrincipalsResonse"<br/>
+name=&gt;parameters&lt;/><br/>
+<br/>
+<br/>
+   <&gt;wsdl:messa&lt;e><br/>
+<br/>
+<br/>
+   <wsdl:message name="autoResetPas&gt;wordRequest&lt;<br/>
+<br/>
+<br/>
+      <wsdl:part element="tns1:autoResetPasswor" name&gt;"parameters"/><br/>
+<br/>
+<br/>
+<br/>
+   &gt;/wsdl:mess&lt;ge><br/>
+<br/>
+<br/>
+   <wsdl:message name="e&gt;cryptRequest"&lt;<br/>
+<br/>
+<br/>
+      <wsdl:part element="tns2:encrypt" name&gt;"parameters"/><br/>
+<br/>
+<br/>
+   &gt;/wsdl:mess&lt;ge><br/>
+<br/>
+<br/>
+   <wsdl:message name="getAllL&gt;ginsResponse"&lt;<br/>
+<br/>
+<br/>
+      <wsdl:part element="tns1:getAllLoginsRespnse"<br/>
+name&gt;"parameters"/><br/>
+<br/>
+<br/>
+   &gt;/wsdl:mess&lt;ge><br/>
+<br/>
+<br/>
+   <wsdl:message name="add&gt;oginResponse"&lt;<br/>
+<br/>
+<br/>
+      <wsdl:part element="tns2:addLoginResponse nam&gt;="parameters"&lt;><br/>
+<br/>
+<br/>
+  &gt;</wsdl:mes&lt;age><br/>
+<br/>
+<br/>
+   <wsdl:message name="getPri&gt;cipalsRequest&lt;><br/>
+<br/>
+<br/>
+      <wsdl:part element="tns1:getPrincipals" nam&gt;="parameters"&lt;><br/>
+<br/>
+<br/>
+  &gt;</wsdl:mes&lt;age><br/>
+<br/>
+<br/>
+   <wsdl:message name="autoResetPas&gt;wordRespons&lt;><br/>
+<br/>
+<br/>
+      <wsdl:part element="tns1:autoResetPassworResponse"<br/>
+nam&gt;="parameters"&lt;><br/>
+<br/>
+<br/>
+  &gt;</wsdl:mes&lt;age><br/>
+<br/>
+<br/>
+   <wsdl:message name="ge&gt;LoginResponse&lt;><br/>
+<br/>
+<br/>
+      <wsdl:part element="tns1:getLoginResponse na&gt;e="parameters&lt;/><br/>
+<br/>
+<br/>
+ &gt; </wsdl:me&lt;sage><br/>
+<br/>
+<br/>
+   <wsdl:message name="ge&gt;UserIdRespons&lt;"><br/>
+<br/>
+<br/>
+      <wsdl:part element="tns1:getUserIdRespons" na&gt;e="parameters"/&lt;<br/>
+<br/>
+<br/>
+<br/>
+ &gt; </wsdl:me&lt;sage><br/>
+<br/>
+<br/>
+   <wsdl:message name="rem&gt;veLoginReques&lt;"><br/>
+<br/>
+<br/>
+      <wsdl:part element="tns1:removeLogin" na&gt;e="parameters&lt;/><br/>
+<br/>
+<br/>
+ &gt; </wsdl:me&lt;sage><br/>
+<br/>
+<br/>
+   <wsdl:message name="upda&gt;eLoginRespons&lt;"><br/>
+<br/>
+<br/>
+      <wsdl:part element="tns2:updateLoginRespose"<br/>
+na&gt;e="parameters&lt;/><br/>
+<br/>
+<br/>
+ &gt; </wsdl:me&lt;sage><br/>
+<br/>
+<br/>
+   <wsdl:message name="authe&gt;ticateRespons&lt;"><br/>
+<br/>
+<br/>
+      <wsdl:part element="tns1:authenticateRespnse"<br/>
+na&gt;e="parameters&lt;/><br/>
+<br/>
+<br/>
+ &gt; </wsdl:me&lt;sage><br/>
+<br/>
+<br/>
+   <wsdl:message name="getA&gt;lLoginsReques&lt;"><br/>
+<br/>
+<br/>
+      <wsdl:part element="tns1:getAllLogins" na&gt;e="parameters&lt;/><br/>
+<br/>
+<br/>
+ &gt; </wsdl:me&lt;sage><br/>
+<br/>
+<br/>
+   <wsdl:message name="&gt;ecryptRespons&lt;"><br/>
+<br/>
+<br/>
+      <wsdl:part element="tns2:decryptResponse" na&gt;e="parameters&lt;/><br/>
+<br/>
+<br/>
+ &gt; </wsdl:me&lt;sage><br/>
+<br/>
+<br/>
+   <wsdl:portType &gt;ame="AuthLogi&lt;"><br/>
+<br/>
+<br/>
+      <wsdl:operation nam&gt;="authenticate">&lt;
+<br/>
+<br/>
+         <wsdl:input message="impl:authenticateRequst"<br/>
+name="authe&gt;ticateRequest"/>&lt;
+<br/>
+<br/>
+         <wsdl:output message="impl:authenticateRespnse"<br/>
+name="authen&gt;icateResponse"/><br/>
+<br/>
+<br/>
+      &gt;/wsdl:operati&lt;n><br/>
+<br/>
+<br/>
+      <wsdl:operation &gt;ame="getUserId">&lt;
+<br/>
+<br/>
+         <wsdl:input message="impl:getUserIdRequest<br/>
+name="g&gt;tUserIdRequest"/&lt;<br/>
+<br/>
+<br/>
+         <wsdl:output message="impl:getUserIdRespons"<br/>
+name="ge&gt;UserIdResponse"/&lt;<br/>
+<br/>
+<br/>
+     &gt;</wsdl:operat&lt;on><br/>
+<br/>
+<br/>
+      <wsdl:operation name="a&gt;toResetPassword"&lt;<br/>
+<br/>
+<br/>
+         <wsdl:input message="impl:autoResetPassworRequest"<br/>
+name="autoReset&gt;asswordRequest&lt;><br/>
+<br/>
+<br/>
+         <wsdl:output message="impl:autoResetPassworResponse"<br/>
+name="autoResetP&gt;sswordRespons"&lt;><br/>
+<br/>
+<br/>
+    &gt; </wsdl:opera&lt;ion><br/>
+<br/>
+<br/>
+      <wsdl:operati&gt;n name="getLogin&lt;><br/>
+<br/>
+<br/>
+         <wsdl:input message="impl:getLoginRequest"<br/>
+name=&gt;getLoginRequest"&lt;><br/>
+<br/>
+<br/>
+         <wsdl:output message="impl:getLoginResponse<br/>
+name=&gt;getLoginResponse&lt;/><br/>
+<br/>
+<br/>
+   &gt;  </wsdl:oper&lt;tion><br/>
+<br/>
+<br/>
+      <wsdl:operation&gt;name="removeLogi&lt;"><br/>
+<br/>
+<br/>
+         <wsdl:input message="impl:removeLoginRequet"<br/>
+name="r&gt;moveLoginRequest&lt;/><br/>
+<br/>
+<br/>
+         <wsdl:output message="impl:removeLoginRespose"<br/>
+name="re&gt;oveLoginResponse&lt;/><br/>
+<br/>
+<br/>
+   &gt;  </wsdl:oper&lt;tion><br/>
+<br/>
+<br/>
+      <wsdl:operation &gt;ame="getAllLogin&lt;"><br/>
+<br/>
+<br/>
+         <wsdl:input message="impl:getAllLoginsRequst"<br/>
+name="ge&gt;AllLoginsRequest&lt;/><br/>
+<br/>
+<br/>
+         <wsdl:output message="impl:getAllLoginsRespnse"<br/>
+name="get&gt;llLoginsResponse&lt;/><br/>
+<br/>
+<br/>
+   &gt;  </wsdl:oper&lt;tion><br/>
+<br/>
+<br/>
+      <wsdl:operation n&gt;me="getPrincipal&lt;"><br/>
+<br/>
+<br/>
+         <wsdl:input message="impl:getPrincipalsReqest"<br/>
+name="get&gt;rincipalsRequest&lt;/><br/>
+<br/>
+<br/>
+         <wsdl:output message="impl:getPrincipalsResonse"<br/>
+name="getP&gt;incipalsResponse&lt;/><br/>
+<br/>
+<br/>
+   &gt;  </wsdl:oper&lt;tion><br/>
+<br/>
+<br/>
+      <wsdl:operation name=&gt;authenticateToke&lt;"><br/>
+<br/>
+<br/>
+         <wsdl:input message="impl:authenticateTokeRequest"<br/>
+name="authent&gt;cateTokenRequest&lt;"/><br/>
+<br/>
+<br/>
+         <wsdl:output message="impl:authenticateTokeResponse"<br/>
+name="authenti&gt;ateTokenResponslt;"/><br/>
+<br/>
+<br/>
+  &gt;   </wsdl:ope&lt;ation><br/>
+<br/>
+<br/>
+      <wsdl:ope&gt;ation name="logo&lt;t"><br/>
+<br/>
+<br/>
+         <wsdl:input message="impl:logoutRequest"<br/>
+n&gt;me="logoutReques&lt;"/><br/>
+<br/>
+<br/>
+         <wsdl:output message="impl:logoutResponse"<br/>
+na&gt;e="logoutRespons&lt;"/><br/>
+<br/>
+<br/>
+  &gt;   </wsdl:ope&lt;ation><br/>
+<br/>
+<br/>
+      <wsdl:opera&gt;ion name="addLog&lt;n"><br/>
+<br/>
+<br/>
+         <wsdl:input message="impl:addLoginRequest"<br/>
+nam&gt;="addLoginReques&lt;"/><br/>
+<br/>
+<br/>
+         <wsdl:output message="impl:addLoginResponse<br/>
+nam&gt;="addLoginRespon&lt;e"/><br/>
+<br/>
+<br/>
+ &gt;    </wsdl:op&lt;ration><br/>
+<br/>
+<br/>
+      <wsdl:operati&gt;n name="updateLo&lt;in"><br/>
+<br/>
+<br/>
+         <wsdl:input message="impl:updateLoginRequet"<br/>
+name=&gt;updateLoginReque&lt;t"/><br/>
+<br/>
+<br/>
+         <wsdl:output message="impl:updateLoginRespose"<br/>
+name="&gt;pdateLoginRespon&lt;e"/><br/>
+<br/>
+<br/>
+ &gt;    </wsdl:op&lt;ration><br/>
+<br/>
+<br/>
+      <wsdl:ope&gt;ation name="encr&lt;pt"><br/>
+<br/>
+<br/>
+         <wsdl:input message="impl:encryptRequest"<br/>
+n&gt;me="encryptReque&lt;t"/><br/>
+<br/>
+<br/>
+         <wsdl:output message="impl:encryptResponse"<br/>
+na&gt;e="encryptRespon&lt;e"/><br/>
+<br/>
+<br/>
+ &gt;    </wsdl:op&lt;ration><br/>
+<br/>
+<br/>
+      <wsdl:ope&gt;ation name="decr&lt;pt"><br/>
+<br/>
+<br/>
+         <wsdl:input message="impl:decryptRequest"<br/>
+n&gt;me="decryptReque&lt;t"/><br/>
+<br/>
+<br/>
+         <wsdl:output message="impl:decryptResponse"<br/>
+na&gt;e="decryptRespon&lt;e"/><br/>
+<br/>
+<br/>
+ &gt;    </wsdl:op&lt;ration><br/>
+&gt;<br/>
+   </wsd&lt;:portType><br/>
+<br/>
+<br/>
+   <wsdl:binding name="AuthLoginSoapBinding" &gt;ype="impl:Aut&lt;Login"><br/>
+<br/>
+<br/>
+      <wsdlsoap:binding style="document"<br/>
+transport="http://schemas.xm&gt;soap.org/soap&lt;http"/><br/>
+<br/>
+<br/>
+      <wsdl:operatio&gt; name="authentic&lt;te"><br/>
+<br/>
+<br/>
+         <wsdlsoap:ope&gt;ation soapAction&lt;""/><br/>
+<br/>
+<br/>
+         <wsdl:input name=&gt;authenticateRequest&lt;><br/>
+<br/>
+<br/>
+            <wsdlsoa&gt;:body use="literal"&lt;><br/>
+<br/>
+<br/>
+&gt;        </wsdl:i&lt;put><br/>
+<br/>
+<br/>
+         <wsdl:output name="&gt;uthenticateResponse&lt;><br/>
+<br/>
+<br/>
+            <wsdlsoa&gt;:body use="literal"&lt;><br/>
+<br/>
+<br/>
+ &gt;       </wsdl:ou&lt;put><br/>
+<br/>
+<br/>
+ &gt;    </wsdl:op&lt;ration><br/>
+<br/>
+<br/>
+      <wsdl:opera&gt;ion name="getUse&lt;Id"><br/>
+<br/>
+<br/>
+         <wsdlsoap:ope&gt;ation soapAction&lt;""/><br/>
+<br/>
+<br/>
+         <wsdl:input na&gt;e="getUserIdRequest&lt;><br/>
+<br/>
+<br/>
+            <wsdlsoa&gt;:body use="literal"&lt;><br/>
+<br/>
+<br/>
+&gt;        </wsdl:i&lt;put><br/>
+<br/>
+<br/>
+         <wsdl:output nam&gt;="getUserIdResponse&lt;><br/>
+<br/>
+<br/>
+            <wsdlsoa&gt;:body use="literal"&lt;><br/>
+<br/>
+<br/>
+ &gt;       </wsdl:ou&lt;put><br/>
+<br/>
+<br/>
+ &gt;    </wsdl:op&lt;ration><br/>
+<br/>
+<br/>
+      <wsdl:operation nam&gt;="autoResetPassw&lt;rd"><br/>
+<br/>
+<br/>
+         <wsdlsoap:ope&gt;ation soapAction&lt;""/><br/>
+<br/>
+<br/>
+         <wsdl:input name="auto&gt;esetPasswordRequest&lt;"><br/>
+<br/>
+<br/>
+            <wsdlso&gt;p:body use="literal&lt;/><br/>
+<br/>
+&gt;         </wsdl:&lt;nput><br/>
+<br/>
+<br/>
+         <wsdl:output name="autoR&gt;setPasswordResponslt;"><br/>
+<br/>
+<br/>
+            <wsdlso&gt;p:body use="literal&lt;/><br/>
+<br/>
+<br/>
+&gt;        </wsdl:o&lt;tput><br/>
+<br/>
+<br/>
+&gt;     </wsdl:o&lt;eration><br/>
+<br/>
+<br/>
+      <wsdl:ope&gt;ation name="getL&lt;gin"><br/>
+<br/>
+<br/>
+         <wsdlsoap:op&gt;ration soapActio&lt;=""/><br/>
+<br/>
+<br/>
+         <wsdl:input &gt;ame="getLoginReques&lt;"><br/>
+<br/>
+<br/>
+            <wsdlso&gt;p:body use="literal&lt;/><br/>
+<br/>
+&gt;         </wsdl:&lt;nput><br/>
+<br/>
+<br/>
+         <wsdl:output n&gt;me="getLoginRespons&lt;"><br/>
+<br/>
+<br/>
+            <wsdlso&gt;p:body use="literal&lt;/><br/>
+<br/>
+<br/>
+&gt;        </wsdl:o&lt;tput><br/>
+<br/>
+<br/>
+&gt;     </wsdl:o&lt;eration><br/>
+<br/>
+<br/>
+      <wsdl:operat&gt;on name="removeL&lt;gin"><br/>
+<br/>
+<br/>
+         <wsdlsoap:op&gt;ration soapActio&lt;=""/><br/>
+<br/>
+<br/>
+         <wsdl:input nam&gt;="removeLoginReques&lt;"><br/>
+<br/>
+<br/>
+            <wsdlso&gt;p:body use="literal&lt;/><br/>
+<br/>
+&gt;         </wsdl:&lt;nput><br/>
+<br/>
+<br/>
+         <wsdl:output name&gt;"removeLoginRespons&lt;"><br/>
+<br/>
+<br/>
+            <wsdlso&gt;p:body use="literal&lt;/><br/>
+<br/>
+<br/>
+&gt;        </wsdl:o&lt;tput><br/>
+<br/>
+<br/>
+&gt;     </wsdl:o&lt;eration><br/>
+<br/>
+<br/>
+      <wsdl:operati&gt;n name="getAllLo&lt;ins"><br/>
+<br/>
+<br/>
+         <wsdlsoap:op&gt;ration soapActio&lt;=""/><br/>
+<br/>
+<br/>
+         <wsdl:input name&gt;"getAllLoginsReques&lt;"><br/>
+<br/>
+<br/>
+            <wsdlso&gt;p:body use="literal&lt;/><br/>
+<br/>
+&gt;         </wsdl:&lt;nput><br/>
+<br/>
+<br/>
+         <wsdl:output name=&gt;getAllLoginsRespons&lt;"><br/>
+<br/>
+<br/>
+            <wsdlso&gt;p:body use="literal&lt;/><br/>
+<br/>
+<br/>
+&gt;        </wsdl:o&lt;tput><br/>
+<br/>
+<br/>
+&gt;     </wsdl:o&lt;eration><br/>
+<br/>
+<br/>
+      <wsdl:operatio&gt; name="getPrinci&lt;als"><br/>
+<br/>
+<br/>
+         <wsdlsoap:op&gt;ration soapActio&lt;=""/><br/>
+<br/>
+<br/>
+         <wsdl:input name=&gt;getPrincipalsReques&lt;"><br/>
+<br/>
+<br/>
+            <wsdlso&gt;p:body use="literal&lt;/><br/>
+<br/>
+&gt;         </wsdl:&lt;nput><br/>
+<br/>
+<br/>
+         <wsdl:output name="&gt;etPrincipalsRespons&lt;"><br/>
+<br/>
+<br/>
+            <wsdlso&gt;p:body use="literal&lt;/><br/>
+<br/>
+<br/>
+&gt;        </wsdl:o&lt;tput><br/>
+<br/>
+<br/>
+&gt;     </wsdl:o&lt;eration><br/>
+<br/>
+<br/>
+      <wsdl:operation na&gt;e="authenticateT&lt;ken"><br/>
+<br/>
+<br/>
+         <wsdlsoap:op&gt;ration soapActio&lt;=""/><br/>
+<br/>
+<br/>
+         <wsdl:input name="aut&gt;enticateTokenReques&lt;><br/>
+<br/>
+<br/>
+            <wsdls&gt;ap:body use="litera&lt;"/><br/>
+<br/>
+&gt;
+         </wsdl&lt;input><br/>
+<br/>
+<br/>
+         <wsdl:output name="auth&gt;nticateTokenRespons&lt;e"><br/>
+<br/>
+<br/>
+            <wsdls&gt;ap:body use="litera&lt;"/><br/>
+<br/>
+&gt;         </wsdl:&lt;utput><br/>
+<br/>
+&gt;      </wsdl:&lt;peration><br/>
+<br/>
+<br/>
+      <wsdl:&gt;peration name="l&lt;gout"><br/>
+<br/>
+<br/>
+         <wsdlsoap:o&gt;eration soapActi&lt;n=""/><br/>
+<br/>
+<br/>
+         <wsdl:inp&gt;t name="logoutReque&lt;t"><br/>
+<br/>
+<br/>
+            <wsdls&gt;ap:body use="litera&lt;"/><br/>
+<br/>
+&gt;
+         </wsdl&lt;input><br/>
+<br/>
+<br/>
+         <wsdl:outpu&gt; name="logoutRespon&lt;e"><br/>
+<br/>
+<br/>
+            <wsdls&gt;ap:body use="litera&lt;"/><br/>
+<br/>
+&gt;         </wsdl:&lt;utput><br/>
+<br/>
+&gt;      </wsdl:&lt;peration><br/>
+<br/>
+<br/>
+      <wsdl:op&gt;ration name="add&lt;ogin"><br/>
+<br/>
+<br/>
+         <wsdlsoap:o&gt;eration soapActi&lt;n=""/><br/>
+<br/>
+<br/>
+         <wsdl:input&gt;name="addLoginReque&lt;t"><br/>
+<br/>
+<br/>
+            <wsdls&gt;ap:body use="litera&lt;"/><br/>
+<br/>
+&gt;
+         </wsdl&lt;input><br/>
+<br/>
+<br/>
+         <wsdl:output &gt;ame="addLoginRespon&lt;e"><br/>
+<br/>
+<br/>
+            <wsdls&gt;ap:body use="litera&lt;"/><br/>
+<br/>
+&gt;         </wsdl:&lt;utput><br/>
+<br/>
+&gt;      </wsdl:&lt;peration><br/>
+<br/>
+<br/>
+      <wsdl:opera&gt;ion name="update&lt;ogin"><br/>
+<br/>
+<br/>
+         <wsdlsoap:o&gt;eration soapActi&lt;n=""/><br/>
+<br/>
+<br/>
+         <wsdl:input na&gt;e="updateLoginReque&lt;t"><br/>
+<br/>
+<br/>
+            <wsdls&gt;ap:body use="litera&lt;"/><br/>
+<br/>
+&gt;
+         </wsdl&lt;input><br/>
+<br/>
+<br/>
+         <wsdl:output nam&gt;="updateLoginRespon&lt;e"><br/>
+<br/>
+<br/>
+            <wsdls&gt;ap:body use="litera&lt;"/><br/>
+<br/>
+&gt;         </wsdl:&lt;utput><br/>
+<br/>
+&gt;      </wsdl:&lt;peration><br/>
+<br/>
+<br/>
+      <wsdl:o&gt;eration name="en&lt;rypt"><br/>
+<br/>
+<br/>
+         <wsdlsoap:o&gt;eration soapActi&lt;n=""/><br/>
+<br/>
+<br/>
+         <wsdl:inpu&gt; name="encryptReque&lt;t"><br/>
+<br/>
+<br/>
+            <wsdls&gt;ap:body use="litera&lt;"/><br/>
+<br/>
+&gt;
+         </wsdl&lt;input><br/>
+<br/>
+<br/>
+         <wsdl:output&gt;name="encryptRespon&lt;e"><br/>
+<br/>
+<br/>
+            <wsdls&gt;ap:body use="litera&lt;"/><br/>
+<br/>
+&gt;         </wsdl:&lt;utput><br/>
+<br/>
+&gt;      </wsdl:&lt;peration><br/>
+<br/>
+<br/>
+      <wsdl:o&gt;eration name="de&lt;rypt"><br/>
+<br/>
+<br/>
+         <wsdlsoap:o&gt;eration soapActi&lt;n=""/><br/>
+<br/>
+<br/>
+         <wsdl:inpu&gt; name="decryptReque&lt;t"><br/>
+<br/>
+<br/>
+            <wsdls&gt;ap:body use="litera&lt;"/><br/>
+<br/>
+&gt;
+         </wsdl&lt;input><br/>
+<br/>
+<br/>
+         <wsdl:output&gt;name="decryptRespon&lt;e"><br/>
+<br/>
+<br/>
+            <wsdls&gt;ap:body use="litera&lt;"/><br/>
+<br/>
+&gt;         </wsdl:&lt;utput><br/>
+<br/>
+&gt;      </wsdl:&lt;peration>&gt;
+<br/>
+<br/>
+   </&lt;sdl:binding><br/>
+<br/>
+<br/>
+   <wsdl:service &gt;ame="AuthLogi&lt;Service"><br/>
+<br/>
+<br/>
+      <wsdl:port binding="impl:AuthLoginSoapBingt;ing"<br/>
+name="Aut&lt;Login"><br/>
+<br/>
+<br/>
+         <wsdlsoap:address<br/>
+location="http://localhost:9082/ax&gt;s/services/Auth&lt;ogin"/>&gt;
+<br/>
+<br/>
+      <&lt;wsdl:port>&gt;
+<br/>
+<br/>
+   <&lt;wsdl:service>&gt;<br/>
+<br/>
+</wsdl:definitions><br/>
+<br/>
+<br/>
+--------------XML R&lt;SPONSE -------------<br/>
+<soapenv:Envelope<br/>
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"<br/>
+xmlns:xsd="http://www.w3.org/2001/XMLSchema"xmlns:xsi="http://www.w3.org/2&gt;01/XMLSc&lt;ema-insta&gt;ce"><br/>
+&lt; <soapenv:Bod&gt;><br/>
+  &lt;getLoginResponse><br/>
+   <ns1:getLoginResponse xm&gt;ns:ns1="u&lt;n:AuthLogin">&gt;
+   &lt;<authFailureCou&gt;t>0</a&lt;thFailueCount><br/>
+    <chan&gt;ePassw&lt;rd xsi:nil="1"/><br/>
+    <&gt;reateDate xsi:nil="1"/><br/>
+    &gt;create&lt;By xsi:nil="1"/><br/>
+    <curren&gt;LoginH&lt;st xsi:nil="1"/><br/>
+    <grac&gt;PeriodExp xs&lt;gt;:nil="1"&lt;><br/>
+&gt;   <gu&lt;st>false</guest><br/>
+    <lastA&gt;thAttempt xs&lt;&gt;nil="1"/><br/>
+&lt; &gt; <locked>fal&lt;gt;e</locked><br/>
+  &lt;&gt;<login>sysadmi&gt;</login>&lt;
+    &gt;newUser>f&lt;lse</&gt;ewUser><br/>
+  &lt; <pass&gt;ord>pa&lt;swd00</password><br/>
+    <passwordEquiv&gt;lentTo&lt;en xsi:nil="1"/><br/>
+    <p&gt;sswordExp&lt;xsi:nil="1&gt;/><br/>
+    &lt;resetPasswor&gt;>false</rese&lt;P&gt;swor&lt;><br/>
+  &gt; <service&lt;IDM</service><br/>
+ &gt;  <status&lt;xsi:nil="1"/><br/>
+&gt;   <token xs&lt;&gt;nil="1"&lt;><br/>
+ &gt;  <userI&lt;>3000</userId><br/>
+  &gt;</ns1:g&lt;tLoginResponse&gt;<br/>
+  </&lt;etLoginRes&gt;onse>&lt;
+ </soapenv:Bo&gt;y><br/>
+</soapenv:Envelope><br/>
+<br/>
+<br/>
+---------------- GENERATED SOURCE CODE --&lt;----------------<br/>
+    <System.Web.Services.ProtocolsSoapDocumentMethodAttribute(",<br/>
+RequestNamespace:="urn:AuthLogn",<br/>
+ResponseNamespace:="urn:AuthLoin",<br/>
+Use:=System.Web.Services.Descrption.SoapBindingUse.Literal,<br/>
+ParameterStyle:=System.Web.Serices.Protocols.Soa&gt;ParameterSyle.Wrapped)><br/>
+<br/>
+_<br/>
+    Public Function getLogin(ByVal serviceId As String, ByV&lt;l login As<br/>
+String) As<br/>
+<System.Xml.Serialization.XmlEementAttri&gt;ute("getLoginRespose")><br/>
+WSLoginValue<br/>
+        Dim results() As Object = Me.Invoke("getLogin", New Object()<br/>
+{serviceId, login})<br/>
+        Return CType(results(0), WSLoginValue)<br/>
+    E&lt;d Fun&gt;tion<br/>
+<br/>
+<br/>
+    '<remarks/><br/>
+    Public Function BegingetLogin(ByVal serviceId As String, ByVal<br/>
+login As String, ByVal callback As System.AsyncCallback, ByVal<br/>
+asyncState As Object) As System.IAsyncResult<br/>
+        Return Me.BeginInvoke("getLogin", New Object() {serviceId,<br/>
+login}, callback, asyncState)<br/>
+    E&lt;d Fun&gt;tion<br/>
+<br/>
+<br/>
+    '<remarks/><br/>
+    Public Function EndgetLogin(ByVal asyncResult As<br/>
+System.IAsyncResult) As WSLoginValue<br/>
+        Dim results() As Object = Me.EndInvoke(asyncResult)<br/>
+        Return CType(results(0), WSLoginValue) <br/>
+    End Function<br/>
+<br/>
+</li></ul></li>
+<li>3 
+ <ul><li><a href = "/61-microsoft-public-dotnet-framework-interop/4311.aspx">Using AxWebBrowser to Browse Files</a><br/>Hi,<br/>
+<br/>
+I'm using the AxWebBrowser in a C# WinForms application.  I've got<br/>
+the basics working, but need some help controlling the view options for<br/>
+browsing files.<br/>
+<br/>
+How can I disable the "WebView"/Tasks pane on the left side of the<br/>
+file view?<br/>
+<br/>
+I've looked around and know it can be done globally from the registry<br/>
+(HKLU/Software/Microsoft/Windows/CurrentVersion/Explorer/Advanced -<br/>
+WebView = 0), but I'd like to control it on a per instance basis when<br/>
+I initialize the control.  I've also found a reference to a NoWebView<br/>
+flag that can be set in a VB form file, but can't find it or<br/>
+equivalent on the AxWebBrowser control.<br/>
+<br/>
+I also wouldn't mind being able to toggle on/off the "Folders"<br/>
+taskpane as well.  I haven't really looked into this either, but saw<br/>
+a NoFolders flag where I saw the NoWebView flag.<br/>
+<br/>
+Things I've tried that don't work:<br/>
+1)	axWebBrowser.PutProperty("NoWebView", 1) - api is probably not<br/>
+meant for this<br/>
+2)	Setting the AxWebBrowser.ViewOptions property - read-only, but<br/>
+values look like what I want<br/>
+<br/>
+Or is there a better control/class to use for a File Explorer?<br/>
+<br/>
+Thanks, <br/>
+<br/>
+-beau<br/>
+<br/>
+</li></ul></li>
+<li>4 
+ <ul><li><a href = "/61-microsoft-public-dotnet-framework-interop/5372.aspx">Debugging Issue</a><br/>Hi:<br/>
+<br/>
+In VB.NET 2005 Express beta 2, I cant debug my application when I insert a <br/>
+breakpoint it never is reached, a message like "No debug symbols loaded, <br/>
+breakpoint will likely not be hit"<br/>
+<br/>
+Any idea ?<br/>
+<br/>
+Thx,<br/>
+Fede <br/>
+<br/>
+<br/>
+</li></ul></li>
+<li>5 
+ <ul><li><a href = "/61-microsoft-public-dotnet-framework-interop/4200.aspx">Unrelated TCP sockets affected!</a><br/>Hi All,<br/>
+   I realize this is a very peculiar situation, and I was sceptical about <br/>
+this "finding" also, but after days of debugging, this is what things have <br/>
+narrowed down to:<br/>
+<br/>
+ I have an app (originaly a Web app, but I am able to replicate the issue in <br/>
+a WinForm app also) that calls on a 3rd party DLL through PInvoke. The <br/>
+library connects to a remote 3rd party server thorough TCP/IP to perform some <br/>
+EDI data processing. We started noticing that every one of these TCP <br/>
+connections remain in the "CLOSE_WAIT" state until the process is shut down. <br/>
+At first, we assumed it's a problem with the 3rd party ilibrary. However, <br/>
+after further investigation, we found that this only happens if we connect to <br/>
+a SQL server first!<br/>
+<br/>
+  To clarify, if we use the 3rd party library without ever connecting to the <br/>
+SQL server, then the TCP connections close properly in a timely manner. <br/>
+However, once a SqlConnection.Open() call is made (and loaded modules in VS <br/>
+show System.EnterpriseServices.dll, and System.EnterpriseServices.thunk.dll <br/>
+loaded), any subsequent call to the 3rd party DLL starts to hang in the <br/>
+CLOSE-WAIT state indefinitely.<br/>
+<br/>
+  I tried to see if turning off the connection pooling would affect this, <br/>
+but it did not. Please note that I do not have to run any commands agains the <br/>
+database for this to occur. As long as I do SqlConnection.Open(), this <br/>
+problem starts!<br/>
+<br/>
+   I have also tried running the 3rd party DLL P/Invoke from a seperate App <br/>
+Domain, but that did not work either.<br/>
+<br/>
+  I am beyong confused! I know this 3rd party DLL is written in VC++. I have <br/>
+a unsubstiated theory that perhaps perhaps the SQL DLL and this 3rd party DLL <br/>
+have the same base address, and the 3rd party DLL gets rebased by he OS <br/>
+loader, and thus cannot be unloaded, causing the bug to appear. (I am <br/>
+grabbing at straws). <br/>
+<br/>
+Any ideas/suggestions? Please help!!!<br/>
+<br/>
+Thanks,<br/>
+Muj Beg<br/>
+<br/>
+</li></ul></li>
+<li>6 
+ <ul><li><a href = "/61-microsoft-public-dotnet-framework-interop/3444.aspx">C header translation. Please help.</a><br/>Hi all,<br/>
+<br/>
+I'm translation some C headers to C# but it doesn't work.<br/>
+I need to fill the Call struct and pass it in encode function as *pdu <br/>
+parameter. The function will encode and fill the PrivateData struct in *priv <br/>
+parameter filling the data field but it return some wrong values. I've the <br/>
+original C application and I know what must return but I don't know what is <br/>
+wrong.<br/>
+<br/>
+Can anyone help me?<br/>
+<br/>
+TIA,<br/>
+<br/>
+-------------- C header -----------------<br/>
+<br/>
+encode ( int pdunum, CONST_PARAM void FAR * pdu, PrivateData FAR * priv );<br/>
+<br/>
+typedef struct Call {<br/>
+    Boolean         priorityCalling;<br/>
+    short           maxRings;<br/>
+    AnswerTreat answerTreat; ---------&gt; ---------------&gt; simple enum like <br/>
+ProtocolType !<br/>
+    DeviceID_t      destRoute; -----------&gt; char[64] in C! I'm using C# <br/>
+string with managedAs=ByValStr<br/>
+    UserInfo userInfo;<br/>
+} Call ;<br/>
+<br/>
+typedef struct UserInfo {<br/>
+    ProtocolType type;<br/>
+    struct {<br/>
+        short           length;<br/>
+        unsigned char   value[129];<br/>
+    } data;<br/>
+} UserInfo ;<br/>
+<br/>
+typedef enum ProtocolType {<br/>
+    NONE = -1,<br/>
+    USER_SPECIFIC = 0,<br/>
+    ASCII = 4<br/>
+} ProtocolType;<br/>
+<br/>
+typedef struct PrivateData {<br/>
+ char   vendor[32];<br/>
+ unsigned short length;<br/>
+    char   data[1024];<br/>
+} PrivateData ;<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+</li></ul></li>
+
+</ul></li>
+</ul></li>
+						</ul>
+						<span class="corners-bottom"><span></span></span>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+<script type="text/javascript" src="/include/detail_buttom.js"></script>
+<br />
+	</body>
+	
+</html>

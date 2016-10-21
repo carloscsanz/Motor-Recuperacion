@@ -1,0 +1,2174 @@
+
+<HTML>
+<HEAD>
+<META NAME="WURFL" CONTENT="Wireless Universal Resource File">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=iso-8859-1">
+
+<META NAME="keywords" CONTENT="wap, wireless, multiserve, xml, resource file, resources, wml,multiple devices,nokia,siemens,motorola,openwave,alcatel,imode,sony,ericsson,sonyericsson">
+<META NAME="description" CONTENT="Open Source Framework to Multiserve Wireless Applications">
+<META NAME="robots" CONTENT="all">
+
+<TITLE>WALL reference Guide</TITLE>
+<link rel="stylesheet" href="refguide/style.css" type="text/css" media="screen, print" />
+
+
+
+</HEAD>
+<BODY NOBGCOLOR="#000066" notext="#FF9933" noLINK="#FFFF00" noVLINK="#FFFF00">
+<script type="text/javascript"><!--
+google_ad_client = "pub-9210856440305940";
+google_ad_slot = "9871510971";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+<table border="0" cellpadding="8">
+<tr>
+
+
+
+<!-- index -->
+<td valign=top height="320" width=160 NOBGCOLOR="#333399" style="border: 1px #FF9900 solid"> 
+
+<a style="color:blue" href="../index.php">Home</a> /<a style="color:blue" href="index.php">Java</a> / <b>RefGuide</b><br>
+<br>
+
+<center>
+<a href="index.php"><img border=0 width="113" height="42" src="/logos/widthwalllogo113.gif"></a>
+</center>
+<b>WALL<br>the Wireless Abstraction Library</b><br>
+<a style="color:blue"href="wall.php">Back to WALL</a><br>
+<br>
+
+<div style="background:#DDDDDD;border: 1px #555555 solid">
+<b>Reference Guide</b><br>
+<a style="color:blue"href="download/refguide.pdf">PDF version</a><br>
+<br>
+<b>WALL tags</b><br>
+
+&nbsp;<a style="color:blue" href="#a"> a</a><br>
+&nbsp;<a style="color:blue" href="#alternate_img"> alternate_img</a><br>
+&nbsp;<a style="color:blue" href="#b"> b</a><br>
+&nbsp;<a style="color:blue" href="#block"> block</a><br>
+&nbsp;<a style="color:blue" href="#body"> body</a><br>
+&nbsp;<a style="color:blue" href="#br"> br</a><br>
+&nbsp;<a style="color:blue" href="#caller"> caller</a><br>
+&nbsp;<a style="color:blue" href="#cell"> cell</a><br>
+&nbsp;<a style="color:blue" href="#cool_menu"> cool_menu</a><br>
+&nbsp;<a style="color:blue" href="#cool_menu_css"> cool_menu_css</a><br>
+&nbsp;<a style="color:blue" href="#document"> document</a><br>
+&nbsp;<a style="color:blue" href="#font"> font</a><br>
+&nbsp;<a style="color:blue" href="#form"> form</a><br>
+&nbsp;<a style="color:blue" href="#h1_h6"> h1,..,h6</a><br>
+&nbsp;<a style="color:blue" href="#head"> head</a><br>
+&nbsp;<a style="color:blue" href="#hr"> hr</a><br>
+&nbsp;<a style="color:blue" href="#i"> i</a><br>
+&nbsp;<a style="color:blue" href="#img"> img</a><br>
+&nbsp;<a style="color:blue" href="#input"> input</a><br>
+&nbsp;<a style="color:blue" href="#load_capabilities"> load_capabilities</a><br>
+&nbsp;<a style="color:blue" href="#marquee"> marquee</a><br>
+&nbsp;<a style="color:blue" href="#menu"> menu</a><br>
+&nbsp;<a style="color:blue" href="#menu_css"> menu_css</a><br>
+&nbsp;<a style="color:blue" href="#option"> option</a><br>
+&nbsp;<a style="color:blue" href="#select"> select</a><br>
+&nbsp;<a style="color:blue" href="#title"> title</a><br>
+&nbsp;<a style="color:blue" href="#wurfl_device_id"> wurfl_device_id</a><br>
+&nbsp;<a style="color:blue" href="#xmlpidtd"> xmlpidtd</a><br>
+</div>
+
+
+<br><br>
+<a href="http://sourceforge.net/donate/index.php?group_id=55408"><img src="http://images.sourceforge.net/images/project-support.jpg" width="88" height="32" border="0" alt="Support This Project" /> </a> 
+<br><br>
+
+<a href="http://www.java.net"><img src="../miscpix/javanet_button_170.gif" width="125" border="0" alt="java.net logo"></a>
+
+<br><br>
+<a href="http://sourceforge.net">
+<IMG src="http://sourceforge.net/sflogo.php?group_id=55408&amp;type=2" 
+     width="125" height="37" border="0" alt="SourceForge.net Logo"></a>
+</td>
+
+
+
+
+
+<!-- leave one colum empty for readibility -->
+<td width="4">&nbsp;</td>
+<!-- end of index -->
+<!-- column should wrap after 550 pixels max -->
+<td  valign=top  width="550">
+<p>
+<b class="wtitle">WALL reference Guide</b><br>
+by <i>Luca Passani</i><br>
+passani at eunet dot no<br>
+<br><br>
+
+
+If you are using WALL, chances are that you are aware of the different
+mark-up language available for different wireless devices around the globe.
+
+<br><br>
+
+<h3>Target Audience</h3>
+This reference is made for developers who need to create
+wireless services for existing and future browsers.<br>
+<br>
+To use WALL profitably, you need to possess a smattering of HTML
+and XML.<br>
+To add to that, knowledge of XHTML MP, CHTML and WML will be a great advantage
+in fine-tuning your application for specific devices.<br>
+This is not strictly necessary, though.<br>
+WALL is currently available for the Java SDK 1.4 platform.
+Familiarity with the following Java technologies is an advantage:
+<ul>
+<li>Java programming language</li>
+<li>Java Servlet and JSP</li>
+<li>Jakarta Tomcat configuration</li>
+</ul>
+
+This document will list all the tags supported by the WALL tag library in
+alphabetic order.<br><br>
+<h3>WALL tags</h3>
+
+
+a,
+alternate_img,
+b,
+block,
+body,
+br,
+caller,
+cell,
+cool_menu,
+cool_menu_css,
+document,
+font,
+form,
+h1,h2,h3,h4,h5,h6,
+head,
+hr,
+i,
+img,
+input,
+load_capabilities,
+marquee,
+menu,
+menu_css,
+option,
+select,
+title,
+wurfl_device_id,
+xmlpidtd.<br>
+<hr>
+
+
+<br>
+<a name="a"><b class="wtitle">'a' tag</b></a>
+<br><br>
+
+
+This element implements a link (AKA hyperlink) on the target device. Being the foundation
+of hypertext navigation, this standard is pretty standard on all wireless devices.<br>
+The capabilities 
+
+<table class="wall">
+<thead>
+<tr>
+<th>Attribute*</th>
+<th>Value</th>
+<th>WML</th>
+<th>XHTML</th>
+<th>CHTML</th>
+<th>Comments&nbsp;&nbsp;&nbsp;&nbsp;</th></tr></thead>
+<tbody>
+<tr class="odd">
+ <td>accesskey</td>
+ <td>[1..9]</td>
+ <td>Some</td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td>Keypad accelerator</td>
+</tr>
+<tr class="even">
+ <td><b>href</b></td>
+ <td>URI</td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td>Link to URI</td>
+</tr>
+
+
+<tr class="odd">
+ <td>opwv_icon</td>
+ <td>[1..255]</td>
+ <td>Some</td>
+ <td>Some</td>
+ <td>No</td>
+ <td>Built-in icon for Openwave devices. Only applies when hyperlink is used
+inside a 'menu'</td>
+</tr>
+<tr class="even">
+ <td>title</td>
+ <td><nobr>short string</nobr></td>
+ <td>Some</td>
+ <td>Some</td>
+ <td>No</td>
+ <td>Softkey label</td>
+</tr>
+</tbody>
+</table>
+<b>* bold</b> = Mandatory, Some = Supported by Some Devices
+<br clear=all>
+<br>
+<h4>This tag relies on the following WURFL capabilities:</h4>
+<table class="wall">
+<thead>
+ <tr>
+  <th>WURFL capability name</th>
+  <th>Group</th>
+  <th>Comments&nbsp;&nbsp;&nbsp;&nbsp;</th>
+ </tr>
+</thead>
+<tbody>
+<tr class="odd">
+ <td>preferred_markup</td>
+ <td>markup</td>
+ <td>CHTML/XHTML/WML</td>
+</tr>
+<tr class="even">
+ <td>imode_region</td>
+ <td>chtml_ui</td>
+ <td>used to choose emoji version</td>
+</tr>
+<tr class="odd">
+ <td>menu_with_select_element_recommended</td>
+ <td>wml_ui</td>
+ <td>only applies to WML devices</td>
+</tr>
+
+
+
+</tbody>
+</table>
+<hr>
+
+
+<br>
+<a name="alternate_img"><b class="wtitle">'alternate_img' tag</b></a>
+<br><br>
+
+'<b>alternate_img</b>' tag provides a way to multiserve pictures
+out of a unique image tag. For this reason, alternate_img 
+can only be used inside an '<b>img</b>'.<br>
+In order to influence the actual rendering of the parent 'img' tag,
+a request must verify two conditions:
+<ul>
+<li>the one in the 'test' attribute (mandatory)</li>
+<li>the one implied by the use of one of the other 4 attributes (the 'src'
+attribute does not imply a condition)</li>
+</ul>
+Note: in addition to 'test', you must use one (and only one) of the other 5 attributes
+or WALL will generate an error.<br><br>
+
+The 'test' attribute allows the developer to specify an arbitrary condition
+(for example a WURFL capability value or a condition based on such values).<br>
+The 'src' attribute specifies a (typically different) image url to be used
+by the parent 'img' tag whenever the test condition evaluates to true.<br>
+The 'nopicture' attribute issues a directive to the parent 'img' tag to refrain from
+rendering the picture specified in the 'src' attribute of the img tag.<br>
+'opwv_icon' can only influence the rendering of a picture for devices
+that support the Openwave built-in icons. If test is true, those devices
+will display an Openwave icon rather than the picture specified
+by the parent img tag.<br>
+'eu_imode_icon' and 'ja_imode_icon' work similarly to 'opwv_icon',
+but they apply to imode devices only.<br><br>
+
+
+<table class="wall">
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+<th>WML</th>
+<th>XHTML</th>
+<th>CHTML</th>
+<th>Comments&nbsp;&nbsp;&nbsp;&nbsp;</th></tr></thead>
+<tbody>
+<tr class="odd">
+ <td><b>test</b></td>
+ <td>true,false</td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td>Applies to this request</td>
+</tr>
+<tr class="even">
+ <td>src</td>
+ <td>String</td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td>URL to alternative image</td>
+</tr>
+<tr class="odd">
+ <td>nopicture</td>
+ <td>true,false</td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td>If test is true, do not display any picture</td>
+</tr>
+
+<tr class="even">
+ <td>opwv_icon</td>
+ <td>String</td>
+ <td><b>Yes**</b></td>
+ <td><b>Yes**</b></td>
+ <td>no</td>
+ <td>Alternative Openwave icon</td>
+</tr>
+
+<tr class="odd">
+ <td>eu_imode_icon</td>
+ <td>String</td>
+ <td>no</td>
+ <td>no</td>
+ <td><b>Yes</b></td>
+ <td>Imode icon (European Devices)</td>
+</tr>
+
+<tr class="even">
+ <td>ja_imode_icon</td>
+ <td>String</td>
+ <td>no</td>
+ <td>no</td>
+ <td><b>Yes</b></td>
+ <td>Imode icon (japanese devices)</td>
+</tr>
+
+</tbody>
+</table>
+<b>**</b> = may not be supported by some devices 
+
+<br clear=all>
+<br>
+<h4>This tag relies on the following WURFL capabilities:</h4>
+<table class="wall">
+<thead>
+ <tr>
+  <th>WURFL capability name</th>
+  <th>Group</th>
+  <th>Comments&nbsp;&nbsp;&nbsp;&nbsp;</th>
+ </tr>
+</thead>
+<tbody>
+<tr class="odd">
+ <td>preferred_markup</td>
+ <td>markup</td>
+ <td>CHTML/XHTML/WML</td>
+</tr>
+<tr class="even">
+ <td>imode_region</td>
+ <td>chtml_ui</td>
+ <td>ja|eu|us|as|none</td>
+</tr>
+
+<tr class="odd">
+ <td>opwv_xhtml_extensions_support</td>
+ <td>xhtml_ui</td>
+ <td>true,false</td>
+</tr>
+<tr class="even">
+ <td>opwv_wml_extensions_support</td>
+ <td>wml_ui</td>
+ <td>true,false</td>
+</tr>
+</tbody>
+</table>
+<hr>
+
+
+<br>
+<a name="b"><b class="wtitle">'b' tag</b></a>
+<br><br>
+
+The <b>b</b> tag is supported by all WAP 1.X and WAP 2 devices,
+but it cannot be used inside anchors (hyperlinks) on WML devices.<br>
+In addition, CHTML devices do not recognize the <b>b</b> tag (even though
+they typically do not crash).<br>
+This tag fixes the problem by disappearing for CHTML and WML (when used inside
+an hyperlink). 
+<br><br>
+<b>No attributes are defined for this tag</b>
+<br><br>
+<h4>This tag relies on the following WURFL capabilities:</h4>
+<table class="wall">
+<thead>
+ <tr>
+  <th>WURFL capability name</th>
+  <th>Group</th>
+  <th>Comments&nbsp;&nbsp;&nbsp;&nbsp;</th>
+ </tr>
+</thead>
+<tbody>
+<tr class="odd">
+ <td>preferred_markup</td>
+ <td>markup</td>
+ <td>CHTML/XHTML/WML</td>
+</tr>
+
+</tbody>
+</table>
+<hr>
+
+<br>
+<a name="block"><b class="wtitle">'block' tag</b></a>
+<br><br>
+
+This element typically maps to the <b>p</b> tags on the different devices.
+This tag was introduced to multi-serve different syntaxes to 
+align the text. Also note that either 'p' tags or block need
+to be used in order to serve valid WML and XHTML MP mark-up.
+<br> 
+
+
+<table class="wall">
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+<th>WML</th>
+<th>XHTML</th>
+<th>CHTML</th>
+<th>Comments&nbsp;&nbsp;&nbsp;&nbsp;</th></tr></thead>
+<tbody>
+<tr class="odd">
+ <td>align</td>
+ <td>left,right,middle,center</td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td>Keypad accelerator</td>
+</tr>
+</tbody>
+</table>
+
+<br clear=all>
+<br>
+<h4>This tag relies on the following WURFL capabilities:</h4>
+<table class="wall">
+<thead>
+ <tr>
+  <th>WURFL capability name</th>
+  <th>Group</th>
+  <th>Comments&nbsp;&nbsp;&nbsp;&nbsp;</th>
+ </tr>
+</thead>
+<tbody>
+<tr class="odd">
+ <td>preferred_markup</td>
+ <td>markup</td>
+ <td>CHTML/XHTML/WML</td>
+</tr>
+</tbody>
+</table>
+<hr>
+
+<br>
+<a name="body"><b class="wtitle">'body' tag</b></a>
+<br><br>
+
+The <b>body</b> tag will multiserve the body of a wireless document.
+This implies that for WML browsers, a WML 'card' element will be produced.<br>
+Some HTML attributes are also supported. They will be:
+<ul>
+<li>rendered as is for CHTML browsers</li>
+<li>turned into the corresponding CSS for XHTML MP</li>
+<li>simply ignored for WML devices</li>
+</ul>
+Some WAP 1.X devices (notably Nokia) require the insertion
+of the 'template' element to make the back button available to
+end users. The default label is 'Back', the 'wml_back_button_label'
+attribute lets one override that with a different label.
+
+<table class="wall">
+<thead>
+<tr>
+<th>Attribute*</th>
+<th>Value</th>
+<th>WML</th>
+<th>XHTML</th>
+<th>CHTML</th>
+<th>Comments&nbsp;&nbsp;&nbsp;&nbsp;</th></tr></thead>
+<tbody>
+<tr class="odd">
+ <td>bgcolor</td>
+ <td>String</td>
+ <td>no</td>
+ <td><b>Yes**</b></td>
+ <td><b>Yes**</b></td>
+ <td>Background Color</td>
+</tr>
+<tr class="even">
+ <td>text</td>
+ <td>Color of text</td>
+ <td>no</td>
+ <td><b>Yes**</b></td>
+ <td><b>Yes**</b></td>
+ <td>Link to URI</td>
+</tr>
+<tr class="odd">
+ <td>wml_back_button_label</td>
+ <td>String</td>
+ <td><b>Yes</b>**</td>
+ <td>no</td>
+ <td>no</td>
+ <td>Label for Back Button on Nokia devices (default = 'Back')</td>
+</tr>
+<tr class="even">
+ <td>disable_wml_template</td>
+ <td>true,<b>false</b></td>
+ <td><b>Yes**</b></td>
+ <td>no</td>
+ <td>no</b></td>
+ <td>Never produce a &lt;template&gt; tag for any WML device</td>
+</tr>
+<tr class="odd">
+ <td>newcontext</td>
+ <td>true,<b>false</b></td>
+ <td><b>Yes</b></td>
+ <td>no</td>
+ <td>no</b></td>
+ <td>Add a <code>newcontext="true"</code> for WML devices</td>
+</tr>
+</tbody>
+</table>
+<b>* bold</b> = Mandatory, Some = Supported by Some Devices,<br><b>**</b> = may not
+apply to some devices
+<br clear=all>
+<br>
+<h4>This tag relies on the following WURFL capabilities:</h4>
+<table class="wall">
+<thead>
+ <tr>
+  <th>WURFL capability name</th>
+  <th>Group</th>
+  <th>Comments&nbsp;&nbsp;&nbsp;&nbsp;</th>
+ </tr>
+</thead>
+<tbody>
+<tr class="odd">
+ <td>preferred_markup</td>
+ <td>markup</td>
+ <td>CHTML/XHTML/WML</td>
+</tr>
+<tr class="even">
+ <td>xhtml_document_title_support</td>
+ <td>xhtml_ui</td>
+ <td>Does WAP 2 device render title?</td>
+</tr>
+<tr class="odd">
+ <td>built_in_back_button_support</td>
+ <td>wml_ui</td>
+ <td>&lt;template&gt; element required to force back button?</td>
+</tr>
+<tr class="even">
+ <td>card_title_support</td>
+ <td>wml_ui</td>
+ <td>Does WAP 1.X device render title</td>
+</tr>
+</tbody>
+</table>
+<hr>
+
+<br>
+<a name="br"><b class="wtitle">'br' tag</b></a>
+<br><br>
+
+The <b>br</b> tag is supported by all devices. Alas, because
+of CHTML well-formdness, some devices require that 'br' is escaped (i.e.&lt;br/&gt;)
+while others actually ignore escaped 'br'.<br>
+<br><br>
+<b>No attributes are defined for this tag</b>
+<br><br>
+<h4>This tag relies on the following WURFL capabilities:</h4>
+<table class="wall">
+<thead>
+ <tr>
+  <th>WURFL capability name</th>
+  <th>Group</th>
+  <th>Comments&nbsp;&nbsp;&nbsp;&nbsp;</th>
+ </tr>
+</thead>
+<tbody>
+<tr class="odd">
+ <td>preferred_markup</td>
+ <td>markup</td>
+ <td>CHTML/XHTML/WML</td>
+</tr>
+
+</tbody>
+</table>
+<hr>
+
+<br>
+<a name="caller"><b class="wtitle">'caller' tag</b></a>
+<br><br>
+
+
+Most wireless devices support a syntax of some kind to let users
+start a telephone call by clicking an hyperlink.<br>
+Some devices do not support this feature, while some others
+support it but with different syntax. <br>
+The '<b>caller</b>' tag abstracts that away.
+
+<table class="wall">
+<thead>
+<tr>
+<th>Attribute*</th>
+<th>Value</th>
+<th>WML</th>
+<th>XHTML</th>
+<th>CHTML</th>
+<th>Comments&nbsp;&nbsp;&nbsp;&nbsp;</th></tr></thead>
+<tbody>
+<tr class="odd">
+ <td>accesskey</td>
+ <td>[1..9]</td>
+ <td>Some</td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td>Keypad accelerator</td>
+</tr>
+<tr class="even">
+ <td>alt</td>
+ <td><nobr>String</nobr></td>
+ <td>No</td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td>Alternative text if device does not support call</td>
+</tr>
+
+<tr class="odd">
+ <td>cti</td>
+ <td><nobr>String</nobr></td>
+ <td>no</td>
+ <td>no</td>
+ <td><b>Yes**</b></td>
+ <td>CHTML device support this for complex dial combinations</td>
+</tr>
+
+
+<tr class="even">
+ <td>opwv_icon</td>
+ <td>[1..255]</td>
+ <td>Some</td>
+ <td>Some</td>
+ <td>no</td>
+ <td>Built-in icon for Openwave devices. Only applies when hyperlink is used
+inside a 'menu'</td>
+</tr>
+<tr class="odd">
+ <td><b>tel</b></td>
+ <td>String</td>
+ <td><b>Yes**</b></td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td>Telephone Number to Call</td>
+</tr>
+</tbody>
+</table>
+<b>* bold</b> = Mandatory, Some = Supported by Some Devices<br>
+<b>**</b> = not all devices support this. 
+<br clear=all>
+<br>
+<h4>This tag relies on the following WURFL capabilities:</h4>
+<table class="wall">
+<thead>
+ <tr>
+  <th>WURFL capability name</th>
+  <th>Group</th>
+  <th>Comments&nbsp;&nbsp;&nbsp;&nbsp;</th>
+ </tr>
+</thead>
+<tbody>
+<tr class="odd">
+ <td>preferred_markup</td>
+ <td>markup</td>
+ <td>CHTML/XHTML/WML</td>
+</tr>
+<tr class="even">
+ <td>xhtml_make_phone_call_string</td>
+ <td>xhtml_ui</td>
+ <td>Syntax supported to start a phone call</td>
+</tr>
+<tr class="odd">
+ <td>wml_make_phone_call_string</td>
+ <td>wml_ui</td>
+ <td>Syntax supported to start a phone call</td>
+</tr>
+<tr class="even">
+ <td>chtml_make_phone_call_string</td>
+ <td>chtml_ui</td>
+ <td>Syntax supported to start a phone call</td>
+</tr>
+<tr class="odd">
+ <td>menu_with_select_element_recommended</td>
+ <td>wml_ui</td>
+ <td>only applies to WML devices</td>
+</tr>
+</tbody>
+</table>
+<hr>
+
+<br>
+<a name="cell"><b class="wtitle">'cell' tag</b></a>
+<br><br>
+
+'<b>cell</b>' this tag only makes sense inside a coolmenu.<br>
+Its task is to render tables for devices which support them
+and make sure that imode and WAP 1.X devices get the
+line breaks in the right place.<br>
+
+<br>
+<b>No attributes are defined for this tag</b>
+
+
+<br clear=all>
+<br>
+<h4>This tag relies on the following WURFL capabilities:</h4>
+<table class="wall">
+<thead>
+ <tr>
+  <th>WURFL capability name</th>
+  <th>Group</th>
+  <th>Comments&nbsp;&nbsp;&nbsp;&nbsp;</th>
+ </tr>
+</thead>
+<tbody>
+<tr class="odd">
+ <td>preferred_markup</td>
+ <td>markup</td>
+ <td>CHTML/XHTML/WML</td>
+</tr>
+<tr class="even">
+ <td>chtml_table_support</td>
+ <td>chtml_ui</td>
+ <td>true,false</td>
+</tr>
+</tbody>
+</table>
+<hr>
+
+<br>
+<a name="cool_menu"><b class="wtitle">'cool_menu' tag</b></a>
+<br><br>
+
+'<b>cool_menu</b>' implements advanced graphical menus a-la 'VodaLive'. 
+With the advent of cool WAP 2.0 devices equipped with big screen colors,
+all of the major carriers and wireless portals have implemented
+cool looking entry pages to their services. Of course, those
+cool pages do not work the way they are on old WML devices.<br>
+Coolmenus are the WALL way to implement advanced graphical menus
+which degrade gracefully on all devices. The power of cool menus
+is best exploited when used together with 'img' and 'alternate_img' tags
+to multiserve the graphical icons.<br>
+By default, cool menus are displayed in a grid of two columns (for
+devices which support tables), but this can be changed by setting
+the 'colnum' and 'tabularize' attributes. 
+As far as <code>colnum</code>, nothing prevents you from
+dynamically setting the number of columns as a function
+of the display width as derived from the WURFL.<br>
+There are cases in which one may want to represent the menu as a
+list, rather than a a table. Setting <code>tabularize</code> to
+false will make WALL generate a list of hyperlinks (each preceeded
+by the picture) also for those devices which can display the menu as
+a matrix.<br>
+<b>Important Note:</b> if you explicitly set the <code>colnum</code> 
+and <code>tabularize</code> attributes in the cool_menu, you need to make
+sure that the corresponding attributes are set <i>with the same values</i>
+in the <a href="#cool_menu_css">cool_menu_css</a> tag.
+
+<table class="wall">
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+<th>WML</th>
+<th>XHTML</th>
+<th>CHTML</th>
+<th>Comments&nbsp;&nbsp;&nbsp;&nbsp;</th></tr></thead>
+<tbody>
+<tr class="odd">
+ <td>colnum</td>
+ <td>Integer</td>
+ <td>no</td>
+ <td><b>Yes</b></td>
+ <td><b>Yes**</b></td>
+ <td>Number of columns (default: 2)</td>
+</tr>
+<tr class="even">
+ <td>tabularize</td>
+ <td><b>true</b>,false</td>
+ <td>no</td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td>disable attempt to display as a table (resort to menu)</td>
+</tr>
+
+</tbody>
+</table>
+
+<b>* bold</b> = Mandatory, Some = Supported by Some Devices
+<br clear=all>
+<br>
+<h4>This tag relies on the following WURFL capabilities:</h4>
+<table class="wall">
+<thead>
+ <tr>
+  <th>WURFL capability name</th>
+  <th>Group</th>
+  <th>Comments&nbsp;&nbsp;&nbsp;&nbsp;</th>
+ </tr>
+</thead>
+<tbody>
+<tr class="odd">
+ <td>preferred_markup</td>
+ <td>markup</td>
+ <td>CHTML/XHTML/WML</td>
+</tr>
+<tr class="even">
+ <td>chtml_table_support</td>
+ <td>chtml_ui</td>
+ <td>true,false. Does Imode device support tables?</td>
+</tr>
+<tr class="odd">
+ <td>xhtml_table_support</td>
+ <td>xhtml_ui</td>
+ <td>true,false. Does XHTML device support tables?</td>
+</tr>
+</tbody>
+</table>
+<hr>
+
+<br>
+<a name="cool_menu_css"><b class="wtitle">'cool_menu_css' tag</b></a>
+<br><br>
+
+'<b>cool_menu_css</b>' only makes a difference on XHTML MP devices.<br>
+It appears that different XHTML devices display the content in each tables
+aligned differently on different device/browsers combination.<br>
+In addition, some devices display the table left-aligned (i.e. with a bunch of
+unused screen space on the right), while others automatically center the table
+and stretch it along the full width of the display.<br>
+Fortunately, WCSS can help to reconcile these differences. This tag
+makes sure that the CSS is rendered, but only for XHTML devices.<br>
+The 'colnum' attribute is necessary to calculate the cell width to
+be specified by the CSS. This value must be the same as the one fed
+into the colnum attribute in the cool_menu tag in the same page (or the
+results would be unpredictable). Default value is 2 (colunms).
+<br>
+<b>Important Note:</b> if you explicitly set the <code>colnum</code> 
+and <code>tabularize</code> attributes in the cool_menu_css, you need to make
+sure that the corresponding attributes are set <i>with the same values</i>
+in the <a href="#cool_menu">cool_menu</a> tag.
+<table class="wall">
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+<th>WML</th>
+<th>XHTML</th>
+<th>CHTML</th>
+<th>Comments&nbsp;&nbsp;&nbsp;&nbsp;</th></tr></thead>
+<tbody>
+<tr class="odd">
+ <td>colnum</td>
+ <td>Integer</td>
+ <td>no</td>
+ <td><b>Yes</b></td>
+ <td>no</td>
+ <td>Number of columns (default: 2)</td>
+</tr>
+<tr class="even">
+ <td>tabularize</td>
+ <td><b>true</b>,false</td>
+ <td>no</td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td>disable attempt to display as a table (resort to menu)</td>
+</tr>
+
+</tbody>
+</table>
+
+<br clear=all>
+<br>
+<h4>This tag relies on the following WURFL capabilities:</h4>
+<table class="wall">
+<thead>
+ <tr>
+  <th>WURFL capability name</th>
+  <th>Group</th>
+  <th>Comments&nbsp;&nbsp;&nbsp;&nbsp;</th>
+ </tr>
+</thead>
+<tbody>
+<tr class="odd">
+ <td>preferred_markup</td>
+ <td>markup</td>
+ <td>CHTML/XHTML/WML</td>
+</tr>
+<tr class="even">
+ <td>chtml_table_support</td>
+ <td>chtml_ui</td>
+ <td>true,false. Does Imode device support tables?</td>
+</tr>
+<tr class="odd">
+ <td>xhtml_table_support</td>
+ <td>xhtml_ui</td>
+ <td>true,false. Does XHTML device support tables?</td>
+</tr>
+</tbody>
+</table>
+<hr>
+
+<br>
+<a name="document"><b class="wtitle">'document' tag</b></a>
+<br><br>
+
+The '<b>document</b>' tag is responsible for returning
+the right MIME-type for the mark-up returned by WALL
+according to the following scheme:
+<ul>
+<li>XHTML MP - <code>text/html</code></li>
+<li>CHTML - <code>text/html</code></li>
+<li>WML - <code>text/vnd.wap.wml</code></li>
+</ul>
+In addition, WALL will try to use some extensions available
+for the Openwave browser whenever used in connection with the
+MAG/UP.Link Openwave gateway. These extensions can be disabled 
+explicitly, if, for any reason, one needs to.<br>
+Finally, there is a directive to attempt to disable caching.
+
+<table class="wall">
+<thead>
+<tr>
+<th>Attribute*</th>
+<th>Value</th>
+<th>WML</th>
+<th>XHTML</th>
+<th>CHTML</th>
+<th>Comments&nbsp;&nbsp;&nbsp;&nbsp;</th></tr></thead>
+<tbody>
+<tr class="odd">
+ <td>disable_wml_extensions</td>
+ <td>true|<b>false</b></td>
+ <td><b>Yes</b></td>
+ <td>no</td>
+ <td>no</td>
+ <td>Disable Openwave Extensions</td>
+</tr>
+<tr class="even">
+ <td>disable_xhtml_extensions</td>
+ <td>true|<b>false</b></td>
+ <td>no</td>
+ <td><b>Yes</b></td>
+ <td>no</td>
+ <td>Disable Openwave Extensions</td>
+</tr>
+<tr class="odd">
+ <td>disable_cache</td>
+ <td>true|<b>false</b></td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td>no</td>
+ <td>Disable Openwave Extensions</td>
+</tr>
+<tr class="even">
+ <td>disable_content_type_generation</td>
+ <td>true|<b>false</b></td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td>Prevent WALL from generating the MIME type</td>
+</tr>
+</tbody>
+</table>
+<b>* bold</b> = Mandatory, Some = Supported by Some Devices
+<br clear=all>
+<br>
+<h4>This tag relies on the following WURFL capabilities:</h4>
+<table class="wall">
+<thead>
+ <tr>
+  <th>WURFL capability name</th>
+  <th>Group</th>
+  <th>Comments&nbsp;&nbsp;&nbsp;&nbsp;</th>
+ </tr>
+</thead>
+<tbody>
+<tr class="odd">
+ <td>preferred_markup</td>
+ <td>markup</td>
+ <td>CHTML/XHTML/WML</td>
+</tr>
+<tr class="even">
+ <td>imode_region</td>
+ <td>chtml_ui</td>
+ <td>used to choose emoji version</td>
+</tr>
+<tr class="odd">
+ <td>menu_with_select_element_recommended</td>
+ <td>wml_ui</td>
+ <td>only applies to WML devices</td>
+</tr>
+
+<tr class="even">
+ <td>opwv_xhtml_extensions_support</td>
+ <td>xhtml_ui</td>
+ <td>true,false</td>
+</tr>
+<tr class="odd">
+ <td>opwv_wml_extensions_support</td>
+ <td>wml_ui</td>
+ <td>true,false</td>
+</tr>
+
+
+</tbody>
+</table>
+<hr>
+
+<br>
+<a name="font"><b class="wtitle">'font' tag</b></a>
+<br><br>
+
+'<b>font</b>' tag is a CHTML tag which all web programmer know.
+It will render virtually verbatim on CHTML devices.
+XHTML MP devices will use the corresponding CSS. While
+this is not guaranteed to work on all devices, it will
+degrade gracefully.<br>
+WML devices will not be served any tags at all, just the content.
+
+<table class="wall">
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+<th>WML</th>
+<th>XHTML</th>
+<th>CHTML</th>
+<th>Comments&nbsp;&nbsp;&nbsp;&nbsp;</th></tr></thead>
+<tbody>
+<tr class="odd">
+ <td>color</td>
+ <td>String</td>
+ <td>no</td>
+ <td><b>Yes**</b></td>
+ <td><b>Yes</b></td>
+ <td>Text Color</td>
+</tr>
+<tr class="even">
+ <td>face</td>
+ <td>String</td>
+ <td>no</td>
+ <td><b>Yes**</b></td>
+ <td><b>Yes**</b></td>
+ <td>Font Family</td>
+</tr>
+<tr class="odd">
+ <td>size</td>
+ <td>+1,-1,Integer</td>
+ <td>no</td>
+ <td><b>Yes**</b></td>
+ <td><b>Yes**</b></td>
+ <td>Font Size</td>
+</tr>
+</tbody>
+</table>
+<b>**</b> = may not be supported by some devices 
+
+<br clear=all>
+<br>
+<h4>This tag relies on the following WURFL capabilities:</h4>
+<table class="wall">
+<thead>
+ <tr>
+  <th>WURFL capability name</th>
+  <th>Group</th>
+  <th>Comments&nbsp;&nbsp;&nbsp;&nbsp;</th>
+ </tr>
+</thead>
+<tbody>
+<tr class="odd">
+ <td>preferred_markup</td>
+ <td>markup</td>
+ <td>CHTML/XHTML/WML</td>
+</tr>
+</tbody>
+</table>
+<hr>
+
+<br>
+<a name="form"><b class="wtitle">'form' tag</b></a>
+<br><br>
+
+'<b>form</b>' multiserves the form element for HTML and encapsulates
+the info to render forms in WML compatibility mode.
+
+<table class="wall">
+<thead>
+<tr>
+<th>Attribute*</th>
+<th>Value</th>
+<th>WML</th>
+<th>XHTML</th>
+<th>CHTML</th>
+<th>Comments&nbsp;&nbsp;&nbsp;&nbsp;</th></tr></thead>
+<tbody>
+<tr class="odd">
+ <td><b>action</b></td>
+ <td>URI</td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td>Servelet or JSP to post to</td>
+</tr>
+<tr class="even">
+ <td>enable_wml</td>
+ <td>true,false</td>
+ <td><b>Yes</b></td>
+ <td>no</td>
+ <td>no</td>
+ <td>Enable WML rendering for WML devices</td>
+</tr>
+
+
+<tr class="odd">
+ <td><b>method</b></td>
+ <td>get,post</td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td>HTTP post methid (get or post)</td>
+</tr>
+</tbody>
+</table>
+<b>* bold</b> = Mandatory, Some = Supported by Some Devices
+<br clear=all>
+<br>
+<h4>This tag relies on the following WURFL capabilities:</h4>
+<table class="wall">
+<thead>
+ <tr>
+  <th>WURFL capability name</th>
+  <th>Group</th>
+  <th>Comments&nbsp;&nbsp;&nbsp;&nbsp;</th>
+ </tr>
+</thead>
+<tbody>
+<tr class="odd">
+ <td>preferred_markup</td>
+ <td>markup</td>
+ <td>CHTML/XHTML/WML</td>
+</tr>
+</tbody>
+</table>
+<hr>
+
+<br>
+<a name="h1_h6"><b class="wtitle">'h1',...,'h6' tag</b></a>
+<br><br>
+
+<b>h1</b>...<b>h6</b> tags are supported by all CHTML and XHTML devices,
+but not WML devices. For WML devices, the content is highlighted
+with the <code>&lt;b&gt;</code> tag. 
+<br><br>
+<b>No attributes are defined for this tag</b>
+<br><br>
+<h4>This tag relies on the following WURFL capabilities:</h4>
+<table class="wall">
+<thead>
+ <tr>
+  <th>WURFL capability name</th>
+  <th>Group</th>
+  <th>Comments&nbsp;&nbsp;&nbsp;&nbsp;</th>
+ </tr>
+</thead>
+<tbody>
+<tr class="odd">
+ <td>preferred_markup</td>
+ <td>markup</td>
+ <td>CHTML/XHTML/WML</td>
+</tr>
+
+</tbody>
+</table>
+<hr>
+
+<br>
+<a name="head"><b class="wtitle">'head' tag</b></a>
+<br><br>
+
+
+'<b>head</b>' element is simple. It encapsulate the WALL 'title' tag
+(to mimic HTML syntax) and can contain non-WALL meta tags.<br>
+
+The 'head' tag is responsible for producing the top tags for
+each mark-up.
+
+<h4>This tag has no attributes</h4>
+
+<br>
+<h4>This tag relies on the following WURFL capabilities:</h4>
+<table class="wall">
+<thead>
+ <tr>
+  <th>WURFL capability name</th>
+  <th>Group</th>
+  <th>Comments&nbsp;&nbsp;&nbsp;&nbsp;</th>
+ </tr>
+</thead>
+<tbody>
+<tr class="odd">
+ <td>preferred_markup</td>
+ <td>markup</td>
+ <td>CHTML/XHTML/WML</td>
+</tr>
+</tbody>
+</table>
+<hr>
+
+<br>
+<a name="hr"><b class="wtitle">'hr' tag</b></a>
+<br><br>
+
+The <b>hr</b> tag is supported by CHTML and XHTML devices. Because
+of XHTML well-formdness, some devices require that 'hr' is escaped (i.e.&lt;br/&gt;)
+while others actually ignore escaped 'hr'.<br>
+As far as WML is concerned, WLM does not support the 'hr' element (some
+version of the Openwave browser Version 5 actually did. Currently WALL
+does not take advantage of this). For WML devices
+hr rendered as <code>"&lt;br&gt;---&lt;br&gt;"</code>.<br> 
+Please note that <b>hr</b> cannot be used inside a block or a form.
+The reason for this is that it would break well-formedness. Some
+devices (notably the SonyEricssons) break on this.
+<br>
+
+<table class="wall">
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+<th>WML</th>
+<th>XHTML</th>
+<th>CHTML</th>
+<th>Comments&nbsp;&nbsp;&nbsp;&nbsp;</th></tr></thead>
+<tbody>
+<tr class="odd">
+ <td>color</td>
+ <td>String</td>
+ <td>No</td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td>String representing color</td>
+</tr>
+</tbody>
+</table>
+
+
+<br><br>
+<h4>This tag relies on the following WURFL capabilities:</h4>
+<table class="wall">
+<thead>
+ <tr>
+  <th>WURFL capability name</th>
+  <th>Group</th>
+  <th>Comments&nbsp;&nbsp;&nbsp;&nbsp;</th>
+ </tr>
+</thead>
+<tbody>
+<tr class="odd">
+ <td>preferred_markup</td>
+ <td>markup</td>
+ <td>CHTML/XHTML/WML</td>
+</tr>
+
+</tbody>
+</table>
+<hr>
+
+<br>
+<a name="i"><b class="wtitle">'i' tag</b></a>
+<br><br>
+
+While the <b>i</b> tag is supported pretty much by all devices,
+it cannot be used inside anchors (hyperlinks) on WML devices.<br>
+This tag fixes the problem effectively, by singling out that particular case.
+<br><br>
+<b>No attributes are defined for this tag</b>
+<br><br>
+<h4>This tag relies on the following WURFL capabilities:</h4>
+<table class="wall">
+<thead>
+ <tr>
+  <th>WURFL capability name</th>
+  <th>Group</th>
+  <th>Comments&nbsp;&nbsp;&nbsp;&nbsp;</th>
+ </tr>
+</thead>
+<tbody>
+<tr class="odd">
+ <td>preferred_markup</td>
+ <td>markup</td>
+ <td>CHTML/XHTML/WML</td>
+</tr>
+
+</tbody>
+</table>
+<hr>
+
+<br>
+<a name="img"><b class="wtitle">'img' tag</b></a>
+<br><br>
+
+The '<b>img</b>' tag is apparently just a wrapper around the 'img' tag as used
+in the three wireless mark-ups. When used together with '<b>alternate_img</b>',
+though, you have a powerful tool to serve different pictures to different
+kinds of devices.This is particularly true if you use JSTL to perform
+tests on WURFL conditions to select alternate values for the 'src' attribute.<br>
+Having said this, '<b>img</b>' itself is pretty straightforward to understand and
+use: just set the 'src' and 'alt' attributes.<br>
+<b>Note:</b> This tag performs some magic when used inside a coolmenu
+to add line-brakes and extra space correctly.
+
+<table class="wall">
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+<th>WML</th>
+<th>XHTML</th>
+<th>CHTML</th>
+<th>Comments&nbsp;&nbsp;&nbsp;&nbsp;</th></tr></thead>
+<tbody>
+<tr class="odd">
+ <td><b>src</b></td>
+ <td>URL</td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td>URL to actual picture</td>
+</tr>
+<tr class="even">
+ <td><b>alt</b></td>
+ <td>String</td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td>accompanying text</td>
+</tr>
+</tbody>
+</table>
+
+<br clear=all>
+<br>
+<h4>This tag relies on the following WURFL capabilities:</h4>
+<table class="wall">
+<thead>
+ <tr>
+  <th>WURFL capability name</th>
+  <th>Group</th>
+  <th>Comments&nbsp;&nbsp;&nbsp;&nbsp;</th>
+ </tr>
+</thead>
+<tbody>
+<tr class="odd">
+ <td>preferred_markup</td>
+ <td>markup</td>
+ <td>CHTML/XHTML/WML</td>
+</tr>
+<tr class="even">
+ <td>imode_region</td>
+ <td>chtml_ui</td>
+ <td>ja|eu|us|as|none</td>
+</tr>
+
+</tbody>
+</table>
+<hr>
+
+<br>
+<a name="input"><b class="wtitle">'input' tag</b></a>
+<br><br>
+
+The '<b>input</b>' tag is often turned into an 'input' tag also
+in the target mark-up. Neverthless there is quite a lot of magick going on
+to emulate hidden-fields, submit buttons, formats and so on.
+<br>
+When used in WML compatibility mode, the number of legal types
+for the 'input' element is limited to 'text','password','hidden','submit'
+
+<table class="wall">
+<thead>
+<tr>
+<th>Attribute*</th>
+<th>Value</th>
+<th>WML</th>
+<th>XHTML</th>
+<th>CHTML</th>
+<th>Comments&nbsp;&nbsp;&nbsp;&nbsp;</th></tr></thead>
+<tbody>
+<tr class="odd">
+ <td>accesskey</td>
+ <td>[1..9]</td>
+ <td>Some</td>
+ <td><b>Yes**</b></td>
+ <td><b>Yes</b></td>
+ <td>Keypad accelerator</td>
+</tr>
+<tr class="even">
+ <td>checked</td>
+ <td>'checked'</td>
+ <td>no</td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td>'checked' attribute</td>
+</tr>
+<tr class="odd">
+ <td>disabled</td>
+ <td>'disabled'</td>
+ <td>no</td>
+ <td><b>Yes</b></td>
+ <td>no</td>
+ <td>'disabled' attribute</td>
+</tr>
+
+<tr class="even">
+ <td>emptyok</td>
+ <td>'emptyok'</td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td>no</td>
+ <td>'emptyok' attribute</td>
+</tr>
+<tr class="odd">
+ <td>format</td>
+ <td>String (see format attribute spec)</td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td>Partly<b>***</b></td>
+ <td>Link to URI</td>
+</tr>
+
+<tr class="even">
+ <td>maxlength</td>
+ <td>Integer</td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td>'maxlength' attribute</td>
+</tr>
+<tr class="odd">
+ <td><b>name</b></td>
+ <td>String</td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td>'name' attribute</td>
+</tr>
+<tr class="even">
+ <td>size</td>
+ <td>Integer</td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td>'size' attribute</td>
+</tr>
+<tr class="odd">
+ <td><b>type</b></td>
+ <td>'text', 'password', 'hidden', 'submit' <b>****</b></td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td>'type' attribute</td>
+</tr>
+<tr class="even">
+ <td>value</td>
+ <td>String</td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td>'value' attribute</td>
+</tr>
+<tr class="odd">
+ <td>title</td>
+ <td>String</td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td>no</td>
+ <td>'title' attribute for WML and XHTML MP devices</td>
+</tr>
+</tbody>
+</table>
+<b>* bold</b> = Mandatory, Some = Supported by Some Devices<br>
+<b>**</b> = may not be supported by some devices<br>
+<b>*** partly</b> = CHTML lets you specify numeric mode for the keyboard<br>
+<b>****</b> = This applies to WML compatibility mode. Outsde of it, you
+can use any value ('radio' and 'check' too, for example)<br>
+<br clear=all>
+<br>
+<h4>This tag relies on the following WURFL capabilities:</h4>
+<table class="wall">
+<thead>
+ <tr>
+  <th>WURFL capability name</th>
+  <th>Group</th>
+  <th>Comments&nbsp;&nbsp;&nbsp;&nbsp;</th>
+ </tr>
+</thead>
+<tbody>
+<tr class="odd">
+ <td>preferred_markup</td>
+ <td>markup</td>
+ <td>CHTML/XHTML/WML</td>
+</tr>
+<tr class="even">
+ <td>xhtml_format_as_css_property</td>
+ <td>xhtml_ui</td>
+ <td>decent CSS support for format?</td>
+</tr>
+<tr class="odd">
+ <td>xhtml_format_as_attribute</td>
+ <td>xhtml_ui</td>
+ <td>support 'format' attrivute in XHTML?</td>
+</tr>
+<tr class="even">
+ <td>softkey_support<b>*</b></td>
+ <td>wml_ui</td>
+ <td>are softkeys supported?</td>
+</tr>
+<tr class="odd">
+ <td>wml_1_3<b>*</b></td>
+ <td>markup</td>
+ <td>is wml 1.3 supported?</td>
+</tr>
+
+</tbody>
+</table>
+<b>*</b> = these two capabilities together are used to optimize the use of 
+the submit button for some WML 1.3 devices with the Openwave browser.
+
+<hr>
+
+<br>
+<a name="load_capabilities"><b class="wtitle">'load_capabilities' tag</b></a>
+<br><br>
+
+The 'load_capabilities' tag is needed for those who intend to use
+the conditional tags in the JSTL with WALL as in the example below:<br>
+<br>
+<code>&lt;c:if test="${capabilities.gif}"&gt;</code>
+<br><br>
+Loading the capabilities is sort of expensive the first time,
+so it's wise to avoid that operation unless you know you need it.
+<br><br>
+Invoking the <code>load_capabilities</code> tag will make the following
+variables available for your scripting:<br>
+<br>
+<pre>
+${capabilities.'capability_name'}  =  wurfl capability
+
+${wall_markup}                     =  xhtmlmp, wml, chtml
+
+${brands}                          =  list of device brands
+
+${devices.'brand_name'}            =  list of devices grouped by brand
+
+${device_id}            =  WURFL device_id (debugging purposes)
+</pre>
+
+<br>
+<b>No attributes are defined for this tag</b>
+<br><br>
+<h4>No capabilities are queried by this tag</h4>
+<hr>
+
+<br>
+<a name="marquee"><b class="wtitle">'marquee' tag</b></a>
+<br><br>
+
+'<b>marquee</b>' tag is a CHTML tag which all web programmer know.
+It will render virtually verbatim on CHTML devices.
+XHTML MP devices will use the corresponding CSS. While
+this is not guaranteed to work on all devices, it will
+degrade gracefully.<br>
+WML devices will not be served any tags at all, just the content.
+
+<table class="wall">
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+<th>WML</th>
+<th>XHTML</th>
+<th>CHTML</th>
+<th>Comments&nbsp;&nbsp;&nbsp;&nbsp;</th></tr></thead>
+<tbody>
+<tr class="odd">
+ <td>behavior</td>
+ <td>'scroll', 'slide', 'alternate'</td>
+ <td>no</td>
+ <td><b>Yes**</b></td>
+ <td><b>Yes</b></td>
+ <td>'behavior' attribute</td>
+</tr>
+<tr class="even">
+ <td>direction</td>
+ <td>'left', 'right'</td>
+ <td>no</td>
+ <td><b>Yes**</b></td>
+ <td><b>Yes</b></td>
+ <td>'direction' attribute</td>
+</tr>
+<tr class="odd">
+ <td>loop</td>
+ <td>String</td>
+ <td>no</td>
+ <td><b>Yes**</b></td>
+ <td><b>Yes</b></td>
+ <td>'direction' attribute</td>
+</tr>
+<tr class="even">
+ <td>bgcolor</td>
+ <td>Integer,'infinite'</td>
+ <td>no</td>
+ <td><b>Yes**</b></td>
+ <td><b>Yes</b></td>
+ <td>'bgcolor' attribute</td>
+</tr>
+</tbody>
+</table>
+<b>**</b> = may not be supported by some devices 
+
+<br clear=all>
+<br>
+<h4>This tag relies on the following WURFL capabilities:</h4>
+<table class="wall">
+<thead>
+ <tr>
+  <th>WURFL capability name</th>
+  <th>Group</th>
+  <th>Comments&nbsp;&nbsp;&nbsp;&nbsp;</th>
+ </tr>
+</thead>
+<tbody>
+<tr class="odd">
+ <td>preferred_markup</td>
+ <td>markup</td>
+ <td>CHTML/XHTML/WML</td>
+</tr>
+<tr class="even">
+ <td>xhtml_nowrap_mode</td>
+ <td>xhtml_ui</td>
+ <td>is 'nowrap' mode supprted?</td>
+</tr>
+<tr class="odd">
+ <td>xhtml_marquee_as_css_property</td>
+ <td>xhtml_ui</td>
+ <td>support marquee through XSS</td>
+</tr>
+</tbody>
+</table>
+<hr>
+
+<br>
+<a name="menu"><b class="wtitle">'menu' tag</b></a>
+<br><br>
+
+'<b>menu</b>' implements navigation menus. The two attributes concern automatic numbering
+and disabling of fancy coloring for menus on devices that support that.
+
+<table class="wall">
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+<th>WML</th>
+<th>XHTML</th>
+<th>CHTML</th>
+<th>Comments&nbsp;&nbsp;&nbsp;&nbsp;</th></tr></thead>
+<tbody>
+<tr class="odd">
+ <td>autonumber</td>
+ <td><b>false</b>,true</td>
+ <td><b>Yes**</b></td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td>Implement keyboard accelerators</td>
+</tr>
+<tr class="even">
+ <td>colorize</td>
+ <td><b>false</b>,true</td>
+ <td>no</td>
+ <td><b>Yes**</b></td>
+ <td>no</td>
+ <td>Do fancy XHTML devices (on devices that support it)</td>
+</tr>
+</tbody>
+</table>
+<b>* bold</b> = Mandatory, Some = Supported by Some Devices
+<br clear=all>
+<br>
+<h4>This tag relies on the following WURFL capabilities:</h4>
+<table class="wall">
+<thead>
+ <tr>
+  <th>WURFL capability name</th>
+  <th>Group</th>
+  <th>Comments&nbsp;&nbsp;&nbsp;&nbsp;</th>
+ </tr>
+</thead>
+<tbody>
+<tr class="odd">
+ <td>preferred_markup</td>
+ <td>markup</td>
+ <td>CHTML/XHTML/WML</td>
+</tr>
+<tr class="even">
+ <td>xhtml_supports_table_for_layout</td>
+ <td>xhtml_ui</td>
+ <td>decent table support?</td>
+</tr>
+<tr class="odd">
+ <td>xhtml_supports_css_cell_table_coloring</td>
+ <td>xhtml_ui</td>
+ <td>CSS powerful enough to color table cells</td>
+</tr>
+
+
+
+</tbody>
+</table>
+<hr>
+
+<br>
+<a name="menu_css"><b class="wtitle">'menu_css' tag</b></a>
+<br><br>
+
+'<b>menu_css</b>' producess CSS information necessary to have colorized
+menus for advanced XHTML MP devices.<br>
+The two good background colors are derived from the WURFL (which gives
+you a great way to configure your look &amp; feel on a device-by-device
+basis), but those values can also be overriden in the code
+by setting them through the two attributes.<br>
+
+
+<table class="wall">
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+<th>WML</th>
+<th>XHTML</th>
+<th>CHTML</th>
+<th>Comments&nbsp;&nbsp;&nbsp;&nbsp;</th></tr></thead>
+<tbody>
+<tr class="odd">
+ <td>bgcolor1</td>
+ <td>String</td>
+ <td>no</td>
+ <td><b>Yes</b></td>
+ <td>no</td>
+ <td>First good background color</td>
+</tr>
+<tr class="even">
+ <td>bgcolor1</td>
+ <td>String</td>
+ <td>no</td>
+ <td><b>Yes</b></td>
+ <td>no</td>
+ <td>Second good background color</td>
+</tr>
+</tbody>
+</table>
+<br clear=all>
+<br>
+<h4>This tag relies on the following WURFL capabilities:</h4>
+<table class="wall">
+<thead>
+ <tr>
+  <th>WURFL capability name</th>
+  <th>Group</th>
+  <th>Comments&nbsp;&nbsp;&nbsp;&nbsp;</th>
+ </tr>
+</thead>
+<tbody>
+<tr class="odd">
+ <td>preferred_markup</td>
+ <td>markup</td>
+ <td>CHTML/XHTML/WML</td>
+</tr>
+<tr class="even">
+ <td>xhtml_supports_table_for_layout</td>
+ <td>xhtml_ui</td>
+ <td>decent table support?</td>
+</tr>
+<tr class="odd">
+ <td>xhtml_supports_css_cell_table_coloring</td>
+ <td>xhtml_ui</td>
+ <td>CSS powerful enough to color table cells</td>
+</tr>
+<tr class="even">
+ <td>xhtml_readable_background_color1</td>
+ <td>xhtml_ui</td>
+ <td>good background color 1</td>
+</tr>
+<tr class="odd">
+ <td>xhtml_readable_background_color2</td>
+ <td>xhtml_ui</td>
+ <td>good background color 2</td>
+</tr>
+</tbody>
+</table>
+<hr>
+
+<br>
+<a name="option"><b class="wtitle">'option' tag</b></a>
+<br><br>
+
+'<b>option</b>' maps to 'options' tag also on the different target mark-ups.
+Nothing special there.
+
+<table class="wall">
+<thead>
+<tr>
+<th>Attribute*</th>
+<th>Value</th>
+<th>WML</th>
+<th>XHTML</th>
+<th>CHTML</th>
+<th>Comments&nbsp;&nbsp;&nbsp;&nbsp;</th></tr></thead>
+<tbody>
+<tr class="odd">
+ <td>selected</td>
+ <td>'selected'</td>
+ <td>no</td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td>'selected' attribute</td>
+</tr>
+<tr class="even">
+ <td><b>value</b></td>
+ <td>String</td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td>'value' attribute</td>
+</tr>
+</tbody>
+</table>
+<b>* bold</b> = Mandatory, Some = Supported by Some Devices
+<br clear=all>
+<br>
+<h4>This tag relies on the following WURFL capabilities:</h4>
+<table class="wall">
+<thead>
+ <tr>
+  <th>WURFL capability name</th>
+  <th>Group</th>
+  <th>Comments&nbsp;&nbsp;&nbsp;&nbsp;</th>
+ </tr>
+</thead>
+<tbody>
+<tr class="odd">
+ <td>preferred_markup</td>
+ <td>markup</td>
+ <td>CHTML/XHTML/WML</td>
+</tr>
+</tbody>
+</table>
+<hr>
+
+
+<br>
+<a name="select"><b class="wtitle">'select' tag</b></a>
+<br><br>
+
+'<b>select</b>' maps to 'select' on target mark-ups.
+
+<table class="wall">
+<thead>
+<tr>
+<th>Attribute*</th>
+<th>Value</th>
+<th>WML</th>
+<th>XHTML</th>
+<th>CHTML</th>
+<th>Comments&nbsp;&nbsp;&nbsp;&nbsp;</th></tr></thead>
+<tbody>
+<tr class="odd">
+ <td>disabled</td>
+ <td>'disabled'</td>
+ <td>no</td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td>'select' attribute</td>
+</tr>
+<tr class="even">
+ <td>multiple</td>
+ <td>'multiple'</td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td>'multiple' attribute</td>
+</tr>
+<tr class="odd">
+ <td><b>name</b></td>
+ <td>String</td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td>'name' attribute</td>
+</tr>
+<tr class="even">
+ <td>title</td>
+ <td><nobr>Short String</nobr></td>
+ <td><b>Yes**</b></td>
+ <td><b>Yes**</b></td>
+ <td>No</td>
+ <td>'title' attribute</td>
+</tr>
+<tr class="odd">
+ <td>size</td>
+ <td>Integer</td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td>'size' attribute</td>
+</tr>
+</tbody>
+</table>
+<b>* bold</b> = Mandatory, Some = Supported by Some Devices<br>
+<b>**</b> = may not be supported by some devices 
+<br clear=all>
+<br>
+<h4>This tag relies on the following WURFL capabilities:</h4>
+<table class="wall">
+<thead>
+ <tr>
+  <th>WURFL capability name</th>
+  <th>Group</th>
+  <th>Comments&nbsp;&nbsp;&nbsp;&nbsp;</th>
+ </tr>
+</thead>
+<tbody>
+<tr class="odd">
+ <td>preferred_markup</td>
+ <td>markup</td>
+ <td>CHTML/XHTML/WML</td>
+</tr>
+</tbody>
+</table>
+<hr>
+
+<br>
+<a name="title"><b class="wtitle">'title' tag</b></a>
+<br><br>
+
+
+'<b>title</b>' maps to the 'title' tag for XHTML and CHTML devices.
+On WML browsers, this is mapped to the 'title' attribute
+of the 'card' element.
+
+<table class="wall">
+<thead>
+<tr>
+<th>Attribute*</th>
+<th>Value</th>
+<th>WML</th>
+<th>XHTML</th>
+<th>CHTML</th>
+<th>Comments&nbsp;&nbsp;&nbsp;&nbsp;</th></tr></thead>
+<tbody>
+<tr class="odd">
+ <td>enforce_title</td>
+ <td>true,<b>false</b></td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td>no</td>
+ <td>make sure the the title is explicitly set for 
+devices that don't render it by default</td>
+</tr>
+</tbody>
+</table>
+<b>* bold</b> = Mandatory, Some = Supported by Some Devices
+<br clear=all>
+<br>
+<h4>This tag relies on the following WURFL capabilities:</h4>
+<table class="wall">
+<thead>
+ <tr>
+  <th>WURFL capability name</th>
+  <th>Group</th>
+  <th>Comments&nbsp;&nbsp;&nbsp;&nbsp;</th>
+ </tr>
+</thead>
+<tbody>
+<tr class="odd">
+ <td>preferred_markup</td>
+ <td>markup</td>
+ <td>CHTML/XHTML/WML</td>
+</tr>
+</tbody>
+</table>
+<hr>
+
+
+<br>
+<a name="wurfl_device_id"><b class="wtitle">'wurfl_device_id' tag</b></a>
+<br><br>
+
+
+This element is useful exclusively for debugging in those cases where
+you wonder which device ID and USer-Agent is being inferred by the system
+for the current device.
+
+<table class="wall">
+<thead>
+<tr>
+<th>Attribute*</th>
+<th>Value</th>
+<th>WML</th>
+<th>XHTML</th>
+<th>CHTML</th>
+<th>Comments&nbsp;&nbsp;&nbsp;&nbsp;</th></tr></thead>
+<tbody>
+<tr class="odd">
+ <td>ua</td>
+ <td>Any non-empty string</td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td>when set, also display UA string</td>
+</tr>
+</tbody>
+</table>
+<br clear=all>
+<br>
+<h4>No capabilities are queried by this tag</h4>
+<hr>
+
+<br>
+<a name="xmlpidtd"><b class="wtitle">'xmlpidtd' tag</b></a>
+<br><br>
+'<b>xmlpidtd</b>' means XML Processing Instruction and DTD. This tag makes sure that the right
+XML headers (if any) are produced for the target mark-up.
+<br>
+<h4>No attributes are defined for this tag </h4>
+
+<table class="wall">
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+<th>WML</th>
+<th>XHTML</th>
+<th>CHTML</th>
+<th>Comments&nbsp;&nbsp;&nbsp;&nbsp;</th></tr></thead>
+<tbody>
+<tr class="odd">
+ <td>encoding</td>
+ <td>String</td>
+ <td><b>Yes</b></td>
+ <td><b>Yes</b></td>
+ <td>No</td>
+ <td>Encoding String</td>
+</tr>
+</table>
+
+<br>
+<h4>This tag relies on the following WURFL capabilities:</h4>
+<table class="wall">
+<thead>
+ <tr>
+  <th>WURFL capability name</th>
+  <th>Group</th>
+  <th>Comments&nbsp;&nbsp;&nbsp;&nbsp;</th>
+ </tr>
+</thead>
+<tbody>
+<tr class="odd">
+ <td>preferred_markup</td>
+ <td>markup</td>
+ <td>CHTML/XHTML/WML</td>
+</tr>
+</tbody>
+</table>
+<hr>
+
+
+<br><br>
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-9210856440305940";
+google_ad_width = 468;
+google_ad_height = 60;
+google_ad_format = "468x60_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+google_color_border = "CCCCCC";
+google_color_bg = "CCCCCC";
+google_color_link = "000000";
+google_color_text = "333333";
+google_color_url = "666666";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</p>
+
+
+</td>
+</tr>
+</table>
+<center>
+Copyright &#169; 2007-2009, Luca Passani<br />
+</center>
+
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-740510-2");
+pageTracker._setDomainName("none");
+pageTracker._setAllowLinker(true);
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+
+</BODY>
+</HTML>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,1100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script type="text/javascript">
+  // <![CDATA[
+  var eeTimerStart = new Date().getTime();
+  var eeTimerCnt = 0;
+  var eeAdsLoaded = 0;
+  var ourMs = 0;
+  var adMs = 0;
+  
+  function eeEncode(str)
+  {
+     str = escape(str);
+     str = str.replace('+', '%2B');
+     str = str.replace('%20', '+');
+     str = str.replace('*', '%2A');
+     str = str.replace('/', '%2F');
+     str = str.replace('@', '%40');
+     return str;
+  }
+  
+  function endEETimer()
+  {
+      if (++eeTimerCnt == 4) {
+         ourMs = (new Date().getTime() - eeTimerStart);
+         eeTimerStart = new Date().getTime();
+      
+      } 
+      if (eeTimerCnt == 5 && eeAdsLoaded == 1) {
+         adMs = (new Date().getTime() - eeTimerStart);
+         eeTimerStart = new Date().getTime();
+      }
+      if (eeTimerCnt == 6) {
+         var omnitureMs = (new Date().getTime() - eeTimerStart);
+         var img = document.createElement("img");
+         img.src="/pageLoaded.jsp?url=" + eeEncode(document.location.href) + 
+                 "&isNew=1" +
+                 "&adMs=" + adMs + "&ourMs=" + ourMs + "&omnitureMs=" + omnitureMs + 
+                 "&isSecure=0" + 
+                 "&isExpertSkin=0" + 
+                 "&isVS=1" + 
+                 "&isUsingCDN=0" +
+                 "&isUsingEELevel3CDN=1" +
+                 "&isUsingEEDigitalWestCDN=0" +
+                 "&isConsolidatedCSS=1"; 
+         
+
+         document.body.appendChild(img)
+ 
+
+      }
+  }
+ 
+  // ]]>
+  </script>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<link rel="canonical" href="http://www.experts-exchange.com/Programming/Languages/C_Sharp/Q_21779713.html" /><link rel="shortcut icon" href="/images/ee.ico" type="image/x-icon" />
+
+<style type="text/css">@import "http://images.experts-exchange.com/getCSS?key=/ee_NS|--base,xp--base,--component,xp--component,--formFactory,xp--formFactory,xp--button,xp-include-infoBox&t=1268333649000";</style>
+<style type="text/css">@import "http://images.experts-exchange.com/getCSS?key=/ee_NS|xp-jsp-viewQuestion,-include-customEEple,xp-include-customEEple,-include-suggestedResults,xp-include-zoneHeader,-include-question,xp-include-question,-include-collapsibleList2,xp-include-collapsibleList2,xp-include-allZones,xp-include-rootTAHeader,-include-questionList,xp-include-questionList,xp-include-ranks,-include-zoneAd2,-include-eeAd,xp-include-outsideBookmarks,xp-include-codeSnippet,-include-fileUpload,xp-include-fileUpload,xp-include-addSnippet,-include-addAttachments,xp-include-addAttachments,-include-richtext,xp-include-zoneTAHeader,xp-include-questionScore,xp-include-actionBox,-include-landingHeader,xp-include-landingHeader,-include-screencastRecordingOverlay,xp-include-viewQuestionPage20,xp-include-viewQuestionPage51,xp-include-viewQuestionPage103,xp-include-viewQuestionPage137,-include-createFilterOverlay,xp-include-createFilterOverlay,xp-include-searchConvMessageAds,-include-mobileAdOverlay&t=1268333650000";</style>
+<script src="http://images.experts-exchange.com/scripts/eeSubs_1f6cf9aa4a2cc89833a03ac9463808e6.js" type="text/javascript"></script>
+  <script src="http://images.experts-exchange.com/scripts/translationOptions_a68cdae2b8b8d6456dc55afdb130e251.js" type="text/javascript"></script>
+<title>Changing column header color of a ListView control in C# : listview, color</title>
+<meta name="description" content="Hello, I added a ListView control in a form in C# with 1 column. How do I change the color of the column header from the traditional gray to something else? How can I also change the color of..." />
+<meta name="keywords" content="listview, color, C# Programming Language" />
+<script src="http://images.experts-exchange.com/scripts/s_code_bc873925a5d35e2bf96b4ae5f5cc3c8f.js" type="text/javascript"></script> </head>
+<body style="height: 100%;" class="" >
+
+ <div id="minWidth"></div>
+<div class="ontopBanner" id="navTopBanner">
+  <div id="headerAdvertisementDivNoJump">
+<div id="headerAdvertisementDiv">
+  <script type="text/javascript">
+    document.write('<p>loading advertisement ...</p>');
+  </script>
+  </div>
+</div>
+</div>
+<div class="outerBodyWrap viewQuestionJSP">
+  <div class="bodyWrap">
+  <div id="outerWrap">
+   <div id="innerWrap" class="innerWrap">
+   <div id="pageHeader" class="lo">
+        <!-- top options -->
+        <ul class="navTopOptions">
+  <li class="navTopOptButton">
+    <span class="ntoR">
+      <a href="https://secure.experts-exchange.com/register.jsp?rsid=60&srid=Js39whxZGVybM0MnpFHMIw%3D%3D&redirectURL=/Programming/Languages/C_Sharp/Q_21779713.html">
+        Start FREE Trial</a>
+    </span>
+  </li>
+  <li class="navTopOptButton">
+    <span class="ntoR">
+      <a href="/whyItWorks.jsp">
+        Why It Works</a>
+    </span>
+  </li>
+  <li class="navTopOptButton" id="navLoginLink">
+    <span class="ntoR">
+      <a href="javascript:toggleLoginBox();" rel="nofollow noindex">Member Login</a>
+    </span>
+  </li>
+</ul>
+<div id="loginPopup">
+<form method="post" action="/login.jsp" onsubmit="return submitOnce();" name="loginPopupForm">
+  <input type="hidden" name="msuLoginSubmit" value="1" />
+  <div><label for="lpumsuLoginName">Username or Email:</label></div>
+  <div><input type="text" id="lpumsuLoginName" name="msuLoginName" value="" class="text" tabindex="1" /></div>
+  <div><label for="lpumsuPassword">Password:</label><a href="/forgotPassword.jsp" rel="nofollow" style="margin-left: 48px; text-decoration: none;">Forgot your password?</a></div>
+  <div><input type="password" id="lpumsuPassword" name="msuPassword" value="" class="text" tabindex="2"  /></div>
+  <div class="rMeBox">
+    <div class="rMeInput">
+      <label for="lpumsuRememberMe">Remember Me</label>
+      <input type="checkbox" id="lpumsuRememberMe" name="msuRememberMe" class="checkbox" tabindex="3" />
+    </div>
+    <div class="rMeShared">Do not use on any shared computer</div>
+  </div>
+  <div class="clear"></div>
+  <div class="nvpButtons">
+   <input type="hidden" name="redirectURL" value="/Programming/Languages/C_Sharp/Q_21779713.html" />
+<div class="nvCancel"><a href="javascript:toggleLoginBox();" tabindex="5">Cancel</a></div>
+   <button type="submit" class="lpbSubmit" tabIndex="4">Login</button>
+   <div class="clear"></div>
+  </div>
+</form>
+</div>
+<script type="text/javascript">
+var loginVisible = false;
+
+function toggleLoginBox()
+{
+   var loginLink = document.getElementById("navLoginLink");
+   var loginBox = document.getElementById("loginPopup");
+   var obj = document.getElementById('firstDisplayCount');
+   
+   if (loginVisible)
+   {
+      closeLoginPopup();
+      loginLink.className = "navTopOptButton";
+      loginVisible = false;
+
+      if (obj)
+         obj.style.display = "inline";
+   }
+   else
+   {
+      showLoginPopup(loginLink);
+      loginLink.className = "navTopOptButtonL";
+      loginVisible = true;
+      document.getElementById('lpumsuLoginName').focus();
+
+      if (obj)
+         obj.style.display = "none";
+   }    
+}
+</script><div id="compPgHrLo"><a href="/"  style="background-image:url(/xp/images/newNavLogo.png);">Experts Exchange</a></div>
+<div class="clear"></div><div id="compPgHrNav"><ul class="ulloggedOut">
+<li class="compPgHrNavAsk"><a href="/newQuestionWizard.jsp">Ask</a></li>
+<li class="compPgHrNavSol"><a href="/solutions.jsp">Solutions</a></li>
+<li class="compPgHrNavArt"><a href="/articles/">Articles</a></li>
+<li class="compPgHrNavT"><a href="/testimonials.jsp">Testimonials</a></li>
+<li class="compPgHrNavHlp"><a href="/help.jsp"><span>Help</span></a></li>
+</ul>
+<div class="clearLeft"></div>
+<div id="compPgHrSrch" class="LO">
+     <form class="formFactory" action="/simpleSearch.jsp" method="get" id="topSearchbox" onsubmit="postAsycOmnitureGoogleSearch('gSearch_1');">
+<div id="srchToggleLabel">Google</div>
+       <a href="javascript:void();" onClick="toggleSearchType(document.getElementById('topSearchbox')); return false;" id="srchToggleButton">A</a>
+       <input type="hidden" name="gSearch" value="1" id="gSearch_1" />
+<input type="hidden" name="sfFreshSearch" value="1" />
+       <input type="hidden" name="omnitureSearchType" value="Google Search" />
+       <input type="hidden" name="cid" value="315" />
+       <input type="hidden" name="redirectURL" value="/" />
+       <input type="text" name="q" value="Enter Your Search Terms" class="textInput" id="gsearchBox" onfocus="clearSearchBoxRecolor(gsearchBox, 'Enter Your Search Terms', '#667B8A');" />
+<input type="submit" class="tsSubmit" value="1" name="searchSubmit" />
+</form>
+</div>
+ <div class="clear"></div>
+</div>
+<div id="compZnNav"><ul>
+<li class="first" id="znBrowseAll"><a href="/allTopics.jsp">Browse All</a></li>
+<li id="znMicroSoft"><a href="/Microsoft/" onClick="createNavMenu(this, 14466); return false;">Microsoft</a></li>
+<li id="znApple"><a href="/Apple/" onClick="createNavMenu(this, 14554); return false;">Apple</a></li>
+<li id="znDigiLiv"><a href="/Digital_Living/" onClick="createNavMenu(this, 14718); return false;">Digital Living</a></li>
+<li id="znHardware"><a href="/Hardware/" onClick="createNavMenu(this, 15284); return false;">Hardware</a></li>
+<li id="znSoftware"><a href="/Software/" onClick="createNavMenu(this, 12771); return false;">Software</a></li>
+<li id="znOs"><a href="/OS/" onClick="createNavMenu(this, 14725); return false;">OS</a></li>
+<li id="znStorage"><a href="/Storage/" onClick="createNavMenu(this, 14724); return false;">Storage</a></li>
+<li id="znDatabase"><a href="/Database/" onClick="createNavMenu(this, 14726); return false;">Database</a></li>
+<li id="znSecurity"><a href="/Security/" onClick="createNavMenu(this, 14727); return false;">Security</a></li>
+<li class="znC" id="znProg"><a href="/Programming/" onClick="createNavMenu(this, 15287); return false;">Programming</a></li>
+<li id="znWebDev"><a href="/Web_Development/" onClick="createNavMenu(this, 14728); return false;">Web Development</a></li>
+<li id="znNetwork"><a href="/Networking/" onClick="createNavMenu(this, 15285); return false;">Networking</a></li>
+<li id="znOther"><a href="/Other/" onClick="createNavMenu(this, 15286); return false;">Other</a></li>
+</ul><div class="clear"></div></div>
+<div id="navMenuViewport" class="navMenuViewport" onMouseOut="setHidNavMenu();" onMouseOver="zoneNavSlideMenu.dontHide();"><div id="navMenuSlider" class="navMenuSlider"></div></div>
+<script type="text/JavaScript">
+var zoneNavSlideMenu = null;
+var currNavA = null;
+function createNavMenu(obj, zoneID)
+{
+   if (zoneNavSlideMenu &&
+       zoneNavSlideMenu.menuLevels[0] != zoneID)
+   {
+      zoneNavSlideMenu.destroy();
+      currNavA.className = "";
+      zoneNavSlideMenu = null;
+   }
+   
+   if (zoneNavSlideMenu == null)
+   {
+      zoneNavSlideMenu = new slidingMenuObject('navMenuViewport', 'navMenuSlider', 'zoneNavSlideMenu', 200, 20, zoneID, '/shared/async/navigationMenu.jsp?menuName=', 'N');
+      zoneNavSlideMenu.anchorObj = obj;
+   }
+   zoneNavSlideMenu.show(obj, true);
+   obj.className = "znM";
+   currNavA = obj;
+}
+
+function setHidNavMenu()
+{
+   zoneNavSlideMenu.delayHide(currNavA);
+}
+</script></div>
+<div class="bodyContentWrap" id="bodyContentWrap">
+
+   
+
+<div id="breadCrumb">
+         <ul>
+<li><a href="/">Home</a></li>
+<li><a href="/Programming/">Programming</a></li>
+<li><a href="/Programming/Languages/">Languages</a></li>
+<li><a href="/Programming/Languages/C_Sharp/">C#</a></li>
+<li class="currentPage">Changing column header color of a ListView control in C#</li>
+</ul>
+</div>
+<div id="pageRight"><div id="daysExpand" class="daysExpandClass">
+           <div class="daysExpandBG">
+             <a class="startTrialLink" href="https://secure.experts-exchange.com/register.jsp?rsid=130&srid=Js39whxZGVybM0MnpFHMIw%3D%3D&srid=Js39whxZGVybM0MnpFHMIw%3D%3D&redirectURL=/Programming/Languages/C_Sharp/Q_21779713.html&cid=2158"></a>
+             <a class="expandCorp" onclick="hideElement('daysExpand');showElement('corpExpand');"></a>
+             <a class="expandAnswer" onclick="hideElement('daysExpand');showElement('answerExpand');"></a>
+           </div>
+         </div>
+         
+         <div id="corpExpand" class="corpExpandClass">
+           <div class="corpExpandBG">
+             <a class="startCorpLink" href="https://secure.experts-exchange.com/subscribeCorporateAccount.jsp?rsid=20&srid=Js39whxZGVybM0MnpFHMIw%3D%3D&srid=Js39whxZGVybM0MnpFHMIw%3D%3D&redirectURL=/Programming/Languages/C_Sharp/Q_21779713.html&cid=2159"></a>
+             <a class="expandDays" onclick="hideElement('corpExpand');showElement('daysExpand');"></a>
+             <a class="expandAnswer" onclick="hideElement('corpExpand');showElement('answerExpand');"></a>
+           </div>
+         </div>
+         
+         <div id="answerExpand" class="answerExpandClass">
+           <div class="answerExpandBG">
+             <a class="startAnswerLink" href="https://secure.experts-exchange.com/becomeAnExpert.jsp?rsid=20&srid=Js39whxZGVybM0MnpFHMIw%3D%3D&srid=Js39whxZGVybM0MnpFHMIw%3D%3D&redirectURL=/Programming/Languages/C_Sharp/Q_21779713.html&cid=2160"></a>
+             <a class="expandDays" onclick="hideElement('answerExpand');showElement('daysExpand');"></a>
+             <a class="expandCorp" onclick="hideElement('answerExpand');showElement('corpExpand');"></a>
+           </div>
+         </div>
+         
+ <script type="text/javascript">
+ hideElement('corpExpand');
+ hideElement('answerExpand');
+ </script>
+ <div class="c cnh aboutEE" id="aboutEE" >
+<table class="h"><tr><td class="l"></td><td>&nbsp;</td><td class="r"></td></tr></table>
+<div class="bc"><div class="b">
+<div id="meetAnExpert" >
+      <ul id="maeList" >
+         <li id="maeEntry0"></li>
+         <li id="maeEntry1" class="maeEntries">
+            <div>
+               <a href="/M_388333.html" onclick="stopSlideshow();"></a>
+            </div>
+         </li>
+         <li id="maeEntry2" class="maeEntries"></li>
+         <li id="maeEntry3" class="maeEntries">
+            <div>
+               <a href="/M_302115.html" onclick="stopSlideshow();"></a>
+            </div>
+         </li>
+         <li id="maeEntry4" class="maeEntries"></li>
+         <li id="maeEntry5" class="maeEntries">
+            <div>
+               <a href="/M_152751.html" onclick="stopSlideshow();"></a>
+            </div>
+         </li>
+         <li id="maeEntry6" class="maeEntries"></li>
+         <li id="maeEntry7" class="maeEntries">
+            <div>
+               <a href="/M_3693836.html" onclick="stopSlideshow();"></a>
+            </div>
+         </li>
+         <li id="maeEntry8" class="maeEntries"></li>
+         <li id="maeEntry9" class="maeEntries">
+            <div>
+               <a href="/M_1508232.html" onclick="stopSlideshow();"></a>
+            </div>
+         </li>
+         <li id="maeEntry10" class="maeEntries"></li>
+         <li id="maeEntry11" class="maeEntries"></li>
+         <li id="maeEntry12" class="maeEntries"></li>
+      </ul>
+   </div>
+   <div class="meetAnExpertNav">
+      <a id="aeeNextInfo" class="aboutEEComponent" onclick="doNothing()" rel="nofollow"></a>
+      <a id="aeePrevInfo" class="aboutEEComponent" onclick="doNothing()" rel="nofollow"></a>
+   </div>
+   <div class="clear"></div>
+   <div id="aeeCorps" >
+      <ul id="corpClients">
+         <li id="client0"></li>
+         <li id="client1" class="ccEntries"></li>
+         <li id="client2" class="ccEntries"></li>
+         <li id="client3" class="ccEntries"></li>
+         <li id="client4" class="ccEntries"></li>
+      </ul>
+   </div>
+   <div class="aeeCorpsNav">
+      <a id="aeeNextCorp" onclick="doNothing()" class="aboutEEComponent " rel="nofollow"></a>
+      <a id="aeePrevCorp" onclick="doNothing()" class="aboutEEComponent " rel="nofollow"></a>
+   </div>
+   <div class="clear"></div>
+</div></div>
+<table class="f"><tr><td class="l"></td><td>&nbsp;</td><td class="r"></td></tr></table>
+</div>
+<script src="http://images.experts-exchange.com/scripts/slideshow.js" type="text/javascript"></script>
+  <script type="text/javascript">
+   var transitionTime = 1000 ;
+   var levelInc = 0.01
+  
+
+   expertSlideShow = new slideShow;
+   expertSlideShow.buildSlideshow("maeList", "aeePrevInfo", "aeeNextInfo", 
+         { transition: transitionTime, wait: 10000 });
+   
+   var adSlideShow = new slideShow;
+   window.setTimeout(function() { adSlideShow.buildSlideshow("corpClients", "aeePrevCorp", "aeeNextCorp", 
+         { levelIncrement: levelInc, transition: transitionTime, wait: 10000 }); }, 5000);
+
+   function doNothing()
+   {
+   }
+   
+   function stopSlideshow()
+   {
+      expertSlideShow.stopSlideshow();
+   };
+
+  </script>
+<div id="compNwQst">
+   <div class="signUpCorp">
+      <div class="bTypeA bGlowLarge bGlowLargeBlue"><a class="bTextCorporateAccounts" href="/subscribeCorporateAccount.jsp?cid=665"><div class="glowLeft"></div><div class="glowMiddle" style="padding-left: 23px; padding-right: 24px;"><div class="t2i" style="background: url(http://t2i.experts-exchange.com/t/421784-50.png) no-repeat;width:132px;height:18px;"></div></div><div class="glowRight"></div></a></div></div>
+</div>
+
+<div class="c cnh" id="compSky" >
+<table class="h"><tr><td class="l"></td><td>&nbsp;</td><td class="r"></td></tr></table>
+<div class="bc"><div class="b">
+<p>Advertisement</p>
+<div id="componentSkyScraperAdDiv"></div></div></div>
+<table class="f"><tr><td class="l"></td><td>&nbsp;</td><td class="r"></td></tr></table>
+</div>
+<div class="c cbk compTEVQP92" id="compTE" >
+<table class="h"><tr><td class="l"></td><td>Hall of Fame</td><td class="r"></td></tr></table>
+<div class="bc"><div class="b">
+<div class="timeframe yearly">
+<div class="t2i" style="background: url(http://images.experts-exchange.com/t/67-50.png) no-repeat;width:29px;height:12px;"></div></div>
+<ol>
+<li><div class="summary"><span class="name lo">1. roshmon</span><span class="rank ">249,409</span></div></li>
+<li><div class="summary"><span class="name lo">2. zadeveloper</span><span class="rank ">139,207</span></div></li>
+<li><div class="summary"><span class="name lo">3. Idle_Mind</span><span class="rank ">128,486</span></div></li>
+<li><div class="summary"><span class="name lo">4. k_swapnil</span><span class="rank  rankup">119,686</span></div></li>
+<li><div class="summary"><span class="name lo">5. guru_sami</span><span class="rank  rankdown">119,512</span></div></li>
+<li><div class="summary"><span class="name lo">6. tgerbert</span><span class="rank  rankdown">118,022</span></div></li>
+<li><div class="summary"><span class="name lo">7. mas_oz...</span><span class="rank ">104,273</span></div></li>
+<li><div class="summary"><span class="name lo">8. Fernando...</span><span class="rank ">91,496</span></div></li>
+<li><div class="summary"><span class="name lo">9. TheLearn...</span><span class="rank ">81,904</span></div></li>
+<li><div class="summary"><span class="name lo">10. anarki_ji...</span><span class="rank ">78,217</span></div></li>
+<li><div class="summary"><span class="name lo">11. Pryrates</span><span class="rank ">76,318</span></div></li>
+<li><div class="summary"><span class="name lo">12. vora_bha...</span><span class="rank ">67,448</span></div></li>
+<li><div class="summary"><span class="name lo">13. ajitha75</span><span class="rank ">59,679</span></div></li>
+<li><div class="summary"><span class="name lo">14. Mathiyazh...</span><span class="rank ">58,100</span></div></li>
+<li><div class="summary"><span class="name lo">15. reza_rad</span><span class="rank ">53,964</span></div></li>
+<li><div class="summary"><span class="name lo">16. HainKurt</span><span class="rank  rankup">51,768</span></div></li>
+<li><div class="summary"><span class="name lo">17. rkworlds</span><span class="rank  rankdown">50,460</span></div></li>
+<li><div class="summary"><span class="name lo">18. sudheesh...</span><span class="rank ">49,305</span></div></li>
+<li><div class="summary"><span class="name lo">19. pradyahuja</span><span class="rank  rankup">45,554</span></div></li>
+<li><div class="summary"><span class="name lo">20. krunal_s...</span><span class="rank  rankdown">43,032</span></div></li>
+<li><div class="summary"><span class="name lo">21. abel</span><span class="rank ">39,060</span></div></li>
+<li><div class="summary"><span class="name lo">22. kaufmed</span><span class="rank ">37,367</span></div></li>
+<li><div class="summary"><span class="name lo">23. lenordiste</span><span class="rank ">36,878</span></div></li>
+<li><div class="summary"><span class="name lo">24. DaTribe</span><span class="rank ">36,364</span></div></li>
+<li><div class="summary"><span class="name lo">25. magicdlf</span><span class="rank ">33,132</span></div></li>
+</ol>
+<div class="timeframe overall">
+<div class="t2i" style="background: url(http://images.experts-exchange.com/t/65-50.png) no-repeat;width:34px;height:12px;"></div></div>
+<ol>
+<li><div class="summary"><span class="name lo">1. TheLearn...</span><span class="rank ">2,789,235</span></div></li>
+<li><div class="summary"><span class="name lo">2. gregoryyo...</span><span class="rank ">1,422,807</span></div></li>
+<li><div class="summary"><span class="name lo">3. jaime_oliv...</span><span class="rank ">1,370,459</span></div></li>
+<li><div class="summary"><span class="name lo">4. Idle_Mind</span><span class="rank ">1,162,100</span></div></li>
+<li><div class="summary"><span class="name lo">5. Fernando...</span><span class="rank ">1,123,696</span></div></li>
+<li><div class="summary"><span class="name lo">6. AlexFM</span><span class="rank ">994,109</span></div></li>
+<li><div class="summary"><span class="name lo">7. ragi0017</span><span class="rank ">877,264</span></div></li>
+<li><div class="summary"><span class="name lo">8. anarki_ji...</span><span class="rank ">827,920</span></div></li>
+<li><div class="summary"><span class="name lo">9. angelIII</span><span class="rank ">760,039</span></div></li>
+<li><div class="summary"><span class="name lo">10. gauthampj</span><span class="rank ">726,747</span></div></li>
+<li><div class="summary"><span class="name lo">11. dstanley9</span><span class="rank ">713,657</span></div></li>
+<li><div class="summary"><span class="name lo">12. abel</span><span class="rank ">663,562</span></div></li>
+<li><div class="summary"><span class="name lo">13. TheAvenger</span><span class="rank ">653,871</span></div></li>
+<li><div class="summary"><span class="name lo">14. JimBrandley</span><span class="rank ">596,614</span></div></li>
+<li><div class="summary"><span class="name lo">15. emoreau</span><span class="rank ">591,178</span></div></li>
+<li><div class="summary"><span class="name lo">16. Dhaest</span><span class="rank ">587,624</span></div></li>
+<li><div class="summary"><span class="name lo">17. Zephyr__</span><span class="rank ">442,269</span></div></li>
+<li><div class="summary"><span class="name lo">18. MogalManic</span><span class="rank ">413,437</span></div></li>
+<li><div class="summary"><span class="name lo">19. p_davis</span><span class="rank ">402,210</span></div></li>
+<li><div class="summary"><span class="name lo">20. carl_tawn</span><span class="rank ">382,088</span></div></li>
+<li><div class="summary"><span class="name lo">21. REA_AN...</span><span class="rank ">366,519</span></div></li>
+<li><div class="summary"><span class="name lo">22. surajguptha</span><span class="rank ">359,057</span></div></li>
+<li><div class="summary"><span class="name lo">23. Desp</span><span class="rank ">351,128</span></div></li>
+<li><div class="summary"><span class="name lo">24. sumix</span><span class="rank ">328,743</span></div></li>
+<li><div class="summary"><span class="name lo">25. dungla</span><span class="rank ">323,707</span></div></li>
+</ol>
+</div></div>
+<table class="f"><tr><td class="l"></td><td>&nbsp;</td><td class="r"></td></tr></table>
+</div>
+</div><div id="pageMain">
+        <div id="minWidthMain"></div>
+
+<div class="infoBox eeText" id="eeMobileInfoBox">
+  <table class="infoBoxTable">
+    <tr>
+      <td class="infoBoxUL"></td>
+      <td class="infoBoxUM">
+        <a class="closeButtonTiny" href="javascript:void(0);" onclick="hideInfoBox('eeMobileInfoBox');">[x]</a>
+        <div class="title">Posted via EE Mobile</div>
+      </td>
+      <td class="infoBoxUR"></td>
+    </tr>
+    <tr>
+      <td class="infoBoxML"></td><td class="infoBoxMM eeText"><p><span>Search</span>, <span>ask</span>, and <span>monitor</span> your questions on the go with EE Mobile. <a href="http://mobile.experts-exchange.com" rel="noindex nofollow">Visit Experts Exchange</a> from your mobile device and never be out of touch again.</p></td>
+      <td class="infoBoxMR"></td>
+    </tr>
+    <tr>
+      <td class="infoBoxBL"></td>
+      <td class="infoBoxBM"></td>
+      <td class="infoBoxBR"></td>
+    </tr>
+  </table>
+</div>
+<a name="questionTop"></a>
+<div class="question">
+<div class="s shFFF5 sbk expGray sectionTwo question sQuestion"><table class="h rootH hQuestion"><tr><td class="l lQuestion"></td><td><span class="text">Question</span></td><td class="r"></td></tr></table><div class="bl blQuestion"><div class="br brQuestion"><div class="bbg bbgQuestion"><div class="empty"></div><div class="bc bcQuestion"><div class="infoBox eeText" id="attachmentDetails">
+  <table class="infoBoxTable">
+    <tr>
+      <td class="infoBoxUL"></td>
+      <td class="infoBoxUM">
+        <a class="closeButtonTiny" href="javascript:void(0);" onclick="hideInfoBox('attachmentDetails');">[x]</a>
+        <div class="title">Attachment Details</div>
+      </td>
+      <td class="infoBoxUR"></td>
+    </tr>
+    <tr>
+      <td class="infoBoxML"></td><td class="infoBoxMM eeText"><div id="attachmentDetailsContent"></div></td>
+      <td class="infoBoxMR"></td>
+    </tr>
+    <tr>
+      <td class="infoBoxBL"></td>
+      <td class="infoBoxBM"></td>
+      <td class="infoBoxBR"></td>
+    </tr>
+  </table>
+</div>
+<div class="infoBox eeText infoBoxRight" id="questionScoreInfo">
+  <table class="infoBoxTable">
+    <tr>
+      <td class="infoBoxUL"></td>
+      <td class="infoBoxUM">
+        <a class="closeButtonTiny" href="javascript:void(0);" onclick="hideInfoBox('questionScoreInfo');">[x]</a>
+        <div class="title">The Solution Rating System</div>
+      </td>
+      <td class="infoBoxUR"></td>
+    </tr>
+    <tr>
+      <td class="infoBoxML"></td><td class="infoBoxMM eeText"><p>With so many solutions, how can you tell which solutions are most likely to help you and which ones are not?  To provide you with a tool to use, we rate our solutions based on various elements that most accurately determine if a solution is a quality solution.  To explain what factors affect the solution rating, here are the elements we take into consideration when formulating our solution rating.</p><ul>  <li>The Grade of the Solution</li>  <li>The Zone Rank of the Expert Providing the Solution</li>  <li>The Number of Author and Expert Comments</li>  <li>The Number of Experts Contributing</li>  <li>The Feedback of the Community</li></ul><p>Your Input Matters<br />Because of the way the system is set up, the most important variable in this equation is you.  As a member of <span class="ee">Experts Exchange</span>, you are able to cast your vote on the quality of the solutions in regard to how complete, accurate, helpful and easy to understand each solution is.  When you provide your feedback, each rating is adjusted accordingly.  So, if you see a solution that has a poor rating that you think is a good solution, let us know by rating it.  As you do, the rating will be adjusted and will become more accurate for other members of our site.</p><p>If you have any suggestions that you would like to make for our rating system, please ask a question in the <a href="/Community_Support/Suggestions/" rel="nofollow">Suggestions</a> Zone of Community Support.</p><p>Thank you!</p></td>
+      <td class="infoBoxMR"></td>
+    </tr>
+    <tr>
+      <td class="infoBoxBL"></td>
+      <td class="infoBoxBM"></td>
+      <td class="infoBoxBR"></td>
+    </tr>
+  </table>
+</div>
+<a class="questionScoreLink" href="javascript:void(0);" onClick="showInfoBox(event, 'questionScoreInfo', {right:true});">
+<div class="questionScore">
+<div class="ratingWord">
+            <div class="t2i" style="background: url(http://t2i.experts-exchange.com/t/416884-50.png) no-repeat;width:32px;height:7px;"></div></div>
+<div class="score">7.0</div>
+    <div class="scoreText">
+<div class="t2i" style="background: url(http://t2i.experts-exchange.com/t/416885-50.png) no-repeat;width:50px;height:7px;"></div></div>
+</div>
+</a>
+<div class="qTitle loggedOutQTitle">
+       <h1 class="titleHeader">Changing column header color of a ListView control in C#</h1>
+    </div>
+<h3 id="cmAskedBy">Asked by <a class="highlight" href="/M_959190.html">nikolap</a> in C# Programming Language</h3>
+<h3 id="cmTags">Tags: <span>
+        <a class="tag" rel="tag nofollow noindex" href="http://www.experts-exchange.com/tag/listview#allResults">listview</a>, <a class="tag" rel="tag nofollow noindex" href="http://www.experts-exchange.com/tag/color#allResults">color</a></span></h3>
+<div class="qBodyLoggedOut" id="EchoTopic">
+Hello,<br /><br />I added a ListView control in a form in C# with 1 column. How do I change the color of the column header from the traditional gray to something else?<br /><br />How can I also change the color of the caption of a form from blue to something else?<br /><br />Thanks<div id="startFreeTrialEcho">
+    <a id="startFreeTrialCTA" class="startFreeTrial startFreeTrialVQP51" href="https://secure.experts-exchange.com/register.jsp?rsid=20&srid=Js39whxZGVybM0MnpFHMIw%3D%3D&srid=Js39whxZGVybM0MnpFHMIw%3D%3D&redirectURL=/Programming/Languages/C_Sharp/Q_21779713.html&cid=2155">View the Solution FREE for 30 Days</a>
+</div>    
+</div>
+  
+  <div class="clear"></div>
+    
+<div class="clear"></div>
+     
+<a id="firstComment"></a>
+<div class="vqpsdBlurredAnswers">
+  <script type="text/javascript" src="http://images.experts-exchange.com/scripts/answerRating.js"></script>
+<script type="text/javascript" src="http://images.experts-exchange.com/scripts/swfobject.js"></script>
+
+<script type="text/javascript">
+var runscroll = new Array;
+var jwplayer = null;
+
+function playerReady(obj) {
+   jwplayer = document.getElementById(obj['id']);
+   addListeners();
+}
+         
+function addListeners() {
+   if (jwplayer) { 
+      jwplayer.addModelListener("STATE", "stateListener");
+   } else {
+      setTimeout("addListeners()",100);
+   }
+}
+
+function stateListener(obj) { //IDLE, BUFFERING, PLAYING, PAUSED, COMPLETED
+   if((obj.oldstate == "IDLE" || obj.oldstate == "BUFFERING") &&  obj.newstate == "PLAYING")
+   {
+      runscroll[obj['id']]();
+   }
+}
+</script><script type="text/javascript">
+function showSelfAccept(aid,experts){
+
+//   showPopupOverlay('selfAccept' + aid, 600, 200, '/shared/async/confirmAction.jsp?action=selfAccept&experts=' + experts + '&aid=' + aid,
+   showPopupOverlay('selfAccept' + aid, 600, 200, '/shared/async/confirmAction.jsp?action=selfAccept&experts=' + experts + '&aid=' + aid ,
+      false, false, "");
+
+   var yWithScroll = 0;
+   if (window.innerHeight && window.scrollMaxY) // Firefox
+      yWithScroll = window.innerHeight + window.scrollMaxY;
+   else if (document.body.scrollHeight > document.body.offsetHeight) // all but Explorer Mac
+      yWithScroll = document.body.scrollHeight;
+   else // works in Explorer 6 Strict, Mozilla (not FF) and Safari
+      yWithScroll = document.body.offsetHeight;  
+
+   document.getElementById(getBackgroundID("selfAccept"+aid)).style.height=yWithScroll;
+   window.scrollTo(0, 0);
+}
+</script>
+
+   <div class="answers">
+
+<div class="hasMouseOver" onmouseover="showSignUp(16229173)" onmouseout="removeSignUp(16229173)"><a id="16229173"></a>
+<a id="a16229173"></a>
+<div class="answerRatingNoInfo" id="answerRatingNoInfo16229173"></div>
+
+<div id="answerSection16229173" class="s shF5FF sg expGreen sectionTwo answer acceptedHeader blurredAnswer"><table class="h"><tr><td class="l"></td><td><a href="javascript:void(0);" class="minMaxButton maximizeButton" onClick="minimize('answerSection16229173', false, true); return false;">[+]</a><a href="javascript:void(0);" class="minMaxButton minimizeButton" onClick="minimize('answerSection16229173', true, true); return false;">[-]</a><span class="sectionHeaderExtra">03/19/06 04:48 AM,<span class="answerID"> ID: 16229173</span></span><span class="text">Accepted Solution</span></td><td class="r"></td></tr></table><div class="bl"><div class="br"><div class="bbg"><div class="empty"></div><div class="bc"><div class="underline"></div>
+<div class="answerBody quoted">
+<p>Your question has an Asker Certified&trade;
+  answer! nikolap verified that this solution worked for them--which means it will likely 
+   work for you, too. Click to <a href="https://secure.experts-exchange.com/register.jsp?rsid=20&srid=Js39whxZGVybM0MnpFHMIw%3D%3D&srid=Js39whxZGVybM0MnpFHMIw%3D%3D&redirectURL=/Programming/Languages/C_Sharp/Q_21779713.html&cid=2156" rel="nofollow"> view the solution free</a> for 30-days now.</p>
+
+<div class="acceptedSection">
+<h4>About this solution <img src="/xp/images/askerCertified.png" style="position:absolute; margin-top:-2px; margin-left:3px;"/></h4>
+<div><strong>Zone:</strong> C# Programming Language</div>
+<div><strong>Tags:</strong> listview, color</div>
+<a class="viewThisSolution" href="https://secure.experts-exchange.com/register.jsp?rsid=20&srid=Js39whxZGVybM0MnpFHMIw%3D%3D&srid=Js39whxZGVybM0MnpFHMIw%3D%3D&redirectURL=/Programming/Languages/C_Sharp/Q_21779713.html&cid=2157" rel="nofollow">Sign Up Now!</a>
+<div><strong>Solution Provided By:</strong> <a class="highlight" href="/M_3510798.html">SmithJW</a></div>
+   <div><strong>Participating Experts:</strong> 1</div>
+   <div><strong>Solution Grade:</strong> A</div>
+   <div class="clear"></div>
+</div>
+</div>
+<div class="clear"></div>
+</div><div class="empty"></div></div></div></div><table class="f"><tr><td class="l"></td><td>&nbsp;</td><td class="r"></td></tr></table>
+      </div>
+<a name="relatedSolutions"></a>
+                    <div id="relatedSolutions20X6">
+</div>
+</div>
+<div class="hasMouseOver" onmouseover="showSignUp(16228756)" onmouseout="removeSignUp(16228756)"><a id="16228756"></a>
+<a id="a16228756"></a>
+<div class="answerRatingNoInfo" id="answerRatingNoInfo16228756"></div>
+
+<div id="answerSection16228756" class="ms s shF5FF sb expExpBlue sectionTwo answer answerHeader blurredAnswer"><table class="mh h"><tr><td class="l"></td><td><a href="javascript:void(0);" class="minMaxButton maximizeButton" onClick="minimize('answerSection16228756', false, true); return false;">[+]</a><a href="javascript:void(0);" class="minMaxButton minimizeButton" onClick="minimize('answerSection16228756', true, true); return false;">[-]</a><span class="sectionHeaderExtra">03/19/06 01:20 AM,<span class="answerID"> ID: 16228756</span></span><span class="text">Expert Comment</span></td><td class="r"></td></tr></table><div class="bl"><div class="br"><div class="bbg"><div class="empty"></div><div class="bc"><div class="underline"></div>
+<div class="answerBody quoted">
+<p>At Experts Exchange, members can ask their questions to thousands of technology professionals,
+   also known as Experts. Experts compete and collaborate to answer those questions by leaving
+   comments like this one.</p>
+<p><a href="https://secure.experts-exchange.com/register.jsp?rsid=20&srid=Js39whxZGVybM0MnpFHMIw%3D%3D&srid=Js39whxZGVybM0MnpFHMIw%3D%3D&redirectURL=/Programming/Languages/C_Sharp/Q_21779713.html&cid=553" rel="nofollow">Start your 30-day free trial</a>
+   to view this Expert Comment or ask the Experts your question.</p>
+</div>
+<div class="clear"></div>
+</div><div class="empty"></div></div></div></div><table class="f"><tr><td class="l"></td><td>&nbsp;</td><td class="r"></td></tr></table>
+      </div>
+</div>
+<div class="hasMouseOver" onmouseover="showSignUp(16228842)" onmouseout="removeSignUp(16228842)"><a id="16228842"></a>
+<a id="a16228842"></a>
+<div class="answerRatingNoInfo" id="answerRatingNoInfo16228842"></div>
+
+<div id="answerSection16228842" class="ms s shF5FF sgray expGray sectionTwo answer askerHeader blurredAnswer"><table class="mh h"><tr><td class="l"></td><td><a href="javascript:void(0);" class="minMaxButton maximizeButton" onClick="minimize('answerSection16228842', false, true); return false;">[+]</a><a href="javascript:void(0);" class="minMaxButton minimizeButton" onClick="minimize('answerSection16228842', true, true); return false;">[-]</a><span class="sectionHeaderExtra">03/19/06 02:14 AM,<span class="answerID"> ID: 16228842</span></span><span class="text">Author Comment</span></td><td class="r"></td></tr></table><div class="bl"><div class="br"><div class="bbg"><div class="empty"></div><div class="bc"><div class="underline"></div>
+<div class="answerBody quoted">
+<p>Often, when Experts are collaborating with members who have asked questions, they will request
+   additional information about the problem. Askers respond with an author comment like this one.</p>
+
+<p><a href="https://secure.experts-exchange.com/register.jsp?rsid=20&srid=Js39whxZGVybM0MnpFHMIw%3D%3D&srid=Js39whxZGVybM0MnpFHMIw%3D%3D&redirectURL=/Programming/Languages/C_Sharp/Q_21779713.html&cid=553" rel="nofollow">Start your 30-day free trial</a>
+   to view this Author Comment or ask the Experts your question.</p>
+</div>
+<div class="clear"></div>
+</div><div class="empty"></div></div></div></div><table class="f"><tr><td class="l"></td><td>&nbsp;</td><td class="r"></td></tr></table>
+      </div>
+</div>
+<div class="hasMouseOver" onmouseover="showSignUp(16228934)" onmouseout="removeSignUp(16228934)"><a id="16228934"></a>
+<a id="a16228934"></a>
+<div class="answerRatingNoInfo" id="answerRatingNoInfo16228934"></div>
+
+<div id="answerSection16228934" class="ms s shF5FF sb expExpBlue sectionTwo answer answerHeader blurredAnswer"><table class="mh h"><tr><td class="l"></td><td><a href="javascript:void(0);" class="minMaxButton maximizeButton" onClick="minimize('answerSection16228934', false, true); return false;">[+]</a><a href="javascript:void(0);" class="minMaxButton minimizeButton" onClick="minimize('answerSection16228934', true, true); return false;">[-]</a><span class="sectionHeaderExtra">03/19/06 03:00 AM,<span class="answerID"> ID: 16228934</span></span><span class="text">Expert Comment</span></td><td class="r"></td></tr></table><div class="bl"><div class="br"><div class="bbg"><div class="empty"></div><div class="bc"><div class="underline"></div>
+<div class="answerBody quoted">
+<p>At Experts Exchange, members can ask their questions to thousands of technology professionals,
+   also known as Experts. Experts compete and collaborate to answer those questions by leaving
+   comments like this one.</p>
+<p><a href="https://secure.experts-exchange.com/register.jsp?rsid=20&srid=Js39whxZGVybM0MnpFHMIw%3D%3D&srid=Js39whxZGVybM0MnpFHMIw%3D%3D&redirectURL=/Programming/Languages/C_Sharp/Q_21779713.html&cid=553" rel="nofollow">Start your 30-day free trial</a>
+   to view this Expert Comment or ask the Experts your question.</p>
+</div>
+<div class="clear"></div>
+</div><div class="empty"></div></div></div></div><table class="f"><tr><td class="l"></td><td>&nbsp;</td><td class="r"></td></tr></table>
+      </div>
+</div>
+<div class="hasMouseOver" onmouseover="showSignUp(16229052)" onmouseout="removeSignUp(16229052)"><a id="16229052"></a>
+<a id="a16229052"></a>
+<div class="answerRatingNoInfo" id="answerRatingNoInfo16229052"></div>
+
+<div id="answerSection16229052" class="ms s shF5FF sgray expGray sectionTwo answer askerHeader blurredAnswer"><table class="mh h"><tr><td class="l"></td><td><a href="javascript:void(0);" class="minMaxButton maximizeButton" onClick="minimize('answerSection16229052', false, true); return false;">[+]</a><a href="javascript:void(0);" class="minMaxButton minimizeButton" onClick="minimize('answerSection16229052', true, true); return false;">[-]</a><span class="sectionHeaderExtra">03/19/06 03:47 AM,<span class="answerID"> ID: 16229052</span></span><span class="text">Author Comment</span></td><td class="r"></td></tr></table><div class="bl"><div class="br"><div class="bbg"><div class="empty"></div><div class="bc"><div class="underline"></div>
+<div class="answerBody quoted">
+<p>Often, when Experts are collaborating with members who have asked questions, they will request
+   additional information about the problem. Askers respond with an author comment like this one.</p>
+
+<p><a href="https://secure.experts-exchange.com/register.jsp?rsid=20&srid=Js39whxZGVybM0MnpFHMIw%3D%3D&srid=Js39whxZGVybM0MnpFHMIw%3D%3D&redirectURL=/Programming/Languages/C_Sharp/Q_21779713.html&cid=553" rel="nofollow">Start your 30-day free trial</a>
+   to view this Author Comment or ask the Experts your question.</p>
+</div>
+<div class="clear"></div>
+</div><div class="empty"></div></div></div></div><table class="f"><tr><td class="l"></td><td>&nbsp;</td><td class="r"></td></tr></table>
+      </div>
+</div>
+<div class="hasMouseOver" onmouseover="showSignUp(16229129)" onmouseout="removeSignUp(16229129)"><a id="16229129"></a>
+<a id="a16229129"></a>
+<div class="answerRatingNoInfo" id="answerRatingNoInfo16229129"></div>
+
+<div id="answerSection16229129" class="ms s shF5FF sb expExpBlue sectionTwo answer answerHeader blurredAnswer"><table class="mh h"><tr><td class="l"></td><td><a href="javascript:void(0);" class="minMaxButton maximizeButton" onClick="minimize('answerSection16229129', false, true); return false;">[+]</a><a href="javascript:void(0);" class="minMaxButton minimizeButton" onClick="minimize('answerSection16229129', true, true); return false;">[-]</a><span class="sectionHeaderExtra">03/19/06 04:25 AM,<span class="answerID"> ID: 16229129</span></span><span class="text">Expert Comment</span></td><td class="r"></td></tr></table><div class="bl"><div class="br"><div class="bbg"><div class="empty"></div><div class="bc"><div class="underline"></div>
+<div class="answerBody quoted">
+<p>At Experts Exchange, members can ask their questions to thousands of technology professionals,
+   also known as Experts. Experts compete and collaborate to answer those questions by leaving
+   comments like this one.</p>
+<p><a href="https://secure.experts-exchange.com/register.jsp?rsid=20&srid=Js39whxZGVybM0MnpFHMIw%3D%3D&srid=Js39whxZGVybM0MnpFHMIw%3D%3D&redirectURL=/Programming/Languages/C_Sharp/Q_21779713.html&cid=553" rel="nofollow">Start your 30-day free trial</a>
+   to view this Expert Comment or ask the Experts your question.</p>
+</div>
+<div class="clear"></div>
+</div><div class="empty"></div></div></div></div><table class="f"><tr><td class="l"></td><td>&nbsp;</td><td class="r"></td></tr></table>
+      </div>
+</div>
+<div class="hasMouseOver" onmouseover="showSignUp(16229147)" onmouseout="removeSignUp(16229147)"><a id="16229147"></a>
+<a id="a16229147"></a>
+<div class="answerRatingNoInfo" id="answerRatingNoInfo16229147"></div>
+
+<div id="answerSection16229147" class="ms s shF5FF sb expExpBlue sectionTwo answer answerHeader blurredAnswer"><table class="mh h"><tr><td class="l"></td><td><a href="javascript:void(0);" class="minMaxButton maximizeButton" onClick="minimize('answerSection16229147', false, true); return false;">[+]</a><a href="javascript:void(0);" class="minMaxButton minimizeButton" onClick="minimize('answerSection16229147', true, true); return false;">[-]</a><span class="sectionHeaderExtra">03/19/06 04:37 AM,<span class="answerID"> ID: 16229147</span></span><span class="text">Expert Comment</span></td><td class="r"></td></tr></table><div class="bl"><div class="br"><div class="bbg"><div class="empty"></div><div class="bc"><div class="underline"></div>
+<div class="answerBody quoted">
+<p>At Experts Exchange, members can ask their questions to thousands of technology professionals,
+   also known as Experts. Experts compete and collaborate to answer those questions by leaving
+   comments like this one.</p>
+<p><a href="https://secure.experts-exchange.com/register.jsp?rsid=20&srid=Js39whxZGVybM0MnpFHMIw%3D%3D&srid=Js39whxZGVybM0MnpFHMIw%3D%3D&redirectURL=/Programming/Languages/C_Sharp/Q_21779713.html&cid=553" rel="nofollow">Start your 30-day free trial</a>
+   to view this Expert Comment or ask the Experts your question.</p>
+</div>
+<div class="clear"></div>
+</div><div class="empty"></div></div></div></div><table class="f"><tr><td class="l"></td><td>&nbsp;</td><td class="r"></td></tr></table>
+      </div>
+</div>
+<div class="hasMouseOver" onmouseover="showSignUp(16229154)" onmouseout="removeSignUp(16229154)"><a id="16229154"></a>
+<a id="a16229154"></a>
+<div class="answerRatingNoInfo" id="answerRatingNoInfo16229154"></div>
+
+<div id="answerSection16229154" class="ms s shF5FF sb expExpBlue sectionTwo answer answerHeader blurredAnswer"><table class="mh h"><tr><td class="l"></td><td><a href="javascript:void(0);" class="minMaxButton maximizeButton" onClick="minimize('answerSection16229154', false, true); return false;">[+]</a><a href="javascript:void(0);" class="minMaxButton minimizeButton" onClick="minimize('answerSection16229154', true, true); return false;">[-]</a><span class="sectionHeaderExtra">03/19/06 04:41 AM,<span class="answerID"> ID: 16229154</span></span><span class="text">Expert Comment</span></td><td class="r"></td></tr></table><div class="bl"><div class="br"><div class="bbg"><div class="empty"></div><div class="bc"><div class="underline"></div>
+<div class="answerBody quoted">
+<p>At Experts Exchange, members can ask their questions to thousands of technology professionals,
+   also known as Experts. Experts compete and collaborate to answer those questions by leaving
+   comments like this one.</p>
+<p><a href="https://secure.experts-exchange.com/register.jsp?rsid=20&srid=Js39whxZGVybM0MnpFHMIw%3D%3D&srid=Js39whxZGVybM0MnpFHMIw%3D%3D&redirectURL=/Programming/Languages/C_Sharp/Q_21779713.html&cid=553" rel="nofollow">Start your 30-day free trial</a>
+   to view this Expert Comment or ask the Experts your question.</p>
+</div>
+<div class="clear"></div>
+</div><div class="empty"></div></div></div></div><table class="f"><tr><td class="l"></td><td>&nbsp;</td><td class="r"></td></tr></table>
+      </div>
+</div>
+<div class="hasMouseOver" onmouseover="showSignUp(16457467)" onmouseout="removeSignUp(16457467)"><a id="16457467"></a>
+<a id="a16457467"></a>
+<div class="answerRatingNoInfo" id="answerRatingNoInfo16457467"></div>
+
+<div id="answerSection16457467" class="ms s shF5FF so expDarkOrange sectionTwo answer adminHeader blurredAnswer"><table class="mh h"><tr><td class="l"></td><td><a href="javascript:void(0);" class="minMaxButton maximizeButton" onClick="minimize('answerSection16457467', false, true); return false;">[+]</a><a href="javascript:void(0);" class="minMaxButton minimizeButton" onClick="minimize('answerSection16457467', true, true); return false;">[-]</a><span class="sectionHeaderExtra">04/14/06 02:31 PM,<span class="answerID"> ID: 16457467</span></span><span class="text">Administrative Comment</span></td><td class="r"></td></tr></table><div class="bl"><div class="br"><div class="bbg"><div class="empty"></div><div class="bc"><div class="underline"></div>
+<div class="answerBody quoted">
+<p>Experts Exchange has a courteous staff of administrators who help members get the most out of
+   the website by means of administrative comments like this one.</p>
+<p><a href="https://secure.experts-exchange.com/register.jsp?rsid=20&srid=Js39whxZGVybM0MnpFHMIw%3D%3D&srid=Js39whxZGVybM0MnpFHMIw%3D%3D&redirectURL=/Programming/Languages/C_Sharp/Q_21779713.html&cid=553" rel="nofollow">Start your 30-day free trial</a>
+   to view this Administrative Comment or ask the Experts your question.</p>
+</div>
+<div class="clear"></div>
+</div><div class="empty"></div></div></div></div><table class="f"><tr><td class="l"></td><td>&nbsp;</td><td class="r"></td></tr></table>
+      </div>
+</div>
+<div class="hasMouseOver" onmouseover="showSignUp(16494380)" onmouseout="removeSignUp(16494380)"><a id="16494380"></a>
+<a id="a16494380"></a>
+<div class="answerRatingNoInfo" id="answerRatingNoInfo16494380"></div>
+
+<div id="answerSection16494380" class="ms s shF5FF so expDarkOrange sectionTwo answer adminHeader blurredAnswer"><table class="mh h"><tr><td class="l"></td><td><a href="javascript:void(0);" class="minMaxButton maximizeButton" onClick="minimize('answerSection16494380', false, true); return false;">[+]</a><a href="javascript:void(0);" class="minMaxButton minimizeButton" onClick="minimize('answerSection16494380', true, true); return false;">[-]</a><span class="sectionHeaderExtra">04/19/06 06:55 PM,<span class="answerID"> ID: 16494380</span></span><span class="text">Administrative Comment</span></td><td class="r"></td></tr></table><div class="bl"><div class="br"><div class="bbg"><div class="empty"></div><div class="bc"><div class="underline"></div>
+<div class="answerBody quoted">
+<p>Experts Exchange has a courteous staff of administrators who help members get the most out of
+   the website by means of administrative comments like this one.</p>
+<p><a href="https://secure.experts-exchange.com/register.jsp?rsid=20&srid=Js39whxZGVybM0MnpFHMIw%3D%3D&srid=Js39whxZGVybM0MnpFHMIw%3D%3D&redirectURL=/Programming/Languages/C_Sharp/Q_21779713.html&cid=553" rel="nofollow">Start your 30-day free trial</a>
+   to view this Administrative Comment or ask the Experts your question.</p>
+</div>
+<div class="clear"></div>
+</div><div class="empty"></div></div></div></div><table class="f"><tr><td class="l"></td><td>&nbsp;</td><td class="r"></td></tr></table>
+      </div>
+</div>
+<div class="hasMouseOver" onmouseover="showSignUp(16518546)" onmouseout="removeSignUp(16518546)"><a id="16518546"></a>
+<a id="a16518546"></a>
+<div class="answerRatingNoInfo" id="answerRatingNoInfo16518546"></div>
+
+<div id="answerSection16518546" class="ms s shF5FF so expDarkOrange sectionTwo answer adminHeader blurredAnswer"><table class="mh h"><tr><td class="l"></td><td><a href="javascript:void(0);" class="minMaxButton maximizeButton" onClick="minimize('answerSection16518546', false, true); return false;">[+]</a><a href="javascript:void(0);" class="minMaxButton minimizeButton" onClick="minimize('answerSection16518546', true, true); return false;">[-]</a><span class="sectionHeaderExtra">04/23/06 03:12 AM,<span class="answerID"> ID: 16518546</span></span><span class="text">Administrative Comment</span></td><td class="r"></td></tr></table><div class="bl"><div class="br"><div class="bbg"><div class="empty"></div><div class="bc"><div class="underline"></div>
+<div class="answerBody quoted">
+<p>Experts Exchange has a courteous staff of administrators who help members get the most out of
+   the website by means of administrative comments like this one.</p>
+<p><a href="https://secure.experts-exchange.com/register.jsp?rsid=20&srid=Js39whxZGVybM0MnpFHMIw%3D%3D&srid=Js39whxZGVybM0MnpFHMIw%3D%3D&redirectURL=/Programming/Languages/C_Sharp/Q_21779713.html&cid=553" rel="nofollow">Start your 30-day free trial</a>
+   to view this Administrative Comment or ask the Experts your question.</p>
+</div>
+<div class="clear"></div>
+</div><div class="empty"></div></div></div></div><table class="f"><tr><td class="l"></td><td>&nbsp;</td><td class="r"></td></tr></table>
+      </div>
+</div>
+</div>
+<script type="text/javascript">
+function showSignUp(id)
+{
+   var select = document.getElementById("answer"+id);
+   if (select != null)
+      select.className = 'signUpSpaceVisible';
+}
+
+function removeSignUp(id)
+{
+   var select = document.getElementById("answer"+id);
+   if (select != null)
+      select.className = 'signUpSpace';
+}
+</script>
+
+</div>
+
+</div><div class="empty"></div></div></div></div><table class="f"><tr><td class="l"></td><td>&nbsp;</td><td class="r"></td></tr></table>
+      </div>
+</div>
+
+<div class="adSense">
+        <div id="btmGoogleAdDiv">
+          <div id="btmGoogleAdDivInner">Loading Advertisement...</div>
+        </div>
+      </div>
+          <div class="qwID">
+20100308-EE-VQP-137</div>
+
+<div id="bottomBanner" class="bottomBanner2">
+  <div class="bottomBannerContent">
+    <div class="bottomBannerHighlight"></div>
+    <div class="bottomBannerText">Your technology problems solved.</div>
+    <a class="bottomBannerClose" href="#" onclick="document.getElementById('bottomBanner').style.display = 'none'; createCookie('HBB', 'true', 0); return false;">Close</a>
+    <a class="bottomBannerButton" href="https://secure.experts-exchange.com/register.jsp?rsid=20&srid=Js39whxZGVybM0MnpFHMIw%3D%3D&redirectURL=/Programming/Languages/C_Sharp/Q_21779713.html&cid=2154">See Plans and Pricing. Try it FREE for 30 days.</a>
+  </div>
+</div>
+
+<!-- close the body column -->
+      </div>
+<div id="pageFooter">
+<ul id="compFL">
+  <li><a href="/shortenURL.jsp">Shorten URL</a>|</li>
+  <li><a href="/help.jsp">Help</a>|</li>
+  <li><a href="/aboutUs.jsp">About Us</a>|</li>
+  <li><a href="/contactUs.jsp">Contact Us</a>|</li>
+  <li><a href="/memberAgreement.jsp">Member Agreement</a>|</li>
+  <li><a href="http://www.alexa.com/siteinfo/experts-exchange.com" title="Internet Rank">Internet Rank</a>|</li>
+  <li><a href="/privacyPolicy.jsp">Privacy Policy</a>|</li>
+  <li class="lastInList"><a href="/siteMap.jsp">Site Map</a></li>
+</ul>
+<script type="text/javascript">
+  if (hideCompFLOnCreate == true)
+    document.getElementById('compFL').style.visibility = 'hidden';
+</script><div id="compCpyr">
+<div class="t2i" style="background: url(http://t2i.experts-exchange.com/t/426676-50.png) no-repeat;width:306px;height:11px;"></div></div>
+<div id="compCpyrText"><span class="noWrap">Copyright © 1996 - 2010 Experts Exchange, LLC.</span> <span class="noWrap">All rights reserved.</span></div>
+</div><div id="bodyFooterSpacer"></div></div></div></div></div></div>
+
+
+<script type="text/javascript">eeAdsLoaded = 1</script>
+<script type="text/javascript" src="http://images.experts-exchange.com/timer/timer1.js"></script>
+<script type="text/javascript" src="http://images.experts-exchange.com/timer/timer2.js"></script>
+<script type="text/javascript" src="http://images.experts-exchange.com/timer/timer3.js"></script>
+<script type="text/javascript" src="http://images.experts-exchange.com/timer/timer4.js"></script>
+<img src="/timer/timer1.gif" onload="endEETimer()" />
+<img src="/timer/timer2.gif" onload="endEETimer()" />
+<img src="/timer/timer3.gif" onload="endEETimer()" />
+<img src="/timer/timer4.gif" onload="endEETimer()" />
+
+<img src="/timer/timer5.gif" onload="endEETimer()" />
+<img src="/timer/timer6.gif" onload="endEETimer()" />
+<script type="text/javascript">
+      // ~JDF The IE7 test was previously comment out. Don't know why.  If things with the footer seem strange
+      // this is a suspect. 
+      resizeFooter(false);
+   </script>
+<!-- SiteCatalyst code version: H.7.
+Copyright 1997-2006 Omniture, Inc. More info available at
+http://www.omniture.com -->
+<script language="JavaScript"><!--
+/* You may give each page an identifying name, server, and channel on
+the next lines. */
+var s = setUpOmnitureVariable();
+s.pageName="LO-20100308-EE-VQP-137";
+s.server="www22.experts-exchange.com";
+s.channel="Programming/Languages/C_Sharp";
+s.pageType="";
+s.prop1=document.title;
+s.prop2="";
+s.prop3="";
+s.prop4="";
+s.prop5="";
+s.prop6="";
+s.prop7="";
+s.prop8="";
+s.prop9=""; 
+s.prop10="";
+s.prop11="";
+s.prop12="";
+s.prop14="";
+s.prop15="50";
+s.prop16="";
+s.prop17="";
+s.prop18="";
+s.prop19="";
+s.prop20="";
+s.prop21="";
+s.prop22="";
+s.prop23="";
+s.prop24="";
+s.prop25="";
+s.prop26="";
+s.prop27="";
+s.prop28="";
+s.prop29="";
+s.prop30="";
+s.prop31="";
+s.prop32="";
+s.prop33="";
+s.prop34="";
+s.prop35="";
+s.prop36="";
+s.prop37="";
+s.prop38="";
+s.prop39="";
+s.prop40="";
+s.prop41="";
+s.prop42="";
+s.prop43="";
+s.prop44="";
+s.prop45="";
+s.prop46="";
+s.prop47="";
+s.prop48="";
+s.prop49="";
+s.prop50="";
+/* E-commerce Variables */
+s.campaign="";
+s.events="event4";
+s.products="";
+s.state="";
+s.zip="";
+s.purchaseID="";
+s.eVar1=document.title;
+s.eVar2="";
+s.eVar3="";
+s.eVar4="";
+s.eVar5="";
+s.eVar6="Free Trial Guest";
+s.eVar7="";
+s.eVar8="";
+s.eVar9="";
+s.eVar10="";
+s.eVar14="";
+s.eVar15="";
+s.eVar16="";
+s.eVar17="";
+s.eVar18="";
+s.eVar19="";
+s.eVar20="";
+s.eVar21="";
+s.eVar22="";
+s.eVar23="";
+s.eVar24="";
+s.eVar25="control";
+s.eVar26="";
+s.eVar27="";
+s.eVar28="";
+s.eVar29="6AM";
+s.eVar30="Sunday";
+s.eVar31="84.77.3.46";
+s.eVar32="";
+s.eVar33="Programming/Languages/C_Sharp";
+s.eVar34="7";
+s.eVar35="20100308-EE-VQP-137-FREE-TRIAL";
+s.eVar36="Bttm Span 2.0 - Control";
+s.eVar37=""; 
+s.eVar38="null";
+s.eVar39="";
+s.eVar40="";
+s.eVar41="";
+s.eVar42="";
+s.eVar43="";
+s.eVar44="Accepted Solution";
+s.eVar45="EE_Level3 - 2";
+s.eVar46="";
+s.eVar47="";
+s.eVar48="";
+s.eVar49="rating7.0";
+
+
+/* Hierarchy Variables */
+s.hier1="Programming/Languages/C_Sharp";
+/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+var s_code=s.t();if(s_code)document.write(s_code)//--></script>
+<script language="JavaScript"><!--
+if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+//--></script><noscript><img
+src="http://metrics.experts-exchange.com/b/ss/eexchangeprod/1/H.7--NS/0"
+height="1" width="1" border="0" alt="" /></noscript><!--/DO NOT REMOVE/-->
+<!-- End SiteCatalyst code version: H.7. -->
+<script language="JavaScript">
+   function getOmnitureFunction()
+   {
+      var s2 = setUpOmnitureVariable();
+      s2.pageName="LO-20100308-EE-VQP-137";
+      s2.server="www22.experts-exchange.com";
+      s2.channel="Programming/Languages/C_Sharp";
+      s2.pageType="";
+      s2.prop1=document.title;
+      s2.prop2="";
+      s2.prop11="";
+      s2.prop15="50";
+      s2.prop31="";
+      /* E-commerce Variables */
+      s2.campaign="";
+      s2.events="event4";
+      s2.eVar1=document.title;
+      s2.eVar6="Free Trial Guest";
+      s2.eVar7="";
+      s2.eVar20="";
+      s2.eVar26="";
+      s2.eVar29="6AM";
+      s2.eVar30="Sunday";
+      s2.eVar31="84.77.3.46";
+      s2.eVar33="Programming/Languages/C_Sharp";
+      s2.eVar34="7";
+      s2.eVar35="20100308-EE-VQP-137-FREE-TRIAL";
+      s2.eVar36="Bttm Span 2.0 - Control";
+      s2.eVar45="EE_Level3 - 2";
+      s2.eVar47="";
+      
+      return s2;
+   }
+   
+   function postToOmniture(s2)
+   {
+      if (!s2)
+         s2 = getOmnitureFunction();
+      
+      /************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+      var s_code=s2.t();
+   }
+   
+   function postAsycOmnitureGoogleSearch(elementID)
+   {
+      var googleRadionButton = document.getElementById(elementID);
+      if ((googleRadionButton.type == 'radio' && googleRadionButton.checked) ||
+          (googleRadionButton.type == 'hidden' && googleRadionButton.value == '1'))
+      {
+         var s2 = getOmnitureFunction();
+         s2.prop39 = 'Google Search';
+         s2.evar14 = 'Google Search';
+         postToOmniture(s2);
+      }
+   }
+
+   function postAsyncOmnitureProp(prop, value)
+   {
+      var s2 = getOmnitureFunction();
+      eval("s2." + prop + " = '" + value + "';");
+      //alert("s2." + prop + " = '" + value + "';");
+      postToOmniture(s2); 
+   }
+
+</script>
+<script type="text/javascript">
+// <![CDATA[
+
+addCookie('EECC_0', 'SCMESS=0&EESESSIONS=1&EEPAGES=1&CORPFUNNEL=2&EXP=BS_CONTROLf&CLOAD=1', 2147483647);
+
+addCookie('EETEMPA', '9f000c94c12bda810db1a30a1850b727a0f56cf2', 86400);
+
+addCookie('DLC', '', 2147483647);
+
+// ]]>
+</script>
+
+<script type="text/javascript">
+  var fakeLocations = new Array();
+  var realLocations = new Array();
+</script>
+<div id="headerAdvertisementDivTemp" style="display: none;">
+    <script type="text/javascript">
+      fakeLocations[fakeLocations.length] = 'headerAdvertisementDivTemp';
+      realLocations[realLocations.length] = 'headerAdvertisementDiv';
+      document.write('<scr'+'ipt type="text/javascript">\n//<![CDATA[\nord = window.ord || Math.floor(Math.random()*1E16);\ndocument.write( \'<scri\'+\'pt type="text/javascript" src="http://ad2.netshelter.net/adj/ns.expertsexchange/programming;kw=;tile=1;dcopt=ist;sz=728x90;ord= \' + ord + \'?"></scr\'+\'ipt>\');\n//]]>\n</scr'+'ipt>');
+    </script>
+  </div>
+
+<div id="componentSkyScraperAdDivTemp" style="display: none;">
+    <script type="text/javascript">
+      fakeLocations[fakeLocations.length] = 'componentSkyScraperAdDivTemp';
+      realLocations[realLocations.length] = 'componentSkyScraperAdDiv';
+      document.write('<scr'+'ipt type="text/javascript">\n//<![CDATA[\nord = window.ord || Math.floor(Math.random()*1E16);\ndocument.write( \'<scri\'+\'pt type="text/javascript" src="http://ad2.netshelter.net/adj/ns.expertsexchange/programming;kw=;tile=1;dcopt=ist;sz=120x600,160x600;ord= \' + ord + \'?"></scr\'+\'ipt>\');\n//]]>\n</scr'+'ipt>');
+    </script>
+  </div>
+
+<div id="btmGoogleAdDivTemp" style="display: none;">
+    <script type="text/javascript">
+      fakeLocations[fakeLocations.length] = 'btmGoogleAdDivTemp';
+      realLocations[realLocations.length] = 'btmGoogleAdDiv';
+      document.write('<scr'+'ipt type="text/javascript">\n//<![CDATA[\nord = window.ord || Math.floor(Math.random()*1E16);\ndocument.write( \'<scri\'+\'pt type="text/javascript" src="http://ad2.netshelter.net/adj/ns.expertsexchange/programming;kw=;tile=1;dcopt=ist;sz=728x90;ord= \' + ord + \'?"></scr\'+\'ipt>\');\n//]]>\n</scr'+'ipt>');
+    </script>
+  </div>
+
+<script type="text/javascript">
+for (var i=0; i<fakeLocations.length; i++)
+{
+   var fakeLocation = document.getElementById(fakeLocations[i]);
+   var realLocation = document.getElementById(realLocations[i]);
+
+   if (fakeLocation && realLocation)
+   {
+      for (index = fakeLocation.childNodes.length - 1; index >= 0; index--)
+      {
+         var element = fakeLocation.childNodes[index];
+         if ((element.nodeName == 'SCRIPT') || (element.nodeName == 'NOSCRIPT'))
+            fakeLocation.removeChild(element);
+      }
+   
+      fakeLocation.parentNode.removeChild(fakeLocation);
+      realLocation.parentNode.replaceChild(fakeLocation, realLocation);
+      fakeLocation.style.display = 'block';
+   }
+}
+</script>
+
+<!-- Begin Tribal Fusion Text Links -->	
+<link href="http://ctxt.tribalfusion.com/ctxt/textlinks.css" type="text/css" rel="stylesheet">
+	<script>
+		var tf_pubSiteId=2;
+		var tf_maxKeywords=7;
+	</script>
+	<script src="http://ctxt.tribalfusion.com/ctxt/textlinks.js" type="text/javascript"></script>
+<!-- _End_ Tribal Fusion Text Links -->	
+</body>
+
+</html>
+
+<!-- www22.experts-exchange.com:80 -->

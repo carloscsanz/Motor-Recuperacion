@@ -1,0 +1,323 @@
+
+<html>
+<head>
+<title>Getting Started with SMO in SQL 2005</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="/styles/main.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function AddToFav ()
+	{
+		if (window.external)
+		{window.external.AddFavorite("http://www.sqldabtips.com/showarticle.asp?ID=34","Getting Started with SMO in SQL 2005");}
+		else
+		{ alert("Sorry, your browser doesn't support this function.");}
+	}
+//-->
+</script>
+</head>
+<body leftmargin="0" topmargin="0" rightmargin="0" bottommargin="0">
+<p align="center">
+<table height="48" width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr height="40">
+		<td width="250" background="/images/bg1.jpg" align="center" valign="middle"><a href="/default.asp"><img border="0" src="/images/lbg.jpg"></a></td>
+		<td background="/images/bg1.jpg">&nbsp;</td>
+		<td width="400" align="right" valign="middle" background="/images/bg1.jpg">
+			<a href="/default.asp" target="_self" class="s">home</a><img src="/images/dot.jpg">		
+			<a href="/articles.asp?Versions=0" target="_self" class="s">articles</a><img src="/images/dot.jpg">
+			<a href="/news.asp" target="_self" class="s">news</a><img src="/images/dot.jpg">
+			<a href="/code.asp" target="_self" class="s">code</a><img src="/images/dot.jpg">
+			<a href="http://sqlblogcasts.com/blogs/sqldbatips" target="_blank" class="s">blog</a><img src="/images/dot.jpg">
+			<a href="/links.asp" target="_self" class="s">links</a><img src="/images/dot.jpg">
+			<a href="/search.asp" target="_self" class="s">search</a>&nbsp;&nbsp;
+		</td>	</tr>
+	<tr height="8">
+		<td colspan="4" class="tmen"><font size="-4">&nbsp;</td>
+	</tr>
+</table>
+
+<table width="100%" border="0" cellspacing="2" cellpadding="1">
+  <tr>
+    <td height="2" width="2%">&nbsp;</td>
+    <td width="15%">&nbsp;</td>
+    <td width="2%">&nbsp;</td>
+    <td width="70%">&nbsp;</td>
+    <td width="11%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td align="left" valign="top">
+	<!-- left hand content -->
+		<a href="/code.asp"><img alt="Code Samples" src="/images/codel.jpg" border="0"></a><br/><br/>
+		<a href="/articles.asp?Versions=0"><img alt="Articles and Presentations" src="/images/artil.gif" border="0"></a><br/><br/>
+		<a href="http://sqlblogcasts.com/blogs/sqldbatips"><img alt="sqldbatips.com blog" src="/images/forl.jpg" border="0"></a><br/><br/>
+
+	</td>
+    <td align="left" valign="top">&nbsp;</td>
+    <td align="left" valign="top">
+	<!-- main content -->
+	<table width="100%" class="rParent">
+	<tr>
+	<td height="20" class="rHead">Getting Started with SMO in SQL 2005</td>
+	</tr>
+	</table>
+	<br/>
+    <table class="rParent" width="100%" border="0" cellspacing="2" cellpadding="2">
+        <td class="btext" width="11%">Author</td>
+        <td class="stdtext" width="41%">Jasper Smith</td>
+        <td class="btext" width="12%">Hits</td>
+        <td class="stdtext" width="36%">10269</td>
+      </tr>
+      <tr>
+        <td class="btext">Create Date</td>
+        <td class="stdtext">22-08-2004</td>
+        <td class="btext">Last Updated</td>
+        <td class="stdtext">08-08-2007</td>
+      </tr>
+      <tr>
+        <td class="btext">Versions</td>
+        <td class="stdtext">SQL2005</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+    </table>	
+	<p class="articleheader">Overview</p>
+<p align="justify" class="stdtext">In this series of articles, I'll demonstrate
+  how to use SMO (SQL Management Objects) to do a variety of common DBA tasks
+  including Backups, Restores,Index Maintenance, Integrity checks and more. These
+  are some of the operations available in the SMO database maintenance utility available on this site - <a href="/showarticle.asp?ID=29" class="co">ExpressMaint.</a> In
+  this article we will concentrate on how to build a SMO application and how
+  to connect to a SQL Server and retrieve some server properties. Example code will use
+  VB.NET and C#. For those of you that don't have access
+  to Visual Studio 2005 I'll include the command line compiler commands.. I'd also highly recommend the SMO sample
+  applications that are part of the SQL Server Engine samples that come with
+  SQL2005  and are also available for download  <a href="http://www.codeplex.com/MSFTEngProdSamples/Release/ProjectReleases.aspx?ReleaseId=4038" class="co" target="_blank">here.</a></p>
+<p class="articleheader">Building SMO applications</p>
+<p class="stdtext">In order to use the SMO objects in a .NET application we need
+  to add a reference to the SMO assemblies. The easiest way to do this in Visual
+  Studio 2005 is to choose Project>Add Reference from the main menu and add select
+  the following assemblies</p>
+<table border="0" width="90%">
+  <tr><td width="30%">  <li class="std"> Microsoft.SqlServer.ConnectionInfo</li>
+  <li class="std">Microsoft.SqlServer.Smo</li>
+  <li class="std">Microsoft.SqlServer.SmoEnum</li>
+  <li class="std">Microsoft.SqlServer.SqlEnum</li>
+  </td>
+  <td><img border="0" src="/images/smoref.gif"/></td></tr>
+</table>
+<p class="stdtext">There are a number of other assemblies that need to be referenced
+  for certain specific tasks such as managing Service Broker  but
+  these core assemblies contain all the fuctionality required for most basic
+  administrative operations. See the SMO Programming reference in Books On Line
+  for more details. If you don't have access to Visual Studio 2005, simply add
+  references to the required assemblies on the compiler command line
+  when compiling  applications. An example commandline for the VB.NET and C#
+  compilers is shown below (these can be found in the C:\WINDOWS\Microsoft.NET\Framework\v2.0.xxxxx
+  folder) assuming a console application.</p>
+<p class="btext">Note that the entire command should be on one line even though
+  the examples span multiple lines for formatting purposes</p>
+<table class="rParent" width="100%">
+  <tr>
+    <td><pre class="codesample">[Visual Basic]
+	
+vbc /t:exe c:\SMOtest.vb /r:
+"C:\Program Files\Microsoft SQL Server\90\SDK\Assemblies\Microsoft.SqlServer.ConnectionInfo.dll",
+"C:\Program Files\Microsoft SQL Server\90\SDK\Assemblies\Microsoft.SqlServer.Smo.dll",
+"C:\Program Files\Microsoft SQL Server\90\SDK\Assemblies\Microsoft.SqlServer.SmoEnum.dll",
+"C:\Program Files\Microsoft SQL Server\90\SDK\Assemblies\Microsoft.SqlServer.SqlEnum.dll"	
+
+[C#]
+
+csc /t:exe /out:c:\SMOTest.exe c:\SMOtest.vb /r:
+"C:\Program Files\Microsoft SQL Server\90\SDK\Assemblies\Microsoft.SqlServer.ConnectionInfo.dll",
+"C:\Program Files\Microsoft SQL Server\90\SDK\Assemblies\Microsoft.SqlServer.Smo.dll",
+"C:\Program Files\Microsoft SQL Server\90\SDK\Assemblies\Microsoft.SqlServer.SmoEnum.dll",
+"C:\Program Files\Microsoft SQL Server\90\SDK\Assemblies\Microsoft.SqlServer.SqlEnum.dll"</pre></td>
+  </tr>
+</table>
+<p class="articleheader">Getting Connected</p>
+<p align="justify" class="stdtext">Getting connected to SQL Server could not
+  be simpler. For a default instance connecting with Windows Authentication,
+  we simply need to create a new SMO Server object as shown in the example below and we
+  can begin obtaining information about the server such as the servername and version string.</p>
+<table class="rParent" width="100%">
+  <tr>
+    <td><pre class="codesample">[Visual Basic]
+
+Imports Microsoft.SqlServer.Management.Smo
+
+Module SMOTest
+	Sub Main()
+
+      Dim svr As Server = New Server()
+      Console.Writeline(svr.Name & " " & svr.Information.VersionString)
+
+	End Sub
+End Module
+
+[C#]
+
+using System;
+using Microsoft.SqlServer.Management.Smo;
+
+namespace SMOTest
+{
+    class Program
+    {
+     static void Main()
+     {
+      Server svr = new Server();
+      Console.WriteLine(svr.Name + " " + svr.Information.VersionString);
+     }
+   }
+}</pre></td>
+  </tr>
+</table>
+<p align="justify" class="stdtext">The same effect can be achieved by passing the server or server\instance in the Server constructor e.g.</p>
+<table class="rParent" width="100%">
+  <tr>
+    <td><pre class="codesample">Dim svr As Server = New Server("(local)")
+Server svr = new Server(@"(local)\INSTANCE01")</pre></td></tr>
+</table>
+<p align="justify" class="stdtext">However, if we want to specify more complex
+  connection options or control the connection pooling behaviour of SMO, we can
+  use the ConnectionContext object. This is a child object property of the Server
+  object so we can specify these options after creating the Server object or
+  by declaring a local variable as a ServerConnection object and passing it to
+  the Server constructor. Using this we can specify such things as the
+  authentication mode and username and password e.g.</p>
+<table class="rParent" width="100%">
+  <tr>
+    <td><pre class="codesample">[Visual Basic]
+
+Imports Microsoft.SqlServer.Management.Smo
+Imports Microsoft.SqlServer.Management.Common
+
+Module SMOTest
+	Sub Main()
+
+        Dim svr As Server = New Server()
+        svr.ConnectionContext.LoginSecure = false
+        svr.ConnectionContext.Login = "username"
+        svr.ConnectionContext.Password = "password"		
+        Console.Writeline(svr.Name & " " & svr.Information.VersionString)
+
+	End Sub
+End Module
+
+[C#]
+
+using System;
+using Microsoft.SqlServer.Management.Smo;
+using Microsoft.SqlServer.Management.Common;
+
+namespace SMOTest
+{
+    class Program
+    {
+     static void Main()
+     {
+      ServerConnection conn = new ServerConnection();
+      conn.LoginSecure = false;
+      conn.Login = "username";
+      conn.Password = "password";
+      Server svr = new Server(conn);	 
+      Console.WriteLine(svr.Name + " " + svr.Information.VersionString);
+     }
+   }
+}</pre></td>
+  </tr>
+</table>
+<p align="justify" class="stdtext">The default behaviour of SMO is to use connection pooling. Connections will be established and released as required. 
+However, this behaviour can be changed by either setting the AutoDisconnectMode property of the ConnectionContext to AutoDisconnectMode.NoAutoDisconnect 
+or by setting the NonPooledConnection property to true. If AutoDisconnectMode is set to NoAutoDisconnect and Connect is explicitly called then the connection is not returned to the pool until Disconnect is called.
+ By setting the NonPooledConnection property to true we are explictily requesting a non pooled connection. The behaviour can be observed by using Profiler
+  to monitor the SMO application as shown in the VB.NET code snippet below.</p>
+<p align="justify" class="btext">Default behaviour - pooled connection</p>
+<table class="rParent" width="100%">
+  <tr><td><pre class="codesample">Dim svr As Server = New Server()
+Console.Writeline(svr.Name & " " & svr.Information.VersionString)</pre></td></tr>
+</table>
+<p align="left"><img src="/images/smopool.gif" width="603" height="228"></p>
+<p align="justify" class="btext">Non  pooled connection</p>
+<table class="rParent" width="100%">
+  <tr><td><pre class="codesample">Dim svr As Server = New Server()
+svr.ConnectionContext.NonPooledConnection = True
+svr.ConnectionContext.Connect()
+Console.Writeline(svr.Name & " " & svr.Information.VersionString)
+svr.ConnectionContext.Disconnect()</pre></td></tr>
+</table>
+<p align="left"><img src="/images/smononpool.gif" width="603" height="190"></p>
+<p align="justify" class="stdtext">In the next few articles we will dive deeper into SMO and use it to perform some common DBA tasks such as Backup, Restore and Index maintenance. We will also look at how we can use one of the new features of SMO - Partial Instantiation - to optimize SMO applications.</p>
+<p class="articleheader">Related Articles</p>
+&nbsp;<img src="/images/bullet.jpg">&nbsp;&nbsp;<a href="/showarticle.asp?ID=37" class="co">Getting Started with SMO in SQL 2005 - Backups</a><br/>
+&nbsp;<img src="/images/bullet.jpg">&nbsp;&nbsp;<a href="/showarticle.asp?ID=40" class="co">Getting Started with SMO in SQL 2005 - Restores</a><br/>
+&nbsp;<img src="/images/bullet.jpg">&nbsp;&nbsp;<a href="/showarticle.asp?ID=42" class="co">Getting Started with SMO in SQL 2005 - Integrity Checks</a><br/>
+&nbsp;<img src="/images/bullet.jpg">&nbsp;&nbsp;<a href="/showarticle.asp?ID=41" class="co">Getting Started with SMO in SQL 2005 - Verifying Backups</a><br/>
+<p></p>
+	<table border="0" width="100%" border="0" cellspacing="2" cellpadding="2">
+	<tr>
+		<td width="33%" valign="middle" align="left">
+		<a onMouseOut="window.status=''; return true" href="/print.asp?ID=34" target="_blank" onmouseover="window.status='Print this page'; return true"><img align="middle" alt="Print this page" border="0" src="/images/print.gif"/></a>&nbsp;
+		<a onMouseOut="window.status=''; return true" href="/print.asp?ID=34" target="_blank" class="co" onmouseover="window.status='Print this page'; return true">Print this page</a>
+		</td>
+		<td width="33%" valign="middle" align="left">
+		<a onMouseOut="window.status=''; return true" onmouseover="window.status='Email this article'; return true" href="mailto:?Subject=Check%20out%20this%20article%20from%20sqldbatips.com&Body=Getting%20Started%20with%20SMO%20in%20SQL%202005%0D%0Ahttp%3A//www.sqldbatips.com/showarticle.asp%3FID%3D34%0D%0A"><img align="middle" alt="Email this article" border="0" src="/images/email.gif"/></a>&nbsp;
+		<a onMouseOut="window.status=''; return true" onmouseover="window.status='Email this article'; return true" href="mailto:?Subject=Check%20out%20this%20article%20from%20sqldbatips.com&Body=Getting%20Started%20with%20SMO%20in%20SQL%202005%0D%0Ahttp%3A//www.sqldbatips.com/showarticle.asp%3FID%3D34%0D%0A" class="co">Email this article</a>
+		</td>
+		<td width="33%" valign="middle" align="left">
+		<a onMouseOut="window.status=''; return true" onmouseover="window.status='Add to Favourites'; return true" href="javascript:AddToFav()"><img align="middle" alt="Add to Favourites" border="0" src="/images/fav.gif"/></a>&nbsp;
+		<a onMouseOut="window.status=''; return true" onmouseover="window.status='Add to Favourites'; return true" href="javascript:AddToFav()" class="co">Add to Favourites</a>
+		</td>		
+	</tr>
+	</table>
+    </td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<table cellpadding="0" cellspacing="0" width="100%" height="15" border="0">
+	<tr height="15">
+	<td class="foot">&copy; Copyright sqldbatips Ltd 2008. Contact <a href="mailto:admin@sqldbatips.com" class="footer">webmaster</a></td>
+	<td colspan="2" align="right" class="foot">
+	<a href="/default.asp" class="footer">home</a>&nbsp;|&nbsp;<a href="/news.asp" class="footer">news</a>&nbsp;|&nbsp;<a href="/articles.asp?Versions=0" class="footer">articles</a>&nbsp;|&nbsp;<a href="/code.asp" class="footer">code</a>&nbsp;|&nbsp;<a href="http://sqlblogcasts.com/blogs/sqldbatips" class="footer">blog</a>&nbsp;|&nbsp;<a href="/links.asp" class="footer">links</a>&nbsp;|&nbsp;<a href="/search.asp" class="footer">search</a>&nbsp;&nbsp;</td>
+	</tr>
+</table>
+<!-- Start of StatCounter Code -->
+<script type="text/javascript" language="javascript">
+var sc_project=1350545; 
+var sc_invisible=1; 
+var sc_partition=12; 
+var sc_security="7ad2c6d1"; 
+</script>
+
+<script type="text/javascript" language="javascript" src="http://www.statcounter.com/counter/counter.js"></script><noscript><a href="http://www.statcounter.com/" target="_blank"><img  src="http://c13.statcounter.com/counter.php?sc_project=1350545&amp;java=0&amp;security=7ad2c6d1&amp;invisible=1" alt="free hit counter code" border="0"></a> </noscript>
+<!-- End of StatCounter Code -->
+<!-- Start of StatCounter Code -->
+<script type="text/javascript">
+sc_project=3558023; 
+sc_invisible=1; 
+sc_partition=34; 
+sc_click_stat=1; 
+sc_security="b48d0b03"; 
+sc_remove_link=1; 
+</script>
+
+<script type="text/javascript" src="http://www.statcounter.com/counter/counter_xhtml.js"></script><noscript><div class="statcounter"><img class="statcounter" src="http://c.statcounter.com/3558023/0/b48d0b03/1/" alt="free tracking" ></div></noscript>
+<!-- End of StatCounter Code -->
+<!-- Start of Google Analytics Code -->
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-2329802-1";
+urchinTracker();
+</script>
+<!-- End of Google Analytics Code -->
+</body>
+</html>

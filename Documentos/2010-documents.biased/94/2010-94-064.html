@@ -1,0 +1,1218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+
+<title>HTML and XHTML Syntax</title>
+
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+	<meta name="robots" content="all"/>
+	<meta name="description" content="Learn HTML at the HTML Reference. With full descriptions, working examples, and browser compatibility information on the entire HTML language." />
+	<link rel="shortcut icon" href="/favicon.ico"/>
+	<link rel="apple-touch-icon" href="/static/reference/images/apple-touch-icon.png"/>
+	<link rel="search" type="application/opensearchdescription+xml" title="SitePoint Search" href="http://search.sitepoint.com/opensearch.xml"/>
+
+	<link rel="stylesheet" href="http://reference.sitepoint.com/static/common/styles/format.css?v=2.1.1" media="screen,projection,print" type="text/css" />
+<link rel="stylesheet" href="http://reference.sitepoint.com/static/reference/styles/screen.css?v=2.1.1" media="screen,projection,print" type="text/css" />
+<link rel="stylesheet" href="http://reference.sitepoint.com/static/common/styles/print.css?v=2.1.1" media="print" type="text/css" />
+<link rel="stylesheet" href="http://reference.sitepoint.com/static/reference/styles/print.css?v=2.1.1" media="print" type="text/css" />
+<link rel="stylesheet" href="http://sitepointstatic.com/css2/promobar.css?v=2.1.1" media="screen" type="text/css" />
+<!--[if lte IE 7]><link rel="stylesheet" href="http://reference.sitepoint.com/static/common/styles/ie.css?v=2.1.1" media="screen,projection,print" type="text/css" /><![endif]-->
+<!--[if lte IE 7]><link rel="stylesheet" href="http://reference.sitepoint.com/static/reference/styles/ie7.css?v=2.1.1" media="screen,projection,print" type="text/css" /><![endif]-->
+<!--[if IE]><link rel="stylesheet" href="http://reference.sitepoint.com/static/reference/styles/ie8.css?v=2.1.1" media="screen,projection,print" type="text/css" /><![endif]-->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+</head>
+
+<body class="topicview">
+
+	<!--[if gte IE 8]><!-->
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
+	<script type="text/javascript">
+	
+		function cookiecutter(name) {
+			var date = new Date();
+			date.setTime(date.getTime()+(30*24*60*60*1000));
+			var expires = "; expires="+date.toGMTString();
+			document.cookie = name + '=hide'+expires+"; path=/";
+		}
+		function hidepromo() {
+			var name = 'ninjaseen';
+			return checkcookie(name);
+		}
+		function skippromoanimation()
+		{
+			return checkcookie('ninjaskip');
+		}
+		function checkcookie(name)
+		{
+			var ca = document.cookie.split(';');
+			for(var i=0;i < ca.length;i++) {
+				var c = ca[i];
+				while (c.charAt(0)==' ') c = c.substring(1,c.length);
+				if (c.indexOf(name) == 0) return true;
+			}
+			return false;
+		}
+		function toggle_visibility(id)
+		{
+			var e = document.getElementById(id);
+			if(e.style.display == 'none')
+				e.style.display = 'block';
+			else
+				e.style.display = 'none';
+			cookiecutter('ninjaseen');
+			return false;
+		}
+		
+		if(!hidepromo()){
+			document.write(	'<div id="promobar2"><div id="jqwrap"><div id="jqbody"><div id="box1" class="jqbox"><div class="frame1"></div></div><div id="box2" class="jqbox"><div class="frame1"></div></div><div id="box3" class="jqbox"><div class="frame1"></div></div><p id="jqtitle"><a href="http://sitepoint.com/books/jquery1/">jQUERY: NOVICE TO NINJA</a></p><p id="jqsubtitle"><a href="http://sitepoint.com/books/jquery1/">Dynamic, Fun, Versatile &mdash; JavaScript the way it should be!</a></p></div><div id="jqutils"><img src="http://sitepointstatic.com/examples/jquery/new.png" width="91" height="70" id="newinfeb" alt="NEW in Feb!" /><p id="close"><a href="#" title="Close" id="close_button"  onclick="return toggle_visibility(\'promobar2\');return false;">CLOSE</a></p><p id="dontshow"><a href="#" onclick="return toggle_visibility(\'promobar2\');return false;">Don\'t show again</a></p></div></div></div>');
+		}
+		
+		var skip = checkcookie('ninjaskip');
+		
+		// Prevent animation from now on
+		cookiecutter('ninjaskip');
+			
+	</script>
+	<script type="text/javascript" src="http://sitepointstatic.com/js/ninja.js"></script>
+	<!--<![endif]-->
+
+			<!-- SitePoint overlay ad -->	
+		<script type="text/javascript">
+		var SPMetrics_options = {
+		    'original_referrer': document.referrer,
+		    'context': 'reference',
+		    'category': 'html',
+		    'group' : '5'
+		};
+		</script>
+		<script src="http://metrics.aws.sitepoint.com/bouncer" type="text/javascript"></script>
+	
+	<p id="skipto">
+		Skip to:
+		<a href="#begincontent">content</a>,
+		<a href="#navlist">navigation</a>
+	</p>
+
+	<div id="header">
+		<p>
+			<a href="http://www.sitepoint.com/"><span></span>SitePoint</a>
+		</p>
+		<div id="adzbanner"></div>
+	</div>
+
+	<div id="navcontainer">
+		<div class="structural-label">Site navigation</div>
+		<ul id="navlist">
+			<li><a id="tabz" href="http://www.sitepoint.com/" title="The best place to begin your SitePoint session">Home</a></li>
+			<li><a id="tabe" href="http://www.sitepoint.com/blogs/" title="Daily comment across a range of web subjects by some of the top experts in their field">Blogs</a></li>
+			<li><a id="taba" href="http://www.sitepoint.com/recentarticles/" title="One of the web&lsquo;s largest repositories of &lsquo;web know-how&rsquo;">Articles</a></li>
+			<li><a id="tabb" href="http://www.sitepoint.com/books/" title="SitePoint&lsquo;s renowned web development books">Books</a></li>
+			<li><a id="tabc" href="http://www.sitepoint.com/kits/" title="SitePoint&lsquo;s renowned web development Kits">Kits</a></li>
+			<li><a id="tabd" href="http://www.sitepoint.com/videos/" title="SitePoint&lsquo;s renowned web development training Videos">Videos</a></li>
+			<li><a id="tabg" href="http://marketplace.sitepoint.com/" title="Buy and sell goods and services in one of the world&rsquo;s largest web communities" rel="nofollow">Marketplace</a></li>
+			<li><a accesskey="6" id="tabh" href="http://www.sitepoint.com/forums/" title="Our friendly, vibrant and well-informed community">Forums</a></li>
+			<li><a id="tabi" class="active" href="http://reference.sitepoint.com/" title="The Web's most complete and up-to-date reference">Reference</a></li>
+		</ul>
+	</div>
+
+	<div id="pagecontent" class="clearfix">
+
+		<div id="navbar">
+
+	<div class="structural-label">Crumbtrail</div>
+	<ol class="crumbtrail">
+		<li><a href="http://www.sitepoint.com/" rel="nofollow">SitePoint</a></li>
+																	<li><a rel="nofollow" href="/">Reference</a></li>
+																<li><a rel="nofollow" href="/html">HTML Reference</a></li>
+																<li><a rel="nofollow" href="/html/html-concepts">HTML Concepts</a></li>
+										<li><strong>HTML and XHTML Syntax</strong><em> (this page)</em></li>
+			</ol>
+
+	<div id="currentuser">
+
+	
+		<form action="/users/login?from=%2Fhtml%2Fhtml-xhtml-syntax" method="post">
+			<fieldset class="user">
+				<label for="usernamefield" class="username">
+					<span>Username:</span>
+					<input type="text" class="text" id="usernamefield" name="username" />
+				</label>
+				<label for="passwordfield" class="password">
+					<span>Password:</span>
+					<input type="password" class="password" id="passwordfield" name="password" />
+				</label>
+			</fieldset>
+			<fieldset>
+				<label for="rememberme" class="remember">
+					<input type="checkbox" id="rememberme" name="rememberme" value="1" checked="checked" />
+					Remember
+				</label>
+				<input type="hidden" name="referrer" value="/html/html-xhtml-syntax" />
+				<input type="submit" class="button" value="Login" />
+			</fieldset>
+		</form>
+
+	
+</div>
+	<ul id="navbarlinks">
+					<li class="mylink newaccount"><a href="http://www.sitepoint.com/forums/register.php" rel="nofollow">New Account</a></li>
+			</ul>
+
+			<div id="topicauthors">
+			by
+			 Ian Lloyd					</div>
+	</div>
+<!--#spf_debug#-->
+	<div id="dubious-additional-container-div">
+
+		<a class="nomargin" name="begincontent"></a>
+
+		<div id="mainpanel" class="topicbody article">
+
+			
+			<div id="contentpanel">
+				<div id="contentpanelcontent">
+					
+<div><div id="html-xhtml-syntax">
+
+
+  <div id="topicheader" class="topicheader"><h1>HTML and XHTML Syntax</h1></div><div class="summary"></div>
+
+  
+
+  <div class="topiccontent">
+    <p id="html-xhtml-syntax__p1"><span id="html-xhtml-syntax__ph1">Writing valid HTML (or XHTML) is not a terribly
+    difficult task once you know what the rules are, although the rules are
+    slightly more stringent in XHTML than in HTML. The list below provides a
+    quick reference to the rules that will ensure your markup is well-formed
+    and valid. Note that there are other differences between HTML and XHTML
+    which go beyond simple syntax requirements; those differences are covered
+    in </span><a href="html-vs-xhtml">HTML Versus XHTML</a><span id="html-xhtml-syntax__ph2">.</span></p>
+
+
+    <div class="section"><h2 class="sectiontitle">The Document Tree</h2><p id="html-xhtml-syntax__s1p1">A
+    web page is, at its heart, little more than a collection of HTML
+    elements—the defining structures that signify a paragraph, a table, a
+    table cell, a quote, and so on. The element is created by writing an
+    opening tag, and completed by writing a closing tag. In the case of a
+    paragraph, you’d create a <a href="p"><code class="element">p</code></a> element by typing
+    <code class="codeph">&lt;p&gt;Content goes here&lt;/p&gt;</code>.</p>
+<p><span id="html-xhtml-syntax__s1ph1">The elements in a web page are contained in a tree structure in
+    which <code class="element">html</code> is the root element that splits into the
+    <code class="element">head</code> and <code class="element">body</code> elements (as explained
+    in </span><a href="page-structure">Basic Structure of a Web Page</a><span id="html-xhtml-syntax__s1ph2">). An element
+    <em>may</em> contain other nested elements (although this very much
+    depends on what the parent element is; for example, a <code class="element">p</code>
+    element can contain <code class="element">span</code>, <code class="element">em</code>, or
+    <code class="element">strong</code> elements, among others). Where this occurs, the
+    opening and closing tags must be symmetrical. If an opening paragraph tag
+    is followed by the opening <code class="element">em</code> element, the closing tags
+    must appear in the reverse order, like so: <code class="codeph">&lt;p&gt;Content goes
+    here, &lt;em&gt;and some of it needs emphasis&lt;/em&gt;
+    too&lt;/p&gt;</code>. If you were to type <code class="codeph">&lt;p&gt;Content goes
+    here, &lt;em&gt;and some of it needs emphasis
+    too&lt;/p&gt;&lt;/em&gt;</code>, you’d have created invalid
+    markup.</span></p>
+</div>
+
+
+    <div class="section" id="html-xhtml-syntax__s2"><h2 class="sectiontitle">Case Sensitivity</h2><p>In HTML, tag
+    names are case <em>in</em>sensitive, but in XHTML they’re case sensitive.
+    As such, in HTML, you can write the markup in lowercase, mixed case, or
+    uppercase letters. So <code class="codeph"><em>&lt;p&gt;</em>this is a
+    paragraph<em>&lt;/p&gt;</em></code>, as is
+    <code class="codeph"><em>&lt;P&gt;</em>this example<em>&lt;/P&gt;</em></code>, and
+    even <code class="codeph"><em>&lt;P&gt;</em>this markup would be
+    valid<em>&lt;/p&gt;</em></code>. In XHTML, however, you <em>must</em>
+    use lowercase for markup: <code class="codeph">&lt;p&gt;This is a valid paragraph in
+    XHTML&lt;/p&gt;</code>.</p>
+</div>
+
+
+    <div class="section" id="html-xhtml-syntax__s3"><h2 class="sectiontitle">Opening and Closing
+    Tags</h2><p id="html-xhtml-syntax__s3p1">In HTML, it’s possible to omit some closing tags
+    (check each element’s reference to see whether an HTML closing tag is
+    required), so this is valid markup: <code class="codeph">&lt;p&gt;This is my first
+    paragraph.&lt;p&gt;This is my second paragraph.&lt;p&gt;And here’s the
+    last one.</code>.</p>
+<p id="html-xhtml-syntax__s3p2">In XHTML, all elements must be closed.
+    Hence the paragraph example above would need to be changed to:
+    <code class="codeph">&lt;p&gt;This is my first paragraph.&lt;/p&gt;&lt;p&gt;This is my
+    second paragraph.&lt;/p&gt;&lt;p&gt;And here’s the last
+    one.&lt;/p&gt;</code></p>
+<p id="html-xhtml-syntax__s3p4">As well as letting you omit some
+    closing tags, HTML allows you to omit <em>start</em> tags—but only on the
+    <code class="element">html</code>, <code class="element">head</code>, <code class="element">body</code>,
+    and <code class="element">tbody</code> elements. This is not a recommended practice,
+    but is technically possible.</p>
+<p><span id="html-xhtml-syntax__s3ph1">For empty elements such
+    as </span><a href="img"><code class="element">img</code></a><span id="html-xhtml-syntax__s3ph2">, XHTML (that is
+    <em>not</em> served with the application/xhtml+xml) requires us to use the
+    XML empty element syntax: <code class="codeph">&lt;elementname
+    attribute="attributevalue"<em>/</em>&gt;</code></span></p>
+<p>If serving
+    the document as application/xhtml+xml, it’s also valid to close empty
+    elements using a start and end tag, for example the <code class="element">img</code>
+    element, as <code class="starttag">&lt;img&gt;</code><code class="endtag">&lt;/img&gt;</code>
+    </p>
+<p></p>
+</div>
+
+
+    <div class="section" id="html-xhtml-syntax__s4"><h2 class="sectiontitle">Readability Considerations</h2><p>A
+    browser doesn’t care whether you use a single space to separate
+    attributes, ten spaces, or even complete line breaks; it doesn’t matter,
+    as long as some space is present. As such, all of the examples below are
+    perfectly acceptable (although the more spaces you include, the larger
+    your web page’s file size will be—each occurrence of whitespace takes up
+    additional bytes—so the first example is still the most
+    preferable):</p>
+<pre class="htmlblock">&lt;img src="/images/burj.jpg" alt="Burj Al Arab, iconic hotel in
+Dubai" class="gallery"/&gt;
+
+&lt;img
+     src="/images/burj.jpg"
+     alt="Burj Al Arab, iconic hotel in Dubai"
+     class="gallery"
+/&gt;
+
+&lt;img
+
+     src="/images/burj.jpg"
+
+     alt="Burj Al Arab, iconic hotel in Dubai"
+
+     class="gallery"/&gt;</pre>
+<p>In XHTML all attribute values must be
+    quoted, so you’ll need to write <code class="codeph">class="gallery"</code> rather
+    than <code class="codeph">class=gallery</code>. It’s valid to omit the quotes from
+    your HTML, though it <em>may</em> make reading the markup more difficult
+    for developers revisiting old markup (although this really depends on the
+    developer—it’s a subjective thing). It’s simply easier <em>always</em> to
+    add quotes, rather than to have to remember in which scenarios attribute
+    values require quotes in HTML, as the following piece of HTML
+    demonstrates:</p>
+<pre class="htmlblock">&lt;a href="http://example.org"&gt; <span>needs to be quoted because it contains a /</span>
+&lt;a href=index.html&gt; <span>acceptable without quotes in HTML</span></pre>
+<p>Another
+    reason why it’s a good idea always to quote your attributes, even if
+    you’re using HTML 4.01, is that your HTML editor may be able to provide
+    syntax coloring that makes the code even easier to scan through. Without
+    the quotes, the software may not be able to identify the difference
+    between elements, attributes, and attribute values. This fact is
+    illustrated in <a href="#html-xhtml-syntax__fig-syntax-coloring">Figure 1</a>,
+    which shows a comparison between quoted and unquoted syntax coloring in
+    the Mac text editor TextMate.</p>
+<div class="fignone" id="html-xhtml-syntax__fig-syntax-coloring"><span class="figcap">Figure 1. TextMate’s syntax coloring taking effect to display quoted
+        attributes</span>
+        
+
+        <img src="figures/syntax-coloring.png" alt="Syntax coloring in TextMate (second screenshot shows attributes quoted and syntax coloring taking effect)" />
+      </div>
+</div>
+
+
+    <div class="section" id="html-xhtml-syntax__sect-comments"><h2 class="sectiontitle">Commenting Markup</h2><p>You
+    may add comments in your HTML, perhaps to make it clear where sections
+    start or end, or to provide a note to remind yourself why you approached
+    the creation of a page in a certain way. What you use comments for isn’t
+    important, but the way that you craft a comment <em>is</em> important. The
+    HTML comment looks like this: <code class="codeph">&lt;!-- this is a comment
+    --&gt;</code>. It’s derived from SGML, which starts with an
+    <code class="codeph">&lt;!</code> and ends with an <code class="codeph">&gt;</code>; the actual
+    comment is, in effect, inside the opening <code class="codeph">--</code> and the
+    closing <code class="codeph">--</code> parts. These hyphens tell the browser when to
+    start ignoring text content, and when to start paying attention again. The
+    fact that the double hyphen <code class="codeph">--</code> characters signify the
+    beginning and end of the comment means that you <em>should not use double
+    hyphens anywhere inside a comment</em>, even if you believe that your
+    usage of these characters conforms to SGML rules. Single hyphens are
+    allowed, however.</p>
+<p>The markup below shows examples of good and bad
+    HTML comments—see the remark associated with each example for more
+    information:</p>
+<pre class="htmlblock">&lt;p&gt;Take the next right.&lt;!-- Look out for the
+    signpost for 'Castle' --&gt;&lt;/p&gt; <span>a valid comment</span>
+
+&lt;p&gt;Take the next right.&lt;!-- Look out for -- Castle --&gt;&lt;/p&gt;
+<span>not a valid comment; the double dashes in the middle could be
+misinterpreted as the end of the comment</span>
+
+&lt;p&gt;Take the next right.&lt;!-- Look out for -- -- Castle --&gt;&lt;/p&gt;
+<span>a valid comment; 'Look out for' is one comment, 'Castle' is another</span>
+
+&lt;p&gt;Take the next right.
+  &lt;!---------------------------------
+  This is just asking for trouble. Too
+  many hyphens! --&gt;&lt;/p&gt;
+<span>a valid comment; don't use hyphens or &lt;&gt; characters to format comment text</span>
+
+&lt;p &lt;!-- class="lively" --&gt;&gt;Wowzers!&lt;/p&gt;
+<span>It's not possible to comment out attributes inside an HTML element</span></pre>
+</div>
+
+  </div>
+
+<div></div>
+
+</div>
+<div class="familylinks"><h2 class="structural-label">Previous / Next page</h2><ol><li class="previouslink"><a href="doctypes" title="Previous page: Doctypes"><span></span>
+			Previous
+		</a></li>
+<li class="nextlink"><a href="html-vs-xhtml" title="Next page: HTML Versus XHTML"><span></span>
+			Next
+		</a></li>
+</ol></div><div class="related"></div></div>
+
+					<div id="usernotes" class="usernotes">
+						<h2>User-contributed notes</h2>
+
+
+	
+		
+				
+			
+	
+		
+				
+			
+	
+		
+				
+			
+	
+		
+				
+			
+	
+		
+				
+			
+	
+		
+				
+			
+	
+		
+				
+			
+	
+		
+				
+			
+	
+		
+				
+			
+	
+		
+				
+			
+	
+		
+				
+			
+	
+		
+				
+			
+	
+		
+				
+			
+	
+		
+				
+			
+	
+		
+				
+			
+	
+		
+				
+			
+	
+
+
+						<h3>Add a note</h3>
+
+<div class="addnote">
+    
+      <p>
+        To post a note on this topic, <a href="#currentuser">please log in</a>
+        with your SitePoint username and password. If you don't have an account yet, you can
+        <a href="http://www.sitepoint.com/forums/register.php">create a new account</a> for free.
+      </p>
+
+    </div>					</div>
+				</div>
+			</div>
+			<div id="adzcolumn">
+				<h2 class="structural-label">Related Products</h2>
+<div id="adzbannerCustom"></div>			</div>
+		</div>
+
+		<h2 class="structural-label">Search</h2>
+
+		<form id="search" method="get" action="http://search.sitepoint.com/">
+			<fieldset>
+				<label for="searchbox">Search the Reference</label>
+				<div>
+			        <input type="hidden" name="refinements[reference]" value="1" />
+			        <input type="hidden" name="refinements[articles]" value="0" />
+			        <input type="hidden" name="refinements[blogs]" value="0" />
+			        <input type="hidden" name="refinements[marketplace]" value="0" />
+			        <input type="hidden" name="refinements[forums]" value="0" />
+			        <input type="hidden" name="refinements[products]" value="0" />                                 
+					<input id="searchbox" type="text" class="text" name="q" value="" />
+					<input type="submit" class="button primary" value="Search" />
+				</div>
+			</fieldset>
+		</form>
+
+		<div id="navpanel">
+			<h2>HTML Reference Index</h2>
+			
+<div id="index">
+<h3><span><a href="/html/elements" title="HTML Elements">HTML Elements</a></span></h3>
+
+<ul><li><span><a href="/html/elements-structural" title="Structural Elements">Structural Elements</a></span>
+<ul><li><span><a href="/html/blockquote" title="blockquote">blockquote</a></span>
+<ul><li><span><a href="/html/blockquote/cite" title="cite">cite</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/body" title="body">body</a></span>
+<ul><li><span><a href="/html/body/alink" title="alink">alink</a></span></li>
+<li><span><a href="/html/body/background" title="background">background</a></span></li>
+<li><span><a href="/html/body/bgcolor" title="bgcolor">bgcolor</a></span></li>
+<li><span><a href="/html/body/link" title="link">link</a></span></li>
+<li><span><a href="/html/body/text" title="text">text</a></span></li>
+<li><span><a href="/html/body/vlink" title="vlink">vlink</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/br" title="br">br</a></span>
+<ul><li><span><a href="/html/br/clear" title="clear">clear</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/div" title="div">div</a></span>
+<ul><li><span><a href="/html/div/align" title="align">align</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/h1" title="h1">h1</a></span>
+<ul><li><span><a href="/html/h1/align" title="align">align</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/h2" title="h2">h2</a></span>
+<ul><li><span><a href="/html/h2/align" title="align">align</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/h3" title="h3">h3</a></span>
+<ul><li><span><a href="/html/h3/align" title="align">align</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/h4" title="h4">h4</a></span>
+<ul><li><span><a href="/html/h4/align" title="align">align</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/h5" title="h5">h5</a></span>
+<ul><li><span><a href="/html/h5/align" title="align">align</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/h6" title="h6">h6</a></span>
+<ul><li><span><a href="/html/h6/align" title="align">align</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/head" title="head">head</a></span>
+<ul><li><span><a href="/html/head/profile" title="profile">profile</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/hr" title="hr">hr</a></span>
+<ul><li><span><a href="/html/hr/color" title="color">color</a></span></li>
+<li><span><a href="/html/hr/noshade" title="noshade">noshade</a></span></li>
+<li><span><a href="/html/hr/size" title="size">size</a></span></li>
+<li><span><a href="/html/hr/width" title="width">width</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/html" title="html">html</a></span>
+<ul><li><span><a href="/html/html/xmlns" title="xmlns">xmlns</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/p" title="p">p</a></span>
+<ul><li><span><a href="/html/p/align" title="align">align</a></span></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><span><a href="/html/elements-head" title="Head Elements">Head Elements</a></span>
+<ul><li><span><a href="/html/base" title="base">base</a></span>
+<ul><li><span><a href="/html/base/href" title="href">href</a></span></li>
+<li><span><a href="/html/base/target" title="target">target</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/link" title="link">link</a></span>
+<ul><li><span><a href="/html/link/charset" title="charset">charset</a></span></li>
+<li><span><a href="/html/link/href" title="href">href</a></span></li>
+<li><span><a href="/html/link/media" title="media">media</a></span></li>
+<li><span><a href="/html/link/rel" title="rel">rel</a></span></li>
+<li><span><a href="/html/link/rev" title="rev">rev</a></span></li>
+<li><span><a href="/html/link/target" title="target">target</a></span></li>
+<li><span><a href="/html/link/type" title="type">type</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/meta" title="meta">meta</a></span>
+<ul><li><span><a href="/html/meta/content" title="content">content</a></span></li>
+<li><span><a href="/html/meta/http-equiv" title="http-equiv">http-equiv</a></span></li>
+<li><span><a href="/html/meta/name" title="name">name</a></span></li>
+<li><span><a href="/html/meta/scheme" title="scheme">scheme</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/script" title="script">script</a></span>
+<ul><li><span><a href="/html/script/charset" title="charset">charset</a></span></li>
+<li><span><a href="/html/script/defer" title="defer">defer</a></span></li>
+<li><span><a href="/html/script/language" title="language">language</a></span></li>
+<li><span><a href="/html/script/src" title="src">src</a></span></li>
+<li><span><a href="/html/script/type" title="type">type</a></span></li>
+<li><span><a href="/html/script/xmlspace" title="xml:space">xml:space</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/style" title="style">style</a></span>
+<ul><li><span><a href="/html/style/media" title="media">media</a></span></li>
+<li><span><a href="/html/style/type" title="type">type</a></span></li>
+<li><span><a href="/html/style/xmlspace" title="xml:space">xml:space</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/title" title="title">title</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/elements-list" title="List Elements">List Elements</a></span>
+<ul><li><span><a href="/html/dd" title="dd">dd</a></span></li>
+<li><span><a href="/html/dir" title="dir">dir</a></span>
+<ul><li><span><a href="/html/dir/compact" title="compact">compact</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/dl" title="dl">dl</a></span>
+<ul><li><span><a href="/html/dl/compact" title="compact">compact</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/dt" title="dt">dt</a></span></li>
+<li><span><a href="/html/li" title="li">li</a></span>
+<ul><li><span><a href="/html/li/type" title="type">type</a></span></li>
+<li><span><a href="/html/li/value" title="value">value</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/menu" title="menu">menu</a></span>
+<ul><li><span><a href="/html/menu/compact" title="compact">compact</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/ol" title="ol">ol</a></span>
+<ul><li><span><a href="/html/ol/compact" title="compact">compact</a></span></li>
+<li><span><a href="/html/ol/type" title="type">type</a></span></li>
+<li><span><a href="/html/ol/start" title="start">start</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/ul" title="ul">ul</a></span>
+<ul><li><span><a href="/html/ul/compact" title="compact">compact</a></span></li>
+<li><span><a href="/html/ul/type" title="type">type</a></span></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><span><a href="/html/elements-text-formatting" title="Text Formatting Elements">Text Formatting Elements</a></span>
+<ul><li><span><a href="/html/a" title="a">a</a></span>
+<ul><li><span><a href="/html/a/accesskey" title="accesskey">accesskey</a></span></li>
+<li><span><a href="/html/a/charset" title="charset">charset</a></span></li>
+<li><span><a href="/html/a/coords" title="coords">coords</a></span></li>
+<li><span><a href="/html/a/href" title="href">href</a></span></li>
+<li><span><a href="/html/a/hreflang" title="hreflang">hreflang</a></span></li>
+<li><span><a href="/html/a/name" title="name">name</a></span></li>
+<li><span><a href="/html/a/rel" title="rel">rel</a></span></li>
+<li><span><a href="/html/a/rev" title="rev">rev</a></span></li>
+<li><span><a href="/html/a/shape" title="shape">shape</a></span></li>
+<li><span><a href="/html/a/tabindex" title="tabindex">tabindex</a></span></li>
+<li><span><a href="/html/a/target" title="target">target</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/abbr" title="abbr">abbr</a></span>
+<ul><li><span><a href="/html/abbr/title" title="title">title</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/acronym" title="acronym">acronym</a></span>
+<ul><li><span><a href="/html/acronym/title" title="title">title</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/address" title="address">address</a></span></li>
+<li><span><a href="/html/b" title="b">b</a></span></li>
+<li><span><a href="/html/basefont" title="basefont">basefont</a></span>
+<ul><li><span><a href="/html/basefont/color" title="color">color</a></span></li>
+<li><span><a href="/html/basefont/face" title="face">face</a></span></li>
+<li><span><a href="/html/basefont/size" title="size">size</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/bdo" title="bdo">bdo</a></span>
+<ul><li><span><a href="/html/bdo/dir" title="dir">dir</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/big" title="big">big</a></span></li>
+<li><span><a href="/html/blink" title="blink">blink</a></span></li>
+<li><span><a href="/html/center" title="center">center</a></span></li>
+<li><span><a href="/html/cite" title="cite">cite</a></span></li>
+<li><span><a href="/html/code" title="code">code</a></span></li>
+<li><span><a href="/html/comment" title="comment">comment</a></span></li>
+<li><span><a href="/html/del" title="del">del</a></span>
+<ul><li><span><a href="/html/del/cite" title="cite">cite</a></span></li>
+<li><span><a href="/html/del/datetime" title="datetime">datetime</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/dfn" title="dfn">dfn</a></span></li>
+<li><span><a href="/html/em" title="em">em</a></span></li>
+<li><span><a href="/html/font" title="font">font</a></span>
+<ul><li><span><a href="/html/font/color" title="color">color</a></span></li>
+<li><span><a href="/html/font/face" title="face">face</a></span></li>
+<li><span><a href="/html/font/size" title="size">size</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/i" title="i">i</a></span></li>
+<li><span><a href="/html/ins" title="ins">ins</a></span>
+<ul><li><span><a href="/html/ins/cite" title="cite">cite</a></span></li>
+<li><span><a href="/html/ins/datetime" title="datetime">datetime</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/kbd" title="kbd">kbd</a></span></li>
+<li><span><a href="/html/marquee" title="marquee">marquee</a></span>
+<ul><li><span><a href="/html/marquee/align" title="align">align</a></span></li>
+<li><span><a href="/html/marquee/behavior" title="behavior">behavior</a></span></li>
+<li><span><a href="/html/marquee/bgcolor" title="bgcolor">bgcolor</a></span></li>
+<li><span><a href="/html/marquee/direction" title="direction">direction</a></span></li>
+<li><span><a href="/html/marquee/height" title="height">height</a></span></li>
+<li><span><a href="/html/marquee/hspace" title="hspace">hspace</a></span></li>
+<li><span><a href="/html/marquee/loop" title="loop">loop</a></span></li>
+<li><span><a href="/html/marquee/scrollamount" title="scrollamount">scrollamount</a></span></li>
+<li><span><a href="/html/marquee/scrolldelay" title="scrolldelay">scrolldelay</a></span></li>
+<li><span><a href="/html/marquee/vspace" title="vspace">vspace</a></span></li>
+<li><span><a href="/html/marquee/width" title="width">width</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/nobr" title="nobr">nobr</a></span></li>
+<li><span><a href="/html/noscript" title="noscript">noscript</a></span></li>
+<li><span><a href="/html/plaintext" title="plaintext">plaintext</a></span></li>
+<li><span><a href="/html/pre" title="pre">pre</a></span></li>
+<li><span><a href="/html/q" title="q">q</a></span>
+<ul><li><span><a href="/html/q/cite" title="cite">cite</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/rb" title="rb">rb</a></span></li>
+<li><span><a href="/html/rbc" title="rbc">rbc</a></span></li>
+<li><span><a href="/html/rp" title="rp">rp</a></span></li>
+<li><span><a href="/html/rt" title="rt">rt</a></span>
+<ul><li><span><a href="/html/rt/rbspan" title="rbspan">rbspan</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/rtc" title="rtc">rtc</a></span></li>
+<li><span><a href="/html/ruby" title="ruby">ruby</a></span></li>
+<li><span><a href="/html/s" title="s">s</a></span></li>
+<li><span><a href="/html/samp" title="samp">samp</a></span></li>
+<li><span><a href="/html/small" title="small">small</a></span></li>
+<li><span><a href="/html/span" title="span">span</a></span></li>
+<li><span><a href="/html/strike" title="strike">strike</a></span></li>
+<li><span><a href="/html/strong" title="strong">strong</a></span></li>
+<li><span><a href="/html/sub" title="sub">sub</a></span></li>
+<li><span><a href="/html/sup" title="sup">sup</a></span></li>
+<li><span><a href="/html/tt" title="tt">tt</a></span></li>
+<li><span><a href="/html/u" title="u">u</a></span></li>
+<li><span><a href="/html/var" title="var">var</a></span></li>
+<li><span><a href="/html/wbr" title="wbr">wbr</a></span></li>
+<li><span><a href="/html/xmp" title="xmp">xmp</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/elements-form" title="Form Elements">Form Elements</a></span>
+<ul><li><span><a href="/html/button" title="button">button</a></span>
+<ul><li><span><a href="/html/button/accesskey" title="accesskey">accesskey</a></span></li>
+<li><span><a href="/html/button/disabled" title="disabled">disabled</a></span></li>
+<li><span><a href="/html/button/name" title="name">name</a></span></li>
+<li><span><a href="/html/button/tabindex" title="tabindex">tabindex</a></span></li>
+<li><span><a href="/html/button/type" title="type">type</a></span></li>
+<li><span><a href="/html/button/value" title="value">value</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/fieldset" title="fieldset">fieldset</a></span></li>
+<li><span><a href="/html/form" title="form">form</a></span>
+<ul><li><span><a href="/html/form/accept-charset" title="accept-charset">accept-charset</a></span></li>
+<li><span><a href="/html/form/action" title="action">action</a></span></li>
+<li><span><a href="/html/form/enctype" title="enctype">enctype</a></span></li>
+<li><span><a href="/html/form/method" title="method">method</a></span></li>
+<li><span><a href="/html/form/name" title="name">name</a></span></li>
+<li><span><a href="/html/form/target" title="target">target</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/input" title="input">input</a></span>
+<ul><li><span><a href="/html/input/accept" title="accept">accept</a></span></li>
+<li><span><a href="/html/input/accesskey" title="accesskey">accesskey</a></span></li>
+<li><span><a href="/html/input/align" title="align">align</a></span></li>
+<li><span><a href="/html/input/alt" title="alt">alt</a></span></li>
+<li><span><a href="/html/input/checked" title="checked">checked</a></span></li>
+<li><span><a href="/html/input/disabled" title="disabled">disabled</a></span></li>
+<li><span><a href="/html/input/maxlength" title="maxlength">maxlength</a></span></li>
+<li><span><a href="/html/input/name" title="name">name</a></span></li>
+<li><span><a href="/html/input/readonly" title="readonly">readonly</a></span></li>
+<li><span><a href="/html/input/size" title="size">size</a></span></li>
+<li><span><a href="/html/input/src" title="src">src</a></span></li>
+<li><span><a href="/html/input/tabindex" title="tabindex">tabindex</a></span></li>
+<li><span><a href="/html/input/type" title="type">type</a></span></li>
+<li><span><a href="/html/input/usemap" title="usemap">usemap</a></span></li>
+<li><span><a href="/html/input/value" title="value">value</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/isindex" title="isindex">isindex</a></span></li>
+<li><span><a href="/html/label" title="label">label</a></span>
+<ul><li><span><a href="/html/label/accesskey" title="accesskey">accesskey</a></span></li>
+<li><span><a href="/html/label/for" title="for">for</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/legend" title="legend">legend</a></span>
+<ul><li><span><a href="/html/legend/accesskey" title="accesskey">accesskey</a></span></li>
+<li><span><a href="/html/legend/align" title="align">align</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/optgroup" title="optgroup">optgroup</a></span>
+<ul><li><span><a href="/html/optgroup/label" title="label">label</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/option" title="option">option</a></span>
+<ul><li><span><a href="/html/option/disabled" title="disabled">disabled</a></span></li>
+<li><span><a href="/html/option/label" title="label">label</a></span></li>
+<li><span><a href="/html/option/selected" title="selected">selected</a></span></li>
+<li><span><a href="/html/option/value" title="value">value</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/select" title="select">select</a></span>
+<ul><li><span><a href="/html/select/accesskey" title="accesskey">accesskey</a></span></li>
+<li><span><a href="/html/select/disabled" title="disabled">disabled</a></span></li>
+<li><span><a href="/html/select/multiple" title="multiple">multiple</a></span></li>
+<li><span><a href="/html/select/name" title="name">name</a></span></li>
+<li><span><a href="/html/select/size" title="size">size</a></span></li>
+<li><span><a href="/html/select/tabindex" title="tabindex">tabindex</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/textarea" title="textarea">textarea</a></span>
+<ul><li><span><a href="/html/textarea/accesskey" title="accesskey">accesskey</a></span></li>
+<li><span><a href="/html/textarea/cols" title="cols">cols</a></span></li>
+<li><span><a href="/html/textarea/disabled" title="disabled">disabled</a></span></li>
+<li><span><a href="/html/textarea/name" title="name">name</a></span></li>
+<li><span><a href="/html/textarea/readonly" title="readonly">readonly</a></span></li>
+<li><span><a href="/html/textarea/rows" title="rows">rows</a></span></li>
+<li><span><a href="/html/textarea/tabindex" title="tabindex">tabindex</a></span></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><span><a href="/html/elements-image-media" title="Image and Media Elements">Image and Media Elements</a></span>
+<ul><li><span><a href="/html/applet" title="applet">applet</a></span>
+<ul><li><span><a href="/html/applet/align" title="align">align</a></span></li>
+<li><span><a href="/html/applet/alt" title="alt">alt</a></span></li>
+<li><span><a href="/html/applet/archive" title="archive">archive</a></span></li>
+<li><span><a href="/html/applet/code" title="code">code</a></span></li>
+<li><span><a href="/html/applet/codebase" title="codebase">codebase</a></span></li>
+<li><span><a href="/html/applet/height" title="height">height</a></span></li>
+<li><span><a href="/html/applet/hspace" title="hspace">hspace</a></span></li>
+<li><span><a href="/html/applet/name" title="name">name</a></span></li>
+<li><span><a href="/html/applet/object" title="object">object</a></span></li>
+<li><span><a href="/html/applet/vspace" title="vspace">vspace</a></span></li>
+<li><span><a href="/html/applet/width" title="width">width</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/area" title="area">area</a></span>
+<ul><li><span><a href="/html/area/accesskey" title="accesskey">accesskey</a></span></li>
+<li><span><a href="/html/area/alt" title="alt">alt</a></span></li>
+<li><span><a href="/html/area/coords" title="coords">coords</a></span></li>
+<li><span><a href="/html/area/href" title="href">href</a></span></li>
+<li><span><a href="/html/area/nohref" title="nohref">nohref</a></span></li>
+<li><span><a href="/html/area/shape" title="shape">shape</a></span></li>
+<li><span><a href="/html/area/tabindex" title="tabindex">tabindex</a></span></li>
+<li><span><a href="/html/area/target" title="target">target</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/bgsound" title="bgsound">bgsound</a></span>
+<ul><li><span><a href="/html/bgsound/balance" title="balance">balance</a></span></li>
+<li><span><a href="/html/bgsound/loop" title="loop">loop</a></span></li>
+<li><span><a href="/html/bgsound/src" title="src">src</a></span></li>
+<li><span><a href="/html/bgsound/volume" title="volume">volume</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/embed" title="embed">embed</a></span>
+<ul><li><span><a href="/html/embed/align" title="align">align</a></span></li>
+<li><span><a href="/html/embed/alt" title="alt">alt</a></span></li>
+<li><span><a href="/html/embed/border" title="border">border</a></span></li>
+<li><span><a href="/html/embed/height" title="height">height</a></span></li>
+<li><span><a href="/html/embed/hidden" title="hidden">hidden</a></span></li>
+<li><span><a href="/html/embed/hspace" title="hspace">hspace</a></span></li>
+<li><span><a href="/html/embed/name" title="name">name</a></span></li>
+<li><span><a href="/html/embed/pluginspage" title="pluginspage">pluginspage</a></span></li>
+<li><span><a href="/html/embed/type" title="type">type</a></span></li>
+<li><span><a href="/html/embed/vspace" title="vspace">vspace</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/img" title="img">img</a></span>
+<ul><li><span><a href="/html/img/align" title="align">align</a></span></li>
+<li><span><a href="/html/img/alt" title="alt">alt</a></span></li>
+<li><span><a href="/html/img/border" title="border">border</a></span></li>
+<li><span><a href="/html/img/height" title="height">height</a></span></li>
+<li><span><a href="/html/img/hspace" title="hspace">hspace</a></span></li>
+<li><span><a href="/html/img/ismap" title="ismap">ismap</a></span></li>
+<li><span><a href="/html/img/longdesc" title="longdesc">longdesc</a></span></li>
+<li><span><a href="/html/img/name" title="name">name</a></span></li>
+<li><span><a href="/html/img/src" title="src">src</a></span></li>
+<li><span><a href="/html/img/usemap" title="usemap">usemap</a></span></li>
+<li><span><a href="/html/img/vspace" title="vspace">vspace</a></span></li>
+<li><span><a href="/html/img/width" title="width">width</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/map" title="map">map</a></span>
+<ul><li><span><a href="/html/map/name" title="name">name</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/noembed" title="noembed">noembed</a></span></li>
+<li><span><a href="/html/object" title="object">object</a></span>
+<ul><li><span><a href="/html/object/align" title="align">align</a></span></li>
+<li><span><a href="/html/object/archive" title="archive">archive</a></span></li>
+<li><span><a href="/html/object/border" title="border">border</a></span></li>
+<li><span><a href="/html/object/classid" title="classid">classid</a></span></li>
+<li><span><a href="/html/object/codebase" title="codebase">codebase</a></span></li>
+<li><span><a href="/html/object/codetype" title="codetype">codetype</a></span></li>
+<li><span><a href="/html/object/data" title="data">data</a></span></li>
+<li><span><a href="/html/object/declare" title="declare">declare</a></span></li>
+<li><span><a href="/html/object/height" title="height">height</a></span></li>
+<li><span><a href="/html/object/hspace" title="hspace">hspace</a></span></li>
+<li><span><a href="/html/object/name" title="name">name</a></span></li>
+<li><span><a href="/html/object/standby" title="standby">standby</a></span></li>
+<li><span><a href="/html/object/tabindex" title="tabindex">tabindex</a></span></li>
+<li><span><a href="/html/object/type" title="type">type</a></span></li>
+<li><span><a href="/html/object/usemap" title="usemap">usemap</a></span></li>
+<li><span><a href="/html/object/vspace" title="vspace">vspace</a></span></li>
+<li><span><a href="/html/object/width" title="width">width</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/param" title="param">param</a></span>
+<ul><li><span><a href="/html/param/name" title="name">name</a></span></li>
+<li><span><a href="/html/param/type" title="type">type</a></span></li>
+<li><span><a href="/html/param/value" title="value">value</a></span></li>
+<li><span><a href="/html/param/valuetype" title="valuetype">valuetype</a></span></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><span><a href="/html/elements-table" title="Table Elements">Table Elements</a></span>
+<ul><li><span><a href="/html/caption" title="caption">caption</a></span>
+<ul><li><span><a href="/html/caption/align" title="align">align</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/col" title="col">col</a></span>
+<ul><li><span><a href="/html/col/align" title="align">align</a></span></li>
+<li><span><a href="/html/col/char" title="char">char</a></span></li>
+<li><span><a href="/html/col/charoff" title="charoff">charoff</a></span></li>
+<li><span><a href="/html/col/span" title="span">span</a></span></li>
+<li><span><a href="/html/col/valign" title="valign">valign</a></span></li>
+<li><span><a href="/html/col/width" title="width">width</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/colgroup" title="colgroup">colgroup</a></span>
+<ul><li><span><a href="/html/colgroup/align" title="align">align</a></span></li>
+<li><span><a href="/html/colgroup/char" title="char">char</a></span></li>
+<li><span><a href="/html/colgroup/charoff" title="charoff">charoff</a></span></li>
+<li><span><a href="/html/colgroup/span" title="span">span</a></span></li>
+<li><span><a href="/html/colgroup/valign" title="valign">valign</a></span></li>
+<li><span><a href="/html/colgroup/width" title="width">width</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/table" title="table">table</a></span>
+<ul><li><span><a href="/html/table/align" title="align">align</a></span></li>
+<li><span><a href="/html/table/bgcolor" title="bgcolor">bgcolor</a></span></li>
+<li><span><a href="/html/table/border" title="border">border</a></span></li>
+<li><span><a href="/html/table/cellpadding" title="cellpadding">cellpadding</a></span></li>
+<li><span><a href="/html/table/cellspacing" title="cellspacing">cellspacing</a></span></li>
+<li><span><a href="/html/table/frame" title="frame">frame</a></span></li>
+<li><span><a href="/html/table/rules" title="rules">rules</a></span></li>
+<li><span><a href="/html/table/summary" title="summary">summary</a></span></li>
+<li><span><a href="/html/table/width" title="width">width</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/tbody" title="tbody">tbody</a></span>
+<ul><li><span><a href="/html/tbody/align" title="align">align</a></span></li>
+<li><span><a href="/html/tbody/char" title="char">char</a></span></li>
+<li><span><a href="/html/tbody/charoff" title="charoff">charoff</a></span></li>
+<li><span><a href="/html/tbody/valign" title="valign">valign</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/td" title="td">td</a></span>
+<ul><li><span><a href="/html/td/abbr" title="abbr">abbr</a></span></li>
+<li><span><a href="/html/td/align" title="align">align</a></span></li>
+<li><span><a href="/html/td/axis" title="axis">axis</a></span></li>
+<li><span><a href="/html/td/bgcolor" title="bgcolor">bgcolor</a></span></li>
+<li><span><a href="/html/td/char" title="char">char</a></span></li>
+<li><span><a href="/html/td/charoff" title="charoff">charoff</a></span></li>
+<li><span><a href="/html/td/colspan" title="colspan">colspan</a></span></li>
+<li><span><a href="/html/td/headers" title="headers">headers</a></span></li>
+<li><span><a href="/html/td/nowrap" title="nowrap">nowrap</a></span></li>
+<li><span><a href="/html/td/rowspan" title="rowspan">rowspan</a></span></li>
+<li><span><a href="/html/td/scope" title="scope">scope</a></span></li>
+<li><span><a href="/html/td/valign" title="valign">valign</a></span></li>
+<li><span><a href="/html/td/width" title="width">width</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/tfoot" title="tfoot">tfoot</a></span>
+<ul><li><span><a href="/html/tfoot/align" title="align">align</a></span></li>
+<li><span><a href="/html/tfoot/char" title="char">char</a></span></li>
+<li><span><a href="/html/tfoot/charoff" title="charoff">charoff</a></span></li>
+<li><span><a href="/html/tfoot/valign" title="valign">valign</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/th" title="th">th</a></span>
+<ul><li><span><a href="/html/th/abbr" title="abbr">abbr</a></span></li>
+<li><span><a href="/html/th/align" title="align">align</a></span></li>
+<li><span><a href="/html/th/axis" title="axis">axis</a></span></li>
+<li><span><a href="/html/th/bgcolor" title="bgcolor">bgcolor</a></span></li>
+<li><span><a href="/html/th/char" title="char">char</a></span></li>
+<li><span><a href="/html/th/charoff" title="charoff">charoff</a></span></li>
+<li><span><a href="/html/th/colspan" title="colspan">colspan</a></span></li>
+<li><span><a href="/html/th/headers" title="headers">headers</a></span></li>
+<li><span><a href="/html/th/nowrap" title="nowrap">nowrap</a></span></li>
+<li><span><a href="/html/th/rowspan" title="rowspan">rowspan</a></span></li>
+<li><span><a href="/html/th/scope" title="scope">scope</a></span></li>
+<li><span><a href="/html/th/valign" title="valign">valign</a></span></li>
+<li><span><a href="/html/th/width" title="width">width</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/thead" title="thead">thead</a></span>
+<ul><li><span><a href="/html/thead/align" title="align">align</a></span></li>
+<li><span><a href="/html/thead/char" title="char">char</a></span></li>
+<li><span><a href="/html/thead/charoff" title="charoff">charoff</a></span></li>
+<li><span><a href="/html/thead/valign" title="valign">valign</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/tr" title="tr">tr</a></span>
+<ul><li><span><a href="/html/tr/align" title="align">align</a></span></li>
+<li><span><a href="/html/tr/bgcolor" title="bgcolor">bgcolor</a></span></li>
+<li><span><a href="/html/tr/char" title="char">char</a></span></li>
+<li><span><a href="/html/tr/charoff" title="charoff">charoff</a></span></li>
+<li><span><a href="/html/tr/valign" title="valign">valign</a></span></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><span><a href="/html/elements-frames-windows" title="Frame and Window Elements">Frame and Window Elements</a></span>
+<ul><li><span><a href="/html/frame" title="frame">frame</a></span>
+<ul><li><span><a href="/html/frame/frameborder" title="frameborder">frameborder</a></span></li>
+<li><span><a href="/html/frame/longdesc" title="longdesc">longdesc</a></span></li>
+<li><span><a href="/html/frame/marginheight" title="marginheight">marginheight</a></span></li>
+<li><span><a href="/html/frame/marginwidth" title="marginwidth">marginwidth</a></span></li>
+<li><span><a href="/html/frame/name" title="name">name</a></span></li>
+<li><span><a href="/html/frame/noresize" title="noresize">noresize</a></span></li>
+<li><span><a href="/html/frame/scrolling" title="scrolling">scrolling</a></span></li>
+<li><span><a href="/html/frame/src" title="src">src</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/frameset" title="frameset">frameset</a></span>
+<ul><li><span><a href="/html/frameset/cols" title="cols">cols</a></span></li>
+<li><span><a href="/html/frameset/rows" title="rows">rows</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/noframes" title="noframes">noframes</a></span></li>
+<li><span><a href="/html/iframe" title="iframe">iframe</a></span>
+<ul><li><span><a href="/html/iframe/align" title="align">align</a></span></li>
+<li><span><a href="/html/iframe/frameborder" title="frameborder">frameborder</a></span></li>
+<li><span><a href="/html/iframe/height" title="height">height</a></span></li>
+<li><span><a href="/html/iframe/longdesc" title="longdesc">longdesc</a></span></li>
+<li><span><a href="/html/iframe/marginheight" title="marginheight">marginheight</a></span></li>
+<li><span><a href="/html/iframe/marginwidth" title="marginwidth">marginwidth</a></span></li>
+<li><span><a href="/html/iframe/name" title="name">name</a></span></li>
+<li><span><a href="/html/iframe/src" title="src">src</a></span></li>
+<li><span><a href="/html/iframe/width" title="width">width</a></span></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><span><a href="/html/elements-deprecated" title="Deprecated Elements (to avoid using)">Deprecated Elements (to avoid using)</a></span></li>
+<li><span><a href="/html/elements-proprietary" title="Proprietary &amp; Nonstandard Elements">Proprietary &amp; Nonstandard Elements</a></span></li>
+<li><span><a href="/html/elements-alphabetic" title="Alphabetic Element Index">Alphabetic Element Index</a></span></li>
+<li><span><a href="/html/elements-and-dtds" title="Elements and Valid DTDs They May Appear In">Elements and Valid DTDs They May Appear In</a></span></li>
+</ul>
+<h3><span><a href="/html/microformats" title="HTML Microformats">HTML Microformats</a></span></h3>
+
+<ul><li><span><a href="/html/hcalendar" title="hCalendar">hCalendar</a></span></li>
+<li><span><a href="/html/hcard" title="hCard">hCard</a></span></li>
+<li><span><a href="/html/hreview" title="hreview">hreview</a></span></li>
+<li><span><a href="/html/xfn" title="XFN">XFN</a></span></li>
+<li><span><a href="/html/rel-mf" title="rel- Microformats">rel- Microformats</a></span></li>
+</ul>
+<h3><span><a href="/html/attributes-common" title="HTML Common Attributes">HTML Common Attributes</a></span></h3>
+
+<ul><li><span><a href="/html/core-attributes" title="Core Attributes">Core Attributes</a></span>
+<ul><li><span><a href="/html/core-attributes/id" title="id">id</a></span></li>
+<li><span><a href="/html/core-attributes/class" title="class">class</a></span></li>
+<li><span><a href="/html/core-attributes/dir" title="dir">dir</a></span></li>
+<li><span><a href="/html/core-attributes/lang" title="lang">lang</a></span></li>
+<li><span><a href="/html/core-attributes/style" title="style">style</a></span></li>
+<li><span><a href="/html/core-attributes/title" title="title">title</a></span></li>
+<li><span><a href="/html/core-attributes/xml-lang" title="xml:lang">xml:lang</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/event-attributes" title="Event Attributes">Event Attributes</a></span>
+<ul><li><span><a href="/html/event-attributes/onblur" title="onblur">onblur</a></span></li>
+<li><span><a href="/html/event-attributes/onchange" title="onchange">onchange</a></span></li>
+<li><span><a href="/html/event-attributes/onclick" title="onclick">onclick</a></span></li>
+<li><span><a href="/html/event-attributes/ondblclick" title="ondblclick">ondblclick</a></span></li>
+<li><span><a href="/html/event-attributes/onfocus" title="onfocus">onfocus</a></span></li>
+<li><span><a href="/html/event-attributes/onkeydown" title="onkeydown">onkeydown</a></span></li>
+<li><span><a href="/html/event-attributes/onkeypress" title="onkeypress">onkeypress</a></span></li>
+<li><span><a href="/html/event-attributes/onkeyup" title="onkeyup">onkeyup</a></span></li>
+<li><span><a href="/html/event-attributes/onload" title="onload">onload</a></span></li>
+<li><span><a href="/html/event-attributes/onmousedown" title="onmousedown">onmousedown</a></span></li>
+<li><span><a href="/html/event-attributes/onmousemove" title="onmousemove">onmousemove</a></span></li>
+<li><span><a href="/html/event-attributes/onmouseout" title="onmouseout">onmouseout</a></span></li>
+<li><span><a href="/html/event-attributes/onmouseover" title="onmouseover">onmouseover</a></span></li>
+<li><span><a href="/html/event-attributes/onmouseup" title="onmouseup">onmouseup</a></span></li>
+<li><span><a href="/html/event-attributes/onreset" title="onreset">onreset</a></span></li>
+<li><span><a href="/html/event-attributes/onselect" title="onselect">onselect</a></span></li>
+<li><span><a href="/html/event-attributes/onsubmit" title="onsubmit">onsubmit</a></span></li>
+<li><span><a href="/html/event-attributes/onunload" title="onunload">onunload</a></span></li>
+</ul>
+</li>
+<li><span><a href="/html/extended-event-attributes" title="Extended Event Attributes">Extended Event Attributes</a></span>
+<ul><li><span><a href="/html/extended-event-attributes/onabort" title="onabort">onabort</a></span></li>
+<li><span><a href="/html/extended-event-attributes/onactivate" title="onactivate">onactivate</a></span></li>
+<li><span><a href="/html/extended-event-attributes/onafterprint" title="onafterprint">onafterprint</a></span></li>
+<li><span><a href="/html/extended-event-attributes/onafterupdate" title="onafterupdate">onafterupdate</a></span></li>
+<li><span><a href="/html/extended-event-attributes/onbeforeactivate" title="onbeforeactivate">onbeforeactivate</a></span></li>
+<li><span><a href="/html/extended-event-attributes/onbeforecopy" title="onbeforecopy">onbeforecopy</a></span></li>
+<li><span><a href="/html/extended-event-attributes/onbeforecut" title="onbeforecut">onbeforecut</a></span></li>
+<li><span><a href="/html/extended-event-attributes/onbeforedeactivate" title="onbeforedeactivate">onbeforedeactivate</a></span></li>
+<li><span><a href="/html/extended-event-attributes/onbeforeeditfocus" title="onbeforeeditfocus">onbeforeeditfocus</a></span></li>
+<li><span><a href="/html/extended-event-attributes/onbeforepaste" title="onbeforepaste">onbeforepaste</a></span></li>
+<li><span><a href="/html/extended-event-attributes/onbeforeprint" title="onbeforeprint">onbeforeprint</a></span></li>
+<li><span><a href="/html/extended-event-attributes/onbeforeunload" title="onbeforeunload">onbeforeunload</a></span></li>
+<li><span><a href="/html/extended-event-attributes/onbeforeupdate" title="onbeforeupdate">onbeforeupdate</a></span></li>
+<li><span><a href="/html/extended-event-attributes/onbounce" title="onbounce">onbounce</a></span></li>
+<li><span><a href="/html/extended-event-attributes/oncontextmenu" title="oncontextmenu">oncontextmenu</a></span></li>
+<li><span><a href="/html/extended-event-attributes/oncontrolselect" title="oncontrolselect">oncontrolselect</a></span></li>
+<li><span><a href="/html/extended-event-attributes/oncopy" title="oncopy">oncopy</a></span></li>
+<li><span><a href="/html/extended-event-attributes/oncut" title="oncut">oncut</a></span></li>
+<li><span><a href="/html/extended-event-attributes/ondataavailable" title="ondataavailable">ondataavailable</a></span></li>
+<li><span><a href="/html/extended-event-attributes/ondatasetchanged" title="ondatasetchanged">ondatasetchanged</a></span></li>
+<li><span><a href="/html/extended-event-attributes/ondeactivate" title="ondeactivate">ondeactivate</a></span></li>
+<li><span><a href="/html/extended-event-attributes/ondrag" title="ondrag">ondrag</a></span></li>
+<li><span><a href="/html/extended-event-attributes/ondragend" title="ondragend">ondragend</a></span></li>
+<li><span><a href="/html/extended-event-attributes/ondragenter" title="ondragenter">ondragenter</a></span></li>
+<li><span><a href="/html/extended-event-attributes/ondragleave" title="ondragleave">ondragleave</a></span></li>
+<li><span><a href="/html/extended-event-attributes/ondragover" title="ondragover">ondragover</a></span></li>
+<li><span><a href="/html/extended-event-attributes/ondragstart" title="ondragstart">ondragstart</a></span></li>
+<li><span><a href="/html/extended-event-attributes/ondrop" title="ondrop">ondrop</a></span></li>
+<li><span><a href="/html/extended-event-attributes/onerror" title="onerror">onerror</a></span></li>
+<li><span><a href="/html/extended-event-attributes/onerrorupdate" title="onerrorupdate">onerrorupdate</a></span></li>
+<li><span><a href="/html/extended-event-attributes/onfilterchange" title="onfilterchange">onfilterchange</a></span></li>
+<li><span><a href="/html/extended-event-attributes/onfinish" title="onfinish">onfinish</a></span></li>
+<li><span><a href="/html/extended-event-attributes/onfocusin" title="onfocusin">onfocusin</a></span></li>
+<li><span><a href="/html/extended-event-attributes/onfocusout" title="onfocusout">onfocusout</a></span></li>
+<li><span><a href="/html/extended-event-attributes/onhelp" title="onhelp">onhelp</a></span></li>
+<li><span><a href="/html/extended-event-attributes/onlayoutcomplete" title="onlayoutcomplete">onlayoutcomplete</a></span></li>
+<li><span><a href="/html/extended-event-attributes/onlosecapture" title="onlosecapture">onlosecapture</a></span></li>
+<li><span><a href="/html/extended-event-attributes/onmouseenter" title="onmouseenter">onmouseenter</a></span></li>
+<li><span><a href="/html/extended-event-attributes/onmouseleave" title="onmouseleave">onmouseleave</a></span></li>
+<li><span><a href="/html/extended-event-attributes/onmousewheel" title="onmousewheel">onmousewheel</a></span></li>
+<li><span><a href="/html/extended-event-attributes/onmove" title="onmove">onmove</a></span></li>
+<li><span><a href="/html/extended-event-attributes/onmoveend" title="onmoveend">onmoveend</a></span></li>
+<li><span><a href="/html/extended-event-attributes/onmovestart" title="onmovestart">onmovestart</a></span></li>
+<li><span><a href="/html/extended-event-attributes/onpaste" title="onpaste">onpaste</a></span></li>
+<li><span><a href="/html/extended-event-attributes/onpropertychange" title="onpropertychange">onpropertychange</a></span></li>
+<li><span><a href="/html/extended-event-attributes/onreadystatechanged" title="onreadystatechanged">onreadystatechanged</a></span></li>
+<li><span><a href="/html/extended-event-attributes/onresize" title="onresize">onresize</a></span></li>
+<li><span><a href="/html/extended-event-attributes/onresizeend" title="onresizeend">onresizeend</a></span></li>
+<li><span><a href="/html/extended-event-attributes/onresizestart" title="onresizestart">onresizestart</a></span></li>
+<li><span><a href="/html/extended-event-attributes/onrowenter" title="onrowenter">onrowenter</a></span></li>
+<li><span><a href="/html/extended-event-attributes/onrowexit" title="onrowexit">onrowexit</a></span></li>
+<li><span><a href="/html/extended-event-attributes/onrowsdelete" title="onrowsdelete">onrowsdelete</a></span></li>
+<li><span><a href="/html/extended-event-attributes/onrowsinserted" title="onrowsinserted">onrowsinserted</a></span></li>
+<li><span><a href="/html/extended-event-attributes/onscroll" title="onscroll">onscroll</a></span></li>
+<li><span><a href="/html/extended-event-attributes/onselectionchange" title="onselectionchange">onselectionchange</a></span></li>
+<li><span><a href="/html/extended-event-attributes/onselectstart" title="onstart">onstart</a></span></li>
+<li><span><a href="/html/extended-event-attributes/onstop" title="onstop">onstop</a></span></li>
+<li><span><a href="/html/extended-event-attributes/ontimeerror" title="ontimeerror">ontimeerror</a></span></li>
+</ul>
+</li>
+</ul>
+<h3 class="containsactive"><span><a href="/html/html-concepts" title="HTML Concepts (this section)">HTML Concepts</a></span></h3>
+
+<ul class="containsactive"><li><span><a href="/html/page-structure" title="Basic Structure of a Web Page">Basic Structure of a Web Page</a></span></li>
+<li><span><a href="/html/doctypes" title="Doctypes">Doctypes</a></span></li>
+<li class="active"><span><a href="/html/html-xhtml-syntax" title="HTML and XHTML Syntax (this page)">HTML and XHTML Syntax</a></span></li>
+<li><span><a href="/html/html-vs-xhtml" title="HTML Versus XHTML">HTML Versus XHTML</a></span></li>
+<li><span><a href="/html/accessibility" title="HTML/XHTML Accessibility Features">HTML/XHTML Accessibility Features</a></span></li>
+</ul>
+<h3><span><a href="/html/extras" title="HTML Extras">HTML Extras</a></span></h3>
+
+<ul><li><span><a href="/html/color-names" title="Color Names and Related Hex Values">Color Names and Related Hex Values</a></span></li>
+<li><span><a href="/html/lang-codes" title="ISO 2 Letter Language Codes">ISO 2 Letter Language Codes</a></span></li>
+<li><span><a href="/html/mime-types-full" title="MIME Types - Complete List">MIME Types - Complete List</a></span></li>
+</ul>
+<h3><span><a href="/html/demos">
+					HTML
+				 Examples</a></span></h3></div>
+			<script src="/static/reference/scripts/foldertree.js" type="text/javascript"></script>
+		</div>
+
+	</div>
+
+</div>
+
+<div id="footer">
+
+<div id="tertiary">
+
+<div class="structural-label">Footer links</div>
+
+<ul>
+	<li><a href="http://www.sitepoint.com/mediakit" rel="nofollow">Advertise</a> </li>
+	<li><a href="http://www.sitepoint.com/about/">About Us</a> </li>
+	<li><a href="http://www.sitepoint.com/contact">Contact Us</a> </li>
+	<li><a href="http://www.sitepoint.com/sitemap" rel="nofollow" accesskey="3">Site Map</a> </li>
+	<li><a href="http://www.sitepoint.com/about/writeforus" rel="nofollow">Write For Us</a> </li>
+	<li><a href="http://www.sitepoint.com/syndication/" rel="nofollow">RSS</a> </li>
+	<li><a href="http://www.sitepoint.com/search/search.php" accesskey="4">Search</a> </li>
+	<li><a href="http://www.sitepoint.com/privacy/" accesskey="8">Privacy</a> </li>
+	<li><a href="http://www.sitepoint.com/glossary.php?q=A" rel="nofollow">Glossary</a> </li>
+	<li><a href="http://www.sitepoint.com/about/terms.php/">Terms &amp; Conditions</a> </li>
+	<li><a href="http://www.sitepoint.com/about/jobs/">Jobs</a> </li>
+</ul>
+
+</div>
+
+<p>The contents of this webpage are copyright &copy; 1998-2010 SitePoint Pty. Ltd. All Rights Reserved.</p>
+
+<p>
+	<a href="http://www.sitepoint.com.au" title="Visit our development site">Web Design &amp; Development by SitePoint, Melbourne, Australia</a> – <a href="http://www.99designs.com">Logo Design, Web page Design – 99designs.com</a>
+</p>
+
+
+</div><!-- end footer -->
+<script src="http://adscluster.aws.sitepoint.com/openx/adjs.sp.php?region=21&amp;did=adzbanner" type="text/javascript"></script>
+<script src="http://adscluster.aws.sitepoint.com/openx/adjs.sp.php?region=22&amp;did=adzbannerCustom" type="text/javascript"></script>
+<script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+    try{
+        var sitepointTracker = _gat._getTracker("UA-30131-1");
+        sitepointTracker._setDomainName(".sitepoint.com");
+        sitepointTracker._setAllowHash(false);
+        sitepointTracker._setCustomVar(1, "Context", "Reference", 3); 
+        sitepointTracker._trackPageview();
+    } catch(err) {}
+</script>
+
+<script type="text/javascript" src="http://reference.sitepoint.com/static/common/scripts/DateTimeHelper.js"></script>
+<script type="text/javascript" src="http://reference.sitepoint.com/static/common/scripts/convert-sitepoint-datetime.js"></script>
+<script type="text/javascript" src="http://reference.sitepoint.com/static/common/scripts/XHRHelper.js"></script>
+<script type="text/javascript" src="http://reference.sitepoint.com/static/reference/scripts/view-single-comment.js"></script>
+</body>
+</html>

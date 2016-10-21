@@ -1,0 +1,323 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+  <HEAD>
+    <META name="generator" content="HTML Tidy for Windows (vers 12 April 2005), see www.w3.org">
+    <META http-equiv="expires" content="86400">
+    <META name="author" content="AKADIA Information Technology AG">
+    <META name="description" content="AKADIA Information Technology AG, Bern, Schweiz">
+    <META name="distribution" content="global">
+    <LINK rel="stylesheet" href="http://www.akadia.com/docroot/css/website.css" type="text/css">
+    <TITLE>
+      Connecting to Oracle 9 using the Microsoft .NET Framework
+    </TITLE>
+  </HEAD>
+  <BODY bgcolor="#FFFFFF" text="#000000" vlink="#0000FF" alink="#0000FF" leftmargin="20">
+    <TABLE border="0" cellpadding="0" cellspacing="0" width="575" height="20">
+      <TR>
+        <TD valign="top" colspan="2" width="573">
+          &nbsp;&nbsp;
+        </TD>
+      </TR>
+      <TR>
+        <TD valign="top" width="20%" height="51">
+          <A href="javascript:history.back()"><IMG src="../img/zurueck.gif" alt="Zur&uuml;ck"
+          border="0" width="76" height="19"></A> 
+        </TD>
+        <TD valign="top" height="17" width="80%">
+          <P class="big">
+            Connecting to <SPAN lang="de-ch">Oracle 9</SPAN> <SPAN lang="de-ch">using</SPAN> <SPAN
+            lang="de-ch">the</SPAN> Microsoft .NET Framework
+          </P>
+          <HR color="#34B389" noshade>
+          <P class="normal">
+            Ren&eacute; Steiner, Aka<FONT color="#34B389">dia</FONT> AG, Information Technology,
+            CH-3604 Thun<STRONG><BR>
+            </STRONG> Phone: +41 33 335 86 22 / Fax: +41 33 335 86 25 /<BR>
+             EMail: <A href="mailto:rene.steiner@akadia.com">rene.steiner@akadia.com</A>
+          </P>
+          <HR color="#34B389" noshade>
+        </TD>
+      </TR>
+      <TR>
+        <TD valign="top" colspan="2" height="74" width="573">
+          <P class="header">
+            <SPAN lang="en-us">Overview</SPAN> <SPAN lang="de-ch">(What Microsoft says about</SPAN>
+            .NET Framework <SPAN lang="de-ch">...)</SPAN>
+          </P>
+          <BLOCKQUOTE>
+            <P class="normal">
+              <SPAN lang="de-ch">...</SPAN> The Microsoft&reg; .NET Framework is <IMG border="0"
+              src="../img/netframe.gif" align="left" hspace="5" vspace="5" width="140" height=
+              "120">the infrastructure for the overall .NET Platform. The common language runtime
+              and class libraries (including Microsoft Windows&reg; Forms, ADO.NET, and ASP.NET)
+              combine to provide services and solutions that can be easily integrated within and
+              across a variety of systems.
+            </P>
+            <P class="normal">
+              The .NET Framework provides a fully managed, protected, and feature-rich application
+              execution environment, simplified development and deployment, and seamless
+              integration with a wide variety of languages.
+            </P>
+          </BLOCKQUOTE>
+          <P class="header">
+            <SPAN lang="de-ch">Example</SPAN>
+          </P>
+          <BLOCKQUOTE>
+            <P class="normal">
+              <SPAN lang="de-ch">Well, let's do it ... in this Tip we show how to connect to an
+              <B>Oracle 9.2.0</B> database from the <B>.NET Framework</B> using <B>C#</B>,
+              <B>MDAC</B> and <B>ODBC</B>.</SPAN>
+            </P>
+          </BLOCKQUOTE>
+          <P class="header">
+            <SPAN lang="de-ch">What you need</SPAN>
+          </P>
+          <UL>
+            <LI>
+              <P class="normal">
+                <SPAN style="font-size: 10pt; font-weight: 700">Microsoft .NET Framework Software
+                Development Kit</SPAN>
+              </P>
+            </LI>
+          </UL>
+          <BLOCKQUOTE>
+            <P>
+              The Microsoft&reg; .NET Framework Software Development Kit (SDK) includes the .NET
+              Framework, as well as everything you need to write, build, test, and deploy .NET
+              Framework applications <SPAN lang="de-ch">-</SPAN> documentation, samples, and
+              command-line tools and compilers.
+            </P>
+            <P>
+              <SPAN lang="de-ch">Download and Installation:</SPAN>
+            </P>
+            <BLOCKQUOTE>
+              <P>
+                <SPAN lang="de-ch">Goto:</SPAN>
+              </P>
+              <P>
+                <A target="_blank" href=
+                "http://msdn.microsoft.com/downloads/">http://msdn.microsoft.com/downloads/</A>
+              </P>
+              <P>
+                <SPAN lang="de-ch">Select:</SPAN>
+              </P>
+              <P>
+                -<SPAN lang="de-ch">&gt; Software Development Kits<BR>
+                 -&gt; Microsoft .NET Framework SDK</SPAN>
+              </P>
+            </BLOCKQUOTE>
+            <P class="normal">
+              <SPAN lang="de-ch">You'll get the whole framework and a C# command line compiler. Run
+              the downloaded <B><I>setup.exe</I></B> if you haven't installed yet Microsoft .NET
+              and follow the installation steps. You will be asked for Server Components which you
+              don't need. If the installation asks for Microsoft Data Access Components MDAC you
+              may continue or quit the installation. Anyway, you need to install MDAC 2.7 or higher
+              prior ODBC data access is going to work.</SPAN>
+            </P>
+          </BLOCKQUOTE>
+          <UL>
+            <LI>
+              <P class="normal">
+                <SPAN style="font-size: 10pt; font-weight: 700">Microsoft&reg; Data Access
+                Components (MDAC <SPAN lang="de-ch">Version 2.7</SPAN>)</SPAN>
+              </P>
+            </LI>
+          </UL>
+          <BLOCKQUOTE>
+            <P>
+              The Microsoft&reg; Data Access Components (MDAC) are the key technologies that enable
+              Universal Data Access, Microsoft's strategy for providing access to information
+              across the enterprise. Data-driven client/server applications deployed over the Web
+              or a local area network can use these components to integrate information from a
+              variety of sources, both relational (SQL) and nonrelational. The SDK contains
+              documentation, samples, and tools designed to help you create data access solutions.
+            </P>
+            <P class="normal">
+              <B>MDAC SDK Components</B>
+            </P>
+            <P class="normal">
+              The MDAC SDK consists of the following components:
+            </P>
+            <UL>
+              <LI>
+                <B>ActiveX Data Objects (ADO)</B> <SPAN lang="de-ch">e</SPAN>nables client
+                applications to access and manipulate data from a database server through an OLE DB
+                provider. Primary benefits are ease of use, high speed, low memory overhead, and a
+                small disk footprint. ADO supports building client/server and Web-based
+                applications.<BR>
+                 <SPAN lang="de-ch">&nbsp;</SPAN>
+              </LI>
+              <LI>
+                <B>OLE DB</B> <SPAN lang="de-ch">a</SPAN> set of COM-based interfaces that expose
+                data from a variety of sources. It provides applications with uniform access to
+                data stored in diverse data stores. The interfaces support the amount of database
+                management system (DBMS) functionality appropriate to the data store, enabling the
+                data store to share its data.<BR>
+                 <SPAN lang="de-ch">&nbsp;</SPAN>
+              </LI>
+              <LI>
+                <B>ODBC</B> <SPAN lang="de-ch">e</SPAN>nables applications to access data from a
+                variety of DBMSs. ODBC permits maximum interoperability so applications can access
+                data in diverse DBMSs through a single interface. Furthermore, applications are
+                independent of any DBMS from which they access data. Users can add a driver, which
+                provides an interface between applications and a specific DBMS.
+              </LI>
+            </UL>
+            <P class="normal">
+              <SPAN lang="de-ch">Download and Installation:</SPAN>
+            </P>
+            <BLOCKQUOTE>
+              <P class="normal">
+                <SPAN lang="de-ch">Goto:</SPAN>
+              </P>
+              <P class="normal">
+                <A target="_blank" href=
+                "http://www.microsoft.com/msdownload/platformsdk/sdkupdate/">http://www.microsoft.com/msdownload/platformsdk/sdkupdate/</A>
+              </P>
+              <P class="normal">
+                <SPAN lang="de-ch">Select:</SPAN>
+              </P>
+              <P class="normal">
+                -<SPAN lang="de-ch">&gt; MDAC SDK<BR>
+                 -&gt; Install This SDK</SPAN>
+              </P>
+            </BLOCKQUOTE>
+            <P class="header">
+              <SPAN lang="de-ch" style="font-weight: 400">To open the MDAC SDK once it is
+              installed:</SPAN>
+            </P>
+            <OL>
+              <LI>
+                <SPAN lang="de-ch">From the <B>Start</B> menu, click <B>Programs</B>, point to
+                <B>Microsoft Platform SDK</B> , and then click <B>Platform SDK
+                Documentation</B>.</SPAN>
+              </LI>
+              <LI>
+                <SPAN lang="de-ch">In the <B>Contents</B> pane, expand <B>Data Services</B>, and
+                then navigate to <B>MDAC</B> <B>SDK</B>.</SPAN>
+              </LI>
+              <LI>
+                <SPAN lang="de-ch">In the <B>Contents</B> pane, expand <B>MDAC SDK</B>, and then
+                navigate to the appropriate SDK component (ADO, ODBC, etc.).</SPAN>
+              </LI>
+            </OL>
+          </BLOCKQUOTE>
+          <UL>
+            <LI>
+              <P class="header">
+                ODBC .NET Data Provider&nbsp;
+              </P>
+            </LI>
+          </UL>
+          <BLOCKQUOTE>
+            <P class="normal">
+              The Open Database Connectivity (ODBC) .NET Data Provider is an add-on component to
+              the .NET Framework. It provides access to native ODBC drivers the same way the OLE DB
+              .NET Data Provider provides access to native OLE DB providers. The ODBC .NET Data
+              Provider is intended to work with all compliant ODBC drivers but only the following
+              drivers have been tested with the ODBC .NET Data Provider:
+            </P>
+            <UL>
+              <LI>
+                <P class="normal">
+                  Microsoft SQL ODBC Driver
+                </P>
+              </LI>
+              <LI>
+                <P class="normal">
+                  Microsoft ODBC Driver for Oracle
+                </P>
+              </LI>
+              <LI>
+                <P class="normal">
+                  Microsoft Jet ODBC Driver
+                </P>
+              </LI>
+            </UL>
+            <P class="normal">
+              <SPAN lang="de-ch">Download and Installation:</SPAN>
+            </P>
+            <BLOCKQUOTE>
+              <P class="normal">
+                <SPAN lang="de-ch">Goto:</SPAN>
+              </P>
+              <P class="normal">
+                <A target="_blank" href=
+                "http://msdn.microsoft.com/downloads/">http://msdn.microsoft.com/downloads/</A>
+              </P>
+              <P class="normal">
+                <SPAN lang="de-ch">Select:</SPAN>
+              </P>
+              <P class="normal">
+                -<SPAN lang="de-ch">&gt; .NET Framework<BR>
+                 -&gt;</SPAN> ODBC .NET Data Provider<BR>
+                 <SPAN lang="de-ch">-&gt; Download<BR>
+                 -&gt; Double click on the downloaded file: <B>odbc_net.msi</B></SPAN>
+              </P>
+            </BLOCKQUOTE>
+          </BLOCKQUOTE>
+          <P class="header">
+            <SPAN lang="de-ch">Create the Oracle ODBC Data Source</SPAN>
+          </P>
+          <BLOCKQUOTE>
+            <P class="normal">
+              <SPAN lang="de-ch">Use "Administrative Tools" and "Data Sources (ODBC)" to configure
+              an ODBC data source on your Windows operating system. The menu points and the name of
+              the configuration program may differ between different Windows versions. Click on the
+              "Add" button and select the <B>Oracle driver</B>. You may use the default settings in
+              most of the cases.</SPAN>
+            </P>
+          </BLOCKQUOTE>
+          <P class="normal">
+            <SPAN lang="de-ch"><IMG border="0" src="../img/dotnetodbc.gif" width="561" height=
+            "359"></SPAN>
+          </P>
+          <P class="header">
+            <SPAN lang="de-ch">Compile the C# ODBC Test Program</SPAN>
+          </P>
+          <BLOCKQUOTE>
+            <P class="normal">
+              <SPAN lang="de-ch">If you copy the source code below into a file called
+              <B>odbctest.cs</B> you may compile it like this. Start the Command Shell (CMD) and
+              type all in one line:</SPAN>
+            </P>
+            <P class="courier">
+              C:\Users\Zahn\Tmp\odbc&gt; <B>csc /reference:"C:\Program Files\<BR>
+               Microsoft.Net\Odbc.Net\Microsoft.Data.Odbc.dll" odbctest.cs</B><BR>
+              <BR>
+               <FONT color="#0000FF">Microsoft (R) Visual C# .NET Compiler version 7.00.9466<BR>
+               for Microsoft (R) .NET Framework version 1.0.3705<BR>
+               Copyright (C) Microsoft Corporation 2001. All rights reserved.</FONT>
+            </P>
+            <P class="normal">
+              <SPAN lang="de-ch">The file <I>Microsoft.Data.Odbc.dll</I> is the so-called data
+              provider we have previously installed. The shown path corresponds to the default
+              path. If you have this file somewhere else stored adapt the path accordingly.</SPAN>
+            </P>
+            <P class="normal">
+              The C# compiler can be invoked at the command line by typing the name of its
+              executable file (<I>csc.exe</I>) on the command line. You may need to adjust your
+              path if you want <I>csc.exe</I> to be invoked from any subdirectory on your computer.
+            </P>
+          </BLOCKQUOTE>
+          <P class="header">
+            <SPAN lang="de-ch">Run the C# ODBC Test Program</SPAN>
+          </P>
+          <BLOCKQUOTE>
+            <P class="courier">
+              <SPAN lang="de-ch">C:\Users\Zahn\Tmp\odbc&gt; <B>odbctest.exe<BR>
+              </B><BR>
+               <FONT color="#0000FF">Connect to DSN=DotNetOdbc;UID=scott;PWD=tiger ...<BR>
+               .....</FONT></SPAN>
+            </P>
+          </BLOCKQUOTE>
+          <P class="header">
+            <SPAN lang="de-ch">Download <SPAN style="font-weight: 400">Source Code of
+            <I>odbctest.cs</I></SPAN> <A target="_top" href=
+            "../services/odbctest.txt">here</A></SPAN>
+          </P>
+        </TD>
+      </TR>
+    </TABLE>
+  </BODY>
+</HTML>

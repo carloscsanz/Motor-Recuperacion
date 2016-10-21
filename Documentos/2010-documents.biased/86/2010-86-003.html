@@ -1,0 +1,481 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+<meta name="DC.Date.modified" scheme="W3CDTF" content="2010-01-01"  /><title>Connectivity with remote server databse.</title>
+<meta name="ROBOTS" content="index,follow" />
+<meta name="description" content="Hello, hello every body, is there any mechanism in visual studio 2005 and c# to copy the remote server table and update the local database table with that copied table, please guide me in this topic, step by step to accomplish it, if no than please..." /><link rel="stylesheet" href="/template/forum.css?200911121024" type="text/css" /><link href="http://static.commentcamarche.net/en.kioskea.net/_skin/_common/css/css.php?201002181011" type="text/css" rel="stylesheet" media="screen" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en" />
+<link rel="alternate" type="application/rss+xml" title="Kioskea: News" href="http://en.kioskea.net/rss/actualite.php3" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<script src="http://static.commentcamarche.net/www.commentcamarche.net/_skin/_common/js/js.php?201001111528" type="text/javascript"></script>
+
+</head>
+<body><div id="tt" style="display:none"><div id="tttop"></div><div id="ttcont"></div><div id="ttbot"></div></div><div id="header">    <div id="top">
+        
+        <h1>
+            <a href="/" name="top" title="Kioskea"><img src="http://static.commentcamarche.net/en.kioskea.net/_skin/_local/img/logo.png"  alt="Kioskea" /></a>
+        </h1>
+        <form action="/search/search.php3" method="get" class="headerFooter">
+            <fieldset>
+                <legend>Recherche</legend>
+                <input type="text" id="searchform_input" name="Mot" class="search" value="Search" onfocus="if($('searchform_focused').value==0){ $('searchform_input').value=''; $('searchform_focused').value=1; };" />
+                <input type="hidden" id="searchform_focused" name="already_focused" value="0" />
+                <input type="submit" class="submit" value="OK" />
+            </fieldset>
+        </form><script type="text/javascript">
+//<![CDATA[
+q = refk();
+if($('searchform_input')&&q&&q!=' ') {
+     $('searchform_input').value=q;
+     $('searchform_focused').value=1;
+}
+//]]>
+</script><ul id="topNav">
+        <li>
+        <a class="userName" href="/communaute/inscription.php3">Sign up for free</a>
+    </li>
+        
+
+    <li><a href="/plan/">Site map</a></li>
+        <li id="language">
+        <a href="/communaute/lang.php3" class="boxButton">Language</a>
+        <div class="boxHover">
+            <ul>
+                                        <li><a href="http://www.commentcamarche.net" lang="fr">French</a></li>
+                                            <li><a href="http://de.kioskea.net" lang="de">German</a></li>
+                                            <li><a href="http://en.kioskea.net" lang="en">English</a></li>
+                                            <li><a href="http://es.kioskea.net" lang="es">Spanish</a></li>
+                                            <li><a href="http://it.kioskea.net" lang="it">Italian</a></li>
+                                            <li><a href="http://pt.kioskea.net" lang="pt">Portuguese</a></li>
+                                        </ul>
+        </div>
+    </li>
+                <li id="rss">
+        <a href="#" class="boxButton">RSS</a>
+        <div class="boxHover">
+            <ul>
+                                <li><a href="/rss/actualite.php3">News</a></li>
+                                    <li><a href="/rss/rss_faq_last.php3">FAQ</a></li>
+                                <li><a href="/rss/rss_download_last.php3">Software</a></li>
+                <li><a href="/rss/rss_download_updates.php3">Software - Mises &agrave; jour</a></li>
+                                                </ul>
+        </div>
+    </li>
+        <li id="identification">
+        <a href="/communaute/" class="boxButton" id="a_boxbutton">
+                Login        </a>
+        <div class="boxHover" id="div_boxhover">
+            <form action="/forum/affich-70275-connectivity-with-remote-server-databse" method="post">
+                <fieldset>
+                    <legend>Identification</legend>
+                                            <label>Username</label>
+                    <input tabindex="1" type="text" name="login" value="" onfocus="$('identification').className='focused';select();return true;" onblur="$('identification').className='';return true;" />
+                    <label>Password</label> ( <a tabindex="3" href="/communaute/motdepasse.php3" class="passLost">forgot?</a> )
+                    <input tabindex="2" type="password" name="pass" value="" onfocus="$('identification').className='focused';select();return true;" onblur="$('identification').className='';return true;" />
+                    <input type="submit" name="log_in" class="submit" onfocus="$('identification').className='focused';return true;" onblur="$('identification').className='';return true;" value="Login" />
+                </fieldset>
+            </form>
+        </div>
+    </li>
+        </ul>
+    </div>
+
+    <!-- MAIN NAVIGATION -->
+
+    <div id="nav">
+	<div class="content">
+	    <ul id="mmenu_ul_id" onmouseout="mmenu.tempo();">
+            <li onmouseover="mmenu.select(this)"><a href="/">Home</a></li>
+            <li class="selected current" onmouseover="mmenu.select(this)">
+                <a href="/forum/">Forum</a>
+            </li>
+            <li onmouseover="mmenu.select(this)">
+                <a href="/faq/">FAQ</a>
+            </li>
+            <li onmouseover="mmenu.select(this)">
+                <a href="/telecharger/">Download</a>
+            </li>
+            <li onmouseover="mmenu.select(this)">
+                <a href="/news/">News</a>
+            </li>
+            <li onmouseover="mmenu.select(this)">
+                <a href="/contents/">Reviews</a>
+            </li>
+            <li onmouseover="mmenu.select(this)">
+                <a href="/guide/">Buying guide</a>
+            </li>
+	    </ul>
+	</div>
+	<div class="bgShadow"></div>
+    </div>
+</div>
+
+<div id="section">
+
+    <div id="topContent">
+<div id="ad_top">
+    <script type="text/javascript">
+<!--
+sas_pageid='10991/82108';
+sas_formatid=4785;
+sas_target='';
+SmartAdServer(sas_pageid,sas_formatid,sas_target);
+//-->
+    </script>
+</div>
+&nbsp;	</div>
+    <div id="content">
+<div id="tit_nav"><a href="/forum/forum-3?Acces=1#ecrire" rel="nofollow" class="do"> Ask your question</a> <a href="/forum/affich-70275-connectivity-with-remote-server-databse?printme" class="do gr" rel="nofollow">Print Format</a><a href="#" onclick="if($('bloc_21').className=='show') $('bloc_21').className='hide'; else $('bloc_21').className='show';return false;" class="do gr"> Forum list</a><a href="/forum/sans-reponses?forum_num=3" class="do gr"> Help them</a><a href="/forum/stats.php3" class="do gr"> Statistics</a><a href="#searchbar" class="do" onclick="if($('bloc_forum_actions').className=='show') $('bloc_forum_actions').className='hide'; else  $('bloc_forum_actions').className='show'; return false;"> Search</a><a href="#" class="do gr" rel="nofollow" onclick="if($('charte').innerHTML=='') { new Ajax.Updater('charte', '/remote/charte.php3', { method: 'get',  parameters: 'titre', evalScripts : false } ); $('charte').className='show'; } else { $('charte').innerHTML='';$('charte').className='hide';} return false;"> Charter</a><a href="/forum/" class="first">Forum</a> <a href="/forum/forum-3-programming">Programming</a></div><div><div id="col_left"><div id="contenu"><div id="bloc_21" class="hide"><a name="haut"></a><div id="forum_toc"><span class="titre">Support</span><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td width="20%"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="themes"><tr><td><a href="/forum/forum-11-windows" class="forum">Windows</a></td></tr><tr><td><a href="/forum/forum-13-linux-unix" class="forum">Linux/Unix</a></td></tr><tr><td><a href="/forum/forum-14-macos" class="forum">MacOS</a></td></tr></table></td><td width="20%"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="themes"><tr><td><a href="/forum/forum-26-phones-pda-gps" class="forum">Phones/PDA/GPS</a></td></tr><tr><td><a href="/forum/forum-2-hardware" class="forum">Hardware</a></td></tr><tr><td><a href="/forum/forum-1-software" class="forum">Software</a></td></tr></table></td><td width="20%"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="themes"><tr><td><a href="/forum/forum-25-office-software" class="forum">Office software</a></td></tr><tr><td><a href="/forum/forum-19-video-games" class="forum">Video games</a></td></tr><tr><td><a href="/forum/forum-3-programming" class="forum on">Programming</a></td></tr></table></td><td width="20%"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="themes"><tr><td><a href="/forum/forum-24-webmastering" class="forum">Webmastering</a></td></tr><tr><td><a href="/forum/forum-5-network" class="forum">Network</a></td></tr><tr><td><a href="/forum/forum-7-viruses-security" class="forum">Viruses/security</a></td></tr></table></td><td width="20%"></td></tr></table><span class="titre">Discussions &amp; Opinions</span><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td width="20%"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="themes"><tr><td><a href="/forum/forum-8-news" class="discopi" onmouseover="BulleWrite('Discussions around the news. Feel free to submit your brief.',event);" onmouseout ="BulleHide ();">News</a></td></tr></table></td><td width="20%"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="themes"><tr><td><a href="/forum/forum-9-suggestions" class="discopi" onmouseover="BulleWrite('Improve Kioskea (bugs and proposals).',event);" onmouseout ="BulleHide ();">Suggestions</a></td></tr></table></td><td width="20%"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="themes"><tr><td><a href="/forum/forum-4-member-s-corner" class="discopi" onmouseover="BulleWrite('Humor and laughter are essential.',event);" onmouseout ="BulleHide ();">Member's corner</a></td></tr></table></td><td width="20%"></td><td width="20%"></td></tr></table></div></div><div id="charte"></div><div id="bloc_forum_actions" class="hide"><a name="searchbar"></a><form method="get" action="/forum/index.php3"><table border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td class="b1"></td>
+<td align="center" rowspan="3">
+<table border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td align="right"><strong>Search :</strong></td>
+<td><input type="text" name="Mot" id="Mot" class="mots_cle" /></td>
+<td align="center">in</td>
+<td><select name="forum_num" class="list_rech">
+  <option value="themes">All forums</option>
+            <option value="11">Windows forum</option>
+<option value="13">Linux/Unix forum</option>
+<option value="14">MacOS forum</option>
+<option value="26">Phones/PDA/GPS forum</option>
+<option value="2">Hardware forum</option>
+<option value="1">Software forum</option>
+<option value="25">Office software forum</option>
+<option value="19">Video games forum</option>
+<option value="3">Programming forum</option>
+<option value="24">Webmastering forum</option>
+<option value="5">Network forum</option>
+<option value="7">Viruses/security forum</option>
+<option value="8">Computing news</option>
+<option value="9">Suggestions</option>
+<option value="4">Member's corner</option>
+                 
+                  
+</select></td>
+<td align="center" valign="bottom"><input type="image" name="imageField" id="imageField" src="/template/blocs/bloc_forum_actions/bnt_search.png" onmouseover="BulleWrite('Search',event);" onmouseout ="BulleHide ();" class="search" /></td>
+</tr>
+<tr id="search_options">
+<td height="20" align="right"><strong>By :</strong></td>
+<td height="20" colspan="4" align="left"><input type="radio" name="searchType" id="search-bykeyword" value="byPert" class="radio"  checked="checked" />
+<label for="search-bykeyword">Keywords</label>
+<input type="radio" name="searchType" value="byUser" id="search-byuser" class="radio"  />
+<label for="search-byuser">Username</label></td>
+</tr>
+<tr><td height="20"> </td><td height="20" colspan="4" align="left"><input type="checkbox" name="sansrep" id="search-norep" /><label for="search-norep"> Unanswered messages</label></td></tr>
+</table>
+</td>
+<td class="b2"></td>
+</tr>
+
+<tr>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+	<td class="b4"></td>			
+	<td class="b3"></td>
+</tr>
+</table></form></div><div id="bloc_24"><div class="bhead"><h1 class="titre">Connectivity with remote server databse.</h1><a href="#3" class="lastxt" onmouseover="BulleWrite('Go to last message',event);" onmouseout="BulleHide ();" rel="nofollow">Last answer on Jan  1, 2010  3:19:42 am GMT</a> <a name="0"></a><span class="par"><span class="action_03"></span><a href="/communaute/profil-Digvijaysinh" class="pseudo" onmouseover="BulleWrite(String.fromCharCode(60)+'img src=\'/template/blocs/bloc_54/xphoto.jpg\' alt=\'Digvijaysinh\' style=\'float:left\' /'+String.fromCharCode(62)+'14 posted messages(s) since '+'Wednesday January 28, 2009'+'',event);" onmouseout="BulleHide ();">Digvijaysinh</a>, on Feb 19, 2009 12:47:47 pm GMT</span><a href="#3" class="last" onmouseover="BulleWrite('Go to last message',event);" onmouseout="BulleHide ();" rel="nofollow">&nbsp;</a><a href="#1" class="next" onmouseover="BulleWrite('Next message',event);" onmouseout="BulleHide ();"></a></div><div class="bcontent" id="c70275"><div class="options">
+                  <a href="/forum/alert.php3?ID=70275&amp;Acces=1" class="action_03" onmouseover="BulleWrite('Report this message to moderators',event);" onmouseout="BulleHide ();" rel="nofollow">&nbsp;</a><span>Report this message to moderators</span></div><div class="" id="limit70275"><div class="limit"><div class="content"><p>Hello,
+<br />hello every body,
+<br />is there any mechanism in visual studio 2005 and c# to copy the remote server table and update the local database table with that copied table,
+<br />please guide me in this topic, step by step to accomplish it, if no than please suggest me what i have to do for this in c# window application.
+<br />i have sql server 2005 database at local and remote server.
+<br />thanx in advance!<pre><b>Configuration: </b>Windows XP
+Safari 525.19</pre></p></div></div><a href="#" class="more" id="more70275" onclick="$('limit70275').className = ''; return false;"></a></div></div><script type="text/javascript">
+<!--
+if($('c70275').offsetHeight>190){
+$('limit70275').className="limiter";
+$('more70275').innerHTML="<span>Read more</span>";
+}
+//-->
+</script></div><div id="bloc_simili"><a href="/s/connectivity-with-remote-server-databse" id="seeallanswers" class="tit_best" rel="nofollow">Best answers for &laquo;&nbsp;<span id="seeallanswerstxt">Connectivity with remote server databse.</span>&nbsp;&raquo; in :</a><div class="bloc_tabs" id="bloc_tab_pages"><ul class="bloc_tab"><li><a href="#" onclick="$('bloc_tab_pages').className='bloc_tabs hide';$('bloc_tab_answer').className='blocs_tabs selected'; return false;">This page</a></li><li class="active"><a href="/s/connectivity-with-remote-server-databse" rel="nofollow" onclick="return false;">All</a></li><li><a href="/s/connectivity-with-remote-server-databse?section=faq" rel="nofollow" onclick="$('bloc_tab_pages').className='bloc_tabs hide';$('bloc_tab_faq').className='blocs_tabs selected'; return false;">Tips</a></li><li><a href="/s/connectivity-with-remote-server-databse?section=forum" rel="nofollow" onclick="$('bloc_tab_pages').className='bloc_tabs hide';$('bloc_tab_forum').className='blocs_tabs selected'; return false;">Forum</a></li><li><a href="/s/connectivity-with-remote-server-databse?section=download" rel="nofollow" onclick="$('bloc_tab_pages').className='bloc_tabs hide';$('bloc_tab_download').className='blocs_tabs selected'; return false;">Downloads</a></li><li><a href="/s/connectivity-with-remote-server-databse?section=guide" rel="nofollow" onclick=" $('bloc_tab_pages').className='bloc_tabs hide';$('bloc_tab_guide').className='blocs_tabs selected'; return false;">Buying guide</a></li><li><a href="/s/connectivity-with-remote-server-databse?section=articles" rel="nofollow" onclick="$('bloc_tab_pages').className='bloc_tabs hide';$('bloc_tab_articles').className='blocs_tabs selected'; return false;">Reviews</a></li></ul><div class="result" id="pages_result"><div class="similiitem"><div class="resitem"><a href="/faq/1385-vnc-failed-to-connect-to-server-opening-ports" class="title"> [VNC] Failed to connect to server-opening ports <span>Show</span></a> <span class="description">[VNC] Failed to connect to server-opening port
+
+
+Issue
+Solution
+
+
+Issue
+Error message: 
+
+Failed to connect to server
+
+Solution
+To access your computer remotely via VNC, it is necessary to open ports :
+
+5800 
+5801
+5900
+5901
+
+on...</span>
+			</div></div><div class="similiitem"><div class="resitem"><a href="/forum/affich-43646-how-to-open-a-file-which-is-in-remote-server" class="title"> How to open a file which is in remote server <span>Show</span></a> 
+			</div></div><div class="similiitem"><div class="resitem"><a href="/forum/affich-53024-can-connect-to-vpn-but-can-not-connect-remote" class="title"> Can connect to vpn but can not connect remote <span>Show</span></a> 
+			</div></div></div></div><div class="bloc_tabs" id="bloc_tab_faq"><ul class="bloc_tab"><li><a href="#" onclick=" $('bloc_tab_faq').className='bloc_tabs hide';$('bloc_tab_answer').className='blocs_tabs selected'; return false;">This page</a></li><li><a href="/s/connectivity-with-remote-server-databse" rel="nofollow" onclick="$('bloc_tab_faq').className='bloc_tabs hide';$('bloc_tab_pages').className='blocs_tabs selected';return false;">All</a></li><li class="active"><a href="/s/connectivity-with-remote-server-databse?section=faq" rel="nofollow" onclick="return false;">Tips</a></li><li><a href="/s/connectivity-with-remote-server-databse?section=forum" rel="nofollow" onclick="$('bloc_tab_faq').className='bloc_tabs hide';$('bloc_tab_forum').className='blocs_tabs selected';return false;">Forum</a></li><li><a href="/s/connectivity-with-remote-server-databse?section=download" rel="nofollow" onclick="$('bloc_tab_faq').className='bloc_tabs hide';$('bloc_tab_download').className='blocs_tabs selected';return false;">Downloads</a></li><li><a href="/s/connectivity-with-remote-server-databse?section=guide" rel="nofollow" onclick="$('bloc_tab_faq').className='bloc_tabs hide';$('bloc_tab_guide').className='blocs_tabs selected';return false;">Buying guide</a></li><li><a href="/s/connectivity-with-remote-server-databse?section=articles" rel="nofollow" onclick="$('bloc_tab_faq').className='bloc_tabs hide';$('bloc_tab_articles').className='blocs_tabs selected';return false;">Reviews</a></li></ul><div class="result" id="faq_result"><div class="similiitem"><div class="resitem"><a href="/faq/3078-word-problem-connecting-to-server-or-proxy" class="title"> [Word] Problem connecting to server or proxy <span>Show</span></a><span class="description">[Word]Problem connecting to server or proxy
+
+
+For Bit Defender
+Microsoft Firewall utility
+Other firewall
+
+
+
+In the case that when you want to open a link or URL from MS Word, this error message appears: 
+
+
+
+It is likely that your...</span>
+			</div></div><div class="similiitem"><div class="resitem"><a href="/faq/604-log-in-remotely-with-ssh-linux" class="title"> Log in remotely with SSH (Linux) <span>Show</span></a><span class="description">Log in remotely with SSH (Linux)
+
+
+
+Issue
+Solution
+Using SSH through a proxy:
+
+
+Issue
+Log in remotely with SSH under Linux.
+Solution
+The commands below are relevant only if you have an existing account on the PC you want to connect and...</span>
+			</div></div><div class="similiitem"><div class="resitem"><a href="/faq/6240-error-connecting-to-sql-server-2005" class="title"> Error connecting to SQL Server 2005 <span>Show</span></a><span class="description">Error connecting to SQL Server 2005
+
+
+Issue
+Solution
+Note
+
+
+Issue
+I have installed SQL Server 2005 and I can not connect to it , I dont know my server name and SQL Server show this error to me: 
+TITLE: Connect to Server 
+---------------...</span>
+			</div></div></div></div><div class="bloc_tabs" id="bloc_tab_forum"><ul class="bloc_tab"><li><a href="#" onclick=" $('bloc_tab_forum').className='bloc_tabs hide';$('bloc_tab_answer').className='blocs_tabs selected'; return false;">This page</a></li><li><a href="/s/connectivity-with-remote-server-databse" rel="nofollow" onclick="$('bloc_tab_forum').className='bloc_tabs hide';$('bloc_tab_pages').className='blocs_tabs selected';return false;">All</a></li><li><a href="/s/connectivity-with-remote-server-databse?section=faq" rel="nofollow" onclick="$('bloc_tab_forum').className='bloc_tabs hide';$('bloc_tab_faq').className='blocs_tabs selected';return false;">Tips</a></li><li class="active"><a href="/s/connectivity-with-remote-server-databse?section=forum" rel="nofollow" onclick="return false;">Forum</a></li><li><a href="/s/connectivity-with-remote-server-databse?section=download" rel="nofollow" onclick="$('bloc_tab_forum').className='bloc_tabs hide';$('bloc_tab_download').className='blocs_tabs selected';return false;">Downloads</a></li><li><a href="/s/connectivity-with-remote-server-databse?section=guide" rel="nofollow" onclick="$('bloc_tab_forum').className='bloc_tabs hide';$('bloc_tab_guide').className='blocs_tabs selected';return false;">Buying guide</a></li><li><a href="/s/connectivity-with-remote-server-databse?section=articles" rel="nofollow" onclick="$('bloc_tab_forum').className='bloc_tabs hide';$('bloc_tab_articles').className='blocs_tabs selected';return false;">Reviews</a></li></ul><div class="result" id="forum_result"><div class="similiitem"><div class="resitem"><a href="/forum/affich-96268-connecting-to-sql" class="title"> Connecting to SQL <span>Show</span></a>
+			</div></div><div class="similiitem"><div class="resitem"><a href="/forum/affich-64330-synchronization-of-remote-database" class="title"> Synchronization of remote database. <span>Show</span></a>
+			</div></div><div class="similiitem"><div class="resitem"><a href="/forum/affich-114206-connecting-sql-server-2005-with-asp-net" class="title"> Connecting sql server 2005 with asp.net <span>Show</span></a>
+			</div></div></div></div><div class="bloc_tabs" id="bloc_tab_download"><ul class="bloc_tab"><li><a href="#" onclick=" $('bloc_tab_download').className='bloc_tabs hide';$('bloc_tab_answer').className='blocs_tabs selected'; return false;">This page</a></li><li><a href="/s/connectivity-with-remote-server-databse" rel="nofollow" onclick="$('bloc_tab_download').className='bloc_tabs hide';$('bloc_tab_pages').className='blocs_tabs selected';return false;">All</a></li><li><a href="/s/connectivity-with-remote-server-databse?section=faq" rel="nofollow" onclick="$('bloc_tab_download').className='bloc_tabs hide';$('bloc_tab_faq').className='blocs_tabs selected';return false;">Tips</a></li><li><a href="/s/connectivity-with-remote-server-databse?section=forum" rel="nofollow" onclick="$('bloc_tab_download').className='bloc_tabs hide';$('bloc_tab_forum').className='blocs_tabs selected';return false;">Forum</a></li><li class="active"><a href="/s/connectivity-with-remote-server-databse?section=download" rel="nofollow" onclick="return false;">Downloads</a></li><li><a href="/s/connectivity-with-remote-server-databse?section=guide" rel="nofollow" onclick="$('bloc_tab_download').className='bloc_tabs hide';$('bloc_tab_guide').className='blocs_tabs selected';return false;">Buying guide</a></li><li><a href="/s/connectivity-with-remote-server-databse?section=articles" rel="nofollow" onclick="$('bloc_tab_download').className='bloc_tabs hide';$('bloc_tab_articles').className='blocs_tabs selected';return false;">Reviews</a></li></ul><div class="result" id="download_result"><div class="similiitem"><div class="resitem"><a href="/telecharger/telecharger-1935-speedup-dsl" class="title"> Download SpeedUP-DSL <span>Show</span></a>
+			</div></div><div class="similiitem"><div class="resitem"><a href="/telecharger/telecharger-1279-hamachi" class="title"> Download Hamachi <span>Show</span></a><span class="description">Hamachi is an application allowing distant computers to create a virtual local network ( VPN) safely, as if they were situated on the same physical connection. 
+Hamachi does not ask for sharp knowledge to create its own virtual private network and...</span>
+			</div></div><div class="similiitem"><div class="resitem"><a href="/telecharger/telecharger-5887-network-password-recovery" class="title"> Download Network Password Recovery <span>Show</span></a><span class="description">Description
+The application is designed by Nir Sofer. Network Password Recovery is a tool that allows you to save your password which will help you to connect to the remote server each time. Simple and easy to use, the application has been awarded...</span>
+			</div></div></div></div><div class="bloc_tabs" id="bloc_tab_guide"><ul class="bloc_tab"><li><a href="#" onclick=" $('bloc_tab_guide').className='bloc_tabs hide';$('bloc_tab_answer').className='blocs_tabs selected'; return false;">This page</a></li><li><a href="/s/connectivity-with-remote-server-databse" rel="nofollow" onclick="$('bloc_tab_guide').className='bloc_tabs hide';$('bloc_tab_pages').className='blocs_tabs selected';return false;">All</a></li><li><a href="/s/connectivity-with-remote-server-databse?section=faq" rel="nofollow" onclick="$('bloc_tab_guide').className='bloc_tabs hide';$('bloc_tab_faq').className='blocs_tabs selected';return false;">Tips</a></li><li><a href="/s/connectivity-with-remote-server-databse?section=forum" rel="nofollow" onclick="$('bloc_tab_guide').className='bloc_tabs hide';$('bloc_tab_forum').className='blocs_tabs selected';return false;">Forum</a></li><li><a href="/s/connectivity-with-remote-server-databse?section=download" rel="nofollow" onclick="$('bloc_tab_guide').className='bloc_tabs hide';$('bloc_tab_download').className='blocs_tabs selected';return false;">Downloads</a></li><li class="active"><a href="/s/connectivity-with-remote-server-databse?section=guide" rel="nofollow" onclick="return false;">Buying guide</a></li><li><a href="/s/connectivity-with-remote-server-databse?section=articles" rel="nofollow" onclick="$('bloc_tab_guide').className='bloc_tabs hide';$('bloc_tab_articles').className='blocs_tabs selected';return false;">Reviews</a></li></ul><div class="result" id="guide_result"><div class="similiitem"><div class="resitem"><a href="/guide/568649419-hewlett-packard-hp-blc7000-single-phase-enclosure-w-2-power-supplies-and-4-fans-w-8-insight-control-environment-trial-licenses-rack-mountable-10u-power-supply" class="title"> Hewlett Packard HP BLc7000 Single-Phase Enclosure w/2 Power Supplies and 4 Fans w/8 Insight Control  <span>Show</span></a>
+			</div></div><div class="similiitem"><div class="resitem"><a href="/guide/503389-fujitsu-siemens-remoteview-service-board-s2-remote-management-adapter-s26361-f2425-l102" class="title"> Fujitsu Siemens RemoteView Service Board S2 Remote management Adapter (S26361-F2425-L102) <span>Show</span></a>
+			</div></div><div class="similiitem"><div class="resitem"><a href="/guide/583901068-hewlett-packard-hp-blc7000-three-phase-enclosure-w-6-power-supplies-and-6-fans-w-16-insight-control-environment-licenses-rack-mountable-10u-power-supply" class="title"> Hewlett Packard HP BLc7000 Three-Phase Enclosure w/6 Power Supplies and 6 Fans w/16 Insight Control  <span>Show</span></a>
+			</div></div></div></div><div class="bloc_tabs" id="bloc_tab_articles"><ul class="bloc_tab"><li><a href="#" onclick=" $('bloc_tab_articles').className='bloc_tabs hide';$('bloc_tab_answer').className='blocs_tabs selected'; return false;">This page</a></li><li><a href="/s/connectivity-with-remote-server-databse" rel="nofollow" onclick="$('bloc_tab_articles').className='bloc_tabs hide';$('bloc_tab_pages').className='blocs_tabs selected';return false;">All</a></li><li><a href="/s/connectivity-with-remote-server-databse?section=faq" rel="nofollow" onclick="$('bloc_tab_articles').className='bloc_tabs hide';$('bloc_tab_faq').className='blocs_tabs selected';return false;">Tips</a></li><li><a href="/s/connectivity-with-remote-server-databse?section=forum" rel="nofollow" onclick="$('bloc_tab_articles').className='bloc_tabs hide';$('bloc_tab_forum').className='blocs_tabs selected';return false;">Forum</a></li><li><a href="/s/connectivity-with-remote-server-databse?section=download" rel="nofollow" onclick="$('bloc_tab_articles').className='bloc_tabs hide';$('bloc_tab_download').className='blocs_tabs selected';return false;">Downloads</a></li><li><a href="/s/connectivity-with-remote-server-databse?section=guide" rel="nofollow" onclick="$('bloc_tab_articles').className='bloc_tabs hide';$('bloc_tab_guide').className='blocs_tabs selected';return false;">Buying guide</a></li><li class="active"><a href="/s/connectivity-with-remote-server-databse?section=articles" rel="nofollow" onclick="return false;">Reviews</a></li></ul><div class="result" id="articles_result"><div class="similiitem"><div class="resitem"><a href="/contents/pratique/vpn-xp.php3" class="title"> Installing a VPN server on XP <span>Show</span></a><span class="description">Interest of a VPN
+Setting up a virtual private network
+allows you to connect remote computers in a secure fashion via an unreliable (Internet) connection, as if they were on the same LAN. This procedure is used by many companies in order to allow...</span>
+			</div></div><div class="similiitem"><div class="resitem"><a href="/contents/pratique/partage.php3" class="title"> Sharing an Internet connection <span>Show</span></a><span class="description">AdvantagesIf you have a LAN
+(two computers
+or more connected in a network), of which one is connected to the Internet
+(via a DSL
+modem, cable, etc.), it may be worthwhile to make the Internet accessible to the other computers on the LAN by installing...</span>
+			</div></div><div class="similiitem"><div class="resitem"><a href="/contents/technologies/tx.php3" class="title"> Leased lines (T1, T2, T3) <span>Show</span></a><span class="description">Leased lines
+
+"Leased" lines enable transmission of data at medium and high speeds (64 Kbps to 140 Mbps) by point to point or multipoint connection (Transfix service).
+
+In Europe, there are five types of lines distinguished according to their...</span>
+			</div></div></div></div><div class="bloc_tabs selected" id="bloc_tab_answer"><ul class="bloc_tab"><li class="active"><a href="#" rel="nofollow" onclick="return false;">This page</a></li><li><a href="/s/connectivity-with-remote-server-databse" rel="nofollow" onclick="$('bloc_tab_answer').className='bloc_tabs hide';$('bloc_tab_pages').className='blocs_tabs selected';return false;">All</a></li><li><a href="/s/connectivity-with-remote-server-databse?section=faq" rel="nofollow" onclick="$('bloc_tab_answer').className='bloc_tabs hide';$('bloc_tab_faq').className='blocs_tabs selected';return false;">Tips</a></li><li><a href="/s/connectivity-with-remote-server-databse?section=forum" rel="nofollow" onclick="$('bloc_tab_answer').className='bloc_tabs hide';$('bloc_tab_forum').className='blocs_tabs selected';return false;">Forum</a></li><li><a href="/s/connectivity-with-remote-server-databse?section=download" rel="nofollow" onclick="$('bloc_tab_answer').className='bloc_tabs hide';$('bloc_tab_download').className='blocs_tabs selected';return false;">Downloads</a></li><li><a href="/s/connectivity-with-remote-server-databse?section=guide" rel="nofollow" onclick="$('bloc_tab_answer').className='bloc_tabs hide';$('bloc_tab_guide').className='blocs_tabs selected';return false;">Buying guide</a></li><li><a href="/s/connectivity-with-remote-server-databse?section=articles" rel="nofollow" onclick="$('bloc_tab_answer').className='bloc_tabs hide';$('bloc_tab_articles').className='blocs_tabs selected';return false;">Reviews</a></li></ul><div class="result" id="articles_result"><div class="bloc_09" id="bloc_forum_best_answers"><ul><li><a href="/forum/affich-70275-connectivity-with-remote-server-databse#p231559" rel="nofollow">Hi!
+I have a problem regarding to my thesis application. I used Visual <span>Read more</span></a><div class="rating3"> </div></li><li><a href="/forum/affich-70275-connectivity-with-remote-server-databse#p79828" rel="nofollow">Hi 
+there r many methods to backup the database 
+merge <span>Read more</span></a><div class="rating1"> </div></li></ul></div></div></div><script type="text/javascript">
+//<![CDATA[
+q = refk();
+if($('seeallanswers')&&q&&q!=' ') {
+     $('seeallanswers').href='/s/'+escape(q);
+     $('seeallanswerstxt').innerHTML=q;
+ }
+//]]>
+</script></div><div class="bloc_forum_actions2"><a href="/forum/forum-3?Acces=1#ecrire" rel="nofollow" class="button2"><span class="button2">Ask your question</span></a> <a href="/forum/affich-70275-connectivity-with-remote-server-databse?Acces=1#ecrire" rel="nofollow" class="button"><span class="button">Reply</span></a></div><div id="linkbox"><script type="text/javascript"><!--
+google_ad_client = "pub-3295671961621260";
+google_ad_slot = "6947670919";
+google_ad_width = 673;
+google_ad_height = 15;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="bloc_25 solved"><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr valign="top"><td class="actions"></td><td class="answer_1"><div class="bhead"><p class="num"><a href="#1" name="1">1</a><a name="p79828" class="postid"> </a></p><a href="#2" rel="nofollow" class="next" onmouseover="BulleWrite('Next message',event);" onmouseout="BulleHide();"></a><a href="#0" class="back" onmouseover="BulleWrite('Previous message',event);" onmouseout="BulleHide ();"></a><span class="action_anonyme"></span><span  onmouseover="BulleWrite('Anonymous User',event);" onmouseout="BulleHide ();" class="anonyme">siva</span>, on <span>Mar 21, 2009  3:57:48 am GMT</span></div><div class="bcontent_on" id="c79828"><ul class="options"><li><b id="n79828" class="nbeval">+1</b></li><li><a class="action_02_on" id="t79828" rel="nofollow" href="#" onclick="new Ajax.Updater('p79828', '/remote/forum_evaluer.php3', { method: 'get',  parameters: 'ID=79828&amp;evaluation=utile', evalScripts : true } );return false;" onmouseover="BulleWrite(''+'1 person have found this message helpful - This message seems useful, vote!',event);" onmouseout="BulleHide ();"></a></li><li><a class="action_01" id="s79828" href="#" onclick="new Ajax.Updater('p79828', '/remote/forum_evaluer.php3', { method: 'get',  parameters: 'ID=79828&amp;evaluation=inutile', evalScripts : true } );return false;" onmouseover="BulleWrite('This message does not seem useful, vote!',event);" onmouseout="BulleHide ();"></a></li><li><a href="/forum/alert.php3?ID=79828&amp;Acces=1&amp;subID=1" class="action_04" onmouseover="BulleWrite('Report this message to moderators',event);" onmouseout="BulleHide ();" rel="nofollow"></a></li></ul><div class="" id="limit79828"><div class="limit"><div class="content"><p>Hi 
+<br />there r many methods to backup the database 
+<br />merge replication
+<br />and another is local database  cache</p></div></div><a href="#" class="more" id="more79828" onclick="$('limit79828').className = ''; return false;"></a></div></div><script type="text/javascript">
+<!--
+if($('c79828').offsetHeight>500){ $('limit79828').className="limiter";
+$('more79828').innerHTML="<span>Read more</span>";
+
+}
+//--></script><div class="actions"><a href="#top" class="action_07" onmouseover="BulleWrite('Top',event);" onmouseout="BulleHide();">&nbsp;</a> <a href="/forum/affich-70275-connectivity-with-remote-server-databse?Acces=1#ecrire" rel="nofollow" class="action_09" onmouseover="BulleWrite('Bottom (Continue the discussion)',event);" onmouseout="BulleHide();">&nbsp;</a></div><a href="/forum/affich-79828-connectivity-with-remote-server-databse?Acces=1#ecrire" rel="nofollow" class="action_repondre_on" id="r79828">Reply to siva</a><div class="bloc_25bis"><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr valign="top"><td class="actions"></td><td class="answer_1"><div class="bhead"><p class="num"><a href="#2" name="2">2</a><a name="p224626" class="postid"> </a></p><a href="#3" rel="nofollow" class="next" onmouseover="BulleWrite('Next message',event);" onmouseout="BulleHide();"></a><a href="#1" rel="nofollow" class="back" onmouseover="BulleWrite('Previous message',event);" onmouseout="BulleHide ();"></a><span class="action_anonyme"></span><span  onmouseover="BulleWrite('Anonymous User',event);" onmouseout="BulleHide ();" class="anonyme">hotrer</span>, on <span>Dec 22, 2009 12:57:13 pm GMT</span></div><div class="bcontent" id="c224626"><ul class="options"><li><b id="n224626" class="nbeval"></b></li><li><a class="action_02" id="t224626" rel="nofollow" href="#" onclick="new Ajax.Updater('p224626', '/remote/forum_evaluer.php3', { method: 'get',  parameters: 'ID=224626&amp;evaluation=utile', evalScripts : true } );return false;" onmouseover="BulleWrite('This message seems useful, vote!',event);" onmouseout="BulleHide ();"></a></li><li><a class="action_01_off" id="s224626" href="#" onclick="new Ajax.Updater('p224626', '/remote/forum_evaluer.php3', { method: 'get',  parameters: 'ID=224626&amp;evaluation=inutile', evalScripts : true } );return false;" onmouseover="BulleWrite('This message does not seem useful, vote!',event);" onmouseout="BulleHide ();"></a></li><li><a href="/forum/alert.php3?ID=224626&amp;Acces=1&amp;subID=2" class="action_04" onmouseover="BulleWrite('Report this message to moderators',event);" onmouseout="BulleHide ();" rel="nofollow"></a></li></ul><div class="" id="limit224626"><div class="limit"><div class="content"><p>Hi dear Shiva, 
+<br />
+<br />cn u pls guide me how to break into server2005 or replicate database pls mail me something useful tips. thanx in advance.</p></div></div><a href="#" class="more" id="more224626" onclick="$('limit224626').className = ''; return false;"></a></div></div><script type="text/javascript">
+<!--
+if($('c224626').offsetHeight>500){ $('limit224626').className="limiter";
+$('more224626').innerHTML="<span>Read more</span>";
+
+}
+//--></script><div class="actions"><a href="#top" class="action_07" onmouseover="BulleWrite('Top',event);" onmouseout="BulleHide();">&nbsp;</a> <a href="/forum/affich-70275-connectivity-with-remote-server-databse?Acces=1#ecrire" rel="nofollow" class="action_09" onmouseover="BulleWrite('Bottom (Continue the discussion)',event);" onmouseout="BulleHide();">&nbsp;</a></div><a href="/forum/affich-224626-connectivity-with-remote-server-databse?Acces=1#ecrire" rel="nofollow" class="action_repondre" id="r224626">Reply to hotrer</a></td></tr></tbody></table></div></td></tr></tbody></table></div><div class="bloc_25 solved"><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr valign="top"><td class="actions"></td><td class="answer_1"><div class="bhead"><p class="numlast"><a href="#3" name="3">3</a><a name="p231559" class="postid"> </a></p><span class="vide">&nbsp;</span><a href="#2" rel="nofollow" class="back" onmouseover="BulleWrite('Previous message',event);" onmouseout="BulleHide ();"></a><span class="action_03"></span><a href="/communaute/profil-Lynesus" onmouseover="BulleWrite(String.fromCharCode(60)+'img src=\'/template/blocs/bloc_54/xphoto.jpg\' alt=\'Lynesus\' style=\'float:left\' /'+String.fromCharCode(62)+'2 posted messages(s) since '+'Sunday December 27, 2009'+'',event);" onmouseout="BulleHide ();" class="pseudo">Lynesus</a>, on <span>Jan  1, 2010  3:19:42 am GMT</span></div><div class="bcontent_on" id="c231559"><ul class="options"><li><b id="n231559" class="nbeval">+3</b></li><li><a class="action_02_on" id="t231559" rel="nofollow" href="#" onclick="new Ajax.Updater('p231559', '/remote/forum_evaluer.php3', { method: 'get',  parameters: 'ID=231559&amp;evaluation=utile', evalScripts : true } );return false;" onmouseover="BulleWrite(''+'3 2 persons have found this message helpful - This message seems useful, vote!',event);" onmouseout="BulleHide ();"></a></li><li><a class="action_01" id="s231559" href="#" onclick="new Ajax.Updater('p231559', '/remote/forum_evaluer.php3', { method: 'get',  parameters: 'ID=231559&amp;evaluation=inutile', evalScripts : true } );return false;" onmouseover="BulleWrite('This message does not seem useful, vote!',event);" onmouseout="BulleHide ();"></a></li><li><a href="/forum/alert.php3?ID=231559&amp;Acces=1&amp;subID=3" class="action_04" onmouseover="BulleWrite('Report this message to moderators',event);" onmouseout="BulleHide ();" rel="nofollow"></a></li></ul><div class="" id="limit231559"><div class="limit"><div class="content"><p>Hi!
+<br />I have a problem regarding to my thesis application. I used Visual Basic 6 as my <a href='/contents/systemes/format.php3'>PL</a> and MS SQL <a href='/contents/cs/csintro.php3'>Server</a> 2000 as my remote server database.
+<br />Every time I run my projects It has an error message:
+<br />
+<br />Connectin Failed:
+<br />SQLState: '01000'
+<br />SQL Server Error: 53
+<br />[Microsoft][ODBC SQL Server Driver][DBNETLIB]ConnectionOpen(Connect()).
+<br />Connection failed:
+<br />SQLState: '08001'
+<br />SQL Server Error:17
+<br />[Microsoft][ODBC SQL Server Driver][DBNETLIB]SQL Server does not exist or access denied.
+<br />
+<br />what is this error means?
+<br />Help me please....tnx</p></div></div><a href="#" class="more" id="more231559" onclick="$('limit231559').className = ''; return false;"></a></div></div><script type="text/javascript">
+<!--
+if($('c231559').offsetHeight>500){ $('limit231559').className="limiter";
+$('more231559').innerHTML="<span>Read more</span>";
+
+}
+//--></script><div class="actions"><a href="#top" class="action_07" onmouseover="BulleWrite('Top',event);" onmouseout="BulleHide();">&nbsp;</a> <a href="/forum/affich-70275-connectivity-with-remote-server-databse?Acces=1#ecrire" rel="nofollow" class="action_09" onmouseover="BulleWrite('Bottom (Continue the discussion)',event);" onmouseout="BulleHide();">&nbsp;</a></div><a href="/forum/affich-231559-connectivity-with-remote-server-databse?Acces=1#ecrire" rel="nofollow" class="action_repondre_on" id="r231559">Reply to Lynesus</a></td></tr></tbody></table></div><div class="adsense"><script type="text/javascript"><!--
+	google_ad_client = "pub-3295671961621260";
+	google_language = "en";
+	var ccm_language = "en";
+	google_ad_type = "text";
+	google_ad_channel ="0";
+        var google_adnum = 0;
+        google_ad_output = "js";
+        google_max_num_ads = "4";
+        google_feedback = 'on';
+        google_skip = google_adnum;
+	//-->
+	</script>
+	<script type="text/javascript"
+	src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+	</script></div>
+
+<div class="bloc_forum_actions2"><a href="/forum/forum-3?Acces=1#ecrire" rel="nofollow" class="button2"><span class="button2">Ask your question</span></a> <a href="/forum/affich-70275-connectivity-with-remote-server-databse?Acces=1#ecrire" rel="nofollow" class="button"><span class="button">Reply</span></a></div><div style="float:left"><a name="ecrire"></a></div></div></div><div id="col_right"><div id="shortcuts"></div><div class="bloc_11"><script type="text/javascript">
+<!--
+var plus ='<span>More</span>';var moins ='<span>Less</span>';
+//-->
+</script><div class="widget"><div id="similishowhide" class="hide"><span class="titre">See also </span><div class="results" id="simili_container"><ul><li class="last forum"><a href="/forum/affich-22546-connect-computer-to-computer-through-wireless" class="img"><img src="/img/pixeltransparent.gif?200909" width="16" height="16" title="Cannot connect remote desktop shares works" alt="Cannot connect remote desktop shares works"/></a> <a href="/s/Cannot+connect+remote+desktop+shares+works" rel="nofollow"><span>Cannot connect remote desktop shares works</span></a></li> <li class="last forum"><a href="/forum/affich-9657-can-t-connect-to-internet" class="img"><img src="/img/pixeltransparent.gif?200909" width="16" height="16" title="Computer won't connect to servers" alt="Computer won't connect to servers"/></a> <a href="/s/Computer+won%27t+connect+to+servers" rel="nofollow"><span>Computer won't connect to servers</span></a></li> <li class=" forum"><a href="/forum/affich-191127-the-connection-to-the-server-has-failed" class="img"><img src="/img/pixeltransparent.gif?200909" width="16" height="16" title="Connecting to remote server failed with the following error message" alt="Connecting to remote server failed with the following error message"/></a> <a href="/s/Connecting+to+remote+server+failed+with+the+following+error+message" rel="nofollow"><span>Connecting to remote server failed with the following error message</span></a></li> <li class=" forum"><a href="/forum/affich-24535-how-to-connect-6-compters-using-lan" class="img"><img src="/img/pixeltransparent.gif?200909" width="16" height="16" title="Connection through server to other pc" alt="Connection through server to other pc"/></a> <a href="/s/Connection+through+server+to+other+pc" rel="nofollow"><span>Connection through server to other pc</span></a></li> <li class=" forum"><a href="/forum/affich-57226-could-not-contact-master-game-server-039" class="img"><img src="/img/pixeltransparent.gif?200909" width="16" height="16" title="Counter strike 1.6 could not connect master server" alt="Counter strike 1.6 could not connect master server"/></a> <a href="/s/Counter+strike+1.6+could+not+connect+master+server" rel="nofollow"><span>Counter strike 1.6 could not connect master server</span></a></li> <li class="last forum"><a href="/forum/affich-31695-get-ip-from-router-but-won-t-connect-to-out" class="img"><img src="/img/pixeltransparent.gif?200909" width="16" height="16" title="Dhcp client not connect to server" alt="Dhcp client not connect to server"/></a> <a href="/s/Dhcp+client+not+connect+to+server" rel="nofollow"><span>Dhcp client not connect to server</span></a></li> <li class=" forum"><a href="/forum/affich-43646-how-to-open-a-file-which-is-in-remote-server" class="img"><img src="/img/pixeltransparent.gif?200909" width="16" height="16" title="Errors connecting to remote server in sas" alt="Errors connecting to remote server in sas"/></a> <a href="/s/Errors+connecting+to+remote+server+in+sas" rel="nofollow"><span>Errors connecting to remote server in sas</span></a></li> <li class="last faq"><a href="/faq/727-connecting-to-a-ftp-server-under-ms-dos" class="img"><img src="/img/pixeltransparent.gif?200909" width="16" height="16" title="Ftp command to connect to server" alt="Ftp command to connect to server"/></a> <a href="/s/Ftp+command+to+connect+to+server" rel="nofollow"><span>Ftp command to connect to server</span></a></li> <li class="last forum"><a href="/forum/affich-61898-how-to-make-database-connectivity-in-asp-net" class="img"><img src="/img/pixeltransparent.gif?200909" width="16" height="16" title="How to connect sql server database in localhost using asp.net" alt="How to connect sql server database in localhost using asp.net"/></a> <a href="/s/How+to+connect+sql+server+database+in+localhost+using+asp.net" rel="nofollow"><span>How to connect sql server database in localhost using asp.net</span></a></li> <li class="last forum"><a href="/forum/affich-9894-batch-file-to-copy-file-from-one-system-to-on" class="img"><img src="/img/pixeltransparent.gif?200909" width="16" height="16" title="How to copy a file to remote server using command prompt" alt="How to copy a file to remote server using command prompt"/></a> <a href="/s/How+to+copy+a+file+to+remote+server+using+command+prompt" rel="nofollow"><span>How to copy a file to remote server using command prompt</span></a></li> <li class="last forum"><a href="/forum/affich-12027-finding-computer-name-using-ip" class="img"><img src="/img/pixeltransparent.gif?200909" width="16" height="16" title="How to find host name of a remote server if i hav the ip" alt="How to find host name of a remote server if i hav the ip"/></a> <a href="/s/How+to+find+host+name+of+a+remote+server+if+i+hav+the+ip" rel="nofollow"><span>How to find host name of a remote server if i hav the ip</span></a></li> <li class="last forum"><a href="/forum/affich-108294-can-t-play-online-for-call-of-duty-waw-ps3" class="img"><img src="/img/pixeltransparent.gif?200909" width="16" height="16" title="I'm trying to play modern warfare 2 on my new ps3 and online multiplayer is taking forever to connect to server" alt="I'm trying to play modern warfare 2 on my new ps3 and online multiplayer is taking forever to connect to server"/></a> <a href="/s/I%27m+trying+to+play+modern+warfare+2+on+my+new+ps3+and+online+multiplayer+is+taking+forever+to+connect+to+server" rel="nofollow"><span>I'm trying to play modern warfare 2 on my new ps3 and online multiplayer is taking forever to connect to server</span></a></li> <li class=" forum"><a href="/forum/affich-96268-connecting-to-sql" class="img"><img src="/img/pixeltransparent.gif?200909" width="16" height="16" title="Internet client error: cannot connect to server remote ado sql server" alt="Internet client error: cannot connect to server remote ado sql server"/></a> <a href="/s/Internet+client+error%3A+cannot+connect+to+server+remote+ado+sql+server" rel="nofollow"><span>Internet client error: cannot connect to server remote ado sql server</span></a></li> <li class="last forum"><a href="/forum/affich-35879-to-disable-auto-login-network-share-folders" class="img"><img src="/img/pixeltransparent.gif?200909" width="16" height="16" title="Remove saved connection to server" alt="Remove saved connection to server"/></a> <a href="/s/Remove+saved+connection+to+server" rel="nofollow"><span>Remove saved connection to server</span></a></li> <li class="last forum"><a href="/forum/affich-33992-my-firefox-wona-t-work" class="img"><img src="/img/pixeltransparent.gif?200909" width="16" height="16" title="Restaurant city won't connect to server" alt="Restaurant city won't connect to server"/></a> <a href="/s/Restaurant+city+won%27t+connect+to+server" rel="nofollow"><span>Restaurant city won't connect to server</span></a></li> <li class="last forum"><a href="/forum/affich-53024-can-connect-to-vpn-but-can-not-connect-remote" class="img"><img src="/img/pixeltransparent.gif?200909" width="16" height="16" title="Vista business cannot ping cannot connect remote" alt="Vista business cannot ping cannot connect remote"/></a> <a href="/s/Vista+business+cannot+ping+cannot+connect+remote" rel="nofollow"><span>Vista business cannot ping cannot connect remote</span></a></li> <li class=" faq"><a href="/faq/1385-vnc-failed-to-connect-to-server-opening-ports" class="img"><img src="/img/pixeltransparent.gif?200909" width="16" height="16" title="Vnc failed to connect to server" alt="Vnc failed to connect to server"/></a> <a href="/s/Vnc+failed+to+connect+to+server" rel="nofollow"><span>Vnc failed to connect to server</span></a></li> <li class="last forum"><a href="/forum/affich-274-problem-connecting-certain-websites" class="img"><img src="/img/pixeltransparent.gif?200909" width="16" height="16" title="What does it mean when a web page cannot connect to server" alt="What does it mean when a web page cannot connect to server"/></a> <a href="/s/What+does+it+mean+when+a+web+page+cannot+connect+to+server" rel="nofollow"><span>What does it mean when a web page cannot connect to server</span></a></li></ul></div><a href="#" onclick="if($('similishowhide').className=='hide'){ $('similishowhide').className='show';$('similishowhidelink').innerHTML=moins;} else{ $('similishowhide').className='hide';$('similishowhidelink').innerHTML=plus;} return false" id="similishowhidelink" title="More / Less"><span>More</span></a></div></div><script type="text/javascript">
+//<![CDATA[
+q=refk();if(q==''){
+    q = "Connectivity with remote server databse.";
+}
+if($('simili_container')&&q&&q!=' ') {
+a = document.createElement('a');
+a.setAttribute('href','/s/'+escape(q));
+a.className='fake';
+a.innerHTML = q.charAt(0).toUpperCase() + q.substr(1);
+$('simili_container').insertBefore(a,$('simili_container').firstChild);
+}
+h_j(q,$('similishowhide'));
+//]]>
+            </script></div><div class="bloc_09" id="bloc_middle"><script type="text/javascript">
+            <!--
+            sas_pageid='10991/82108';
+            sas_formatid=4784;
+            sas_target='';
+            SmartAdServer(sas_pageid,sas_formatid,sas_target);
+            //-->
+            </script></div><div id="needhelp"><div class="widget"><span class="titre">They need your help</span><ul><li class="options"><a href="/rss/rss_forum_sans_reponses.php3" class="rss"><span>RSS</span></a><a href="#" class="prefs" onclick="new Ajax.Updater('needhelp', '/remote/needhelp.php3', { method: 'get',  parameters: 'needhelp_prefs=1', evalScripts : true } );return false;">Options</a></li><li><span>16:12</span> <a href="/forum/affich-279247-format-problems">format problems</a> (<a href="/forum/forum-1-software">Software</a>)</li><li><span>16:03</span> <a href="/forum/affich-279244-could-launch-counter-strike">could launch counter strike</a> (<a href="/forum/forum-5-network">Network</a>)</li><li><span>16:01</span> <a href="/forum/affich-279243-senerio">Senerio</a> (<a href="/forum/forum-5-network">Network</a>)</li><li><span>15:56</span> <a href="/forum/affich-279242-trogen-infected-lap-top">Trogen infected lap top</a> (<a href="/forum/forum-11-windows">Windows</a>)</li><li class="more"><a href="/forum/sans-reponses?" title="All unanswered messages"><span>All unanswered messages</span></a></li></ul><span class="shadow"></span></div><script type="text/javascript">
+            <!--
+            new Ajax.Updater('needhelp','/remote/needhelp.php3',{ method : 'get', evalScripts : false });
+            //-->
+            </script></div><div class="bloc_09" style="margin-bottom:10px"><a target="_blank" rel="nofollow" href="http://www3.smartadserver.com/call/cliccommand/2420026/[timestamp]?"><img src="http://static.commentcamarche.net/en.kioskea.net/_skin/_local/img/regie/supinfo.gif?1" alt=""/></a><img src="http://www3.smartadserver.com/call/pubimppixel/2424537/[timestamp]?" border="0" width="1" height="1" alt=""/></div><div id="bloc_sponsor" class="bloc_09"><script type="text/javascript">
+        sas_pageid='10991/82108';
+        sas_formatid=4787;
+        sas_target='';
+        SmartAdServer(sas_pageid,sas_formatid,sas_target);
+        </script></div></div></div></div></div><div id="footer">
+    <div id="bottom">
+        <ul class="noBorder">
+            <li>Kioskea Network                <ul>
+                                        <li><a href="http://www.commentcamarche.net" lang="fr">www.commentcamarche.net</a></li>
+                                                    <li><a href="http://de.kioskea.net" lang="de">de.kioskea.net</a></li>
+                                                    <li><a href="http://en.kioskea.net" lang="en">en.kioskea.net</a></li>
+                                                    <li><a href="http://es.kioskea.net" lang="es">es.kioskea.net</a></li>
+                                                    <li><a href="http://it.kioskea.net" lang="it">it.kioskea.net</a></li>
+                                                    <li><a href="http://pt.kioskea.net" lang="pt">pt.kioskea.net</a></li>
+                                                    <li><a href="http://salud.kioskea.net" lang="es">salud.kioskea.net</a></li>
+                                        <li><a href="http://www.supinfo.com" rel="nofollow">SUPINFO, &eacute;cole d'ing&eacute;nieurs</a></li>
+                                    </ul>
+            </li>
+        </ul>
+        <ul class="footerBorder">
+            <li>Shortcuts                <ul>
+                    <li><a href="/contents/ccmguide/cgu-conditions-generales.php3">Terms of Use</a></li>
+                    <li><a href="/contents/ccmguide/ccmintro.php3">About us</a></li>
+                    <li><a href="/contact/">Contact</a></li>
+                    <li><a href="/contents/ccmguide/ccmcharte.php3">Charter</a></li>
+                    <li><a href="/telecharger/?top=50">Top 50</a></li>                </ul>
+            </li>
+        </ul>
+        <ul class="footerBorder">
+            <li>
+                Glossary                <div id="glossary">
+                    <a href="/index/a">A</a>
+                    <a href="/index/b">B</a>
+                    <a href="/index/c">C</a>
+                    <a href="/index/d">D</a>
+                    <a href="/index/e">E</a>
+                    <a href="/index/f">F</a>
+                    <a href="/index/g">G</a>
+                    <a href="/index/h">H</a>
+                    <a href="/index/i">I</a>
+                    <a href="/index/j">J</a>
+                    <a href="/index/k">K</a>
+                    <a href="/index/l">L</a>
+                    <a href="/index/m">M</a>
+                    <a href="/index/n">N</a>
+                    <a href="/index/o">O</a>
+                    <a href="/index/p">P</a>
+                    <a href="/index/q">Q</a>
+                    <a href="/index/r">R</a>
+                    <a href="/index/s">S</a>
+                    <a href="/index/t">T</a>
+                    <a href="/index/u">U</a>
+                    <a href="/index/v">V</a>
+                    <a href="/index/w">W</a>
+                    <a href="/index/x">X</a>
+                    <a href="/index/y">Y</a>
+                    <a href="/index/z">Z</a>
+                    <a href="/index/0" class="buttonLarge">0-9</a>
+                </div>
+            </li>
+        </ul>
+        <div class="footerBorder">
+                        <form action="/communaute/inscription.php3" class="headerFooter">
+                <fieldset>
+                    <legend>Join now for free</legend>
+                    <input type="text" class="search" name="email" value="email" onfocus="select()" />
+                    <input type="button" class="submit" value="OK" />
+                </fieldset>
+            </form>
+                </div>
+        <div class="spacer">&nbsp;</div>
+    </div>
+</div><SCRIPT LANGUAGE="JavaScript1.1">
+sas_pageid='10991/82108';
+sas_formatid=4783;			// Format : DHTML 1x1 (Popup, Flash Transp, ...) 1x1
+sas_target='';	// Targeting
+SmartAdServer(sas_pageid,sas_formatid,sas_target);
+</SCRIPT><noscript>
+<a href="http://www3.smartadserver.com/call/pubjumpi/10987/81914/4783/S/[timestamp]/?">
+<img src="http://www3.smartadserver.com/call/pubi/10987/81914/4783/S/[timestamp]/?" border="0" alt="" /></a>
+</noscript><script type="text/javascript">
+<!--
+xtnv = document;
+xtsd = "http://logc15";
+xtsite = "254140";
+xtn2 = "4";
+xtpage = "forum::affich-70275-connectivity-with-remote-server-databse";
+xtdmc = ".commentcamarche.net";
+xtprm = "";
+//-->
+</script>
+<script type="text/javascript" src="/remote/xiti.js"></script>
+<noscript>
+    <img width="1" height="1" src="http://logc15.xiti.com/hit.xiti?s=254140&amp;s2=4&amp;p=forum%3A%3Aaffich-70275-connectivity-with-remote-server-databse" alt="" />
+</noscript></body>
+</html>

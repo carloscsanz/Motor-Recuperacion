@@ -1,0 +1,496 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+<meta name="verify-v1" content="qLIlUXv7S0L6yiAxLJpOJiD7QYp2mFrujAKdor8rOiI=" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="WCF Services—Message Contracts 2,.NET Articles,WCF Services,WCF Services—Data Contracts,WCF Services—Installing the .NET 3.0 Development Components,WCF Services—Message Contracts,WCF Services—Summary,WCF Services—Summary of Service Contracts,WCF Services—Understanding Data Contracts,WCF Services—Understanding Service Contracts,WCF Services—Understanding the Requirements" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="copyright" href="/CSharp-Online.NET:Copyright" />
+		<title>WCF Services—Message Contracts 2 at C# Online.NET (CSharp-Online.NET)</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "/skins/csobook/main.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins/csobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins/csobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins/csobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins/csobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'csobook';var stylepath = '/skins';</script>
+		<script type="text/javascript" src="/skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/index.php?title=-&amp;action=raw&amp;gen=js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/index.php?title=MediaWiki:Common.css&action=raw&ctype=text/css&smaxage=18000";
+@import "/index.php?title=MediaWiki:Csobook.css&action=raw&ctype=text/css&smaxage=18000";
+@import "/index.php?title=-&action=raw&gen=css&maxage=18000";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+				<script type="text/javascript" src="/js/previewbubble.js"></script>
+		<script type="text/javascript" src="/js/CSO.js"></script>
+        <link href="CSOmenu.css" type="text/css" rel="stylesheet" />
+</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">WCF Services—Message Contracts 2</h1>
+		<div id="bodyContent">
+
+                  <font size=-1><script type="text/javascript"><!--
+google_ad_client = "pub-9095722307447682";
+/* enCSOBannerTagline */
+google_ad_slot = "7825658103";
+google_ad_width = 728;
+google_ad_height = 15;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></font>
+			<!-- h3 id="siteSub">Microsoft .NET Framework, ADO.NET, ASP.NET, SQL Server, Visual C#, Visual Studio Developer Training</h3 -->
+			<div id="contentSub"></div>
+<div align="center"><table bgcolor="#554a1c" cellpadding="0" cellspacing="0"><tr><td align="left"><script type="text/javascript"><!--
+google_ad_client = "pub-9095722307447682";
+google_ad_width = 468;
+google_ad_height = 60;
+google_ad_format = "468x60_as";
+google_ad_type = "text";
+//2006-11-01: enCSOBannerBU
+google_ad_channel = "6332880125";
+google_color_border = "BFBAA7";
+google_color_bg = "DFDCD1";
+google_color_link = "002BB8";
+google_color_text = "000000";
+google_color_url = "000000";
+//--></script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></td></tr></table></div><br />
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<table id="Article" style="margin: 0 0 1em 1em; font-size:90%; border: 1px solid gray; float:right; clear:right;" width="180">
+
+<tr style="background:#f2f2f2" align="center">
+<td style="border-bottom: 2px solid #ccf"> <b><a href="/CSharp-Online.NET:Articles" title="CSharp-Online.NET:Articles">CSharp-Online.NET:Articles</a></b>
+</td></tr>
+<tr style="background:#f2f2f2" align="center">
+<td style="border-bottom: 2px solid #ccf"> <b><a href="/.NET_Articles" title=".NET Articles">.NET Articles</a></b>
+</td></tr>
+
+<tr style="background:#f2f2f2">
+<td style="border-bottom: 2px solid #ccf">
+<p><b><a href="/WCF_Services" title="WCF Services">WCF Services</a></b>
+</p>
+<ul><li><a href="/WCF_Services%E2%80%94Understanding_the_Requirements" title="WCF Services—Understanding the Requirements">Requirements &sect;</a>
+</li><li><a href="/WCF_Services%E2%80%94Installing_the_.NET_3.0_Development_Components" title="WCF Services—Installing the .NET 3.0 Development Components">Install .NET 3.0 Development</a>
+</li><li><a href="/WCF_Services%E2%80%94Understanding_Service_Contracts" title="WCF Services—Understanding Service Contracts">Service Contracts &sect;</a>
+</li><li><a href="/WCF_Services%E2%80%94Understanding_Data_Contracts" title="WCF Services—Understanding Data Contracts">Data Contracts &sect;</a>
+<ul><li><a href="/WCF_Services%E2%80%94XML_Serialization" title="WCF Services—XML Serialization">XML Serialization</a>
+</li><li><a href="/WCF_Services%E2%80%94Data_Contracts" title="WCF Services—Data Contracts">Data Contracts</a>
+</li><li><a href="/WCF_Services%E2%80%94Message_Contracts" title="WCF Services—Message Contracts">Message Contracts</a>
+<ul><li><strong>Message Contracts</strong>
+</li><li><a href="/WCF_Services%E2%80%94Summary_of_Service_Contracts" title="WCF Services—Summary of Service Contracts">Summary of Service Contracts</a>
+</li></ul>
+</li></ul>
+</li><li><a href="/WCF_Services%E2%80%94Summary" title="WCF Services—Summary">Summary</a>
+</li></ul>
+</td></tr>
+<tr align="center" style="background:#f2f2f2">
+<td><small>© 2007 Chris Peiris, Dennis Mulder</small>
+</td></tr></table>
+<a name="Message_Contracts"></a><h2> Message Contracts </h2>
+<p>In this section, we’ll present a quick example of message contracts related to QuickReturns Ltd. Remember, three fields are required to be set to predefined values in the SOAP header. Why would you mandate headers in the SOAP request? One scenario that is common is for applying policies and rules based upon the content of the SOAP request. If you can promote or present some attribute of the request to the SOAP header, it’s easily validated before any downstream code processes the request in your service implementation.
+</p><p>If you take a look at the <code>Trade</code> class in Listing 4-25 (part of the accompanying code in <code>Example09</code>), you can see that it has been updated with a specific namespace in addition to being decorated with the <code>DataMember</code> attribute with a mix of fields and properties. Additionally, the <code>Execution</code> class, shown in Listing 4-26, has been similarly decorated.
+</p><p><i>Listing 4-25. Trade Data Contract (Partial)</i>
+</p>
+<pre class="csharp"><span style="color: #0600FF;">namespace</span> ExchangeService
+<span style="color: #000000;">&#123;</span>
+    <span style="color: #000000;">&#91;</span>DataContract<span style="color: #000000;">&#40;</span>
+        Namespace = <span style="color: #A31515;">&quot;http://PracticalWcf/Exchange/Trade&quot;</span> <span style="color: #000000;">&#41;</span><span style="color: #000000;">&#93;</span>
+    <span style="color: #0600FF;">public</span> <span style="color: #0600FF;">class</span> Trade
+    <span style="color: #000000;">&#123;</span>
+        <span style="color: #0600FF;">string</span> _ticker;
+        <span style="color: #0600FF;">char</span> _type;
+        <span style="color: #0600FF;">string</span> _publisher;
+&nbsp;
+        <span style="color: #000000;">&#91;</span>DataMember<span style="color: #000000;">&#40;</span>
+            Name = <span style="color: #A31515;">&quot;Participant&quot;</span>, IsRequired = <span style="color: #0600FF;">true</span>, Order = <span style="color: #FF0000;">0</span> <span style="color: #000000;">&#41;</span><span style="color: #000000;">&#93;</span>
+        <span style="color: #0600FF;">string</span> _participant;
+&nbsp;
+        <span style="color: #000000;">&#91;</span>DataMember<span style="color: #000000;">&#40;</span>
+            Name = <span style="color: #A31515;">&quot;QuotedPrice&quot;</span>, IsRequired = <span style="color: #0600FF;">false</span>, Order = <span style="color: #FF0000;">1</span> <span style="color: #000000;">&#41;</span><span style="color: #000000;">&#93;</span>
+        <span style="color: #0600FF;">internal</span> <span style="color: #0600FF;">double</span> _quotedPrice;
+&nbsp;
+        <span style="color: #000000;">&#91;</span>DataMember<span style="color: #000000;">&#40;</span>
+            Name = <span style="color: #A31515;">&quot;Quantity&quot;</span>, IsRequired = <span style="color: #0600FF;">true</span>, Order = <span style="color: #FF0000;">1</span> <span style="color: #000000;">&#41;</span><span style="color: #000000;">&#93;</span>
+        <span style="color: #0600FF;">private</span> <span style="color: #0600FF;">int</span> _quantity;
+&nbsp;
+        <span style="color: #000000;">&#91;</span>DataMember<span style="color: #000000;">&#40;</span>
+            Name = <span style="color: #A31515;">&quot;TradeTime&quot;</span>, IsRequired = <span style="color: #0600FF;">false</span>, Order = <span style="color: #FF0000;">9</span> <span style="color: #000000;">&#41;</span><span style="color: #000000;">&#93;</span>
+        Nullable&lt;DateTime&gt; _tradeTime;
+&nbsp;
+        <span style="color: #0600FF;">double</span> _executionAmount;
+&nbsp;
+        <span style="color: #008080; font-style: italic;">/// &lt;summary&gt;</span>
+        <span style="color: #008080; font-style: italic;">/// Primary exchange security identifier</span>
+        <span style="color: #008080; font-style: italic;">/// &lt;/summary&gt;</span>
+        <span style="color: #000000;">&#91;</span>DataMember<span style="color: #000000;">&#40;</span> IsRequired = <span style="color: #0600FF;">true</span>, Order = <span style="color: #FF0000;">3</span> <span style="color: #000000;">&#41;</span><span style="color: #000000;">&#93;</span>
+        <span style="color: #0600FF;">public</span> <span style="color: #0600FF;">string</span> Ticker
+        <span style="color: #000000;">&#123;</span>
+            get <span style="color: #000000;">&#123;</span> <span style="color: #0600FF;">return</span> _ticker; <span style="color: #000000;">&#125;</span>
+            set <span style="color: #000000;">&#123;</span> _ticker = value; <span style="color: #000000;">&#125;</span>
+        <span style="color: #000000;">&#125;</span></pre>
+<p><i>Listing 4-26. Execution Data Contract (Partial)</i>
+</p>
+<pre class="csharp"><span style="color: #0600FF;">namespace</span> ExchangeService
+<span style="color: #000000;">&#123;</span>
+    <span style="color: #000000;">&#91;</span>DataContract<span style="color: #000000;">&#40;</span>
+        Namespace = <span style="color: #A31515;">&quot;http://PracticalWcf/Exchange/Execution&quot;</span> <span style="color: #000000;">&#41;</span><span style="color: #000000;">&#93;</span>
+    <span style="color: #0600FF;">public</span> <span style="color: #0600FF;">class</span> Execution
+    <span style="color: #000000;">&#123;</span>
+        <span style="color: #000000;">&#91;</span>DataMember<span style="color: #000000;">&#40;</span>Name= <span style="color: #A31515;">&quot;SettleDate&quot;</span><span style="color: #000000;">&#41;</span><span style="color: #000000;">&#93;</span>
+        <span style="color: #2B91AF;">DateTime</span> _settlementDate;
+&nbsp;
+        <span style="color: #000000;">&#91;</span>DataMember<span style="color: #000000;">&#40;</span> Name = <span style="color: #A31515;">&quot;Participant&quot;</span> <span style="color: #000000;">&#41;</span><span style="color: #000000;">&#93;</span>
+        <span style="color: #0600FF;">string</span> _participant;
+&nbsp;
+        <span style="color: #000000;">&#91;</span>DataMember<span style="color: #000000;">&#40;</span> Name = <span style="color: #A31515;">&quot;ExecutionAmount&quot;</span> <span style="color: #000000;">&#41;</span><span style="color: #000000;">&#93;</span>
+        <span style="color: #0600FF;">double</span> _executionAmount;
+&nbsp;
+        <span style="color: #000000;">&#91;</span>DataMember<span style="color: #000000;">&#40;</span> Name = <span style="color: #A31515;">&quot;TradeSubmitted&quot;</span> <span style="color: #000000;">&#41;</span><span style="color: #000000;">&#93;</span>
+        Trade _trade;</pre>
+<p>Message contracts allow the encapsulation of data contracts in addition to specifying what part of the message is in the message header and message body. So, for this example, we’ve added a single source code file that contains the definition of two additional classes: <code>TradeSecurityRequest</code> and <code>TradeSecurityResponse</code>. These classes are then decorated as required with the <code>MessageContract</code> attribute. Additionally, the members are then decorated with either the <code>MessageHeader</code> attribute or the <code>MessageBody</code> attribute, as shown in Listing 4-27.
+</p><p><i>Listing 4-27. Messages—TradeSecurityRequest (Partial)</i>
+</p>
+<pre class="csharp"><span style="color: #000000;">&#91;</span>MessageContract<span style="color: #000000;">&#93;</span>
+<span style="color: #0600FF;">public</span> <span style="color: #0600FF;">class</span> TradeSecurityRequest
+<span style="color: #000000;">&#123;</span>
+    Trade _trade;
+    <span style="color: #0600FF;">string</span> _particpant;
+    <span style="color: #0600FF;">string</span> _publisher;
+    <span style="color: #0600FF;">string</span> _ticker;
+&nbsp;
+    <span style="color: #000000;">&#91;</span>MessageHeader<span style="color: #000000;">&#40;</span>MustUnderstand=<span style="color: #0600FF;">true</span><span style="color: #000000;">&#41;</span><span style="color: #000000;">&#93;</span>
+    <span style="color: #0600FF;">public</span> <span style="color: #0600FF;">string</span> Participant
+    <span style="color: #000000;">&#123;</span>
+        get
+        <span style="color: #000000;">&#123;</span>
+            <span style="color: #0600FF;">return</span> _particpant;
+        <span style="color: #000000;">&#125;</span>
+        set
+        <span style="color: #000000;">&#123;</span>
+            _particpant = value;
+        <span style="color: #000000;">&#125;</span>
+    <span style="color: #000000;">&#125;</span>
+&nbsp;
+    <span style="color: #000000;">&#91;</span>MessageBody<span style="color: #000000;">&#93;</span>
+    <span style="color: #0600FF;">public</span> Trade TradeItem
+    <span style="color: #000000;">&#123;</span>
+        get
+        <span style="color: #000000;">&#123;</span>
+            <span style="color: #0600FF;">return</span> _trade;
+        <span style="color: #000000;">&#125;</span>
+        set
+        <span style="color: #000000;">&#123;</span>
+            _trade = value;
+        <span style="color: #000000;">&#125;</span>
+    <span style="color: #000000;">&#125;</span></pre>
+<p>Looking at the <code>MessageHeader</code> attribute on <code>Participant</code>, the <code>MustUnderstand</code> property transfers the responsibility of enforcing this header on the SOAP request to the WCF framework. So, with a simple attribute and property value, we’ve now provided a simple validation. Listing 4-28 illustrates how to use the <code>MessageContract</code> and <code>MessageBody</code> attributes as applied to the <code>TradeSecurityResponse</code> message in this example.
+</p><p><i>Listing 4-28. TradeSecurityResponse Message</i>
+</p>
+<pre class="csharp"><span style="color: #000000;">&#91;</span>MessageContract<span style="color: #000000;">&#93;</span>
+<span style="color: #0600FF;">public</span> <span style="color: #0600FF;">class</span> TradeSecurityResponse
+<span style="color: #000000;">&#123;</span>
+    <span style="color: #000000;">&#91;</span>MessageBody<span style="color: #000000;">&#93;</span>
+    <span style="color: #0600FF;">public</span> Execution ExecutionReport;
+<span style="color: #000000;">&#125;</span></pre>
+<p>The response message is simply an encapsulation of the execution data contract. We’ve simply encapsulated the data contracts and promoted certain fields or properties as header values.
+</p><p>If you take a look at the update <code>TradeService</code> implementation shown in Listing 4-29, you’ll see several changes.
+</p><p><i>Listing 4-29. Updated TradeService (Partial)</i>
+</p>
+<pre class="csharp"><span style="color: #000000;">&#91;</span>ServiceContract<span style="color: #000000;">&#40;</span>
+    Namespace = <span style="color: #A31515;">&quot;http://PracticalWcf/Exchange&quot;</span>,
+    Name = <span style="color: #A31515;">&quot;TradeService&quot;</span>
+    <span style="color: #000000;">&#41;</span>
+<span style="color: #000000;">&#93;</span>
+<span style="color: #0600FF;">public</span> <span style="color: #0600FF;">interface</span> ITradeService
+<span style="color: #000000;">&#123;</span>
+    <span style="color: #000000;">&#91;</span>OperationContract<span style="color: #000000;">&#40;</span>
+    Action = <span style="color: #A31515;">&quot;http://PracticalWcf/Exchange/TradeService/TradeSecurityAtMarket&quot;</span>
+    <span style="color: #000000;">&#41;</span><span style="color: #000000;">&#93;</span>
+    <span style="color: #000000;">&#91;</span>FaultContract<span style="color: #000000;">&#40;</span> <span style="color: #0600FF;">typeof</span><span style="color: #000000;">&#40;</span> ArgumentException <span style="color: #000000;">&#41;</span> <span style="color: #000000;">&#41;</span><span style="color: #000000;">&#93;</span>
+    TradeSecurityResponse TradeSecurity<span style="color: #000000;">&#40;</span> TradeSecurityRequest tradeRequest <span style="color: #000000;">&#41;</span>;
+<span style="color: #000000;">&#125;</span></pre>
+<p>The first change is the explicit specification of the <code>Action</code> property of <code>OperationContract</code>. The second is the addition of the <code>FaultContract</code> attribute to the <code>TradeSecurity</code> method. And finally, the <code>TradeSecurity</code> interface itself, as defined in <code>ITradeService</code>, has been updated to take the respective message contracts from the classes defined in <code>Messages.cs</code>.
+</p><p>Specifically, the first change, the addition of <code>Action</code>, is for illustrative purposes only to show how you can control these values. The WCF framework would provide default WS-Addressing and SOAP headers as required based upon the <code>ServiceContract</code> namespace, name, and operation name.
+</p><p>The second change is the <code>FaultContract</code> attribute. So far, all the examples have had limited exception processing. However, it’s important to note that .NET exceptions and SOAP exceptions are different. Therefore, the <code>FaultContract</code> capability of WCF provides a way to map, encapsulate, and override how faults are handled and reported. This is important because given the cross-platform capability of WCF, it would not be feasible to enforce knowledge of .NET types. Therefore, in this example, we’ve wrapped the <code>TradeService</code> implementation in a <code>try...catch</code> and provided a throw of <code>FaultException</code> in the <code>catch</code> block as follows:
+</p>
+<pre class="csharp"><span style="color: #0600FF;">throw</span> <span style="color: #0600FF;">new</span> FaultException&lt;ArgumentException&gt;<span style="color: #000000;">&#40;</span> ex <span style="color: #000000;">&#41;</span>;</pre>
+<p>The final change is the modification to the <code>TradeSecurity</code> operation. The signature has been updated to receive and respond with the corresponding <code>TradeSecurityRequest</code> and <code>TradeSecurityResponse</code> messages, respectively.
+</p><p>With the service contract change, the <code>TradeSecurity</code> implementation changes to match the interface signature. You now have direct and simple property-level access to the SOAP headers that the client of the service contract must present. Although we are using in our examples WCF-generated proxies and .NET clients, this requirement is a SOAP standard and regardless of the implementation technology—Java, C++, or some other SOAP framework—as long as they implement the specifications, you have enforcement of your <code>MustUnderstand</code> rule.
+</p><p>In Listing 4-30, we’ve provided the simple value validation of the three headers presented using .NET properties from the message contract.
+</p><p><i>Listing 4-30. TradeService Header Check Implementation (Partial)</i>
+</p>
+<pre class="csharp"><span style="color: #0600FF;">public</span> <span style="color: #0600FF;">class</span> TradeService&nbsp;: ITradeService
+<span style="color: #000000;">&#123;</span>
+    <span style="color: #0600FF;">const</span> <span style="color: #0600FF;">double</span> IBM_Price = <span style="color: #FF0000;">80</span>.50D;
+    <span style="color: #0600FF;">const</span> <span style="color: #0600FF;">double</span> MSFT_Price = <span style="color: #FF0000;">30</span>.25D;
+    <span style="color: #0600FF;">public</span> TradeSecurityResponse TradeSecurity<span style="color: #000000;">&#40;</span> TradeSecurityRequest trade <span style="color: #000000;">&#41;</span>
+    <span style="color: #000000;">&#123;</span>
+        <span style="color: #0600FF;">try</span>
+        <span style="color: #000000;">&#123;</span>
+            <span style="color: #008080; font-style: italic;">//Embedded rules</span>
+            <span style="color: #0600FF;">if</span><span style="color: #000000;">&#40;</span> trade.<span style="color: #000000;">Participant</span>&nbsp;!= <span style="color: #A31515;">&quot;ABC&quot;</span> <span style="color: #000000;">&#41;</span>
+                <span style="color: #0600FF;">throw</span> <span style="color: #0600FF;">new</span> ArgumentException<span style="color: #000000;">&#40;</span> <span style="color: #A31515;">&quot;Particpant must be <span style="color: #A31515; font-weight: bold;">\&quot;</span>ABC<span style="color: #A31515; font-weight: bold;">\&quot;</span>&quot;</span> <span style="color: #000000;">&#41;</span>;
+&nbsp;
+            <span style="color: #0600FF;">if</span><span style="color: #000000;">&#40;</span> trade.<span style="color: #000000;">Publisher</span>&nbsp;!= <span style="color: #A31515;">&quot;XYZ&quot;</span> <span style="color: #000000;">&#41;</span>
+                <span style="color: #0600FF;">throw</span> <span style="color: #0600FF;">new</span> ArgumentException<span style="color: #000000;">&#40;</span> <span style="color: #A31515;">&quot;Publisher must be <span style="color: #A31515; font-weight: bold;">\&quot;</span>XYZ<span style="color: #A31515; font-weight: bold;">\&quot;</span>&quot;</span> <span style="color: #000000;">&#41;</span>;
+&nbsp;
+            <span style="color: #0600FF;">if</span><span style="color: #000000;">&#40;</span> trade.<span style="color: #000000;">Ticker</span>&nbsp;!= <span style="color: #A31515;">&quot;MSFT&quot;</span> <span style="color: #000000;">&#41;</span>
+                <span style="color: #0600FF;">throw</span> <span style="color: #0600FF;">new</span> ArgumentException<span style="color: #000000;">&#40;</span> <span style="color: #A31515;">&quot;Ticker must be <span style="color: #A31515; font-weight: bold;">\&quot;</span>MSFT<span style="color: #A31515; font-weight: bold;">\&quot;</span>&quot;</span> <span style="color: #000000;">&#41;</span>;</pre>
+<p>The completed solution provides for client-side trapping of the fault exceptions leveraging the WCF capabilities. On the client side, using WCF, apply the <code>FaultException</code> generic with the <code>ArgumentException</code> type to trap and process as required by the fault condition, as shown in Listing 4-31.
+</p><p><i>Listing 4-31. Client program.cs Catch Block on Fault Exception (Partial)</i>
+</p>
+<pre class="csharp"><span style="color: #0600FF;">catch</span><span style="color: #000000;">&#40;</span> FaultException&lt;ArgumentException&gt; ex <span style="color: #000000;">&#41;</span>
+<span style="color: #000000;">&#123;</span>
+     <span style="color: #2B91AF;">Console</span>.<span style="color: #000000;">WriteLine</span><span style="color: #000000;">&#40;</span> <span style="color: #A31515;">&quot;ArgumentException Occurred&quot;</span> <span style="color: #000000;">&#41;</span>;
+     <span style="color: #2B91AF;">Console</span>.<span style="color: #000000;">WriteLine</span><span style="color: #000000;">&#40;</span> <span style="color: #A31515;">&quot;<span style="color: #A31515; font-weight: bold;">\t</span>Action:<span style="color: #A31515; font-weight: bold;">\t</span>&quot;</span> + ex.<span style="color: #000000;">Action</span> <span style="color: #000000;">&#41;</span>;
+     <span style="color: #2B91AF;">Console</span>.<span style="color: #000000;">WriteLine</span><span style="color: #000000;">&#40;</span> <span style="color: #A31515;">&quot;<span style="color: #A31515; font-weight: bold;">\t</span>Name:<span style="color: #A31515; font-weight: bold;">\t</span>&quot;</span> + ex.<span style="color: #000000;">Code</span>.<span style="color: #000000;">Name</span> <span style="color: #000000;">&#41;</span>;
+     <span style="color: #2B91AF;">Console</span>.<span style="color: #000000;">WriteLine</span><span style="color: #000000;">&#40;</span> <span style="color: #A31515;">&quot;<span style="color: #A31515; font-weight: bold;">\t</span>Message:<span style="color: #A31515; font-weight: bold;">\t</span>&quot;</span> + ex.<span style="color: #000000;">Detail</span>.<span style="color: #2B91AF;">Message</span> <span style="color: #000000;">&#41;</span>;
+<span style="color: #000000;">&#125;</span></pre>
+<p>The <code>FaultException</code> type provides access to the SOAP fault headers through simple properties, allowing exception handling or reporting as needed.
+</p><p>The service contract side of the channel is extensible by providing your own implementation of the <code>IErrorHandler</code> interface. This interface, when extended, is added to your own service contract implementations, or you can add it to the <code>DispatchBehavior.ErrorHandlers</code> collection, which can provide overriding how messages are transformed into objects and dispatched to methods.
+</p><p><br />
+</p>
+<table align="center" style="border-color: transparent; border-width: 0px; background-color: transparent;">
+
+<tr>
+<td> <span class="plainlinks"><a href="http://en.csharp-online.net/WCF_Services%E2%80%94Message_Contracts" title="http://en.csharp-online.net/WCF_Services%E2%80%94Message_Contracts" rel="nofollow"><img src="http://en.csharp-online.net/images/c/cf/Previous_Page_.gif" alt="Previous_Page_.gif" /></a> <a href="http://en.csharp-online.net/WCF_Services%E2%80%94Summary_of_Service_Contracts" title="http://en.csharp-online.net/WCF_Services%E2%80%94Summary_of_Service_Contracts" rel="nofollow"><img src="http://en.csharp-online.net/images/9/9e/Next_Page_.gif" alt="Next_Page_.gif" /></a></span>
+</td></tr></table>
+<div class="printfooter">
+Retrieved from "<a href="http://en.csharp-online.net/WCF_Services%E2%80%94Message_Contracts_2">http://en.csharp-online.net/WCF_Services%E2%80%94Message_Contracts_2</a>"</div>
+						<!-- end content -->
+			<div class="visualClear"></div>
+
+<div class="visualClear"></div><br />
+<div align="center"><table bgcolor="#554a1c" cellpadding="0" cellspacing="0"><tr><td align="left"><script type="text/javascript"><!--
+google_ad_client = "pub-9095722307447682";
+google_ad_width = 468;
+google_ad_height = 60;
+google_ad_format = "468x60_as";
+google_ad_type = "text";
+//2006-11-01: enCSOBannerBL
+google_ad_channel = "4522375412";
+google_color_border = "BFBAA7";
+google_color_bg = "DFDCD1";
+google_color_link = "002BB8";
+google_color_text = "000000";
+google_color_url = "000000";
+//--></script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></td></tr></table></div>
+		</div>
+	</div>
+
+<div id="column-google">
+   <!-- Google AdSense -->
+   <script type="text/javascript"><!--
+google_ad_client = "pub-9095722307447682";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text";
+//2006-11-01: enCSOTowerR
+google_ad_channel = "4224729855";
+google_color_border = "554A1C";
+google_color_bg = "DFDCD1";
+google_color_link = "002BB8";
+google_color_text = "000000";
+google_color_url = "000000";
+//--></script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>   <br />
+   <iframe src="http://rcm.amazon.com/e/cm?t=edentoncom-20&o=1&p=8&l=st1&mode=books&search=C%23&fc1=000000&lt1=_blank&lc1=002BB8&bg1=DFDCD1&f=ifr" marginwidth="0" marginheight="0" width="120" height="240" border="0" frameborder="0" style="border:none;" scrolling="no"></iframe>   <!-- ?php include("includes/Performics/RandomPromo120x60.php") ? -->
+</div>
+
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="/WCF_Services%E2%80%94Message_Contracts_2">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="/index.php?title=Talk:WCF_Services%E2%80%94Message_Contracts_2&amp;action=edit">Discussion</a></li>
+				 <li id="ca-viewsource"><a href="/index.php?title=WCF_Services%E2%80%94Message_Contracts_2&amp;action=edit">View source</a></li>
+				 <li id="ca-history"><a href="/index.php?title=WCF_Services%E2%80%94Message_Contracts_2&amp;action=history">History</a></li>
+		</ul>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/index.php?title=Special:Userlogin&amp;returnto=WCF_Services%E2%80%94Message_Contracts_2">Log in / create account</a></li>
+&nbsp;&nbsp;<a href="javascript:location.href='http://del.icio.us/post?v=2&url='+encodeURIComponent(document.location.href)+'&title='+encodeURIComponent(document.title)+' '"><img src="grafx/delicious14x14.png" height="14" width="14" alt="del.icio.us C# Online.NET"></a>
+<a href="javascript:location.href='http://digg.com/submit?phase=2&title='+encodeURIComponent(document.title)+'&url='+encodeURIComponent(document.location.href)+' '"><img src="grafx/digg14x12.png" height="12" width="14" alt="digg C# Online.NET"></a>
+<a href="javascript:location.href='http://www.dotnetkicks.com/kick/?url='+encodeURIComponent(document.location.href)+'&title='+encodeURIComponent(document.title)+' '"><img src="grafx/dotnetkicks14x14.png" height="14" width="14" alt="kick C# Online.NET"></a>
+<a href="javascript:location.href='http://www.furl.net/storeIt.jsp?u='+encodeURIComponent(document.location.href)+'&t='+encodeURIComponent(document.title)+' '"><img src="grafx/furl14x14b.png" height="14" width="14" alt="furl C# Online.NET"></a>
+<a href="index.php?title=Social_bookmarking">?</a>
+<a href="http://toolbar.google.com/buttons/add?url=http://en.csharp-online.net/encsharponlinebutton.xml"><img src="grafx/GoogleToolbar14x14.jpg" height="14" width="14" alt="Get C# Online.NET Toolbar"></a>
+<a href="http://fusion.google.com/add?moduleurl=http%3A%2F%2Fwww.google.com%2Fcoop/api/015184517059031426848/cse/myxksvkpaf0/gadget"><img src="http://buttons.googlesyndication.com/fusion/add.gif" width="104" height="17" border="0" alt="Add C# Online Web Search" /></a>
+<a href="#bottom" title="Go to bottom of page">&#135;</a>
+</ul>
+		</div>
+	</div>
+	<!-- div class="portlet" id="p-logo" -->
+	<div id="p-logo">
+		<a style="background-image: url(/skins/common/images/CSOLogo4.gif);" href="/CSharp_Certification%2C_Development%2C_and_Training" title="CSharp Certification, Development, and Training"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+
+
+	<div class="portlet">
+	  <div>
+        <!-- Google Link Unit -->
+        <script type="text/javascript"><!--
+google_ad_client = "pub-9095722307447682";
+google_ad_width = 180;
+google_ad_height = 90;
+google_ad_format = "180x90_0ads_al";
+//2006-11-06: enCSOMenu
+google_ad_channel = "8093141770";
+google_color_border = "807960";
+google_color_bg = "DFDCD1";
+google_color_link = "002BB8";
+google_color_text = "000000";
+google_color_url = "000000";
+//--></script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>	  </div>
+	</div>
+
+	<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search me</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" value="Search me" />
+			</div></form>
+		</div>
+	</div>
+
+	<!-- div id="g-search" class="portlet" -->
+	   <!-- h5 --><!-- label for="searchInput">C# Online Web Search</label --><!-- /h5 -->
+		<!-- div class="pBody">
+	       <!-- ?php include("includes/Google/CSharpOnlineSearch.php") ? -->
+		<!-- /div -->
+	<!-- /div -->
+
+	<!-- div class="portlet" -->
+	  <div align="center">
+        <iframe src="http://rcm.amazon.com/e/cm?t=edentoncom-20&o=1&p=8&l=st1&mode=books&search=C%23&fc1=000000&lt1=_blank&lc1=002BB8&bg1=DFDCD1&f=ifr" marginwidth="0" marginheight="0" width="120" height="240" border="0" frameborder="0" style="border:none;" scrolling="no"></iframe><br /><br />
+	  </div>
+	<!-- /div -->
+
+		<div class='portlet' id='p-C# Csharp,C Sharp,C-Sharp'>
+		<h5>C# Csharp,C Sharp,C-Sharp</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-C#-Certification,-Development,-and-Training-(Home)"><a href="/CSharp_Certification%2C_Development%2C_and_Training">C# Certification, Development, and Training (Home)</a></li>
+				<li id="n-ASP.NET"><a href="/ASP.NET_Entry_Points">ASP.NET</a></li>
+				<li id="n-C#-and-Visual-C#"><a href="/CSharp_and_Visual_CSharp_Development">C# and Visual C#</a></li>
+				<li id="n-C#-.NET-Articles"><a href="/CSharp-Online.NET:Articles">C# .NET Articles</a></li>
+				<li id="n-C#-.NET-Glossary"><a href="/Glossary_of_.NET_/_CSharp_Terms">C# .NET Glossary</a></li>
+				<li id="n-C#-.NET-Resources"><a href="/CSharp-Online.NET:Resources">C# .NET Resources</a></li>
+				<li id="n-C#-.NET-Reviews"><a href="/CSharp-Online.NET:Reviews">C# .NET Reviews</a></li>
+				<li id="n-C#-.NET-Tutorials"><a href="/CSharp-Online.NET:Tutorials">C# .NET Tutorials</a></li>
+				<li id="n-C#-.NET-Videos"><a href="/CSharp-Online.NET:Videos">C# .NET Videos</a></li>
+				<li id="n-Microsoft-.NET-Framework"><a href="/.NET_Framework_and_CLR">Microsoft .NET Framework</a></li>
+				<li id="n-Microsoft-Visual-Studio-.NET"><a href="/Visual_Studio">Microsoft Visual Studio .NET</a></li>
+			</ul>
+		</div>
+	</div>
+	
+    <div class='portlet' id='p-C# Online.NET'>
+   <div class="mH" onclick="toggleClosedMenu('CSOmenu')"><h5>+ C# Online.NET</h5></div>
+      <div id="CSOmenu" class='mL pBody'>
+         <ul>
+         <li id="n-Categories"><a href="/Special:Categories">Categories</a></li>
+         <li id="n-portal"><a href="/CSharp-Online.NET:Community_Portal">Community portal</a></li>
+         <li id="n-currentevents"><a href="/Current_events">Current events</a></li>
+         <li id="n-Forums"><a href="http://forum.csharp-online.net/ ">Forums</a></li>
+         <li id="n-Getting-involved"><a href="/Getting_involved_with_CSharp-Online.NET">Getting involved</a></li>
+         <li id="n-help"><a href="/Help:Contents">Help</a></li>
+         <li id="n-Link-to-us"><a href="/Link_to_us">Link to us</a></li>
+         <li id="n-Newest-pages"><a href="/Special:Newestpages//">Newest pages</a></li>
+         <li id="n-Popular-pages"><a href="/Special:Popularpages">Popular pages</a></li>
+         <li id="n-Random-page"><a href="/Special:Random">Random page</a></li>
+         <li id="n-Sister-sites"><a href="/CSharp-Online.NET:Sister_Sites">Sister sites</a></li>
+         <li id="n-Weblog-(Blog)"><a href="http://blog.csharp-online.net/ ">Weblog (Blog)</a></li>
+         </ul>
+      </div>
+</div>
+
+	<div class="portlet" id="p-tb">
+	<div class="mH" onclick="toggleClosedMenu('toolmenu')">
+		<h5>+ Toolbox</h5></div>
+		<div id="toolmenu" class="mL pBody">
+			<ul>
+				<li class="mO" id="t-whatlinkshere"><a href="/Special:Whatlinkshere/WCF_Services%E2%80%94Message_Contracts_2">What links here</a></li>
+				<li class="mO" id="t-recentchangeslinked"><a href="/Special:Recentchangeslinked/WCF_Services%E2%80%94Message_Contracts_2">Related changes</a></li>
+<li class="mO" id="t-upload"><a href="/Special:Upload">Upload file</a></li>
+<li class="mO" id="t-specialpages"><a href="/Special:Specialpages">Special pages</a></li>
+				<li class="mO" id="t-print"><a href="/index.php?title=WCF_Services%E2%80%94Message_Contracts_2&amp;printable=yes">Printable version</a></li>				<li class="mO" id="t-permalink"><a href="/index.php?title=WCF_Services%E2%80%94Message_Contracts_2&amp;oldid=34559">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+
+	<div class="portlet">
+	  <div>
+        <!-- Google Link Unit -->
+        <script type="text/javascript"><!--
+google_ad_client = "pub-9095722307447682";
+google_ad_width = 180;
+google_ad_height = 90;
+google_ad_format = "180x90_0ads_al";
+//2007-09-10: enCSOMenuM
+google_ad_channel = "0500359493";
+google_color_border = "807960";
+google_color_bg = "DFDCD1";
+google_color_link = "002BB8";
+google_color_text = "000000";
+google_color_url = "000000";
+//-->
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>	  </div>
+	</div>
+
+		</div><!-- end of the left (by default at least) column -->
+
+			<div class="visualClear"></div>
+			<div id="footer">
+<a name="bottom" id="top"></a>
+<div align="center">
+<table bgcolor="#554a1c" cellpadding="0" cellspacing="0" border="0">
+<!-- tr --><!-- td bgcolor="#bfbaa7" valign="middle" align="center" --><!-- ?php include("includes/Google/enCSOMenuBL.php") ? --><!-- br /><br /></td --></tr -->
+  <tr><td bgcolor="#bfbaa7" valign="middle" align="center"><script type="text/javascript"><!--
+amazon_ad_tag = "edentoncom-20"; amazon_ad_width = "728"; amazon_ad_height = "90"; amazon_ad_logo = "hide"; amazon_ad_link_target = "new"; amazon_ad_discount = "remove"; amazon_color_border = "BFBAA7"; amazon_color_background = "DFDCD1"; amazon_color_link = "002BB8"; amazon_color_logo = "002BB8";//--></script>
+<script type="text/javascript" src="http://www.assoc-amazon.com/s/ads.js"></script><br /><br /></td></tr>
+  <tr><td bgcolor="#bfbaa7" colspan="2"><ul id="f-list">
+				<li id="about"><a href="/CSharp-Online.NET:About" title="CSharp-Online.NET:About">About CSharp-Online.NET</a></li>
+				<li id="disclaimer"><a href="/CSharp-Online.NET:General_disclaimer" title="CSharp-Online.NET:General disclaimer">Disclaimers</a></li>
+				<li id="privacy"><a href="/CSharp-Online.NET:Privacy_policy" title="CSharp-Online.NET:Privacy policy">Privacy policy</a></li>
+				<li id="copyright">&copy; <a href="/CSharp-Online.NET:Copyright" title="CSharp-Online.NET:Copyright">CSharp-Online.NET</a></li>
+<nobr>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:location.href='http://del.icio.us/post?v=2&url='+encodeURIComponent(document.location.href)+'&title='+encodeURIComponent(document.title)+' '"><img src="grafx/delicious14x14.png" height="14" width="14" alt="del.icio.us C# Online.NET"></a>
+<a href="javascript:location.href='http://digg.com/submit?phase=2&title='+encodeURIComponent(document.title)+'&url='+encodeURIComponent(document.location.href)+' '"><img src="grafx/digg14x12.png" height="12" width="14" alt="digg C# Online.NET"></a>
+<a href="javascript:location.href='http://www.dotnetkicks.com/kick/?url='+encodeURIComponent(document.location.href)+'&title='+encodeURIComponent(document.title)+' '"><img src="grafx/dotnetkicks14x14.png" height="14" width="14" alt="kick C# Online.NET"></a>
+<a href="javascript:location.href='http://www.furl.net/storeIt.jsp?u='+encodeURIComponent(document.location.href)+'&t='+encodeURIComponent(document.title)+' '"><img src="grafx/furl14x14b.png" height="14" width="14" alt="furl C# Online.NET"></a>
+<a href="index.php?title=Social_bookmarking">?</a>
+<a href="http://toolbar.google.com/buttons/add?url=http://en.csharp-online.net/encsharponlinebutton.xml"><img src="grafx/GoogleToolbar14x14.jpg" height="14" width="14" alt="Get C# Online.NET Toolbar"></a>
+<a href="http://fusion.google.com/add?moduleurl=http%3A%2F%2Fwww.google.com%2Fcoop/api/015184517059031426848/cse/myxksvkpaf0/gadget"><img src="http://buttons.googlesyndication.com/fusion/add.gif" width="104" height="17" border="0" alt="Add C# Online Web Search" /></a>
+<a href="#top" title="Go to top of page">&#134;</a></nobr>
+			</ul>
+</td></tr>
+</table></div>
+</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by host.siteground-vps68.com in 0.55 secs. --></body></html>

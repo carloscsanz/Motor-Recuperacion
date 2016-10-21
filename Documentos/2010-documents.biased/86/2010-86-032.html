@@ -1,0 +1,870 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="shortcut icon"href="http://boardreader.com/favicon.ico">
+		    <title>
+            Thread DataGrid default arrow on column header and changing the font of column
+header in c# - MSDN Forums | MSDN Forums 
+                                         | BoardReader        </title>
+        
+        <meta name="description" content="      
+ 
+
+
+   hi i have a DataGrid i want to set the default arrow of sorting type on column header before clicking the column  when the form loads 2)i want t0 change the font of column header i " />
+                         		<meta name="verify-v1" content="YnMdB59mY+nCB0R81pQPWUjWCMeUamFEybR3Hjv9O78=" />
+				<link rel="stylesheet" type="text/css" href="/css/dyn/c5d53ad139404dfa065fa1025119a6df.css">		
+							
+				
+				
+		
+				<script type="text/javascript" src="/js/dyn/fbd31a562e866c253da1b21c8c1a8e78.js"></script>		
+				
+				
+			</head>
+	<body bgcolor="#ffffff">		<table width="100%" height="100%" cellpadding="0" cellspacing="0"><tr><td valign="top">
+
+<script type="text/javascript">
+//
+function getElementsByClassName(oElm, strTagName, strClassName){
+    var arrElements = (strTagName == "*" && oElm.all)? oElm.all : oElm.getElementsByTagName(strTagName);
+    var arrReturnElements = new Array();
+    strClassName = strClassName.replace(/\-/g, "\\-");
+    var oRegExp = new RegExp("(^|\\s)" + strClassName + "(\\s|$)");
+    var oElement;
+    for(var i=0; i<arrElements.length; i++){
+        oElement = arrElements[i];      
+        if(oRegExp.test(oElement.className)){
+            arrReturnElements.push(oElement);
+        }   
+    }
+    return (arrReturnElements)
+}
+
+window.onload = function() {
+  var els = getElementsByClassName(document, 'input', 'submit');
+  if (els.length) {
+    els[0].onmousedown = function() { this.className = "submit_over"; };
+    els[0].onmouseup = function() {  this.className = "submit"; };
+    els[0].onmouseout = function() {  this.className = "submit"; };
+  }
+}
+//
+var mystatusId = 'mystatus';
+</script> 
+
+<div id="top_menu">
+<table cellpadding="0" cellspacing="0" border="0" style="float:left;">
+<tr>
+	<td class="ssw_group ssw_group_first_col">
+		<table cellpadding="0" cellspacing="0" border="0">
+			<tr>
+				<td class="ssw_bmmenu"><a id="ssw_messages" href="#" onclick="searchSwitch.selectBookmark('messages',true); return false;" title="Search for any term in millions of online discussions"><span class="ssw_bmmenu_deselected_leftbg"><span class="ssw_bmmenu_deselected_rightbg">Posts</span></span></a></td>
+								<td class="ssw_bmmenu"><a id="ssw_topics" href="#" onclick="searchSwitch.selectBookmark('topics',true); return false;" title="Enter any topic and see it's online discussion activity"><span class="ssw_bmmenu_deselected_leftbg"><span class="ssw_bmmenu_deselected_rightbg">Topics</span></span></a> </td>
+				<td class="ssw_bmmenu"><a id="ssw_forums" href="#" onclick="searchSwitch.selectBookmark('forums',true); return false;" title="Find forums with discussions about your desired topic"><span class="ssw_bmmenu_deselected_leftbg"><span class="ssw_bmmenu_deselected_rightbg">Forums</span></span></a></td>
+				<td class="ssw_bmmenu"><a id="ssw_images" href="#" onclick="searchSwitch.selectBookmark('images',true); return false;" title="Search pictures from message boards, forums and online discussions"><span class="ssw_bmmenu_deselected_leftbg"><span class="ssw_bmmenu_deselected_rightbg">Images</span></span></a></td>
+			</tr>
+		</table>
+	</td>
+	<td class="ssw_group ssw_group_custom">
+		<table cellpadding="0" cellspacing="0" border="0">
+			<tr>
+				<td class="ssw_bmmenu"><a href="#" onclick="searchSwitch.selectBookmark('videos',true); return false;" title="Search videos from message boards"><img class="ssw_bmmenu_img" src="/images/blinkx_logo_fl_r822.gif" width="11" height="10" border="0" alt="Search videos from message boards"></a></td>
+				<td class="ssw_bmmenu"><a id="ssw_videos" href="#" onclick="searchSwitch.selectBookmark('videos',true); return false;" title="Search videos from message boards"><span class="ssw_bmmenu_deselected_leftbg"><span class="ssw_bmmenu_deselected_rightbg">Videos</span></span></a></td>
+				<td class="ssw_bmmenu"><a href="#" onclick="searchSwitch.selectBookmark('twitter',true); return false;" title="Search messages from microblogs"><img class="ssw_bmmenu_img" src="/images/mb_r1581.gif" width="12" height="12" border="0" alt="Search messages from microblogs"></a></td>
+				<td class="ssw_bmmenu"><a id="ssw_twitter" href="#" onclick="searchSwitch.selectBookmark('twitter',true); return false;" title="Search messages from microblogs"><span class="ssw_bmmenu_deselected_leftbg"><span class="ssw_bmmenu_deselected_rightbg">Microblogs</span></span></a></td>				
+				<td class="ssw_bmmenu"><a href="#" onclick="searchSwitch.selectBookmark('imdb',true); return false;" title="Search messages from imdb.com"><img class="ssw_bmmenu_img" src="/images/imdb_logo_fl_2_r822.gif" width="16" height="11" border="0" alt="Search messages from imdb.com"></a></td>
+				<td class="ssw_bmmenu"><a id="ssw_imdb" href="#" onclick="searchSwitch.selectBookmark('imdb',true); return false;" title="Search messages from imdb.com"><span class="ssw_bmmenu_deselected_leftbg"><span class="ssw_bmmenu_deselected_rightbg">Imdb</span></span></a></td>
+				<td class="ssw_bmmenu"><a href="#" onclick="searchSwitch.selectBookmark('yuku',true); return false;" title="Search messages from yuku.com"><img class="ssw_bmmenu_img" src="/images/yuku_logo_fl_r1321.gif" width="11" height="11" border="0" alt="Search messages from yuku.com"></a></td>
+				<td class="ssw_bmmenu"><a id="ssw_yuku" href="#" onclick="searchSwitch.selectBookmark('yuku',true); return false;" title="Search messages from yuku.com"><span class="ssw_bmmenu_deselected_leftbg"><span class="ssw_bmmenu_deselected_rightbg">Yuku</span></span></a></td>
+				<td class="ssw_bmmenu"><a href="#" onclick="searchSwitch.selectBookmark('lefora',true); return false;" title="Search messages from lefora.com (free forums)"><img class="ssw_bmmenu_img" src="/images/lefora_fl_r1848.gif" width="11" height="11" border="0" alt="Search messages from lefora.com (free forums)"></a></td>
+				<td class="ssw_bmmenu"><a id="ssw_lefora" href="#" onclick="searchSwitch.selectBookmark('lefora',true); return false;" title="Search messages from lefora.com (free forums)"><span class="ssw_bmmenu_deselected_leftbg"><span class="ssw_bmmenu_deselected_rightbg">Lefora</span></span></a></td>
+			</tr>
+		</table>	
+		
+		
+		
+	</td>
+	<td class="adv-icons" id="advIconsInner"><td>
+</tr>
+</table>
+<script language="JavaScript">
+	searchSwitch.selectedLeftBgStyleName = 'ssw_bmmenu_selected_leftbg';
+	searchSwitch.selectedRightBgStyleName = 'ssw_bmmenu_selected_rightbg';
+
+	searchSwitch.deselectedLeftBgStyleName = 'ssw_bmmenu_deselected_leftbg';
+	searchSwitch.deselectedRightBgStyleName = 'ssw_bmmenu_deselected_rightbg';
+
+	searchSwitch.bookmarks.messages = {inner:document.getElementById('ssw_messages'),title:'Posts',action:'s'}
+		searchSwitch.bookmarks.twitter = {inner:document.getElementById('ssw_twitter'),title:'Microblogs',action:'cs',src:'tw'} 
+	searchSwitch.bookmarks.images = {inner:document.getElementById('ssw_images'),title:'Images',action:'i'}
+	searchSwitch.bookmarks.forums = {inner:document.getElementById('ssw_forums'),title:'Forums',action:'f'}	
+	searchSwitch.bookmarks.topics = {inner:document.getElementById('ssw_topics'),title:'Topics',action:'tp'} 
+	searchSwitch.bookmarks.videos = {inner:document.getElementById('ssw_videos'),title:'Videos',action:'bxv'} 
+	
+	searchSwitch.bookmarks.imdb = {inner:document.getElementById('ssw_imdb'),title:'Imdb',action:'cs',src:'imdb'}
+	searchSwitch.bookmarks.yuku = {inner:document.getElementById('ssw_yuku'),title:'Yuku',action:'cs',src:'yuku'}
+	searchSwitch.bookmarks.lefora = {inner:document.getElementById('ssw_lefora'),title:'Lefora',action:'cs',src:'lefora'}
+</script>
+<div id="mystatus">
+ 
+<div style="float:right;">
+<div class="myStatus"> <a href="/my.html" rel="nofollow" onclick="loginMe(event);return false;">Login</a> | <a href="/my/signup.html" rel="nofollow" onclick="signUpMe(event);return false;">Sign Up</a></div>
+<div id="myLoading"><div class="text_10">Loading...&nbsp;<input id="yacCloseButton" class="mypopupbox_close_button" type="button" value="X" onclick="if(typeof(myppb) != 'undefined') myppb.hide(); return false;"/></div></div></div>
+<br clear="all">
+</div>
+</div>
+<div id="mypopupbox" class="mypopupbox"></div>
+<div id="mypopupboxdbg" class="mypopupdbg"></div>
+<script language="JavaScript">setVar();</script>
+<div id="myLogout" style="display:none;"></div>
+<div id="myStatusLoading" style="display:none;"><div class="myStatus"><strong>Loading...</strong></div></div>
+<div style="display:none" id="more_site_info"><b class="text" style="color:sliver" onmouseover="this.style.cursor='pointer';" onmouseout="this.style.cursor='default'">More site info...</b></div><form name="bxHiddenForm" action="/index.php" class="blinkx-hidden-form">
+	<input type="hidden" name="q" value="">
+	<input type="hidden" name="b" value="">
+	<input type="hidden" name="d" value="">
+	<input type="hidden" name="l" value="">
+	<input type="hidden" name="c" value="">
+	<input type="hidden" name="s" value="">
+	<input type="hidden" name="a" value="bxv">
+</form>
+<script language="JavaScript">
+	blinkxHiddenForm.form = document.bxHiddenForm;
+</script>
+<form name="searchform" action="/index.php" style="margin: 0;" onsubmit="searchformSubmitExtendedSwitch();">
+
+	<input type="hidden" name="a" value="s">	
+	<input type="hidden" name="z" value="1">
+	<input type="hidden" name="src" value="">
+	<div id="header" >
+	<table cellpadding="0" cellspacing="0" border="0">
+
+				<tr>
+			<td class="logotd">
+				<a href="/" title="BoardReader - Connecting Communities through Search">
+				<img src="/images/logo_r2288.gif"  width="185" height="41" border="0"  title="BoardReader - Connecting Communities through Search" alt="BoardReader - Connecting Communities through Search">
+				</a>
+			</td>
+			<td class="inputtd">
+				<table cellpadding="0" cellspacing="0" border="0">
+				<tr>
+					<td style="height: 25px;" valign="bottom"><input clickaider_track_me="1" class="query" name="q" value=""></td>
+					<td class="search_submittd" > 
+					<button type="submit" onclick="" class="white_main_search_button"><b>Search</b></button></td>
+					<td class="adv_searchtd" valign="bottom" nowrap>
+						<a class="fp_adv" href="/index.php?a=a&x=1">Advanced search</a>
+											</td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+						<tr>
+			<td>&nbsp;</td>
+			<td class="advSearchInfo">
+				<table cellpadding="0" cellspacing="0" border="0">
+					 
+				<tr>
+					<td class="path_m">
+																			 
+					<span class="path_m">
+															</span>
+					</td>
+				</tr>
+												<tr>
+					<td class="path_m">
+					Search &nbsp;
+						<span id="advancedInput">
+													<input type="hidden" name="f" value="463258" disabled>
+											
+							
+							<input type="hidden" name="t" value="2565997">
+													
+                                                    
+													
+						</span>
+						<input type="hidden" name="extended_search" value="1">
+						<input type="radio" name="extended_search_switch" id="extended_search_switch_1" checked onclick="
+							if(typeof(searchform.c) != 'undefined')
+								searchform.c.disabled=true;
+							if(typeof(document.searchform.st) != 'undefined')
+								document.searchform.st.disabled=true;
+							if(typeof(document.searchform.f) != 'undefined')
+								document.searchform.f.disabled=true;
+							if(typeof(document.searchform.t) != 'undefined')
+								document.searchform.t.disabled=true;								
+							if(typeof(document.searchform.extended_search) != 'undefined')
+								document.searchform.extended_search.disabled=true;
+                            if(typeof(document.searchform.did) != 'undefined')
+                                document.searchform.did.disabled=true;
+							if(typeof(document.searchform.dn) != 'undefined')
+								document.searchform.dn.disabled=true;"> everywhere&nbsp;
+						<input type="radio" name="extended_search_switch" id="extended_search_switch_2"  onclick="
+							if(typeof(searchform.c) != 'undefined')
+								searchform.c.disabled=false;
+							if(typeof(document.searchform.st) != 'undefined')
+								document.searchform.st.disabled=true;								
+							if(typeof(document.searchform.f) != 'undefined')
+								document.searchform.f.disabled=false;
+							if(typeof(document.searchform.t) != 'undefined')
+								document.searchform.t.disabled=false;									
+							if(typeof(document.searchform.extended_search) != 'undefined')
+								document.searchform.extended_search.disabled=false;
+                            if(typeof(document.searchform.did) != 'undefined')
+                                document.searchform.did.disabled=false;
+							if(typeof(document.searchform.dn) != 'undefined')
+								document.searchform.dn.disabled=false;"> only in 
+							
+															in this thread													
+											</td>
+				</tr>	
+								</table>	
+			</td>
+		</tr>
+							</table>
+	</div>
+</form>
+<script language="JavaScript">
+document.forms.searchform.q.focus();
+	searchSwitch.selectBookmark('messages');
+</script>
+<script type='text/javascript'>
+	setTimeout("if(document.getElementById('advIconsProducer') && document.getElementById('advIconsInner')) document.getElementById('advIconsInner').innerHTML=document.getElementById('advIconsProducer').innerHTML",300);
+</script><link rel='stylesheet' type='text/css' href='/css/thread_profile_r0.css'>
+<div id="refine">
+   <div style="margin-left: 10px;">
+	
+   </div>
+</div>
+<link rel='stylesheet' type='text/css' href='/css/thread_profile_r0.css'>
+<script language="JavaScript" src="/js/relatedThreadsPopup_r0.js"></script>
+<table id="profiles_table"  border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td valign="top" colspan="3">		
+			<div class="threadstarter_mod">				
+					<h1 class="tp_page_title_mod"><strong>Thread: </strong> <span class="ts_title">DataGrid default arrow on column header and changing the font of column
+header in c# - MSDN Forums</span></h1>
+					<div class="ts_icon"><a target="_blank" onmouseover="window.status='http://forums.microsoft.com/MSDN/ShowPost.aspx?PostID=2565997&amp;amp;SiteID=1#2565997'; return true;" onmouseout="window.status=''; return true;" href="/jump/s69964/f463258/bd300e249a4ddbc280964648d2244ac2/aHR0cDovL2ZvcnVtcy5taWNyb3NvZnQuY29tL01TRE4vU2hvd1Bvc3QuYXNweD9Qb3N0SUQ9MjU2NTk5NyZTaXRlSUQ9MSMyNTY1OTk3?new_window"><img src="/images/nw_r1581.gif" border="0"></a></div>
+					<br clear="all">
+					<div class="tp_page_info_icon_mod">
+						<a href="#" onmouseover="switchDivDisplay('tp_descr', event, 'show')" onmouseout="switchDivDisplay('tp_descr', event, 'hide')"><img src="/images/whatisthis_r1129.jpg" border="0"></a>						</div>				
+			</div>			
+		</td>
+	</tr>
+	<tr>
+		<td  valign="bottom" colspan="2" width="50%">
+			<div class="ts_gray">
+				<strong>			
+					<b>Started 2 years, 2 months ago by <span class="autor">chaitu</span></b>				
+				</strong>
+			</div>	
+			<div class="ts_post_text" ><span id="threadStarter" class="text">      
+ 
+
+
+   hi i have a <a class="dashed_link" clickaider_track_me="1" title="Datagrid - Board Messages" href="/tp/Datagrid.html">DataGrid</a> i want to set the default arrow of sorting type on column header before clicking the column  when the form loads 2)i want t0 change the font of column header i want column header to be of 8 font and the text int the rows should be of font 12     
+
+   new to .net
+
+ 
+                                                                                         </span></div>		
+		</td>
+		<td align="center" width="48%" rowspan="2">
+			<div class="th_ad" style="border: 0px solid black">
+			<span name="KonaFilter"><script type="text/javascript" src="http://boardreader.com/js/adaffiliate_r0.js"></script>
+	
+<div class="adsense_side300">
+<script type="text/javascript"><!--
+google_ad_client = "pub-4537085524273794";
+google_alternate_ad_url = "http://boardreader.com/affiliate/gagbanner.html?size=side&rand=61580297";
+google_ad_width = 300;
+google_ad_height = 250;
+google_ad_format = "300x250_as";
+google_ad_type = "text_image";
+google_ad_channel = "3510583841";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "105cb6";
+google_color_text = "333333";
+google_color_url = "4F7500";
+//--></script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></div>
+</span>
+			</div>					
+		</td>		
+	</tr>
+	<tr>
+		<td valign="middle" colspan="2">		
+			<table class="d-table-mod" summary="Thread info for DataGrid default arrow on column header and changing the font of column
+header in c# - MSDN Forums" >
+									<tr>
+						<td class="td-blue" valign="top">
+							<b>Site:</b>
+						</td>
+						<td valign="top">
+							<img src="http://icons.boardreader.com/d8/e9/d8e9371cd74dccee303a5d4179eaf5d8.png" align="absmiddle">							<a class="title_m" href="/jump/s69964/50d34a73b84ed13c5b5b76e8c666032d/aHR0cDovL21zZG4yLm1pY3Jvc29mdC5jb20=" target="_blank" title="http://msdn2.microsoft.com">MSDN Forums</a>&nbsp;
+							<a href="/sp/MSDN_Forums_69964.html" title="MSDN Forums - site profile"><img src="/images/sp_r1581.gif" border="0" width="13" height="11" alt="MSDN Forums - site profile"></a>
+						</td>	
+					</tr>
+													<tr>
+						<td class="td-blue" valign="top">
+							<b>Forum:</b> 
+						</td>
+						<td valign="top">	
+							<a class="title_m" href="/jump/s69964/f463258/55af4fa52f2b36c3147131fe6c78d5c9/aHR0cDovL2ZvcnVtcy5taWNyb3NvZnQuY29tL21zZG4vc2hvd2ZvcnVtLmFzcHg/Zm9ydW1pZD03JnNpdGVpZD0x" target="_blank" title="http://forums.microsoft.com/msdn/showforum.aspx?forumid=7&siteid=1">Windows Forms Data Controls and Databinding</a>&nbsp;
+							<a href="/fp/MSDN_Forums_69964/Windows_Forms_Data_Controls_and_Databind_463258.html" title="Windows Forms Data Controls and Databinding - forum profile"><img src="/images/fp_r1581.gif" border="0" width="13" height="11" alt="Windows Forms Data Controls and Databinding - forum profile"></a>
+						</td>
+					</tr>
+								<tr>
+					<td class="td-blue" nowrap valign="top">
+						<b>Total authors:</b> 
+					</td>
+					<td valign="top">
+						1 author
+					</td>
+				</tr>
+				<tr>
+					<td class="td-blue" nowrap valign="top">
+						<b>Total thread posts:</b> 
+					</td>
+					<td valign="top">
+						2 posts
+					</td>
+				</tr>
+				<tr>
+					<td class="td-blue" nowrap valign="top">							
+						<b>Thread activity:</b> 
+					</td>
+					<td valign="top">
+						no new posts during last week					</td>
+				</tr>
+									<tr>
+						<td class="td-blue" valign="top">
+							<b>Domain info for:</b>
+						</td>
+						<td valign="top" class="text">	
+							<a href="/domain/microsoft.com">microsoft.com</a>
+						</td>
+					</tr>
+							</table>				
+		</td>		
+
+	</tr>
+	<tr>
+		
+			<td valign="top" width="48%">
+			<h2 class="h2-blue-mod">Other posts in this thread:</h2>
+									
+                										
+				
+				<!-- <table style="margin-left: 10px;">
+					<tr>
+						<td width="1px" valign="top" style="padding-right: 5px;">
+							<span class="text_14_b">1. </span>
+						</td>
+						<td valign="top">-->
+				<div class="th_post_block" >
+					<div id="tPostWrapper_0" class="">						
+							<div>
+																			
+							<a class="title" onmouseover="window.status='http://forums.microsoft.com/MSDN/ShowPost.aspx?PostID=2565997&amp;amp;SiteID=1#2568327'; return true;" onmouseout="window.status=''; return true;"  title="Read &quot;Reply 1: DataGrid default arrow on column header and changing the font of column
+header in c# - MSDN Forums&quot; at Windows Forms Data Controls and Databinding Forum" href="/jump/s69964/f463258/c111d15bb108d91697ed9dd2a303da6a/aHR0cDovL2ZvcnVtcy5taWNyb3NvZnQuY29tL01TRE4vU2hvd1Bvc3QuYXNweD9Qb3N0SUQ9MjU2NTk5NyZTaXRlSUQ9MSMyNTY4MzI3"><b>Reply 1</b>: DataGrid default arrow on column header and changing the font of column
+header in c# - MSDN Forums&nbsp;</a>
+							<a target="_blank" onmouseover="window.status='http://forums.microsoft.com/MSDN/ShowPost.aspx?PostID=2565997&amp;amp;SiteID=1#2568327'; return true;" onmouseout="window.status=''; return true;" href="/jump/s69964/f463258/c111d15bb108d91697ed9dd2a303da6a/aHR0cDovL2ZvcnVtcy5taWNyb3NvZnQuY29tL01TRE4vU2hvd1Bvc3QuYXNweD9Qb3N0SUQ9MjU2NTk5NyZTaXRlSUQ9MSMyNTY4MzI3?new_window"><img src="/images/nw_r1581.gif" border="0"></a>
+
+							</div>
+							<div class="gray">
+								<b><span class="autor">chaitu</span> replied 2 years, 2 months ago</b>
+							</div>						
+							<div class="text"><div class="KonaBody"> i got it  dataGridView1.Columns[0].HeaderCell.SortGlyphDirec tion = SortOrder.<a class="dashed_link" clickaider_track_me="1" title="Ascending - Forum Communication" href="/tp/Ascending.html">Ascending</a>; 
+
+   new to .net
+
+ 
+                                                                                         </div></div>
+							<div class="green_text">
+								<div class="th_post_info">
+									<b>Size:</b> 280 bytes	
+									<br clear="all">
+											<b>Customize:</b>&nbsp;<a href="" onclick="
+	                                            customizeClickHandler(event,'1638754714', '2565997', 
+	                                                '463258', '69964',
+	                                                'Re%3A%20DataGrid%20default%20arrow%20on%20column%20header%20and%20changing%20the%20font%20of%20column%0Aheader%20in%20c%23', 
+	                                                'Windows%20Forms%20Data%20Controls%20and%20Databinding',
+	                                                'MSDN%20Forums');
+	                                            return false;
+										   ">
+										   <img class="myCustIcon" src="/images/cust_r0.gif" border="0" width="15" height="13" alt="Customize &quot;<b>Reply 1</b>: DataGrid default arrow on column header and changing the font of column
+header in c# - MSDN Forums :: Windows Forms Data Controls and Databinding :: MSDN Forums&quot;">
+										   </a>											
+								</div>		
+							</div>								
+					<div class="thr_separator"></div>					
+					</div>					
+				</div>
+				<br clear="all">
+				<!--		</td>
+					</tr>
+				</table> -->
+					</td>
+		<td width="2%">
+			&nbsp;
+		</td>
+				<td valign="top" height="1px" width="48%" >
+						<h2 class="h2-blue-mod">Top contributing authors</h2>			
+									
+					<div class="top_author_block">
+	<div class="top_author_block_row">
+		<div class="top_author_block_left_col"><b>Name</b></div>
+		<div class="top_author_block_right_col"><b>Posts</b></div>		
+	</div>
+			<div class="top_author_block_row" onmouseover="document.getElementById('auth85254298').style.display='block'; this.style.cursor='pointer'" onmouseout="document.getElementById('auth85254298').style.display='none'">
+			<div class="top_author_block_left_col">chaitu</div>
+			<div class="top_author_block_right_col">2</div>		
+		</div>
+			
+			<div class="top_author_block_hidden" id="auth85254298" onmouseover="document.getElementById('auth85254298').style.display='block'" onmouseout="document.getElementById('auth85254298').style.display='none'" >
+				<b class="grey">user's latest post:</b>
+				<div class="top_author_block_users_post">
+					<a href="/jump/s69964/f463258/bd300e249a4ddbc280964648d2244ac2/aHR0cDovL2ZvcnVtcy5taWNyb3NvZnQuY29tL01TRE4vU2hvd1Bvc3QuYXNweD9Qb3N0SUQ9MjU2NTk5NyZTaXRlSUQ9MSMyNTY1OTk3" class="title" style="font:14px" target="_blank">DataGrid default arrow on column...</a><br>
+					<div class="gray"><b>Published</b> (2007-12-17 18:43:00)</div>
+					<div>     hi i have a DataGrid i want to set the default arrow of sorting type on column header before clicking the column  when the form loads 2)i want t0 change the font of column header i want column header to be of 8 font and the text int the rows should be of font 12   new to .net </div>				</div>	
+			</div>
+					
+	</div>								<br>
+										<h2 class="h2-blue-mod">Related threads on "MSDN Forums":</h2>
+								<div class="related_threads_listing">
+											<img src="/images/ico_n_r0.gif" alt="" width="16" height="16" align="absmiddle">
+												
+					<a target="_blank" class="title_s" href="/jump/s69964/f420250/bce8aa4c2b71bbc5cd1be715d067c6cb/aHR0cDovL2ZvcnVtcy5taWNyb3NvZnQuY29tL01TRE4vU2hvd1Bvc3QuYXNweD9Qb3N0SUQ9MzE2MDMxOCZTaXRlSUQ9MSMzMTYwMzE4" onmouseover="showPopup(event, 'rtc_0');" onmouseout="hidePopup('rtc_0');">Datagrid, Changing Row color on a parameter value - MSDN...</a>&nbsp;					
+					<a href="/sp/MSDN_Forums_69964.html" title="MSDN Forums - site profile" target="_blank"><img src="/images/sp_r1581.gif" border="0" width="13" height="11" alt="MSDN Forums - site profile" class="th_icon_img"></a>
+					<a href="/fp/MSDN_Forums_69964/NET_Compact_Framework_420250.html" title=".NET Compact Framework - forum profile" target="_blank"><img src="/images/fp_r1581.gif" border="0" width="13" height="11" alt=".NET Compact Framework - forum profile" class="th_icon_img"></a>
+					<a target="_blank" title="view thread" onmouseover="window.status='http://forums.microsoft.com/MSDN/ShowPost.aspx?PostID=3160318&SiteID=1#3160318'; return true;" onmouseout="window.status=''; return true;" href="/thread/Datagrid_Changing_Row_color_on_a_paramet_909mX1vqim.html"><img src="/images/thp_r1581.gif" border="0" alt="Datagrid, Changing Row color on a parameter value - MSDN Forums"></a>					
+					<br>
+					<span class="related_thread_popup" id="rtc_0">Datagrid, Changing Row color on a parameter value - MSDN Forums</span>
+				</div>
+								<div class="related_threads_listing">
+											<img src="/images/ico_n_r0.gif" alt="" width="16" height="16" align="absmiddle">
+												
+					<a target="_blank" class="title_s" href="/jump/s69964/f429722/efecdf03c83443655c007b38036af6b1/aHR0cDovL2ZvcnVtcy5taWNyb3NvZnQuY29tL01TRE4vU2hvd1Bvc3QuYXNweD9Qb3N0SUQ9MjY5NzcyOSZTaXRlSUQ9MSMyNjk3NzI5" onmouseover="showPopup(event, 'rtc_1');" onmouseout="hidePopup('rtc_1');">WPF C# MSDN Make NumericUpDown Control Value Editable -...</a>&nbsp;					
+					<a href="/sp/MSDN_Forums_69964.html" title="MSDN Forums - site profile" target="_blank"><img src="/images/sp_r1581.gif" border="0" width="13" height="11" alt="MSDN Forums - site profile" class="th_icon_img"></a>
+					<a href="/fp/MSDN_Forums_69964/Windows_Presentation_Foundation_WPF_429722.html" title="Windows Presentation Foundation (WPF) - forum profile" target="_blank"><img src="/images/fp_r1581.gif" border="0" width="13" height="11" alt="Windows Presentation Foundation (WPF) - forum profile" class="th_icon_img"></a>
+					<a target="_blank" title="view thread" onmouseover="window.status='http://forums.microsoft.com/MSDN/ShowPost.aspx?PostID=2697729&SiteID=1#2697729'; return true;" onmouseout="window.status=''; return true;" href="/thread/WPF_C_MSDN_Make_NumericUpDown_Control_Va_97kqX1ltkx.html"><img src="/images/thp_r1581.gif" border="0" alt="WPF C# MSDN Make NumericUpDown Control Value Editable - MSDN Forums"></a>					
+					<br>
+					<span class="related_thread_popup" id="rtc_1">WPF C# MSDN Make NumericUpDown Control Value Editable - MSDN Forums</span>
+				</div>
+								<div class="related_threads_listing">
+											<img src="/images/ico_n_r0.gif" alt="" width="16" height="16" align="absmiddle">
+												
+					<a target="_blank" class="title_s" href="/jump/s69964/f448666/5fd5bd0bfa5e7c18b1002d0109e9ffb3/aHR0cDovL2ZvcnVtcy5taWNyb3NvZnQuY29tL01TRE4vU2hvd1Bvc3QuYXNweD9Qb3N0SUQ9MjYwOTI0MCZTaXRlSUQ9MSMyNjA5MjQw" onmouseover="showPopup(event, 'rtc_3');" onmouseout="hidePopup('rtc_3');">Help on Datagrid in C#!!! - MSDN Forums</a>&nbsp;					
+					<a href="/sp/MSDN_Forums_69964.html" title="MSDN Forums - site profile" target="_blank"><img src="/images/sp_r1581.gif" border="0" width="13" height="11" alt="MSDN Forums - site profile" class="th_icon_img"></a>
+					<a href="/fp/MSDN_Forums_69964/SharePoint_Design_and_Customization_448666.html" title="SharePoint - Design and Customization - forum profile" target="_blank"><img src="/images/fp_r1581.gif" border="0" width="13" height="11" alt="SharePoint - Design and Customization - forum profile" class="th_icon_img"></a>
+					<a target="_blank" title="view thread" onmouseover="window.status='http://forums.microsoft.com/MSDN/ShowPost.aspx?PostID=2609240&SiteID=1#2609240'; return true;" onmouseout="window.status=''; return true;" href="/thread/Help_on_Datagrid_in_C_MSDN_Forums_9m6yX1jxaw.html"><img src="/images/thp_r1581.gif" border="0" alt="Help on Datagrid in C#!!! - MSDN Forums"></a>					
+					<br>
+					<span class="related_thread_popup" id="rtc_3">Help on Datagrid in C#!!! - MSDN Forums</span>
+				</div>
+								<div class="related_threads_listing">
+											<img src="/images/ico_n_r0.gif" alt="" width="16" height="16" align="absmiddle">
+												
+					<a target="_blank" class="title_s" href="/jump/s69964/f419994/472126c69a529c8dff83887ea1acf4af/aHR0cDovL2ZvcnVtcy5taWNyb3NvZnQuY29tL01TRE4vU2hvd1Bvc3QuYXNweD9Qb3N0SUQ9NzkzODYzJlNpdGVJRD0xIzI3Mzk5NzQ=" onmouseover="showPopup(event, 'rtc_4');" onmouseout="hidePopup('rtc_4');">How to print Datagrid in C# ? - MSDN Forums</a>&nbsp;					
+					<a href="/sp/MSDN_Forums_69964.html" title="MSDN Forums - site profile" target="_blank"><img src="/images/sp_r1581.gif" border="0" width="13" height="11" alt="MSDN Forums - site profile" class="th_icon_img"></a>
+					<a href="/fp/MSDN_Forums_69964/Visual_C_Express_Edition_419994.html" title="Visual C# Express Edition - forum profile" target="_blank"><img src="/images/fp_r1581.gif" border="0" width="13" height="11" alt="Visual C# Express Edition - forum profile" class="th_icon_img"></a>
+					<a target="_blank" title="view thread" onmouseover="window.status='http://forums.microsoft.com/MSDN/ShowPost.aspx?PostID=793863&SiteID=1#2739974'; return true;" onmouseout="window.status=''; return true;" href="/thread/How_to_print_Datagrid_in_C_MSDN_Forums_902iXh0jr.html"><img src="/images/thp_r1581.gif" border="0" alt="How to print Datagrid in C# ? - MSDN Forums"></a>					
+					<br>
+					<span class="related_thread_popup" id="rtc_4">How to print Datagrid in C# ? - MSDN Forums</span>
+				</div>
+								<div class="related_threads_listing">
+											<img src="/images/ico_n_r0.gif" alt="" width="16" height="16" align="absmiddle">
+												
+					<a target="_blank" class="title_s" href="/jump/s69964/f463258/de148333390b2faaa0d6fff749a8ea83/aHR0cDovL2ZvcnVtcy5taWNyb3NvZnQuY29tL21zZG4vU2hvd1Bvc3QuYXNweD9Qb3N0SUQ9MzY1OTQwMSZTaXRlSUQ9MSMzNjU5NDAx" onmouseover="showPopup(event, 'rtc_5');" onmouseout="hidePopup('rtc_5');">Acess the database bind it to the datagrid using c# in...</a>&nbsp;					
+					<a href="/sp/MSDN_Forums_69964.html" title="MSDN Forums - site profile" target="_blank"><img src="/images/sp_r1581.gif" border="0" width="13" height="11" alt="MSDN Forums - site profile" class="th_icon_img"></a>
+					<a href="/fp/MSDN_Forums_69964/Windows_Forms_Data_Controls_and_Databind_463258.html" title="Windows Forms Data Controls and Databinding - forum profile" target="_blank"><img src="/images/fp_r1581.gif" border="0" width="13" height="11" alt="Windows Forms Data Controls and Databinding - forum profile" class="th_icon_img"></a>
+					<a target="_blank" title="view thread" onmouseover="window.status='http://forums.microsoft.com/msdn/ShowPost.aspx?PostID=3659401&SiteID=1#3659401'; return true;" onmouseout="window.status=''; return true;" href="/thread/Acess_the_database_bind_it_to_the_datagr_9xgaX26fm1.html"><img src="/images/thp_r1581.gif" border="0" alt="Acess the database bind it to the datagrid using c# in ado.net - MSDN
+Forums"></a>					
+					<br>
+					<span class="related_thread_popup" id="rtc_5">Acess the database bind it to the datagrid using c# in ado.net - MSDN
+Forums</span>
+				</div>
+								<div class="related_threads_listing">
+											<img src="/images/ico_n_r0.gif" alt="" width="16" height="16" align="absmiddle">
+												
+					<a target="_blank" class="title_s" href="/jump/s69964/f420250/30469b6ef922ee608648fd4bec7e6ca3/aHR0cDovL2ZvcnVtcy5taWNyb3NvZnQuY29tL01TRE4vU2hvd1Bvc3QuYXNweD9Qb3N0SUQ9MTY5MTI0NiZTaXRlSUQ9MSMxNjkxMjQ2" onmouseover="showPopup(event, 'rtc_6');" onmouseout="hidePopup('rtc_6');">Changing the row color o a datagrid - MSDN Forums</a>&nbsp;					
+					<a href="/sp/MSDN_Forums_69964.html" title="MSDN Forums - site profile" target="_blank"><img src="/images/sp_r1581.gif" border="0" width="13" height="11" alt="MSDN Forums - site profile" class="th_icon_img"></a>
+					<a href="/fp/MSDN_Forums_69964/NET_Compact_Framework_420250.html" title=".NET Compact Framework - forum profile" target="_blank"><img src="/images/fp_r1581.gif" border="0" width="13" height="11" alt=".NET Compact Framework - forum profile" class="th_icon_img"></a>
+					<a target="_blank" title="view thread" onmouseover="window.status='http://forums.microsoft.com/MSDN/ShowPost.aspx?PostID=1691246&SiteID=1#1691246'; return true;" onmouseout="window.status=''; return true;" href="/thread/Changing_the_row_color_o_a_datagrid_MSDN_909mX108z2.html"><img src="/images/thp_r1581.gif" border="0" alt="Changing the row color o a datagrid - MSDN Forums"></a>					
+					<br>
+					<span class="related_thread_popup" id="rtc_6">Changing the row color o a datagrid - MSDN Forums</span>
+				</div>
+								<div class="related_threads_listing">
+											<img src="/images/ico_n_r0.gif" alt="" width="16" height="16" align="absmiddle">
+												
+					<a target="_blank" class="title_s" href="/jump/s69964/f421786/5b1d1f34b89a98bf55919869526b7109/aHR0cDovL2ZvcnVtcy5taWNyb3NvZnQuY29tL01TRE4vU2hvd1Bvc3QuYXNweD9Qb3N0SUQ9MTQzNDI5NCZTaXRlSUQ9MSMxNDM0Mjk0" onmouseover="showPopup(event, 'rtc_8');" onmouseout="hidePopup('rtc_8');">Changing visibility of checkboxes in datagrid - MSDN Forums</a>&nbsp;					
+					<a href="/sp/MSDN_Forums_69964.html" title="MSDN Forums - site profile" target="_blank"><img src="/images/sp_r1581.gif" border="0" width="13" height="11" alt="MSDN Forums - site profile" class="th_icon_img"></a>
+					<a href="/fp/MSDN_Forums_69964/Visual_Basic_General_421786.html" title="Visual Basic General - forum profile" target="_blank"><img src="/images/fp_r1581.gif" border="0" width="13" height="11" alt="Visual Basic General - forum profile" class="th_icon_img"></a>
+					<a target="_blank" title="view thread" onmouseover="window.status='http://forums.microsoft.com/MSDN/ShowPost.aspx?PostID=1434294&SiteID=1#1434294'; return true;" onmouseout="window.status=''; return true;" href="/thread/Changing_visibility_of_checkboxes_in_dat_91gaXuqpi.html"><img src="/images/thp_r1581.gif" border="0" alt="Changing visibility of checkboxes in datagrid - MSDN Forums"></a>					
+					<br>
+					<span class="related_thread_popup" id="rtc_8">Changing visibility of checkboxes in datagrid - MSDN Forums</span>
+				</div>
+								<div class="related_threads_listing">
+											<img src="/images/ico_n_r0.gif" alt="" width="16" height="16" align="absmiddle">
+												
+					<a target="_blank" class="title_s" href="/jump/s69964/f463258/6d2af39a56cbd84a01462c0745ed75d2/aHR0cDovL2ZvcnVtcy5taWNyb3NvZnQuY29tL01TRE4vU2hvd1Bvc3QuYXNweD9Qb3N0SUQ9MTQ1ODczMSZTaXRlSUQ9MSMxNDU4NzMx" onmouseover="showPopup(event, 'rtc_9');" onmouseout="hidePopup('rtc_9');">Changing Color in Datagrid - MSDN Forums</a>&nbsp;					
+					<a href="/sp/MSDN_Forums_69964.html" title="MSDN Forums - site profile" target="_blank"><img src="/images/sp_r1581.gif" border="0" width="13" height="11" alt="MSDN Forums - site profile" class="th_icon_img"></a>
+					<a href="/fp/MSDN_Forums_69964/Windows_Forms_Data_Controls_and_Databind_463258.html" title="Windows Forms Data Controls and Databinding - forum profile" target="_blank"><img src="/images/fp_r1581.gif" border="0" width="13" height="11" alt="Windows Forms Data Controls and Databinding - forum profile" class="th_icon_img"></a>
+					<a target="_blank" title="view thread" onmouseover="window.status='http://forums.microsoft.com/MSDN/ShowPost.aspx?PostID=1458731&SiteID=1#1458731'; return true;" onmouseout="window.status=''; return true;" href="/thread/Changing_Color_in_Datagrid_MSDN_Forums_9xgaXv9kb.html"><img src="/images/thp_r1581.gif" border="0" alt="Changing Color in Datagrid - MSDN Forums"></a>					
+					<br>
+					<span class="related_thread_popup" id="rtc_9">Changing Color in Datagrid - MSDN Forums</span>
+				</div>
+								<div class="related_threads_listing">
+											<img src="/images/ico_n_r0.gif" alt="" width="16" height="16" align="absmiddle">
+												
+					<a target="_blank" class="title_s" href="/jump/s69964/f419482/4240cb3f4d4f6ad3749e942b595ccfa4/aHR0cDovL2ZvcnVtcy5taWNyb3NvZnQuY29tL01TRE4vU2hvd1Bvc3QuYXNweD9Qb3N0SUQ9Mzc4MjY0MSZTaXRlSUQ9MSMzNzgyNjQx" onmouseover="showPopup(event, 'rtc_10');" onmouseout="hidePopup('rtc_10');">Combo Box changing records being viewed in Datagrid -...</a>&nbsp;					
+					<a href="/sp/MSDN_Forums_69964.html" title="MSDN Forums - site profile" target="_blank"><img src="/images/sp_r1581.gif" border="0" width="13" height="11" alt="MSDN Forums - site profile" class="th_icon_img"></a>
+					<a href="/fp/MSDN_Forums_69964/Visual_Basic_Express_Edition_419482.html" title="Visual Basic Express Edition - forum profile" target="_blank"><img src="/images/fp_r1581.gif" border="0" width="13" height="11" alt="Visual Basic Express Edition - forum profile" class="th_icon_img"></a>
+					<a target="_blank" title="view thread" onmouseover="window.status='http://forums.microsoft.com/MSDN/ShowPost.aspx?PostID=3782641&SiteID=1#3782641'; return true;" onmouseout="window.status=''; return true;" href="/thread/Combo_Box_changing_records_being_viewed_8zoaX292pd.html"><img src="/images/thp_r1581.gif" border="0" alt="Combo Box changing records being viewed in Datagrid - MSDN Forums"></a>					
+					<br>
+					<span class="related_thread_popup" id="rtc_10">Combo Box changing records being viewed in Datagrid - MSDN Forums</span>
+				</div>
+								<div class="related_threads_listing">
+											<img src="/images/ico_n_r0.gif" alt="" width="16" height="16" align="absmiddle">
+												
+					<a target="_blank" class="title_s" href="/jump/s69964/f463258/00e74ef1037c7e3fa88cf63ee7cbda2a/aHR0cDovL2ZvcnVtcy5taWNyb3NvZnQuY29tL01TRE4vU2hvd1Bvc3QuYXNweD9Qb3N0SUQ9MzgxOTU2NSZTaXRlSUQ9MSMzODE5NTY1" onmouseover="showPopup(event, 'rtc_11');" onmouseout="hidePopup('rtc_11');">Datagrid Columns Changing Width or Added on Re-Load -...</a>&nbsp;					
+					<a href="/sp/MSDN_Forums_69964.html" title="MSDN Forums - site profile" target="_blank"><img src="/images/sp_r1581.gif" border="0" width="13" height="11" alt="MSDN Forums - site profile" class="th_icon_img"></a>
+					<a href="/fp/MSDN_Forums_69964/Windows_Forms_Data_Controls_and_Databind_463258.html" title="Windows Forms Data Controls and Databinding - forum profile" target="_blank"><img src="/images/fp_r1581.gif" border="0" width="13" height="11" alt="Windows Forms Data Controls and Databinding - forum profile" class="th_icon_img"></a>
+					<a target="_blank" title="view thread" onmouseover="window.status='http://forums.microsoft.com/MSDN/ShowPost.aspx?PostID=3819565&SiteID=1#3819565'; return true;" onmouseout="window.status=''; return true;" href="/thread/Datagrid_Columns_Changing_Width_or_Added_9xgaX29v71.html"><img src="/images/thp_r1581.gif" border="0" alt="Datagrid Columns Changing Width or Added on Re-Load - MSDN Forums"></a>					
+					<br>
+					<span class="related_thread_popup" id="rtc_11">Datagrid Columns Changing Width or Added on Re-Load - MSDN Forums</span>
+				</div>
+													<h2 class="h2-blue-mod">Related threads on other sites:</h2>
+							<div class="related_threads_listing">
+					 
+						<img src="http://icons.boardreader.com/79/05/7905d1c4e12c54933a44d19fcd5f9356.png" align="absmiddle">
+												
+					<a class="title_s" href="/jump/s357118/f2892620/26eb38d54aca9a2bdd5105e7b3c324f6/aHR0cDovL3R3aXR0ZXIuY29tL2RhcnJlbmhhbGUvc3RhdHVzLzExMTY0MDU1NDIjMTExNjQwNTU0Mg==" onmouseover="showPopup(event, 'rt_0');" onmouseout="hidePopup('rt_0');" target="_blank">Giving up on changing my MSDN address....</a>&nbsp;					
+					<a href="/sp/Twitter_darrenhale_357118.html" title="Twitter / darrenhale - site profile" target="_blank"><img src="/images/sp_r1581.gif" border="0" width="13" height="11" alt="Twitter / darrenhale - site profile" class="th_icon_img"></a>
+					<a href="/fp/Twitter_darrenhale_357118/darrenhale_2892620.html" title="darrenhale - forum profile" target="_blank"><img src="/images/fp_r1581.gif" border="0" width="13" height="11" alt="darrenhale - forum profile" class="th_icon_img"></a>
+					<a target="_blank" title="view thread" onmouseover="window.status='http://twitter.com/darrenhale/status/1116405542#1116405542'; return true;" onmouseout="window.status=''; return true;" href="/t/darrenhale/Giving_up_on_changing_my_MSDN_address_11_1pzykXigog12.html"><img src="/images/thp_r1581.gif" border="0" alt="Giving up on changing my MSDN address. 
+         
+       
+         11:35 AM Jan 13th 
+       
+       from  Spaz"></a>					
+					<br>
+					<span class="related_thread_popup" id="rt_0">Giving up on changing my MSDN address. 
+         
+       
+         11:35 AM Jan 13th 
+       
+       from  Spaz</span>
+				</div> 
+							<div class="related_threads_listing">
+					 
+						<img src="http://icons.boardreader.com/44/8b/448b215e9d057d8f0df5a6c3f252b8cb.png" align="absmiddle">
+												
+					<a class="title_s" href="/jump/s59694/f380111/e7c7fabb891689a42b034151ea4592c1/aHR0cDovL3d3dy5jaGV0YW5hc2ZvcnVtLmNvbS9pbmRleC5waHA/c2hvd3RvcGljPTI2OTA1I2VudHJ5NDcxMjU=" onmouseover="showPopup(event, 'rt_1');" onmouseout="hidePopup('rt_1');" target="_blank">Check boxes in a datagrid using c#.net version 1.1</a>&nbsp;					
+					<a href="/sp/ChetanaSforum_Powered_by_www_C_59694.html" title="ChetanaSforum (Powered by 'www.ChetanaS.com' - World's Biggest Job Group) - site profile" target="_blank"><img src="/images/sp_r1581.gif" border="0" width="13" height="11" alt="ChetanaSforum (Powered by 'www.ChetanaS.com' - World's Biggest Job Group) - site profile" class="th_icon_img"></a>
+					<a href="/fp/ChetanaSforum_Powered_by_www_C_59694/MICROSOFT_SPECIAL_VB_ASP_NET_380111.html" title="MICROSOFT SPECIAL - VB, ASP, .NET - forum profile" target="_blank"><img src="/images/fp_r1581.gif" border="0" width="13" height="11" alt="MICROSOFT SPECIAL - VB, ASP, .NET - forum profile" class="th_icon_img"></a>
+					<a target="_blank" title="view thread" onmouseover="window.status='http://www.chetanasforum.com/index.php?showtopic=26905#entry47125'; return true;" onmouseout="window.status=''; return true;" href="/thread/Check_boxes_in_a_datagrid_using_c_net_ve_85anXkrd.html"><img src="/images/thp_r1581.gif" border="0" alt="Check boxes in a datagrid using c#.net version 1.1"></a>					
+					<br>
+					<span class="related_thread_popup" id="rt_1">Check boxes in a datagrid using c#.net version 1.1</span>
+				</div> 
+							<div class="related_threads_listing">
+					 
+						<img src="http://icons.boardreader.com/e5/75/e575ec332e7237724fa2563e3883b51e.png" align="absmiddle">
+												
+					<a class="title_s" href="/jump/s334435/f695293/9cc53120928170b4a05f5a071e4a5134/aHR0cDovL3d3dy53b3ByLmNvbS9jZ2ktYmluL3czdC9zaG93ZmxhdC5wbD9DYXQ9JkJvYXJkPWRvdG5ldCZOdW1iZXI9NjM5OTMwJnBhZ2U9NSZ2aWV3PWNvbGxhcHNlZCZzYj01Jm89MCZmcGFydD0jUG9zdDYzOTkzMA==" onmouseover="showPopup(event, 'rt_3');" onmouseout="hidePopup('rt_3');" target="_blank">Datagrid Select (c# asp.net 2005)</a>&nbsp;					
+					<a href="/sp/www_wopr_com_334435.html" title="www.wopr.com - site profile" target="_blank"><img src="/images/sp_r1581.gif" border="0" width="13" height="11" alt="www.wopr.com - site profile" class="th_icon_img"></a>
+					<a href="/fp/www_wopr_com_334435/NET_board_695293.html" title=".NET board - forum profile" target="_blank"><img src="/images/fp_r1581.gif" border="0" width="13" height="11" alt=".NET board - forum profile" class="th_icon_img"></a>
+					<a target="_blank" title="view thread" onmouseover="window.status='http://www.wopr.com/cgi-bin/w3t/showflat.pl?Cat=&Board=dotnet&Number=639930&page=5&view=collapsed&sb=5&o=0&fpart=#Post639930'; return true;" onmouseout="window.status=''; return true;" href="/thread/Datagrid_Select_c_asp_net_2005_ewhpXdpru.html"><img src="/images/thp_r1581.gif" border="0" alt="Datagrid Select (c# asp.net 2005)"></a>					
+					<br>
+					<span class="related_thread_popup" id="rt_3">Datagrid Select (c# asp.net 2005)</span>
+				</div> 
+							<div class="related_threads_listing">
+					 
+						<img src="http://icons.boardreader.com/5d/01/5d0126c436bc8e67479d25f0e8008acf.png" align="absmiddle">
+												
+					<a class="title_s" href="/jump/s11078/f375907/8f06f070f254e24f2092a6285ff8ffad/aHR0cDovL3d3dy5ubGRlbHBoaS5jb20vZm9ydW0vc2hvd3RocmVhZC5waHA/dD0xNTA1OSNwb3N0MTIxMzAy" onmouseover="showPopup(event, 'rt_4');" onmouseout="hidePopup('rt_4');" target="_blank">OnTitleClick bij DataGrid in C#</a>&nbsp;					
+					<a href="/sp/NLDelphi_11078.html" title="NLDelphi - site profile" target="_blank"><img src="/images/sp_r1581.gif" border="0" width="13" height="11" alt="NLDelphi - site profile" class="th_icon_img"></a>
+					<a href="/fp/NLDelphi_11078/NET_375907.html" title=".NET - forum profile" target="_blank"><img src="/images/fp_r1581.gif" border="0" width="13" height="11" alt=".NET - forum profile" class="th_icon_img"></a>
+					<a target="_blank" title="view thread" onmouseover="window.status='http://www.nldelphi.com/forum/showthread.php?t=15059#post121302'; return true;" onmouseout="window.status=''; return true;" href="/thread/OnTitleClick_bij_DataGrid_in_C_821vXbmb.html"><img src="/images/thp_r1581.gif" border="0" alt="OnTitleClick bij DataGrid in C#"></a>					
+					<br>
+					<span class="related_thread_popup" id="rt_4">OnTitleClick bij DataGrid in C#</span>
+				</div> 
+							<div class="related_threads_listing">
+					 
+						<img src="http://icons.boardreader.com/f5/51/f55131a78df5c3782a6623efacafa1ce.png" align="absmiddle">
+												
+					<a class="title_s" href="/jump/s15682/f82516/4bf508402d29d6b579616e817bb513b1/aHR0cDovL3d3dy5ib2FyZHMuaWUvdmJ1bGxldGluL3Nob3d0aHJlYWQucGhwP3Q9MjA1NDk2MDI5OSNwb3N0NTE3MTEzMzE=" onmouseover="showPopup(event, 'rt_5');" onmouseout="hidePopup('rt_5');" target="_blank">A page load problem wit a datagrid in c#</a>&nbsp;					
+					<a href="/sp/boards_ie_15682.html" title="boards.ie - site profile" target="_blank"><img src="/images/sp_r1581.gif" border="0" width="13" height="11" alt="boards.ie - site profile" class="th_icon_img"></a>
+					<a href="/fp/boards_ie_15682/Programming_82516.html" title="Programming - forum profile" target="_blank"><img src="/images/fp_r1581.gif" border="0" width="13" height="11" alt="Programming - forum profile" class="th_icon_img"></a>
+					<a target="_blank" title="view thread" onmouseover="window.status='http://www.boards.ie/vbulletin/showthread.php?t=2054960299#post51711331'; return true;" onmouseout="window.status=''; return true;" href="/thread/A_page_load_problem_wit_a_datagrid_in_c_1ro4Xxzgxij.html"><img src="/images/thp_r1581.gif" border="0" alt="A page load problem wit a datagrid in c#"></a>					
+					<br>
+					<span class="related_thread_popup" id="rt_5">A page load problem wit a datagrid in c#</span>
+				</div> 
+							<div class="related_threads_listing">
+					 
+						<img src="http://icons.boardreader.com/f5/51/f55131a78df5c3782a6623efacafa1ce.png" align="absmiddle">
+												
+					<a class="title_s" href="/jump/s15682/f294484/ce6cffc442ecb3153ef7ad73b57620dc/aHR0cDovL3d3dy5ib2FyZHMuaWUvdmJ1bGxldGluL3Nob3d0aHJlYWQucGhwP3M9OTdjZWNiZTM5NTc3OTI2ZTYwZGZiNzU2MWFhMTI0MTUmdD0yMDU0ODg2NTU2I3Bvc3Q1MDg0MDk3NA==" onmouseover="showPopup(event, 'rt_6');" onmouseout="hidePopup('rt_6');" target="_blank">Datagrid updating c# asp.net</a>&nbsp;					
+					<a href="/sp/boards_ie_15682.html" title="boards.ie - site profile" target="_blank"><img src="/images/sp_r1581.gif" border="0" width="13" height="11" alt="boards.ie - site profile" class="th_icon_img"></a>
+					<a href="/fp/boards_ie_15682/Programming_294484.html" title="Programming - forum profile" target="_blank"><img src="/images/fp_r1581.gif" border="0" width="13" height="11" alt="Programming - forum profile" class="th_icon_img"></a>
+					<a target="_blank" title="view thread" onmouseover="window.status='http://www.boards.ie/vbulletin/showthread.php?s=97cecbe39577926e60dfb7561aa12415&t=2054886556#post50840974'; return true;" onmouseout="window.status=''; return true;" href="/thread/Datagrid_updating_c_asp_net_6b84Xxzfcm4.html"><img src="/images/thp_r1581.gif" border="0" alt="Datagrid updating c# asp.net"></a>					
+					<br>
+					<span class="related_thread_popup" id="rt_6">Datagrid updating c# asp.net</span>
+				</div> 
+							<div class="related_threads_listing">
+					 
+						<img src="http://icons.boardreader.com/d8/58/d858a0719df7c62c0eff170ce69aec4f.png" align="absmiddle">
+												
+					<a class="title_s" href="/jump/s15370/f122538/a404318c47ce5c6cc2acb56fbaea4cf1/aHR0cDovL3d3dy5wcm9ncmFtbWluZ3RhbGsuY29tL3Nob3d0aHJlYWQucGhwP3Q9MzUxMzEjcG9zdDExMDg2Mg==" onmouseover="showPopup(event, 'rt_7');" onmouseout="hidePopup('rt_7');" target="_blank">Checkboxes in DataGrid in C#</a>&nbsp;					
+					<a href="/sp/ProgrammingTalk_15370.html" title="ProgrammingTalk - site profile" target="_blank"><img src="/images/sp_r1581.gif" border="0" width="13" height="11" alt="ProgrammingTalk - site profile" class="th_icon_img"></a>
+					<a href="/fp/ProgrammingTalk_15370/ASP_NET_122538.html" title="ASP.NET   - forum profile" target="_blank"><img src="/images/fp_r1581.gif" border="0" width="13" height="11" alt="ASP.NET   - forum profile" class="th_icon_img"></a>
+					<a target="_blank" title="view thread" onmouseover="window.status='http://www.programmingtalk.com/showthread.php?t=35131#post110862'; return true;" onmouseout="window.status=''; return true;" href="/thread/Checkboxes_in_DataGrid_in_C_2mjuXr3v.html"><img src="/images/thp_r1581.gif" border="0" alt="Checkboxes in DataGrid in C#"></a>					
+					<br>
+					<span class="related_thread_popup" id="rt_7">Checkboxes in DataGrid in C#</span>
+				</div> 
+							<div class="related_threads_listing">
+					 
+						<img src="http://icons.boardreader.com/10/42/104220e675046a47c227c2df63b47aeb.png" align="absmiddle">
+												
+					<a class="title_s" href="/jump/s1417379/f2638270/469bfb54cfb53b74640522387a013aa4/aHR0cDovL2RkdGguY29tL3Nob3d0aHJlYWQucGhwP3Q9MjQxMzQxI3Bvc3QxNDUyNzQ0" onmouseover="showPopup(event, 'rt_10');" onmouseout="hidePopup('rt_10');" target="_blank">Làm nổi bật 1 dòng trên DataGrid trong C#</a>&nbsp;					
+					<a href="/sp/Di_n_n_Tin_H_c_1417379.html" title="Diễn Đàn Tin Học  - site profile" target="_blank"><img src="/images/sp_r1581.gif" border="0" width="13" height="11" alt="Diễn Đàn Tin Học  - site profile" class="th_icon_img"></a>
+					<a href="/fp/Di_n_n_Tin_H_c_1417379/NET_2638270.html" title=".NET - forum profile" target="_blank"><img src="/images/fp_r1581.gif" border="0" width="13" height="11" alt=".NET - forum profile" class="th_icon_img"></a>
+					<a target="_blank" title="view thread" onmouseover="window.status='http://ddth.com/showthread.php?t=241341#post1452744'; return true;" onmouseout="window.status=''; return true;" href="/thread/L_m_n_i_b_t_1_d_ng_tr_n_DataGrid_trong_C_1kjpaX567x.html"><img src="/images/thp_r1581.gif" border="0" alt="Làm nổi bật 1 dòng trên DataGrid trong C#"></a>					
+					<br>
+					<span class="related_thread_popup" id="rt_10">Làm nổi bật 1 dòng trên DataGrid trong C#</span>
+				</div> 
+							<div class="related_threads_listing">
+					 
+						<img src="http://icons.boardreader.com/1d/4d/1d4d5c0c6806cd4af3fef0ecc4206763.png" align="absmiddle">
+												
+					<a class="title_s" href="/jump/s2575019/f4201396/588c0021a252639033460357c1066077/aHR0cDovL3AycC53cm94LmNvbS9jLTIwMDUvNjExNzktc2V0dGluZy1kZWZhdWx0LXZhbHVlcy1kYXRhZ3JpZC1jLTIwMDUtYS5odG1sI3Bvc3Q2MTE3OQ==" onmouseover="showPopup(event, 'rt_13');" onmouseout="hidePopup('rt_13');" target="_blank">Setting Default values of DataGrid in C#2005</a>&nbsp;					
+					<a href="/sp/p2p_wrox_com_Forums_2575019.html" title="p2p.wrox.com Forums - site profile" target="_blank"><img src="/images/sp_r1581.gif" border="0" width="13" height="11" alt="p2p.wrox.com Forums - site profile" class="th_icon_img"></a>
+					<a href="/fp/p2p_wrox_com_Forums_2575019/C_2005_4201396.html" title="C# 2005 - forum profile" target="_blank"><img src="/images/fp_r1581.gif" border="0" width="13" height="11" alt="C# 2005 - forum profile" class="th_icon_img"></a>
+					<a target="_blank" title="view thread" onmouseover="window.status='http://p2p.wrox.com/c-2005/61179-setting-default-values-datagrid-c-2005-a.html#post61179'; return true;" onmouseout="window.status=''; return true;" href="/thread/Setting_Default_values_of_DataGrid_in_C_2i1tg__%2861179%2C2005%29.html"><img src="/images/thp_r1581.gif" border="0" alt="Setting Default values of DataGrid in C#2005"></a>					
+					<br>
+					<span class="related_thread_popup" id="rt_13">Setting Default values of DataGrid in C#2005</span>
+				</div> 
+							<div class="related_threads_listing">
+					 
+						<img src="http://icons.boardreader.com/1d/4d/1d4d5c0c6806cd4af3fef0ecc4206763.png" align="absmiddle">
+												
+					<a class="title_s" href="/jump/s2575019/f4201396/f5579e6ecdab9399196ad379c85a640d/aHR0cDovL3AycC53cm94LmNvbS9jLTIwMDUvNDgxNjUtdXBkYXRlLXVzaW5nLWRhdGFncmlkLWMuaHRtbCNwb3N0NDgxNjU=" onmouseover="showPopup(event, 'rt_14');" onmouseout="hidePopup('rt_14');" target="_blank">Update using the datagrid in C#</a>&nbsp;					
+					<a href="/sp/p2p_wrox_com_Forums_2575019.html" title="p2p.wrox.com Forums - site profile" target="_blank"><img src="/images/sp_r1581.gif" border="0" width="13" height="11" alt="p2p.wrox.com Forums - site profile" class="th_icon_img"></a>
+					<a href="/fp/p2p_wrox_com_Forums_2575019/C_2005_4201396.html" title="C# 2005 - forum profile" target="_blank"><img src="/images/fp_r1581.gif" border="0" width="13" height="11" alt="C# 2005 - forum profile" class="th_icon_img"></a>
+					<a target="_blank" title="view thread" onmouseover="window.status='http://p2p.wrox.com/c-2005/48165-update-using-datagrid-c.html#post48165'; return true;" onmouseout="window.status=''; return true;" href="/thread/Update_using_the_datagrid_in_C_2i1tgX115x.html"><img src="/images/thp_r1581.gif" border="0" alt="Update using the datagrid in C#"></a>					
+					<br>
+					<span class="related_thread_popup" id="rt_14">Update using the datagrid in C#</span>
+				</div> 
+					</td>
+	</tr>
+</table>
+	<div  class="tp_page_hidden_div" id="tp_descr" >
+		<span class="page_intension">					
+								<span class="page_intension">
+						Thread profile page for <b>"DataGrid default arrow on column header and changing the font of column
+header in c# - MSDN Forums"</b> on <b>http://msdn2.microsoft.com</b>.
+						This report page is a snippet summary view from a single thread "DataGrid default arrow on column header and changing the font of column
+header in c# - MSDN Forums", located on the Message Board at http://msdn2.microsoft.com.
+						This thread profile page shows the thread statistics for: <b><i>Total Authors</i></b>, <b><i>Total Thread Posts</i></b>, and <b><i>Thread Activity</i></b>					
+					</span>					
+		</span>
+	</div>	
+<div class="threadprofile_ad">
+<span name="KonaFilter"><script type="text/javascript" src="http://boardreader.com/js/adaffiliate_r0.js"></script>
+	
+<div class="ad_leaderboard">
+<script type="text/javascript"><!--
+google_ad_client = "pub-4537085524273794";
+google_alternate_ad_url = "http://boardreader.com/affiliate/gagbanner.html?size=top&rand=71553521";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_type = "text_image";
+google_ad_channel = "5128047824";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "105cb6";
+google_color_text = "333333";
+google_color_url = "4F7500";
+//-->
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></div>
+
+
+
+
+
+</span>
+</div>
+
+					
+			</td></tr>
+			<tr><td valign="bottom">
+
+
+
+<!-- page helper -->
+<div id="pagehelper_debug" style="width:0;height:0;display:none;visible:hidden;"></div>
+<script type="text/javascript">
+<!--
+	function pagehelper_handler()
+	{
+		if(
+			typeof(google_afs_request_has_done) != 'undefined'
+			&& google_afs_request_has_done 
+			|| 
+			typeof(google_afs_request_wasnot_started) != 'undefined'
+			&& google_afs_request_wasnot_started
+			||
+			typeof(google_afs_request_has_done) == 'undefined'
+			&& typeof(google_afs_request_wasnot_started) == 'undefined'			
+		)
+		{
+			if(
+				typeof(google_ads_is_enabled) != 'undefined'
+				&& google_ads_is_enabled 
+				|| 
+				typeof(google_afs_request_wasnot_started) != 'undefined'
+				&& google_afs_request_wasnot_started
+				||
+				typeof(google_ads_is_enabled) == 'undefined'
+				&& typeof(google_afs_request_wasnot_started) == 'undefined'
+				
+			)
+			{		
+				pagehelper_event = {
+					request_uri:		'/' + location.host + location.port + location.pathname + location.search + location.hash,
+					http_referer:		document.referrer,
+					http_user_agent:	ajax_Escape(navigator.userAgent),
+					ads_query:			typeof(google_afs_tracker_query) != 'undefined' ? google_afs_tracker_query : '',
+					ads_title_keywords:	typeof(google_afs_title_keywords) != 'undefined' ? google_afs_title_keywords : '',
+					ads_text_keywords:	typeof(google_afs_text_keywords) != 'undefined' ? google_afs_text_keywords : '',
+					ads_nums:			0,
+					ip:					'',
+					is_afs:				typeof(google_afs_request_has_done) != 'undefined' && google_afs_request_has_done && typeof(google_ads_is_enabled) != 'undefined' && google_ads_is_enabled ? 1 : (typeof(adaffiliate_pv) != 'undefined' && adaffiliate_pv > 0 ? 2 : 0),
+					hide_adsense:		0,
+					adult_wc:			0,
+					unique_adult_wc:	0,
+					adult_score:		0,
+					unique_adult_score:	0,
+					adult_wc_in_url:	0,
+					aa_id: 				0,
+					aa_http_referer:	''
+				}
+				
+																						pagehelper_event.tracked_topic_phrase = '248180:1,493930:1';
+																					
+				
+				if(typeof(google_ads) != 'undefined')
+					pagehelper_event.ads_nums = google_ads.length;
+				else if(typeof(adaffiliate_pv) != 'undefined' && adaffiliate_pv > 0 )	
+					pagehelper_event.ads_nums = adaffiliate_pv;					
+				var aa_id_cookie = getCookie('aaid');
+				var aa_id_reg = /^(\?|.+&)aaid=([0-9]+)(&.+|)$/
+				if(
+					typeof(aa_id_cookie) == 'undefined' 
+					|| aa_id_cookie == ''
+					|| aa_id_reg.test(location.search)
+				)
+				{
+					var aa_id = location.search
+					pagehelper_event.aa_id = parseInt(aa_id.replace(aa_id_reg,"$2"));
+					pagehelper_event.aa_http_referer = document.referrer;
+					//alert(pagehelper_event.aa_http_referer);		
+				}
+				
+				if(typeof(enable_blinkx) != 'undefined' && enable_blinkx)
+				{
+					pagehelper_event.enable_blinkx = 1;
+					pagehelper_event.blinkx_query = blinkx_query;
+				}
+					
+				pagehelper({
+				inner: 'pagehelper_debug', 
+				event: pagehelper_event
+				});		
+			}
+		}
+		else
+		{
+			setTimeout('pagehelper_handler()',100);
+		}	
+	}	
+	pagehelper_handler();
+	//alert('google_afs_request_wasnot_started ' + google_afs_request_wasnot_started);
+// -->
+</script>	
+<!-- /page helper --> 
+	<p style="font: 10px tahoma; color: #666666; margin-left:25px; margin-bottom: 5px;">This page was found by:
+	&nbsp;&nbsp;<a class="reftag" href="/s/c%23%20datagrid%20column%20header%20color.html" title="Search c# datagrid column header color">c# datagrid column header color</a>	</p>
+<div class="KonaBody"></div>
+<div id="Footer" style="margin-top: 10px;">
+	<div style="padding-left:25px;padding-right:25px;">
+	<table cellpadding="0" cellspacing="0" border="0" width="100%">
+	<tr>
+	<td valign="top" align="left" style="font-size:10px;">
+	<a class="footer_m" href="/">Home</a>&nbsp;|&nbsp;
+	<a class="footer_m" href="/info/about.htm" >About Us</a>&nbsp;|&nbsp;
+	<!-- <a class="footer_m" href="/my.html">My Account</a>&nbsp;|&nbsp; -->
+	<a class="footer_m" href="/info/submit.htm" >Submit Your Site</a>&nbsp;|&nbsp;
+    <a class="footer_m" href="/info/submit.htm#site_update" >Update Your Site</a>&nbsp;|&nbsp; 
+    <a class="footer_m" href="/yourform.html" >Get Search For Your Site</a>&nbsp;|&nbsp; 
+	<a class="footer_m" href="/info/partners.htm" >Partners</a>&nbsp;|&nbsp;
+	<a class="footer_m" href="/info/contact.htm" >Contact</a>&nbsp;|&nbsp;
+    <a class="footer_m" href="/info/plugins.htm" >Search Plugin</a>&nbsp;|&nbsp;
+	<a class="footer_m" target="_blank" href="http://blog.boardreader.com/" >Blog</a>&nbsp;|&nbsp;
+    <a class="footer_m" target="_blank" href="http://clickaider.com/" title="Tracked by ClickAider"><img src="http://hit.clickaider.com/i/button-30.gif" border="0"/></a><br>
+	</td>
+	<td valign="top" align="right" style="font-size:10px;">
+	<a class="footer_m" href="/last-searches.html" >Last Searches</a>&nbsp;|&nbsp;
+	<a class="footer_m" href="/top-searches/now.html" >Top Searches</a>
+	</td>
+	</tr>
+	</table>
+    &copy; 2010 Effyis, Inc. All Rights Reserved.<br>Designated brands and trademarks are property of their respective owners.<br>Use of this website constitutes acceptance of BoardReader's 
+	<a class="footer_m" href="/info/agreement.htm" >User Agreement</a> and 
+	<a class="footer_m" href="/info/policy.htm" >Privacy Policy</a>. <br>
+    </div>
+  </div>
+  
+    <script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    _uacct = "UA-941490-1";
+	if(typeof(urchinTracker) == 'function')	
+		urchinTracker();
+  </script>  
+  
+ 
+  
+<!-- Start ClickAider.com Tracking Code --> 
+
+<script type="text/javascript">
+<!--
+clickaider_cid = "9f671068-5";
+clickaider_page_tags = "general";
+clickaider_track_links = "ext";
+clickaider_track_forms = "all";
+clickaider_track_intellitxt = "all";
+clickaider_variable1 = "thread profile";
+clickaider_variable3 = "general user";
+// -->
+</script>
+
+<script type="text/javascript" src="http://hit.clickaider.com/clickaider.js"></script>
+
+<noscript>
+<img src="http://hit.clickaider.com/pv?c=9f671068-5&ctype=noscript" alt="ClickAider" border="0" width="1" height="1" />
+</noscript>
+<!-- End ClickAider.com Tracking Code -->
+ 
+
+
+<!-- affiliate tracker call -->
+
+<!-- /affiliate tracker call -->
+
+<!-- afs -->
+<!-- /afs -->		</td></tr></table>
+	</body>
+</html>

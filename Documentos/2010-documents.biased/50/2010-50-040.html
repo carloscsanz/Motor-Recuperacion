@@ -1,0 +1,1017 @@
+<HTML>
+<HEAD>
+<title>HTML and XHTML: The Definitive Guide, 4th Edition: Chapter 11: Frames</title>
+</head>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" link="#990000" vlink="#0000CC">
+<table BORDER="0" CELLPADDING="0" CELLSPACING="0" width="90%">
+<tr>
+<td colspan=2>
+<IMG WIDTH="515" height="37" ALIGN="BOTTOM"
+ ALT="Search the Catalog" BORDER="0" 
+ USEMAP="#catalog_header_buttons" ISMAP
+ SRC="/graphics_new/catalog_header_buttons.gif">
+<MAP Name="catalog_header_buttons">
+<aREA Shape="Rect" coords = "407,17,512,32"  href="/catalog/search.html">
+<aREA Shape="Rect" coords = "431,3,512,18"  href="/catalog/prdindex.html">
+</MAP>
+</td>
+</tr>
+<tr>
+<td width="25%" valign="TOP">
+<A HREF="/catalog/html4/">
+<img hspace=10 vspace=10 src="/catalog/covers/html4.s.gif" 
+alt="HTML and XHTML: The Definitive Guide, 4th Edition" align=left valign=top border=0>
+</a>
+</td>
+<td height="105" valign="TOP">
+<br>
+<H2>HTML &amp; XHTML: The Definitive Guide, 4th Edition</H2>
+<font size="-1">
+By Chuck Musciano &amp; Bill Kennedy<BR>
+4th Edition August 2000<BR>
+0-596-00026-X, Order Number: 026X<br>
+680 pages, $34.95
+</font>
+</td>
+</tr>
+</table>
+<hr size=1 noshade>
+<!--sample chapter begins -->
+
+<blockquote>
+
+<h2 class="ChapterTitleLeft">Chapter 11
+<br>
+<A NAME="42028"></a>Frames</h2>
+
+<B class="|ChapterContentsStart">In this chapter:</b>
+<BR>
+<A HREF="ch11.html#40233" CLASS="XRef">An Overview of Frames</a>
+<br>
+
+<A HREF="ch11.html#37690" CLASS="XRef">Frame Tags</a>
+<br>
+
+<A HREF="ch11.html#22253" CLASS="XRef">Frame Layout</a>
+<br>
+
+<A HREF="ch11.html#16186" CLASS="XRef">Frame Contents</a>
+<br>
+
+<A HREF="ch11.html#16171" CLASS="XRef">The &lt;noframes&gt; Tag</a>
+<br>
+
+<A HREF="ch11.html#10253" CLASS="XRef">Inline Frames</a>
+<br>
+
+<A HREF="ch11.html#17999" CLASS="XRef">Named Frame or Window Targets</a>
+<br>
+
+<P CLASS="Body">Beginning with Netscape Navigator 2.0, HTML authors have been able to divide the browser's main display window into independent window <EM CLASS="Emphasis">frames</em>, each simultaneously displaying a different document--something like a wall of monitors in a TV control room. Instantly popular, frames were adopted (and extended) by Microsoft for Internet Explorer and are standard features for HTML 4 and XHTML.</p>
+
+
+<H2 CLASS="HeadA"><A NAME="40233"></a>An Overview of Frames</h2>
+
+
+<P CLASS="FM-xhtmlBodyRunin"><A HREF="ch11.html#31805" CLASS="XRef">Figure 11-1</a> is a simple example of a frame display. It shows how the document window may be divided into columns and rows of individual frames separated by rules and scroll bars. Although it is not immediately apparent in the example, each frame in the window is displaying an independent document. We use different HTML documents in the example, but the individual documents may contain any valid content the browser is capable of displaying, including XHTML documents and multimedia. If the frame's contents include a hyperlink that the user selects, the new document's contents--even another frame document--may replace that same frame, another frame's content, or the entire browser window. </p>
+
+<TABLE>
+<CAPTION>
+<B class="FigureLabel"><A name="31805"></a>Figure 11-1.</b> 
+<B class="FigureTitle">A simple six-panel frame layout for Netscape</b> 
+</caption>
+<TR>
+<TD ROWSPAN="1" COLSPAN="1">
+<P CLASS="FigureHolder"><IMG SRC="xhtm.1101.gif" ALIGN="BASELINE">
+&nbsp;</p>
+
+</td>
+</tr>
+</table>
+
+<P CLASS="Body">Frames are enabled with a special frame document. Its contents do not get displayed. Rather, the frame document contains extension tags that tell the browser how to divide its main display window into discrete frames and what documents go inside the frames. </p>
+
+
+<P CLASS="Body">The individual documents referenced and displayed in the frame document window act independently, to a degree; the frame document controls the entire window. You can, however, direct one frame's document to load new content into another frame. That's done by attaching a name to a frame and targeting the named frame with a special attribute for the hyperlink <CODE CLASS="Literal">&lt;a&gt;</code> tag. </p>
+
+
+<H2 CLASS="HeadA"><A NAME="37690"></a>Frame Tags</h2>
+
+
+<P CLASS="Body">You need to know only three tags to create a frame document: <CODE CLASS="Literal">&lt;frameset&gt;</code>, <CODE CLASS="Literal">&lt;frame&gt;</code>, and <CODE CLASS="Literal">&lt;noframes&gt;</code>. In addition, the HTML 4 and XHTML standards provide the <CODE CLASS="Literal">&lt;iframe&gt;</code> tag, which you may use to create inline, or <EM CLASS="Emphasis">floating</em>, frames.</p>
+
+
+<P CLASS="Body">A <EM CLASS="Emphasis">frameset</em> is simply the collection of frames that make up a browser's window. Column- and row-definition attributes for the <CODE CLASS="Literal">&lt;frameset&gt;</code> tag let you define the number and initial sizes for the columns and rows of frames. The <CODE CLASS="Literal">&lt;frame&gt;</code> tag defines which document--HTML or otherwise--initially goes into the frames within those framesets and is where you may give the frame a name to use for document hypertext links. </p>
+
+
+<P CLASS="Body">Here is the HTML source that was used to generate <A HREF="ch11.html#31805" CLASS="XRef">Figure 11-1</a>:</p>
+
+<PRE><CODE CLASS="Code">&lt;html&gt;</code>
+<CODE CLASS="Code">&lt;head&gt;</code>
+<CODE CLASS="Code">&lt;title&gt;Frames Layout&lt;/title&gt;</code>
+<CODE CLASS="Code">&lt;/head&gt;</code>
+<CODE CLASS="Code">&lt;frameset rows=&quot;60%,*&quot; cols=&quot;65%,20%,*&quot;&gt;</code>
+<CODE CLASS="Code">  &lt;frame src=&quot;frame1.html&quot;&gt;</code>
+<CODE CLASS="Code">  &lt;frame src=&quot;frame2.html&quot;&gt;</code>
+<CODE CLASS="Code">  &lt;frame src=&quot;frame3.html&quot; name=&quot;fill_me&quot;&gt;</code>
+<CODE CLASS="Code">  &lt;frame scrolling=yes src=&quot;frame4.html&quot;&gt;</code>
+<CODE CLASS="Code">  &lt;frame src=&quot;frame5.html&quot;&gt;</code>
+<CODE CLASS="Code">  &lt;frame src=&quot;frame6.html&quot;&gt;</code>
+<CODE CLASS="Code">  &lt;noframes&gt;</code>
+<CODE CLASS="Code">    Sorry, this document can be viewed only with a </code>
+<CODE CLASS="Code">    frames-capable browser.</code>
+<CODE CLASS="Code">    &lt;a href = &quot;frame1.html&quot;&gt;Take this link&lt;/a&gt;</code>
+<CODE CLASS="Code">    to the first HTML document in the set.</code>
+<CODE CLASS="Code">  &lt;/noframes&gt;</code>
+<CODE CLASS="Code">&lt;/frameset&gt;</code>
+<CODE CLASS="Code">&lt;/html&gt;</code>
+</pre>
+
+<P CLASS="Body">Notice a few things in the simple frame example and its rendered image (<A HREF="ch11.html#31805" CLASS="XRef">Figure 11-1</a>). First, the order in which the browser fills the frames in a frameset goes across each row. Second, Frame 4 sports a scrollbar because we told it to, even though the contents may otherwise fit without scrolling. (Scrollbars automatically appear if the contents overflow the frame's dimensions, unless explicitly disabled with the <CODE CLASS="Literal">scrolling</code> attribute in the <CODE CLASS="Literal">&lt;frame&gt;</code> tag.) <A HREF="ch11.html#41554" CLASS="XRef">See &lt;frame&gt;</a></p>
+
+
+<P CLASS="Body">Another item of interest is the <CODE CLASS="Literal">name</code> attribute in one of the frame tags. Once named, you can reference a particular frame as the location in which to display a hypertext-linked document. To do that, you add a special <CODE CLASS="Literal">target</code> attribute to the anchor (<CODE CLASS="Literal">&lt;a&gt;</code>) tag of the source hypertext link. For instance, to link a document called <CODE CLASS="Literal">new.html</code> for display in Frame 3, which we've named &quot;fill_me&quot;, the anchor looks like this: </p>
+
+<PRE><CODE CLASS="Code">&lt;a href=&quot;new.html&quot; target=&quot;fill_me&quot;&gt;</code>
+</pre>
+
+<P CLASS="Body">If the user chooses the link, say in Frame 1, the <EM CLASS="Filename">new.html</em> document will replace the original <EM CLASS="Filename">frame3.html</em> contents in Frame 3. <A HREF="ch11.html#39593" CLASS="XRef">See target attribute</a></p>
+
+
+<P CLASS="Body">Finally, although Netscape and Internet Explorer both support frames, it is possible that users with some other browser will try and view your frame documents. That's why each of your key frame documents should provide a back door to your  document collection with the <CODE CLASS="Literal">&lt;noframes&gt;</code> tag. Frame-capable browsers display your frames; non-frame-capable browsers display the alternative <CODE CLASS="Literal">&lt;noframes&gt;</code> content.</p>
+
+
+<H3 CLASS="HeadB">What's in a Frame?</h3>
+
+
+<P CLASS="Body">Anyone who has opened more than one window on their desktop display to compare contents or operate interrelated applications knows instinctively the power of frames. </p>
+
+
+<P CLASS="Body">One simple use for frames is to put content that is common in a collection, such as copyright notices, introductory material, and navigational aids, into one frame, with all other document content in an adjacent frame. As the user visits new pages, each loads into the scrolling frame, while the fixed-frame content persists. </p>
+
+
+<P CLASS="Body">A richer frame document-enabled environment provides navigational tools for your document collections. For instance, assign one frame to hold a table of contents and various searching tools for the collection. Have another frame hold the user-selected document contents. As users visit your pages in the content frame, they never lose sight of the navigational aids in the other frame. </p>
+
+
+<P CLASS="Body">Another beneficial use of frame documents is to compare a returned form with its original for verification of the content by the submitting user. By placing the form in one frame and its submitted result in another, you let the user quickly verify that the result corresponds to the data entered in the form. If the results are incorrect, the form is readily available to be filled out again. </p>
+
+
+<H2 CLASS="HeadA"><A NAME="22253"></a>Frame Layout</h2>
+
+
+<P CLASS="Body">Frame layout is similar to table layout. Using the <CODE CLASS="Literal">&lt;frameset&gt;</code> tag, you can arrange frames into rows and columns while defining their relative or absolute sizes. </p>
+
+
+<H3 CLASS="HeadB">The &lt;frameset&gt; Tag</h3>
+
+
+<P CLASS="Body">The <CODE CLASS="Literal">&lt;frameset&gt;</code> tag lets you define a collection of frames and control their spacing and borders. Use the <CODE CLASS="Literal">&lt;frameset&gt;</code> tag to define a collection of frames and other framesets. Framesets also may be nested, allowing for a richer set of layout capabilities. </p>
+
+<TABLE border=1 width="50%">
+<TR>
+<TD>
+<center><B CLASS="FM-xhtmlSidebarTitle">&lt;frameset&gt;</b></center>
+<p>
+<B CLASS="FM-xhtmlListVariableTerm">Function:</b>
+
+
+<P CLASS="FM-xhtmlListVariable">Define a collection of frames</p>
+
+
+<p><B CLASS="FM-xhtmlListVariableTerm">Attributes:</b>
+
+<table cellspacing="5">
+<tr>
+<td><CLASS="FM-xhtmlListVariable">BORDER </td>
+<td>ONBLUR</td>
+</tr>
+<tr>
+<td><CLASS="FM-xhtmlListVariable">BORDERCOLOR</td>
+<td>ONFOCUS</td>
+</tr>
+<tr>
+<td><CLASS="FM-xhtmlListVariable">CLASS</td>
+<td>ONLOAD</td>
+</tr>
+<tr>
+<td><CLASS="FM-xhtmlListVariable">COLS</td>
+<td>ONUNLOAD</td>
+</tr>
+<tr>
+<td><CLASS="FM-xhtmlListVariable">FRAMEBORDER </td>
+<td>ROWS</td>
+</tr>
+<tr>
+<td><CLASS="FM-xhtmlListVariable">FRAMESPACING </td>
+<td>STYLE</td>
+</tr>
+<tr>
+<td><CLASS="FM-xhtmlListVariable">ID</td>
+<td>TITLE</td>
+</tr>
+</table>
+
+<p><B CLASS="FM-xhtmlListVariableTerm">End tag:</b>
+
+
+<P CLASS="FM-xhtmlListVariable">&lt;/frameset&gt;; never omitted</p>
+
+
+<p><B CLASS="FM-xhtmlListVariableTerm">Contains:</b>
+
+
+<P CLASS="FM-xhtmlListVariable"><EM CLASS="Emphasis">frameset_content</em></p>
+
+
+<p><B CLASS="FM-xhtmlListVariableTerm">Used in:</b>
+
+
+<P CLASS="FM-xhtmlListVariable"><EM CLASS="Emphasis">html_content</em></p>
+
+</td>
+</tr>
+</table>
+
+<P CLASS="Body">Use the <CODE CLASS="Literal">&lt;frameset&gt;</code> tag in lieu of a <CODE CLASS="Literal">&lt;body&gt;</code> tag in the frame document. You may not include any other content except valid <CODE CLASS="Literal">&lt;head&gt;</code> and <CODE CLASS="Literal">&lt;frameset&gt;</code> content in a frame document. Combining frames with a conventional document containing a <CODE CLASS="Literal">&lt;body&gt;</code> section may result in unpredictable browser behavior.</p>
+
+
+<H4 CLASS="HeadC">The rows and cols attributes</h4>
+
+
+<P CLASS="Body">The <CODE CLASS="Literal">&lt;frameset&gt;</code> tag has one required attribute: either <CODE CLASS="Literal">cols</code> or <CODE CLASS="Literal">rows</code>--your choice. They define the size and number of columns (<CODE CLASS="Literal">cols</code>) or <CODE CLASS="Literal">rows</code> of either frames or nested framesets for the document window. Both attributes accept a quote-enclosed, comma-separated list of values that specify either the absolute (pixels) or relative (percentage or remaining space) width (for columns) or height (for rows) for the frames. The number of attribute values determines how many rows or columns of frames the browser will display in the document window. </p>
+
+
+<P CLASS="Body">As with tables, the browser will match the size you give a frameset as closely as possible. The browser will not, however, extend the boundaries of the main document window to accommodate framesets that would otherwise exceed those boundaries or fill the window with empty space if the specified frames don't fill the window. Rather, the browsers allocate space to a particular frame relative to all other frames in the row and column and resolutely fills the entire document window. (Did you notice that a frame document window does not have scrollbars?) </p>
+
+
+<P CLASS="Body">For example:</p>
+
+<PRE><CODE CLASS="Code">&lt;frameset rows=&quot;150,300,150&quot;&gt;</code>
+</pre>
+
+<P CLASS="Body">creates three rows of frames, each extending across the entire document window. The first and last frames are set to 150 pixels tall, the second to 300 pixels. In reality, unless the browser window is exactly 600 pixels tall, the browser automatically and proportionately stretches or compresses the first and last frames so that each occupies one quarter of the window space. The center row occupies the remaining half of the window space. </p>
+
+
+<P CLASS="Body">Frame row and column size values expressed as a percentage of the window dimensions are more sensible. For instance, the following example is effectively identical to the previous one: </p>
+
+<PRE><CODE CLASS="Code">&lt;frameset rows=&quot;25%,50%,25%&quot;&gt;</code>
+</pre>
+
+<P CLASS="Body">Of course, if the percentages don't add up to 100 percent, the browser automatically and proportionally resizes each row to make up the difference.</p>
+
+
+<P CLASS="Body">If you are like us, making things add up is not a strength. Perhaps some of the frame designers suffer the same difficulty, which would explain why they included the very nifty asterisk option for <CODE CLASS="Literal">&lt;frameset&gt;</code> <CODE CLASS="Literal">rows</code> and <CODE CLASS="Literal">cols</code> values. It tells the browser to size the respective column or row to whatever space is left over after putting adjacent frames into the frameset.</p>
+
+
+<P CLASS="Body">For example, when the browser encounters the following frame tag:</p>
+
+<PRE><CODE CLASS="Code">&lt;frameset cols=&quot;100,*&quot;&gt;</code>
+</pre>
+
+<P CLASS="Body">it makes a fixed-sized column 100 pixels wide, and then creates another frame column that occupies all of the remaining space in the frameset. </p>
+
+
+<P CLASS="Body">Here's a fancier layout example:</p>
+
+<PRE><CODE CLASS="Code">&lt;frameset cols=&quot;10,*,10&quot;&gt;</code>
+</pre>
+
+<P CLASS="Body">This one creates two very thin columns down the edges of the frameset and gives the remaining center portion to the middle column. </p>
+
+
+<P CLASS="Body">You may also use the asterisk for more than one row- or column-attribute value. In that case, the corresponding rows or columns equally divide the available space. For example:</p>
+
+<PRE><CODE CLASS="Code">&lt;frameset rows=&quot;*,100,*&quot;&gt;</code>
+</pre>
+
+<P CLASS="Body">creates a 100-pixel tall row in the middle of the frameset and equal-sized rows above and below it. </p>
+
+
+<P CLASS="Body">If you precede the asterisk with an integer value, the corresponding row or column gets proportionally more of the available space. For example:</p>
+
+<PRE><CODE CLASS="Code">&lt;frameset cols=&quot;10%,3*,*,*&quot;&gt;</code>
+</pre>
+
+<P CLASS="Body">creates four columns: the first column occupies 10 percent of the overall width of the frameset. The browser then gives the second frame <EM CLASS="Superscript">3</em>/5 of the remaining space, and the third and the fourth are each given <EM CLASS="Superscript">1</em>/5 of the remaining space. </p>
+
+
+<P CLASS="Body">Using asterisks (especially with the numeric prefix) makes it easy to divide up the remaining space in a frameset.</p>
+
+
+<P CLASS="Body">Be aware, too, that unless you explicitly tell it not to, the browser lets users manually resize the individual frame document's columns and rows, and hence change the relative proportions each frame occupies in their frames display. To prevent this, see the <CODE CLASS="Literal">noresize</code> attribute for the <CODE CLASS="Literal">&lt;frame&gt;</code> tag. <A HREF="ch11.html#41554" CLASS="XRef">See &lt;frame&gt;</a></p>
+
+
+<H4 CLASS="HeadC">Controlling frame borders and spacing</h4>
+
+
+<P CLASS="Body">The popular browsers provide attribute extensions that you may use to generally define and change the borders surrounding the frames in a frameset. The HTML 4 and XHTML standards prefer instead that you include these border-related display features via <CODE CLASS="Literal">&lt;style&gt;</code> tag attributes.</p>
+
+
+<P CLASS="Body">Both Internet Explorer and Netscape accept the <CODE CLASS="Literal">frameborder</code> attribute to disable or explicitly enable frame borders. (By default, every frame in a frameset as well as the frameset window itself is rendered with a 3D border; see <A HREF="ch11.html#31805" CLASS="XRef">Figure 11-1</a>.) The two browsers' documentation disagree about the particular values for the <CODE CLASS="Literal">frameborder</code> attribute, but both acknowledge the other's conventions. Hence, setting the value of <CODE CLASS="Literal">frameborder</code> to <CODE CLASS="Literal">0</code> or <CODE CLASS="Literal">no</code> turns borders off (see <A HREF="ch11.html#11329" CLASS="XRef">Figure 11-2</a>); <CODE CLASS="Literal">1</code> or <CODE CLASS="Literal">yes</code> turns borders on.</p>
+
+<TABLE>
+<CAPTION>
+<B class="FigureLabel"><A name="11329"></a>Figure 11-2.</b> 
+<B class="FigureTitle">The frameborder attribute lets you remove the borders between frames</b> 
+</caption>
+<TR>
+<TD ROWSPAN="1" COLSPAN="1">
+<P CLASS="FigureHolder"><IMG SRC="xhtm.1102.gif" ALIGN="BASELINE">
+&nbsp;</p>
+
+</td>
+</tr>
+</table>
+
+<P CLASS="Body">Internet Explorer and Netscape do disagree, however, as to how you may control the thickness of the borders. The latest version of Internet Explorer (Version 5) supports both the <CODE CLASS="Literal">framespacing</code> and <CODE CLASS="Literal">border</code> attributes, whose value is the number of pixels you want between frames (see <A HREF="ch11.html#52396" CLASS="XRef">Figure 11-3</a>). </p>
+
+
+<P CLASS="Body">These attributes affect all frames and framesets nested within the current frameset as displayed by Internet Explorer. In practice, you should set it once on the outermost <CODE CLASS="Literal">&lt;frameset&gt;</code> to create a consistent border appearance for all of the frames in a single page.</p>
+
+
+<P CLASS="Body">Netscape accepts only the <CODE CLASS="Literal">border</code> attribute to define the border width, with an integer value in pixels. Like Internet Explorer, Netscape lets you include the <CODE CLASS="Literal">frameborder</code> attribute with any <CODE CLASS="Literal">&lt;frameset&gt;</code> tag, affecting all nested frames and framesets. Unlike Internet Explorer, Netscape lets you include the <CODE CLASS="Literal">border</code> attribute only in the outermost <CODE CLASS="Literal">&lt;frameset&gt;</code>, ensuring that all frame borders are the same width within that <CODE CLASS="Literal">&lt;frameset&gt;</code>.</p>
+
+<TABLE>
+<CAPTION>
+<B class="FigureLabel"><A name="52396"></a>Figure 11-3.</b> 
+<B class="FigureTitle">Internet Explorer takes the framespacing attribute to separate frames </b> 
+</caption>
+<TR>
+<TD ROWSPAN="1" COLSPAN="1">
+<P CLASS="FigureHolder"><IMG SRC="xhtm.1103.gif" ALIGN="BASELINE">
+&nbsp;</p>
+
+</td>
+</tr>
+</table>
+
+<P CLASS="Body">Since browsers ignore unsupported attributes, it is possible to define frame borders so that both browsers do the right thing. Just make sure to use the same <CODE CLASS="Literal">framespacing</code> and <CODE CLASS="Literal">border</code> values.</p>
+
+
+<P CLASS="Body">Finally, both Netscape and the latest version of Internet Explorer (Version 5) let you control the color of the frame borders using the <CODE CLASS="Literal">bordercolor</code> attribute (<A HREF="ch11.html#35762" CLASS="XRef">Figure 11-4</a>). It accepts a color name or hexadecimal triple as its value. A complete list of color names and values can be found in <EM CLASS="EmphasisRoman">Appendix G, </em><CITE CLASS="Citation">Color Names and Values</cite>.</p>
+
+<TABLE>
+<CAPTION>
+<B class="FigureLabel"><A name="35762"></a>Figure 11-4.</b> 
+<B class="FigureTitle">Netscape accepts border and bordercolor attributes to control the color and spacing between frames</b> 
+</caption>
+<TR>
+<TD ROWSPAN="1" COLSPAN="1">
+<P CLASS="FigureHolder"><IMG SRC="xhtm.1104.gif" ALIGN="BASELINE">
+&nbsp;</p>
+
+</td>
+</tr>
+</table>
+
+<H4 CLASS="HeadC">Frames and JavaScript</h4>
+
+
+<P CLASS="Body">Internet Explorer and Netscape, as standardized in HTML 4 and XHTML, support JavaScript-related event handlers that let your frame documents react when they are first loaded and when the frame window gets resized (<CODE CLASS="Literal">onLoad</code>); unloaded from the browser by the user (<CODE CLASS="Literal">onUnload</code>); when the window containing the frameset loses focus, such as when the user selects another window (<CODE CLASS="Literal">onBlur</code>); or when the frameset becomes the active window (<CODE CLASS="Literal">onFocus</code>). Included as <CODE CLASS="Literal">&lt;frameset&gt;</code> attributes, these event handlers take quote-enclosed lists of JavaScript commands and function calls as their value. For example, you might notify the user when all the contents have been loaded into their respective frames of a lengthy frameset:</p>
+
+<PRE><CODE CLASS="Code">&lt;frameset onLoad=&quot;window.alert('Everything is loaded. You may now continue.')&quot;&gt;</code>
+</pre>
+
+<P CLASS="Body">These four attributes may also be used with the <CODE CLASS="Literal">&lt;body&gt;</code> tag. We cover JavaScript event handlers in more detail in section .</p>
+
+
+<H4 CLASS="HeadC">Other &lt;frameset&gt; attributes</h4>
+
+
+<P CLASS="Body">Like most of the other standard tags, the <CODE CLASS="Literal">&lt;frameset&gt;</code> tag honors four of the standard attributes: <CODE CLASS="Literal">class</code>, <CODE CLASS="Literal">style</code>, <CODE CLASS="Literal">title</code>, and <CODE CLASS="Literal">id</code>.</p>
+
+
+<P CLASS="Body">Use the <CODE CLASS="Literal">class</code> attribute to associate a predefined style class with this frame and, via style inheritance, its content. Alternatively, use the <CODE CLASS="Literal">style</code> attribute to define a style inline with the <CODE CLASS="Literal">&lt;frameset&gt;</code> tag. We cover styles more completely in <EM CLASS="EmphasisRoman">Chapter 8, </em><CITE CLASS="Citation">Cascading Style Sheets</cite>.</p>
+
+
+<P CLASS="Body">The <CODE CLASS="Literal">id</code> attribute creates a unique identifier for the frame, while <CODE CLASS="Literal">title</code> creates a title for the frame that might be presented to the user or used by a nonvisual browser.  </p>
+
+
+<H3 CLASS="HeadB">Nesting &lt;frameset&gt; Tags</h3>
+
+
+<P CLASS="Body">You can create some elaborate browser displays with a single <CODE CLASS="Literal">&lt;frameset&gt;</code>, but the frame layout is unimaginative. Instead, create staggered frames and other more complex layouts with multiple <CODE CLASS="Literal">&lt;frameset&gt;</code> tags nested within a top-level <CODE CLASS="Literal">&lt;frameset&gt;</code> in the frame document (<A HREF="ch11.html#31458" CLASS="XRef">Figure 11-5</a>).</p>
+
+
+<P CLASS="Body">For example, create a layout of two columns, the first with two rows and the second with three rows, by nesting two <CODE CLASS="Literal">&lt;frameset&gt;</code> tags with row specifications within a top-level <CODE CLASS="Literal">&lt;frameset&gt;</code> that specifies the columns:<CODE CLASS="Literal"></code></p>
+
+<PRE><CODE CLASS="Code">&lt;frameset cols=&quot;50%,*&quot;&gt;</code>
+<CODE CLASS="Code">  &lt;frameset rows=&quot;50%,*&quot;&gt;</code>
+<CODE CLASS="Code">    &lt;frame src=&quot;frame1.html&quot;&gt;</code>
+<CODE CLASS="Code">    &lt;frame src=&quot;frame2.html&quot;&gt;</code>
+<CODE CLASS="Code">  &lt;/frameset&gt;</code>
+<CODE CLASS="Code">  &lt;frameset rows =&quot;33%,33%,*&quot;&gt;</code>
+<CODE CLASS="Code">    &lt;frame src=&quot;frame3.html&quot;&gt;</code>
+<CODE CLASS="Code">    &lt;frame src=&quot;frame4.html&quot;&gt;</code>
+<CODE CLASS="Code">    &lt;frame src=&quot;frame5.html&quot;&gt;</code>
+<CODE CLASS="Code">  &lt;/frameset&gt;</code>
+<CODE CLASS="Code">&lt;/frameset&gt;</code>
+</pre>
+<p>
+<TABLE>
+<CAPTION>
+<B class="FigureLabel"><A name="31458"></a>Figure 11-5.</b> 
+<B class="FigureTitle"><A NAME="29818"></a>Staggered frame layouts use nested &lt;frameset&gt; tags</b> 
+</caption>
+<TR>
+<TD ROWSPAN="1" COLSPAN="1">
+<P CLASS="FigureHolder"><IMG SRC="xhtm.1105.gif" ALIGN="BASELINE">
+&nbsp;</p>
+
+</td>
+</tr>
+</table>
+
+<H2 CLASS="HeadA"><A NAME="16186"></a>Frame Contents</h2>
+
+
+<P CLASS="Body">A frame document contains no displayable content, except perhaps a message for non-frame-enabled browsers. Instead, <CODE CLASS="Literal">&lt;frame&gt;</code> tags inside the one or more <CODE CLASS="Literal">&lt;frameset&gt;</code> tags (which encapsulate the contents of a frame document) provide URL references to the individual documents that are occupying each frame. <A HREF="ch11.html#11721" CLASS="XRef">See &lt;noframes&gt;</a></p>
+
+
+<H3 CLASS="HeadB">The &lt;frame&gt; Tag</h3>
+
+
+<P CLASS="Body">The <CODE CLASS="Literal">&lt;frame&gt;</code> tag appears only within a <CODE CLASS="Literal">&lt;frameset&gt;</code>. Use it to set, via its associated <CODE CLASS="Literal">src</code> attribute, the URL of the document content that initially gets displayed inside the respective frame.</p>
+
+<TABLE border="1" width="50%">
+<TR>
+<TD ROWSPAN="1" COLSPAN="1">
+<p><center><B CLASS="FM-xhtmlSidebarTitle"><A NAME="41554"></a>&lt;frame&gt;</b></center>
+
+
+<p><B CLASS="FM-xhtmlListVariableTerm">Function:</b>
+
+
+<P CLASS="FM-xhtmlListVariable">Define a single frame in a &lt;frameset&gt;</p>
+
+
+<p><B CLASS="FM-xhtmlListVariableTerm">Attributes:</b>
+
+<table cellspacing="5">
+<tr>
+<td>
+<P CLASS="FM-xhtmlListVariable">BORDERCOLOR</td>
+<td>NAME</td>
+</tr>
+<tr>
+<td><CLASS="FM-xhtmlListVariable">CLASS</td>
+<td>NORESIZE</td>
+</tr>
+<tr>
+<td><CLASS="FM-xhtmlListVariable">FRAMEBORDER</td>
+<td>SCROLLING</td>
+</tr>
+<tr>
+<td><CLASS="FM-xhtmlListVariable">ID</td>
+<td>SRC</td>
+</tr>
+<tr>
+<td><CLASS="FM-xhtmlListVariable">LONGDESC</td>
+<td>STYLE</td>
+</tr>
+<tr>
+<td><CLASS="FM-xhtmlListVariable">MARGINHEIGHT</td>
+<td>TITLE</td>
+</tr>
+<tr>
+<td><CLASS="FM-xhtmlListVariable">MARGINWIDTH</td>
+</tr>
+</table>
+
+<p><B CLASS="FM-xhtmlListVariableTerm">End tag:</b>
+
+
+<P CLASS="FM-xhtmlListVariable">&lt;/frame&gt;; rarely included in HTML</p>
+
+
+<p><B CLASS="FM-xhtmlListVariableTerm">Contains:</b>
+
+
+<P CLASS="FM-xhtmlListVariable">Nothing</p>
+
+
+<p><B CLASS="FM-xhtmlListVariableTerm">Used in:</b>
+
+
+<P CLASS="FM-xhtmlListVariable"><EM CLASS="Emphasis">frameset_content</em></p>
+
+</td>
+</tr>
+</table>
+
+<P CLASS="FM-xhtmlBodyRunin">Frames are placed into a frameset column by column, from left to right, and then row by row, from top to bottom, so the sequence and number of <CODE CLASS="Literal">&lt;frame&gt;</code> tags inside the <CODE CLASS="Literal">&lt;frameset&gt;</code> tag are important. </p>
+
+
+<H2 CLASS="FM-xhtmlXRef"><CODE CLASS="Literal">&lt;frame&gt;</code><A NAME="10959"></a></h2>
+
+
+<P CLASS="Body">The browser displays empty frames for <CODE CLASS="Literal">&lt;frame&gt;</code> tags that do not have a <CODE CLASS="Literal">src</code> attribute. It also displays empty frames if the &lt;<CODE CLASS="Literal">frameset</code>&gt; tag calls for more frames than the corresponding &lt;<CODE CLASS="Literal">frame</code>&gt; tags define. Such orphans remain empty; you cannot put content into them later, even if they have a target &quot;name&quot; for display redirection. <A HREF="ch11.html#23953" CLASS="XRef">See name attribute</a></p>
+
+
+<H4 CLASS="HeadC">The src attribute</h4>
+
+
+<P CLASS="Body">The value of the <CODE CLASS="Literal">src</code> attribute for the <CODE CLASS="Literal">&lt;frame&gt;</code> tag is a URL of the document that is to be displayed in the frame. There is no other way to provide content for a frame. You shouldn't, for instance, include any <CODE CLASS="Literal">&lt;body&gt;</code> content within the frame document; the browser will ignore the frame tags and display just the contents of a <CODE CLASS="Literal">&lt;body&gt;</code> tag if it comes first, or vice versa.</p>
+
+
+<P CLASS="Body">The document referenced by the <CODE CLASS="Literal">src</code> attribute may be any valid document or any displayable object, including images and multimedia. In particular, the referenced document may itself be composed of one or more frames. The frames are displayed within the referencing frame, providing yet another way of achieving complex layouts using nested frames.</p>
+
+
+<P CLASS="Body">Since the source may be a complete document, all the features of HTML/XHTML apply within a frame, including backgrounds and colors, tables, fonts, and the like. Unfortunately, this also means that multiple frames in a single browser window may conflict with each other. Specifically, if each nested frame document (not a regular HTML or XHTML document) has a different <CODE CLASS="Literal">&lt;title&gt;</code> tag, the title of the overall browser window will be the title of the most recently loaded frame document. The easiest way to avoid this problem is to ensure that all related frame documents use the same title. </p>
+
+
+<H4 CLASS="HeadC">The name attribute</h4>
+
+
+<P CLASS="FM-xhtmlBodyRunin">The optional <CODE CLASS="Literal">name</code> attribute for the <CODE CLASS="Literal">&lt;frame&gt;</code> tag labels that frame for later reference by the <CODE CLASS="Literal">target</code> attribute for the hypertext link anchor <CODE CLASS="Literal">&lt;a&gt;</code> tag and the <CODE CLASS="Literal">&lt;form&gt;</code> tag. This way, you can alter the contents of a frame using a link in another frame. Otherwise, like normal browser windows, hypertext-linked documents replace the contents of the source frame. We discuss names and targets at greater length later in this chapter. <A HREF="ch11.html#39593" CLASS="XRef">See target attribute</a></p>
+
+
+<H2 CLASS="FM-xhtmlXRef"><CODE CLASS="Literal">name</code><A NAME="23953"></a> attribute</h2>
+
+
+<P CLASS="Body">The value of the <CODE CLASS="Literal">name</code> attribute is a text string enclosed in quotation marks.</p>
+
+
+<H4 CLASS="HeadC">The noresize attribute</h4>
+
+
+<P CLASS="Body">Even though you may explicitly set frame dimensions with attributes in the <CODE CLASS="Literal">&lt;frameset&gt;</code> tag, users can manually alter the size of a column or row of frames. To suppress this behavior, add the <CODE CLASS="Literal">noresize</code> attribute to the frame tags in the row or column whose relative dimensions you do not want users fiddling with. For a two-by-two frame document, a <CODE CLASS="Literal">noresize</code> attribute in any one of the four associated frame tags will effectively freeze the relative proportions of all the frames, for example.</p>
+
+
+<P CLASS="Body">The <CODE CLASS="Literal">noresize</code> attribute is especially useful for frames that contain fixed images serving as advertisements, a button bar, or a logo. By fixing the size of the frame to contain just the image and setting the <CODE CLASS="Literal">noresize</code> attribute, you guarantee that the image will be displayed in the intended manner and that the remainder of the browser window will always be given over to the other frames in the document. </p>
+
+
+<H4 CLASS="HeadC">The scrolling attribute</h4>
+
+
+<P CLASS="Body">The browser will display vertical and horizontal scrollbars with frames whose contents are larger than the allotted window space. If there is sufficient room for the content, the scrollbars disappear. The <CODE CLASS="Literal">scrolling</code> attribute for the <CODE CLASS="Literal">&lt;frame&gt;</code> tag gives you explicit control over whether the scroll bars appear or disappear.</p>
+
+
+<P CLASS="Body">With <CODE CLASS="Literal">scrolling=&quot;yes&quot;</code>, the browser adds scroll bars to the designated frame even if there is nothing to scroll. If you set the <CODE CLASS="Literal">scrolling</code> attribute value to <CODE CLASS="Literal">no</code>, scrollbars will never be added to the frame, even if the frame contents are larger than the frame itself. The value <CODE CLASS="Literal">auto</code>, supported only by Netscape, works as if you didn't include the <CODE CLASS="Literal">scrolling</code> attribute in the tag; Netscape adds scrollbars as needed. To achieve <CODE CLASS="Literal">auto</code> behavior in Internet Explorer, simply omit the <CODE CLASS="Literal">scrolling</code> attribute altogether.</p>
+
+
+<H4 CLASS="HeadC">The marginheight and marginwidth attributes</h4>
+
+
+<P CLASS="Body">The browser normally places a small amount of space between the edge of a frame and its contents. You can change those margins with the <CODE CLASS="Literal">marginheight</code> and <CODE CLASS="Literal">marginwidth</code> attributes, each including a value for the exact number of pixels to place around the frame contents.</p>
+
+
+<P CLASS="Body">You cannot make a margin less than one pixel, or make it so large there is no room for the frame contents. That's because like most other HTML attributes, these advise: they do not dictate to the browser. If your desired margin values cannot be accommodated, the browser ignores them and renders the frame as best it can. </p>
+
+
+<H4 CLASS="HeadC">The frameborder and bordercolor attributes</h4>
+
+
+<P CLASS="Body">You can add or remove borders from a single frame with the <CODE CLASS="Literal">frameborder</code> attribute. Values of <CODE CLASS="Literal">yes</code> or <CODE CLASS="Literal">1</code> and <CODE CLASS="Literal">no</code> or <CODE CLASS="Literal">0</code> respectively enable or disable borders for the frame and override the value of the <CODE CLASS="Literal">frameborder</code> attribute for any frameset containing the frame.</p>
+
+
+<P CLASS="Body">Note that the browsers do react somewhat differently to border specifications. Netscape, for instance, removes an individual border only if adjacent frames sharing that border have borders turned off. Internet Explorer, on the other hand, will remove those adjacent borders, but only if they are not explicitly turned on in those adjacent frames. Our advice is to explicitly control the borders for each frame if you want to consistently control the borders for all frames across both browsers.</p>
+
+
+<P CLASS="Body">With Netscape only, you also can change the color of the individual frame's borders with the <CODE CLASS="Literal">bordercolor</code> attribute. Use a color name or hexadecimal triple as its value. If two adjacent frames have different <CODE CLASS="Literal">bordercolor</code> attributes, the resulting border color is undefined. A complete list of color names and values can be found in Appendix G.</p>
+
+
+<H4 CLASS="HeadC">The title and longdesc attributes</h4>
+
+
+<P CLASS="Body">Like most other standard tags, you can provide a title for a frame with the <CODE CLASS="Literal">title</code> attribute. The value of the attribute is a quote-enclosed string that describes the contents of the frame. Browsers might display the title, for instance, when the mouse passes over the frame.</p>
+
+
+<P CLASS="Body">If the <CODE CLASS="Literal">title</code> attribute isn't quite enough for you, the <CODE CLASS="Literal">longdesc</code> attribute can be used. Its value is the URL of a document that describes the frame. Presumably, this long description might be in some alternative media, suitable for use by a nonvisual browser.</p>
+
+
+<H2 CLASS="HeadA"><A NAME="16171"></a>The &lt;noframes&gt; Tag</h2>
+
+
+<P CLASS="Body">A frame document has no <CODE CLASS="Literal">&lt;body&gt;</code>. It must not, since the browser will ignore any frame tags if it finds any <CODE CLASS="Literal">&lt;body&gt;</code> content before it encounters the first <CODE CLASS="Literal">&lt;frameset&gt;</code> tag. A frame document, therefore, is all but invisible to any non-frame-capable browser. The <CODE CLASS="Literal">&lt;noframes&gt;</code> tag gives some relief to the frame-disabled.</p>
+
+<TABLE border="1" width="50%">
+<TR>
+<TD ROWSPAN="1" COLSPAN="1">
+<p><center><B CLASS="FM-xhtmlSidebarTitle"><A NAME="11721"></a>&lt;noframes&gt;</b></center>
+
+
+<p><B CLASS="FM-xhtmlListVariableTerm">Function:</b>
+
+
+<P CLASS="FM-xhtmlListVariable">Supply content for non-frame-capable browsers</p>
+
+
+<p><B CLASS="FM-xhtmlListVariableTerm">Attributes:</b>
+
+<table cellspacing="5">
+<tr>
+<td><CLASS="FM-xhtmlListVariable">CLASS</td>
+<td>ONKEYUP</td>
+</tr>
+<tr>
+<td><CLASS="FM-xhtmlListVariable">DIR</td>
+<td>ONMOUSEDOWN</td>
+</tr>
+<tr>
+<td><CLASS="FM-xhtmlListVariable">ID</td>
+<td>ONMOUSEMOVE</td>
+</tr>
+<tr>
+<td><CLASS="FM-xhtmlListVariable">LANG</td>
+<td>ONMOUSEOUT</td>
+</tr>
+<tr>
+<td><CLASS="FM-xhtmlListVariable">ONCLICK</td>
+<td>ONMOUSEOVER</td>
+</tr>
+<tr>
+<td><CLASS="FM-xhtmlListVariable">ONDBLCLICK</td>
+<td>ONMOUSEUP</td>
+</tr>
+<tr>
+<td><CLASS="FM-xhtmlListVariable">ONKEYDOWN</td>
+<td>STYLE</td>
+</tr>
+<tr>
+<td><CLASS="FM-xhtmlListVariable">ONKEYPRESS</td>
+<td>TITLE</td>
+</tr>
+</table>
+
+<p><B CLASS="FM-xhtmlListVariableTerm">End tag:</b>
+
+
+<P CLASS="FM-xhtmlListVariable">&lt;/noframes&gt;; sometimes omitted in HTML</p>
+
+
+<p><B CLASS="FM-xhtmlListVariableTerm">Contains:</b>
+
+
+<P CLASS="FM-xhtmlListVariable"><EM CLASS="Emphasis">body_content</em></p>
+
+
+<p><B CLASS="FM-xhtmlListVariableTerm">Used in:</b>
+
+
+<P CLASS="FM-xhtmlListVariable"><EM CLASS="Emphasis">frameset_content</em></p>
+
+</td>
+</tr>
+</table>
+
+<P CLASS="Body">You should use the <CODE CLASS="Literal">&lt;noframes&gt;</code> tag only within the outermost <CODE CLASS="Literal">&lt;frameset&gt;</code> tag of a frame document. The content inside the <CODE CLASS="Literal">&lt;noframes&gt;</code> tag and its required end tag (<CODE CLASS="Literal">&lt;/noframes&gt;</code>) is not displayed by any frame-capable browser, but is displayed in lieu of other contents in the frame document by browsers that do not handle frames. The contents of the <CODE CLASS="Literal">&lt;noframes&gt;</code> tag can be any normal body content, including the <CODE CLASS="Literal">&lt;body&gt;</code> tag itself.</p>
+
+
+<P CLASS="Body">Although this tag is optional, experienced authors typically include the <CODE CLASS="Literal">&lt;noframes&gt;</code> tag in their frame documents with content that warns a non-frame-capable browser user that they're missing the show. And smart authors will give those users a way out, if not direct access to the individual documents that make up the frame document contents. Remember our first frame example in this chapter? <A HREF="ch11.html#38133" CLASS="XRef">Figure 11-6</a> shows what happens when that frame document gets loaded into an old version of Mosaic.</p>
+
+<TABLE>
+<CAPTION>
+<B class="FigureLabel"><A name="38133"></a>Figure 11-6.</b> 
+<B class="FigureTitle">A &lt;noframes&gt; message in a non-frame-capable browser</b> 
+</caption>
+<TR>
+<TD ROWSPAN="1" COLSPAN="1">
+<P CLASS="FigureHolder"><IMG SRC="xhtm.1106.gif" ALIGN="BASELINE">
+&nbsp;</p>
+
+</td>
+</tr>
+</table>
+<PRE><CODE CLASS="Code">&lt;noframes&gt;</code>
+<CODE CLASS="Code">  Sorry, this document can be viewed only with a</code>
+<CODE CLASS="Code">  frame-capable browser. Go to the &lt;a href=&quot;frame1.html&quot;&gt;</code>
+<CODE CLASS="Code"> first HTML document&lt;/a&gt; in the set.</code>
+<CODE CLASS="Code">&lt;/noframes&gt;</code>
+</pre>
+
+<P CLASS="Body">The reason <CODE CLASS="Literal">&lt;noframes&gt;</code> works is that most browsers are extremely tolerant of erroneous tags and incorrect documents. A nonframe browser simply ignores the frame tags. What's left, then, is the content of the <CODE CLASS="Literal">&lt;noframes&gt;</code> tag, which the browser dutifully displays.</p>
+
+
+<P CLASS="Body">If your browser strictly enforces some version of HTML or XHTML that does not support frames, it may simply display an error message and refuse to display the document, even if it contains a <CODE CLASS="Literal">&lt;noframes&gt;</code> tag.</p>
+
+
+<H3 CLASS="HeadB">&lt;noframes&gt; Attributes</h3>
+
+
+<P CLASS="Body">There are no attributes specific to the <CODE CLASS="Literal">&lt;noframes&gt;</code> tag, but you can use any of the sixteen standard attributes: <CODE CLASS="Literal">class</code> and <CODE CLASS="Literal">style</code> for style management, <CODE CLASS="Literal">lang</code> and <CODE CLASS="Literal">dir</code> for language type and display direction, <CODE CLASS="Literal">title</code> and <CODE CLASS="Literal">id</code> for titling and naming the enclosed content, and any of the event attributes for user-activated JavaScript processing within the <CODE CLASS="Literal">&lt;noframes&gt;</code> tag.       <A NAME="29696"></a></p>
+
+
+<H2 CLASS="HeadA"><A NAME="10253"></a>Inline Frames</h2>
+
+
+<P CLASS="Body">To this point, our discussion has centered around frames that are defined as part of a frameset. A frameset, in turn, replaces the conventional <CODE CLASS="Literal">&lt;body&gt;</code> of a document and supplies content to the user via its contained frames.</p>
+
+
+<P CLASS="Body">The HTML 4 and XHTML standards let you do things a bit differently: you can also define a frame that exists within a conventional document, displayed as part of that document's text flow. These frames behave a lot like inline images, which is why they are known as inline frames.</p>
+
+
+<P CLASS="Body">All Internet Explorer Versions 4 and later, but only the latest version of Netscape Navigator (Version 6), support inline frames. </p>
+
+
+<H3 CLASS="HeadB">The &lt;iframe&gt; Tag</h3>
+
+
+<P CLASS="Body">Define an inline frame with the <CODE CLASS="Literal">&lt;iframe&gt;</code> tag. The <CODE CLASS="Literal">&lt;iframe&gt;</code> tag is <EM CLASS="Emphasis">not</em> used within a <CODE CLASS="Literal">&lt;frameset&gt;</code> tag. Instead, it appears anywhere in your document that an <CODE CLASS="Literal">&lt;img&gt;</code> tag might appear. The <CODE CLASS="Literal">&lt;iframe&gt;</code> tag defines a rectangular region within the document in which the browser displays a separate document, including scrollbars and borders. </p>
+
+<TABLE border="1" width="50%">
+<TR>
+<TD ROWSPAN="1" COLSPAN="1">
+<p><center><B CLASS="FM-xhtmlSidebarTitle">&lt;iframe&gt;</b></center>
+
+
+<p><B CLASS="FM-xhtmlListVariableTerm">Function:</b>
+
+
+<P CLASS="FM-xhtmlListVariable">Define an inline frame within a text flow</p>
+
+
+<p><B CLASS="FM-xhtmlListVariableTerm">Attributes:</b>
+
+<table cellspacing="5">
+<tr>
+<td><CLASS="FM-xhtmlListVariable">ALIGN</td>
+<td>MARGINWIDTH</td>
+</tr>
+<tr>
+<td><CLASS="FM-xhtmlListVariable">CLASS</td>
+<td>NAME</td>
+</tr>
+<tr>
+<td><CLASS="FM-xhtmlListVariable">FRAMEBORDER</td>
+<td>SCROLLING</td>
+</tr>
+<tr>
+<td><CLASS="FM-xhtmlListVariable">HEIGHT</td>
+<td>SRC</td>
+</tr>
+<tr>
+<td><CLASS="FM-xhtmlListVariable">ID</td>
+<td>STYLE</td>
+</tr>
+<tr>
+<td><CLASS="FM-xhtmlListVariable">LONGDESC</td>
+<td>TITLE</td>
+</tr>
+<tr>
+<td><CLASS="FM-xhtmlListVariable">MARGINHEIGHT</td>
+<td>WIDTH</td>
+</tr>
+</table>
+
+<p><B CLASS="FM-xhtmlListVariableTerm">End tag:</b>
+
+
+<P CLASS="FM-xhtmlListVariable">&lt;/iframe&gt;; never omitted</p>
+
+
+<p><B CLASS="FM-xhtmlListVariableTerm">Contains:</b>
+
+
+<P CLASS="FM-xhtmlListVariable"><EM CLASS="Emphasis">body_content</em></p>
+
+
+<p><B CLASS="FM-xhtmlListVariableTerm">Used in:</b>
+
+
+<P CLASS="FM-xhtmlListVariable"><EM CLASS="Emphasis">text</em></p>
+
+</td>
+</tr>
+</table>
+
+<P CLASS="Body">Use the <CODE CLASS="Literal">src</code> attribute with <CODE CLASS="Literal">&lt;iframe&gt;</code> to specify the URL of the document that occupies the inline frame. All of the other, optional attributes for the <CODE CLASS="Literal">&lt;iframe&gt;</code> tag, including <CODE CLASS="Literal">class</code>, <CODE CLASS="Literal">frameborder</code>, <CODE CLASS="Literal">id</code>, <CODE CLASS="Literal">longdesc</code>, <CODE CLASS="Literal">marginheight</code>, <CODE CLASS="Literal">marginwidth</code>, <CODE CLASS="Literal">name</code>, <CODE CLASS="Literal">scrolling</code>, <CODE CLASS="Literal">style</code>, and <CODE CLASS="Literal">title</code>, behave exactly like the corresponding attributes for the <CODE CLASS="Literal">&lt;frame&gt;</code> tag. <A HREF="ch11.html#10959" CLASS="XRef">See &lt;frame&gt;</a></p>
+
+
+<P CLASS="Body">Use the content of the <CODE CLASS="Literal">&lt;iframe&gt;</code> tag to provide information to users of browsers that do not support inline frames. Compliant browsers will ignore these contents whereas all other browsers ignore the &lt;<CODE CLASS="Literal">iframe</code>&gt; tag and therefore display its contents as if it were regular body content. For instance, use the &lt;<CODE CLASS="Literal">iframe</code>&gt; content to explain to users what they are missing:</p>
+
+<PRE><CODE CLASS="Code"><I CLASS="Replaceable">...other document content</i></code>
+<CODE CLASS="Code">&lt;iframe src=&quot;sidebar.html&quot; width=75 height=200 align=right&gt;</code>
+<CODE CLASS="Code">Your browser does not support inline frames.  To view this</code>
+<CODE CLASS="Code">&lt;a href=&quot;sidebar.html&quot;&gt;document&lt;/a&gt; correctly, you'll need </code>
+<CODE CLASS="Code">a copy of Internet Explorer or the latest Netscape Navigator.</code>
+<CODE CLASS="Code">&lt;/iframe&gt;</code>
+<CODE CLASS="Code"><I CLASS="Replaceable">...subsequent document content</i></code>
+</pre>
+
+<P CLASS="Body">In this example, we let the user know that they were accessing an unsupported feature and provided a link to the missing content.</p>
+
+
+<H4 CLASS="HeadC">The align attribute</h4>
+
+
+<P CLASS="Body">Like the <CODE CLASS="Literal">align</code> attribute for the <CODE CLASS="Literal">&lt;table&gt;</code> tag, this inline frame attribute lets you control where the frame gets placed inline with the adjacent text or moved to the edge of the document, allowing text to flow around the frame.</p>
+
+
+<P CLASS="Body">For inline alignment, use <CODE CLASS="Literal">top</code>, <CODE CLASS="Literal">middle</code>, or <CODE CLASS="Literal">bottom</code> as the value of this attribute. The frame will be aligned with the top, middle, or bottom of the adjacent text, respectively.</p>
+
+
+<P CLASS="Body">To allow text to flow around the inline frame, use the <CODE CLASS="Literal">left</code> or <CODE CLASS="Literal">right</code> values for this attribute. The frame will be moved to the left or right edge of the text flow, respectively, and the remaining content of the document will be flowed around the frame. A value of center places the inline frame in the middle of the display, with text flowing above and below.</p>
+
+
+<H4 CLASS="HeadC">The height and width attributes</h4>
+
+
+<P CLASS="Body">Internet Explorer and Netscape 6 put the contents of an inline frame into a predefined, 150-pixel-tall, 300-pixel-wide box. Use the <CODE CLASS="Literal">height</code> and <CODE CLASS="Literal">width</code> attributes with values as the number of pixels to change those dimensions.</p>
+
+
+<H3 CLASS="HeadB">Using Inline Frames</h3>
+
+
+<P CLASS="Body">Although you'll probably shy away from them for most of your web pages (at least until most browsers become fully standards-compliant), inline frames can be useful, particulary for providing information related to the current document being viewed, similar to the sidebar articles you find in a conventional printed publication.</p>
+
+
+<P CLASS="Body">Except for their location within conventional document content, inline frames are treated exactly like regular frames. You can load other documents into the inline frame using its name (see following section) and link to other documents from within the inline frame.</p>
+
+
+<H2 CLASS="HeadA"><A NAME="17999"></a>Named Frame or Window Targets</h2>
+
+
+<P CLASS="Body">As we discussed in the <CODE CLASS="Literal">&lt;frame&gt;</code> tag description section, you can label a frame by adding the <CODE CLASS="Literal">name</code> attribute to its <CODE CLASS="Literal">&lt;frame&gt;</code> tag. The <CODE CLASS="Literal">id</code> attribute provides the same unique labeling. Once named or identified, the frame may become the destination display window for a hypertext-linked document selected within a document displayed in some other frame. You accomplish this redirection by adding the special <CODE CLASS="Literal">target</code> attribute to the anchor that references the document.</p>
+
+
+<H3 CLASS="HeadB"><A NAME="28894"></a>The target Attribute for the &lt;a&gt; Tag</h3>
+
+
+<P CLASS="FM-xhtmlBodyRunin">If you include a <CODE CLASS="Literal">target</code> attribute within an <CODE CLASS="Literal">&lt;a&gt;</code> tag, the browser will load and display the document named in the tag's <CODE CLASS="Literal">href</code> attribute in a frame or window whose name matches the target. If the named or <CODE CLASS="Literal">id</code>'d frame or window doesn't exist, the browser will open a new window, give it the specified label, and load the new document into that window. Thereafter, hypertext-linked documents can target the new window.</p>
+
+
+<H2 CLASS="FM-xhtmlXRef"><CODE CLASS="Literal">target</code><A NAME="39593"></a> attribute</h2>
+
+
+<P CLASS="Body">Targeted hypertext links make it easy to create effective navigational tools. A simple table of contents document, for example, might redirect documents into a separate window: </p>
+
+<PRE><CODE CLASS="Code">&lt;h3&gt;Table of Contents&lt;/h3&gt;</code>
+<CODE CLASS="Code">&lt;ul&gt;</code>
+<CODE CLASS="Code">  &lt;li&gt;&lt;a href=&quot;pref.html&quot; target=&quot;view_window&quot;&gt;Preface&lt;/a&gt;</code>
+<CODE CLASS="Code">  &lt;li&gt;&lt;a href=&quot;chap1.html&quot; target=&quot;view_window&quot;&gt;Chapter 1&lt;/a&gt;</code>
+<CODE CLASS="Code">  &lt;li&gt;&lt;a href=&quot;chap2.html&quot; target=&quot;view_window&quot;&gt;Chapter 2&lt;/a&gt;</code>
+<CODE CLASS="Code">  &lt;li&gt;&lt;a href=&quot;chap3.html&quot; target=&quot;view_window&quot;&gt;Chapter 3&lt;/a&gt;</code>
+<CODE CLASS="Code">&lt;/ul&gt;</code>
+</pre>
+
+<P CLASS="Body">The first time the user selects one of the table of contents hypertext links, the browser will open a new window, label it &quot;view_window,&quot; and display the desired document's contents inside it. If the user selects another link from the table of contents and the &quot;view_window&quot; is still open, the browser will again load the selected document into that window, replacing the previous document. </p>
+
+
+<P CLASS="Body">Throughout the whole process, the window containing the table of contents is accessible to the user. By clicking on a link in one window, the user causes the contents of the other window to change. </p>
+
+
+<P CLASS="Body">Rather than open an entirely new browser window, a more common use of <CODE CLASS="Literal">target</code> is to direct hyperlink contents to one or more frames in a <CODE CLASS="Literal">&lt;frameset&gt;</code> display. You might place the table of contents into one frame of a two-frame document and use the adjacent frame for display of the selected documents: </p>
+
+<PRE><CODE CLASS="Code">&lt;frameset cols=&quot;150,*&quot;&gt;</code>
+<CODE CLASS="Code">  &lt;frame src=&quot;toc.html&quot;&gt;</code>
+<CODE CLASS="Code">  &lt;frame src=&quot;pref.html&quot; id=&quot;view_frame&quot;&gt;</code>
+<CODE CLASS="Code">&lt;/frameset&gt;</code>
+</pre>
+
+<P CLASS="Body">When the browser initially displays the two frames, the left frame contains the table of contents, and the right frame contains the preface (see <A HREF="ch11.html#40467" CLASS="XRef">Figure 11-7</a>).</p>
+
+<TABLE>
+<CAPTION>
+<B class="FigureLabel"><A name="40467"></a>Figure 11-7.</b> 
+<B class="FigureTitle">Table of contents frame controls content of adjacent frame</b> 
+</caption>
+<TR>
+<TD ROWSPAN="1" COLSPAN="1">
+<P CLASS="FigureHolder"><IMG SRC="xhtm.1107.gif" ALIGN="BASELINE">
+&nbsp;</p>
+
+</td>
+</tr>
+</table>
+
+<P CLASS="Body">When a user selects a link from the table of contents in the left frame (for example, Chapter 1), the browser loads and displays the associated document into the &quot;view_frame&quot; frame on the right side (<A HREF="ch11.html#31660" CLASS="XRef">Figure 11-8</a>). As other links are selected, the right frame's contents change, while the left frame continuously makes the table of contents available to the user.</p>
+
+<TABLE>
+<CAPTION>
+<B class="FigureLabel"><A name="31660"></a>Figure 11-8.</b> 
+<B class="FigureTitle">The contents of Chapter 1 are displayed in the adjacent frame</b> 
+</caption>
+<TR>
+<TD ROWSPAN="1" COLSPAN="1">
+<P CLASS="FigureHolder"><IMG SRC="xhtm.1108.gif" ALIGN="BASELINE">
+&nbsp;</p>
+
+</td>
+</tr>
+</table>
+
+<H3 CLASS="HeadB">Special Targets</h3>
+
+
+<P CLASS="Body">There are four reserved target names for special document redirection actions:</p>
+
+<DL>
+<DT CLASS="ListVariableTerm"><CODE CLASS="Literal">_blank</code></dt>
+<DD CLASS="ListVariable">The browser always loads a <CODE CLASS="Literal">target=&quot;_blank&quot;</code> linked document into a newly opened, unnamed window.</dd>
+<p>
+<DT CLASS="ListVariableTerm"><CODE CLASS="Literal">_self</code></dt>
+<DD CLASS="ListVariable">This target value is the default for all <CODE CLASS="Literal">&lt;a&gt;</code> tags that do not specify a target, causing the target document to be loaded and displayed in the same frame or window as the source document. This target is redundant and unnecessary unless used in combination with the <CODE CLASS="Literal">target</code> attribute in the <CODE CLASS="Literal">&lt;base&gt;</code> tag in a document's head (see section <A HREF="ch11.html#15541" CLASS="XRef">See The &lt;base&gt; Default Target</a>).</dd>
+<p>
+<DT CLASS="ListVariableTerm"><CODE CLASS="Literal">_parent</code></dt>
+<DD CLASS="ListVariable">The <CODE CLASS="Literal">_parent</code> target causes the document to be loaded into the parent window or frameset containing the frame containing the hypertext reference. If the reference is in a window or top-level frame, then it is equivalent to the target <CODE CLASS="Literal">_self</code>.</dd>
+<p>
+<DD CLASS="ListVariable">A brief example may help clarify how this link works. Consider a link in a frame that is part of a three-column frameset. This frameset, in turn, is a row in the top-level frameset being displayed in the browser window. This arrangement is shown in <A HREF="ch11.html#34734" CLASS="XRef">Figure 11-9</a>.</dd>
+<p>
+<DD CLASS="ListVariable">If no target is specified for the hypertext link, then it is loaded into the containing frame. If a target of <CODE CLASS="Literal">_parent</code> is specified, the document is loaded into the area occupied by the three-column frameset containing the frame that contains the link.</dd>
+<p>
+<DT CLASS="ListVariableTerm"><CODE CLASS="Literal">_top</code></dt>
+<DD CLASS="ListVariable">This target causes the document to be loaded into the window containing the hypertext link, replacing any frames currently displayed in the window.</dd>
+<p>
+<DD CLASS="ListVariable">Continuing with the frame hierarchy, as shown in <A HREF="ch11.html#34734" CLASS="XRef">Figure 11-9</a>, using a target of <CODE CLASS="Literal">_top</code> would remove all the contained frames and load the document into the entire browser window.</dd>
+<p>
+<TABLE BORDER="1">
+<CAPTION>
+<B class="FigureLabel"><A name="34734"></a>Figure 11-9.</b> 
+<B class="FigureTitle">Using special hypertext targets in nested frames and framesets</b> 
+</caption>
+<TR>
+<TD ROWSPAN="1" COLSPAN="1">
+<P CLASS="FigureHolder"><IMG SRC="xhtm.1109.gif" ALIGN="BASELINE">
+&nbsp;</p>
+
+</td>
+</tr>
+</table>
+</dl>
+
+<P CLASS="Body">All four of these <CODE CLASS="Literal">target</code> values begin with the underscore character. Any other window or target beginning with an underscore is ignored by the browser, so don't use the underscore as the first character of any frame <CODE CLASS="Literal">name</code> or <CODE CLASS="Literal">id</code> you define in your documents.</p>
+
+
+<H3 CLASS="HeadB"><A NAME="15541"></a>The &lt;base&gt; Default Target</h3>
+
+
+<P CLASS="Body">It can be tedious to specify a target for every hypertext link in your documents, especially when most are targeted at the same window or frame. To alleviate this problem, you can add a <CODE CLASS="Literal">target</code> attribute to the <CODE CLASS="Literal">&lt;base&gt;</code> tag. </p>
+
+
+<P CLASS="Body">The <CODE CLASS="Literal">target</code> attribute in the <CODE CLASS="Literal">&lt;base&gt;</code> tag sets the default target for every hypertext link in the current document that does not contain an explicit <CODE CLASS="Literal">target</code> attribute. For example, in our example table of contents document, almost every link causes the document to be displayed in another window named &quot;view_frame.&quot; Rather than include that target in each hypertext link, you should place the common target in the table of contents' <CODE CLASS="Literal">&lt;base&gt;</code> tag within its <CODE CLASS="Literal">&lt;head&gt;</code>: </p>
+
+<PRE><CODE CLASS="Code">&lt;head&gt;</code>
+<CODE CLASS="Code">&lt;title&gt;Table of Contents&lt;/title&gt;</code>
+<CODE CLASS="Code">&lt;base target=&quot;view_frame&quot;&gt;</code>
+<CODE CLASS="Code">&lt;/head&gt;</code>
+<CODE CLASS="Code">&lt;body&gt;</code>
+<CODE CLASS="Code">&lt;h3&gt;Table of Contents&lt;/h3&gt;</code>
+<CODE CLASS="Code">&lt;ul&gt;</code>
+<CODE CLASS="Code">  &lt;li&gt;&lt;a href=&quot;pref.html&quot;&gt;Preface&lt;/a&gt;&lt;/li&gt;</code>
+<CODE CLASS="Code">  &lt;li&gt;&lt;a href=&quot;chap1.html&quot;&gt;Chapter 1&lt;/a&gt;&lt;/li&gt;</code>
+<CODE CLASS="Code">  &lt;li&gt;&lt;a href=&quot;chap2.html&quot; &gt;Chapter 2&lt;/a&gt;&lt;/li&gt;</code>
+<CODE CLASS="Code">  &lt;li&gt;&lt;a href=&quot;chap3.html&quot;&gt;Chapter 3&lt;/a&gt;&lt;/li&gt;</code>
+<CODE CLASS="Code">&lt;/ul&gt;</code>
+<CODE CLASS="Code">&lt;/body&gt;</code>
+</pre>
+
+<P CLASS="Body">Notice that we don't include any other target references in the list of hyperlinks, because the browser will load and display all the respective documents in the base target &quot;view_frame.&quot;</p>
+
+
+<H3 CLASS="HeadB">Traditional Link Behavior</h3>
+
+
+<P CLASS="Body">Before the onset of frames, each time you selected a hyperlink, the corresponding document replaced the contents of the browser window. With frames, this behavior is modified so that the corresponding document replaces the content of the referencing frame. This is often not the desired behavior and can be disconcerting to people browsing your documents.</p>
+
+
+<P CLASS="Body">For example, suppose you have arranged all of the documents on your site to present themselves in three frames: a navigational frame at the top of the browser window, a scrolling content frame in the middle, and a feedback form at the bottom. You named the content frame with the <CODE CLASS="Literal">name</code> attribute of the <CODE CLASS="Literal">&lt;frame&gt;</code> tag in the top-level document for your collection and used the <CODE CLASS="Literal">target</code> attribute of the <CODE CLASS="Literal">&lt;base&gt;</code> tag in every document on your site to ensure that all links will be loaded into the center content frame. </p>
+
+
+<P CLASS="Body">This arrangement works perfectly for all the documents on your site, but what happens when a user selects a link that takes them to a different site? The referenced document will still be loaded into the center content frame. Now the user is confronted by a document from some other site, surrounded by your navigation and feedback frames!<A HREF="#footnote-1" TITLE="Footnote" CLASS="footnote">[1]</a> Very impolite.</p>
+
+
+<P CLASS="Body">The solution is to make sure that every hypertext link that references a remote document has a target of <CODE CLASS="Literal">_top</code>. This way, when someone selects a link that takes them away from your site, the remote document will replace the contents of the entire browser window, including your navigation and feedback frames. If the majority of the links in your documents are to other sites, you might consider adding <CODE CLASS="Literal">target=&quot;_top&quot;</code> to a <CODE CLASS="Literal">&lt;base&gt;</code> tag in your document and using explicit <CODE CLASS="Literal">target</code> attributes in the links to your local documents.</p>
+
+<HR>
+
+<P CLASS="Footnote"><A NAME="footnote-1"></a>1.
+Check out <EM CLASS="EmphasisRoman">Chapter 17, </em><CITE CLASS="Citation">Tips, Tricks, and Hacks</cite>, on how to step out into the forefront when your pages happen to be on the other end of a targetless hyperlink.</p>
+
+
+
+</blockquote>
+
+
+<!-- End of sample chapter -->
+<p><b>Back to: <a href="../noframes.html">HTML &amp; XHTML: The Definitive Guide, 4th Edition</a></b>
+
+<!-- O'Reilly Footer Begins Here -->
+
+<CENTER>
+<HR SIZE="1" NOSHADE>
+<FONT SIZE="1" FACE="Verdana, Arial, Helvetica">
+<A HREF="http://www.oreilly.com/">
+<B>O'Reilly&nbsp;Home</B></A> <B> | </B>
+<A HREF="http://www.oreilly.com/sales/bookstores">
+<B>O'Reilly&nbsp;Bookstores</B></A> <B> | </B>
+<A HREF="http://www.oreilly.com/order_new/">
+<B>How&nbsp;to&nbsp;Order</B></A> <B> | </B>
+<A HREF="http://www.oreilly.com/oreilly/contact.html">
+<B>O'Reilly&nbsp;Contacts<BR></B></A>
+<A HREF="http://www.oreilly.com/international/">
+<B>International</B></A> <B> | </B>
+<A HREF="http://www.oreilly.com/oreilly/about.html">
+<B>About&nbsp;O'Reilly</B></A> <B> | </B>
+<A HREF="http://www.oreilly.com/affiliates.html">
+<B>Affiliated&nbsp;Companies</B></A><p>
+<EM>&copy; 2001, O'Reilly &amp; Associates, Inc.</EM><BR>
+<A HREF="mailto:webmaster@oreilly.com"><I>webmaster@oreilly.com</I></A>
+</FONT>
+</CENTER>
+
+<!-- O'Reilly Footer Ends Here -->
+
+</BODY>
+</html>

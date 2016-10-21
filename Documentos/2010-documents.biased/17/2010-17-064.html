@@ -1,0 +1,1355 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" id="sixapart-standard">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Movable Type Pro 4.21-en" />
+    
+<!-- added for mt 4.10 issues -->
+<link rel="stylesheet" href="http://www.insideria.com/insideria.css" type="text/css" />
+<!--[if lt IE 7]><style type="text/css" media="screen,projection">@import "http://www.insideria.com/screen_ie.css";</style><![endif]-->
+
+<link rel="alternate" type="application/atom+xml" title="InsideRIA Atom Feed" href="http://feeds.feedburner.com/oreilly/insideria" />
+
+
+
+
+    <title>
+
+    Google's Indexing Flash Text with Adobe's SDK - InsideRIA
+
+    </title>
+
+<!-- metas7 -->
+
+
+<meta name="keywords" content="flash, search, seo, standards" />
+
+<meta name="description" content="I just caught this very exciting bit of information regarding Flash in Google searches.  Google's indexing Flash text content using Adobe's Search Engine SDK.   This is according to an interview Stephen Spencer conducted with Matt Cutts from Google.  I haven't found this on any official Google page, but it is more or less from the horses mouth. " />
+
+
+<meta name="search_date" content="2008-01-18" />
+<meta name="author" content="Andre Charland" />
+
+<!-- metas7 -->
+
+
+
+
+
+    <link rel="prev" href="http://www.insideria.com/2008/01/actionscript-30-is-it-hard-or.html" title="ActionScript 3.0: Is It Hard or Not?" />
+    <link rel="next" href="http://www.insideria.com/2008/01/greetings-and-salutations.html" title="Greetings and Salutations" />
+
+
+   
+<link rel="alternate" type="application/atom+xml" title="Andre Charland's Atom Feed" href="http://www.insideria.com/andre-charland/atom.xml" />
+
+
+
+
+    
+    <script type="text/javascript" src="http://www.insideria.com/mt.js"></script>
+
+
+
+<!-- scripts start -->
+<script type="text/javascript" src="http://oreillynet.com/scripts/jquery-1.3.2.min.js"/>
+<script type="text/javascript" src="http://www.insideria.com/screencasts/scripts/standard.js"></script>
+<script type="text/javascript" src="http://www.insideria.com/mt.js"></script>
+<script type="text/javascript" src="http://digitalmedia.oreilly.com/scripts/highslide/highslide.js"></script>
+<script type="text/javascript" src="http://digitalmedia.oreilly.com/scripts/highslide/highslide-html.js"></script>
+<script type="text/javascript">
+hs.graphicsDir = 'http://digitalmedia.oreilly.com/scripts/highslide/graphics/';
+hs.outlineType = 'rounded-white';
+hs.outlineWhileAnimating = true;
+</script>
+<!-- scripts end -->
+</head>
+<body class="mt-archive-listing mt-entry-archive layout-wt" onload="individualArchivesOnLoad(commenter_name)">
+ <div id="container">
+        <div id="container-inner">
+            <div id="headercont">
+                <div id="header-inner">
+         <!-- header from ria -->
+		 <div id="header">
+				<h1>
+					<a href="http://www.insideria.com/" rel="home"><span title="O’Reilly: Inside RIA"></span>O’Reilly: <strong>Inside RIA</strong></a>
+				</h1>
+				
+				<ul id="accessibility-links">
+					<li><a href="#category">Skip to primary content</a></li>
+
+					<li><a href="#secondary-content">Skip to secondary content</a></li>
+					<li><a href="#search">Skip to search form</a></li>
+				</ul>
+				<!-- /#accessibility-menu -->
+				<hr style="display:none;"/>
+				
+				<dl id="menu">
+					<dt>Other sites:</dt>
+
+					<dd class="other-sites">
+						<ul>
+							<li><a href="http://oreilly.com/">O’reilly Media</a></li>
+						</ul>
+					</dd>
+					<dd class="header-right">
+
+					<div class="stay-connected">
+					<a href="http://feeds.feedburner.com/oreilly/insideria" onmouseover="showIconLabel(this);" onmouseout="hideIconLabel();">
+					<img src="http://www.insideria.com/riaimages/rss_icon.png" alt="InsideRIA Atom feed" title=""/></a> 
+					<a href="http://www.feedburner.com/fb/a/headlineanimator/install?id=1755316&amp;w=6" onmouseover="showIconLabel(this);"  onmouseout="hideIconLabel();" onclick="window.open(this.href, 'haHowto', 'width=520,height=600,toolbar=no,address=no,resizable=yes,scrollbars'); return false" target="_blank">
+					<img src="http://www.insideria.com/riaimages/feedburner_icon.png" alt="InsideRIA news ticker for your site" title=""/></a>
+					<a href="http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewPodcast?id=291082031" onmouseover="showIconLabel(this);"  onmouseout="hideIconLabel();"><img src="http://www.insideria.com/riaimages/podcast_icon.png" alt="InsideRIA weekly roundup podcast" title=""/></a>
+
+<a href="http://twitter.com/insideria/"><img src="http://www.insideria.com/riaimages/twitter2.png" alt="InsideRIA on Twitter" title="http://www.insideria.com/riaimages/icon_twitter.gif"/></a>
+					</div>
+
+<div class="search"><div class="search-header">Search</div>
+        <ul>
+                <li>
+                        <form method="get" action="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi
+">
+                                <input type="hidden" name="IncludeBlogs" value="34" />
+                                <label for="search" accesskey="4"></label>
+                                <input id="search" name="search" size="23" onblur="copyTerm(this,  
+'q');" />
+                                &nbsp;&nbsp;&nbsp;<input type="submit" value="InsideRIA" />
+                        </form>
+                </li>
+                
+                <li>
+                        <form name="searchfield" method="get" action="http://search.oreilly.com
+">
+                                <input type="hidden" id="q" name="q" size="23"  
+maxlength="64" accesskey="s" value="" />
+                                &nbsp;&nbsp;&nbsp;<input type="submit" value="O'Reilly" />
+                        </form>
+                </li>
+        </ul>
+</div>
+                
+
+<script type="text/javascript" language="javascript">
+        function copyTerm(obj, id) {
+                var searchInput = document.getElementById(id);
+                searchInput.value = obj.value;
+        }
+</script>            				
+					</dd>
+				
+				</dl><!-- /#menu -->
+			</div><!-- /#header -->
+			<!-- header from ria -->
+			
+                </div><!-- header inner end -->
+            </div><!-- header2 end -->
+            <div id="content">
+                <div id="content-inner">
+
+
+                    <div id="alpha">
+                        <div id="alpha-inner">
+
+
+
+<div class="sectione">
+<h3><a href="http://www.insideria.com/">Home</a><span class="bluecrumb">&nbsp;&nbsp;&gt;&nbsp;&nbsp;
+
+	
+	
+	
+	
+</span></h3>
+
+
+<div id="entry-22728" class="entry-asset asset">
+    <div class="asset-header">
+        <h1 class="asset-name">Google's Indexing Flash Text with Adobe's SDK</h1>
+        <div>
+<img src="http://www.oreillynet.com/images/people/weblogs/andre_charland.jpg" style="padding: 5px 5px 5px 0; float: left; border: none;" alt="Author photo" />
+</div>            
+<div class="asset-meta">
+    <div class="byline">
+
+<a href="http://www.oreillynet.com/pub/au/3433">
+
+        Andre Charland</a>
+
+    </div>
+
+<div class="meta">January 18, 2008
+
+
+    <span class="separator">|</span> <a class="permalink" href="http://www.insideria.com/2008/01/googles-probably-indexing-flas.html">Permalink</a>
+    | <a href="http://www.insideria.com/2008/01/googles-probably-indexing-flas.html#comments">Comments (6)</a>
+    
+    </div>
+</div>
+
+<!-- AddThis Bookmark Button BEGIN -->
+<div class="bookmark-this" style="float: left; clear: right;">
+<span class="sharethis" style="float: left;"><a href="http://www.addthis.com/bookmark.php" onclick="window.open('http://www.addthis.com/bookmark.php?wt=nw&pub=Painter&url='+encodeURIComponent(location.href)+'&title='+encodeURIComponent(document.title), 'addthis',
+'scrollbars=yes,menubar=no,width=620,height=520,resizable=yes,toolbar=no,location=no,status=no,screenX=200,screenY=100,left=200,top=100');
+return false;" title="Bookmark using any bookmark manager!" target="_blank"><img src="http://s9.addthis.com/button1-share.gif" width="125" height="16" border="0" alt="AddThis Social Bookmark Button" /></a></span>
+<span class="tweetmeme" style="float: left; clear: right;"><script type="text/javascript">tweetmeme_style = 'compact';tweetmeme_url = 'http://www.insideria.com/2008/01/googles-probably-indexing-flas.html';tweetmeme_source = 'insideria';
+</script><script type="text/javascript" src="http://tweetmeme.com/i/scripts/button.js"></script></span>
+<!-- AddThis Bookmark Button END --></div>
+
+
+<!-- inserted listen -->
+<div class="ISI_IGNORE">
+<div class="listen" style="">
+<div class="button"><a href="http://www.insideria.com/print/22728.html" target="_blank">print <img src="http://insideria.com/riaimages/printtag.jpg" style="border:none;" /></a> 
+| <a target="_new" href="http://asp2.readspeaker.net/cgi-bin/oreillyrsone?lang=us&voice=Paul&customerid=171&url=http://www.insideria.com/2008/01/googles-probably-indexing-flas.html">listen <img src="http://www.oreillynet.com/images/icon_listen_small.gif" width="10" height="9" alt="Speech Icon" /></a></div>
+</div>
+</div>
+
+
+
+        
+    </div>
+<div class="asset-body">
+    <div class="asset-content">
+
+<!-- ISI_LISTEN_START -->
+<span class=ISI_MESSAGE><!-- This weblog is brought to you by O'Reilly Digital Media's InsideRIA.com site --></span>
+
+            <p>I just caught this very exciting bit of information regarding Flash in Google searches.  <a href="http://blogs.cnet.com/8301-13530_1-9834708-28.html" target="_blank">Google's indexing Flash text </a>content using <a href="http://www.adobe.com/licensing/developer/search/faq/" target="_blank">Adobe's Search Engine SDK</a>.  This is according to an interview <a href="http://www.netconcepts.com/who-we-are/executive-team/stephan-spencer/" target="_blank">Stephen Spencer</a> conducted with <a href="http://www.mattcutts.com/blog/" target="_blank">Matt Cutts</a> from Google.  I haven't found this on any official Google page, but it is more or less from the horses mouth.  Here's an excerpt from the interview:<br />
+<blockquote><br />
+"...it can be difficult to pull the text out a Flash file. I think we do pretty well. It used to be the case that we had our own, home-brew code to pull the text out of Flash, but I think that we have moved to the Search Engine SDK tool that Adobe/Macromedia offers."</blockquote></p>
+
+<p>This is great news for RIAs and especially Flash/Flex folks who care about search engine ranking.  It was always at least a little bit contested if not unclear how and if text and in Flash sites (.swf) got proper treatment from Google.  Certainly this has been stated as reason to not adopt Flash for your presentation layer in the past, maybe this will change people's minds a bit.  Flex has done a lot to combat two of the other big RIA risk ares of accessibility and bookmarking/back button issues.  I'm glad to see real issues like this being resolved with concrete technical solutions.  More on accessibility and bookmarking (state) in future posts:)</p>
+
+<p>This is also good because we can avoid techniques that could look like cloaking to Googlebot which will hurt your search engine listings.  It is pretty cool that you can download the SDK and test out your content.  However on the SDK's FAQ page (which looks a bit dated) it says that Adobe hasn't announced any official 3rd party search engines.  </p>
+
+<p>You download the <a href="http://www.netconcepts.com/learn/matt-interview.mp3">interview in mp3</a> format or <a href="http://www.stephanspencer.com/archives/2007/12/17/matt-cutts-interview/" target="_blank">read the transcript</a> for more info.<br />
+</p>
+
+<p><a href="http://www.insideria.com/andre-charland/">Read more from 
+Andre Charland</a>.<!-- ISI_LISTEN_STOP -->
+<span class="stay-connected" style="padding: 0px; float: none;">
+<a href="http://www.insideria.com/andre-charland/atom.xml" onmouseover="showIconLabel(this);" onmouseout="hideIconLabel();">
+<img src="http://www.insideria.com/riaimages/rss_icon.png" alt="Andre Charland's Atom feed" title=""/></a> 
+<a href="http://twitter.com/AndreCharland" onmouseover="showIconLabel(this);"  onmouseout="hideIconLabel();">
+<img src="http://www.insideria.com/riaimages/icon_twitter.gif" alt="AndreCharland on Twitter" title=""/></a>					
+</span></p>
+
+        </div>
+
+
+
+
+	<ul class="meta"><li>comments: 6</li><div class="entry-tags">
+<!-- <h4 class="entry-tags-header"></h4> -->
+<ul class="entry-tags-list"><li class="entry-tag">tags:</li> 
+
+<li class="entry-tag"><a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=flash&amp;limit=20&amp;IncludeBlogs=34" rel="tag">flash</a></li>
+
+<li class="entry-tag"><a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=search&amp;limit=20&amp;IncludeBlogs=34" rel="tag">search</a></li>
+
+<li class="entry-tag"><a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=seo&amp;limit=20&amp;IncludeBlogs=34" rel="tag">seo</a></li>
+
+<li class="entry-tag"><a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=standards&amp;limit=20&amp;IncludeBlogs=34" rel="tag">standards</a></li>
+
+</ul>
+</div>
+</ul>
+
+    </div>
+    <div class="asset-footer"></div>
+
+    
+    
+    
+    
+        <p id="related-entries"><strong>Related Entries</strong></p>
+        <ul style="margin-left: 15px;">
+            
+        
+            
+            
+                <li><a href="http://www.insideria.com/2010/03/ribbit-has-been-around-for.html">Hacking Ribbit</a></li>
+            
+        
+            
+            
+                <li><a href="http://www.insideria.com/2010/03/intellij-idea9-actionscript-3f-1.html">IntelliJ Idea9 ActionScript 3/Flex Workflow Part 2</a></li>
+            
+        
+            
+            
+                <li><a href="http://www.insideria.com/2010/02/qow-what-is-your-definition-of.html">QOW: What is your definition of RIA?</a></li>
+            
+        
+            
+            
+                <li><a href="http://www.insideria.com/2010/02/intellij-idea9-actionscript-3f.html">IntelliJ Idea9 ActionScript 3/Flex Workflow Part 1</a></li>
+            
+        
+            
+            
+                <li><a href="http://www.insideria.com/2010/01/intellij-idea-9-for-flash-dev.html">IntelliJ Idea 9 For Flash Dev Overview</a></li>
+            
+        
+    
+        </ul>
+    
+
+
+</div>
+</div>
+
+
+
+
+
+
+<div id="comments" class="sectionf">
+<h3>Comments</h3>
+
+
+
+<!-- comments form in comments header -->
+<h2 class="comments-header">6 Comments</h2>
+<div><a rel="alternate" type="application/atom+xml" href="http://www.insideria.com/googles-probably-indexing-flas/comments.xml">
+Subscribe to comments. <img src="http://www.insideria.com/riaimages/rss_icon.png" alt="Comment feed" /></a></div>
+<div class="comments-content">
+
+<div class="comment" id="comment-2014295">
+    <div class="inner">
+        <div class="comment-header">
+            John Dowdell  said:
+        </div>
+        <div class="comment-content">
+            <p>More context here:<br />
+<a href="http://weblogs.macromedia.com/jd/archives/2008/01/google_swf_sdk.cfm">http://weblogs.macromedia.com/jd/archives/2008/01/google_swf_sdk.cfm</a></p>
+
+<p>jd/adobe</p>
+        </div>
+        <div class="comment-footer">
+            <a href="#comment-2014295" title="Permalink to this comment">January 21, 2008  9:15 AM</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="comment" id="comment-2014297">
+    <div class="inner">
+        <div class="comment-header">
+            Andre Charland  said:
+        </div>
+        <div class="comment-content">
+            <p>Hi John,</p>
+
+<p>Just read your post on the topic.  I completely understand that there are many other factors that play into having a popular and high traffic site.  However, I think it's still very relevant that you can see the content of your Flash site exactly the way Google does.  At very least it will really help SEO practitioners understand what content is being indexed, and help them sleep easier:) </p>
+
+<p>You mention "Incidental bodytext might be useful in some advanced and specific searches" and that's bang on!!  Search engine marketers spend a lot of time worrying about avdanced and very specific searches, that's where the elusive "long tail" comes from.</p>
+
+<p>Thanks!</p>
+        </div>
+        <div class="comment-footer">
+            <a href="#comment-2014297" title="Permalink to this comment">January 21, 2008  9:40 AM</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="comment" id="comment-2015283">
+    <div class="inner">
+        <div class="comment-header">
+            Dave_Matthews  said:
+        </div>
+        <div class="comment-content">
+            <p>Don't remember where it was posted, but there is a serious problem with DIV layers holding transparent Flash - Google considers it cloaking/spam. </p>
+        </div>
+        <div class="comment-footer">
+            <a href="#comment-2015283" title="Permalink to this comment">February 18, 2008  3:33 AM</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="comment" id="comment-2015827">
+    <div class="inner">
+        <div class="comment-header">
+            Glasgow Web Design  said:
+        </div>
+        <div class="comment-content">
+            <p>John, I very much agree - Google has been able to read Flash for a long time, but still Flash quite clearly doesn't perform as well as HTML.  This is because you gain none of the benefit of tags with greater emphasis, i.e. headers (), bold (<strong>), etc.</strong></p>
+
+<p>Andre, you're also correct, flash is indexed, and so the long tail comes into play, but if you can acheive your objectives with Javascript, why lose the benefit of HTML?</p>
+        </div>
+        <div class="comment-footer">
+            <a href="#comment-2015827" title="Permalink to this comment">March 12, 2008 12:18 PM</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="comment" id="comment-2017002">
+    <div class="inner">
+        <div class="comment-header">
+            Andrea Hill  said:
+        </div>
+        <div class="comment-content">
+            <p>Dave_Matthews -- you should probably find the reference for that, without evident thereof, it may just be a supposition :)</p>
+        </div>
+        <div class="comment-footer">
+            <a href="#comment-2017002" title="Permalink to this comment">May  8, 2008  4:35 AM</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="comment" id="comment-2017730">
+    <div class="inner">
+        <div class="comment-header">
+            Miracle studios  said:
+        </div>
+        <div class="comment-content">
+            <p>Great tool to make my flash indexable </p>
+        </div>
+        <div class="comment-footer">
+            <a href="#comment-2017730" title="Permalink to this comment">June 11, 2008  2:57 AM</a>
+        </div>
+    </div>
+</div>
+
+
+</div>
+
+
+
+<!-- comments form if comments open -->
+<div class="comments-open" id="comments-open">
+    <h2 class="comments-open-header">Leave a comment</h2>
+    <div class="comments-open-content">
+    
+        <form method="post" action="http://blogs.oreilly.com/cgi-bin/mt/mt-c.cgi" name="comments_form" id="comments-form" onsubmit="if (this.bakecookie.checked) rememberMe(this)">
+            <input type="hidden" name="static" value="1" />
+            <input type="hidden" name="entry_id" value="22728" />
+            <input type="hidden" name="__lang" value="en" />
+            <div id="comments-open-data">
+                <div id="comment-form-name">
+                    <label for="comment-author">Name</label>
+                    <input id="comment-author" name="author" size="30" value="" />
+                </div>
+                <div id="comment-form-email">
+                    <label for="comment-email">Email Address</label>
+                    <input id="comment-email" name="email" size="30" value="" />
+                </div>
+                
+                <div id="comment-form-remember-me">
+                    <label for="comment-bake-cookie"><input type="checkbox" id="comment-bake-cookie" name="bakecookie" onclick="if (!this.checked) forgetMe(document.comments_form)" value="1" />
+                        Remember personal info?</label>
+                </div>
+            </div>
+            <div id="comments-open-text">
+                <label for="comment-text">Comments (You may use HTML tags for style)</label>
+                <textarea id="comment-text" name="text" rows="15" cols="50"></textarea>
+            </div>
+
+<div style="width: 50%; float: left; clear: left"><div class="label"><label for="captcha_code">Captcha:</label></div><div class="field"><input type="hidden" name="token" value="C1MRYr39DgYmPu5qMdc3jfqQHXEW6XiuTDWmoJo9" /><img src="http://blogs.oreilly.com/cgi-bin/mt/mt-c.cgi/captcha/34/C1MRYr39DgYmPu5qMdc3jfqQHXEW6XiuTDWmoJo9" width="150" height="35" /><br /><input name="captcha_code" id="captcha_code" value="" autocomplete="off" /><p>Type the characters you see in the picture above.</p></div></div>
+<div style="width: 50%; float: left; clear: right"><p id="comments-open-challenge"><input type="hidden" id="commchallenge_beacon" name="commchallenge_beacon" value="1" /><label for="commchallenge_answer">Please type the word RIA in the box below. <strong>(required)</strong>:</label><br /><input type="text" id="commchallenge_answer" name="commchallenge_answer" /></p><script type="text/javascript">
+<!--    
+if ((typeof commenter_name != 'undefined') ||
+    (typeof getCommenterName != 'undefined' &&  getCommenterName())) {
+    mtHide('comments-open-challenge');
+} else {
+    mtShow('comments-open-challenge');
+} 
+// -->
+</script>
+</div>  
+
+            <div id="comments-open-footer" style="text-align: center; clear: both;">
+                <input type="submit" accesskey="v" name="preview" id="comment-preview" value="Preview" />
+                <input type="submit" accesskey="s" name="post" id="comment-submit" value="Submit" />
+    
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+</div>
+
+
+<script type='text/javascript' id='aptureScript' src='http://www.apture.com/js/apture.js?siteToken=EsiL2ZT' charset='utf-8'></script>  </div>
+                    </div>
+
+            <div id="beta">
+    <div id="beta-inner">
+              <div class="widget-cloud widget">
+
+<script type="text/javascript">
+/* Tag Cloud Display */
+
+function show_all_tags () {
+	document.getElementById('default-cloud').style.display="none";
+	document.getElementById('full-cloud').style.display="";
+}
+
+function hide_all_tags () {
+	document.getElementById('default-cloud').style.display="";
+	document.getElementById('full-cloud').style.display="none";
+}
+</script>
+
+<h3 class="top-widget-header">Tag Cloud</h3>
+<div class="widget-content">
+<div id="default-cloud" class="widget-cloud">
+<ul class="widget-list">
+
+<li class="rank-3 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=actionscript&amp;limit=20">actionscript</a>
+</li>
+
+<li class="rank-4 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=adobe&amp;limit=20">adobe</a>
+</li>
+
+<li class="rank-4 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=adobe%20max&amp;limit=20">adobe max</a>
+</li>
+
+<li class="rank-3 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=air&amp;limit=20">air</a>
+</li>
+
+<li class="rank-4 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=ajax&amp;limit=20">ajax</a>
+</li>
+
+<li class="rank-4 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=conference&amp;limit=20">conference</a>
+</li>
+
+<li class="rank-4 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=development&amp;limit=20">development</a>
+</li>
+
+<li class="rank-3 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=flash&amp;limit=20">flash</a>
+</li>
+
+<li class="rank-1 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=flex&amp;limit=20">flex</a>
+</li>
+
+<li class="rank-3 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=javascript&amp;limit=20">javascript</a>
+</li>
+
+<li class="rank-3 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=ria&amp;limit=20">ria</a>
+</li>
+
+<li class="rank-4 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=silverlight&amp;limit=20">silverlight</a>
+</li>
+
+</ul>
+<span style="font-size:11px;">
+<a onclick="show_all_tags();return false;" href="#"><img src="http://oreillynet.com/images/oreilly/digitalmedia/insideria/expand-bar.jpg" alt="expand" /></a>
+</span>
+</div>
+
+<div id="full-cloud" class="widget-cloud" style="display:none;">
+<ul class="widget-list">
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-5 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=3d&amp;limit=20">3d</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-3 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=actionscript&amp;limit=20">actionscript</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-3 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=adobe&amp;limit=20">adobe</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-3 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=adobe%20max&amp;limit=20">adobe max</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-2 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=air&amp;limit=20">air</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-5 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=air%20api&amp;limit=20">air api</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-3 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=ajax&amp;limit=20">ajax</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-5 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=api&amp;limit=20">api</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-5 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=as3&amp;limit=20">as3</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-4 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=career&amp;limit=20">career</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-4 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=coldfusion&amp;limit=20">coldfusion</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-3 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=conference&amp;limit=20">conference</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-4 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=datavisualization&amp;limit=20">datavisualization</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-3 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=design&amp;limit=20">design</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-3 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=development&amp;limit=20">development</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-4 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=development%20series&amp;limit=20">development series</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-5 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=event&amp;limit=20">event</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-4 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=excerpt&amp;limit=20">excerpt</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-4 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=facebook&amp;limit=20">facebook</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-5 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=facebook%20api&amp;limit=20">facebook api</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-2 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=flash&amp;limit=20">flash</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-4 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=flash%20catalyst&amp;limit=20">flash catalyst</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-5 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=flashplayer&amp;limit=20">flashplayer</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-1 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=flex&amp;limit=20">flex</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-4 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=flex4&amp;limit=20">flex4</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-5 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=flexbuilder&amp;limit=20">flexbuilder</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-4 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=frameworks&amp;limit=20">frameworks</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-4 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=google&amp;limit=20">google</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-5 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=graphics&amp;limit=20">graphics</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-4 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=iphone&amp;limit=20">iphone</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-4 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=java&amp;limit=20">java</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-4 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=javafx&amp;limit=20">javafx</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-3 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=javascript&amp;limit=20">javascript</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-3 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=jquery&amp;limit=20">jquery</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-5 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=lcds&amp;limit=20">lcds</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-5 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=livecycle%20data%20services&amp;limit=20">livecycle data services</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-5 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=map&amp;limit=20">map</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-4 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=microsoft&amp;limit=20">microsoft</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-4 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=mobile&amp;limit=20">mobile</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-5 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=open%20source&amp;limit=20">open source</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-4 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=performance&amp;limit=20">performance</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-4 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=php&amp;limit=20">php</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-2 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=ria&amp;limit=20">ria</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-4 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=ria%20radio&amp;limit=20">ria radio</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-4 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=ria%20roundup&amp;limit=20">ria roundup</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-3 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=silverlight&amp;limit=20">silverlight</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-5 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=Summer%20of%20Flash&amp;limit=20">Summer of Flash</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-5 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=twitter&amp;limit=20">twitter</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-5 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=ux&amp;limit=20">ux</a>
+</li>
+
+<!--mt:Tags sort_by="name"-->
+<li class="rank-5 widget-list-item">
+<a href="http://blogs.oreilly.com/cgi-bin/mt/mt-search.cgi?blog_id=34&amp;tag=workflow&amp;limit=20">workflow</a>
+</li>
+
+</ul>
+<span style="font-size:11px;">
+<a onclick="hide_all_tags();return false;" href="#"><img src="http://oreillynet.com/images/oreilly/digitalmedia/insideria/close-bar.jpg" alt="close" /></a>
+</span>
+</div>
+</div>
+</div> 
+
+<div class="widget-syndicate widget"><h3 class="widget-header"><a href="http://www.insideria.com/2010/02/qow-ipad-whats-your-take.html#comments" style="color:#FFFFFF; text-decoration:underline;">iPad</a></h3>
+<div class="widget-content"><div class="aboutus">
+<p>What's your take on the iPad? (Putting aside the Flash/iPad flame war)</p>
+<p><a href="http://www.insideria.com/2010/02/qow-ipad-whats-your-take.html#comments"><span style="color:#900; font-weight: bold;">Answer</span></a></p>
+</div></div>
+</div><div class="widget-syndicate widget">
+<h3 class="widget-header">Latest Features</h3>
+<div class="widget-content">
+<ul id="latest-feature-list">
+<li class="latest-feature"><div class="latest-feature-title"><a href="http://www.insideria.com/2010/03/ribbit-has-been-around-for.html">
+Hacking Ribbit</a></div><div class="latest-feature-author">
+<a href="http://www.oreillynet.com/pub/au/3675">
+
+        Mirza Hatipovic</a>
+</div>
+<div>Ribbit has been around for a while and beside Lee Brimelow's great introduction tutorial on gotoandlearn.com, I did some experimenting in order to achieve results needed for my application. Because I live in Bosnia and Herzegowina, it was a bit... <a href="http://www.insideria.com/2010/03/ribbit-has-been-around-for.html">Continue Reading</a></div></li><li class="latest-feature"><div class="latest-feature-title"><a href="http://www.insideria.com/2010/03/intellij-idea9-actionscript-3f-1.html">
+IntelliJ Idea9 ActionScript 3/Flex Workflow Part 2</a></div><div class="latest-feature-author">
+<a href="http://www.oreillynet.com/pub/au/3725">
+
+        Jesse Freeman</a>
+</div>
+<div> Welcome to part 2 of my IntelliJ Idea 9 ActionScript 3/Flex workflow series. If you followed part 1 you should have a HelloWorldProject setup along with a HelloWorld module. Now it is time to learn how to compile our... <a href="http://www.insideria.com/2010/03/intellij-idea9-actionscript-3f-1.html">Continue Reading</a></div></li><li class="latest-feature"><div class="latest-feature-title"><a href="http://www.insideria.com/2010/03/where-the-wild-things-are-an-a.html">
+Where the Wild Things Are: an Adventure in Silverlight (Act I)</a></div><div class="latest-feature-author">
+<a href="http://www.oreillynet.com/pub/au/3729">
+
+        Justin J. Moses</a>
+</div>
+<div> Credit: A big thank you to Jose Fajardo from Cynergy Systems for his Silverlight expertise (and patience). Late last year, I took it upon myself to learn Silverlight. You see, I'm both a Flex and a .NET developer, so... <a href="http://www.insideria.com/2010/03/where-the-wild-things-are-an-a.html">Continue Reading</a></div></li><li class="latest-feature"><div class="latest-feature-title"><a href="http://www.insideria.com/2010/02/controlling-animation-using-cs.html">
+Controlling animation using CSS3</a></div><div class="latest-feature-author">
+<a href="http://www.oreillynet.com/pub/au/4375">
+
+        Matthew David</a>
+</div>
+<div> Controlling animation using CSS3 Transition and animation control is new to Cascading Style Sheets Level 3, CSS3. With a basic understanding of CSS you can add animation to your Web site without needing to know complex JavaScript or use... <a href="http://www.insideria.com/2010/02/controlling-animation-using-cs.html">Continue Reading</a></div></li>
+</ul>
+<script type="text/javascript" language="javascript">
+	createList();
+</script>
+
+</div></div> 
+<div class="widget-syndicate widget">
+<h3 class="widget-header">Podcasts &amp; Screencasts</h3>
+<div class="widget-content"><div class="aboutus">
+
+<ul class="widget-list">
+
+<li><a href="http://www.insideria.com/2010/02/ria-radio---episode-7-jesse-wa.html"><img src="http://www.insideria.com/riaimages/podcast_icon.png" alt="podcast graffic" /> RIA Radio - Episode 8: Jesse Warden</a></li>
+
+
+
+<li><a href="http://www.insideria.com/2009/09/flex-profiling.html">Production Topics: Flex Profiling - Lost ActionScript 3.0 Weekend</a></li>
+
+</ul>
+
+</div></div>
+</div>
+<div class="widget-syndicate widget">
+<h3 class="widget-header">News &amp; Events</h3>
+<div class="widget-content">
+<div class="aboutus">
+
+<ul id="news" class="widget-list">
+
+<li><a href="http://www.insideria.com/2010/03/qow-if-you-had-1000-what-tech.html">QOW: If you had $1000 what tech would you buy?</a></li>
+
+<li><a href="http://www.insideria.com/2010/02/qow-what-is-your-definition-of.html">QOW: What is your definition of RIA?</a></li>
+
+<li><a href="http://www.insideria.com/2010/02/flash-player-mobile-and-adobe.html">Flash Player Mobile and Adobe AIR Mobile</a></li>
+
+</ul>
+<p>Read more <a href="http://www.insideria.com/newsevents/">News &amp; Events</a></p></div>
+</div></div> 
+<!-- Aggregate Knowledge -->
+
+<div class="widget-syndicate widget">
+<div id="half"><h3 class="widget-header">Recommended for You</h3></div>
+<div class="widget-content">
+<div class="aboutus">
+<iframe id="recommended1" src="http://catalog.oreilly.com/lists/some_books_on/webdesign" width="100%" frameborder="0" scrolling="auto" border="0" style="overflow-x: hidden; border: none; height: 800px;"></iframe>
+</div></div></div> 
+<!-- changed per MW -->
+
+<!-- End AK --><div class="widget-recent-comments widget">
+    <h3 class="widget-header"><a href="http://twitter.com/InsideRIA" target="_blank">@InsideRIA</a> on Twitter</h3>
+    <div class="widget-content">
+<div id="twitter_div"><ul id="twitter_update_list" class="widget-list"></ul></div>
+<script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
+<script type="text/javascript" src="http://twitter.com/statuses/user_timeline/insideria.json?callback=twitterCallback2&count=3"></script>
+
+<p><a href="http://twitter.com/insideria"><img src="http://oreilly.com/images/icons/twitter-16x16.png" alt="twitter icon" /></a> 
+Follow <a href="http://twitter.com/insideria">InsideRIA on Twitter</a></p>
+</div>
+</div>
+
+<div class="widget-syndicate widget">
+<h3 class="widget-header">Development Series</h3>
+<div class="widget-content">
+<div class="aboutus"><!--p>Get an overview of the tools and technologies that work together to allow developers to build Rich Internet Applications (RIAs) quickly and easily.</p-->
+
+<p><a href="http://www.insideria.com/series-facebook-dev.html"><img src="http://www.insideria.com/riaimages/facebook.png" alt="facebook icon" /> Facebook Application Development</a></p>
+
+<p><a href="http://www.insideria.com/series-anatomy-flex.html">Anatomy of an Enterprise Flex RIA</a></p></div>
+</div></div><div class="widget-archives widget" id="monthly-archives">
+   <h3 class="widget-header">Archives</h3>
+   <div class="widget-content">
+      <ul class="widget-list"><li style="margin-bottom: 15px;"><select onchange="nav(this)">
+         <option>Select a month...</option>
+         
+         <option value="http://www.insideria.com/2010/03/">March 2010</option>
+         
+         <option value="http://www.insideria.com/2010/02/">February 2010</option>
+         
+         <option value="http://www.insideria.com/2010/01/">January 2010</option>
+         
+         <option value="http://www.insideria.com/2009/12/">December 2009</option>
+         
+         <option value="http://www.insideria.com/2009/11/">November 2009</option>
+         
+         <option value="http://www.insideria.com/2009/10/">October 2009</option>
+         
+         <option value="http://www.insideria.com/2009/09/">September 2009</option>
+         
+         <option value="http://www.insideria.com/2009/08/">August 2009</option>
+         
+         <option value="http://www.insideria.com/2009/07/">July 2009</option>
+         
+         <option value="http://www.insideria.com/2009/06/">June 2009</option>
+         
+         <option value="http://www.insideria.com/2009/05/">May 2009</option>
+         
+         <option value="http://www.insideria.com/2009/04/">April 2009</option>
+         
+         <option value="http://www.insideria.com/2009/03/">March 2009</option>
+         
+         <option value="http://www.insideria.com/2009/02/">February 2009</option>
+         
+         <option value="http://www.insideria.com/2009/01/">January 2009</option>
+         
+         <option value="http://www.insideria.com/2008/12/">December 2008</option>
+         
+         <option value="http://www.insideria.com/2008/11/">November 2008</option>
+         
+         <option value="http://www.insideria.com/2008/10/">October 2008</option>
+         
+         <option value="http://www.insideria.com/2008/09/">September 2008</option>
+         
+         <option value="http://www.insideria.com/2008/08/">August 2008</option>
+         
+         <option value="http://www.insideria.com/2008/07/">July 2008</option>
+         
+         <option value="http://www.insideria.com/2008/06/">June 2008</option>
+         
+         <option value="http://www.insideria.com/2008/05/">May 2008</option>
+         
+         <option value="http://www.insideria.com/2008/04/">April 2008</option>
+         
+         <option value="http://www.insideria.com/2008/03/">March 2008</option>
+         
+         <option value="http://www.insideria.com/2008/02/">February 2008</option>
+         
+         <option value="http://www.insideria.com/2008/01/">January 2008</option>
+         
+      </select></li>
+<li style="margin-bottom: 15px;">  <select onchange="nav(this)">
+         <option>Select an author...</option>
+         
+         <option value="http://www.insideria.com/adam-flater/">Adam Flater</option>
+         
+         <option value="http://www.insideria.com/adam-flater-scott-sheridan/">Adam Flater &amp; Scott Sheridan</option>
+         
+         <option value="http://www.insideria.com/alaric-cole/">Alaric Cole</option>
+         
+         <option value="http://www.insideria.com/amy-blankenship/">Amy Blankenship</option>
+         
+         <option value="http://www.insideria.com/andre-charland/">Andre Charland</option>
+         
+         <option value="http://www.insideria.com/andrew-alderson/">Andrew Alderson</option>
+         
+         <option value="http://www.insideria.com/andrew-westberg/">Andrew Westberg</option>
+         
+         <option value="http://www.insideria.com/aral-balkan/">Aral Balkan</option>
+         
+         <option value="http://www.insideria.com/ben-elmore/">Ben Elmore</option>
+         
+         <option value="http://www.insideria.com/ben-longoria/">Ben Longoria</option>
+         
+         <option value="http://www.insideria.com/alessandro-pace/">Alessandro Pace</option>
+         
+         <option value="http://www.insideria.com/brian-rinaldi/">Brian Rinaldi</option>
+         
+         <option value="http://www.insideria.com/cahlan-sharp/">Cahlan Sharp</option>
+         
+         <option value="http://www.insideria.com/sergey-ilinsky/">Sergey Ilinsky</option>
+         
+         <option value="http://www.insideria.com/chris-griffith/">Chris Griffith</option>
+         
+         <option value="http://www.insideria.com/chris-gross/">Chris Gross</option>
+         
+         <option value="http://www.insideria.com/cyril-hanquez/">Cyril Hanquez</option>
+         
+         <option value="http://www.insideria.com/charles-bihis/">Charles Bihis</option>
+         
+         <option value="http://www.insideria.com/christian-saylor/">Christian Saylor</option>
+         
+         <option value="http://www.insideria.com/chuck-freedman/">Chuck Freedman</option>
+         
+         <option value="http://www.insideria.com/christian-wenz/">Christian Wenz</option>
+         
+         <option value="http://www.insideria.com/clive-goodinson/">Clive Goodinson</option>
+         
+         <option value="http://www.insideria.com/colin-moock/">Colin Moock</option>
+         
+         <option value="http://www.insideria.com/the-tech-labs/">The Tech Labs</option>
+         
+         <option value="http://www.insideria.com/douglas-crockford/">Douglas Crockford</option>
+         
+         <option value="http://www.insideria.com/corey-schuman/">Corey Schuman</option>
+         
+         <option value="http://www.insideria.com/dale-rankine/">Dale Rankine</option>
+         
+         <option value="http://www.insideria.com/dan-thomas/">Dan Thomas</option>
+         
+         <option value="http://www.insideria.com/david-tucker/">David Tucker</option>
+         
+         <option value="http://www.insideria.com/davide-zanotti/">Davide Zanotti</option>
+         
+         <option value="http://www.insideria.com/daniel-barreiro/">Daniel Barreiro</option>
+         
+         <option value="http://www.insideria.com/dominic-gelineau/">Dominic Gelineau</option>
+         
+         <option value="http://www.insideria.com/damon-edwards/">Damon Edwards</option>
+         
+         <option value="http://www.insideria.com/eduard-martini/">Eduard Martini</option>
+         
+         <option value="http://www.insideria.com/elad-elrom/">Elad Elrom</option>
+         
+         <option value="http://www.insideria.com/edward-mansouri/">Edward Mansouri</option>
+         
+         <option value="http://www.insideria.com/eric-socolofsky/">Eric Socolofsky</option>
+         
+         <option value="http://www.insideria.com/faisal-abid/">Faisal Abid</option>
+         
+         <option value="http://www.insideria.com/francisco-inchauste/">Francisco Inchauste</option>
+         
+         <option value="http://www.insideria.com/giorgio-natili/">Giorgio Natili</option>
+         
+         <option value="http://www.insideria.com/gabor-vida/">Gabor Vida</option>
+         
+         <option value="http://www.insideria.com/garth-braithwaite/">Garth Braithwaite</option>
+         
+         <option value="http://www.insideria.com/greg-brown/">Greg Brown</option>
+         
+         <option value="http://www.insideria.com/greg-owen/">Greg Owen</option>
+         
+         <option value="http://www.insideria.com/ian-mclean/">Ian McLean</option>
+         
+         <option value="http://www.insideria.com/arnout-kazemier/">Arnout Kazemier</option>
+         
+         <option value="http://www.insideria.com/insideria-2/">InsideRIA</option>
+         
+         <option value="http://www.insideria.com/jan-poehland/">Jan Poehland</option>
+         
+         <option value="http://www.insideria.com/simon-morris/">Simon Morris</option>
+         
+         <option value="http://www.insideria.com/jeremy-bierly/">Jeremy Bierly</option>
+         
+         <option value="http://www.insideria.com/jesse-freeman/">Jesse Freeman</option>
+         
+         <option value="http://www.insideria.com/jason-fincanon/">Jason Fincanon</option>
+         
+         <option value="http://www.insideria.com/john-barlow/">John Barlow</option>
+         
+         <option value="http://www.insideria.com/joel-hooks/">Joel Hooks</option>
+         
+         <option value="http://www.insideria.com/john-papa/">John Papa</option>
+         
+         <option value="http://www.insideria.com/john-c-bland-ii/">John C Bland II</option>
+         
+         <option value="http://www.insideria.com/john-lindquist/">John Lindquist</option>
+         
+         <option value="http://www.insideria.com/john-osborn/">John Osborn</option>
+         
+         <option value="http://www.insideria.com/jonathan-snook/">Jonathan Snook</option>
+         
+         <option value="http://www.insideria.com/juan-sanchez/">Juan Sanchez</option>
+         
+         <option value="http://www.insideria.com/jun-heider/">Jun Heider</option>
+         
+         <option value="http://www.insideria.com/justin-j-moses/">Justin J. Moses</option>
+         
+         <option value="http://www.insideria.com/kelly-brown/">Kelly Brown</option>
+         
+         <option value="http://www.insideria.com/kevin-suttle/">Kevin Suttle</option>
+         
+         <option value="http://www.insideria.com/kevin-makice/">Kevin Makice</option>
+         
+         <option value="http://www.insideria.com/kathryn-rotondo/">Kathryn Rotondo</option>
+         
+         <option value="http://www.insideria.com/lawrence-osullivan/">Lawrence O'Sullivan</option>
+         
+         <option value="http://www.insideria.com/luca-mezzalira/">Luca Mezzalira</option>
+         
+         <option value="http://www.insideria.com/marco-casario/">Marco Casario</option>
+         
+         <option value="http://www.insideria.com/ben-stucki/">Ben Stucki</option>
+         
+         <option value="http://www.insideria.com/mark-pilgrim/">Mark Pilgrim</option>
+         
+         <option value="http://www.insideria.com/matthew-mcneely/">Matthew McNeely</option>
+         
+         <option value="http://www.insideria.com/matthew-david/">Matthew David</option>
+         
+         <option value="http://www.insideria.com/dave-meeker/">Dave Meeker</option>
+         
+         <option value="http://www.insideria.com/mike-huntington/">Mike Huntington</option>
+         
+         <option value="http://www.insideria.com/michael-epstein/">Michael Epstein</option>
+         
+         <option value="http://www.insideria.com/eric-miraglia/">Eric Miraglia</option>
+         
+         <option value="http://www.insideria.com/mirza-hatipovic/">Mirza Hatipovic</option>
+         
+         <option value="http://www.insideria.com/michael-labriola/">Michael Labriola</option>
+         
+         <option value="http://www.insideria.com/matt-osbun/">Matt Osbun</option>
+         
+         <option value="http://www.insideria.com/moxie-zhang/">Moxie Zhang</option>
+         
+         <option value="http://www.insideria.com/mike-slinn/">Mike Slinn</option>
+         
+         <option value="http://www.insideria.com/alan-shaw/">Alan Shaw</option>
+         
+         <option value="http://www.insideria.com/pedro-claudio/">Pedro Claudio</option>
+         
+         <option value="http://www.insideria.com/pete-mackie/">Pete Mackie</option>
+         
+         <option value="http://www.insideria.com/peter-armstrong/">Peter Armstrong</option>
+         
+         <option value="http://www.insideria.com/matthew-russell/">Matthew Russell</option>
+         
+         <option value="http://www.insideria.com/raymond-camden/">Raymond Camden</option>
+         
+         <option value="http://www.insideria.com/rui-d-silva/">Rui D. Silva</option>
+         
+         <option value="http://www.insideria.com/russ-ferguson/">Russ Ferguson</option>
+         
+         <option value="http://www.insideria.com/rj-owen/">RJ Owen</option>
+         
+         <option value="http://www.insideria.com/richard-monson-haefel/">Richard Monson-Haefel</option>
+         
+         <option value="http://www.insideria.com/robi-sen/">Robi Sen</option>
+         
+         <option value="http://www.insideria.com/romin-irani/">Romin Irani</option>
+         
+         <option value="http://www.insideria.com/rich-tretola/">Rich Tretola</option>
+         
+         <option value="http://www.insideria.com/scott-barnes/">Scott Barnes</option>
+         
+         <option value="http://www.insideria.com/scott-janousek/">Scott Janousek</option>
+         
+         <option value="http://www.insideria.com/sean-moore/">Sean Moore</option>
+         
+         <option value="http://www.insideria.com/justin-shacklette/">Justin Shacklette</option>
+         
+         <option value="http://www.insideria.com/sidney-de-koning/">Sidney de Koning</option>
+         
+         <option value="http://www.insideria.com/simon-barber/">Simon Barber</option>
+         
+         <option value="http://www.insideria.com/stacey-mulcahy/">Stacey Mulcahy</option>
+         
+         <option value="http://www.insideria.com/stefan-horochovec/">Stefan Horochovec</option>
+         
+         <option value="http://www.insideria.com/steve-weiss/">Steve Weiss</option>
+         
+         <option value="http://www.insideria.com/tyler-larson/">Tyler Larson</option>
+         
+         <option value="http://www.insideria.com/tariq-ahmed/">Tariq Ahmed</option>
+         
+         <option value="http://www.insideria.com/tom-gonzalez/">Tom Gonzalez</option>
+         
+         <option value="http://www.insideria.com/theresa-neil/">Theresa Neil</option>
+         
+         <option value="http://www.insideria.com/tim-todish/">Tim Todish</option>
+         
+         <option value="http://www.insideria.com/toby-boudreaux/">Toby Boudreaux</option>
+         
+         <option value="http://www.insideria.com/todd-perkins/">Todd Perkins</option>
+         
+         <option value="http://www.insideria.com/tom-lauck/">Tom Lauck</option>
+         
+         <option value="http://www.insideria.com/tom-barker/">Tom Barker</option>
+         
+         <option value="http://www.insideria.com/tony-hillerson/">Tony Hillerson</option>
+         
+         <option value="http://www.insideria.com/tony-macdonell/">Tony MacDonell</option>
+         
+         <option value="http://www.insideria.com/andrew-trice/">Andrew Trice</option>
+         
+         <option value="http://www.insideria.com/veronique-brossier/">Veronique Brossier</option>
+         
+         <option value="http://www.insideria.com/william-drai/">William Drai</option>
+         
+         <option value="http://www.insideria.com/christian-crumlish/">Christian Crumlish</option>
+         
+         <option value="http://www.insideria.com/yakov-fain/">Yakov Fain</option>
+         
+         <option value="http://www.insideria.com/haining-henry-zhang/">Haining Henry Zhang</option>
+         
+      </select>
+</li><li>Or, visit our <a href="http://www.insideria.com/archives.html">complete archive</a>.
+&nbsp;</li></ul></div>
+</div>
+
+
+<script type="text/javascript" charset="utf-8">
+function nav(sel) {
+   if (sel.selectedIndex == -1) return;
+   var opt = sel.options[sel.selectedIndex];
+   if (opt && opt.value)
+      location.href = opt.value;
+}    
+</script>
+<div class="bottom-widget"><div class="widget-syndicate widget">
+<h3 class="widget-header">About This Site</h3>
+<div class="widget-content">
+<div class="aboutus"><div>Welcome to the premiere community site for all things RIA sponsored by <a href="http://oreilly.com" target="_blank">O'Reilly Media</a> and <a href="http://www.adobe.com" target="_blank">Adobe Systems Incorporated</a>.</div>
+
+<ul class="widget-list"><li><a href="http://www.insideria.com/about.html">About Us</a></li>
+<li><a href="http://www.insideria.com/contributors.html">Meet Our Contributors</a></li>
+<li><a href="http://www.insideria.com/feedback.html">Send Us Feedback</a></li></ul></div>
+</div></div></div>
+        </div>
+</div>
+
+                </div>
+            </div>
+            <div id="footer">
+                <div id="footer-inner">
+                    <div id="footer-content">
+
+		   			
+				<div id="riafooter">
+<ul>
+<li><a href="http://www.insideria.com/feedback.html">Contact Us</a></li>
+
+<li><a href="http://www.oreillynet.com/mediakit/" target="_blank">Advertise with Us</a></li>
+<li><a href="http://www.oreillynet.com/pub/a/mediakit/privacy.html" target="_blank">Privacy Policy</a></li>
+<li><a href="http://press.oreilly.com/index.html" target="_blank">Press Center</a></li>
+<li><a href="http://jobs.oreilly.com/" target="_blank">Jobs</a></li>
+<li>&copy; 2010 O'Reilly Media, Inc.</li>
+<li class="last">(707) 827-7000 / (800) 998-9938</li>
+</ul>
+
+			
+				<address>Weblog authors are solely responsible for
+the content and accuracy of their weblogs, including opinions they express, and O’Reilly Media, Inc., disclaims any and all liabililty for that content, its accuracy, and opinions it may contain. For problems or assistance with this site, email feedback@insideria.com .</address>
+				
+				<p>This work is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/3.0/us/" rel="license" target="_blank">Creative Commons License</a>.</p>
+			</div><!-- /#riafooter -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<!-- Start Quantcast tag --> 
+<script type="text/javascript" src=" http://edge.quantserve.com/quant.js "></script> 
+<script type="text/javascript">_qoptions = { tags:"Digital Media" }; _qacct="p-20l78bOOCbhcg";quantserve();</script> 
+<noscript> 
+<a href=" http://www.quantcast.com/p-20l78bOOCbhcg " target="_blank"><img src=" http://pixel.quantserve.com/pixel/p-20l78bOOCbhcg.gif?tags=Digital Media " style="display: none;" border="0" height="1" width="1" alt="Quantcast"/></a> 
+</noscript> 
+<!-- End Quantcast tag --> 
+ <script type="text/javascript" language="javascript">
+ <!--
+         createIconLabel();
+ -->
+ </script>
+<script language="JavaScript" type="text/javascript">
+var s_account="orinsideria,orglobal"  // change report suite ID accordingly
+</script>
+<!-- SiteCatalyst code version: H.20.3. Copyright 1997-2009 Omniture, Inc. More info available at http://www.omniture.com -->
+<script language="JavaScript" type="text/javascript" src="http://assets.oreilly.com/js/s_code.js"></script>
+<script language="JavaScript" type="text/javascript">
+s.pageName="insideria:googles indexing flash text with adobes sdk"
+s.channel="insideria"
+s.prop1="insideria:insideria"
+s.prop2="insideria:insideria:blogs"
+s.prop3="insideria:insideria:blogs:blogs"
+s.prop4="article"
+s.hier1="insideria,insideria,blogs,blogs"
+s.prop5="googles indexing flash text with adobes sdk"
+s.prop6="IR22728" 
+s.prop7="01/18/2008" // publish date
+//s.prop15=""
+//These props should be set when a blog/article is read, post or reply made. 
+s.prop21="andre charland" // author name
+s.prop22="insideria" // blog name
+s.prop23="googles indexing flash text with adobes sdk" // entry title
+s.prop24="01/18/2008" // post date
+//s.prop25="" // days since last post
+s.prop26="friday" // day of week
+/* Conversion Variables */
+s.campaign=""
+s.events=""
+
+/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+var s_code=s.t();if(s_code)document.write(s_code)//--></script>
+<!-- End SiteCatalyst code version: H.20.2. -->
+
+
+ 
+
+<!--script type="text/javascript">
+var cbjspath = "static.chartbeat.com/js/chartbeat.js?uid=2243&domain=insideria.com";
+var cbjsprotocol = (("https:" == document.location.protocol) ? "https://s3.amazonaws.com/" : "http://");
+document.write(unescape("%3Cscript src='"+cbjsprotocol+cbjspath+"' type='text/javascript'%3E%3C/script%3E"))
+</script-->
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,498 @@
+<html>
+<head>
+<title>Introduction to Qyoto</title>
+<link rel="stylesheet" href="../format.css" type="text/css">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="keywords" content="GUI, Qt, Qyoto, C#, Introduction">
+<meta nam="description" content="Introduction to Qyoto">
+<meta name="language" content="en">
+<meta name="author" content="jan bodnar">
+<meta name="distribution" content="global">
+</head>
+
+<body>
+
+<div style="position:absolute;left:2%;top:2%">
+<script type="text/javascript"><!--
+google_ad_client = "pub-9706709751191532";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text";
+//2007-07-12: kanal1
+google_ad_channel = "7132982423";
+google_color_border = "3D81EE";
+google_color_bg = "FFFFFF";
+google_color_link = "3D81EE";
+google_color_text = "000000";
+google_color_url = "008000";
+google_ui_features = "rc:10";
+//-->
+</script>
+
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+
+<div style="position:absolute;right:18%;top:5%">
+<script type="text/javascript"><!--
+google_ad_client = "pub-9706709751191532";
+google_ad_width = 468;
+google_ad_height = 60;
+google_ad_format = "468x60_as";
+google_ad_type = "text";
+//2007-07-12: horizont
+google_ad_channel = "7607553239";
+google_color_border = "E6E6E6";
+google_color_bg = "FFFFFF";
+google_color_link = "0000FF";
+google_color_text = "000000";
+google_color_url = "008000";
+google_ui_features = "rc:10";
+//-->
+
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+
+<div class="center">
+
+<div>
+<a href="/" title="Home">Home</a>&nbsp;
+<a href="..">Contents</a>
+</div>
+
+<h1>Introduction to Qyoto</h1>
+
+<p>
+In this part of the Qyoto C# programming tutorial, we will introduce the Qyoto library and
+create our first Qyoto programs using the C# programming language.
+</p>
+
+<p>
+The purpose of this tutorial is to get you started with the Qyoto and C#. Images used in this
+tutorial can be downloaded <a href="../images/images.zip">here</a>. I used some icons from the
+tango icons pack of the Gnome project. 
+</p>
+
+<h2 id="about">About</h2>
+
+<p>
+<b class="keyword">Qyoto</b> is a library that provides binding of the Qt library to the
+.NET languages like C# or Visual Basic. 
+Qt is a powerful cross-platform application development framework.
+Its native language is C++. Qyoto is a part of the KDE desktop environment. 
+</p>
+
+<pre>
+gmcs -r:/usr/lib/cli/qyoto-4.3/qt-dotnet.dll quitbutton.cs
+</pre>
+
+<p>
+The above command shows, how to compile the quitbutton example. The -r parameter of the
+mono C# compiler loads the Qt assembly. It is a dynamic library. The commnad shows
+a path to the dll library on a Ubuntu system. 
+</p>
+
+
+<h2 id="tooltip">Creating a Tooltip</h2>
+
+<p>
+The first example will show a tooltip. A tooltip is a small rectangular window, which
+gives a brief information about an object. It is usually a GUI component. It is part of
+the help system of the application. 
+</p>
+
+<pre class="code">
+
+using System;
+using Qyoto;
+
+/**
+ * ZetCode Qyoto C# tutorial
+ *
+ * This program displays a
+ * tooltip
+ *
+ * @author jan bodnar
+ * website zetcode.com
+ * last modified April 2009
+ */
+
+
+public class QyotoApp : QWidget {
+
+    public QyotoApp() {
+
+        SetWindowTitle("Tooltip");
+
+        ToolTip = "This is QWidget";    
+        Resize(250, 150);
+        Move(300, 300);
+        Show();
+    }
+
+
+    public static int Main(String[] args) {
+        new QApplication(args);
+        new QyotoApp();
+        return QApplication.Exec();
+    }
+}
+</pre>
+
+<p>
+The example creates a window. If we hover a mouse pointer over the area of the
+window, a tooltip pops up. 
+</p>
+
+
+<pre class="explanation">
+using System;
+using Qyoto;
+</pre>
+
+<p>
+The <b class="keyword">using</b> keyword imports necessery types that we will use
+in the application.
+</p>
+
+<pre class="explanation">
+public class QyotoApp : QWidget {
+</pre>
+
+<p>
+The example inherits from a <b class="keyword">QWidget</b>. 
+The QWidget class is the base class of all user interface objects. 
+The widget is the atom of the user interface. It receives mouse, 
+keyboard and other events from the window system.
+</p>
+
+<pre class="explanation">
+SetWindowTitle("Tooltip");
+</pre>
+
+<p>
+This method call creates a title for the window. 
+</p>
+
+<pre class="explanation">
+ToolTip = "This is QWidget";
+</pre>
+
+<p>
+We set a tooltip through the <b class="keyword">ToolTip</b> property.
+</p>
+
+<pre class="explanation">
+Resize(250, 150);
+</pre>
+
+<p>
+Here we set the width and the height of the window. 
+</p>
+
+<pre class="explanation">
+Move(300, 300);
+</pre>
+
+<p>
+The <b class="keyword">Move()</b> method moves the window on the
+screen. 
+</p>
+
+<pre class="explanation">
+Show();
+</pre>
+
+<p>
+When everything is ready, we show the window on the screen. 
+</p>
+
+<pre class="explanation">
+new QApplication(args);
+new QyotoApp();
+return QApplication.Exec();
+</pre>
+
+<p>
+These three lines set up the application. 
+</p>
+
+<br>
+<img src="../images/tooltip.png" alt="Tooltip">
+<div class="figure">Figure: Tooltip</div>
+
+
+<h2 id="center">Centering a window</h2>
+
+<p>
+In the second example, we will center the window
+on the screen. 
+</p>
+
+<pre class="code">
+
+using System;
+using Qyoto;
+
+/**
+ * ZetCode Qyoto C# tutorial
+ *
+ * This program centers a window
+ * on the screen
+ *
+ * @author jan bodnar
+ * website zetcode.com
+ * last modified April 2009
+ */
+
+
+public class QyotoApp : QWidget {
+
+    const int WIDTH = 250;
+    const int HEIGHT = 150;
+    
+    public QyotoApp() {
+
+        SetWindowTitle("Center");
+
+        QDesktopWidget qdw = new QDesktopWidget();
+
+        int screenWidth = qdw.Width();
+        int screenHeight = qdw.Height();
+
+        int x = (screenWidth - WIDTH) / 2;
+        int y = (screenHeight - HEIGHT) / 2;
+
+        Resize(WIDTH, HEIGHT);
+        Move(x, y);
+        Show();
+    }
+
+
+    public static int Main(String[] args) {
+        new QApplication(args);
+        new QyotoApp();
+        return QApplication.Exec();
+    }
+}
+
+</pre>
+
+<p>
+The Qyoto does not have a single method
+to center a window.
+</p>
+
+
+<pre class="explanation">
+const int WIDTH = 250;
+const int HEIGHT = 150;
+</pre>
+
+<p>
+These two constants define the width and height of the
+application window.
+</p>
+
+<pre class="explanation">
+QDesktopWidget qdw = new QDesktopWidget();
+</pre>
+
+<p>
+The <b class="keyword">QDesktopWidget</b> class provides information about
+the screen. 
+</p>
+
+<pre class="explanation">
+int screenWidth = qdw.Width();
+int screenHeight = qdw.Height();
+</pre>
+
+<p>
+Here we determine the screen width and height. 
+</p>
+
+<pre class="explanation">
+int x = (screenWidth - WIDTH) / 2;
+int y = (screenHeight - HEIGHT) / 2;
+</pre>
+
+<p>
+Here we calculate the x, y coordinates of the centered window. 
+To center a window on the screen, we need to know the size of the
+screen and the size of the window. 
+</p>
+
+<pre class="explanation">
+Move(x, y);
+</pre>
+
+<p>
+We move the window to the computed x, y coordinates.
+</p>
+
+
+<h2>Quit button</h2>
+
+<p>
+In the last example of this section, we will create a quit button. 
+When we press this button, the application terminates. 
+</p>
+
+<pre class="code">
+
+using System;
+using Qyoto;
+
+/**
+ * ZetCode Qyoto C# tutorial
+ *
+ * This program creates a quit
+ * button. When we press the button,
+ * the application terminates. 
+ *
+ * @author jan bodnar
+ * website zetcode.com
+ * last modified April 2009
+ */
+
+
+public class QyotoApp : QWidget {
+
+    public QyotoApp() {
+
+        SetWindowTitle("Quit button");
+
+        InitUI();
+
+        Resize(250, 150);
+        Move(300, 300);
+        Show();
+    }
+
+    public void InitUI() {
+        
+        QPushButton quit = new QPushButton("Quit", this);
+
+        Connect(quit, SIGNAL("clicked()"), qApp, SLOT("quit()"));
+        quit.SetGeometry(50, 40, 80, 30);
+
+    }
+
+    public static int Main(String[] args) {
+        new QApplication(args);
+        new QyotoApp();
+        return QApplication.Exec();
+    }
+}
+
+</pre>
+
+<p>
+We use the <b class="keyword">QPushButton</b>. This is a very common widget.
+It is rectangular and usually shows a text label. 
+</p>
+
+<pre class="explanation">
+InitUI();
+</pre>
+
+<p>
+We delegate the creation of the user interface to the <b class="keyword">InitUI()</b> method.
+</p>
+
+<pre class="explanation">
+QPushButton quit = new QPushButton("Quit", this);
+</pre>
+
+<p>
+We create the button widget. The first parameter of the constructor is the label,
+which the button displays. The second parameter is the parent widget of the
+button. 
+</p>
+
+<pre class="explanation">
+Connect(quit, SIGNAL("clicked()"), qApp, SLOT("quit()"));
+</pre>
+
+<p>
+The <b class="keyword">clicked()</b> signal is emitted, when we
+click on the button. The <b class="keyword">Connect()</b> method
+connects a signal to a particular slot of an object. The first 
+parameter of the method is the object, that receives the signal. 
+In our case it is the application object. The second parameter is the
+method, which is called. In our case it is the <b class="keyword">quit()</b>
+method of the application object. The <b class="keyword">qApp</b> is a 
+global reference to the application object. 
+</p>
+
+<pre class="explanation">
+quit.SetGeometry(50, 40, 80, 30);
+</pre>
+
+<p>
+We position and size the button widget. The first two parameters are the x, y
+coordinates of the button. The last two parameters are the width and 
+height of the button.
+</p>
+
+<br>
+<img src="../images/quitbutton.png" alt="Quit button">
+<div class="figure">Figure: Quit button</div>
+
+<p>
+This section was an introduction to the Qyoto library with the C# language.
+</p>
+
+<br>
+<center>
+<script type="text/javascript"><!--
+google_ad_client = "pub-9706709751191532";
+google_ad_width = 468;
+google_ad_height = 60;
+google_ad_format = "468x60_as";
+google_ad_type = "text";
+//2007-07-12: horizont
+google_ad_channel = "7607553239";
+google_color_border = "E6E6E6";
+google_color_bg = "FFFFFF";
+google_color_link = "0000FF";
+google_color_text = "000000";
+google_color_url = "008000";
+google_ui_features = "rc:10";
+//-->
+
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</center>
+<br>
+
+<center>
+<div class="botNav">
+<span class="botNavItem"><a href="/">Home</a></span> &#135; <span class="botNavItem"><a href="..">Contents</a></span> &#135; <span class="botNavItem"><a href="#">Top of Page</a></span>
+</div>
+</center>
+
+<div class="footer">
+<div class="signature">
+<a href="/">ZetCode</a> last modified May 13, 2009  <span class="copyright">&copy; 2007 - 2009 Jan Bodnar</span>
+</div>
+</div>
+
+</div>
+</body>
+</html>
+
+
+
+
+
+
+

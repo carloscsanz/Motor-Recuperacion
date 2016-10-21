@@ -1,0 +1,342 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Problems with Win32_NetworkAdapter. VBS script works, equivalent C# does not?</title>
+
+<link rel="stylesheet" href="http://cdn.derkeiler.com/styles/dk.css" type="text/css" media="all">
+<link rel="alternate" href="http://www.tech-archive.net/pdf/Archive/Development/microsoft.public.win32.programmer.wmi/2006-04/msg00045.pdf" type="application/pdf" media="print" title="PDF version">
+<link rel="alternate" type="application/rss+xml" href="http://www.tech-archive.net/Archive/Development/microsoft.public.win32.programmer.wmi/rss.xml">
+
+<link href="http://cdn.derkeiler.com/icons/ta.ico" rel="icon" type="image/vnd.microsoft.icon">
+<link href="http://cdn.derkeiler.com/icons/ta.ico" rel="SHORTCUT ICON">
+</head>
+<body>
+<div id="content">
+<!-- google_ad_section_start -->
+
+
+<h1>Problems with Win32_NetworkAdapter. VBS script works, equivalent C# does not?</h1>
+<center><strong>Tech Tip: <a href="http://www.liutilities.com/affcb/?id=RBgen&aff=8951&xat=taRB1" target="_blank" rel="nofollow">Click here to run a free scan for Windows Errors and optimize PC performance</a></strong></center><br>
+<hr>
+<ul>
+<li><em>From</em>: <a href="mailto:stewart.lovinggibbard@DOMAIN.HIDDEN">stewart.lovinggibbard@xxxxxxxxx</a></li>
+<li><em>Date</em>: 17 Apr 2006 13:43:22 -0700</li>
+</ul>
+<hr>
+I've been struggling with the Win32_NetworkAdapter and<br>
+Win32_NetworkAdapterConfiguration calls for days now.<br>
+<br>
+Like others before me, I want to enumerate only the &quot;real&quot; network<br>
+adapters. I don't have a problem getting a set of results and then<br>
+using one or more criteria to enumerate the valid ones. What's<br>
+bothering me is I have an approach that seems to work using VBS, but<br>
+which fails using C#.<br>
+<br>
+VBS example first:<br>
+<br>
+==========================<br>
+<br>
+Option Explicit<br>
+<br>
+Dim objFSO<br>
+Dim objWS<br>
+Dim strComputer<br>
+Dim strTextFile<br>
+Dim Adapter<br>
+Dim Adapters<br>
+Dim strList<br>
+Dim objWMIService<br>
+Dim objWriteTemp<br>
+<br>
+strComputer = &quot;.&quot;<br>
+strTextFile = &quot;C:\AdapterList.txt&quot;<br>
+<br>
+<br>
+Set objFSO = CreateObject(&quot;Scripting.FileSystemObject&quot;)<br>
+Set objWS = CreateObject(&quot;WScript.Shell&quot;)<br>
+Set objWMIService = GetObject(&quot;winmgmts:\\&quot; &amp; strComputer &amp;<br>
+&quot;\root\cimv2&quot;)<br>
+If objFSO.FileExists(strTextFile) Then<br>
+	objFSO.DeleteFile(strTextFile)<br>
+End If<br>
+Set objWriteTemp = objFSO.CreateTextFile(strTextFile,True)<br>
+objWriteTemp.WriteLine &quot;Adapter list from WMI NetworkAdapter&quot;<br>
+objWriteTemp.WriteBlankLines(1)<br>
+Set Adapters = objWMIService.ExecQuery(&quot;Select * from<br>
+Win32_NetworkAdapter&quot;,,48)<br>
+For Each Adapter in Adapters<br>
+	If Left(Adapter.Manufacturer,5) = &quot;Intel&quot; Then<br>
+		objWriteTemp.WriteLine &quot;ConnectionID = &quot; &amp; Adapter.NetConnectionID<br>
+		objWriteTemp.WriteLine &quot;Legal Name = &quot; &amp; Adapter.Description<br>
+		objWRiteTemp.WriteLine &quot;Index = &quot; &amp; Adapter.Index<br>
+		objWRiteTemp.WriteLine &quot;MACAddress = &quot; &amp; Adapter.MACAddress<br>
+<br>
+<br>
+		objWriteTemp.WriteBlankLines(1)<br>
+	End If<br>
+Next<br>
+objWRiteTemp.WriteBlankLines(3)<br>
+objWriteTemp.WriteLine &quot;Adapter list from WMI<br>
+NetworkAdapterConfiguration&quot;<br>
+objWRiteTemp.WriteBlankLines(1)<br>
+strList = &quot;&quot;<br>
+Set Adapters = objWMIService.ExecQuery(&quot;Select * from<br>
+Win32_NetworkAdapterConfiguration&quot;,,48)<br>
+For Each Adapter in Adapters<br>
+	If Left(Adapter.Description,5) = &quot;Intel&quot; Then<br>
+		objWriteTemp.WriteLine &quot;Legal Name = &quot; &amp; Adapter.Description<br>
+		objWriteTemp.WriteLine &quot;Index = &quot; &amp; Adapter.Index<br>
+	End If<br>
+Next<br>
+objWriteTemp.Close<br>
+objWS.Run &quot;notepad &quot; &amp; strTextFile<br>
+<br>
+=========================<br>
+<br>
+Sample output, on a machine with 4 valid network ports:<br>
+<br>
+Adapter list from WMI NetworkAdapter<br>
+<br>
+ConnectionID = Local Area Connection 6<br>
+Legal Name = Intel(R) PRO/1000 GT Desktop Adapter<br>
+Index = 1<br>
+MACAddress = FF:FF:FF:FF:FF:FF<br>
+<br>
+ConnectionID = Local Area Connection 7<br>
+Legal Name = Intel(R) PRO/1000 MTW Network Connection<br>
+Index = 11<br>
+MACAddress = 00:0F:1F:8A:53:17<br>
+<br>
+ConnectionID = Local Area Connection 8<br>
+Legal Name = Intel(R) PRO/1000 PT Dual Port Server Adapter<br>
+Index = 13<br>
+MACAddress = 00:15:17:00:0E:7C<br>
+<br>
+ConnectionID = Local Area Connection 9<br>
+Legal Name = Intel(R) PRO/1000 PT Dual Port Server Adapter<br>
+Index = 17<br>
+MACAddress = 00:15:17:00:0E:7D<br>
+<br>
+Adapter list from WMI NetworkAdapterConfiguration<br>
+<br>
+Legal Name = Intel(R) PRO/1000 MTW Network Connection - Packet<br>
+Scheduler Miniport<br>
+Index = 1<br>
+Legal Name = Intel(R) PRO/1000 MTW Network Connection - Packet<br>
+Scheduler Miniport<br>
+Index = 11<br>
+Legal Name = Intel(R) PRO/1000 PT Dual Port Server Adapter<br>
+Index = 13<br>
+Legal Name = Intel(R) PRO/1000 GT Desktop Adapter<br>
+Index = 15<br>
+Legal Name = Intel(R) PRO/1000 PT Dual Port Server Adapter<br>
+Index = 17<br>
+<br>
+If you look closely, the NetworkAdapter call gives me &quot;reality&quot; - 4<br>
+network ports - while the NetworkAdapterConfiguration call gives me<br>
+more adapters than are really in the system. I planned to use<br>
+NetworkAdapter to get the indexes, then use the indexes with<br>
+NetworkAdapterConfiguration to do my work (setting IP addresses, for<br>
+one).'<br>
+<br>
+Here's C# code that should do something similar to the first block of<br>
+VBS above:<br>
+<br>
+========================================<br>
+<br>
+using System;<br>
+using System.Collections.Generic;<br>
+using System.Text;<br>
+using System.Management;<br>
+<br>
+/* This example program does NOT work for me!<br>
+<br>
+ These entries do not get set properly below:<br>
+<br>
+ adapter.Manufacturer =<br>
+(string)entryCurrent.Properties[&quot;Manufacturer&quot;].Value;<br>
+ adapter.Index =<br>
+Convert.ToInt32(entryCurrent.Properties[&quot;Index&quot;].Value);<br>
+ adapter.NetConnectionID =<br>
+(string)entryCurrent.Properties[&quot;NetConnectionID&quot;].Value;<br>
+ adapter.Description =<br>
+(string)entryCurrent.Properties[&quot;Description&quot;].Value;<br>
+ adapter.MACAddress =<br>
+(string)entryCurrent.Properties[&quot;MACAddress&quot;].Value;<br>
+<br>
+ */<br>
+<br>
+<br>
+namespace WMIConsoleProblemDemo<br>
+{<br>
+  public class NetworkAdapter<br>
+  {<br>
+    public string Manufacturer;<br>
+    public int Index;<br>
+    public string NetConnectionID;<br>
+    public string Description;<br>
+    public string MACAddress;<br>
+<br>
+    public override string ToString()<br>
+    {<br>
+      string totalString = &quot;&quot;;<br>
+<br>
+      totalString += &quot;Manufacturer: &quot; + Manufacturer.ToString() + &quot;\n&quot;;<br>
+      totalString += &quot;Index: &quot; + Index.ToString() + &quot;\n&quot;;<br>
+      totalString += &quot;NetConnectionID: &quot; + NetConnectionID.ToString() +<br>
+&quot;\n&quot;;<br>
+      totalString += &quot;Description: &quot; + Description.ToString() + &quot;\n&quot;;<br>
+      totalString += &quot;MACAddress: &quot; + MACAddress.ToString() + &quot;\n&quot;;<br>
+<br>
+      return totalString;<br>
+    } //ToString<br>
+<br>
+    public static List&lt;NetworkAdapter&gt; List<br>
+    {<br>
+      get<br>
+      {<br>
+        List&lt;NetworkAdapter&gt; adaptersToReturn = new<br>
+List&lt;NetworkAdapter&gt;();<br>
+<br>
+        string query = &quot;Select * From Win32_NetworkAdapter&quot;;<br>
+        ManagementObjectSearcher searcher = new<br>
+ManagementObjectSearcher(query);<br>
+        ManagementObjectCollection adapters = searcher.Get();<br>
+        foreach (ManagementObject entryCurrent in adapters)<br>
+        {<br>
+          NetworkAdapter adapter = new NetworkAdapter();<br>
+<br>
+          adapter.Manufacturer =<br>
+(string)entryCurrent.Properties[&quot;Manufacturer&quot;].Value;<br>
+          adapter.Index =<br>
+Convert.ToInt32(entryCurrent.Properties[&quot;Index&quot;].Value);<br>
+          adapter.NetConnectionID =<br>
+(string)entryCurrent.Properties[&quot;NetConnectionID&quot;].Value;<br>
+          adapter.Description =<br>
+(string)entryCurrent.Properties[&quot;Description&quot;].Value;<br>
+          adapter.MACAddress =<br>
+(string)entryCurrent.Properties[&quot;MACAddress&quot;].Value;<br>
+<br>
+          adaptersToReturn.Add(adapter);<br>
+<br>
+        } //for<br>
+<br>
+        return adaptersToReturn;<br>
+<br>
+      } //get<br>
+<br>
+    } //List<br>
+<br>
+<br>
+<br>
+  } //class<br>
+<br>
+  class Program<br>
+  {<br>
+    static void Main(string[] args)<br>
+    {<br>
+      Console.WriteLine(&quot;Installed Network Adapters:\n&quot;);<br>
+      Console.WriteLine();<br>
+<br>
+      foreach (NetworkAdapter currentAdapter in NetworkAdapter.List)<br>
+      {<br>
+        Console.WriteLine(currentAdapter.ToString());<br>
+      }<br>
+<br>
+    }<br>
+  }<br>
+}<br>
+===========================<br>
+<br>
+This code does not work properly for me. It can't get the Manufacturer<br>
+property, for example, which I need.<br>
+<br>
+I don't understand why the C# behaves so much differently. It's almost<br>
+as if I'm calling NetworkAdapterConfiguration instead of NetworkAdapter<br>
+in the C# code.'<br>
+<br>
+All the example C# code I've found for doing what I want seems to fail<br>
+flat out for similar reasons. (Most people are trying to find the MAC<br>
+address, for example. The code above can't do that either.)<br>
+<br>
+I'm extremely confused. Please help.<br>
+<br>
+Stew<br>
+<br>
+.<br>
+<br>
+
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00047" href="msg00047.html">Re: Problems with Win32_NetworkAdapter. VBS script works, equivalent C# does not?</a></strong>
+<ul><li><em>From:</em> Bmack500</li></ul></li>
+</ul></li></ul>
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00044.html">Microsoft Cluster Server and WMI</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00046.html">root\WMI\MSndis_macoptions reference?</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00044.html">Microsoft Cluster Server and WMI</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00047.html">Re: Problems with Win32_NetworkAdapter. VBS script works, equivalent C# does not?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00045"><strong>Date</strong></a></li>
+<li><a href="threads.html#00045"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<hr><table width="100%" border="0" cellspacing="10"><tr><td><h2>Relevant Pages</h2><ul><!-- ffM -->
+<li><a href="http://www.tech-archive.net/Archive/Windows/microsoft.public.windows.server.sbs/2007-08/msg01678.html">Re: Unable to connect new vista terminal to SBS 2003 R2</a><br><b>...</b> <b>Ethernet adapter Server Local Area Connection:</b> <b>...</b> <b>Connection-specific DNS Suffix.</b> <b>...</b> <b>Tunnel adapter Local Area Connection*</b> 7: <b>...</b> <br>(microsoft.public.windows.server.sbs)</li><li><a href="http://www.tech-archive.net/Archive/Windows/microsoft.public.windows.server.sbs/2007-08/msg01642.html">Re: Unable to connect new vista terminal to SBS 2003 R2</a><br><b>...</b> Windows IP <b>Configuration</b> <b>...</b> <b>Ethernet adapter Server Local Area Connection:</b> <b>...</b> <br>(microsoft.public.windows.server.sbs)</li><li><a href="http://www.tech-archive.net/Archive/Windows/microsoft.public.windows.server.sbs/2007-08/msg01697.html">Re: Unable to connect new vista terminal to SBS 2003 R2</a><br><b>...</b> <b>Ethernet adapter Server Local Area Connection:</b> <b>...</b> <b>Wireless LAN adapter Wireless Network Connection:</b> <b>...</b> <b>Tunnel adapter Local Area Connection*</b> 7: <b>...</b> <br>(microsoft.public.windows.server.sbs)</li><li><a href="http://www.tech-archive.net/Archive/Windows/microsoft.public.windows.server.sbs/2007-08/msg02070.html">Re: Unable to connect new vista terminal to SBS 2003 R2</a><br><b>...</b> the <b>Ethernet LAN</b> and <b>Wireless LAN</b> and even when I disbale the Wireless PCI <b>...</b> I have tried the workstation with the <b>wireless adapter disabled,</b> <b>...</b> <b>Ethernet adapter Server Local Area Connection:</b> <b>...</b> <br>(microsoft.public.windows.server.sbs)</li><li><a href="http://www.tech-archive.net/Archive/Windows/microsoft.public.windows.server.sbs/2007-08/msg02040.html">Re: Unable to connect new vista terminal to SBS 2003 R2</a><br><b>...</b> the <b>Ethernet LAN</b> and <b>Wireless LAN</b> and even when I disbale the Wireless PCI <b>...</b> <b>adapter,</b> but that was all that was there, I still can't get rid of the <b>...</b> <b>Ethernet adapter Server Local Area Connection:</b> <b>...</b> <br>(microsoft.public.windows.server.sbs)</li></ul></td><td>
+<div id='rectangle'></div></td></tr></table><hr>
+<!-- google_ad_section_end -->
+<div id="footer">
+	(12)
+	
+</div>
+</div>
+<p id="logo"><a href="/" title="Home"><img src="http://cdn.derkeiler.com/images/logota.png" width="46" height="313" alt="tech-archive.net" title="Home"></a></p>
+<div id="menu1">
+	<ul>
+		<li id="selected1"><a href="http://www.tech-archive.net/">Windows</a></li>
+		<li><a href="http://sci.tech-archive.net/">Science</a></li>
+		<li><a href="http://newsgroups.derkeiler.com/">Usenet</a></li>
+        </ul>
+</div>
+<div id="menu2">
+        <ul>
+		<li id="selected2"><a href="http://www.tech-archive.net/Archive/">Archive</a></li><li><a href="http://www.derkeiler.com/about/">About</a></li><li><a href="http://www.tech-archive.net/privacy/">Privacy</a></li><li><a href="http://www.tech-archive.net/search/">Search</a></li><li><a href="http://www.derkeiler.com/about/imprint">Imprint</a></li>
+        </ul>
+</div>
+<div id="nav">
+        <img src="http://cdn.derkeiler.com/images/arrow.gif" width="15" height="7" alt="Path:">
+        <a href="http://www.tech-archive.net/">www.tech-archive.net</a> &nbsp;&gt;&nbsp;<a href="http://www.tech-archive.net/Archive/">Archive</a> &nbsp;&gt;&nbsp;<a href="http://www.tech-archive.net/Archive/Development/">Development</a> &nbsp;&gt;&nbsp;<a href="http://www.tech-archive.net/Archive/Development/microsoft.public.win32.programmer.wmi/">microsoft.public.win32.programmer.wmi</a> &nbsp;&gt;&nbsp;<a href="http://www.tech-archive.net/Archive/Development/microsoft.public.win32.programmer.wmi/2006-04/">2006-04</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.tech-archive.net/pdf/Archive/Development/microsoft.public.win32.programmer.wmi/2006-04/msg00045.pdf"><img src="http://cdn.derkeiler.com/images/pdf.jpg" height="15" width="16" alt="Print as PDF" style="position:relative; bottom:-2px;"></a>&nbsp;&nbsp;<a href="http://www.tech-archive.net/Archive/Development/microsoft.public.win32.programmer.wmi/rss.xml"><img src="http://cdn.derkeiler.com/images/xml.gif" height="13" width="35" alt="RSS Feed" style="position:relative; bottom:-2px;"></a>
+</div>
+
+<div id="topbanner">
+</div>
+
+<div id="skyscraper">
+</div>
+<script type="text/javascript" src="http://www.derkeiler.com/gam/tag.js?site=www-tech-archive-net"></script>
+<script type="text/javascript">
+	function tracking(){var a=document.createElement("iframe");a.height=1;a.width=1;a.hspace=0;a.vspace=0;a.scrolling="no";a.style.border="0px none";a.allowTransparency=true;document.body.appendChild(a);var b=a.contentDocument;if(b==undefined||b==null){b=a.contentWindow.document}b.open();b.write('<img src="http://pixel.quantserve.com/pixel/p-abMz3F92T4IJ2.gif" style="display: none;" border="0" height="1" width="1" alt="Quantcast"/>');b.write("<div id='beacon_70' style='position: absolute; left: 0px; top: 0px; visibility: hidden;'><img src='/ads/adlog.php?bannerid=70&amp;campaignid=45&amp;zoneid=20&amp;source=&amp;block=0&amp;capping=0&amp;session_capping=0&amp;cb=cad21b1659' width='0' height='0' alt='' style='width: 0px; height: 0px;'></div>");b.close()}function downloadJSAtOnload(){var a=document.createElement("script");a.src="http://cdn.derkeiler.com/js/deferred.js";document.body.appendChild(a);setTimeout("tracking()",1000)}if(window.addEventListener){window.addEventListener("load",downloadJSAtOnload,false)}else{if(window.attachEvent){window.attachEvent("onload",downloadJSAtOnload)}else{window.onload=downloadJSAtOnload}};
+</script>
+<script type="text/javascript" src="http://partner.googleadservices.com/gampad/google_service.js"></script>
+<script type="text/javascript">
+	GS_googleAddAdSenseService("ca-pub-3777565888511862");
+	GS_googleEnableAllServices();
+</script>
+<script type="text/javascript">
+	GA_googleUseIframeRendering(true);
+</script>
+</body>
+</html>

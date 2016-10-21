@@ -1,0 +1,325 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Information retrieval</title>
+<meta name="Description" content="Iformatio retrieval (IR) is the sciece of searchig for documets, for iformatio withi documets ad for metadata about documets, as well as that of searchig relatioal databases ad the World Wide Web. There is overlap i the usage of&amp;#8230;" />
+<meta name="Keywords" content="Information retrieval" />
+<meta name="revizit-after" content="15 days" />
+<meta name="ROBOTS" content="ALL" />
+<meta name="rating" content="safe for kids" />
+<link rel="search" type="application/opensearchdescription+xml" title="Словари и энциклопедии на Академике" href="http://dic.academic.ru/dicsearch.xml" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="/style2.css" type="text/css" />
+<!--[if IE 5]>
+<style type="text/css">
+/* place css box model fixes for IE 5* in this conditional comment */
+.area #sidebar1 { width: 250px; }
+</style>
+<![endif]-->
+<!--[if IE]>
+<style type="text/css">
+/* place css fixes for all versions of IE in this conditional comment */
+.area #sidebar1 { padding-top: 30px; }
+.area #mainContent { zoom: 1; }
+/* the above proprietary zoom property gives IE the hasLayout it needs to avoid several bugs */
+</style>
+<![endif]-->
+<link rel="stylesheet" href="/jquery.autocomplete.css" type="text/css" />
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery.autocomplete.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+
+  $("#SWord").autocomplete("/suggest.php", {
+    delay:400,
+    minChars:1,
+    matchSubset:1,
+    autoFill:false,
+    matchContains:0,
+    cacheLength:10,
+    selectFirst:true,
+    formatItem:liFormat,
+    maxItemsToShow:30,
+    max:30,
+    scroll:1,
+    scrollHeight : 200
+  }).result(function(event, item) {
+     $("#SBtn").click();
+//  location.href = item.url;
+//    if(item[1] > 0) location.href = "/dic.nsf/"+item[2]+"/"+item[1];
+
+//  alert("result: "+item[0]+' - '+item[1]);
+    });
+
+   $("#d").click(function() { $("#ltr").flushCache();  });
+   $("#t").click(function() { $("#ltr").flushCache();  });
+
+function liFormat (row, i, num) {
+  var result = '<div style="float:right; width: 100px; text-align: right; color:green; font-size:80%">'+row[1]+" терм.<\/div>"+
+               '<div style="overflow:hidden;">'+row[0]+'<\/div>';
+//  var result = row[1];
+  return result;
+}
+
+
+  $("#SWord").focus();
+
+ });
+
+</script>
+<!-- Yandex -->
+<script type="text/javascript"><!--
+yandex_site_charset = 'UTF-8';
+
+// Размер шрифтов
+var yandex_ad_fontSize = 1;
+
+// Настройки объявлений Директа
+var yandex_direct_fontColor = '000000';
+var yandex_direct_titleColor = '0000CC';
+var yandex_direct_siteurlColor = '006600';
+var yandex_direct_linkColor = '0000CC';
+function yandex_direct_print(){ }
+
+// Настройки объявлений Маркета
+var yandex_market_fontColor = '000000';
+// var yandex_market_BorderColor = 'E3D8F4';
+var yandex_market_BorderColor = 'FFFFFF'; // 'E3D8F4';
+var yandex_market_BgColor = 'FFFFFF'; // 'F5F1FB';
+var yandex_market_headerBgColor = 'FFFFFF';
+var yandex_market_catColor = '777278';
+var yandex_market_offerlinkColor = '0B57AC';
+var yandex_market_linkColor = '0B57AC';
+function yandex_market_print(){ }
+
+// Настройки Спец. размещения
+var yandex_premium_fontColor = '000000';
+var yandex_premium_titleColor = '0000CC';
+var yandex_premium_siteurlColor = '006600';
+function yandex_premium_print(){ }
+
+var yandex_r = Math.round(Math.random() * 100000);
+
+//--></script>
+
+</head>
+
+<body class="area" >
+<!--div id="rastyazhka"  style="width:100%; border:1px solid green; height:auto; float:none">
+</div-->
+<script type="text/javascript">
+<!--
+function ml_ph(p){document.write('<div id="mlph'+p+'" style="display:none"><\/div>');}
+function ml_c(p){document.write('<div style="visibility:hidden;position:absolute"><iframe id="ml_c'+p+'" width=1 height=1 marginwidth=0 marginheight=0 scrolling=no frameborder=0><\/iframe><\/div>');}
+function ml_getCode(n,p,s){
+var d;
+if(n<10){if(document.all && !window.opera){d = window.frames['ml_c'+p].document;}
+else if(document.getElementById){d=document.getElementById('ml_c'+p).contentDocument;}
+if(d){d.write('<scr'+'ipt src="'+s+'"><\/scr'+'ipt>');}
+else {setTimeout('ml_getCode('+(++n)+','+p+',"'+s+'")', 100);}
+}}
+var place_id = '36970';
+ml_ph(place_id); ml_c(place_id);
+ml_getCode(1,place_id,'http://leaderboard.advertpay.net/code?pid='+place_id+'&gid=7&oin=1&rid=' + Math.round(Math.random()*100000));
+//-->
+</script>
+
+<center>
+<div id="container">
+ <div id="header">
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr>
+<td width="10%">
+<span class="logo">
+<a href="http://en.academic.ru"><span class="academic">Academic</span>&nbsp;dictionaries&nbsp;and&nbsp;encyclopedias</a>
+</span>
+</td>
+<td valign="top" align="right">
+<span style="float:right; z-index: 17;">
+<a href="http://en.academic.ru/academicsearchbar.php" class="menu">Add search to browser</a><a href="http://partners.academic.ru/partner_proposal.php" class="menu">using dictionaries in your site</a></span>
+</td>
+</tr>
+<tr>
+<td align="right">
+<span class="dicacademic"><a href="http://en.academic.ru" >http://en.academic.ru</a></span>
+</td>
+<td>&nbsp;</td>
+</tr></table>
+<br />
+
+<div id="search">
+<form action="/searchall.php" method="get" name="searchform" id="searchform">
+<center>
+<table>
+<tr>
+<td><input type="text" name="SWord" id="SWord" value=""  class="search" size="50"/></td>
+<td><input type="submit" class="button btn" value="Search!" id="SBtn"/></td>
+</tr>
+<tr>
+<td colspan="2" align="left" style="font-size:9pt">
+<input type="checkbox" name="t" value="1" id="t" /><label for="t">translations</label>
+<input type="checkbox" name="d" value="1" checked="checked" id="d" /><label for="d">interpretations</label> &nbsp;&nbsp;
+<a href="http://en.academic.ru">all dictionaries</a>
+&nbsp; <a href="http://translate.academic.ru/?t=Information+retrieval">interface for translators</a>
+<!--span style="margin-left:190px;"><a href="http://partners.academic.ru/translateit.php">Контекстный словарь TranslateIt!</a></span-->
+</td>
+</tr>
+</table>
+</center>
+<input type="hidden" name="s" value="1" />
+</form>
+
+</div><!-- search -->
+</div><!-- header -->
+
+<!--Kavanga START-->
+<!--kavanga-->
+<!--Сайт: Словари и энциклопедии на Академике.-->
+<!--Категория: Образование-->
+<!--Тип баннера: 728х90 схлопывающийся-->
+<script type="text/javascript">
+<!--
+if (typeof(pr) == 'undefined') { var pr = Math.floor(Math.random() * 1000000); }
+if (typeof(document.referrer) != 'undefined') {
+  if (typeof(afReferrer) == 'undefined') {
+    afReferrer = escape(document.referrer);
+  }
+} else {
+  afReferrer = '';
+}
+var addate = new Date();
+document.write('<scr' + 'ipt type="text/javascript" src="http://a.kavanga.ru/3604/prepareCode?p1=vfk&amp;p2=cyp&amp;pucn=a&amp;pfc=a&amp;pfb=a&amp;plp=a&amp;pli=a&amp;pop=a&amp;pr=' + pr +'&amp;pt=b&amp;pd=' + addate.getDate() + '&amp;pw=' + addate.getDay() + '&amp;pv=' + addate.getHours() + '&amp;py=a&amp;prr=' + afReferrer + '"><\/scr' + 'ipt>');
+// -->
+</script>
+<!--Kavanga END-->
+<div id="sidebar1">
+ <script type="text/javascript"><!--
+google_ad_client = "pub-8594606551930257";
+/* 160x600 */
+google_ad_slot = "0137252453";
+google_ad_width = 160;
+google_ad_height = 600;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+</div><!-- end #sidebar1 -->
+
+<div id="mainContent">
+
+<script type="text/javascript">document.write('<sc'+'ript type="text/javascript" src="http://an.yandex.ru/code/21881?rnd=' + yandex_r + '&text=Information+retrieval&page-no=1&charset=utf-8"></'+'sc'+'ript>');</script>
+
+<br /><script type="text/javascript">yandex_premium_print()</script>
+
+<div class="dic_link"><a href="/contents.nsf/enwiki/">Wikipedia</a></div>
+
+
+
+<h1>Information retrieval</h1>
+<div class="_ga1_on_" id="d_text">
+<p><b>Information retrieval</b> (<b>IR</b>) is the science of searching for documents, for <r>information</r> within documents and for metadata about documents, as well as that of searching <r>relational database</r>s and the <r>World Wide Web</r>. There is overlap in the usage of the terms data retrieval, <r>document retrieval</r>, information retrieval, and <r>text retrieval</r>, but each also has its own body of literature, theory, <A HREF="250554">praxis</a> and technologies. IR is <r>interdisciplinary</r>, based on <r>computer science</r>, <r>mathematics</r>, <r>library science</r>, <r>information science</r>, <r>information architecture</r>, <r>cognitive psychology</r>, <r>linguistics</r>, <r>statistics</r> and <r>physics</r>.<p>Automated information retrieval systems are used to reduce what has been called "<r>information overload</r>". Many universities and <A HREF="122136">public libraries</a> use IR systems to provide access to books, journals and other documents. Web <A HREF="1962402">search engine</a>s are the most visible <A HREF="7375953">IR applications</a>.<p><strong> History </strong><p><small>Rquote|right|But do you know that, although I have kept the diary [on a phonograph] for months past, it never once struck me how I was going to find any particular part of it in case I wanted to look it up?|Dr Seward| <A HREF="2019">Bram Stoker's</a> "<r>Dracula</r>", 1897</small>The idea of using computers to search for relevant pieces of information was popularized in an article "<r>As We May Think</r>" by <r>Vannevar Bush</r> in 1945.<ref name="Singhal01"><small>cite journal | last = Singhal | first = Amit | title = Modern Information Retrieval: A Brief Overview | journal = Bulletin of the IEEE Computer Society Technical Committee on Data Engineering | volume = 24 | issue = 4 | pages = 35–43 | date = 2001 | url = http://singhal.info/ieee2001.pdf</small></i>] First implementations of information retrieval systems were introduced in the 1950s and 1960s. By 1990 several different techniques had been shown to perform well on small text corpora (several thousand documents).<ref name="Singhal01" /><p>In 1992 the US Department of Defense, along with the <r>National Institute of Standards and Technology</r> (NIST), cosponsored the <r>Text Retrieval Conference</r> (TREC) as part of the TIPSTER text program. The aim of this was to look into the information retrieval community by supplying the infrastructure that was needed for evaluation of text retrieval methodologies on a very large text collection. This catalyzed research on methods that <A HREF="123946">scale</a> to huge corpora. The introduction of web <A HREF="1962402">search engine</a>s has boosted the need for very large scale retrieval systems even further.<p>The use of digital methods for storing and retrieving information has led to the phenomenon of <r>digital obsolescence</r>, where a digital resource ceases to be readable because the physical media, the reader required to read the media, the hardware, or the software that runs on it, is no longer available. The information is initially easier to retrieve than if it were on paper, but is then effectively lost.<p><strong> Timeline </strong><p>* 1890: Hollerith tabulating machines were used to analyze the US census. (<r>Herman Hollerith</r>).<br />* 1945: <r>Vannevar Bush</r>'s "<r>As We May Think</r>" appeared in "<r>Atlantic Monthly</r>" <br />* Late 1940s: The US military confronted problems of indexing and retrieval of wartime scientific research documents captured from Germans.<br />* 1947: <r>Hans Peter Luhn</r> (research engineer at IBM since 1941) began work on a mechanized, punch card based system for searching chemical compounds.<br />* 1950: The term "information retrieval" may have been coined by <r>Calvin Mooers</r>.<br />* 1950s: Growing concern in the US for a "science gap" with the USSR motivated, encouraged funding, and provided a backdrop for mechanized literature searching systems (<r>Allen Kent</r> et al) and the invention of citation indexing (<r>Eugene Garfield</r>). <br />* 1955: Allen Kent joined <r>Case Western Reserve University</r>, and eventually becomes associate director of the Center for Documentation and Communications Research. That same year, Kent and colleagues publish a paper in American Documentation describing the precision and recall measures, as well as detailing a proposed "framework" for evaluating an IR system, which includes statistical sampling methods for determining the number of relevant documents not retrieved.<br />* 1958: International Conference on Scientific Information Washington DC included consideration of IR systems as a solution to problems identified. See: Proceedings of the International Conference on Scientific Information, 1958 (National Academy of Sciences, Washington, DC, 1959)<br />* 1959: Hans Peter Luhn published "Auto-encoding of documents for information retrieval." <br />* 1960: Melvin Earl (Bill) Maron and J. L. Kuhns published "On relevance, probabilistic indexing, and information retrieval" in Journal of the ACM 7(3):216-244, July 1960. <br />* Early 1960s: <r>Gerard Salton</r> began work on IR at Harvard, later moved to Cornell. <br />* 1962: <r>Cyril W. Cleverdon</r> published early findings of the Cranfield studies, developing a model for IR system evaluation. See: Cyril W. Cleverdon, "Report on the Testing and Analysis of an Investigation into the Comparative Efficiency of Indexing Systems". Cranfield Coll. of Aeronautics, Cranfield, England, 1962. <br />* 1962: Kent published Information Analysis and Retrieval<br />* 1963: Weinberg report "Science, Government and Information" gave a full articulation of the idea of a "crisis of scientific information." The report was named after Dr. <r>Alvin Weinberg</r>. <br />* 1963: <r>Joseph Becker</r> and <r>Robert M. Hayes</r> published text on information retrieval. Becker, Joseph; Hayes, Robert Mayo. Information storage and retrieval: tools, elements, theories. New York, Wiley (1963). <br />* 1964: <r>Karen Sp&amp;auml;rck Jones</r> finished her thesis at Cambridge, "Synonymy and Semantic Classification", and continued work on <r>computational linguistics</r> as it applies to IR <br />* 1964: The <r>National Bureau of Standards</r> sponsored a symposium titled "Statistical Association Methods for Mechanized Documentation." Several highly significant papers, including G. Salton's first published reference (we believe) to the SMART system. <br />* Mid-1960s: National Library of Medicine developed <r>MEDLARS</r> Medical Literature Analysis and Retrieval System, the first major machine-readable database and batch retrieval system <br />* Mid-1960s: Project Intrex at MIT <br />* 1965: <r>J. C. R. Licklider</r> published "Libraries of the Future" <br />* 1966: <r>Don Swanson</r> was involved in studies at University of Chicago on Requirements for Future Catalogs <br />* 1968: Gerard Salton published "Automatic Information Organization and Retrieval". <br />* 1968: <r>J. W. Sammon</r>'s RADC Tech report "Some Mathematics of Information Storage and Retrieval..." outlined the vector model. <br />* 1969: Sammon's "A nonlinear mapping for data structure analysis" (IEEE Transactions on Computers) was the first proposal for visualization interface to an IR system. <br />* Late 1960s: <r>F. W. Lancaster</r> completed evaluation studies of the MEDLARS system and published the first edition of his text on information retrieval <br />* Early 1970s: first online systems--NLM's AIM-TWX, MEDLINE; Lockheed's Dialog; SDC's ORBIT <br />* Early 1970s: <r>Theodor Nelson</r> promoting concept of <r>hypertext</r>, published Computer Lib/Dream Machines <br />* 1971: <r>N. Jardine</r> and <r>C. J. Van Rijsbergen</r> published "The use of hierarchic clustering in information retrieval", which articulated the "cluster hypothesis." (Information Storage and Retrieval, 7(5), pp. 217-240, Dec 1971)<br />*1975: Three highly influential publications by Salton fully articulated his vector processing framework and term discrimination model: <br />** A Theory of Indexing (Society for Industrial and Applied Mathematics) <br />** "A theory of term importance in automatic text analysis", (JASIS v. 26) <br />** "A vector space model for automatic indexing", (CACM 18:11) <br />* 1978: The First <A HREF="1477">ACM</a> <r>SIGIR</r> conference. <br />* 1979: C. J. Van Rijsbergen published "Information Retrieval" (Butterworths). Heavy emphasis on probabilistic models. <br />* 1980: First international ACM SIGIR conference, joint with British Computer Society IR group in Cambridge <br />* 1982: <A HREF="6145733">Belkin</a>, Oddy, and Brooks proposed the ASK (Anomalous State of Knowledge) viewpoint for information retrieval. This was an important concept, though their automated analysis tool proved ultimately disappointing. <br />* 1983: Salton (and M. McGill) published Introduction to Modern Information Retrieval (McGraw-Hill), with heavy emphasis on vector models. <br />* Mid-1980s: Efforts to develop end user versions of commercial IR systems. <br />* 1985-1993: Key papers on and experimental systems for visualization interfaces. <br />* Work by <r>D. B. Crouch</r>, <r>Robert R. Korfhage</r>, <r>M. Chalmers</r>, <r>A. Spoerri</r> and others. <br />* 1989: First <r>World Wide Web</r> proposals by <r>Tim Berners-Lee</r> at <r>CERN</r>. <br />* 1992: First TREC conference. <br />* 1997: Publication of <A HREF="7894469">Korfhage</a>'s "Information Storage and Retrieval"<ref name="korfhage97"><small>cite book | last = Korfhage | first = Robert R. | title = Information Storage and Retrieval | publisher = Wiley | date = 1997 | pages = 368 pages | isbn = 978-0-471-14338-3 | url = http://www.wiley.com/WileyCDA/WileyTitle/productCd-0471143383,descCd-authorInfo.html </small></i>] with emphasis on visualization and multi-reference point systems. <br />* Late 1990s: Web <A HREF="1962402">search engine</a> implementation of many features formerly found only in experimental IR systems<p><strong> Overview </strong><p>An information retrieval process begins when a user enters a query into the system. Queries are formal statements of <r>information need</r>s, for example search strings in web search engines. In information retrieval a query does not uniquely identify a single object in the collection. Instead, several objects may match the query, perhaps with different degrees of <A HREF="248697">relevancy</a>.<p>An object is an entity which keeps or stores information in a database. User queries are matched to objects stored in the database. Depending on the <A HREF="7375953">application</a> the data objects may be, for example, text documents, images or videos. Often the documents themselves are not kept or stored directly in the IR system, but are instead represented in the system by document surrogates.<p>Most IR systems compute a numeric score on how well each object in the database match the query, and rank the objects according to this value. The top ranking objects are then shown to the user. The process may then be iterated if the user wishes to refine the query.<p><strong> Performance measures </strong><p>Many different measures for evaluating the performance of information retrieval systems have been proposed. The measures require a collection of documents and a query. All common measures described here assume a ground truth notion of relevancy: every document is known to be either relevant or non-relevant to a particular query. In practice queries may be <r>ill-posed</r> and there may be different shades of relevancy.<p><strong> Precision </strong><p>Precision is the fraction of the documents retrieved that are <A HREF="248694">relevant</a> to the user's information need.<p>:<math> mbox{precision}=frac </math><p>In binary classification, recall is called sensitivity. So it can be looked at as "the probability that a relevant document is retrieved by the query".<p>It is trivial to achieve recall of 100% by returning all documents in response to any query. Therefore recall alone is not enough but one needs to measure the number of non-relevant documents also, for example by computing the precision.<p><strong> Fall-Out </strong><p>The proportion of non-relevant documents that are retrieved, out of all non-relevant documents available:<p>:<math> mbox{fall-out}=frac{|{mbox{non-relevant documents}} </math><p>In binary classification, fall-out is closely related to specificity. More precisely: <math>mbox{fall-out}=1-mbox{specificity}</math>. It can be looked at as "the probability that a non-relevant document is retrieved by the query".<p>It is trivial to achieve fall-out of 0% by returning zero documents in response to any query.<p><strong> F-measure </strong><p>The weighted <r>harmonic mean</r> of precision and recall, the traditional F-measure or balanced F-score is:<p>:<math>F = 2 cdot (mathrm{precision} cdot mathrm{recall}) / (mathrm{precision} + mathrm{recall}).,</math><p>This is also known as the <math>F_1</math> measure, because recall and precision are evenly weighted.<p>The general formula for non-negative real β is::<math>F_eta = (1 + eta^2) cdot (mathrm{precision} cdot mathrm{recall}) / (eta^2 cdot mathrm{precision} + mathrm{recall}).,</math><p>Two other commonly used F measures are the <math>F_{2}</math> measure, which weights recall twice as much as precision, and the <math>F_{0.5}</math> measure, which weights precision twice as much as recall.<p>The F-measure was derived by van Rijsbergen (1979) so that <math>F_eta</math> "measures the effectiveness of retrieval with respect to a user who attaches β times as much importance to recall as precision". It is based on van Rijsbergen's effectiveness measure <math>E = 1-(1/(alpha/P + (1-alpha)/R))</math>. Their relationship is <math>F_eta = 1 - E</math> where <math>alpha=1/(eta^2+1)</math>.<p><strong> Average precision of precision and recall</strong><p>The precision and recall are based on the whole list of documents returned by the system. Average precision emphasizes returning more relevant documents earlier. It is average of precisions computed after truncating the list after each of the relevant documents in turn:<p>:<math> operatorname{AveP} = frac{sum_{r=1}^N (P(r) 	imes mathrm{rel}(r))}{mbox{number of relevant documents</small> !</math> <p>where "r" is the rank, "N" the number retrieved, "rel()" a binary function on the relevance of a given rank, and "P()" precision at a given cut-off rank.<p><strong> Model types </strong><p>For the information retrieval to be efficient, the documents are typically transformed into a suitable representation. There are several representations. The picture on the right illustrates the relationship of some common models. In the picture, the models are categorized according to two dimensions: the mathematical basis and the properties of the model.<p><strong> First dimension: mathematical basis </strong><p>* "Set-theoretic models" represent documents as sets of words or phrases. Similarities are usually derived from set-theoretic operations on those sets. Common models are:<br />** <r>Standard Boolean model</r><br />** <r>Extended Boolean model</r><br />** <r>Fuzzy retrieval</r><p>* "Algebraic models" represent documents and queries usually as vectors, matrices or tuples. The similarity of the query vector and document vector is represented as a scalar value.<br />** <r>Vector space model</r><br />** <r>Generalized vector space model</r><br />** Topic-based vector space model (literature: [<small><i>http://www.kuropka.net/files/TVSM.pdf</i></small>] , [<small><i>http://www.logos-verlag.de/cgi-bin/engbuchmid?isbn=0514&amp;lng=eng&amp;id=</i></small>] ) <br />** <r>Extended Boolean model</r><br />** Enhanced topic-based vector space model (literature: [<small><i>http://kuropka.net/files/HPI_Evaluation_of_eTVSM.pdf</i></small>] , [<small><i>http://www.logos-verlag.de/cgi-bin/engbuchmid?isbn=0514&amp;lng=eng&amp;id=</i></small>] )<br />** Latent semantic indexing aka <r>latent semantic analysis</r><p>* "Probabilistic models" treat the process of document retrieval as a probabilistic inference. Similarities are computed as probabilities that a document is relevant for a given query. Probabilistic theorems like the <r>Bayes' theorem</r> are often used in these models.<br />** <r>Binary independence retrieval</r><br />** <r>Probabilistic relevance model (BM25)</r><br />** Uncertain inference<br />** <r>Language model</r>s<br />** <r>Divergence-from-randomness model</r><br />** <r>Latent Dirichlet allocation</r><p><strong> Second dimension: properties of the model </strong><p>* "Models without term-interdependencies" treat different terms/words as independent. This fact is usually represented in vector space models by the <r>orthogonality</r> assumption of term vectors or in probabilistic models by an <r>independency</r> assumption for term variables.<p>* "Models with immanent term interdependencies" allow a representation of interdependencies between terms. However the degree of the interdependency between two terms is defined by the model itself. It is usually directly or indirectly derived (e.g. by <A HREF="313986">dimensional reduction</a>) from the <r>co-occurrence</r> of those terms in the whole set of documents.<p>* "Models with transcendent term interdependencies" allow a representation of interdependencies between terms, but they do not allege how the interdependency between two terms is defined. They relay an external source for the degree of interdependency between two terms. (For example a human or sophisticated algorithms.)<p> <p><strong> Major figures </strong><p>* <r>Gerard Salton</r><br />* <r>Hans Peter Luhn</r><br />* [<small><i>http://ciir.cs.umass.edu/personnel/croft.html W. Bruce Croft</i></small>] <br />* <r>Karen Spärck Jones</r><br />* <r>C. J. van Rijsbergen</r><br />* [<small><i>http://www.soi.city.ac.uk/~ser/homepage.html Stephen E. Robertson</i></small>] <br />* <r>Martin Porter</r><p><strong> Awards in the field </strong><p>* <r>Tony Kent Strix award</r><br />* <r>Gerard Salton Award</r><p><strong> See also </strong><p>* <r>Adversarial information retrieval</r><br />* <A HREF="7375953">Areas of IR application</a><br />* <r>Clustering</r><br />* <r>Compound term processing</r><br />* <r>Controlled vocabulary</r><br />* <r>Educational psychology</r><br />* <r>Free text search</r><br />* <r>Human Computer Information Retrieval</r><br />* <r>Information extraction</r><br />* <r>Information need</r><br />* <r>Information Retrieval Facility</r><br />* <r>Information science</r><br />* <r>Knowledge visualization</r><br />* <r>Multisearch</r><br />* <r>Personal information management</r><br />* <r>Relevance (Information Retrieval)</r><br />* <r>Relevance feedback</r><br />* <A HREF="3948221">Search index</a><br />* <r>tf-idf</r><p><strong> References </strong><p><references /><p><strong> External links </strong><p>* [<small><i>http://www.acm.org/sigir/ ACM SIGIR: Information Retrieval Special Interest Group</i></small>] <br />* [<small><i>http://irsg.bcs.org/ BCS IRSG: British Computer Society - Information Retrieval Specialist Group</i></small>] <br />* [<small><i>http://trec.nist.gov Text Retrieval Conference (TREC)</i></small>] <br />* [<small><i>http://www.cwirf.org/ Chinese Web Information Retrieval Forum (CWIRF)</i></small>] <br />* [<small><i>http://www.dcs.gla.ac.uk/Keith/Preface.html Information Retrieval</i></small>] (online book) by <r>C. J. van Rijsbergen</r><br />* [<small><i>http://ir.dcs.gla.ac.uk/wiki/ Information Retrieval Wiki</i></small>] <br />* [<small><i>http://ir-facility.org/ Information Retrieval Facility</i></small>] <br />* [<small><i>http://www-csli.stanford.edu/~hinrich/information-retrieval-book.html Introduction to Information Retrieval (online book) by Christopher D. Manning, Prabhakar Raghavan and Hinrich Schütze, Cambridge University Press. 2008. </i></small>] </div>
+
+<br />
+<center>
+<script type="text/javascript"><!--
+google_ad_client = "pub-8594606551930257";
+/* 336x280, создано __.__.__ */
+google_ad_slot = "8526982717";
+google_ad_width = 336;
+google_ad_height = 280;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<!-- SearchPartner code START-->
+<script language="javascript" type="text/javascript">
+//<![CDATA[<!--
+var RndNum4NoCash = Math.round(Math.random() * 1000000000);
+var ar_Tail='unknown'; if (document.referrer) ar_Tail = escape(document.referrer);
+document.write('<img src="http://ad.adriver.ru/cgi-bin/rle.cgi?' + 'sid=106710&bt=21&pz=0&rnd=' + RndNum4NoCash
++ '&tail256=' + ar_Tail + '" border=0 width=1 height=1>')
+//-->]]>
+</script>
+<noscript>
+<img src="http://ad.adriver.ru/cgi-bin/rle.cgi?sid=106710&amp;bt=21&amp;pz=0&amp;rnd=62142179" border="0" width="1" height="1" alt="" />
+
+</noscript>
+<!-- SearchPartner code END -->
+</center></div><!-- end #mainContent -->
+<!-- This clearing element should immediately follow the #mainContent div in order to force the #container div to contain all child floats -->
+<br class="clearfloat" />
+<div id="footer">
+<table width="100%"><tr>
+<td align="left">
+<a href="mailto:support@academic.ru" title="">support@academic.ru</a>
+</td>
+<td align="center">
+<a href="http://pda.academic.ru">PDA version</a>
+</td>
+<td align="right">
+<div>
+<!--LiveInternet counter--><script type="text/javascript"><!--
+document.write("<a href='http://www.liveinternet.ru/click' "+
+"target=_blank style='border-bottom: none;'><img src='http://counter.yadro.ru/hit?t44.6;r"+
+escape(document.referrer)+((typeof(screen)=="undefined")?"":
+";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+";h"+escape(document.title.substring(0,80))+";"+Math.random()+
+"' alt='' title='LiveInternet' "+
+"border='0' width='31' height='31'><\/a>")
+//--></script><!--/LiveInternet-->
+</div>
+</td>
+</tr></table>
+
+
+</div><!-- end #footer -->
+</div><!-- end #container -->
+</center>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-2754246-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+
+<!-- GoodADVERT (Smart Banner) for Словари и энциклопедии на Академике -->
+<script type="text/javascript"><!--
+var _ga3_channel='73';
+// -->
+</script>
+<script type="text/javascript" src="http://files.goodadvert.ru/ga_3.js" charset="utf-8"></script>
+<!-- GoodADVERT -->
+<!-- GoodADVERT (Smart Banner in text) for Словари и энциклопедии на Академике -->
+<script type="text/javascript"><!--
+var _ga1_channel='74';
+// -->
+</script>
+<script type="text/javascript" src="http://files.goodadvert.ru/ga_1.js" charset="utf-8"></script>
+<!-- GoodADVERT -->
+<!--BEGIN RichBanner http://dic.academic.ru (Видео)-->
+<script language="JavaScript">
+<!--
+var _rbn={};
+_rbn.v={};
+_rbn.v.inline_color = "#009900";	
+_rbn.v.inline_count_max=5;
+_rbn.v.is_use_marked=0;
+_rbn.v.autostart_video = 1;
+_rbn.v.ad=[];
+document.write('<scr' + 'ipt language="JavaScript" src="http://drive.videoclik.ru/code?pid=213&gid=19&oin=1&rid=' + (Math.floor(Math.random() * 1000000000)) +'" charset="utf-8" type="text/JavaScript"></scr' + 'ipt>');
+// -->
+</script>
+<script language="JavaScript" src="http://content.videoclik.ru/rbn.js" charset="utf-8" type="text/JavaScript"></script>
+<!--END RichBanner -->
+<script type="text/JavaScript">var vsId=10157;</script><script type="text/JavaScript"
+src="http://adv.videoslovo.ru/main.js"></script> 
+</body>
+</html>

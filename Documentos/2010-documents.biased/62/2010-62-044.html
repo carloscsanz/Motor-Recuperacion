@@ -1,0 +1,594 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>ACM:SIGIR Business Mtg - Flash version, courtesy of PowerShow.com</title><link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="/themes/default/css/main.css" />
+<link rel="stylesheet" type="text/css" href="/themes/original/css/original.css" />
+<!--[if lte IE 6.5]><link rel="stylesheet" type="text/css" href="/themes/default/css/ie.css" /><![endif]-->
+<script type="text/javascript" src="/js/libraries/jquery1.3.2.js"></script>
+<script type="text/javascript" src="/js/common.js"></script>
+<script type="text/javascript" src="/js/player.js"></script>
+<script type="text/javascript" src="/js/libraries/swfobject2.2.js"></script>
+<script type="text/javascript" src="http://cdn.gigya.com/wildfire/js/wfapiv2.js"></script><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="fox, peter" />
+<meta name="description" content="... Edie Rasmussen, (Robert Korfage, Peter Willett) ... Fidel, (Ed Fox, Peter Ingwersen) ... Ellen Voorhees, (Nick Belkin, Peter Willett, Desai Narasimhulu) ..." /></head>
+
+<body>
+
+<div class="site widepage">
+        <div class="box header withads">
+    <div class="topleft"></div><div class="topright"></div><div class="top"></div>
+    <div class="left"><div class="right"><div class="center">
+    <div class="content">
+        <div class="logo"><a href="/"><img id="logo" src="/themes/default/images/logo.png" alt="PowerShow.com" /></a></div>
+        <a href="#" class="feedback" title="Send Us Feedback" onclick="AppPopup.open('feedback');return false;"></a>
+        <div class="clear"></div>
+
+        <div class="links"><a href="/">Home</a> | <a href="/help">Help</a></div>
+        <div class="search">
+            <form id="simple_search" action="/search" method="get">
+                <input class="textinput headersearch" name="search" maxlength="128" type="text" value="" />
+                <input type="hidden" name="mode" value="simple" />
+                <input type="submit" class="searchbutton" value="" />
+                <a href="/search/advanced" class="advancedsearchlink">Advanced</a>
+            </form>
+        </div>
+
+        <a href="/presentation/upload" class="upload" title="Upload"></a>
+        <div class="links2">
+                        <a href="/preferences">Preferences</a> | <a href="/user/signup?back=http%3A%2F%2Fwww.powershow.com%2Fview%2F26874-MWQwY%2FACMSIGIR_Business_Mtg">Sign up</a> | <a href="/user/login?back=http%3A%2F%2Fwww.powershow.com%2Fview%2F26874-MWQwY%2FACMSIGIR_Business_Mtg">Log in</a>
+                    </div>
+    </div>
+    </div></div></div>
+    <div class="bottomleft"></div><div class="bottomright"></div><div class="bottom"></div>
+    </div>
+
+<div class="headerads">
+<script type="text/javascript">//<![CDATA[
+var google_ad_client = 'pub-0529305388270060',google_ad_slot = '4323508435',google_ad_width = '728',google_ad_height = '15';
+//]]></script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></div>
+
+
+<div class="pagecontent">
+    <script type="text/javascript">//<![CDATA[
+function addTags(){
+    var tags = $("#form_tags").val();
+    var options = {
+            url: "/presentation/157812/addtags",
+            request: {tags: tags},
+            callback: function(xhr) {
+                $("#addtags").fadeOut();
+                $("#form_tags").val("");
+                if (true === xhr.result) {
+                    $.blink("Tag(s) added", 3);
+                    tags = xhr.tags.join(' <span>|</span> ');
+                    $('#tags').html(tags);
+                }else{
+                    $.blink("Tag(s) not added", 3);
+                }
+            }
+    };
+    AppAjax.get("#tags", options);
+}
+
+// comments content
+var commentsSort = "default";
+function commentsContent(commentsSort, page) {
+    page = (page) ? page : 1;
+    // load box
+    $("#comments_content").removeData("paginator").ajaxBox({
+        "url": "/comment/presentation",
+        "request": {
+            "pid": 157812,
+            "order": commentsSort,
+            "p": page
+        },
+        "pagination": {
+            "controller": "#comments_paginator",
+            "listing": "#comments_num",
+            "callback": function(paginator) {
+                $("#total_comments").text(paginator.totalItemCount);
+                if (paginator.totalItemCount > 2) {
+                    $("#comments_sort_box, #comments_num").show();
+                }
+                else {
+                    $("#comments_sort_box, #comments_num").hide();
+                }
+            }
+        }
+    });
+}
+// Onload functions
+$(function(){
+    $(".moreinfo")
+        .mouseenter(function(){
+            var target = $("#" + $(this).attr("id").replace(/tooltip_/, ""));
+            target.show();
+        })
+        .mouseleave(function(){
+            var target = $("#" + $(this).attr("id").replace(/tooltip_/, ""));
+            target.hide();
+        });
+    $(".expandbar").click(function(event){
+        event.preventDefault();
+        AppEffects.blockToggle(this);
+    });
+    // animate buttons
+    $("#buttons_presentationcontrols").find(".largebutton").not(".disabled")
+        .bind("mousedown mouseup", function(){
+            AppEffects.buttonToggle(this);
+        });
+    $("#writecommentbutton").find(".fakebutton").not(".disabled")
+        .bind("mousedown mouseup", function(){
+            AppEffects.buttonToggle(this);
+        });
+    $("#comments").find(".fakebutton").not(".disabled")
+        .bind("mousedown mouseup", function(){
+            AppEffects.buttonToggle(this);
+        });
+    $("#addtags").find(".fakebutton").not(".disabled")
+    .bind("mousedown mouseup", function(){
+        AppEffects.buttonToggle(this);
+    });
+    var relatedSort = "recommended";
+    // related content
+    function relatedContent(relatedSort) {
+        // load box
+        $("#related_content").ajaxBox({
+            "url": "/presentation/ajaxlist",
+            "request": {
+                "pid": 157812,
+                "format": "related",
+                "sort": relatedSort,
+                "p": 1
+            },
+            "pagination": {
+                "controller": "#related_paginator"
+            }
+        });
+        // load box
+        $("#morefrom_content").ajaxBox({
+            "url": "/presentation/ajaxlist",
+            "request": {
+                "pid": 157812,
+                "uid": 78371,
+                "format": "morefrom",
+                "sort": relatedSort,
+                "p": 1
+            },
+            "pagination": {
+                "controller": "#morefrom_paginator"
+            }
+        });
+    }
+    relatedContent(relatedSort);
+    $("#sort")
+        .find("select")
+        .change(function(){
+            relatedSort = $(this).val();
+            relatedContent(relatedSort);
+        })
+    .end()
+        .find(".dropdownbox")
+        .data("ddTimer", false)
+        .mouseenter(function(){
+            var $target = $(this);
+            if ($target.data("ddTimer") !== false) {
+                clearTimeout($target.data("ddTimer"));
+            }
+            $target.dequeue().children(".dropdownvalues").slideDown("fast");
+        })
+        .mouseleave(function(){
+            var $target = $(this);
+            var ddTimer = setTimeout(function(){
+                $target.data("ddTimer", false)
+                    .children(".dropdownvalues").hide();
+            }, 1000);
+            $target.data("ddTimer", ddTimer);
+        })
+    .end()
+        .find(".dropdownvalues").children("a").click(function(event){
+            event.preventDefault();
+            var text  = $(this).text();
+            commentsSort = this.hash.replace(/#/, "");
+            $(this)
+                .parent().hide()
+                .prev().text(text);
+            relatedContent(commentsSort);
+        });
+    commentsContent(commentsSort);
+    $("#comments_sort_box")
+        .find("select")
+        .change(function(){
+            commentsSort = $(this).val();
+            commentsContent(commentsSort);
+        })
+    .end()
+        .find(".dropdownbox")
+        .data("ddTimer", false)
+        .mouseenter(function(){
+            var $target = $(this);
+            if ($target.data("ddTimer") !== false) {
+                clearTimeout($target.data("ddTimer"));
+            }
+            $target.dequeue().children(".dropdownvalues").slideDown("fast");
+        })
+        .mouseleave(function(){
+            var $target = $(this);
+            var ddTimer = setTimeout(function(){
+                $target.data("ddTimer", false)
+                    .children(".dropdownvalues").hide();
+            }, 1000);
+            $target.data("ddTimer", ddTimer);
+        })
+    .end()
+        .find(".dropdownvalues").children("a").click(function(event){
+            event.preventDefault();
+            var text  = $(this).text();
+            commentsSort = this.hash.replace(/#/, "");
+            $(this)
+                .parent().hide()
+                .prev().text(text);
+            commentsContent(commentsSort);
+        });
+
+    // button send | share
+                                    $("#button_shareit").click(function(){
+                AppPopup.open("presentation_157812_share");
+            });
+                                    $("#button_send").click(function(){
+                                AppPopup.open("presentation_157812_sendselect");
+                            });
+                            $("#writecommentbutton").find(".tcommentwrite").click(function(){
+        top.location.href = "/user/login?feature=1&back=" + escape(top.location.href + '?action=comment');
+    });
+    // button flag | favorite
+    $("#button_flag, #button_favorite").click(function(){
+        top.location.href = "/user/login?feature=1&back=" + escape(top.location.href);
+    });
+    // rating
+    $("#rates")
+        .bind("mouseenter", function(){
+            $('#rating_count').hide();
+            $('#rating_message').show();
+        })
+        .bind("mouseleave", function(){
+            $('#rating_message').hide();
+            $('#rating_count').show();
+        });
+});
+//]]></script>
+
+<div class="viewpageads">
+<div class="box">
+<div class="topleft"></div><div class="topright"></div><div class="top"></div>
+<div class="left"><div class="right"><div class="center">
+<script type="text/javascript">//<![CDATA[
+var google_ad_client = 'pub-0529305388270060',google_ad_slot = '3233080910',google_ad_width = '120',google_ad_height = '600';
+//]]></script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script><script type="text/javascript">//<![CDATA[
+var google_ad_client = 'pub-0529305388270060',google_ad_slot = '3233080910',google_ad_width = '120',google_ad_height = '600';
+//]]></script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></div></div></div>
+<div class="bottomleft"></div><div class="bottomright"></div><div class="bottom"></div>
+</div>
+</div>
+
+<div id="left" class="viewpagemain">
+<div class="box gainlayout">
+<div class="topleft"></div><div class="topright"></div><div class="top"></div>
+<div class="left"><div class="right"><div class="center">
+<div class="boxtitle yellow"><h1>ACM:SIGIR Business Mtg</h1></div>
+<div class="content gainlayout">
+
+<div id="presentation" class="presentation i">
+<script type="text/javascript">var flashvars = {pid: "P1246990951XVbGR", lg: "n", lse: "y", _: "c49847c87cc35b602da47f913b403a69"};var params = {quality:"high", wmode:"opaque", allowfullscreen:"true", bgcolor:"#000000", allowscriptaccess:"always"};var attributes = {name:"AAPlayerEXP"};swfobject.embedSWF("http://swf.powershow.com.s3.amazonaws.com/AAPlayerEXP.swf", "flash", "530", "332", "9.0.0", "/flash/expressInstall.swf", flashvars, params, attributes);
+</script><div class="flashcontainer" id="flash"><p>The Adobe Flash plugin is needed to view this content</p><p><a href="http://www.adobe.com/go/getflashplayer">Get the plugin now</a></p></div></div>
+<div class="presentationcontrols">
+<table class="buttons" id="buttons_presentationcontrols">
+<tr>
+<td>
+    <div class="largebutton centermargins" id="button_shareit" title="Embed or bookmark &quot;ACM:SIGIR Business Mtg&quot; on other websites.">
+    <div class="upstate"></div>
+    <div class="text"><div class="icon share"></div>Share</div>
+    </div>
+</td>
+<td>
+    <div class="largebutton centermargins" id="button_send" title="Email a link to &quot;ACM:SIGIR Business Mtg&quot; to your friends and associates.">
+    <div class="upstate"></div>
+    <div class="text"><div class="icon send"></div>Send</div>
+    </div>
+</td>
+     <td>
+   <div class="largebutton centermargins" id="button_flag" title="Report  &quot;ACM:SIGIR Business Mtg&quot; as inappropriate.">
+    <div class="upstate"></div>
+    <div class="text"><div class="icon flag"></div>Flag</div>
+    </div>
+</td>
+
+ <td>
+   <div class="largebutton centermargins" id="button_favorite" title="Remember &quot;ACM:SIGIR Business Mtg&quot; as one of your favorites.">
+    <div class="upstate"></div>
+    <div class="text"><div class="icon favorite"></div>Favorite</div>
+    </div>
+ </td>
+  </tr>
+</table>
+
+<!-- google_ad_section_start(weight=ignore) -->
+<div id="views" class="views">
+    <div class="viewsnum">Views: 27</div>
+        <div class='download disabled'>Save as PPS or open with PowerPoint Viewer</div>
+    </div>
+
+<div id="rates" class="rates">
+    <div id="rating_selectors" class="rating rightfloated">
+        <div class="rating3" id="rating"></div>
+        <div id="rate1" class="selector"></div>
+        <div id="rate2" class="selector"></div>
+        <div id="rate3" class="selector"></div>
+        <div id="rate4" class="selector"></div>
+        <div id="rate5" class="selector"></div>
+    </div>
+    <div class="ratingtitle">Rate:</div>
+    <div id="rating_count">0 ratings</div>
+    <div id="rating_message" class="hidden"><a href="http://www.powershow.com/user/login?feature=1&amp;back=http%3A%2F%2Fwww.powershow.com%2Fview%2F26874-MWQwY%2FACMSIGIR_Business_Mtg">Log in</a> to use this feature</div>
+</div>
+<!-- google_ad_section_end -->
+
+</div>
+<div class="clear"></div>
+
+<div class="expandbar">
+<div class="expandbarleft"></div><div class="expandbarright"></div>
+<div class="expandbartitle"><div class="arrow arrow-open"></div><div class="aboutpresentationtitle"></div></div>
+</div>
+<div id="aboutpresentation">
+<div class="aboutinfo">
+<div><strong><!-- google_ad_section_start(weight=ignore) -->Title:<!-- google_ad_section_end --></strong>ACM:SIGIR Business Mtg</div>
+<div><strong><!-- google_ad_section_start(weight=ignore) -->Description:<!-- google_ad_section_end --></strong>
+<!-- google_ad_section_start -->
+<div class="description">... Edie Rasmussen, (Robert Korfage, Peter Willett) ... Fidel, (Ed Fox, Peter Ingwersen) ... Ellen Voorhees, (Nick Belkin, Peter Willett, Desai Narasimhulu) ...</div>
+<!-- google_ad_section_end -->
+<div class="clear"></div>
+<div><strong><!-- google_ad_section_start(weight=ignore) -->Learn more at:<!-- google_ad_section_end --></strong><span class="learnmore"><a rel="nofollow" href="http://research.microsoft.com/en-us/um/people/sdumais" target="_blank">http://research.microsoft.com/en-us/um/people/sdumais</a></span></div>
+</div>
+<div id="aboutmore">
+    <!-- google_ad_section_start(weight=ignore) -->
+<div><strong>Presentation added: </strong>5 August 2009</div>
+<div><strong>Slides: </strong>35</div>
+    <!-- google_ad_section_end -->
+<div><strong><!-- google_ad_section_start(weight=ignore) -->Category:<!-- google_ad_section_end --></strong><a href="/search?mode=category&amp;id=0">Unassigned</a></div>
+<div><strong><!-- google_ad_section_start(weight=ignore) -->Tags:<!-- google_ad_section_end --></strong><span id="tags">
+<a href="/search?mode=tag&amp;tag=fox">fox</a> | <a href="/search?mode=tag&amp;tag=peter">peter</a></span>
+<div class="clear"></div>
+    <a class="addmoretagslink" href="/user/login?feature=1&back=http://www.powershow.com/view/26874-MWQwY/ACMSIGIR_Business_Mtg">Add more tags</a><!-- google_ad_section_end -->
+</div>
+</div>
+
+<p><a id="aboutmorelink" class="more" onclick="$('#aboutmorelink').hide(); $('#aboutlesslink').show(); $('#aboutmore').fadeIn('slow'); return false;" href="#" style="display: none;">more</a> <a id="aboutlesslink" class="less" onclick="$('#aboutlesslink').hide(); $('#aboutmorelink').show(); $('#aboutmore').fadeOut('slow'); return false;" href="#">less</a></p>
+</div>
+</div>
+
+<div class="expandbar">
+<div class="expandbarleft"></div><div class="expandbarright"></div>
+<div class="expandbartitle"><div class="arrow arrow-open"></div><div class="aboutpresentertitle"></div></div>
+</div>
+
+<div id="presenter">
+<div id="presenterContent" class="presenterinfo">
+<div class="thumb" style="background: url(/themes/default/images/noimage-profile-small.png) 50% 50% no-repeat;"></div>
+<div class="details">
+<script type="text/javascript">//<![CDATA[
+$(function(){
+    $("#presenterName").html("<a rel='nofollow' href='http://research.microsoft.com/en-us/um/people/sdumais' target='_blank'>sdumais</a>");
+});
+//]]></script>
+<div id="presenterName" class="name"></div>
+<div class="views"><strong><!-- google_ad_section_start(weight=ignore) -->Total views:<!-- google_ad_section_end --></strong>80</div>
+<div class="presrating"><strong><!-- google_ad_section_start(weight=ignore) -->Avg rating:<!-- google_ad_section_end --></strong>3.0</div>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+
+<!-- << comments -->
+<div class="write" id="writecommentbutton">
+    <div class="fakebutton larger tcommentwrite">
+    <div class="upstate" id="writeup"></div>
+    <div class="text"><!-- google_ad_section_start(weight=ignore) -->Write a Comment</div>
+    </div>
+</div>
+
+<div id="commentsbar" class="expandbar commentsbar">
+<div class="expandbarleft"></div><div class="expandbarright"></div>
+<div class="expandbartitle"><div class="arrow arrow-open"></div>
+User Comments (<span id="total_comments">0</span>)</div><!-- google_ad_section_end -->
+</div>
+
+<div id="comments"><div class="comments"><div id="write_comment" class="write_form" style="display:none;">
+<form id="form_comment_add">
+<div class="noerrors">
+    <textarea name="comment_text" rows="200" cols="6"></textarea>
+</div>
+<div class="comment_text_errors hidden"></div>
+<div class="buttons">
+    <div class="fakebutton rightfloated" onclick="AppEffects.slideToggle('#write_comment');">
+    <div class="upstate" id="cancelup"></div>
+    <div class="text">Cancel</div>
+    </div>
+    <div class="fakebutton rightfloated ajax_add_comment">
+    <div class="upstate" id="okup"></div>
+    <div class="text">OK</div>
+    </div>
+    <div class="clear"></div>
+</div>
+</form>
+</div>
+<div class="commentsnum" id="comments_num" style="display:none;"></div>
+<div id="comments_sort_box" class="sort" style="display:none;">
+    <div class="dropdownbox">
+        <div class="dropdown">Latest</div>
+        <div class="dropdownvalues" id="comments_sortfilter" style="display:none;">
+            <a href="#default">Latest</a>
+            <a href="#rating">Highest Rated</a>
+        </div>
+    </div>
+    Sort by:
+    <select id="comments_sort">
+        <option selected="selected" value="default">Latest</option>
+        <option value="rating">Highest Rated</option>
+    </select>
+</div>
+<div id="comments_content"></div>
+<div id="comments_paginator" class="pagination hidden">
+<div class="prevpage"><div class="arrow"></div></div>
+<div class="nextpage"><div class="arrow"></div></div>
+Page <input type="text" value="" class="currentpage" /> of <span class="totalpages"></span>
+</div>
+
+</div></div>
+<!-- comments >> -->
+
+<div class="expandbar">
+<div class="expandbarleft"></div><div class="expandbarright"></div>
+<div class="expandbartitle">
+<div class="arrow arrow-closed"></div>
+<!-- google_ad_section_start(weight=ignore) -->
+Transcript &amp; Presenter Notes</div>
+<!-- google_ad_section_end -->
+</div>
+<div id="transcript" style='display:none;'>
+
+<div class="transcript">
+<br/><strong>Title: </strong><!-- google_ad_section_start -->ACM:SIGIR Business Mtg<br/><br/>
+<br /><strong>1</strong><br />ACMSIGIR Business Mtg<ul><li> Aug 14 2002</li></ul> <br /><strong>2</strong><br />SIGIR 2002 Business Mtg<ul><li>Introductions </li><li>Reports General Financial Membership </li><li>Conferences CIKM DL SIGIR </li><li>New member initiatives and directions </li><li>Other issues questions </li><li>SIGIR _at_ 25  some special events</li></ul> <br /><strong>3</strong><br />SIGIR Officers<ul><li>Chair Susan Dumais </li><li>Vice-Chair Susan Gauch </li><li>Secretary Liz Liddy </li><li>Treasurer Jamie Callan </li><li>sigir-ec_at_acm.org </li><li>http//www.acm.org/sigir</li></ul> <br /><strong>4</strong><br />SIGIR Extended Family<ul><li>Chair Susan Dumais </li><li>Vice-Chair Susan Gauch </li><li>Secretary Liz Liddy </li><li>Treasurer Jamie Callan </li><li>Regional Reps David Harper  Ross Wilkinson </li><li>Information Officer Eric Brown </li><li>SIGIR Forum Eds Mark Sanderson  Peter Anick </li><li>Thanks to Fazli Can who stepped down after many <br />years as the Forum editor.</li></ul> <br /><strong>5</strong><br />2001 General Report<ul><li>Annual Report available online at </li><li>http//www.acm.org/sigir/ </li><li>Strong quality and good international <br />participation in conferences and publications </li><li>Continue to work on membership benefits student <br />involvement international appeal relevance to <br />industrial members</li></ul> <br /><strong>6</strong><br />SIGIR by the Numbers <br /><strong>7</strong><br />Student Travel Awards 2002<ul><li>20400 awarded up from 13350 </li><li>1100 IBM remainder SIGIR </li><li>26 students up from 17 last year </li><li>North America 11 </li><li>Europe / Middle East 8 </li><li>Australia / Asia 6 </li><li>South America 1</li></ul> <br /><strong>8</strong><br />SIGIR Financial Outlook The Good News<ul><li>Recent increase in membership </li><li>Is it sustainable? </li><li>Growth in SIGIR Proceedings Package </li><li>But we dont make money on it </li><li>Conferences generally profitable </li><li>Usually small profits but highly variable </li><li>Large fund balance</li></ul> <br /><strong>9</strong><br />SIGIR Financial Outlook The Bad News<ul><li>Declining sales of SIGIR proceedings </li><li>Declining interest income </li><li>Increasing ACM costs </li><li>Increasing student travel  other costs </li><li>A good thing but how do we pay for it? </li><li>Unpredictable conference income </li><li>Exec Committee has had little control</li></ul> <br /><strong>10</strong><br />SIGIR Financial Outlook Assessment<ul><li>SIGIR is healthy financially but </li><li>Dues cover less than half our expenses </li><li>We rely on conference profits to fund services <br />e.g. student travel awards  </li><li>Conference profits and losses vary greatly </li><li>Options </li><li>Exec Committee assumes greater control over <br />conference finances </li><li>Raise membership dues </li><li>Raise publication prices</li></ul> <br /><strong>11</strong><br />SIGIR Conferences<ul><li>SIGIR-Sponsored  </li><li>SIGIR01-SIGIR05 </li><li>CIKM01-03 Nov w/ SIGMIS </li><li>JCDL01 Jun 01 JCDL02 Jul 02 w/ SIGWEB and <br />IEEEs TCDL </li><li>In Cooperation </li><li>RCDL 2001 Russian Conference on Digital <br />Libraries </li><li>AH 2002 Intnl Conference on Adaptive Hypermedia </li><li>CIA 2002 Collaborative Information Agents </li><li>HLT 2002 Human Language Technologies</li></ul> <br /><strong>12</strong><br />CIKM2001 2002 2003<ul><li>2001 General Chair Carlton Pu </li><li>Program Co-Chairs David Grossman Ling Liu </li><li>60 papers 10 industry papers 15 posters </li><li>Profitable </li><li>2002 General Chair Charles Nicholas </li><li>Program Co-Chairs David Grossman Konstantinos <br />Kalpakis </li><li>Date Nov 4-9 McLean VA </li><li>2003 General Chair Don Kraft </li><li>Date Nov. 4-9 or 11-16 New Orleans LA</li></ul> <br /><strong>13</strong><br />JCDL2001 and 2002<ul><li>JCDL2001 First Joint Conf on Digital Libraries </li><li>Merger of ACM and IEEE DL Conferences  many <br />thanks to the Steering Committee especially Nick <br />Belkin SIGIRs rep in pulling off the merger <br />and successful new conference </li><li>General Chair Ed Fox </li><li>Virginia USA June 2001 </li><li>Extremely successful  425 attendees </li><li>40 papers 36 short papers 9 panels 10 demos <br />16 posters 6 tutorials 3 workshops 3 keynotes </li><li>Small profit </li><li>JCDL2002 General Chair Bill Hersh </li><li>Portland OR July 2002 ?? preliminaries</li></ul> <br /><strong>14</strong><br />SIGIR Conferences   past present and future<ul><li>2001 New Orleans USA D. Kraft </li><li>2002 Tampere Finland K. Jarvelin </li><li>25th anniversary </li><li>2003 Toronto Canada C. Clarke </li><li>2004 Sheffield UK M. Sanderson </li><li>2005 Salvador Brazil N. Ziviani R. <br />Baeza-Yates </li><li>2006 Seattle WA USA E. Ethimidias</li></ul> <br /><strong>15</strong><br />SIGIR01  a retrospective<ul><li>General Chair Don Kraft New Orleans LA USA </li><li>Successful </li><li>360 conference participants 217 workshops 153 <br />tutorials </li><li>Profitable </li><li>Best Paper Best Student Paper awards </li><li>Innovations </li><li>Invited Keynotes from IR-related Disciplines </li><li>Area Chairs </li><li>Mentoring David D. Lewis chair 16 papers <br />mentored </li><li>Sept 9-12 </li></ul> <br /><strong>16</strong><br />SIGIR02  you are there<ul><li>General Chair Kal Jarvelin </li><li>Program Chairs Micheline Beaulieu Ricardo <br />Baeza-Yates Sung Hyon Myaeng </li><li>Things of Note </li><li>Mentoring </li><li>Peter Anick chair 16 papers mentored </li><li>Edie Rasmussen chair for 2003 </li><li>25th SIGIR Meeting </li><li>CD w/ 25 years of proceedings </li><li>Pictorial history </li><li>Bibliometrics analysis </li><li>Hope youre having fun </li></ul> <br /><strong>17</strong><br />SIGIR03  Toronto CANADA<ul><li>General Chair Charlie Clarke </li><li>Dates July 28  Aug 1 2003</li></ul> <br /><strong>18</strong><br />SIGIR04  Sheffield UK<ul><li>General Chair Mark Sanderson</li></ul> <br /><strong>19</strong><br />SIGIR05  Salvador BRAZIL<ul><li>General Chairs Nivio Ziviani and Ricardo <br />Baeza-Yates</li></ul> <br /><strong>20</strong><br />SIGIR06  Seattle USA<ul><li>General Chair Efthimis Efthimidias</li></ul> <br /><strong>21</strong><br />SIGIR Selection and Schedule<ul><li>Traditional </li><li>Alternate between Europe  North America </li><li>New </li><li>5-year cycle NAEuropeNAEurope-Other </li><li>Begin Other w/ 2005 Salvador Brazil </li><li>NA 2006 Seattle </li><li>Europe 2007  get your proposals ready for next <br />year</li></ul> <br /><strong>22</strong><br />New Directions<ul><li>Digitizing SIGIR Conference Proceedings and <br />Forum back issues scanned </li><li>Proceedings Package </li><li>SIGIR Forum  continues online </li><li>SIG-IRList  electronic newsletter </li><li>ACMTOIS </li><li>SIGIR Doctoral Consortium</li></ul> <br /><strong>23</strong><br />Proceedings/Forum Online<ul><li>SIGIR Conf Proceedings and Forum Online </li><li>SIGIR Proceedings 1978-present scanned </li><li>SIGIR Forum 1975-present scanned some missing <br />issues 1965-1975 </li><li>Special thanks to Stephen Robertson Donna <br />Harman Bruce Croft Dagobert Soergel Ernst <br />Schuegraf and Jack Minker for loan of materials </li><li>Included in the ACMDL SIGMOD Anthology </li><li>New SIGIR_at_25 CDs </li></ul> <br /><strong>24</strong><br />SIGIR Proceedings Package<ul><li>Includes CIKM and JCDL proceedings </li><li>Cost 30 / year </li><li> break even </li><li>An excellent deal <br />for members</li></ul><br />2000</ul><br />2001</ul><br />2002</ul> <br /><strong>25</strong><br />SIGIR Forum<ul><li>Editors Mark Sanderson and Peter Anick with <br />help from outgoing editor Fazli Can </li><li>Online - http//www.acm.org/sigs/sigir/forum/ </li><li>Upcoming content </li><li>SIGIR CIKM DL workshop overviews </li><li>TREC Track overviews </li><li>PhD Dissertation abstracts </li><li>Invited talks </li><li>Community and SIGIR announcements </li><li>Your suggestions  Better yet your content</li></ul> <br /><strong>26</strong><br />SIG-IRList<ul><li>Editors Mark Sanderson and Asaad Alberair Univ <br />Sheffield </li><li>Electronic newsletter of IR information. <br />SIG-IRList contains job announcements notices of <br />publications conferences workshops calls for <br />participation and project announcements. </li><li>http//www.acm.org/sigir/sigirlist/ </li></ul> <br /><strong>27</strong><br />ACM TOIS<ul><li>ACM Transactions on Information Systems TOIS </li><li>Loose affiliation w/ SIGIR </li><li>Outgoing editor Bruce Croft </li><li>New editor Gary Marchionini</li></ul> <br /><strong>28</strong><br />Doctoral Consortium Trial Run at SIGIR04<ul><li>Invitational senior PhD students </li><li>Details to be determined </li><li>When? Before same day as tutorials </li><li>How? Participants only others? </li><li>Size? <li>Comments welcome </li><li>Contact David Harper</li></ul> <br /><strong>29</strong><br />Volunteers Needed<ul><li>Membership coordinator </li><li>SIGIR 2003 </li><li>Best papers committee chair </li><li>SIGIR EC </li><li>Elections early 2003 </li><li>See any of us after meeting or email <br />sigir-ec_at_acm.org</li></ul> <br /><strong>30</strong><br />Audience ParticipationWhat Do You Like Or Not?<ul><li>Question  </li><li>Issues  </li><li>Suggestions  </li><li>See any of us after meeting or email <br />sigir-ec_at_acm.org </li><li> SIGIR_at_25</li></ul> <br /><strong>31</strong><br />SIGIR_at_25 25 Years of SIGIR Meetings<ul><li>CDs 25 years of Proceedings </li><li>Pictorial history </li><li>Bibliometrics analysis</li></ul> <br /><strong>32</strong><br />No Transcript <br /><strong>33</strong><br />SIGIR 1978-1989<ul><li>1978 Rochester Robert Dattola James Iverson <br />P. Bruce Berra R. Dattola </li><li>1979 Dallas Robert Korfhag Christine Borgman </li><li>1980 Cambridge UK C.J. van Rijsbergen Robert <br />Oddy Stephen Robertson C.J. van Rijsbergen </li><li>1981 Berkeley William Cooper Jess Herr </li><li>1982 Berlin Hans-Jochen Schneider and Gerard <br />Salton Hans-Jochen Schneider and Gerard Salton </li><li>1983 Washington Michael J. McGill Matthew <br />Koll </li><li>1984 Cambridge UK Steven Pollitt C.J. van <br />Rijsbergen </li><li>1985 Montreal Jean Tague Vijay Raghavan </li><li>1986 Pisa Luigi Rossi Bernardi Fausto <br />Rabitti </li><li>1987 New Orleans Don Kraft Clement Yu  C.J. <br />van Rijsbergen </li><li>1988 Grenoble Yves Chiaramella E. Chouraqui <br />Gerard Salton </li><li>1989 Cambridge USA Bruce Croft Nick Belkin <br />C.J. van Rijsbergen</li></ul> <br /><strong>34</strong><br />SIGIR 1990-2002<ul><li>1990 Brussels Jean-Luc Vidick Leo Egghe <br />Gerard Salton </li><li>1991 Chicago Abraham Bookstein Y. <br />Chiaramella G. Salton V. Raghavan </li><li>1992 Copenhagen Peter Ingwersen Nick Belkin <br />Annelise Mark Pejtersen </li><li>1993 Pittsburgh Edie Rasmussen Robert <br />Korfage Peter Willett </li><li>1994 Dublin Alan Smeaton Bruce Croft C.J. <br />van Rijsbergen </li><li>1995 Seattle Raya Fidel Ed Fox Peter <br />Ingwersen </li><li>1996 Zurich Hans-Peter Frei P. Schauble D. <br />Harman R. Wilkinson </li><li>1997 Philadelphia Ellen Voorhees N. Belkin <br />Peter Willett Desai Narasimhulu </li><li>1998 Melbourne Alistair Moffat and Justin <br />Zobel Ross Wilkinson Bruce Croft C.J. van <br />Rijsbergen </li><li>1999 Berkeley Fred Gey Marti Hearst Richard <br />Tong </li><li>2000 Athens E. J. Yannakoudakis N. Belkin <br />Mun-Kew Leong P. Ingwersen </li><li>2001 New Orleans Don Kraft Bruce Croft David <br />Harper Justin Zobel </li><li>2002 Tampere Kal Jarvelin Michline Beaulieu <br />Ricardo Baeza-Yates Sun Hyon Myaeng</li></ul> <br /><strong>35</strong><ul><li>1978 Rochester Robert Dattola James Iverson <br />P. Bruce Berra Robert Dattola </li><li>1979 Dallas Robert Korfhag Christine Borgman </li><li>1980 Cambridge UK C.J. van Rijsbergen Robert <br />Oddy Stephen Robertson C.J. van Rijsbergen </li><li>1981 Berkeley William Cooper Jess Herr </li><li>1982 Berlin Hans-Jochen Schneider and Gerard <br />Salton Hans-Jochen Schneider and Gerard Salton </li><li>1983 Washington Michael J. McGill Matthew <br />Koll </li><li>1984 Cambridge UK Steven Pollitt C.J. van <br />Rijsbergen </li><li>1985 Montreal Jean Tague Vijay Raghavan </li><li>1986 Pisa Luigi Rossi Bernardi Fausto <br />Rabitti </li><li>1987 New Orleans Don Kraft Clement Yu  C.J. <br />van Rijsbergen </li><li>1988 Grenoble Yves Chiaramella E. Chouraqui <br />Gerard Salton </li><li>1989 Cambridge USA Bruce Croft Nick Belkin <br />C.J. van Rijsbergen </li><li>1990 Brussels Jean-Luc Vidick Leo Egghe <br />Gerard Salton </li><li>1991 Chicago Abraham Bookstein Yves <br />Chiaramella Gerard Salton Vijay Raghavan </li><li>1992 Copenhagen Peter Ingwersen Nick Belkin <br />Annelise Mark Pejtersen </li><li>1993 Pittsburgh Edie Rasmussen Robert <br />Korfage Peter Willett </li><li>1994 Dublin Alan Smeaton Bruce Croft C.J. <br />van Rijsbergen </li><li>1995 Seattle Raya Fidel Ed Fox Peter <br />Ingwersen </li><li>1996 Zurich Hans-Peter Frei Peter Schauble <br />Donna Harman Ross Wilkinson </li></ul> <!-- google_ad_section_end -->
+<div class="clear"></div>
+</div>
+</div>
+
+</div>
+</div></div></div>
+<div class="bottomleft"></div><div class="bottomright"></div><div class="bottom"></div>
+</div>
+</div>
+
+<div id="right" class="viewpagecolumn">
+
+<div class="box">
+<div class="topleft"></div><div class="topright"></div><div class="top"></div>
+<div class="left"><div class="right"><div class="center">
+<div class="content">
+
+<div class="adspace">
+<a target="_blank" href="/click?target=http%3A%2F%2Fwww.crystalgraphics.com%2Fpowerpoint%2Ftemplates.backgrounds.main.asp%3Fr%3Dps%26p%3DpsAdHppt2"><img width="335" height="278" alt="PowerPlugs" src="http://ads.powershow.com.s3.amazonaws.com/psAdlppt2.jpg" /></a></div>
+
+</div>
+</div></div></div>
+<div class="bottomleft"></div><div class="bottomright"></div><div class="bottom"></div>
+</div>
+
+<!-- google_ad_section_start(weight=ignore) -->
+<div class="box">
+<div class="topleft"></div><div class="topright"></div><div class="top"></div>
+<div class="left"><div class="right"><div class="center">
+<div class="boxtitle blue">
+    <div id="sort" class="sort">
+        <div class="dropdownbox">
+            <div class="dropdown">Recommended</div>
+            <div class="dropdownvalues" id="sortfilter" style="display:none;">
+                <a href="#recommended">Recommended</a>
+                <a href="#latest">Latest</a>
+                <a href="#rating">Highest Rated</a>
+                <a href="#viewed">Most Viewed</a>
+            </div>
+        </div>
+        Sort by:
+        <select>
+            <option value="recommended" selected="selected">Recommended</option>
+            <option value="latest">Latest</option>
+            <option value="rating">Highest Rated</option>
+            <option value="viewed">Most Viewed</option>
+        </select>
+    </div>
+<div class="relatedtitle"></div>
+<div class="clear"></div>
+</div>
+<!-- google_ad_section_end -->
+<div class="content gainlayout">
+
+<div class="expandbar">
+<div class="expandbarleft"></div><div class="expandbarright"></div>
+<div class="expandbartitle"><div class="arrow arrow-closed"></div>More from this user</div>
+</div>
+<div id="morefromuser" class="revealingbox" style="display:none;">
+<div id="morefrom_content" class="presentationlist narrowlist scrollbox"></div>
+<div id="morefrom_paginator" class="pagination hidden">
+<div class="prevpage"><div class="arrow"></div></div>
+<div class="nextpage"><div class="arrow"></div></div>
+Page <input type="text" value="" class="currentpage" /> of <span class="totalpages"></span>
+</div>
+</div>
+
+<div class="expandbar">
+<div class="expandbarleft"></div><div class="expandbarright"></div>
+<div class="expandbartitle"><div class="arrow arrow-open"></div><div class="otherrelatedtitle"></div></div>
+</div>
+<div id="otherrelated" class="revealingbox">
+<div id="related_content" class="presentationlist narrowlist scrollbox"></div>
+<div id="related_paginator" class="pagination hidden">
+<div class="prevpage"><div class="arrow"></div></div>
+<div class="nextpage"><div class="arrow"></div></div>
+Page <input type="text" value="" class="currentpage" /> of <span class="totalpages"></span>
+</div>
+</div>
+
+</div>
+</div></div></div>
+<div class="bottomleft"></div><div class="bottomright"></div><div class="bottom"></div>
+</div>
+
+<div class="box">
+<div class="topleft"></div><div class="topright"></div><div class="top"></div>
+<div class="left"><div class="right"><div class="center">
+<div class="content">
+<div class="adspace">
+<script type="text/javascript">//<![CDATA[
+var google_ad_client = 'pub-0529305388270060',google_ad_slot = '4946126343',google_ad_width = '336',google_ad_height = '280';
+//]]></script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></div>
+</div>
+</div></div></div>
+<div class="bottomleft"></div><div class="bottomright"></div><div class="bottom"></div>
+</div>
+
+</div>    <div class="clear"></div>
+</div>
+</div>
+
+<!-- google_ad_section_start(weight=ignore) -->
+<div class="footer">
+<div><a href="/" class="link">Home</a> <a href="/aboutus" class="link">About Us</a> <a href="/terms" class="link">Terms and Conditions</a> <a href="/directory/popular/page0.html" class="link">Popular Presentations</a> <a href="/contact" class="link">Contact Us</a><br/>Copyright 2010 <a href='http://www.crystalgraphics.com'>CrystalGraphics, Inc.</a> &#8212; All rights Reserved. PowerShow.com is a trademark of CrystalGraphics, Inc.</div>
+<!-- google_ad_section_end -->
+<div>The slide show: &quot;ACM:SIGIR Business Mtg&quot; is the property of its rightful owner.</div>
+</div>
+
+<div id="opaco" class="hidden"></div>
+<div id="popup" class="hidden"></div>
+<div id="loading" class="hidden loading"><img src="/themes/default/images/loading.gif" width='59' height='29' alt='Loading...' /></div>
+<div id="alert_message" class="hidden"></div>
+
+<script type="text/javascript">//<![CDATA[
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+//]]></script>
+<script type="text/javascript">//<![CDATA[
+try {
+var pageTracker = _gat._getTracker("UA-2610266-2");
+pageTracker._trackPageview();
+} catch(e) {}
+//]]></script>
+
+</body>
+</html>

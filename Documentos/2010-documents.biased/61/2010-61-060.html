@@ -1,0 +1,465 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>General CGI Procedure</title>
+</head>
+
+<body  bgcolor="#FFFFFF">
+<table><tr><td>
+<table width=100%><tr valign="top">
+<td width="144">
+<img src="psu.gif" width="141" height="83" border="0" alt="Penn State"></td>
+<td>
+            <h1>Procedure for adding a CGI Script to your Web Site</h1>
+          </td>
+</tr>
+  <tr> 
+          <td colspan="2"> 
+    </td>
+</tr> </table> </td></tr></table> 
+            <center><p><b>General CGI Script Procedure</b> | <a href="guestbookprocedure.html">Guestbook Procedure</a></p></center>
+            <p>This page presents the general procedure for adding a script 
+	      to your Web site.  For specific directions on
+	      adding a <b>guestbook</b> to your site, refer to the <a
+	      href="guestbookprocedure.html">Guestbook procedure</a>.
+            <ol>
+              <li><p><b>Find a suitable script.</b> Many are available, 
+                and you can find scripts to carry out most common functions with 
+                a Web search. You'll want to be sure to choose one that has adequate 
+                documentation, so that you'll know how to install it. </p>
+		<p>Make sure the script is written in the <b>Perl</b> language, intended to 
+		run as a <b>CGI</b>, and compatible with <b>UNIX</b> servers.</p>
+		<p>&nbsp;</p>
+
+              <li><p><b>Find a file to download.</b>  Usually a script that uses multiple files
+		will be packaged together in a compressed file, such as a Zip (.zip) file.
+		Download the file or files to your local computer. 
+                </p>
+		<p>&nbsp;</p>
+
+              <li><p><b>Unzip the file.</b>  You may need a program such as WinZip, PkZip or Stuffit Expander to open it.</p>
+                <p>For example, the Guestbook script zip file will contain the following files when opened: </p>
+		<p> <ol>
+                  <li type=A>guestbook.pl 
+                  <li type=A>guestbook.html 
+                  <li type=A>addguest.html 
+                  <li type=A>guestlog.html 
+                  <li type=A>readme�file 
+                </ol> </p>
+		<p>The .html and .htm files are Web pages.  The .pl files and .cgi files are 
+		the CGI script files.  The README file is a text document containing directions.</p>
+
+		<table border=3><tr><td><p>NOTE: You may not always see the filename suffix or 
+		extention such as ".pl" or ".html" when looking at the files in Windows.
+		To tell Windows to show the suffixes, do the following:</p>
+		<ol>
+		<li type=a><p>Run the Windows Explorer program, "Start" -&gt; "Programs" -&gt; "Windows Explorer"</p>
+		<li type=a><p>Select "Tools" -&gt; "Folder Options..."</p>
+		<li type=a><p>Click the "View" tab at the top of the window that appears</p>
+		<li type=a><p>Under "Advanced settings:", uncheck "Hide extentions for 
+		known file types", then press "OK"</p>
+		</ol>
+		<!--
+		</td></tr><tr><td>
+		<p>Mac?  OS X fine, what about classic?</p>
+		-->
+		</td></tr></table>
+		
+		<p>&nbsp;</p>
+
+              <li><p><b>Read over all the documentation</b> for the script you plan to install. 
+                This tells you where you will have to upload the files and what 
+                changes you will have to make in the code of the script. 
+                Reading and understanding the documentation is really 
+                the most important step to installing a script. Usually the documentation is
+		in a file called "README" or "INSTALL".</p>
+		<p>Some steps may be different for Penn State, such as
+		setting permissions.  Please read below for advice on editing files, uploading
+		files and setting permissions.</p>
+		<p>&nbsp;</p>
+
+              <li> 
+                <p><b>How to edit .pl (or .cgi) files</b></p>
+
+		<p>Many CGI scripts will require you to edit settings
+		inside the .pl or .cgi script files to work on your site.
+		In order to do so, you will need to use a program called
+		a <b>text editor</b>.  See the below table for examples.
+		We recommend WordPad for Windows users, TextEdit for 
+		Mac OS X and BBEdit (if available) for Mac Classic.</p>
+
+		<table border=3><tr><td><p>The location of the
+		Perl interpreter program on the Penn State
+		Personal, Clubs and Departmental servers is
+		/usr/local/bin/perl.  This means the first line of
+		every Perl script .pl and .cgi file should be:</p>
+		<p><code>#!/usr/local/bin/perl</code></p></td></tr></table>
+
+		<p>When saving changes to a .pl or .cgi script file,
+		make sure you save as a <b>Text Document (.txt)</b> or <b>Plain text</b> file,
+		not Rich Text Format (.rtf) or Unicode.</p>
+
+		<p>If there is a setting for the <b>Encoding</b>,
+		make sure it is set to <b>ANSI</b>, <b>US ASCII</b>,
+		or <b>Western</b>, not Unicode or UTF-8.  Make sure
+		the filename doesn't change as some programs may want
+		to rename the file to ending in .txt rather than .pl
+		or .cgi.</p>
+
+		<p>After saving changes, .pl and .cgi files must be
+		converted to <b>Unix line-ending format</b>.  Unix, Windows and
+		Macintosh each use different byte values to indicate
+		the end of a line in a text file.  Some editors such as
+		TextEdit on Mac OS X can save text files in Unix format.
+		For the ones that cannot, including Wordpad, you can
+		convert a text file to Unix format during upload by
+		using SSH Secure File Transfer or MacSFTP in a special
+		mode called "ASCII" or "Text".	See how below under
+		"To convert .cgi and .pl files to Unix format."</p>
+
+		<table border=1>
+		<tr><th colspan=4>Text editors you can use and how they handle Unix line ending format</th></tr>
+		<tr><th>If you use</th><th>You can use</th><th>Open Unix formatted files</th><th>Save Text Document (.txt) files in Unix format</th></tr>
+		<tr><td rowspan=3>Windows (95 or newer)</td><td>Notepad</td><td align=center>No (*)</td><td align=center>No (**)</td></tr>
+		<tr><td>Wordpad</td><td align=center>Yes</td><td align=center>No (**)</td></tr>
+		<tr><td>DOS Edit</td><td align=center>Yes</td><td align=center>No (**)</td></tr>
+		<tr><td rowspan=2>Macintosh Classic (8.x and 9.x)</td><td>SimpleText</td><td align=center>No (*)</td><td align=center>No (**)</td></tr>
+		<tr><td>BBEdit</td><td align=center>Yes</td><td align=center>Yes</td></tr>
+		<tr><td rowspan=3>Macintosh OS X</td><td>TextEdit</td><td align=center>Yes</td><td align=center>Yes</td></tr>
+		<tr><td>WorldText</td><td align=center>Yes</td><td align=center>Yes</td></tr>
+		<tr><td>BBEdit</td><td align=center>Yes</td><td align=center>Yes</td></tr>
+		<tr><td rowspan=3>Unix (or Linux)</td><td>vi</td><td align=center>Yes</td><td align=center>Yes</td></tr>
+		<tr><td>emacs</td><td align=center>Yes</td><td align=center>Yes</td></tr>
+		<tr><td>pico</td><td align=center>Yes</td><td align=center>Yes</td></tr>
+		<tr><td colspan=4>* - If you try to open a Unix formatted file with this editor, the text will look jumbled with block symbols.</td></tr>
+		<tr><td colspan=4>** - You will need to convert the file to Unix format before using as a CGI script (.pl or .cgi file).</td></tr>
+		</table>
+		<p>&nbsp;</p>
+
+              <li>
+		<p><b>How to edit .html files</b></p>
+
+		<p>Often you will have to make changes to your .html
+		files.	You can make changes to .html files using a
+		program such as Dreamweaver or FrontPage, but most CGI
+		script directions will ask you to use a text file editor.
+		You can use the same text editor for .html files that you used
+		for .pl or .cgi files.</p>
+
+		<p>&nbsp;</p>
+
+              <li><p><b>Using the file transfer method of your choice</b>, log in to your 
+                Web space.</p>
+                <p>For instructions on transferring these files to your Web space, 
+                  see <a href="http://www.personal.psu.edu/faq/cacweb.html#24">question 
+                  2.4</a> of our <a href="http://www.personal.psu.edu/faq/cacweb.html">Web 
+                  Frequently Asked Questions</a>.  </p>
+                <ol>
+                  <li type=A><p>Make sure you are within your &quot;www&quot; folder.</p>
+                  <li type=A><p>Make a new folder.</p>
+                  <li type=A><p>Name this folder &quot;scripts&quot; (You can 
+                    name this folder anything you like, in this example we 
+                    are calling it &quot;scripts&quot;).</p>
+                  <li type=A><p>Double click on the scripts folder to move into that 
+                    folder (in <a href="https://explorer.pass.psu.edu/">PASS Explorer</a>,
+                    select the scripts folder and click the "Change To Selected 
+                    Folder" button).</p>
+                  <li type=A><p>Transfer your edited files to this scripts folder.</p>
+                </ol>
+		<table border=3><tr><td><ul>
+		<p><b><a name="convert2unix">To convert .cgi and .pl files to Unix format during upload, do the following:</a></b>
+		<li><p>In Windows, use SSH Secure File Transfer, and set to "ASCII" mode:</p>
+		  <ol>
+		  <li type=a><p>Connect to your site and change to the "scripts" folder.</p>
+		  <li type=a><p>Under the "Operation" menu, select "File Transfer Mode" and 
+		  then "ASCII".</p>
+		  <li type=a><p>Upload your .cgi and .pl files.</p>
+		  <li type=a><p>Afterwards, go back to "Auto Select" in that same menu.  It will
+		  need to be "Auto Select" or "Binary" for .gif and .jpg image files.  It can
+		  be in any setting for .html and .htm Web page files.</p>
+		  </ol>
+		<li><p>In Macintosh, use MacSFTP (at least version 1.0.6), and "Force Text transfers"</p>
+		  <ol>
+		  <li type=a><p>Connect to your site and change to the "scripts" folder.</p>
+		  <li type=a><p>Check "Session" -> "Force Text transfers" from the MacSFTP menu
+		  at the top of the screen.</p>
+		  <li type=a><p>Upload your .cgi and .pl files.</p>
+		  <li type=a><p>Afterwards, uncheck "Session" -> "Force Text transfers" before
+		  uploading any .gif and .jpg image files.  It can be in either setting for 
+		  .html and .htm Web page files.</p>
+		  </ol>
+		</ul></td></tr></table>
+		<p>&nbsp;</p>
+
+              <li><p><a name="permissions">To <b>set permissions</b> correctly</a>, you will need to: </p>
+                <p><ul>
+                  <li><b>make all .pl and .cgi files executable by all</b></li>
+                  <li><b>allow test.scripts.psu.edu to make changes to data files and folders</b> (as necessary)</li>
+                </ul></p>
+		<a name="serverid"></a>
+		<table border=3><tr><td>
+		  <p>For security reasons, the Personal Web server is 
+		    configured in such a way that a typical user 
+		    cannot make changes to the files in your www folder. </p>
+                  <p>For CGI scripts to make changes, the Web server program 
+		    must be given write permission to the
+		    data files.  The Web server program on <a
+		    href="http://test.scripts.psu.edu/">http://test.scripts.psu.edu/</a>
+		    runs with the identity of a &quot;user&quot; called
+		    test.scripts.psu.edu, and is in the group called
+		    test.scripts.psu.edu. <b>You should give the group
+		    test.scripts.psu.edu write permission to files your
+		    CGI program needs to change.</b>  You should not give write access to
+		    everyone to limit the possibility of someone accidentally or maliciously
+		    changing or deleting your CGI data.</p>
+                    <p>The Secure Server (at <a href="https://www.work.psu.edu/">
+		    https://www.work.psu.edu/</a> on the Web) provides 
+                    a way to set permissions for test.scripts.psu.edu, 
+                    so that the script can run and save changes your visitors make
+		    when they use your script.</p>
+		  <p>For reading or executing files, it is sufficient to give the Web server
+		    program access by giving everyone <b>R</b>ead and e<b>X</b>ecute 
+		    permissions (see below).  The "user" test.scripts.psu.edu is also in the
+		    group called access, which is the group all <a 
+		    href="http://aset.its.psu.edu/accounts/access.html">Penn State Access 
+		    Accounts</a> are in.</p>
+		</td></tr></table>
+                  <p>To set CGI files with execute permission:</p>
+                <ol>
+                  <li type=A> 
+                    <p>Open the <a href="https://explorer.pass.psu.edu/" target="_new">
+		    PASS Explorer</a> in a new tab or window, so you can follow along 
+		    with these directions.  You may need to login with your Penn State Access Account userid and password.</p>
+                  <li type=A> 
+                    <p>Browse to your personal Web space "www" folder, then to the folder that contains your CGI scripts.</p>
+                  <li type=A> 
+                    <p>Select one of your .pl or .cgi script files.  Press the "Info" button.  Then press the "Go to permissions" button in the resulting window.</p>
+                  <li type=A> 
+                    <p>Select "Web Application File Permissions" and then press the "Next >" button.</p>
+                  <li type=A> 
+                    <p>Select "Set Permissions Needed for CGI" and then press the "Next >" button.</p>
+                  <li type=A> 
+                    <p>Select "Grant permissions for the test.scripts.psu.edu server to execute this file as a CGI script" and then press the "Apply" button.</p>
+                  <li type=A> 
+                    <p>If all is successful, a "Permissions Successfully Applied" message shows as well as a permissions summary.  In the summary, the "File is executable" message should appear under "Flags."</p>
+                  <li type=A> 
+                    <p>Press the "Select another file" button at the top of the page to select another file and then repeat these steps for every .pl and .cgi file that needs to run as a CGI script.</p>
+                </ol>
+                  <p>To set data files with write permission:</p>
+                <ol>
+                  <li type=A><p>Press "Select another file" and browse back up to the "scripts" folder again.  For every <b>file</b> you need to give <b>write</b> permission to your script (the directions may ask you run '<i>chmod 666</i>' or '<i>chmod a+rw</i>' on the file), do the following:</p>
+			<ul>
+			<li type=a>Select the file from the file list
+			<li type=a>Press the "Info" button, then press the "Go to permissions" button
+			<li type=a>Choose "Web Application File Permissions" and press the "Next >" button.
+			<li type=a>Choose "Set Permissions Needed for CGI" and press the "Next >" button.
+			<li type=a>Choose "Grant permissions for the test.scripts.psu.edu server to write to this file as a data file" and then press the "Apply" button.
+			<li type=a>If successful, the test.scripts.psu.edu group should appear under the "Servers" column of the "Read/Write Access Permission" row of the permissions summary.
+			</ul>
+                  <li type=A><p>Back up to the "scripts" folder again.  For every <b>folder</b> you need to give <b>write</b> permission to your script (the directions may ask you run '<i>chmod 777</i>' or '<i>chmod a+rwx</i>' on the folder), do the following:</p>
+			<ul>
+			<li type=a>Select the folder from the file list.
+			  <ul><li>Note that you cannot select the folder you are viewing; to select it, double-click "^-- Up one folder" in the file list, then select the folder from the parent folder's list.</li></ul>
+			<li type=a>Press the "Info" button, then press the "Go to permissions" button
+			<li type=a>Choose "Web Application File Permissions" and press the "Next >" button.
+			<li type=a>Choose "Set Permissions Needed for CGI" and press the "Next >" button.
+			<li type=a>Choose "Grant permissions for the test.scripts.psu.edu server to write to all files in this folder as data files" and then press the "Apply" button.
+			<li type=a>If successful, the test.scripts.psu.edu group should appear under the "Servers" column of the "Read/Write Access Permission" row of the permissions summary.
+			</ul>
+                </ol>
+		<p>&nbsp;</p>
+
+              <li> 
+                <p><b>Test out your form.</b></p>
+                <p> 
+                <ol>
+                  <li type=A>Go to: http://test.scripts.psu.edu/<i>userid</i>/scripts/<i>your_script_form.html</i>
+                    (where <i>userid</i> represents your <a href="http://aset.its.psu.edu/accounts/access.html">Penn State Access Account</a> userid and <i>your_script_form.html</i> is the first page of your script)<br>
+                  </li>
+                  <li type=A>Type in information and see if the script works.</li>
+                </ol>
+		<p>&nbsp;</p>
+
+              <li><p><a name="troubleshooting"><b>Troubleshooting</b></a> - Here are some common Web server errors and 
+		their usual meaning:</p>
+		<ul>
+		<li><p><b>404 - File Not Found</b> - The URL you entered does not match 
+			a file or script on the server.  It may also be the case your
+			page is in another folder.</p>
+			<table border=3><tr><td><p>NOTE: The "www" folder in your 
+			PASS space is not present in the URL, so the file 
+			<code>/pass/users/x/y/xyz123/<b>www</b>/index.html</code> 
+			appears on the Web as 
+			<code>http://www.personal.psu.edu/users/x/y/xyz123/index.html</code>
+			.</p></td></tr></table>
+		<li><p><b>403 - Forbidden</b> - The permissions in PASS or in the Web 
+		server's configuration disallow viewing the requested URL.  This means 
+		any of the following may be occuring:</p>
+			<ul>
+
+			<li><p>An .html, .htm Web page file, .gif or .jpg
+			image file does not have <b>R</b>ead permission
+			granted to the <a href="#serverid">Web server program</a>.</p>
+
+			<li><p>A .pl or .cgi file meant to execute does
+			not have both <b>R</b>ead and e<b>X</b>ecute
+			permission granted to the <a href="#serverid">Web server program</a> (or to
+			everyone).</p>
+
+			<li><p>The folder the file is in or one of the parent
+			folders the folder is in is not accessible by the
+			<a href="#serverid">Web server program</a> because the e<b>X</b>ecute
+			permission is not granted.  This permission is
+			used as the access permission for folders.</p>
+
+			<li><p>There is an .htaccess file in one of the
+			folders leading to the file that disallows
+			reading the file or folder.</p>
+
+			<li><p>There is an .htaccess file in one of the
+			folders leading to the file that is not readable
+			by the <a href="#serverid">Web server program</a>.</p>
+
+			<li><p>The main Web server configuration
+			disallows viewing the specific file or
+			folder.  NOTE: The Penn State Personal server, <a
+			href="http://www.personal.psu.edu/">http://www.personal.psu.edu/</a>
+			only permits CGI execution in the /cgi-bin/
+			folder.</p> </ul>
+
+			<table border=3><tr><td><p>An .htaccess file is
+			a special file used by the Apache Web server
+			software program that can customize specific
+			settings for Web pages in the folder it is in
+			and sub-folders.  For instance you can turn on
+			SSI parsing on specific files, restrict access to
+			specific files and folders, set MIME types, enable
+			password protection, HTTP redirects, and more.
+			Visit the Apache httpd Web site documentation <a
+			href="http://httpd.apache.org/docs/configuring.html#htaccess">on
+			.htaccess files</a> for more.</p></td></tr></table>
+
+		<li><p><b>500 - Internal Server Error</b> - This occurs
+		whenever something "inside" has a problem, which can be
+		one of many problems:</p>
+			<ul>
+
+			<li><p>The file is not in Unix text format, or is
+			in an encoding other than ASCII such as Unicode.</p>
+
+			<li><p>The first line of the script is refering to
+			a program that is not on the server, or is mistyped.</p>
+
+			<li><p>The script ran, but did not complete the
+			"HTTP headers."  Usually a script will start by
+			sending "Content-Type: text/html" followed by two
+			end-of-line indicators, followed by the HTML for
+			the page.  The Content-Type line and blank line
+			are called the HTTP headers (actually this is
+			just part of the headers, the Web server program does
+			the rest).  If the HTTP headers are incomplete,
+			because the script crashed or sent an error
+			before the headers were completed, this error
+			will occur.  Common cases for this include:</p>
+
+			<ul>
+			<li><p>There is a typo in the script that prevents
+			it from running.</p>
+
+			<li><p>The script may be looking for Perl
+			modules that are not available on the server.
+			In this case, it sends an error and quits without
+			completing the HTTP headers.</p> 
+
+			<li><p>The script may have encountered a
+			<i>die</i> instruction,  which the programmer
+			used to indicate a condition in which the
+			script should send an error and quit, and did
+			so without completing the headers.	 For
+			instance, the guestbook script will <i>die</i>
+			if the permissions are not set right on the
+			guestbook.html and guestlog.html files when it
+			tries to make changes to them.</p>
+
+			<li>The script was not intended to be ran as a CGI 
+			program.</li>
+
+			</ul>
+
+			<li><p>There is an .htaccess file in the folder,
+			or a parent folder that is improperly written,
+			or it is attempting to change a setting not permitted
+			by the main server configuration.</p> 
+
+			</ul>
+		</ul>
+		<p>&nbsp;</p>
+
+<!--
+	      <li>
+		<p><b>Script FAQ</b></p>
+		<ul>
+		<li><p><b>Q</b>: "<i>Can I see the server logs?</i>"</p>
+
+		<p><b>A</b>: The server logs occasionally contain
+		sensitive information disclosed by errors in
+		various programs, therefore the server logs
+		are not usually shared.  However, if there is a
+		problem with your script that requires the server
+		log errors to determine the problem, you may ask <a
+		href="mailto:webmaster@psu.edu">webmaster&#64psu.edu</a>
+		for the logs for your specific script.	You should
+		indicate the name of the script, exact URL you used to
+		reference it, and at what time the error occurred.  It may
+		take a few business days before you get a response.</p>
+
+		<li><p><b>Q</b>: "<i>Where is sendmail located?</i>"</p>
+
+		<p><b>A</b>: /usr/sbin/sendmail although the
+		other popular location of /usr/lib/sendmail
+		will work as well.  There are Perl modules such as <a
+		href="http://search.cpan.org/~mivkovic/Mail-Sendmail-0.79/Sendmail.pm">Mail::Sendmail</a>
+		installed that offer a better mail sending interface
+		within Perl.</p>
+
+		<li><p><b>Q</b>: "<i>Will the Perl in /usr/bin/perl also
+		work?</i>"</p> <p><b>A</b>: It may, and is sometimes
+		another copy of /usr/local/bin/perl.  However it is best
+		if you use /usr/local/bin/perl as it will always be the
+		latest supported Perl.</p>
+
+		<li><p><b>Q</b>: "<i>Can CGI programs written in other languages such as C/C++ or Python be used?</i>"</p>
+
+		<p><b>A</b>: Compiled languages such as C or C++ must
+		be compiled on the specific Web server platform.
+		The <a href="http://www.personal.psu.edu/">Penn
+		State Personal server</a> and <a
+		href="http://test.scripts.psu.edu/">Script test server</a>
+		run AIX UNIX.  You can compile CGI programs for this
+		platform on the RS6K Lab (rs6klab.aset.psu.edu) <a
+		href="http://aset.its.psu.edu/unix_group/unixcluster.html">ITS
+		UNIX Cluster</a>, however they may not always be the same
+		version of AIX as the Web servers.  Python CGI may
+		be supported with enough demand.  Ask <a
+		href="mailto:webmaster@psu.edu">webmaster&#64psu.edu</a>
+		if you want to use Python for CGI.</p>
+
+		</ul>
+		<p>&nbsp;</p>
+-->
+
+	      <li>
+		<p>If you have difficulty, contact <a
+		href="mailto:webmaster@psu.edu">webmaster&#64psu.edu</a>.</p>
+	    </ol>
+      <p>
+	<!-- Footer for Penn State Web pages maintained by ITS -->
+<center> <hr>The Pennsylvania State University &#169;2003
+<br> This service is provided and maintained by <br><a
+href="http://its.psu.edu/">Information Technology Services (ITS)</A> at
+<a href="http://www.psu.edu/">Penn State</A>.  <br>This page was last
+updated on Saturday, July 19, 2003.  <br><br><b>Have a question? See
+our <A HREF="http://cac.psu.edu/cacdir.html">list of contacts.</a>
+</b> </center>
+      <p></p>
+</body> </html>

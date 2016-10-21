@@ -1,0 +1,1211 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+
+<head>
+	<title>Bluetooth Simulation in C# with Serial Ports - CodeProject</title> 
+	<link type="text/css" rel="stylesheet" href="/App_Themes/NetCommunity/ForumMobile.css?dt=2.2.0254">
+<link type="text/css" rel="stylesheet" href="/App_Themes/NetCommunity/Mobile.css?dt=2.2.0254">
+
+	
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+<meta name="Description" content="This article presents a mobile device application that uses serial ports to simulate a Bluetooth connection.; Author: Badea Florin; Section: Mobile Development; Chapter: Platforms, Frameworks &amp; Libraries" >
+<meta name="Keywords" content="C#1.0, C#2.0, C#3.0, WinMobile5, C#, .NETCF, Mobile, Dev, Beginner, Intermediate,Mobile Development,Platforms, Frameworks &amp; Libraries,Free source code, tutorials" >
+<meta name="Author" content="The Code Project" >
+<meta name="Rating" content="General" >
+<meta name="Robots" content="index, follow" >
+<meta name="Revisit-After" content="1 days" >
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - All topics" href="http://www.codeproject.com/webservices/articlerss.aspx?cat=1" >
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - MFC / C++" href="http://www.codeproject.com/webservices/articlerss.aspx?cat=2" >
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - C#" href="http://www.codeproject.com/webservices/articlerss.aspx?cat=3" >
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - ASP.NET" href="http://www.codeproject.com/webservices/articlerss.aspx?cat=4" >
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - .NET" href="http://www.codeproject.com/webservices/articlerss.aspx?cat=5" >
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - VB.NET" href="http://www.codeproject.com/webservices/articlerss.aspx?cat=6" >
+<link rel="alternate" type="application/rss+xml" title="CodeProject Lounge Postings" href="http://www.codeproject.com/webservices/LoungeRSS.aspx" >
+<link rel="search" type="application/opensearchdescription+xml" title="CodeProject" href="http://www.codeproject.com/info/OpenSearch.xml" >
+	<base target="_top" >
+	<link rel="icon" href="/favicon.ico" type="image/ico" >
+<link rel="shortcut icon" href="/favicon.ico"  type="image/ico" >
+<script type="text/javascript" language="Javascript">//<![CDATA[
+if(top!=self)top.location.href=location.href; if(typeof(DemoUrl)!="undefined")document.write(unescape('%3Cme')+'ta http'+'-equiv="re' +'fresh" con'+'tent="1;url='+DemoUrl+unescape('"%3CE'));
+function LK(e) { var lounge  = document.getElementById("ctl01_TopNavBar_Lounge"); var soapbox = document.getElementById("ctl01_TopNavBar_Soapbox"); if (lounge && soapbox) {   lounge.style.display = e.ctrlKey? "none" : "inline";  soapbox.style.display = e.ctrlKey? "inline" : "none"; }}
+function LC(e) {
+ window.location.href = e.ctrlKey ? '/script/Forums/View.aspx?fid=1536756':'/Lounge.aspx';
+ if (document.all) e.returnValue = false; else e.preventDefault();
+}
+
+//]]>
+</script>
+
+</head>
+
+<body>
+
+<a href="#Main"><img alt="Click here to Skip to main content" class="access-link" 
+	src="/Images/t.gif" /></a>
+
+
+
+<table cellpadding="5" cellspacing="0" width="100%" class="MemberNavBar">
+<tr>
+<td style="font-weight:bold"></td>
+<td align="right">
+
+
+
+<div id="ctl01_MemberMenu_LoggedOffOptions" class="MemberNavBarText" style="margin:0;padding:0;">
+	<a name="SignUp"></a>
+<form name="subForm" id="subForm" action="/script/Membership/LogOn.aspx?rp=%2fKB%2fmobile%2fbth_serial_port.aspx" 
+	method="post" style="margin:0;padding:0;">
+
+<!-- This hidden field is used for identifying form which has made post request.
+     (This form posts to another page and we need to know which form did the post request) -->
+<input id="FormName" name="FormName" value="MenuBarForm" type="hidden" />
+
+Email    <input class="small-text" type="text" name="Email" id="Email" style="width:100px" />
+Password <input class="small-text" type="password" name="Password" id="Password" style="width:60px" />
+<input type="submit" value="Sign in" class="button" />
+<script type="text/javascript">
+function Join(){document.location.href='/script/Membership/Modify.aspx';return false;}
+document.write('<input type="button" class="button" onclick="return Join();" value="Join"');
+document.write('<input type="hidden" name="fld_quicksign" value="true" />');
+</script>
+<input type="checkbox" checked = "checked" name="RememberMeCheck" id="RememberMeCheck" value="1"/>
+<label for="RememberMeCheck">Remember me?</label>&nbsp;
+<a id="ctl01_MemberMenu_SendPassword" href="/script/Membership/SendPassword.aspx?rp=%2fKB%2fmobile%2fbth_serial_port.aspx"><img align="middle" alt="help" src="/script/Membership/Images/help.gif" width="16px" height="16px" border="0" />Lost your password?</a>
+</form>
+
+</div>
+
+</td>
+</tr>
+</table>
+<div class="header">
+	<a id="ctl01_Logo" title="The Code Project" AlternateText="Home" href="/" style="display:inline-block;"><img title="The Code Project" src="/App_Themes/Std/Img/logo225x40.gif" border="0" /></a>
+</div>
+
+
+<div class="navbar clearfix">
+<ul id="nav">
+
+<li><a href="/">Home</a></li>
+
+
+<li><a id="ctl01_TopNavBar_Art" class="down" href="/script/Articles/Latest.aspx">Articles</a>
+
+</li>
+
+
+
+<li><a id="ctl01_TopNavBar_Answers" href="/script/Answers/List.aspx?tab=latest">Quick Answers</a>
+</li>
+
+
+
+<li><a id="ctl01_TopNavBar_MessageBoards" class="down" href="/script/Forums/List.aspx">Message Boards</a>
+
+</li>
+
+
+
+<li><a id="ctl01_TopNavBar_Job" href="/script/Jobs/List.aspx">Job Board</a>
+</li>
+
+
+
+
+<li><a id="ctl01_TopNavBar_Cat" href="/script/Catalog/List.aspx">Catalog</a>
+</li>
+
+
+
+
+
+
+<li><a id="ctl01_TopNavBar_Help" href="/info/FAQ.aspx">Help!</a>
+
+</li>
+
+
+<li style="float:right">
+<a id="ctl01_TopNavBar_Lounge" href="/Lounge.aspx">Lounge</a>
+<a id="ctl01_TopNavBar_Soapbox" href="javascript:void();" style="display:none">Soapbox</a>
+
+</li>
+
+</ul>
+
+</div>
+
+
+	
+	
+<a name="Main"></a>
+
+
+<!-- Article Starts -->
+
+
+<ul class="download">
+<li><a href="bth_serial_port/CSSP.zip">Download source code - 19.1 KB</a></li>
+</ul>
+
+<h2>Introduction</h2>
+
+<p>I wanted to write a Bluetooth application in C# for mobile devices that sends messages from one instance to another (a chatting application). After doing a little research, I found out that C# doesn’t natively support Bluetooth. If I wanted to build such an application, I would have to buy a Bluetooth library. Franson Bluetools is a very good Bluetooth library for C#, and it costs only $100. Seeing that I didn’t want to pay anything, I had to start writing my application from scratch.</p>
+
+<p>The simplest method I found was to simulate the Bluetooth connection using serial ports.</p>
+
+<h2>Background</h2>
+
+<p>This application uses the .NET Compact Framework. To understand the code, you require a minimum knowledge in using the <code>SerialPort</code> class, and also, you need to know how to update the UI of your application from a secondary thread that is different from that on which the application is running.</p>
+
+<p>The <code>SerialPort</code> class, as its name suggests, is used in C# for serial port communication. The class is found in the <code>System.IO.Ports</code> namespace. You instantiate an object of this type like this:</p>
+
+<pre lang="cs">SerialPort inPort = <span class="code-keyword">new</span> SerialPort(<span class="code-string">&quot;</span><span class="code-string">COM1&quot;</span>,<span class="code-digit">9600</span>); </pre>
+
+<p>And you open the port like this:</p>
+
+<pre lang="cs">inPort.Open();</pre>
+
+<p>To read a line from the serial port, you use the following code:</p>
+
+<pre lang="cs"><span class="code-keyword">string</span> mess=inPort.ReadLine(); </pre>
+
+<p>To write a line to the serial port, you can use the following code:</p>
+
+<pre lang="cs"><span class="code-keyword">string</span> message=<span class="code-string">&quot;</span><span class="code-string">Hello&quot;</span>;
+inPort.WriteLine(message);</pre>
+
+<p>To find out the available COM ports on your device, you can use:</p>
+
+<pre lang="cs"><span class="code-keyword">string</span>[] ports=SerialPort.GetPortNames();</pre>
+
+<p>After you are done, you can close the connection like this:</p>
+
+<pre lang="cs">inPort.Close(); </pre>
+
+<p>The other thing you need to know before we get to the next section is how to update the user interface from a secondary thread. In the .NET world, a UI can be updated only from the thread that created it. If you try to update the UI from a different thread, a cross threaded operation exception is cast. To update the UI from a different thread, you need to use the <code>invoke()</code> method. This method uses a delegate to call a function on the same thread as the object that contains the <code>invoke()</code> method that was called. As an example, suppose you wanted to update a <code>TextBox</code> on a form from a secondary thread. To do this, you first create a delegate that has the same signature as the function you want to call:</p>
+
+<pre lang="cs"><span class="code-keyword">public</span> <span class="code-keyword">delegate</span> <span class="code-keyword">void</span> UpdateTextBox(<span class="code-keyword">string</span> text);</pre>
+
+<p>Then, you create the method in which you update the <code>TextBox</code>:</p>
+
+<pre lang="cs"><span class="code-keyword">private</span> <span class="code-keyword">void</span> UpdateText(<span class="code-keyword">string</span> text)
+{
+    TextBox1.Text=text;
+}</pre>
+
+<p>To update the text box, you can call the following line on the secondary thread:</p>
+
+<pre lang="cs">TextBox1.invoke(<span class="code-keyword">new</span> UpdateTextBox(UpdateText),textToWrite);</pre>
+
+<h2>Using the code</h2>
+
+<p>Seeing that my application connects to another mobile device through a serial port, and the serial ports used for Bluetooth communications differ from one device to another, I used the <code>SettingsForm</code> form class in order to set the COM ports for the communication (you can find those by going to Settings-&gt;Connections-&gt;Bluetooth-&gt;Services, then you select the Serial Port service and click Advanced). The Settings form looks like this:</p>
+
+<p><img height="460" alt="SettingsForm.png" src="bth_serial_port/SettingsForm.jpg" width="298" /></p>
+
+<p>The Settings form initializes in its constructor two combo boxes with all the available COM ports for that device, like this:</p>
+
+<pre lang="cs"><span class="code-keyword">string</span>[] ports = SerialPort.GetPortNames();
+comboBox1.Items.Add(<span class="code-string">&quot;</span><span class="code-string">NO PORT SELECTED&quot;</span>);
+<span class="code-keyword">for</span> (<span class="code-keyword">int</span> i = <span class="code-digit">0</span>; i &lt; ports.Length; i++)
+     comboBox1.Items.Add(ports[i]);
+comboBox2.Items.Add(<span class="code-string">&quot;</span><span class="code-string">NO PORT SELECTED&quot;</span>);
+<span class="code-keyword">for</span> (<span class="code-keyword">int</span> i = <span class="code-digit">0</span>; i &lt; ports.Length; i++)
+     comboBox2.Items.Add(ports[i]);</pre>
+
+<p>When the form is shown, the user selects the inbound and outbound ports and clicks OK. The COM settings can be retrieved using the following code:</p>
+
+<pre lang="cs"><span class="code-keyword">public</span> <span class="code-keyword">string</span> GetInboundPort() 
+{
+    <span class="code-keyword">return</span> (<span class="code-keyword">string</span>)comboBox1.SelectedItem;
+}
+<span class="code-keyword">public</span> <span class="code-keyword">string</span> GetOutboundPort()
+{
+    <span class="code-keyword">return</span> (<span class="code-keyword">string</span>)comboBox2.SelectedItem;
+}</pre>
+
+<p>We can only attempt a connection after we have set the COM ports using the Settings form.</p>
+
+<p>The main form of the application is represented by the <code>Form1</code> class, and looks like in the picture below:</p>
+
+<p><img height="460" alt="MainForm.png" src="bth_serial_port/MainForm.jpg" width="295" /></p>
+
+<p><img height="459" alt="MainForm2.png" src="bth_serial_port/MainForm2.jpg" width="295" /></p>
+
+<p>As you can see, the form has a very simple interface that consists of two text boxes (one for writing the messages to send, and the other for displaying the history of the sent and received messages), a button to send the message, a label to show some current status information, and a menu. From the menu, you can set the COM ports, you can connect to another device, and you can disconnect from another device.</p>
+
+<p>Like I said before, to set the COM ports, you click the Settings menu option. The code for this event handler is:</p>
+
+<pre lang="cs">SettingsForm form = <span class="code-keyword">new</span> SettingsForm(inboundPort, outboundPort);
+<span class="code-keyword">if</span>(form.ShowDialog() == DialogResult.OK)
+{
+    <span class="code-keyword">if</span>(form.GetInboundPort().CompareTo(<span class="code-string">&quot;</span><span class="code-string">NO PORT SELECTED&quot;</span>) == <span class="code-digit">0</span> ||
+       form.GetOutboundPort().CompareTo(<span class="code-string">&quot;</span><span class="code-string">NO PORT SELECTED&quot;</span>) == <span class="code-digit">0</span>)
+    {
+        MessageBox.Show(<span class="code-string">&quot;</span><span class="code-string">The ports were not set properly.&quot;</span>);
+        lblStatus.Text = <span class="code-string">&quot;</span><span class="code-string">Ports not set.&quot;</span>;
+        mnuConnect.Enabled = <span class="code-keyword">false</span>;
+    }
+    <span class="code-keyword">else</span>
+    {
+        inboundPort = form.GetInboundPort();
+        outboundPort = form.GetOutboundPort();
+        mnuConnect.Enabled = <span class="code-keyword">true</span>; 
+        lblStatus.Text = <span class="code-string">&quot;</span><span class="code-string">Ports set.\r\nin:&quot;</span> + inboundPort +
+                         <span class="code-string">&quot;</span><span class="code-string">\r\nout:&quot;</span> + outboundPort + 
+                         <span class="code-string">&quot;</span><span class="code-string">\r\nWaiting to press Connect...&quot;</span>;
+    }
+}</pre>
+
+<p>As you can see from this code, I first create an instance of the <code>SettingsForm</code> class and show it. If the ports are set properly, I set the <code>inboundPort</code> and <code>outboundPort</code> variables and enable the connect menu option, or I show a message box indicating that the ports aren’t set.</p>
+
+<p>After you set the COM ports, you can connect to a device by clicking the Connect Menu option. The code for this event handler is presented below:</p>
+
+<pre lang="cs">serialIn = <span class="code-keyword">new</span> SerialPort(inboundPort);
+serialOut = <span class="code-keyword">new</span> SerialPort(outboundPort); 
+serialIn.ReadTimeout = <span class="code-digit">1000</span>;
+serialOut.ReadTimeout = <span class="code-digit">1000</span>; 
+disconnectRequested = <span class="code-keyword">false</span>;
+<span class="code-keyword">try</span>
+{
+    <span class="code-keyword">if</span>(!serialIn.IsOpen)
+    {
+       lblStatus.Text = <span class="code-string">&quot;</span><span class="code-string">Input port closed. Opening input port...&quot;</span>;
+        serialIn.Open();
+    }
+    <span class="code-keyword">if</span>(!serialOut.IsOpen)
+    {
+        lblStatus.Text = <span class="code-string">&quot;</span><span class="code-string">Output port closed. Opening output port...&quot;</span>;
+        serialOut.Open();
+    }
+    lblStatus.Text = <span class="code-string">&quot;</span><span class="code-string">Ports opened. Starting the listener thread...&quot;</span>;
+    rcvThread = <span class="code-keyword">new</span> Thread(<span class="code-keyword">new</span> ThreadStart(ReceiveData)); 
+    numThreads++;
+    rcvThread.Start();
+    lblStatus.Text = <span class="code-string">&quot;</span><span class="code-string">Listener thread started.&quot;</span>;
+    btnSend.Enabled = <span class="code-keyword">true</span>;
+    lblStatus.Text=<span class="code-string">&quot;</span><span class="code-string">Connected.\r\nInbound:&quot;</span> + inboundPort + 
+                   <span class="code-string">&quot;</span><span class="code-string">\r\nOutbound:&quot;</span> + outboundPort;
+    MessageBox.Show(<span class="code-string">&quot;</span><span class="code-string">Connected.&quot;</span>);
+    mnuConnect.Enabled = <span class="code-keyword">false</span>;
+    mnuSettings.Enabled = <span class="code-keyword">false</span>;
+    mnuDisconnect.Enabled = <span class="code-keyword">true</span>;
+}
+<span class="code-keyword">catch</span> (Exception ex)
+{
+    MessageBox.Show(ex.Message);
+    lblStatus.Text = <span class="code-string">&quot;</span><span class="code-string">error.\r\nPorts not set.&quot;</span>;
+    mnuConnect.Enabled = <span class="code-keyword">false</span>;
+}</pre>
+
+<p>First, I instantiate the two variables that represent the serial ports (you need two: one for incoming and one for ongoing). I also set timeout values so that the application can exit gracefully when required. I will talk about this later.</p>
+
+<p>Next, I verify if the ports are opened, and if they aren’t, I open them. On the PDAs I tested the application on, at this moment, you are presented with a list of all nearby devices. You can now select the device with which you want to communicate and the ports open.</p>
+
+<p>After the ports are opened, a secondary thread is started. This thread is used to receive the messages from the remote device and show them in the history textbox. After the thread is started, the status of the application is updated and the Disconnect menu item is enabled.</p>
+
+<p>You can now write messages and send them. The code for the Send button event handler is presented below:</p>
+
+<pre lang="cs"><span class="code-keyword">try</span> 
+{
+     serialOut.WriteLine(txtMess.Text);
+     txtLog.Text += <span class="code-string">&quot;</span><span class="code-string">you:&quot;</span> + txtMess.Text + <span class="code-string">&quot;</span><span class="code-string">\r\n&quot;</span>;
+     txtMess.Text = <span class="code-string">&quot;</span><span class="code-string">&quot;</span>;
+}
+<span class="code-keyword">catch</span> (Exception ex)
+{
+     MessageBox.Show(ex.Message);
+}</pre>
+
+<p>The code uses the <code>WriteLine()</code> function of the <code>SerialPort</code> class to send the message.</p>
+
+<p>Like I said a few lines above, the messages are received on a secondary thread. This thread executes the <code>ReceiveData()</code> function. This function is implemented in the code below:</p>
+
+<pre lang="cs"><span class="code-keyword">private</span> <span class="code-keyword">void</span> ReceiveData()
+{
+     <span class="code-keyword">while</span>(!closeRequested &amp;&amp; !disconnectRequested)
+     {
+         <span class="code-keyword">try</span>
+         {
+              <span class="code-keyword">string</span> line = serialIn.ReadLine();
+              <span class="code-keyword">if</span>(line.CompareTo(<span class="code-string">&quot;</span><span class="code-string">quit$$$&quot;</span>) == <span class="code-digit">0</span>)
+              {
+                   disconnectRequested = <span class="code-keyword">true</span>;
+                   <span class="code-keyword">continue</span>;
+              }
+              txtLog.Invoke(<span class="code-keyword">new</span> updateText(UpdateText),line);
+          }
+          <span class="code-keyword">catch</span>
+
+          {}
+     }
+     <span class="code-keyword">if</span>(closeRequested)
+         closeMe();
+     <span class="code-keyword">if</span>(disconnectRequested)
+         <span class="code-keyword">this</span>.Invoke(<span class="code-keyword">new</span> disconnectDel(onDisconnect));               
+}</pre>
+
+<p>The function uses a <code lang="cs"><span class="code-keyword">while</span></code> loop, and as long as the user doesn’t exit or disconnect, the loop continues to read messages using the <code>SerialPort.ReadLine()</code> function. After the message is read, the UI is updated by calling the <code>UpdateText()</code> function on the UI thread using <code>Invoke()</code>.</p>
+
+<p>Now is the time to explain why I set the timeout values for the serial port variables. The <code>ReadLine()</code> method of the <code>SerialPort</code> class blocks until a message is retrieved. In order for the application to process the disconnect and close requests, it needs to execute the lines of code after <code>ReadLine()</code>. By setting the timeout values to 1000ms, after every second of waiting without receiving a message, the function throws an exception and a new iteration of the <code lang="cs"><span class="code-keyword">while</span></code> loop is started. This gives the application the chance to check the two variables and possibly exit the loop.</p>
+
+<p>If the user clicks the Close button, the application will call the <code>closeMe()</code> function. This function decrements the number of secondary threads opened, and calls the <code>Form.Close()</code> function to close the application. The <code>Form.Close()</code> function must also be called using <code>Invoke()</code> because it needs to be called on the same thread as the UI.</p>
+
+<pre lang="cs"><span class="code-keyword">private</span> <span class="code-keyword">void</span> closeMe() 
+{
+     numThreads--;           
+     <span class="code-keyword">this</span>.Invoke(<span class="code-keyword">new</span> closeDel(<span class="code-keyword">this</span>.Close));
+}</pre>
+
+<p>If the user clicks Disconnect, the “quit$$$” message to announce the remote device that it intends to disconnect is displayed and the <code>disconnectRequired</code> flag is set.</p>
+
+<pre lang="cs"><span class="code-keyword">try</span>
+{
+    disconnectRequested = <span class="code-keyword">true</span>;
+    serialOut.WriteLine(<span class="code-string">&quot;</span><span class="code-string">quit$$$&quot;</span>);
+}
+<span class="code-keyword">catch</span> (Exception ex)
+{
+    MessageBox.Show(ex.Message);
+}</pre>
+
+<p>If the <code>disconnectRequired</code> flag is set to <code lang="cs"><span class="code-keyword">true</span></code>, the <code lang="cs"><span class="code-keyword">while</span></code> loop in the secondary thread terminates, and the <code>onDisconnect()</code> method is executed. The method has the following implementation:</p>
+
+<pre lang="cs"><span class="code-keyword">private</span> <span class="code-keyword">void</span> onDisconnect()
+{
+   serialIn.Close(); 
+   serialOut.Close();
+   mnuDisconnect.Enabled = <span class="code-keyword">false</span>;
+   mnuConnect.Enabled = <span class="code-keyword">false</span>;
+   mnuSettings.Enabled = <span class="code-keyword">true</span>;
+   lblStatus.Text = <span class="code-string">&quot;</span><span class="code-string">Disconected.\r\nPorts not set.&quot;</span>;
+   numThreads--;
+}</pre>
+
+<p>This function closes the ports, enables the Settings button, and decrements the number of secondary threads running.</p>
+
+<p>Also, if the application receives the “quit$$$” message, it disconnects.</p>
+
+<pre lang="cs"><span class="code-keyword">if</span>(line.CompareTo(<span class="code-string">&quot;</span><span class="code-string">quit$$$&quot;</span>) == <span class="code-digit">0</span>) 
+{
+      disconnectRequested = <span class="code-keyword">true</span>;
+      <span class="code-keyword">continue</span>;
+}</pre>
+
+<p>That’s about it. As you have seen from this code, it is a relatively simple matter to simulate a Bluetooth connection using serial ports on mobile devices. You only need to check what ports are used, and then start the application. I hope you liked this article, and also that you will send some feedback.</p>
+
+
+
+
+
+
+
+<a name="_comments"></a><!-- Forum Start -->
+<table id="ForumTable" class="box theme3-background theme1-border fixed-layout tight" cellpadding="0" cellspacing="0">
+	<tr>
+		<td class="forum-header1 highlight"><b>You must <a href="/script/Membership/LogOn.aspx?rp=%2fKB%2fmobile%2fbth_serial_port.aspx%3ffid%3d1398608%26df%3d90%26mpp%3d25%26noise%3d3%26sort%3dPosition%26view%3dQuick">Sign In</a> to use this message board.</b></td>
+	</tr><tr>
+		<td><table width="100%" border="0" cellpadding="3px" cellspacing="0">
+			<tr class="forum-header1">
+				<td width="100%">&nbsp;</td><td colspan="2" nowrap="nowrap" align="right"><form action="/script/Forums/Search.aspx?fid=0" method="get">
+					<input type="hidden" name="fid" value="1398608" /><input type="text" class="Frm_Input" name="kw" />&nbsp;<input type="submit" value="Search" name="FrmSrch" class="button" />
+				</form></td>
+			</tr><tr class="forum-header2">
+				<td colspan="3" width="100%"><div align="right">
+					<form action="/script/Forums/SetOptions.aspx?floc=%2fKB%2fmobile%2fbth_serial_port.aspx&amp;fid=1398608&amp;df=90&amp;mpp=25&amp;noise=3&amp;sort=Position&amp;view=Quick" method="get">
+						<input type="hidden" name="fid" value="1398608" /><input type="hidden" name="currentQS" value="?floc=%2fKB%2fmobile%2fbth_serial_port.aspx&amp;fid=1398608&amp;df=90&amp;mpp=25&amp;noise=3&amp;sort=Position&amp;view=Quick" /><input type="hidden" name="floc" value="/KB/mobile/bth_serial_port.aspx" />Per page<select size="1" class="Frm_DropDown" name="mpp">
+							<option value="10">10</option><option selected value="25">25</option><option value="50">50</option>
+						</select>&nbsp;&nbsp;&nbsp;<input type="submit" value="Update" name="SetOpt" class="button" />
+					</form>
+				</div></td>
+			</tr>
+		</table></td>
+	</tr><tr>
+		<td><a name="xx0xx"></a><table border="0" cellpadding="2px" cellspacing="0" width="100%">
+			<tr class="forum-navbar">
+				<td>&nbsp;</td><td align="right" nowrap="nowrap"><span class="toolbar">First</span><span class="toolbar">Prev</span><a class="toolbar" name="Frm_HoverNL" href="/KB/mobile/bth_serial_port.aspx?fid=1398608&amp;df=90&amp;mpp=25&amp;noise=3&amp;sort=Position&amp;view=Quick&amp;fr=26#xx0xx">Next</a></td>
+			</tr>
+		</table></td>
+	</tr><tr>
+		<td><table border="0" cellpadding="0" cellspacing="0" width="100%" class="fixed-layout blank-background">
+			<tr>
+				<td><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="5px" alt="" /></td>
+			</tr>
+<!-- Start Message head -->
+
+			<tr class="MsgHd Rt HdUnSel ">
+				<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="hover-row">
+						<td width="16px" class="Frm_MsgIndent"><a name="xx3344779xx"></a><img height="16px" width="16px" align="top" src="/script/Forums/Images/msg_general.gif" alt="General" /></td><td class="Frm_MsgSubject hover-container">Bluetooth in c#<br />Ruta89</td><td class="Frm_MsgDate" valign="top" nowrap="nowrap">0:08 26 Jan '10 &nbsp;</td>
+					</tr>
+				</table></td>
+			</tr><!-- End Message head -->
+
+			<tr>
+				<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="Frm_MsgIndent" width="16"><img src="/script/Forums/Images/t.gif" height="1px" width="16px" alt="" /></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+							<tr>
+								<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">How can i use bluetooth in c# webForms?<br />i conented te device but it says :"there is no Bluetooth hardware installted on this device "<br />i need help,please!1<br />my final project has to be done in 2 weeks!!!<br />thank you!<br /></td>
+									</tr><tr valign="middle">
+										<td class="msg-footer"><a class="toolbar" href="/script/Membership/LogOn.aspx?rp=%2fKB%2fmobile%2fbth_serial_port.aspx">Sign In</a>·<a class="toolbar" href="/KB/mobile/bth_serial_port.aspx?fid=1398608&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=3344779" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="/Messages/3344779/Bluetooth-in-csharp.aspx" title="Get permanent link">PermaLink</a></td><td class="msg-footer" align="right"><span id="MVF3344779"></span></td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table></td>
+			</tr><tr class="expanded">
+				<td class="msg-divide"><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="1px" alt="" /></td>
+			</tr>
+<!-- Start Message head -->
+
+			<tr class="MsgHd HdUnSel ">
+				<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="hover-row">
+						<td width="25px" class="Frm_MsgIndent"><a name="xx3345303xx"></a><img height="16px" width="16px" align="top" src="/script/Forums/Images/msg_general.gif" alt="General" /></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="3345303" href="/Messages/3345303/Re-Bluetooth-in-csharp.aspx">Re: Bluetooth in c#</a><br />Badea Florin</td><td class="Frm_MsgDate" valign="top" nowrap="nowrap">6:52 26 Jan '10 &nbsp;</td>
+					</tr>
+				</table></td>
+			</tr><!-- End Message head -->
+
+			<tr>
+				<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="Frm_MsgIndent" width="25"><img src="/script/Forums/Images/t.gif" height="1px" width="25px" alt="" /></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+							<tr>
+								<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">hi,<br />recently i had to command some small robot via bt from a desktop application. to do this i did something similar with what i did in this article.<br />from what i have observed until now (i haven't really studied this in detail ) there is one important difference between mobile and desktop applications that use this solution when it comes to c# (using serial ports).<br /><br />the difference is that on mobile you need to open 2 com ports (one for incoming and one of outgoing) while on desktop you only need to open one port.<br />On desktop you do not open the port randomly (any port you want). you need to open the port that is used to send data through your bt stick. this port is generated for you by the application you install from your bt cd.<br /><br />on my pc i did something like the following:<br /><br />1. i installed the bt drivers.<br />2. i opened the app that got installed.<br />3. i selected the search device option.<br />4. after other devices have been found i selected the device and hit connect.<br />5. i switched to the c# app and started it.<br /><br />this should work.<br />hope this helps. bye.<br /></td>
+									</tr><tr valign="middle">
+										<td class="msg-footer"><a class="toolbar" href="/script/Membership/LogOn.aspx?rp=%2fKB%2fmobile%2fbth_serial_port.aspx">Sign In</a>·<a class="toolbar" href="/KB/mobile/bth_serial_port.aspx?fid=1398608&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=3344779" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="/Messages/3345303/Re-Bluetooth-in-csharp.aspx" title="Get permanent link">PermaLink</a></td><td class="msg-footer" align="right"><span id="MVF3345303"></span></td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table></td>
+			</tr><tr class="expanded">
+				<td class="msg-divide"><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="1px" alt="" /></td>
+			</tr>
+<!-- Start Message head -->
+
+			<tr class="MsgHd HdUnSel ">
+				<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="hover-row">
+						<td width="34px" class="Frm_MsgIndent"><a name="xx3350451xx"></a><img height="16px" width="16px" align="top" src="/script/Forums/Images/msg_general.gif" alt="General" /></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="3350451" href="/Messages/3350451/Re-Bluetooth-in-csharp.aspx">Re: Bluetooth in c#</a><br />Ruta89</td><td class="Frm_MsgDate" valign="top" nowrap="nowrap">9:13 30 Jan '10 &nbsp;</td>
+					</tr>
+				</table></td>
+			</tr><!-- End Message head -->
+
+			<tr>
+				<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="Frm_MsgIndent" width="34"><img src="/script/Forums/Images/t.gif" height="1px" width="34px" alt="" /></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+							<tr>
+								<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">thank you.<br />if i undersdood you right,i was suppose to tp conect to the phone through the bluetooth and then to open the app.<br />how do i coneect to the phone through the bleutooth? is that possibole to creat COM by a data code in c#?<br />i hope you'll understand that<br />10x a lot<br /></td>
+									</tr><tr valign="middle">
+										<td class="msg-footer"><a class="toolbar" href="/script/Membership/LogOn.aspx?rp=%2fKB%2fmobile%2fbth_serial_port.aspx">Sign In</a>·<a class="toolbar" href="/KB/mobile/bth_serial_port.aspx?fid=1398608&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=3344779" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="/Messages/3350451/Re-Bluetooth-in-csharp.aspx" title="Get permanent link">PermaLink</a></td><td class="msg-footer" align="right"><span id="MVF3350451"></span></td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table></td>
+			</tr><tr class="expanded">
+				<td class="msg-divide"><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="1px" alt="" /></td>
+			</tr>
+<!-- Start Message head -->
+
+			<tr class="MsgHd LoVote HdUnSel ">
+				<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="hover-row">
+						<td width="43px" class="Frm_MsgIndent"><a name="xx3351407xx"></a><img height="16px" width="16px" align="top" src="/script/Forums/Images/msg_general.gif" alt="General" /></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="3351407" href="/Messages/3351407/Re-Bluetooth-in-csharp.aspx">Re: Bluetooth in c#</a><br />Badea Florin</td><td class="Frm_MsgDate" valign="top" nowrap="nowrap">21:29 31 Jan '10 &nbsp;</td>
+					</tr>
+				</table></td>
+			</tr><!-- End Message head -->
+
+			<tr>
+				<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="Frm_MsgIndent" width="43"><img src="/script/Forums/Images/t.gif" height="1px" width="43px" alt="" /></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+							<tr>
+								<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">the com is not created in c#. you just open it in c#.<br />the com port you will use is created with the app that gets installed from the BT CD. You have there an option to emulate the BT with serial ports. The default in my case was COM40. After you create this you can access it in c#.<br /></td>
+									</tr><tr valign="middle">
+										<td class="msg-footer"><a class="toolbar" href="/script/Membership/LogOn.aspx?rp=%2fKB%2fmobile%2fbth_serial_port.aspx">Sign In</a>·<a class="toolbar" href="/KB/mobile/bth_serial_port.aspx?fid=1398608&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=3344779" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="/Messages/3351407/Re-Bluetooth-in-csharp.aspx" title="Get permanent link">PermaLink</a></td><td class="msg-footer" align="right"><span id="MVF3351407">1.00/5 </span></td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table></td>
+			</tr><tr class="expanded">
+				<td class="root msg-divide"><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="1px" alt="" /></td>
+			</tr>
+<!-- Start Message head -->
+
+			<tr class="MsgHd Rt HdUnSel ">
+				<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="hover-row">
+						<td width="16px" class="Frm_MsgIndent"><a name="xx3171467xx"></a><img height="16px" width="16px" align="top" src="/script/Forums/Images/msg_general.gif" alt="General" /></td><td class="Frm_MsgSubject hover-container">can't receiv message<br />szczepq</td><td class="Frm_MsgDate" valign="top" nowrap="nowrap">9:31 24 Aug '09 &nbsp;</td>
+					</tr>
+				</table></td>
+			</tr><!-- End Message head -->
+
+			<tr>
+				<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="Frm_MsgIndent" width="16"><img src="/script/Forums/Images/t.gif" height="1px" width="16px" alt="" /></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+							<tr>
+								<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">hi<br /><br />i'm using wm6.1 and in bt settings i can only set "new outgoing port" so i choose com6 (when i choose com7 problem is the same) and in program settings as inboude and outboude i chooce the same com because only in this configuratiuon i can connect to another device. when i get connection i can only send message but i can't receive enything. has enybody know what can i do ?<br /></td>
+									</tr><tr valign="middle">
+										<td class="msg-footer"><a class="toolbar" href="/script/Membership/LogOn.aspx?rp=%2fKB%2fmobile%2fbth_serial_port.aspx">Sign In</a>·<a class="toolbar" href="/KB/mobile/bth_serial_port.aspx?fid=1398608&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=3171467" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="/Messages/3171467/cant-receiv-message.aspx" title="Get permanent link">PermaLink</a></td><td class="msg-footer" align="right"><span id="MVF3171467"></span></td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table></td>
+			</tr><tr class="expanded">
+				<td class="msg-divide"><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="1px" alt="" /></td>
+			</tr>
+<!-- Start Message head -->
+
+			<tr class="MsgHd HdUnSel ">
+				<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="hover-row">
+						<td width="25px" class="Frm_MsgIndent"><a name="xx3172045xx"></a><img height="16px" width="16px" align="top" src="/script/Forums/Images/msg_general.gif" alt="General" /></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="3172045" href="/Messages/3172045/Re-cant-receiv-message.aspx">Re: can't receiv message</a><br />Badea Florin</td><td class="Frm_MsgDate" valign="top" nowrap="nowrap">22:48 24 Aug '09 &nbsp;</td>
+					</tr>
+				</table></td>
+			</tr><!-- End Message head -->
+
+			<tr>
+				<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="Frm_MsgIndent" width="25"><img src="/script/Forums/Images/t.gif" height="1px" width="25px" alt="" /></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+							<tr>
+								<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">you can't set both in and out to the same port because the app assumes you will use 2 different ports.<br /></td>
+									</tr><tr valign="middle">
+										<td class="msg-footer"><a class="toolbar" href="/script/Membership/LogOn.aspx?rp=%2fKB%2fmobile%2fbth_serial_port.aspx">Sign In</a>·<a class="toolbar" href="/KB/mobile/bth_serial_port.aspx?fid=1398608&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=3171467" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="/Messages/3172045/Re-cant-receiv-message.aspx" title="Get permanent link">PermaLink</a></td><td class="msg-footer" align="right"><span id="MVF3172045"></span></td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table></td>
+			</tr><tr class="expanded">
+				<td class="msg-divide"><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="1px" alt="" /></td>
+			</tr>
+<!-- Start Message head -->
+
+			<tr class="MsgHd HdUnSel ">
+				<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="hover-row">
+						<td width="34px" class="Frm_MsgIndent"><a name="xx3172244xx"></a><img height="16px" width="16px" align="top" src="/script/Forums/Images/msg_general.gif" alt="General" /></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="3172244" href="/Messages/3172244/Re-cant-receiv-message.aspx">Re: can't receiv message</a><br />szczepq</td><td class="Frm_MsgDate" valign="top" nowrap="nowrap">1:03 25 Aug '09 &nbsp;</td>
+					</tr>
+				</table></td>
+			</tr><!-- End Message head -->
+
+			<tr>
+				<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="Frm_MsgIndent" width="34"><img src="/script/Forums/Images/t.gif" height="1px" width="34px" alt="" /></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+							<tr>
+								<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">of course i can <img src="/script/Forums/Images/smiley_smile.gif" align="top" alt="Smile" />  i just made it :P i throw out everything what is connected to serialIn <img src="/script/Forums/Images/smiley_smile.gif" align="top" alt="Smile" />  and change one line and add anather. I'm receiving data from serialline out just have a look<br /><br />using System;<br />using System.Collections.Generic;<br />using System.ComponentModel;<br />using System.Data;<br />using System.Drawing;<br />using System.Text;<br />using System.Windows.Forms;<br />using System.IO.Ports;<br />using System.Threading;<br />namespace CSSP<br />{<br />    public partial class Form1 : Form<br />    {<br />        <br />        SerialPort serialOut;<br /><br />        Thread rcvThread;<br /><br />        private delegate void updateText(string s);<br />        private delegate void closeDel();<br />        private delegate void disconnectDel();<br />        private string outboundPort = "";<br /><br />        bool closeRequested = false;<br />        bool disconnectRequested = false;<br />        int numThreads = 0;<br />        public Form1()<br />        {<br />            InitializeComponent();<br />            lblStatus.Text = "Ports not set.";            <br />        }<br />        private void ReceiveData()<br />        {<br />            while (!closeRequested &amp;&amp; !disconnectRequested)<br />            {<br />                try<br />                {<br />                    <b>string line = serialOut.ReadLine();</b>
+                    if (line.CompareTo("quit$$$") == 0)<br />                    {<br />                        disconnectRequested = true;<br />                        continue;<br />                    }<br />                    txtLog.Invoke(new updateText(UpdateText), line);<br />                  <br />                }<br />                catch (Exception e)<br /><br />                {<br />                    string dupa = e.ToString();  <br />                }<br />            }<br />            if (closeRequested)<br />                closeMe();<br />            if (disconnectRequested)<br />                this.Invoke(new disconnectDel(onDisconnect));               <br />        }<br />        private void onDisconnect()<br />        {<br />            serialOut.Close();<br />            mnuDisconnect.Enabled = false;<br />            mnuConnect.Enabled = false;<br />            mnuSettings.Enabled = true;<br />            lblStatus.Text = "Disconected.\r\nPorts not set.";<br />            numThreads--;<br />        }<br /><br />        private void UpdateText(string s)<br />        {<br />            txtLog.Text += "thing:" + s + "\r\n";<br />        }<br />        private void btnSend_Click(object sender, EventArgs e)<br />        {<br />            try<br />            {<br />                serialOut.WriteLine(txtMess.Text + "\r");<br />                txtLog.Text += "you:" + txtMess.Text + "\r\n";<br />                txtMess.Text = "";<br />            }<br />            catch (Exception ex)<br />            {<br />                MessageBox.Show(ex.Message);<br />            }<br />        }<br />        private void closeMe()<br />        {<br />            numThreads--;           <br />            this.Invoke(new closeDel(this.Close));<br />        }<br />        private void Form1_Closing(object sender, CancelEventArgs e)<br />        {<br />            if (this.numThreads &gt; 0)<br />            {<br />                e.Cancel = true;<br />            }<br />            else<br />            {<br />                e.Cancel = false;<br />                if ( serialOut != null)<br />                {<br /><br />                    serialOut.Close();<br />                }<br />            }<br />            this.closeRequested = true;<br />        }<br />        private void mnuSettings_Click(object sender, EventArgs e)<br />        {<br />            SettingsForm form = new SettingsForm(outboundPort);<br />            if (form.ShowDialog() == DialogResult.OK)<br />            {<br />                if (form.GetOutboundPort().CompareTo("NO PORT SELECTED") == 0)<br />                {<br />                    MessageBox.Show("The ports were not set properly.");<br />                    lblStatus.Text = "Ports not set.";<br />                    mnuConnect.Enabled = false;<br />                }<br />                else<br />                {<br />                    outboundPort = form.GetOutboundPort();<br />                    mnuConnect.Enabled = true;<br />                    lblStatus.Text = "Ports set.\r\nout:" + outboundPort+"\r\nWaiting to press Connect...";<br />                }<br />            }<br />        }<br /><br />        private void mnuConnect_Click(object sender, EventArgs e)<br />        {<br />            serialOut = new SerialPort(outboundPort);<br />            serialOut.ReadTimeout = 1000;<br />            <b>serialOut.NewLine = "\r";</b>
+            disconnectRequested = false;<br />            try<br />            {<br /><br />                if (!serialOut.IsOpen)<br />                {<br />                    lblStatus.Text = "Output port closed. Opening output port...";<br />                    <br />                    serialOut.Open();<br />                }<br />                lblStatus.Text = "Ports opened. Starting the listener thread...";<br />                rcvThread = new Thread(new ThreadStart(ReceiveData));<br />                numThreads++;<br />                rcvThread.Start();<br />                lblStatus.Text = "Listener thread started.";<br />                btnSend.Enabled = true;<br />                lblStatus.Text="Connected.\r\nOutbound:" + outboundPort;<br />                MessageBox.Show("Connected.");<br />                mnuConnect.Enabled = false;<br />                mnuSettings.Enabled = false;<br />                mnuDisconnect.Enabled = true;<br />            }<br />            catch (Exception ex)<br />            {<br />                MessageBox.Show(ex.Message);<br />                lblStatus.Text = "error.\r\nPorts not set.";<br />                mnuConnect.Enabled = false;<br />            }<br />        }<br />        <br />        private void mnuDisconnect_Click(object sender, EventArgs e)<br />        {<br />            try<br />            {<br />                disconnectRequested = true;<br />                serialOut.WriteLine("quit$$$");<br />            }<br />            catch (Exception ex)<br />            {<br />                MessageBox.Show(ex.Message);<br />            }<br />        }<br /><br />        private void mnuClose_Click(object sender, EventArgs e)<br />        {<br />            this.Close();<br />        }<br /><br />        private void txtLog_TextChanged(object sender, EventArgs e)<br />        {<br /><br />        }<br />    }<br />}<br /><br /><br /><br /><br /><br /><u>and in SettingsForm.cs the same throw out everything connecter to serialIn </u>
+<br />using System;<br />using System.Collections.Generic;<br />using System.ComponentModel;<br />using System.Data;<br />using System.Drawing;<br />using System.Text;<br />using System.Windows.Forms;<br />using System.IO.Ports;<br />namespace CSSP<br />{<br />    public partial class SettingsForm : Form<br />    {<br />        private string outboundPort;<br />        public SettingsForm(string outbound)<br />        {<br />            InitializeComponent();<br />            outboundPort = outbound;<br />            string[] ports = SerialPort.GetPortNames();<br />            //comboBox1.Items.Add("NO PORT SELECTED");<br />            //for (int i = 0; i &lt; ports.Length; i++)<br />            //    comboBox1.Items.Add(ports[i]);<br />            comboBox2.Items.Add("NO PORT SELECTED");<br />            for (int i = 0; i &lt; ports.Length; i++)<br />                comboBox2.Items.Add(ports[i]);<br /> <br />            if (comboBox2.Items.Contains(outboundPort))<br />                comboBox2.SelectedItem=outboundPort;<br />            else<br />                comboBox2.SelectedIndex = 0;<br />          <br />        }<br /><br />        public string GetOutboundPort()<br />        {<br />            return (string)comboBox2.SelectedItem;<br />        }<br />    }<br />}<br /><br /><br /><br />and everything is working when I connect to bt stick and open hyperterminal <img src="/script/Forums/Images/smiley_smile.gif" align="top" alt="Smile" /> <br />I add this line <br />serialOut.NewLine = "\r";<br />besause i was receiving data but your program was waiting for something line "end of the line mark" and wasn't printind them. i set breakpoint in<br />string line = serialOut.ReadLine();<br />and debug in my pda (htc magician) and i get this info<br />...ByteToRead - 14...DataReceived - null...<br />and know it's ok <img src="/script/Forums/Images/smiley_smile.gif" align="top" alt="Smile" />  thank you very much for this software it really helps my <img src="/script/Forums/Images/smiley_smile.gif" align="top" alt="Smile" /> <br />btw it is propablu working in Infrared connection :P i put my pda in front od Irda stick, set COM3 as outband port and i get connecter but i don't know if data transfer is working byt i don't know what com port i must open in hyperterminal on pc <img src="/script/Forums/Images/smiley_smile.gif" align="top" alt="Smile" /> <br /></td>
+									</tr><tr valign="middle">
+										<td class="msg-footer"><a class="toolbar" href="/script/Membership/LogOn.aspx?rp=%2fKB%2fmobile%2fbth_serial_port.aspx">Sign In</a>·<a class="toolbar" href="/KB/mobile/bth_serial_port.aspx?fid=1398608&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=3171467" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="/Messages/3172244/Re-cant-receiv-message.aspx" title="Get permanent link">PermaLink</a></td><td class="msg-footer" align="right"><span id="MVF3172244"></span></td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table></td>
+			</tr><tr class="expanded">
+				<td class="msg-divide"><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="1px" alt="" /></td>
+			</tr>
+<!-- Start Message head -->
+
+			<tr class="MsgHd HdUnSel ">
+				<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="hover-row">
+						<td width="43px" class="Frm_MsgIndent"><a name="xx3172274xx"></a><img height="16px" width="16px" align="top" src="/script/Forums/Images/msg_general.gif" alt="General" /></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="3172274" href="/Messages/3172274/Re-cant-receiv-message.aspx">Re: can't receiv message</a><br />Badea Florin</td><td class="Frm_MsgDate" valign="top" nowrap="nowrap">1:28 25 Aug '09 &nbsp;</td>
+					</tr>
+				</table></td>
+			</tr><!-- End Message head -->
+
+			<tr>
+				<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="Frm_MsgIndent" width="43"><img src="/script/Forums/Images/t.gif" height="1px" width="43px" alt="" /></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+							<tr>
+								<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">i'm glad you solved your problem.<br />on hyperterminal i used port 40 because this was set by default when i installed the bt stick. to transfer files i guess you first need to serialize the data and then send it with port.write() (i think <img src="/script/Forums/Images/smiley_smile.gif" align="top" alt="Smile" /> ).<br /></td>
+									</tr><tr valign="middle">
+										<td class="msg-footer"><a class="toolbar" href="/script/Membership/LogOn.aspx?rp=%2fKB%2fmobile%2fbth_serial_port.aspx">Sign In</a>·<a class="toolbar" href="/KB/mobile/bth_serial_port.aspx?fid=1398608&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=3171467" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="/Messages/3172274/Re-cant-receiv-message.aspx" title="Get permanent link">PermaLink</a></td><td class="msg-footer" align="right"><span id="MVF3172274"></span></td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table></td>
+			</tr><tr class="expanded">
+				<td class="root msg-divide"><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="1px" alt="" /></td>
+			</tr>
+<!-- Start Message head -->
+
+			<tr class="MsgHd Rt HdUnSel ">
+				<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="hover-row">
+						<td width="16px" class="Frm_MsgIndent"><a name="xx3164346xx"></a><img height="16px" width="16px" align="top" src="/script/Forums/Images/msg_general.gif" alt="General" /></td><td class="Frm_MsgSubject hover-container">bluetooth manager<br />adrian_adi</td><td class="Frm_MsgDate" valign="top" nowrap="nowrap">2:03 18 Aug '09 &nbsp;</td>
+					</tr>
+				</table></td>
+			</tr><!-- End Message head -->
+
+			<tr>
+				<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="Frm_MsgIndent" width="16"><img src="/script/Forums/Images/t.gif" height="1px" width="16px" alt="" /></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+							<tr>
+								<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">Salut,<br /><br />Am o intrebare, ai gasit cumva un bluetooth manager pentru un dongle USB-bluetooth pentru aputea vedea portul serial? Ce este by default la windows ce 5.0 nu-mi afiseaza portul serial.<br /><br />Multumesc<br /><br /><br />P.S. Imi poti da adresa ta de e-mail? As mai dori sa te intreb cite ceva. Adresa mea de e-mail este: adrian_copou@yahoo.com.au<br /></td>
+									</tr><tr valign="middle">
+										<td class="msg-footer"><a class="toolbar" href="/script/Membership/LogOn.aspx?rp=%2fKB%2fmobile%2fbth_serial_port.aspx">Sign In</a>·<a class="toolbar" href="/KB/mobile/bth_serial_port.aspx?fid=1398608&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=3164346" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="/Messages/3164346/bluetooth-manager.aspx" title="Get permanent link">PermaLink</a></td><td class="msg-footer" align="right"><span id="MVF3164346"></span></td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table></td>
+			</tr><tr class="expanded">
+				<td class="msg-divide"><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="1px" alt="" /></td>
+			</tr>
+<!-- Start Message head -->
+
+			<tr class="MsgHd LoVote HdUnSel ">
+				<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="hover-row">
+						<td width="25px" class="Frm_MsgIndent"><a name="xx3164553xx"></a><img height="16px" width="16px" align="top" src="/script/Forums/Images/msg_general.gif" alt="General" /></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="3164553" href="/Messages/3164553/Re-bluetooth-manager.aspx">Re: bluetooth manager</a><br />Badea Florin</td><td class="Frm_MsgDate" valign="top" nowrap="nowrap">4:27 18 Aug '09 &nbsp;</td>
+					</tr>
+				</table></td>
+			</tr><!-- End Message head -->
+
+			<tr>
+				<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="Frm_MsgIndent" width="25"><img src="/script/Forums/Images/t.gif" height="1px" width="25px" alt="" /></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+							<tr>
+								<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">i haven't searched anything like this. when i installed my BT dongle it automatically configured COM40 as the serial port to work with. On the PDA you can look in the settings window to see the in and out bound ports that are used. Also i think your PDA or phone must support the Serial Port Profile<br /></td>
+									</tr><tr valign="middle">
+										<td class="msg-footer"><a class="toolbar" href="/script/Membership/LogOn.aspx?rp=%2fKB%2fmobile%2fbth_serial_port.aspx">Sign In</a>·<a class="toolbar" href="/KB/mobile/bth_serial_port.aspx?fid=1398608&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=3164346" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="/Messages/3164553/Re-bluetooth-manager.aspx" title="Get permanent link">PermaLink</a></td><td class="msg-footer" align="right"><span id="MVF3164553">1.00/5 </span></td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table></td>
+			</tr><tr class="expanded">
+				<td class="root msg-divide"><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="1px" alt="" /></td>
+			</tr>
+<!-- Start Message head -->
+
+			<tr class="MsgHd LoVote Rt HdUnSel ">
+				<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="hover-row">
+						<td width="16px" class="Frm_MsgIndent"><a name="xx3000406xx"></a><img height="16px" width="16px" align="top" src="/script/Forums/Images/msg_general.gif" alt="General" /></td><td class="Frm_MsgSubject hover-container">connectivity through bluetooth<br />Member 4088022</td><td class="Frm_MsgDate" valign="top" nowrap="nowrap">10:45 10 Apr '09 &nbsp;</td>
+					</tr>
+				</table></td>
+			</tr><!-- End Message head -->
+
+			<tr>
+				<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="Frm_MsgIndent" width="16"><img src="/script/Forums/Images/t.gif" height="1px" width="16px" alt="" /></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+							<tr>
+								<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">hello,sir Badea Florin<br /><br />sir,we using java as our compact language for the mobile device .we are not using .NET compact framework for this purpose because the problem here arrising is of the Operating system of the mobile..net CF supports only microsoft based PDA ,that are so exceptional.so plz,kindly help us out here that how do we connect PDA through JAVA socket with the desktop PC having C#.NET framework ,through BLUETOOTH?<br /></td>
+									</tr><tr valign="middle">
+										<td class="msg-footer"><a class="toolbar" href="/script/Membership/LogOn.aspx?rp=%2fKB%2fmobile%2fbth_serial_port.aspx">Sign In</a>·<a class="toolbar" href="/KB/mobile/bth_serial_port.aspx?fid=1398608&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=3000406" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="/Messages/3000406/connectivity-through-bluetooth.aspx" title="Get permanent link">PermaLink</a></td><td class="msg-footer" align="right"><span id="MVF3000406">2.00/5 </span></td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table></td>
+			</tr><tr class="expanded">
+				<td class="msg-divide"><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="1px" alt="" /></td>
+			</tr>
+<!-- Start Message head -->
+
+			<tr class="MsgHd HiVote HdUnSel ">
+				<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="hover-row">
+						<td width="25px" class="Frm_MsgIndent"><a name="xx3000708xx"></a><img height="16px" width="16px" align="top" src="/script/Forums/Images/msg_general.gif" alt="General" /></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="3000708" href="/Messages/3000708/Re-connectivity-through-bluetooth.aspx">Re: connectivity through bluetooth</a><br />Badea Florin</td><td class="Frm_MsgDate" valign="top" nowrap="nowrap">0:36 11 Apr '09 &nbsp;</td>
+					</tr>
+				</table></td>
+			</tr><!-- End Message head -->
+
+			<tr>
+				<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="Frm_MsgIndent" width="25"><img src="/script/Forums/Images/t.gif" height="1px" width="25px" alt="" /></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+							<tr>
+								<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">i have written a simple BT messaging app in j2me but it only works on the wtc emulator. This is why i haven't published an article about it.<br />I want to tell you (in case you don't know,but i'm 90% sure you do) that j2me has a full BT API. You must use that in order to build your app. once you do this you can of course connect to another app using BT no matter the technology it is built with as long as the services they publish are compatible (at least this is what i think).<br /><br />Anyway here are 2 links to a very good 2 part article that tell you everything you need to know to get started:<br /><a href="http://developers.sun.com/mobility/midp/articles/bluetooth1/">http://developers.sun.com/mobility/midp/articles/bluetooth1/</a>[<a href="http://developers.sun.com/mobility/midp/articles/bluetooth1/" target="_blank" title="New Window">^</a>]<br />and<br /><a href="http://developers.sun.com/mobility/midp/articles/bluetooth1/">http://developers.sun.com/mobility/midp/articles/bluetooth2/</a>[<a href="http://developers.sun.com/mobility/midp/articles/bluetooth1/" target="_blank" title="New Window">^</a>]<br /><br />hope this helps<br /></td>
+									</tr><tr valign="middle">
+										<td class="msg-footer"><a class="toolbar" href="/script/Membership/LogOn.aspx?rp=%2fKB%2fmobile%2fbth_serial_port.aspx">Sign In</a>·<a class="toolbar" href="/KB/mobile/bth_serial_port.aspx?fid=1398608&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=3000406" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="/Messages/3000708/Re-connectivity-through-bluetooth.aspx" title="Get permanent link">PermaLink</a></td><td class="msg-footer" align="right"><span id="MVF3000708">5.00/5 </span></td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table></td>
+			</tr><tr class="expanded">
+				<td class="msg-divide"><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="1px" alt="" /></td>
+			</tr>
+<!-- Start Message head -->
+
+			<tr class="MsgHd HdUnSel ">
+				<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="hover-row">
+						<td width="34px" class="Frm_MsgIndent"><a name="xx3000799xx"></a><img height="16px" width="16px" align="top" src="/script/Forums/Images/msg_general.gif" alt="General" /></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="3000799" href="/Messages/3000799/Re-connectivity-through-bluetooth.aspx">Re: connectivity through bluetooth</a><br />Member 4088022</td><td class="Frm_MsgDate" valign="top" nowrap="nowrap">3:37 11 Apr '09 &nbsp;</td>
+					</tr>
+				</table></td>
+			</tr><!-- End Message head -->
+
+			<tr>
+				<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="Frm_MsgIndent" width="34"><img src="/script/Forums/Images/t.gif" height="1px" width="34px" alt="" /></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+							<tr>
+								<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">thank u<br /></td>
+									</tr><tr valign="middle">
+										<td class="msg-footer"><a class="toolbar" href="/script/Membership/LogOn.aspx?rp=%2fKB%2fmobile%2fbth_serial_port.aspx">Sign In</a>·<a class="toolbar" href="/KB/mobile/bth_serial_port.aspx?fid=1398608&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=3000406" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="/Messages/3000799/Re-connectivity-through-bluetooth.aspx" title="Get permanent link">PermaLink</a></td><td class="msg-footer" align="right"><span id="MVF3000799"></span></td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table></td>
+			</tr><tr class="expanded">
+				<td class="root msg-divide"><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="1px" alt="" /></td>
+			</tr>
+<!-- Start Message head -->
+
+			<tr class="MsgHd Rt HdUnSel ">
+				<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="hover-row">
+						<td width="16px" class="Frm_MsgIndent"><a name="xx2998614xx"></a><img height="16px" width="16px" align="top" src="/script/Forums/Images/msg_general.gif" alt="General" /></td><td class="Frm_MsgSubject hover-container">sir i am working on a project in which i have to conect pda to pc dekstop via bluetooth<br />talal1123</td><td class="Frm_MsgDate" valign="top" nowrap="nowrap">1:50 9 Apr '09 &nbsp;</td>
+					</tr>
+				</table></td>
+			</tr><!-- End Message head -->
+
+			<tr>
+				<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="Frm_MsgIndent" width="16"><img src="/script/Forums/Images/t.gif" height="1px" width="16px" alt="" /></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+							<tr>
+								<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">in this project the mesage will b send from pda to pc or vice versa<br />can u explain me or provide me a code to make it possible...<br />please reply me as soon as posible<br /></td>
+									</tr><tr valign="middle">
+										<td class="msg-footer"><a class="toolbar" href="/script/Membership/LogOn.aspx?rp=%2fKB%2fmobile%2fbth_serial_port.aspx">Sign In</a>·<a class="toolbar" href="/KB/mobile/bth_serial_port.aspx?fid=1398608&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=2998614" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="/Messages/2998614/sir-i-am-working-on-a-project-in-which-i-have-to-c.aspx" title="Get permanent link">PermaLink</a></td><td class="msg-footer" align="right"><span id="MVF2998614"></span></td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table></td>
+			</tr><tr class="expanded">
+				<td class="msg-divide"><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="1px" alt="" /></td>
+			</tr>
+<!-- Start Message head -->
+
+			<tr class="MsgHd HiVote HdUnSel ">
+				<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="hover-row">
+						<td width="25px" class="Frm_MsgIndent"><a name="xx2998749xx"></a><img height="16px" width="16px" align="top" src="/script/Forums/Images/msg_general.gif" alt="General" /></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="2998749" href="/Messages/2998749/Re-sir-i-am-working-on-a-project-in-which-i-have-t.aspx">Re: sir i am working on a project in which i have to conect pda to pc dekstop via bluetooth</a><br />Badea Florin</td><td class="Frm_MsgDate" valign="top" nowrap="nowrap">3:27 9 Apr '09 &nbsp;</td>
+					</tr>
+				</table></td>
+			</tr><!-- End Message head -->
+
+			<tr>
+				<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="Frm_MsgIndent" width="25"><img src="/script/Forums/Images/t.gif" height="1px" width="25px" alt="" /></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+							<tr>
+								<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">hi,<br />like i said in the article this application was mainly designed to facilitate the communication BETWEEN 2 PDA DEVICES. Because of this fact the application is hard coded to use 2 different com ports: one for inbound and one for outbound. This is how the bluetooth stuff works on my PDA (iMate with com5 for inbound and com6 for outbound).<br /><br />on the other hand my bt stick that i connect to my pc uses a single port to do both the receiving and the sending. This is a problem as you will see immediately (com40 in my case).<br /><br />To get to the point. I wrote you a little console app to test stuff out. This is a very simple app and the code is at the end of the reply.<br /><br />In order for you to send messages from the pc to the pda you have to start the pda app and set the com ports like they are in the settings section(in my case this is com5 for in and com6 for out) and than start the pc app (here you should probably modify the com port used because it is hard coded for my pc). After this you can send messages from the pc.<br /><br />To send messages from the pda you have to set the pda ports the other way in the app. (in my case com6 for in and com5 for out). Now the pc will receive messages, but it won't be able to send.<br /><br />these problems occur because the pda needs 2 ports and the pc only one. The solution here would be to use only the inbound port on the pda app to do both sending and receiving when connected to a pc. I think this will solve the problem. AND HERE IS THE CODE <img src="/script/Forums/Images/smiley_smile.gif" align="top" alt="Smile" /> <br /><br /><code><span class="code-keyword">class</span> PortComm<br />    {<br />        <span class="code-keyword">private</span> SerialPort port;<br />        Thread readThread;<br />        <span class="code-keyword">bool</span> running = <span class="code-keyword">false</span>;<br />        <span class="code-keyword">public</span> PortComm(SerialPort port)<br />        {<br />            <span class="code-keyword">this</span>.port = port;<br />            <br />            readThread = <span class="code-keyword">new</span> Thread(read);<br />            running = <span class="code-keyword">true</span>;<br />            readThread.Start();<br />        }<br /><br />        <span class="code-keyword">private</span> <span class="code-keyword">void</span> read()<br />        {<br />            <span class="code-keyword">while</span> (running)<br />            {<br />                <span class="code-keyword">try</span>
+                {<br />                    <span class="code-SDKkeyword">String</span> line = port.ReadLine();<br />                    Console.WriteLine(<span class="code-string">&quot;</span><span class="code-string">remote: &quot;</span>+line);<br />                }<br />                <span class="code-keyword">catch</span> (TimeoutException)<br />                {<br />                    <span class="code-comment">//</span><span class="code-comment">do nothing<br /></span>                }<br />                <span class="code-keyword">catch</span> (Exception)<br />                {<br />                    <span class="code-comment">//</span><span class="code-comment">do nothing<br /></span>                }<br />            }<br />        }<br />        <span class="code-keyword">public</span> <span class="code-keyword">void</span> write()<br />        {<br />            Console.WriteLine(<span class="code-string">&quot;</span><span class="code-string">you: &quot;</span>);<br />            <span class="code-SDKkeyword">String</span> line = Console.ReadLine();<br />            port.WriteLine(line);<br />        }<br />        <span class="code-keyword">public</span> <span class="code-keyword">void</span> setRunning(<span class="code-keyword">bool</span> running)<br />        {<br />            <span class="code-keyword">this</span>.running = running;<br />        }<br />    }<br />    <span class="code-keyword">class</span> Program<br />    {<br />        <span class="code-keyword">static</span> SerialPort port;<br />        <span class="code-keyword">static</span> <span class="code-keyword">void</span> Main(<span class="code-keyword">string</span>[] args)<br />        {<br />            <span class="code-keyword">try</span>
+            {<br />                port = <span class="code-keyword">new</span> SerialPort(<span class="code-string">&quot;</span><span class="code-string">COM40&quot;</span>);<br />                port.Open();<br />                PortComm pcomm = <span class="code-keyword">new</span> PortComm(port);<br />                <span class="code-keyword">string</span> line=<span class="code-string">&quot;</span><span class="code-string">&quot;</span>;<br />                <span class="code-keyword">do</span>
+                {<br />                    pcomm.write();<br />                } <span class="code-keyword">while</span> (!line.Equals(<span class="code-string">&quot;</span><span class="code-string">quit&quot;</span>));<br />                port.Close();<br />            }<br />            <span class="code-keyword">catch</span> (IOException ioe)<br />            {<br />                Console.WriteLine(ioe.Message);<br />            }<br />            Console.ReadLine();<br />        }<br />       <br />    }</code><br /></td>
+									</tr><tr valign="middle">
+										<td class="msg-footer"><a class="toolbar" href="/script/Membership/LogOn.aspx?rp=%2fKB%2fmobile%2fbth_serial_port.aspx">Sign In</a>·<a class="toolbar" href="/KB/mobile/bth_serial_port.aspx?fid=1398608&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=2998614" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="/Messages/2998749/Re-sir-i-am-working-on-a-project-in-which-i-have-t.aspx" title="Get permanent link">PermaLink</a></td><td class="msg-footer" align="right"><span id="MVF2998749">5.00/5 </span></td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table></td>
+			</tr><tr class="expanded">
+				<td class="root msg-divide"><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="1px" alt="" /></td>
+			</tr>
+<!-- Start Message head -->
+
+			<tr class="MsgHd Rt HdUnSel ">
+				<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="hover-row">
+						<td width="16px" class="Frm_MsgIndent"><a name="xx2929771xx"></a><img height="16px" width="16px" align="top" src="/script/Forums/Images/msg_general.gif" alt="General" /></td><td class="Frm_MsgSubject hover-container">Bluetooth simulation in visual c++<br />raveesh vemula</td><td class="Frm_MsgDate" valign="top" nowrap="nowrap">4:05 18 Feb '09 &nbsp;</td>
+					</tr>
+				</table></td>
+			</tr><!-- End Message head -->
+
+			<tr>
+				<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="Frm_MsgIndent" width="16"><img src="/script/Forums/Images/t.gif" height="1px" width="16px" alt="" /></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+							<tr>
+								<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">Hi i got your application from code project. it works very beautiful.now same thing i am trying to do in visual C++.but i am not getting that much stable application. because in my thing there is no serial port class.while i am opening that particular com port nothing is happening.please suggest me. it is very urgent for me. i will be waiting for you reply.<br /><br />Thank you,<br /><br />raveesh vemula<br /></td>
+									</tr><tr valign="middle">
+										<td class="msg-footer"><a class="toolbar" href="/script/Membership/LogOn.aspx?rp=%2fKB%2fmobile%2fbth_serial_port.aspx">Sign In</a>·<a class="toolbar" href="/KB/mobile/bth_serial_port.aspx?fid=1398608&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=2929771" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="/Messages/2929771/Bluetooth-simulation-in-visual-cplusplus.aspx" title="Get permanent link">PermaLink</a></td><td class="msg-footer" align="right"><span id="MVF2929771"></span></td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table></td>
+			</tr><tr class="expanded">
+				<td class="msg-divide"><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="1px" alt="" /></td>
+			</tr>
+<!-- Start Message head -->
+
+			<tr class="MsgHd HdUnSel ">
+				<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="hover-row">
+						<td width="25px" class="Frm_MsgIndent"><a name="xx2930402xx"></a><img height="16px" width="16px" align="top" src="/script/Forums/Images/msg_general.gif" alt="General" /></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="2930402" href="/Messages/2930402/Re-Bluetooth-simulation-in-visual-cplusplus.aspx">Re: Bluetooth simulation in visual c++</a><br />Badea Florin</td><td class="Frm_MsgDate" valign="top" nowrap="nowrap">11:25 18 Feb '09 &nbsp;</td>
+					</tr>
+				</table></td>
+			</tr><!-- End Message head -->
+
+			<tr>
+				<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="Frm_MsgIndent" width="25"><img src="/script/Forums/Images/t.gif" height="1px" width="25px" alt="" /></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+							<tr>
+								<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">hi,<br />sorry to tell you but i have no idea how you can do this in vc++. What i can tell you is that you could try to open the COM ports using the CreateFile(), ReadFile() and WriteFile() win32 functions. I think there are examples on the net that use a class to encapsulate these functions. You can try this link: <a href="http://www.codeproject.com/KB/system/serial.aspx">http://www.codeproject.com/KB/system/serial.aspx</a>[<a href="http://www.codeproject.com/KB/system/serial.aspx" target="_blank" title="New Window">^</a>] or this one <a href="http://www.codeguru.com/Cpp/I-N/network/serialcommunications/article.php/c2483">http://www.codeguru.com/Cpp/I-N/network/serialcommunications/article.php/c2483</a>[<a href="http://www.codeguru.com/Cpp/I-N/network/serialcommunications/article.php/c2483" target="_blank" title="New Window">^</a>]<br />I the past I used the class from the second link in a project i had. My project was about accessing a Tecktronix oscilloscope via the serial port. For this project i used the CSerialPort class from the second link with great success. Maybe you can use it here.<br />I don't know what else to tell you.Hope this helps<br /></td>
+									</tr><tr valign="middle">
+										<td class="msg-footer"><a class="toolbar" href="/script/Membership/LogOn.aspx?rp=%2fKB%2fmobile%2fbth_serial_port.aspx">Sign In</a>·<a class="toolbar" href="/KB/mobile/bth_serial_port.aspx?fid=1398608&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=2929771" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="/Messages/2930402/Re-Bluetooth-simulation-in-visual-cplusplus.aspx" title="Get permanent link">PermaLink</a></td><td class="msg-footer" align="right"><span id="MVF2930402"></span></td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table></td>
+			</tr><tr class="expanded">
+				<td class="root msg-divide"><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="1px" alt="" /></td>
+			</tr>
+<!-- Start Message head -->
+
+			<tr class="MsgHd Rt HdUnSel ">
+				<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="hover-row">
+						<td width="16px" class="Frm_MsgIndent"><a name="xx2859848xx"></a><img height="16px" width="16px" align="top" src="/script/Forums/Images/msg_general.gif" alt="General" /></td><td class="Frm_MsgSubject hover-container">thanks<br />hiperboreo</td><td class="Frm_MsgDate" valign="top" nowrap="nowrap">10:09 29 Dec '08 &nbsp;</td>
+					</tr>
+				</table></td>
+			</tr><!-- End Message head -->
+
+			<tr>
+				<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="Frm_MsgIndent" width="16"><img src="/script/Forums/Images/t.gif" height="1px" width="16px" alt="" /></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+							<tr>
+								<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">Hi!<br /><br />Your approach about how to use bluetooth virtual serial ports on windows mobile helped me a lot!!! <br />I was looking for how to connect and read from the SPP on a MotoQ cell phone to read from a portable Bluetooth-Enabled RFID Reader: I used the Broadcom SDK and the Franson Bluetools Trial for fast testings with no good result, but just using the .NET SerialPort class was enough for me!<br />This time, the most simple way was the best way!<br /><br />Regards,<br />Javier Caballero<br /></td>
+									</tr><tr valign="middle">
+										<td class="msg-footer"><a class="toolbar" href="/script/Membership/LogOn.aspx?rp=%2fKB%2fmobile%2fbth_serial_port.aspx">Sign In</a>·<a class="toolbar" href="/KB/mobile/bth_serial_port.aspx?fid=1398608&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=2859848" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="/Messages/2859848/thanks.aspx" title="Get permanent link">PermaLink</a></td><td class="msg-footer" align="right"><span id="MVF2859848"></span></td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table></td>
+			</tr><tr class="expanded">
+				<td class="root msg-divide"><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="1px" alt="" /></td>
+			</tr>
+<!-- Start Message head -->
+
+			<tr class="MsgHd Rt HdUnSel ">
+				<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="hover-row">
+						<td width="16px" class="Frm_MsgIndent"><a name="xx2855820xx"></a><img height="16px" width="16px" align="top" src="/script/Forums/Images/msg_general.gif" alt="General" /></td><td class="Frm_MsgSubject hover-container">error when open sln file<br />KevinCX</td><td class="Frm_MsgDate" valign="top" nowrap="nowrap">12:43 23 Dec '08 &nbsp;</td>
+					</tr>
+				</table></td>
+			</tr><!-- End Message head -->
+
+			<tr>
+				<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="Frm_MsgIndent" width="16"><img src="/script/Forums/Images/t.gif" height="1px" width="16px" alt="" /></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+							<tr>
+								<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">I have Visual Studio 2005.  When I try to open the sln file, I get this message:<br /><br />Error retrieving information from user datastore. Platform not found.<br /><br />Help?<br /><br />Caibin<br /></td>
+									</tr><tr valign="middle">
+										<td class="msg-footer"><a class="toolbar" href="/script/Membership/LogOn.aspx?rp=%2fKB%2fmobile%2fbth_serial_port.aspx">Sign In</a>·<a class="toolbar" href="/KB/mobile/bth_serial_port.aspx?fid=1398608&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=2855820" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="/Messages/2855820/error-when-open-sln-file.aspx" title="Get permanent link">PermaLink</a></td><td class="msg-footer" align="right"><span id="MVF2855820"></span></td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table></td>
+			</tr><tr class="expanded">
+				<td class="msg-divide"><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="1px" alt="" /></td>
+			</tr>
+<!-- Start Message head -->
+
+			<tr class="MsgHd LoVote HdUnSel ">
+				<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="hover-row">
+						<td width="25px" class="Frm_MsgIndent"><a name="xx2856134xx"></a><img height="16px" width="16px" align="top" src="/script/Forums/Images/msg_general.gif" alt="General" /></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="2856134" href="/Messages/2856134/Re-error-when-open-sln-file.aspx">Re: error when open sln file</a><br />Badea Florin</td><td class="Frm_MsgDate" valign="top" nowrap="nowrap">22:24 23 Dec '08 &nbsp;</td>
+					</tr>
+				</table></td>
+			</tr><!-- End Message head -->
+
+			<tr>
+				<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="Frm_MsgIndent" width="25"><img src="/script/Forums/Images/t.gif" height="1px" width="25px" alt="" /></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+							<tr>
+								<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">the archive contains everything. this includes all code files, so you should be able to open the project. If you still cannot you can always create a new project and copy/paste the code.<br /></td>
+									</tr><tr valign="middle">
+										<td class="msg-footer"><a class="toolbar" href="/script/Membership/LogOn.aspx?rp=%2fKB%2fmobile%2fbth_serial_port.aspx">Sign In</a>·<a class="toolbar" href="/KB/mobile/bth_serial_port.aspx?fid=1398608&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=2855820" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="/Messages/2856134/Re-error-when-open-sln-file.aspx" title="Get permanent link">PermaLink</a></td><td class="msg-footer" align="right"><span id="MVF2856134">2.00/5 </span></td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table></td>
+			</tr><tr class="expanded">
+				<td class="msg-divide"><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="1px" alt="" /></td>
+			</tr>
+<!-- Start Message head -->
+
+			<tr class="MsgHd HdUnSel ">
+				<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="hover-row">
+						<td width="34px" class="Frm_MsgIndent"><a name="xx2857809xx"></a><img height="16px" width="16px" align="top" src="/script/Forums/Images/msg_answer.gif" alt="Answer" /></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="2857809" href="/Messages/2857809/Re-error-when-open-sln-file.aspx">Re: error when open sln file</a><br />rhino76</td><td class="Frm_MsgDate" valign="top" nowrap="nowrap">10:16 26 Dec '08 &nbsp;</td>
+					</tr>
+				</table></td>
+			</tr><!-- End Message head -->
+
+			<tr>
+				<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="Frm_MsgIndent" width="34"><img src="/script/Forums/Images/t.gif" height="1px" width="34px" alt="" /></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+							<tr>
+								<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">I initially had the same problem.  Since the code was written for Windows mobile 2005 and I didn't have a PDA running 2005, mine ran 2003 SE.  I found the answer here.<br /><br /><a href="http://www.danielmoth.com/Blog/2006/04/device-platform-not-found.html">http://www.danielmoth.com/Blog/2006/04/device-platform-not-found.html</a>[<a href="http://www.danielmoth.com/Blog/2006/04/device-platform-not-found.html" target="_blank" title="New Window">^</a>]<br /><br />Note:  You do have to have the SDK for whatever platform you are trying to target.  The link above will show you how to change the platform target to PPC2003.<br /></td>
+									</tr><tr valign="middle">
+										<td class="msg-footer"><a class="toolbar" href="/script/Membership/LogOn.aspx?rp=%2fKB%2fmobile%2fbth_serial_port.aspx">Sign In</a>·<a class="toolbar" href="/KB/mobile/bth_serial_port.aspx?fid=1398608&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=2855820" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="/Messages/2857809/Re-error-when-open-sln-file.aspx" title="Get permanent link">PermaLink</a></td><td class="msg-footer" align="right"><span id="MVF2857809"></span></td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table></td>
+			</tr><tr class="expanded">
+				<td class="msg-divide"><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="1px" alt="" /></td>
+			</tr>
+<!-- Start Message head -->
+
+			<tr class="MsgHd LoVote HdUnSel ">
+				<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="hover-row">
+						<td width="43px" class="Frm_MsgIndent"><a name="xx2859593xx"></a><img height="16px" width="16px" align="top" src="/script/Forums/Images/msg_general.gif" alt="General" /></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="2859593" href="/Messages/2859593/Re-error-when-open-sln-file.aspx">Re: error when open sln file</a><br />KevinCX</td><td class="Frm_MsgDate" valign="top" nowrap="nowrap">6:15 29 Dec '08 &nbsp;</td>
+					</tr>
+				</table></td>
+			</tr><!-- End Message head -->
+
+			<tr>
+				<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="Frm_MsgIndent" width="43"><img src="/script/Forums/Images/t.gif" height="1px" width="43px" alt="" /></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+							<tr>
+								<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">Thanks a lot.  I got this problem resolved.  When I loaded the project files, I still cannot find code for the forms.  Could your guys tell me which file in the archive has the code for form1 and SettingsForm.  Apparenlty, I am new to Visual studio 2005?<br /></td>
+									</tr><tr valign="middle">
+										<td class="msg-footer"><a class="toolbar" href="/script/Membership/LogOn.aspx?rp=%2fKB%2fmobile%2fbth_serial_port.aspx">Sign In</a>·<a class="toolbar" href="/KB/mobile/bth_serial_port.aspx?fid=1398608&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=2855820" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="/Messages/2859593/Re-error-when-open-sln-file.aspx" title="Get permanent link">PermaLink</a></td><td class="msg-footer" align="right"><span id="MVF2859593">1.00/5 </span></td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table></td>
+			</tr><tr class="expanded">
+				<td class="msg-divide"><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="1px" alt="" /></td>
+			</tr>
+<!-- Start Message head -->
+
+			<tr class="MsgHd HdUnSel ">
+				<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="hover-row">
+						<td width="52px" class="Frm_MsgIndent"><a name="xx3183623xx"></a><img height="16px" width="16px" align="top" src="/script/Forums/Images/msg_general.gif" alt="General" /></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="3183623" href="/Messages/3183623/Re-error-when-open-sln-file.aspx">Re: error when open sln file</a><br />Gus Arik</td><td class="Frm_MsgDate" valign="top" nowrap="nowrap">22:28 2 Sep '09 &nbsp;</td>
+					</tr>
+				</table></td>
+			</tr><!-- End Message head -->
+
+			<tr>
+				<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="Frm_MsgIndent" width="52"><img src="/script/Forums/Images/t.gif" height="1px" width="52px" alt="" /></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+							<tr>
+								<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">just right click on the form that's you want to open and choose 'view code'<br /><br />gus ari<br /></td>
+									</tr><tr valign="middle">
+										<td class="msg-footer"><a class="toolbar" href="/script/Membership/LogOn.aspx?rp=%2fKB%2fmobile%2fbth_serial_port.aspx">Sign In</a>·<a class="toolbar" href="/KB/mobile/bth_serial_port.aspx?fid=1398608&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=2855820" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="/Messages/3183623/Re-error-when-open-sln-file.aspx" title="Get permanent link">PermaLink</a></td><td class="msg-footer" align="right"><span id="MVF3183623"></span></td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table></td>
+			</tr><tr class="expanded">
+				<td class="root msg-divide"><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="1px" alt="" /></td>
+			</tr>
+<!-- Start Message head -->
+
+			<tr class="MsgHd Rt HdUnSel ">
+				<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="hover-row">
+						<td width="16px" class="Frm_MsgIndent"><a name="xx2855793xx"></a><img height="16px" width="16px" align="top" src="/script/Forums/Images/msg_general.gif" alt="General" /></td><td class="Frm_MsgSubject hover-container">code for the forms<br />KevinCX</td><td class="Frm_MsgDate" valign="top" nowrap="nowrap">12:06 23 Dec '08 &nbsp;</td>
+					</tr>
+				</table></td>
+			</tr><!-- End Message head -->
+
+			<tr>
+				<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="Frm_MsgIndent" width="16"><img src="/script/Forums/Images/t.gif" height="1px" width="16px" alt="" /></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+							<tr>
+								<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">Could you provide the code for the forms and form designs?  This is exactly what I have been searching for.  Thanks, Caibin<br /></td>
+									</tr><tr valign="middle">
+										<td class="msg-footer"><a class="toolbar" href="/script/Membership/LogOn.aspx?rp=%2fKB%2fmobile%2fbth_serial_port.aspx">Sign In</a>·<a class="toolbar" href="/KB/mobile/bth_serial_port.aspx?fid=1398608&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=2855793" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="/Messages/2855793/code-for-the-forms.aspx" title="Get permanent link">PermaLink</a></td><td class="msg-footer" align="right"><span id="MVF2855793"></span></td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table></td>
+			</tr><tr class="expanded">
+				<td class="root msg-divide"><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="1px" alt="" /></td>
+			</tr>
+<!-- Start Message head -->
+
+			<tr class="MsgHd LoVote Rt HdUnSel ">
+				<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr class="hover-row">
+						<td width="16px" class="Frm_MsgIndent"><a name="xx2829132xx"></a><img height="16px" width="16px" align="top" src="/script/Forums/Images/msg_question.gif" alt="Question" /></td><td class="Frm_MsgSubject hover-container">Cannot receive when testing with Hyperterminal on PC [modified]<br />rhino76</td><td class="Frm_MsgDate" valign="top" nowrap="nowrap">17:33 2 Dec '08 &nbsp;</td>
+					</tr>
+				</table></td>
+			</tr><!-- End Message head -->
+
+			<tr>
+				<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="Frm_MsgIndent" width="16"><img src="/script/Forums/Images/t.gif" height="1px" width="16px" alt="" /></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+							<tr>
+								<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">This was something I always wanted to do.  Unfortunately, I don't have 2 PDA's, so I am trying to get communication between the PDA and a PC via bluetooth.  I'm using Hyperterminal on the PC side.  The bluetooth dongle I'm using on it only allocates 1 port for communications as opposed to 2 on the PDA.  I'm able to successfully send a message to the pda from the pc, but when trying to send a message back to the pda, the ReceiveData() function never fires.  I know this is not the original intent of the code example, but curious if you have any insight as to what I may be doing wrong.<br /><br />Edit....<br />Sorry I just noticed your reply to a question earlier.  Looks like you're having the exact opposite results I am having.  I guess, I'll keep messing with it.  Let us know if you have any revelations. <br /><br /><div class="ForumMod">modified on Tuesday, December 2, 2008 10:54 PM</div><br /></td>
+									</tr><tr valign="middle">
+										<td class="msg-footer"><a class="toolbar" href="/script/Membership/LogOn.aspx?rp=%2fKB%2fmobile%2fbth_serial_port.aspx">Sign In</a>·<a class="toolbar" href="/KB/mobile/bth_serial_port.aspx?fid=1398608&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=2829132" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="/Messages/2829132/Cannot-receive-when-testing-with-Hyperterminal-on-.aspx" title="Get permanent link">PermaLink</a></td><td class="msg-footer" align="right"><span id="MVF2829132">1.00/5 </span></td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table></td>
+			</tr><tr>
+				<td><img src="/script/Forums/Images/t.gif" border="0" width="1px" height="5px" alt="" /></td>
+			</tr>
+		</table></td>
+	</tr><tr>
+		<td><table width="100%" cellpadding="2px" cellspacing="0">
+			<tr class="forum-footer">
+				<td>Last Visit: 4:31 14 Mar '10  &nbsp; &nbsp; Last Update: 4:31 14 Mar '10 </td><td align="right" nowrap="nowrap"><input id="_mbnUrl" type="hidden" value="/KB/mobile/bth_serial_port.aspx?fid=1398608&amp;df=90&amp;mpp=25&amp;noise=3&amp;sort=Position&amp;view=Quick&amp;fr=26" /><b>1</b><a class="toolbar" name="Frm_HoverNL" href="/KB/mobile/bth_serial_port.aspx?fid=1398608&amp;df=90&amp;mpp=25&amp;noise=3&amp;sort=Position&amp;view=Quick&amp;fr=26#xx0xx">2</a> <a class="toolbar" name="Frm_HoverNL" href="/KB/mobile/bth_serial_port.aspx?fid=1398608&amp;df=90&amp;mpp=25&amp;noise=3&amp;sort=Position&amp;view=Quick&amp;fr=26#xx0xx">Next »</a></td>
+			</tr>
+		</table></td>
+	</tr>
+</table><p class="small-text"></p>
+<!-- Forum End -->
+
+
+
+
+<br />
+
+
+
+<div class="tiny-text">
+<span id="ctl01_LastUpdatedLabel">Last Updated 11 Jun 2008</span> | 
+<a id="ctl01_AdvertiseLink" href="/info/MediaKit.aspx">Advertise</a> | 
+<a id="ctl01_PrivacyLink" href="/info/privacy.aspx">Privacy</a> |
+<a id="ctl01_TermsOfUseLink" href="/info/TermsOfUse.aspx">Terms of Use</a> |
+Copyright &copy; <a href="mailto:webmaster@codeproject.com">CodeProject</a>, 1999-2010 
+</div>
+
+
+
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+if (typeof(_gat) != "undefined" && _gat)
+{ 
+	var pageTracker = _gat._getTracker("UA-1735123-1");
+	pageTracker._setDomainName("www.codeproject.com");
+	pageTracker._setSessionTimeout("1200"); // 20 mins
+	pageTracker._initData();
+	pageTracker._trackPageview();
+}
+</script>
+</body>
+</html>

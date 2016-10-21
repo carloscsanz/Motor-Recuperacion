@@ -1,0 +1,300 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Facebook Platform Developer Forum / Unknown error with Photos.upload [C#]</title>
+
+
+      <link href="style/base.css" 
+	    rel="stylesheet"
+	    type="text/css"/>
+      <link href="style/base2.css" 
+	    rel="stylesheet"
+	    type="text/css"/>
+      <link href="style/home.css" 
+	    rel="stylesheet"
+	    type="text/css"/>
+      <link href="style/misc.css" 
+	    rel="stylesheet"
+	    type="text/css"/>
+
+      <link href="style/menubar.css"
+	    rel="stylesheet"
+	    type="text/css"/>
+	<link rel="stylesheet" type="text/css" href="style/Facebook.css?2" />
+<style>
+  form { display: block}
+
+  div.postright, div.postfootright {
+                                    background-color:#FFFFFF;}
+
+#topic {background-color:#FFFFFF;}
+
+div.inbox#admin {background-color:#DEE4F2;}
+
+div.postright#admin, div.postfootright#admin {background-color:#DEE4F2;}
+
+#dev_site_navigator div.center_box {
+        margin: 0 auto;
+        width: 980px
+}
+
+body {
+   text-align: left;
+}
+
+form {display: block}
+
+body { background: #fff; font-size: 12px; text-align: left; }
+.tcl, .tcr, td.tc2, td.tc3, div.box  { background-color: #fff; }
+
+</style>
+<script type="text/javascript" src="js/extensions.js"></script>
+<script type="text/javascript" src="js/topbar.js"></script>
+</head>
+<body onload="(new DevSiteMenuBar('fb_menubar_core')).init();">
+
+<div >
+	<!--<div id="header_bar">
+		<div id="header_logo">
+			<pun_newtitle>
+		</div>
+		
+			<div id="dev_site_navigator" class="clearfix">
+			<div class="center_box">
+				
+			 <div class="search"><form onsubmit="if (this.quicksearch.value == '') { alert('Please enter one or more search terms first.'); return false; } return true;" method="get" action="search.php">
+<input type="hidden" name="action" value="search"/>
+<input class="txt" type="text" name="keywords"/>
+<input id="" class="inputsubmit" type="submit" value="Find"/>
+</form></div><ul class="devsite_subtabs clearfix">
+				<li id="navindex"><a href="index.php">Home</a></li>
+				<li id="navrules"><a href="misc.php?action=rules">Rules</a></li>
+				<li id="navsearch"><a href="search.php">Search</a></li>
+				<li id="navextra1"><a href="http://www.facebook.com/developers/">Dev App</a></li>
+				<li id="navextra2"><a href="http://bugs.developers.facebook.com/">Bugzilla</a></li>
+				<li id="navextra3"><a href="http://wiki.developers.facebook.com/index.php/Main_Page">Wiki</a></li>
+				<li id="navextra4"><a href="http://forum.developers.facebook.com/rss.php"> RSS</a></li>
+				<li id="navregister"><a href="register.php">Register</a></li>
+				<li ><a href="login.php">Login</a></li>
+			</ul>
+		
+		  	</div></div>
+		<div id="brdwelcome" class="inbox">
+			<p>You are not logged in.</p>
+		</div>
+	
+	</div>
+	-->
+	<div id="header_bar"><div id="header_logo2"><a href="http://developers.facebook.com"><h1>Facebook Developers</h1></a></div><div id="devsite_menubar" class="clearfix"><div class="center_box"><div id="fb_menubar_core"><div class="fb_menu"><div class="fb_menu_title"><a href="http://wiki.developers.facebook.com">Documentation</a></div></div><div id="fb_menu_community" class="fb_menu"><div class="fb_menu_title"><a href="#">Community</a></div><div id="fb_menu_community_dropdown" class="fb_menu_dropdown hidden_elem"><div class="fb_menu_item"><a href="http://forum.developers.facebook.com">Forums</a></div><div class="fb_menu_item"><a href="http://wiki.developers.facebook.com/index.php/Garage_Calendar">Events</a></div><div class="fb_menu_item"><a href="http://developers.facebook.com/opensource.php">Open Source</a></div></div></div><div id="fb_menu_resources" class="fb_menu"><div class="fb_menu_title"><a href="#">Resources</a></div><div id="fb_menu_resources_dropdown" class="fb_menu_dropdown hidden_elem"><div class="fb_menu_item"><a href="http://developers.facebook.com/get_started.php">Get Started</a></div><div class="fb_menu_item"><a href="http://developers.facebook.com/fbconnect.php">Facebook Connect</a></div><div class="fb_menu_item"><a href="http://developers.facebook.com/fbFund.php">fbFund</a></div><div class="fb_menu_item"><a href="http://developers.facebook.com/partnerships.php">Partnerships</a></div><div class="fb_menu_item"><a href="http://bugs.developers.facebook.com">Bug Tracker</a></div></div></div><div class="fb_menu"><div class="fb_menu_title"><a href="http://developers.facebook.com/tools.php">Tools</a></div></div><div class="fb_menu"><div class="fb_menu_title"><a href="http://developers.facebook.com/news.php">News</a></div></div></div></div></div></div><div class="dev_site_content_header clearfix"><h2 class="dev_site_header_text">Forums</h2></div>
+	<!--
+	<div id="dev_site_navigator" class="clearfix">
+             <div class="center_box">
+                   
+			 <div class="search"><form onsubmit="if (this.quicksearch.value == '') { alert('Please enter one or more search terms first.'); return false; } return true;" method="get" action="search.php">
+<input type="hidden" name="action" value="search"/>
+<input class="txt" type="text" name="keywords"/>
+<input id="" class="inputsubmit" type="submit" value="Find"/>
+</form></div><ul class="devsite_subtabs clearfix">
+				<li id="navindex"><a href="index.php">Home</a></li>
+				<li id="navrules"><a href="misc.php?action=rules">Rules</a></li>
+				<li id="navsearch"><a href="search.php">Search</a></li>
+				<li id="navextra1"><a href="http://www.facebook.com/developers/">Dev App</a></li>
+				<li id="navextra2"><a href="http://bugs.developers.facebook.com/">Bugzilla</a></li>
+				<li id="navextra3"><a href="http://wiki.developers.facebook.com/index.php/Main_Page">Wiki</a></li>
+				<li id="navextra4"><a href="http://forum.developers.facebook.com/rss.php"> RSS</a></li>
+				<li id="navregister"><a href="register.php">Register</a></li>
+				<li ><a href="login.php">Login</a></li>
+			</ul>
+		
+             </div>
+	</div>
+	-->
+</div>
+
+<div id="punwrap">
+
+
+			 <div class="search"><form onsubmit="if (this.quicksearch.value == '') { alert('Please enter one or more search terms first.'); return false; } return true;" method="get" action="search.php">
+<input type="hidden" name="action" value="search"/>
+<input class="txt" type="text" name="keywords"/>
+<input id="" class="inputsubmit" type="submit" value="Find"/>
+</form></div><ul class="devsite_subtabs clearfix">
+				<li id="navindex"><a href="index.php">Home</a></li>
+				<li id="navrules"><a href="misc.php?action=rules">Rules</a></li>
+				<li id="navsearch"><a href="search.php">Search</a></li>
+				<li id="navextra1"><a href="http://www.facebook.com/developers/">Dev App</a></li>
+				<li id="navextra2"><a href="http://bugs.developers.facebook.com/">Bugzilla</a></li>
+				<li id="navextra3"><a href="http://wiki.developers.facebook.com/index.php/Main_Page">Wiki</a></li>
+				<li id="navextra4"><a href="http://forum.developers.facebook.com/rss.php"> RSS</a></li>
+				<li id="navregister"><a href="register.php">Register</a></li>
+				<li ><a href="login.php">Login</a></li>
+			</ul>
+		
+
+<div id="punviewtopic" class="pun">
+
+
+
+<div class="linkst">
+	<div class="inbox" >
+		<p class="pagelink conl">Pages: <strong>1</strong></p>
+		<p class="postlink conr">&nbsp;</p>
+		<ul><li><a href="index.php">Home</a></li><li>&nbsp;&raquo;&nbsp;<a href="viewforum.php?id=10">Desktop Applications</a></li><li>&nbsp;&raquo;&nbsp;Unknown error with Photos.upload [C#]</li></ul>
+		<div class="clearer"></div>
+	</div>
+</div>
+
+<div id="p193425" class="blockpost rowodd firstpost">
+	<h2><span><span class="conr">#1&nbsp;</span><a href="viewtopic.php?pid=193425#p193425">2010-01-06 12:06:51</a></span></h2>
+	<div class="box">
+		<div class="inbox" id="topic">
+			<div class="postleft" >
+				<dl>
+					<dt><strong><a href="profile.php?id=48665">Przemo-c[PL]</a></strong></dt>
+					<dd class="usertitle"><strong>New Member</strong></dd>
+					<dd class="postavatar"></dd>
+					<dd>Registered: 2010-01-06</dd>
+					<dd>Posts: 1</dd>
+				</dl>
+			</div>
+			<div class="postright" id="topic">
+				<h3>Unknown error with Photos.upload [C#]</h3>
+				<div class="postmsg">
+					<p>Hi I have a problem with my app. i keep getting error 1 (unknown error) when trying to upload photo.&nbsp; all the parameters are being read correctly as they are corect in return xml. but i'm not sure if i'm sending file correctly od do i need to change headers.<br />this is return xml:<br /></p><div class="codebox"><div class="incqbox"><h4>Code:</h4><div class="scrollbox" style="height: 35em"><pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;error_response xmlns=&quot;http://api.facebook.com/1.0/&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://api.facebook.com/1.0/ http://api.facebook.com/1.0/facebook.xsd&quot;&gt;
+  &lt;error_code&gt;1&lt;/error_code&gt;
+  &lt;error_msg&gt;An unknown error occurred&lt;/error_msg&gt;
+  &lt;request_args list=&quot;true&quot;&gt;
+    &lt;arg&gt;
+      &lt;key&gt;method&lt;/key&gt;
+      &lt;value&gt;Photos.upload&lt;/value&gt;
+    &lt;/arg&gt;
+    &lt;arg&gt;
+      &lt;key&gt;api_key&lt;/key&gt;
+      &lt;value&gt;[APIKEY]&lt;/value&gt;
+    &lt;/arg&gt;
+    &lt;arg&gt;
+      &lt;key&gt;call_id&lt;/key&gt;
+      &lt;value&gt;1&lt;/value&gt;
+    &lt;/arg&gt;
+    &lt;arg&gt;
+      &lt;key&gt;session_key&lt;/key&gt;
+      &lt;value&gt;2.dghwtpK_c7xAOQivzQHlSQ__.86400.1262894400-100000648184293&lt;/value&gt;
+    &lt;/arg&gt;
+    &lt;arg&gt;
+      &lt;key&gt;v&lt;/key&gt;
+      &lt;value&gt;1.0&lt;/value&gt;
+    &lt;/arg&gt;
+    &lt;arg&gt;
+      &lt;key&gt;sig&lt;/key&gt;
+      &lt;value&gt;ff828b802fb0dc363c1bdcb78e5c4284&lt;/value&gt;
+    &lt;/arg&gt;
+  &lt;/request_args&gt;
+&lt;/error_response&gt;</pre></div></div></div><p>This is the code that generates request:<br /></p><div class="codebox"><div class="incqbox"><h4>Code:</h4><div class="scrollbox" style="height: 35em"><pre>                fs.Read(filebytes, 0, Convert.ToInt32(fs.Length));
+                encodedData = Convert.ToBase64String(filebytes);
+            }
+
+            List&lt;string[]&gt; argumenty = new List&lt;string[]&gt;();
+            argumenty.Add(api_key);
+            argumenty.Add(v);
+            method[1] = &quot;Photos.upload&quot;;
+            argumenty.Add(method);
+            argumenty.Add(new string[2] { &quot;call_id&quot;, call_id++.ToString() });
+            argumenty.Add(new string[2] { &quot;session_key&quot;, session_key });
+            argumenty.Sort(porowananie);
+            string sig = Hash(argumenty, secret);
+            argumenty.Add(new string[2] { &quot;sig&quot;, sig });
+
+            string url = &quot;https://api.facebook.com/restserver.php?method=Photos.upload&quot;;
+
+            string dane = &quot;&quot;;
+            klient.Headers.Add(&quot;Content-Type: multipart/form-data; boundary=losowe\r\n&quot;);
+            klient.Headers.Add(&quot;MIME-version: 1.0\r\n\r\n&quot;);
+            for (int i = 0; i &lt; argumenty.Count; i++)
+            {
+                dane += &quot;--losowe\r\n&quot;;
+                dane += &quot;Content-Disposition: form-data; name=&quot; + argumenty[i][0] + &quot;\r\n\r\n&quot;;
+                dane += argumenty[i][1] + &quot;\r\n&quot;;
+            }
+
+            dane += &quot;--losowe\r\n&quot;;
+            dane += &quot;Content-Disposition: form-data; filename=a.jpg\r\n\r\n&quot;;
+            dane += encodedData;
+            dane += &quot;\r\n--losowe--\r\n&quot;;
+            string strumien = klient.UploadString(url, dane);</pre></div></div></div><p>I would be most apreciative for any clues that might help.<br />Or an example code that uses RESTful API to upload photos.</p>
+				</div>
+			</div>
+			<div class="clearer"></div>
+			<div class="postfootleft"><p>Offline</p></div>
+			<div class="postfootright" id="topic"><div>&nbsp;</div></div>
+		</div>
+	</div>
+</div>
+
+<div class="postlinksb">
+	<div class="inbox">
+		<p class="postlink conr">&nbsp;</p>
+		<p class="pagelink conl">Pages: <strong>1</strong></p>
+		<ul><li><a href="index.php">Home</a></li><li>&nbsp;&raquo;&nbsp;<a href="viewforum.php?id=10">Desktop Applications</a></li><li>&nbsp;&raquo;&nbsp;Unknown error with Photos.upload [C#]</li></ul>
+		<div class="clearer"></div>
+	</div>
+</div>
+
+<div id="brdfooter" class="block">
+	<h2><span>Board footer</span></h2>
+	<div class="box">
+		<div class="inbox">
+
+			<div class="conl">
+				<form id="qjump" method="get" action="viewforum.php">
+					<div><label>Jump to
+					<br /><select name="id" onchange="window.location=('viewforum.php?id='+this.options[this.selectedIndex].value)">
+						<optgroup label="Basics">
+							<option value="5">Getting Started</option>
+							<option value="22">Developer Updates</option>
+							<option value="48">Policies</option>
+							<option value="18">General</option>
+							<option value="23">Developer Feedback to Facebook</option>
+						</optgroup>
+						<optgroup label="Facebook Connect">
+							<option value="37">Facebook Connect - General</option>
+							<option value="35">Facebook Connect - API/Javascript</option>
+							<option value="33">Facebook Connect - xFBML</option>
+							<option value="32">Facebook Connect - Authentication</option>
+							<option value="36">Facebook Connect - Friend Linking</option>
+							<option value="34">Facebook Connect - Feed Stories</option>
+						</optgroup>
+						<optgroup label="Technical">
+							<option value="24">Integration Points General Discussion</option>
+							<option value="3">API</option>
+							<option value="2">FBML/FBJS/FBJS2</option>
+							<option value="10" selected="selected">Desktop Applications</option>
+							<option value="27">Feed stories / Stream</option>
+							<option value="26">Profile boxes</option>
+							<option value="9">Mobile and Handheld</option>
+							<option value="28">Publisher</option>
+						</optgroup>
+						<optgroup label="Business">
+							<option value="11">Jobs / Projects / Marketplace</option>
+							<option value="8">Advertising / Monetization</option>
+							<option value="16">App Reviews / Testing</option>
+							<option value="6">Hosting</option>
+					</optgroup>
+					</select>
+					<input type="submit" value=" Go " accesskey="g" />
+					</label></div>
+				</form>
+			</div>
+			<p class="conr">Powered by <a href="http://www.punbb.org/">PunBB</a><br />&copy; Copyright 2002&#8211;2005 Rickard Andersson</p>
+			<div class="clearer"></div>
+		</div>
+	</div>
+</div>
+
+</div>
+</div>
+
+</body>
+</html>

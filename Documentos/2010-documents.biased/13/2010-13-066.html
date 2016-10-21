@@ -1,0 +1,656 @@
+<html xmlns:comem3="xalan://com.em3" xmlns:em3="http://www.em3.com/2002/widget">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<META name="Author" content="CodeIdol">
+<META name="robots" content="index, follow">
+<META name="GENERATOR" content="CodeIdol CMS 1.0">
+<title>CodeIdol - Thinking about SQL Hacks - SQL Fundamentals - Connect To SQL From A Program</title>
+<link rel="shortcut icon" href=/favicon.ico>
+<link rel="stylesheet" type="text/css" href=/tml/style.css>
+<link rel="alternate" type="application/rss+xml" title="CodeIdol.com" href="http://codeidol.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Sql" href="http://codeidol.com/feed/sql/" /><link rel="alternate" type="application/rss+xml" title="" href="http://codeidol.com/feed/sql/sql-hack/" />
+<SCRIPT LANGUAGE="JavaScript" type="text/javascript" SRC=/tml/dynamic.js>
+</SCRIPT>
+
+</head>
+<body background="/img/sys/bg1.jpg" leftmargin="0" topmargin="0" bottommargin="0">
+<table width="800" align="center" cellspacing="0" cellpadding="0" bgcolor="#FfFfFf" border=0>
+<tr>
+<td>
+<center>  
+<script type="text/javascript">
+google_ad_client = "pub-8640800643873273";
+google_ad_width = 728;
+google_ad_height = 15;
+google_ad_format = "728x15_0ads_al_s";
+google_ad_channel = "";
+
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</center>
+<table width="100%" align="center">
+<td><a href="http://codeidol.com"><img src="/img/sys/logo_up.jpg" border="0"></a>
+</td>
+<td align="right">
+<!-- Search Google -->
+<center>
+<form method="get" action="http://www.google.com/custom" target="google_window">
+<table bgcolor="#ffffff" align="right">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+<noindex><a href="http://www.google.com/"  rel="nofollow">
+<img src="http://www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></img></a></noindex>
+<br/>
+<label for="sbi" style="display: none">Enter your search terms</label>
+<input type="text" name="q" size="31" maxlength="255" value="" id="sbi"></input>
+<label for="sbb" style="display: none">Submit search form</label>
+<input type="submit" name="sa" value="Search" id="sbb"></input>
+<input type="hidden" name="client" value="pub-8640800643873273"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:336699;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;FORID:1"></input>
+<input type="hidden" name="hl" value="en"></input>
+</td></tr></table>
+</form>
+</center>
+<!-- Search Google -->
+
+</td>
+</tr>
+</table><br>
+</td>
+</tr>
+<tr>
+<td bgcolor="#cccccc">
+
+<table align="center" width="90%"><tr><td><br>
+<script type="text/javascript"><!--
+google_ad_client = "pub-8640800643873273";
+/* 336x280, ������� 19.09.09 */
+google_ad_slot = "4486095561";
+google_ad_width = 336;
+google_ad_height = 280;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+&nbsp;&nbsp;&nbsp;
+<script type="text/javascript"><!--
+google_ad_client = "pub-8640800643873273";
+/* 336x280, ������� 19.09.09 */
+google_ad_slot = "4486095561";
+google_ad_width = 336;
+google_ad_height = 280;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<br><br></td></tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<table>
+<tr>
+<td valign=top width=600>
+<br>
+
+<b>You are here:</b> <a href=/>CodeIdol.com</a> > <a href=/sql/>Sql</a> ><a href=/sql/sql-hack/> SQL Hacks</a> > <a href=/sql/sql-hack/SQL-Fundamentals/> SQL Fundamentals</a> > <a href=/sql/sql-hack/SQL-Fundamentals/Connect-to-SQL-from-a-Program/> Connect To SQL From A Program</a><br><br>
+
+<center>
+<table border=0>
+<tr><td colspan="2"><font color="#ca031b">SAVE</font></td></tr>
+<tr>
+  <td>
+   <img src="/img/sys/digg.png" align="left" hspace="3" border="0" />
+   <noindex><a href="http://digg.com/submit?phase=2&url=http%3A%2F%2Fcodeidol.com%2Fsql%2Fsql-hack%2FSQL-Fundamentals%2FConnect-to-SQL-from-a-Program%2F&title=CodeIdol+-+Thinking+about+SQL+Hacks+-+SQL+Fundamentals+-+Connect+To+SQL+From+A+Program&bodytext=Whether+you%27re+running+Access%2C+MySQL%2C+SQL+Server%2C+Oracle%2C+or+PostgreSQL%2C+this+book+will+help+you+push+the+limits+of+traditional+SQL+to+squeeze+data+effectively+from+your+database.++The+book+offers+100+hacks+--+unique+tips+and+tools+--+that+bring...&topic=programming" target="new" rel="nofollow"><b>Digg</b></a></noindex>
+  </td>
+</tr>
+<tr>
+ <td>
+  <img border="0" src="/img/sys/delicious.png" align="top" height="18" width="18" alt="Shown on del.icio.us">
+  <noindex><a href="http://del.icio.us/post?v=4&noui&jump=close&tag=codeidol free online books book&url=http%3A%2F%2Fcodeidol.com%2Fsql%2Fsql-hack%2FSQL-Fundamentals%2FConnect-to-SQL-from-a-Program%2F&title=CodeIdol+-+Thinking+about+SQL+Hacks+-+SQL+Fundamentals+-+Connect+To+SQL+From+A+Program&notes=Whether+you%27re+running+Access%2C+MySQL%2C+SQL+Server%2C+Oracle%2C+or+PostgreSQL%2C+this+book+will+help+you+push+the+limits+of+traditional+SQL+to+squeeze+data+effectively+from+your+database.++The+book+offers+100+hacks+--+unique+tips+and+tools+--+that+bring...&tags=codeidol free online books book" target="new" rel="nofollow">del.icio.us</a></noindex>
+ </td>
+</tr>
+<tr>
+  <td>
+   <img border="0" src="/img/sys/technorati.png" align="top" height="18" width="18" alt="See Whos Talking About This on Technorati">
+   <noindex><a title="See Whos Talking About This on Technorati" href="http://technorati.com/search/http%3A%2F%2Fcodeidol.com%2Fsql%2Fsql-hack%2FSQL-Fundamentals%2FConnect-to-SQL-from-a-Program%2F" target="new" rel="nofollow">Technorati</a></noindex>
+  </td>
+</tr>
+<tr>
+ <td>
+  <img border="0" src="/img/sys/reddit.gif" align="top" height="18" width="18" alt="I've Reddit">
+  <noindex><a href="http://reddit.com/submit?url=http%3A%2F%2Fcodeidol.com%2Fsql%2Fsql-hack%2FSQL-Fundamentals%2FConnect-to-SQL-from-a-Program%2F&title=CodeIdol+-+Thinking+about+SQL+Hacks+-+SQL+Fundamentals+-+Connect+To+SQL+From+A+Program" target="new" rel="nofollow">reddit</a></noindex>
+ </td>
+</tr>
+</table>
+</center>
+
+<br><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top"><a name="I_0596527993_CHP_1_SECT_2"></a>
+         <H3 id="title-IDAODHJG" class="docSection1Title">Hack 2. Connect to SQL from a Program</H3>
+         <p class="docText">
+            <img border="0" alt="" align="center" width="14" height="36" src="/img/sql-hack/beginner.jpg">
+            <img border="0" alt="" align="center" width="36" height="36" src="/img/sql-hack/hack2.jpg">
+         </P>
+         <p class="docText">
+            <span class="docEmphBold">You can access an SQL database from most programming languages, including Perl, PHP, Ruby, Java, and C#.</span>
+         </p>
+         <p class="docText">Working <a name="Id483e0_811799"></a>
+            <a name="Id483e5_811799"></a>with a database from a programming language commonly involves a <I>
+               <a name="Id486e0_811813"></a>database connection</I> and a statement <I>
+               <a name="Id489e0_811814"></a>cursor</I>. In each language demonstrated here, you do the following:</p>
+         <a name="Id492e0_811815"></a><dl class="docList">
+               <dt><BR><p><I><span class="docPubcolor">Connect to the server</span></i></p></dt>
+               <dd>
+                  <p class="docList">You specify the location of the server and name of the database. You also supply a username and password. In return, you obtain a connection handle that represents the connection. If you have several SQL commands to send you can reuse this connection. This process can fail if the server is not available or if your credentials are not accepted.</P>
+               </dd>
+            
+               <dt><BR><p><span class="docPubcolor">Execute an SQL <span class="docPubcolor"><span class="docMonofont">SELECT</span></span> command</span></p></dt>
+               <dd>
+                  <p class="docList">This involves sending the SQL statement to the server via the connection handle. In return, you obtain a <a name="Id492e0_811815"></a>cursor. This process can fail if the <tt>SELECT</tt> statement includes a syntax error or your permissions are inadequate.</p>
+               </dd>
+            
+               <dt><br><P><i><span class="docPubcolor">Retrieve the data</span></I></p></dt>
+               <dd>
+                  <p class="docList">Typically you will loop until the cursor indicates that it is exhausted. At each iteration, your cursor points to a single row of data. You can get individual fields of the row from the cursor and then move on to the next row. Failure at this stage is uncommon but not unheard of (for example, your network may go down while you are in the middle of processing a result set).</p>
+               </dd>
+            
+               <dt><br><p><I><span class="docPubcolor">Close the cursor and close the connection</span></i></p></dt>
+               <dd>
+                  <p class="docList">Do this when you have finished issuing all your queries and are ready to disconnect from the database.</p>
+               </dd>
+            </dl>
+         <p class="docText">This pattern is a reasonable compromise between efficiency and utility, and there are many variations. If the data set is of a reasonable size, you might prefer to get the entire data set into a suitable data structure in one go. Each language given here will support that.</p>
+         <p class="docText">If your SQL statement does not return any data (it might be an <tt>INSERT</tt> or an <tt>UPDATE</tt> or a <tt>CREATE</tt> statement), there is no need for a cursor. Instead, you get a simple response that indicates whether an error occurred.</p>
+         <p class="docText">Each example shows a simple command-line program connecting to MySQL or SQL Server. You can connect to any database from any language.</p>
+         <p><table border="0" bgcolor="black" cellspacing="0" cellpadding="1" width="90%" align="center"><tr><td><table bgcolor="white" width="100%" border="0" cellspacing="0" cellpadding="6"><tr><td width="60" valign="top"><img src="/img/sql-hack/tip_yellow.jpg" width="50" height="54" alt=""></td><td valign="top">
+            <p class="docText">The Nobel Prize data set used in this hack is available from <a class="docLink" target="_blank" href="http://sqlzoo.net/h.htm#data">http://sqlzoo.net/h.htm#data</a>.</P>
+         </td></TR></table></TD></TR></table></p><br>
+         <a name="I79408__HeadB__C_"></a>
+            <H4 id="title-IDAKIHJG" class="docSection2Title">1.2.1. C#</H4>
+            <p class="docText">In <a name="Id495e0_811819"></a>
+               <a name="Id495e5_811819"></a>
+               <a name="Id495e10_811819"></a>this example, the connection is to the <tt>
+                  <a name="Id498e0_811828"></a>SQLEXPRESS</tt> instance of SQL Server running on the local machine:</P>
+            <pre>using System;
+using System.Data.SqlClient;
+
+namespace SQLHacks
+{
+  class Sample
+  {
+    static void Main(string[] args)
+    {
+      try{
+        SqlCommand comm = new SqlCommand(  );
+        comm.Connection = new SqlConnection(
+                  "Data Source=(local)\\SQLEXPRESS;"
+                            + "Initial Catalog=<tt><i>dbname</I></tt>;"
+                            + "user=<tt><I>username</I></tt>;password=<tt><I>password</i></tt>;");
+        comm.CommandText = "SELECT winner,subject FROM nobel WHERE yr=1962";
+        comm.Connection.Open(  );
+        SqlDataReader cursor = comm.ExecuteReader(  );
+        while (cursor.Read(  ))
+          Console.Write("{0}\t{1}\n",cursor["winner"],cursor["subject"]);
+        comm.Connection.Close(  );
+      }catch (Exception e){
+        Console.WriteLine(e.ToString(  ));
+      }
+    }
+  }
+}</pre><BR>
+
+            <p class="docText">The <tt>Read</tt> method advances the cursor to the next line; it returns <tt>false</tt> when it reaches the end of the data set.</p>
+            <P><table border="0" bgcolor="black" cellspacing="0" cellpadding="1" width="90%" align="center"><tr><td><table bgcolor="white" width="100%" border="0" cellspacing="0" cellpadding="6"><TR><TD width="60" valign="top"><img src="/img/sql-hack/tip_yellow.jpg" width="50" height="54" alt=""></td><td valign="top">
+               <p class="docText">If you are connecting to a database other than SQL Server, you will need to use <tt>System.Data.Odbc</tt> rather than <tt>System.Data.SqlClient</tt>. You will obtain an <tt>OdbcCommand</tt> in place of <tt>SqlCommand</tt>. Your data reader will be an <tt>OdbcDataReader</tt> rather than an <tt>SqldataReader</tt>.</p>
+               <p class="docText">The cursor is an instance of a <tt>DataReader</tt>. The connection handle is the <tt>Connection</tt> property of the <tt>SqlCommand</tt>.</p>
+            </TD></tr></table></TD></tr></table></p><br>
+            <a name="Id335e5036_Compiling_C_322910"></a>
+               <h5 id="title-IDALLHJG" class="docSection3Title">1.2.1.1. Compiling C#</H5>
+               <p class="docText">You will need the <a name="Id501e0_811829"></a>.NET framework installed, which includes <i>
+                     <a name="Id504e0_811830"></a>csc.exe</i>, the C# compiler. You will find it in <i>C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\</i> or a similar directory, so make sure that the directory is in your <tt>PATH</tt> environment variable:</p>
+               <pre>C:&gt;<b>csc Sample.cs</b>
+Microsoft (R) Visual C# .NET Compiler version 7.10.6001.4
+for Microsoft (R) .NET Framework version 1.1.4322
+Copyright (C) Microsoft Corporation 2001-2002. All rights reserved.
+
+
+C:&gt;<b>sample</b>
+John C. Kendrew Chemistry
+Max F. Perutz   Chemistry
+John Steinbeck  Literature
+Francis Crick   Medicine
+James Watson    Medicine
+Maurice Wilkins Medicine
+Linus Pauling   Peace
+Lev Landau      Physics</pre><br>
+
+            
+            <a name="Id335e5231_Other_C__considerations322944"></a>
+               <h5 id="title-IDAUMHJG" class="docSection3Title">1.2.1.2. Other C# considerations</h5>
+               <p class="docText">The .NET framework includes an impressive collection of data adapters and containers intended to make life easier for the applications programmer. You can &quot;wire up&quot; controls on your forms (desktop application or web-based forms) so that they update the database or are updated by the database with scarcely a line of program code. You can use the Visual Studio range of products to build database-backed applications for the Web or for the desktop.</p>
+            
+         
+         <a name="I42990__HeadB__Java"></a>
+            <h4 id="title-IDA4MHJG" class="docSection2Title">1.2.2. Java</h4>
+            <p class="docText">You <a name="Id507e0_811836"></a>
+               <a name="Id507e5_811836"></a>
+               <a name="Id507e10_811836"></a>will need a <a name="Id510e0_811832"></a>JDBC driver for the SQL vendor that you are using. All of the popular systems have such connectors. You also have the option of using an <a name="Id513e0_811831"></a>ODBC/JDBC bridge. This example shows <a name="Id516e0_811833"></a>MySQL's Connector/J driver, which is available from <a class="docLink" target="_blank" href="http://www.mysql.com">http://www.mysql.com</a>:</P>
+            <pre>import java.sql.*;
+
+public class Sample{
+  public static void main(String[] args){
+    try{
+      Class.forName("com.mysql.jdbc.Driver").newInstance(  );
+      Connection conn = DriverManager.getConnection(
+              "jdbc:mysql://<tt><i>localhost</I></tt>/<tt><I>dbname</I></tt>",
+              "<tt><i>username</i></tt>","<tt><I>password</I></tt>");
+      ResultSet cursor = conn.createStatement(  ).executeQuery(
+         "SELECT winner,subject FROM nobel WHERE yr=1962");
+      while (cursor.next(  )){
+        System.out.println(cursor.getString("winner")+"\t"+
+                           cursor.getString("subject"));
+      }
+      conn.close(  );
+    }
+    catch (Exception e){
+      System.err.println(e);
+    }
+  }
+}</pre><BR>
+
+            <a name="Id335e5617_Running_Java322996"></a>
+               <h5 id="title-IDANPHJG" class="docSection3Title">1.2.2.1. Running Java</H5>
+               <p class="docText">You compile Java to bytecode with <I>
+                     <a name="Id519e0_811845"></a>javac</I> (the Java compiler) and then execute the bytecode from <I>java</i> (this loads the <a name="Id522e0_811847"></a>Java Virtual Machine). You need to specify the location of the JDBC connector <I>.jar</i> file at runtime using the <tt>-cp</tt> (classpath) switch:</P>
+               <pre>$ <b>javac Sample.java</b>
+$ <b>java -cp ../mysql-connector-java-3.1.13-bin.jar:. Sample</b>
+John C. Kendrew Chemistry
+Max F. Perutz   Chemistry
+John Steinbeck  Literature
+Francis Crick   Medicine
+James Watson    Medicine
+Maurice Wilkins Medicine
+Linus Pauling   Peace
+Lev Landau      Physics</pre><BR>
+
+               <p class="docText">If you are executing Java on a <a name="Id525e0_811846"></a>Windows platform you need to use a semicolon in place of the colon:</P>
+               <pre>C:&gt;<b>javac Sample.java</b>
+
+C:&gt;<b>java -cp C:\mysql-connector-java-3.1.13-bin.jar;. Sample</b></pre><br>
+
+            
+         
+         <a name="I20437__HeadB__Perl"></a>
+            <h4 id="title-IDANRHJG" class="docSection2Title">1.2.3. Perl</H4>
+            <p class="docText">You <a name="Id528e0_811852"></a>
+               <a name="Id528e5_811852"></a>
+               <a name="Id528e10_811852"></a>can connect to a database using the <a name="Id531e0_811849"></a>DBI interface (see <a class="docLink" target="_blank" href="http://dbi.perl.org">http://dbi.perl.org</a>), which will help make your code vendor neutral:</p>
+            <pre>#!/usr/bin/perl
+use strict;
+use warnings;
+use DBI;
+
+my $conn = DBI-&gt;connect("dbi:mysql:<tt><I>dbname</i></tt>:localhost",
+                        "<tt><i>username</i></tt>", "<tt><i>password</I></tt>") or die "Cannot connect\n";
+my $cursor = $conn-&gt;prepare("SELECT winner, subject 
+                             FROM nobel WHERE yr=1962")
+                            or die $conn-&gt;errstr;
+$cursor-&gt;execute or die $conn-&gt;errstr;
+while (my ($name,$region) = $cursor-&gt;fetchrow_array(  )){
+  print "$name\t$region\n";
+}
+$conn-&gt;disconnect;</pre><br>
+
+            <a name="Id335e6069_Running_Perl323062"></a>
+               <h5 id="title-IDAKTHJG" class="docSection3Title">1.2.3.1. Running Perl</h5>
+               <p class="docText">And to run Perl:</p>
+               <pre>$ <b>perl Sample.pl</b>
+John C. Kendrew Chemistry
+Max F. Perutz   Chemistry
+John Steinbeck  Literature
+Francis Crick   Medicine
+James Watson    Medicine
+Maurice Wilkins Medicine
+Linus Pauling   Peace
+Lev Landau      Physics</pre><br>
+
+               <p class="docText">See <a class="docLink" href="I_0596527993_CHP_2_SECT_2.html#I_0596527993_CHP_2_SECT_2">&quot;Filter Rows and Columns&quot; [Hack #8]</a> for more Perl syntax.</p>
+            
+         
+         <a name="I21495__HeadB__PHP"></a>
+            <h4 id="title-IDADUHJG" class="docSection2Title">1.2.4. PHP</h4>
+            <p class="docText">The <a name="Id534e0_811862"></a>
+               <a name="Id534e5_811862"></a>
+               <a name="Id534e10_811862"></a>following example uses the <tt>
+                  <a name="Id537e0_811867"></a>mysql_</tt> functions. If you are using the MySQL extensions there is no need to explicitly create a variable to hold the connection, unless you have more than one connection or you prefer to make it more visible:</p>
+            <pre>&lt;?
+mysql_connect('localhost','<b><tt><i>user</i></tt></b>','<B><tt><i>password</I></tt></b>') or die(mysql_error(  ));
+mysql_select_db('dbname')                    or die(mysql_error(  ));
+$query = "SELECT winner,subject FROM nobel WHERE yr=1962";
+$cursor = mysql_query($query)                or die(mysql_error(  ));
+while ($line = mysql_fetch_array($cursor,MYSQL_ASSOC)) {
+   echo $line{winner} . "\t" . $line{subject}."\n";
+}
+mysql_close(  );
+?&gt;</pre><BR>
+
+            <a name="Id335e6396_Running_PHP323108"></a>
+               <H5 id="title-IDA5VHJG" class="docSection3Title">1.2.4.1. Running PHP</h5>
+               <p class="docText">Although PHP is normally used in web development, you can run it from the <a name="Id540e0_811868"></a>command line:</p>
+               <pre>$ <B>php Sample.php</b>
+John C. Kendrew Chemistry
+Max F. Perutz   Chemistry
+John Steinbeck  Literature
+Francis Crick   Medicine
+James Watson    Medicine
+Maurice Wilkins Medicine
+Linus Pauling   Peace
+Lev Landau      Physics</pre><BR>
+
+            
+         
+         <a name="I87322__HeadB__Ruby"></a>
+            <H4 id="title-IDAZWHJG" class="docSection2Title">1.2.5. Ruby</h4>
+            <p class="docText">
+               <a name="Id543e0_811870"></a>
+               <a name="Id543e5_811870"></a>
+               <a name="Id543e10_811870"></a>You can iterate over every row either using <tt>fetch_hash</tt> or <tt>each_hash</tt> as shown here: </P>
+            <pre>require "mysql"
+begin
+  # connect to the MySQL server
+  conn = Mysql.real_connect('localhost', 'scott', 'tiger', 'dbname')
+  cursor = conn.query("SELECT winner,subject FROM nobel WHERE yr=1962")
+  cursor.each_hash do |row|
+      printf "%s\t%s\n", row['winner'], row['subject']
+  end
+rescue MysqlError =&gt; e
+  print e.error(  ), "\n"
+end</pre><BR>
+
+            <a name="Id335e6666_Running_Ruby323156"></a>
+               <H5 id="title-IDAMYHJG" class="docSection3Title">1.2.5.1. Running Ruby</H5>
+               <p class="docText">To run Ruby:</p>
+               <pre>$ <B>ruby Sample.rb</b>
+John C. Kendrew Chemistry
+Max F. Perutz   Chemistry
+John Steinbeck  Literature
+Francis Crick   Medicine
+James Watson    Medicine
+Maurice Wilkins Medicine
+Linus Pauling   Peace
+Lev Landau      Physics<a name="Id546e0_811802"></a><a name="Id546e5_811802"></a></pre><br>
+
+            
+         
+      
+<a href="3961537.html"><img src="/img/sql-hack/pixel.jpg" alt="" width="1" height="1" border="0"></a></TD></TR></table>
+<br>
+
+<center>
+<table border=0>
+<tr><td colspan="2"><font color="#ca031b">SAVE</font></td></tr>
+<tr>
+  <td>
+   <img src="/img/sys/digg.png" align="left" hspace="3" border="0" />
+   <noindex><a href="http://digg.com/submit?phase=2&url=http%3A%2F%2Fcodeidol.com%2Fsql%2Fsql-hack%2FSQL-Fundamentals%2FConnect-to-SQL-from-a-Program%2F&title=CodeIdol+-+Thinking+about+SQL+Hacks+-+SQL+Fundamentals+-+Connect+To+SQL+From+A+Program&bodytext=Whether+you%27re+running+Access%2C+MySQL%2C+SQL+Server%2C+Oracle%2C+or+PostgreSQL%2C+this+book+will+help+you+push+the+limits+of+traditional+SQL+to+squeeze+data+effectively+from+your+database.++The+book+offers+100+hacks+--+unique+tips+and+tools+--+that+bring...&topic=programming" target="new" rel="nofollow"><b>Digg</b></a></noindex>
+  </td>
+</tr>
+<tr>
+ <td>
+  <img border="0" src="/img/sys/delicious.png" align="top" height="18" width="18" alt="Shown on del.icio.us">
+  <noindex><a href="http://del.icio.us/post?v=4&noui&jump=close&tag=codeidol free online books book&url=http%3A%2F%2Fcodeidol.com%2Fsql%2Fsql-hack%2FSQL-Fundamentals%2FConnect-to-SQL-from-a-Program%2F&title=CodeIdol+-+Thinking+about+SQL+Hacks+-+SQL+Fundamentals+-+Connect+To+SQL+From+A+Program&notes=Whether+you%27re+running+Access%2C+MySQL%2C+SQL+Server%2C+Oracle%2C+or+PostgreSQL%2C+this+book+will+help+you+push+the+limits+of+traditional+SQL+to+squeeze+data+effectively+from+your+database.++The+book+offers+100+hacks+--+unique+tips+and+tools+--+that+bring...&tags=codeidol free online books book" target="new" rel="nofollow">del.icio.us</a></noindex>
+ </td>
+</tr>
+<tr>
+  <td>
+   <img border="0" src="/img/sys/technorati.png" align="top" height="18" width="18" alt="See Whos Talking About This on Technorati">
+   <noindex><a title="See Whos Talking About This on Technorati" href="http://technorati.com/search/http%3A%2F%2Fcodeidol.com%2Fsql%2Fsql-hack%2FSQL-Fundamentals%2FConnect-to-SQL-from-a-Program%2F" target="new" rel="nofollow">Technorati</a></noindex>
+  </td>
+</tr>
+<tr>
+ <td>
+  <img border="0" src="/img/sys/reddit.gif" align="top" height="18" width="18" alt="I've Reddit">
+  <noindex><a href="http://reddit.com/submit?url=http%3A%2F%2Fcodeidol.com%2Fsql%2Fsql-hack%2FSQL-Fundamentals%2FConnect-to-SQL-from-a-Program%2F&title=CodeIdol+-+Thinking+about+SQL+Hacks+-+SQL+Fundamentals+-+Connect+To+SQL+From+A+Program" target="new" rel="nofollow">reddit</a></noindex>
+ </td>
+</tr>
+</table>
+</center>
+
+<br>
+<b>You are here:</b> <a href=/>CodeIdol.com</a> > <a href=/sql/>Sql</a> ><a href=/sql/sql-hack/> SQL Hacks</a> > <a href=/sql/sql-hack/SQL-Fundamentals/> SQL Fundamentals</a> > <a href=/sql/sql-hack/SQL-Fundamentals/Connect-to-SQL-from-a-Program/> Connect To SQL From A Program</a><br><br><br>
+<center>
+<b>ADBRITE</b> ads links<br>
+
+<!-- Begin: AdBrite -->
+<style type="text/css">
+   .adHeadline {font: bold 10pt Arial; text-decoration: underline; color: #660000;}
+   .adText {font: normal 10pt Arial; text-decoration: none; color: #000033;}
+</style>
+<script type="text/javascript" src="http://ads.adbrite.com/mb/text_group.php?sid=410300&br=1&dk=6170706c7920666f7220612063726564697420636172645f355f325f776562">
+</script>
+<div><noindex><a class="adHeadline" target="_top" href="http://www.adbrite.com/mb/commerce/purchase_form.php?opid=410300&afsid=1" rel="nofollow">Your Ad Here</a></noindex></div>
+<!-- End: AdBrite -->
+
+</center>
+</td>
+<td>&nbsp;&nbsp;&nbsp;
+</td>
+<td valign="top" width=200>
+<div style="background: #336699; color: #FFFFFF;">
+<b><u><font face="Arial" size="-1">Related tags</font></u></b>
+</div><br>
+<br><br>
+<script type="text/javascript"><!--
+google_ad_client = "pub-8640800643873273";
+google_ad_width = 200;
+google_ad_height = 90;
+google_ad_format = "200x90_0ads_al_s";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script><br><br>
+<script type="text/javascript"><!--
+google_ad_client = "pub-8640800643873273";
+google_ad_width = 200;
+google_ad_height = 90;
+google_ad_format = "200x90_0ads_al_s";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<br><br>
+
+<div width="200" style="background: #336699; color: #FFFFFF;">
+<b><u><font face="Arial" size="-1">Popular Categories</font></u></b>
+</div>
+<table width="190" align="center"><tr><td>
+<a href="/unix/" style="color: #0000FF; font-face: Arial;"><font size="-1"><b>Unix</b></font></a> books and guides<br>
+
+<br>
+<a href="/ajax/" style="color: #0000FF; font-face: Arial;"><font size="-1"><b>AJAX</b></font></a> popular information<br>
+<a href="/csharp/" style="color: #0000FF; font-face: Arial;"><font size="-1"><b>C#</b></font></a> language guides<br>
+<a href="/windows/" style="color: #0000FF; font-face: Arial;"><font size="-1"><b>Windows</b></font></a> books and cookbooks<br>
+<br>
+<b>.......</b><br>
+<script type="text/javascript"><!--
+google_ad_client = "pub-8640800643873273";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<br>
+<noindex>
+<!--LiveInternet counter--><script type="text/javascript"><!--
+document.write("<a href='http://www.liveinternet.ru/click' "+
+"target=_blank><img src='http://counter.yadro.ru/hit?t44.6;r"+
+escape(document.referrer)+((typeof(screen)=="undefined")?"":
+";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+";"+Math.random()+
+"' alt='' title='LiveInternet' "+
+"border=0 width=31 height=31><\/a>")//--></script><!--/LiveInternet-->
+</noindex>
+<br>
+
+<br><br>
+<noindex>
+<script type="text/javascript">
+document.write('<a href="http://click.kmindex.ru/?uid=153107" target="_blank" rel="nofollow"><img '+
+'src="http://counting.kmindex.ru/23.gif?uid=153107&r='+escape(document.referrer)+
+'&'+Math.random()+'" width="88" height="12" border="0"></a>')
+</script><br>
+<!-- hit.ua -->
+<a href='http://hit.ua/?x=9601' target='_blank' rel="nofollow">
+<script language="javascript" type="text/javascript"><!--
+Cd=document;Cr="&"+Math.random();Cp="&s=1";
+Cd.cookie="b=b";if(Cd.cookie)Cp+="&c=1";
+Cp+="&t="+(new Date()).getTimezoneOffset();
+if(self!=top)Cp+="&f=1";
+//--></script>
+<script language="javascript1.1" type="text/javascript"><!--
+if(navigator.javaEnabled())Cp+="&j=1";
+//--></script>
+<script language="javascript1.2" type="text/javascript"><!--
+if(typeof(screen)!='undefined')Cp+="&w="+screen.width+"&h="+
+screen.height+"&d="+(screen.colorDepth?screen.colorDepth:screen.pixelDepth);
+//--></script>
+<script language="javascript" type="text/javascript"><!--
+Cd.write("<img src='http://c.hit.ua/hit?i=9601&g=0&x=1"+Cp+Cr+
+"&r="+escape(Cd.referrer)+"&u="+escape(window.location.href)+
+"' border='0' width='88' height='31' "+
+"alt='hit.ua: ������ �� �����, ����������� � ���������� �� �������' title='hit.ua: ������ �� �����, ����������� � ���������� �� �������'/>");
+//--></script>
+<noscript>
+<img src='http://c.hit.ua/hit?i=9601&amp;g=0&amp;x=1' border='0' width='88' height='31' alt='hit.ua: ������ �� �����, ����������� � ���������� �� �������' title='hit.ua: ������ �� �����, ����������� � ���������� �� �������'/>
+</noscript></a>
+<!-- / hit.ua -->
+
+
+		<br>
+<!-- HotLog -->
+
+<script type="text/javascript" language="javascript">
+hotlog_js="1.0";
+hotlog_r=""+Math.random()+"&s=601448&im=34&r="+escape(document.referrer)+"&pg="+
+escape(window.location.href);
+document.cookie="hotlog=1; path=/"; hotlog_r+="&c="+(document.cookie?"Y":"N");
+</script>
+<script type="text/javascript" language="javascript1.1">
+hotlog_js="1.1";hotlog_r+="&j="+(navigator.javaEnabled()?"Y":"N")
+</script>
+<script type="text/javascript" language="javascript1.2">
+hotlog_js="1.2";
+hotlog_r+="&wh="+screen.width+'x'+screen.height+"&px="+
+(((navigator.appName.substring(0,3)=="Mic"))?
+screen.colorDepth:screen.pixelDepth)</script>
+<script type="text/javascript" language="javascript1.3">hotlog_js="1.3"</script>
+<script type="text/javascript" language="javascript">hotlog_r+="&js="+hotlog_js;
+document.write("<a href='http://click.hotlog.ru/?601448' target='_top'><img "+
+" src='http://hit30.hotlog.ru/cgi-bin/hotlog/count?"+
+hotlog_r+"&' border=0 width=88 height=31 alt=HotLog><\/a>")
+</script>
+<noscript>
+<a href="http://click.hotlog.ru/?601448" target="_top"  rel="nofollow">
+<img src="http://hit30.hotlog.ru/cgi-bin/hotlog/count?s=601448&amp;im=34" border="0" 
+ width="88" height="31" alt="HotLog"></a>
+</noscript>
+
+<!-- /HotLog --><br>
+<!-- (C) stat24 / podstranitsa -->
+<script type="text/javascript">
+<!--
+document.writeln('<'+'scr'+'ipt type="text/javascript" src="http://ru2.hit.stat24.com/_'+(new Date()).getTime()+'/script.js?id=nGfr28xepOv2ru0LSpLk0adFjw5g5dsYN2atvLC8pV7.p7/l=11"></'+'scr'+'ipt>');
+//-->
+</script>
+<br>
+<!-- Business Key Code --> <a target="_blank" href="http://www.business-key.com/top/"  rel="nofollow"><img alt="Business Key Top Sites" src="http://www.business-key.com/top/828.gif" width="88" height="31" border="0"> </a> <!-- /Business Key Code --> 
+<br>
+<!-- SpyLOG -->
+<script src="http://tools.spylog.ru/counter_cv.js" id="spylog_code" type="text/javascript" counter="1148202" part="" track_links="ext" page_level="0">
+</script>
+<noscript>
+<a href="http://u11482.02.spylog.com/cnt?cid=1148202&f=3&p=0" target="_blank" rel="nofollow">
+<img src="http://u11482.02.spylog.com/cnt?cid=1148202&p=0" alt="SpyLOG" border="0" width="88" height="31"></a>
+</noscript>
+<!--/ SpyLOG -->
+<br>
+<!--NUMBER ONE COUNTER--><img src="http://cnt.one.ru/cgi-bin/cnt.cgi?id=658078"
+width=1 height=1 alt="" border=0><a target=_top 
+href="http://www.one.ru" rel="nofollow"><img src=http://img.one.ru/but/one88x31d.gif
+width=88 height=31 alt="be number one" border=0></a>
+<!--NUMBER ONE COUNTER--><br>
+<!--RATE.RU COUNTER --><a target=_top
+href="http://top.rate.ru" rel="nofollow"><img src="http://cnt.rate.ru/cgi-bin/cnt.cgi?id=145258&t=0"
+width=81 height=63 alt="rate your site" border=0></a>
+<!--RATE.RU COUNTER -->
+</noindex>
+</td></tr></table>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td align="center">
+<!--
+<script type="text/javascript">
+google_ad_client = "pub-8640800643873273";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_cpa_choice = "CAEaCKNgk_Zp_FOAUARQBVAHUAhQNFAD";
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script> 
+-->
+<br><br>
+
+<center>
+
+ <br><br>
+ <ul>
+ � 2009 ���� �� ����� ���������� ��������� ����� �� ��������� �����. ���� ������ ����� ��������� ����� �� ������ �� ���������� �����, �� ����� � �� ������ ����������� ������, � ��� ����� � �� ������� �����.<br><br>
+    <a href=/sys/rus/><font size=+1><b>�������</b></font> </a>
+    <a href=/sys/polska/><font size=+1><b>Polski</b></font> </a>
+    <a href=/sys/french/><font size=+1><b>Francais</b></font> </a>
+    <a href=/sys/german/><font size=+1><b>Deutsch</b></font> </a><br>
+    <a href=/sys/support/>support </a>
+    <a href=/sys/sitemap/>sitemap </a>
+    <a href=/sys/terms/>terms </a>
+	
+   </ul> <br>
+
+   &copy; CodeIdol Labs, 2007 - 2009
+<br><br>
+</center>
+</td></tr>
+</table>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-1776040-2");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+</html>

@@ -1,0 +1,813 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    
+    <title>HttpListener Server Header c# - Stack Overflow</title>
+    <link rel="stylesheet" href="http://sstatic.net/so/all.css?v=6322">
+    <link rel="shortcut icon" href="http://sstatic.net/so/favicon.ico">
+    <link rel="apple-touch-icon" href="http://sstatic.net/so/apple-touch-icon.png">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="http://sstatic.net/so/opensearch.xml">
+    
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+    
+    <script type="text/javascript" src="http://sstatic.net/so/js/master.js?v=6423"></script>
+    <script type="text/javascript">
+    var imagePath='http://sstatic.net/so/img/';
+    
+    </script>
+    
+    <link rel="canonical" href="http://stackoverflow.com/questions/427326/httplistener-server-header-c">
+    <link rel="alternate" type="application/atom+xml" title="Feed for question 'HttpListener Server Header c#'" href="/feeds/question/427326">
+    <script src="http://sstatic.net/so/js/question.js?v=6383" type="text/javascript"></script>
+    
+
+
+    <script type="text/javascript">
+        var fkey = "0e77972b63c8b0210e242ed0fb976eef";
+    
+        
+        
+        $(function() {
+            
+            vote.init(427326);
+            comments.init();
+            styleCode();
+        
+        });
+    </script>
+
+
+</head>
+<body>
+    <noscript><div id="noscript-padding"></div></noscript>
+    <div id="notify-container">
+    </div>
+
+
+    <script type="text/javascript">
+        $(function() { notify.showFirstTime(); });
+    </script>
+
+
+    <div class="container">
+        <div id="header">
+            <div id="topbar">
+                <div id="hlinks">
+                    
+                    
+                    <a href="/users/login?returnurl=%2fquestions%2f427326%2fhttplistener-server-header-c">login</a>
+<span class="lsep">|</span>
+<a href="http://careers.stackoverflow.com/">careers</a>
+<span class="lsep">|</span>
+
+                    <a href="/about">about</a> <span class="lsep">|</span> <a href="/faq">faq</a>
+                </div>
+                <div id="hsearch">
+                    <form id="search" action="/search" method="get">
+                    <div>
+                        <input name="q" class="textbox" tabindex="1" onfocus="if (this.value=='search') this.value = ''" type="text" maxlength="80" size="28" value="search">
+                    </div>
+                    </form>
+                </div>
+            </div>
+            <br class="cbt">
+            <div id="hlogo">
+                <a href="/"><img src="http://sstatic.net/so/img/logo.png" width="250" height="61" alt="Stack Overflow"></a>
+            </div>
+            <div id="hmenus">
+                <div class="nav">
+                    <ul>
+                        <li class="youarehere"><a href="/questions">Questions</a></li>
+                        <li><a href="/tags">Tags</a></li>
+                        <li><a href="/users">Users</a></li>
+                        <li><a href="/badges">Badges</a></li>
+                        <li><a href="/unanswered">Unanswered</a></li>
+                    </ul>
+                </div>
+                <div class="nav" style="float:right">
+                    <ul>
+                        <li style="margin-right:0px" >
+                            <a href="/questions/ask">Ask Question</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    
+        <div id="content">
+            
+
+<div id="question-header">
+    <h2><a href="/questions/427326/httplistener-server-header-c" class="question-hyperlink">HttpListener Server Header c#</a></h2>
+</div>
+
+<div id="mainbar">
+<div id="question" class="">
+    
+    <div class="everyonelovesstackoverflow">
+        <script type="text/javascript">
+            document.write('<s'+'cript lang' + 'uage="jav' + 'ascript" src="http://ads.stackoverflow.com/a.aspx?ZoneID=3&amp;Task=Get&amp;IFR=False&amp;PageID=52405&amp;SiteID=1&amp;Random=' + (+new Date()) + '&amp;Keywords=c%23,httplistener,http">'); 
+            document.write('</'+'scr'+'ipt>');
+        </script>
+        <noscript>
+            <div>
+            <a href="http://ads.stackoverflow.com/a.aspx?ZoneID=3&amp;Task=Click&amp;Mode=HTML&amp;SiteID=1&amp;PageID=52405">
+            <img src="http://ads.stackoverflow.com/a.aspx?ZoneID=3&amp;Task=Get&amp;Mode=HTML&amp;SiteID=1&amp;PageID=52405" alt="">
+            </a>
+            </div>
+        </noscript>
+    </div>
+    
+
+    <table>
+    <tr>
+    <td class="votecell">
+        
+<div class="vote">
+    <input type="hidden" value="427326">
+    <img class="vote-up"
+        src="http://sstatic.net/so/img/vote-arrow-up.png"
+        width="40" height="25"
+        alt="vote up" title="This question is useful and clear (click again to undo)">
+    <span class="vote-count-post">
+        0
+    </span>
+    <img class="vote-down"
+        src="http://sstatic.net/so/img/vote-arrow-down.png"
+        width="40" height="25"
+        alt="vote down" title="This question is unclear or not useful (click again to undo)">
+
+    <img class="vote-favorite" 
+        src="http://sstatic.net/so/img/vote-favorite-off.png"
+        width="32" height="31"
+        alt="star" title="This is a favorite question (click again to undo)">
+    <div class="favoritecount"><b></b></div>    
+
+</div>
+
+    </td>
+    <td>
+        <div>          
+            <div class="post-text">
+                <p>I am trying to write a C# http server for a personal project, i am wondering how i can change the returned server header from Microsoft-HTTPAPI/2.0, to something else?</p>
+
+<pre><code> public class HttpWebServer
+    {
+        private HttpListener Listener;
+
+        public void Start()
+        {
+            Listener = new HttpListener();
+            Listener.Prefixes.Add("http://*:5555/");
+            Listener.Start();
+            Listener.BeginGetContext(ProcessRequest, Listener);
+            Console.WriteLine("Connection Started");
+        }
+
+        public void Stop()
+        {
+            Listener.Stop();
+        }
+
+        private void ProcessRequest(IAsyncResult result)
+        {
+            HttpListener listener = (HttpListener)result.AsyncState;
+            HttpListenerContext context = listener.EndGetContext(result);
+
+            string responseString = "&lt;html&gt;Hello World&lt;/html&gt;";
+            byte[] buffer = Encoding.UTF8.GetBytes(responseString);
+
+            context.Response.ContentLength64 = buffer.Length;
+            System.IO.Stream output = context.Response.OutputStream;
+            output.Write(buffer, 0, buffer.Length);
+            output.Close();
+
+            Listener.BeginGetContext(ProcessRequest, Listener);
+        }
+    }
+</code></pre>
+
+            </div>            
+            <div class="post-taglist">
+                <a href="/questions/tagged/c%23" class="post-tag" title="show questions tagged 'c#'" rel="tag">c#</a> <a href="/questions/tagged/httplistener" class="post-tag" title="show questions tagged 'httplistener'" rel="tag">httplistener</a> <a href="/questions/tagged/http" class="post-tag" title="show questions tagged 'http'" rel="tag">http</a> 
+            </div>
+            <table class="fw">
+            <tr>
+            <td class="vt">
+                <div class="post-menu"><a id="flag-post-427326" title="flag this post for serious problems">flag</a></div>
+                
+            </td>
+        
+            <td align="right" class="post-signature">
+            <div class="user-info"><div class="user-action-time">edited <a href="/posts/427326/revisions" title="show all edits to this post"><span title="2009-01-09 08:30:28Z" class="relativetime">Jan 9 '09 at 8:30</span></a></div><div class="user-gravatar32"><a href="/users/43541/yossi-dahan"><img src="http://www.gravatar.com/avatar/86c1d53dc7fca98123efdc01a3fa64f2?s=32&amp;d=identicon&amp;r=PG" height="32" width="32" alt=""></a></div><div class="user-details"><a href="/users/43541/yossi-dahan" >Yossi Dahan</a><br><span class="reputation-score" title="reputation score">1,272</span><span title="2 silver badges"><span class="badge2">&#9679;</span><span class="badgecount">2</span></span><span title="12 bronze badges"><span class="badge3">&#9679;</span><span class="badgecount">12</span></span></div></div>
+            
+            </td>
+            
+            <td class="post-signature owner">
+            <div class="user-info"><div class="user-action-time">asked <span title="2009-01-09 07:30:12Z" class="relativetime">Jan 9 '09 at 7:30</span></div><div class="user-gravatar32"><a href="/users/53238/elijah-glover"><img src="http://www.gravatar.com/avatar/cc47f1279226d9343642057f45c1e9b6?s=32&amp;d=identicon&amp;r=PG" height="32" width="32" alt=""></a></div><div class="user-details"><a href="/users/53238/elijah-glover" >Elijah Glover</a><br><span class="reputation-score" title="reputation score">964</span><span title="1 silver badge"><span class="badge2">&#9679;</span><span class="badgecount">1</span></span><span title="11 bronze badges"><span class="badge3">&#9679;</span><span class="badgecount">11</span></span></div></div>
+            <br class="cbt">
+            <div class="accept-rate accept-answer-link" title="this user has accepted an answer for 6 of 6 eligible questions">100% accept rate</div>
+            
+            </td>
+            </tr>
+            </table>
+        </div>
+    </td>
+    </tr>
+
+    
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-427326" class="comments">
+        <table>
+        <tbody>
+                    
+    <tr id="comment-2130963" class="comment">
+        <td></td>
+        <td class="comment-text"><div>IIS7 Is Much Faster, Multi-threaded Goodness &ndash;&nbsp;<a href="/users/53238/elijah-glover" title="964" class="comment-user owner">Elijah Glover</a> <span class="comment-date"><span title="2010-02-02 11:22:35Z">Feb 2 at 11:22</span></span></div></td>
+    </tr>
+
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>
+    
+    </table>
+    
+</div>
+
+
+
+
+<div id="answers">
+
+    <a name="tab-top"></a>
+    <div id="answers-header">
+        <div id="subheader">
+            <h2>3 Answers</h2>
+            <div id="tabs">
+                <a href="/questions/427326?tab=oldest#tab-top" title="Answers in the order they were given">oldest</a>
+<a href="/questions/427326?tab=newest#tab-top" title="Most recent answers first">newest</a>
+<a class="youarehere" href="/questions/427326?tab=votes#tab-top" title="Answers with the most votes first">votes</a>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <a name="428420"></a>
+    
+    <div id="answer-428420" class="answer ">
+        
+        <table>
+        <tr>
+        <td class="votecell">
+            
+<div class="vote">
+    <input type="hidden" value="428420">
+    <img class="vote-up"
+        src="http://sstatic.net/so/img/vote-arrow-up.png"
+        width="40" height="25"
+        alt="vote up" title="This answer is useful (click again to undo)">
+    <span class="vote-count-post">
+        1
+    </span>
+    <img class="vote-down"
+        src="http://sstatic.net/so/img/vote-arrow-down.png"
+        width="40" height="25"
+        alt="vote down" title="This answer is not useful (click again to undo)">
+<img src="http://sstatic.net/so/img/vote-accepted-on.png"
+    class="vote-accepted"
+    style="cursor:default"
+    width="30"
+    height="31"
+    alt="check"
+    title="The question owner accepted this as the best answer Jan 19 '09 at 14:24" >
+</div>
+
+        </td>
+        <td>
+            <div class="post-text"><p>The HttpListener class encapsulates the native API, <a href="http://msdn.microsoft.com/en-us/library/aa364499(VS.85).aspx" rel="nofollow">HttpSendHttpResponse Function</a>, which as stated in the link will always append the preposterous text to the server header information.</p>
+
+<p>There's no way how to fix that, unless you want to code your HttpListener from scratch.</p>
+</div>
+            <table class="fw">
+            <tr>
+            <td class="vt">
+                <div class="post-menu"><a href="/questions/427326/httplistener-server-header-c/428420#428420" title="permalink to this answer">link</a><span class="lsep">|</span><a id="flag-post-428420" title="flag this post for serious problems">flag</a></div>
+                
+            </td>
+            
+            <td align="right" class="post-signature">
+            <div class="user-info"><div class="user-action-time">answered <span title="2009-01-09 15:10:52Z" class="relativetime">Jan 9 '09 at 15:10</span></div><div class="user-gravatar32"><a href="/users/15409/arul"><img src="http://www.gravatar.com/avatar/ea16e9eeb7b5c7463cd1de7d0f4adaa6?s=32&amp;d=identicon&amp;r=PG" height="32" width="32" alt=""></a></div><div class="user-details"><a href="/users/15409/arul" >arul</a><br><span class="reputation-score" title="reputation score">6,553</span><span title="1 gold badge"><span class="badge1">&#9679;</span><span class="badgecount">1</span></span><span title="8 silver badges"><span class="badge2">&#9679;</span><span class="badgecount">8</span></span><span title="30 bronze badges"><span class="badge3">&#9679;</span><span class="badgecount">30</span></span></div></div>
+            </td>
+            </tr>
+            </table>
+        </td>
+        </tr>
+        
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-428420" class="comments dno">
+        <table>
+        <tbody>
+        
+            <tr><td></td><td></td></tr>
+        
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>
+        </table>
+    </div>
+
+    <div class="everyonelovesstackoverflow">
+        <script type="text/javascript">
+            document.write('<s'+'cript lang' + 'uage="jav' + 'ascript" src="http://ads.stackoverflow.com/a.aspx?ZoneID=14&amp;Task=Get&amp;IFR=False&amp;PageID=52405&amp;SiteID=1&amp;Random=' + (+new Date()) + '&amp;Keywords=c%23,httplistener,http">'); 
+            document.write('</'+'scr'+'ipt>');
+        </script>
+        <noscript>
+            <div>
+            <a href="http://ads.stackoverflow.com/a.aspx?ZoneID=14&amp;Task=Click&amp;Mode=HTML&amp;SiteID=1&amp;PageID=52405">
+            <img src="http://ads.stackoverflow.com/a.aspx?ZoneID=14&amp;Task=Get&amp;Mode=HTML&amp;SiteID=1&amp;PageID=52405" alt="">
+            </a>
+            </div>
+        </noscript>
+    </div>
+    
+
+    <a name="427365"></a>
+    
+    <div id="answer-427365" class="answer ">
+        
+        <input type="hidden" id="427365-is-owned-by-question-owner" value="true">
+        
+        <table>
+        <tr>
+        <td class="votecell">
+            
+<div class="vote">
+    <input type="hidden" value="427365">
+    <img class="vote-up"
+        src="http://sstatic.net/so/img/vote-arrow-up.png"
+        width="40" height="25"
+        alt="vote up" title="This answer is useful (click again to undo)">
+    <span class="vote-count-post">
+        0
+    </span>
+    <img class="vote-down"
+        src="http://sstatic.net/so/img/vote-arrow-down.png"
+        width="40" height="25"
+        alt="vote down" title="This answer is not useful (click again to undo)">
+
+</div>
+
+        </td>
+        <td>
+            <div class="post-text"><p>Hi arul,</p>
+
+<p>I did try, but it comes back with
+My Personal Server Microsoft-HTTPAPI/2.0</p>
+
+<p>I have also used with no success, set, remove, add, addheader</p>
+
+<pre><code>private void ProcessRequest(IAsyncResult result)
+        {
+            HttpListener listener = (HttpListener)result.AsyncState;
+            HttpListenerContext context = listener.EndGetContext(result);
+
+            string responseString = "&lt;html&gt;Hello World&lt;/html&gt;";
+            byte[] buffer = Encoding.UTF8.GetBytes(responseString);
+            context.Response.ContentLength64 = buffer.Length;
+
+            //One
+            context.Response.AddHeader("Server", "My Personal Server");
+
+            //Two
+            context.Response.Headers.Remove(HttpResponseHeader.Server);
+            context.Response.Headers.Add(HttpResponseHeader.Server, "My Personal Server");
+
+            //Three
+            context.Response.Headers.Set(HttpResponseHeader.Server, "My Personal Server");
+
+            System.IO.Stream output = context.Response.OutputStream;
+            output.Write(buffer, 0, buffer.Length);
+            output.Close();
+
+            Listener.BeginGetContext(ProcessRequest, Listener);
+        }
+</code></pre>
+
+<p>Thanks
+Elijah</p>
+</div>
+            <table class="fw">
+            <tr>
+            <td class="vt">
+                <div class="post-menu"><a href="/questions/427326/httplistener-server-header-c/427365#427365" title="permalink to this answer">link</a><span class="lsep">|</span><a id="flag-post-427365" title="flag this post for serious problems">flag</a></div>
+                
+            </td>
+            
+            <td align="right" class="post-signature">
+            <div class="user-info"><div class="user-action-time">edited <a href="/posts/427365/revisions" title="show all edits to this post"><span title="2009-01-09 07:58:48Z" class="relativetime">Jan 9 '09 at 7:58</span></a></div><div class="user-gravatar32"></div><div class="user-details"><br></div></div>
+            </td>
+            
+            <td align="right" class="post-signature owner">   
+            <div class="user-info"><div class="user-action-time">answered <span title="2009-01-09 07:53:20Z" class="relativetime">Jan 9 '09 at 7:53</span></div><div class="user-gravatar32"><a href="/users/53238/elijah-glover"><img src="http://www.gravatar.com/avatar/cc47f1279226d9343642057f45c1e9b6?s=32&amp;d=identicon&amp;r=PG" height="32" width="32" alt=""></a></div><div class="user-details"><a href="/users/53238/elijah-glover" >Elijah Glover</a><br><span class="reputation-score" title="reputation score">964</span><span title="1 silver badge"><span class="badge2">&#9679;</span><span class="badgecount">1</span></span><span title="11 bronze badges"><span class="badge3">&#9679;</span><span class="badgecount">11</span></span></div></div>
+            </td>
+            </tr>
+            </table>
+        </td>
+        </tr>
+        
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-427365" class="comments">
+        <table>
+        <tbody>
+                    
+    <tr id="comment-251010" class="comment">
+        <td></td>
+        <td class="comment-text"><div>Could you update the original code, please? &ndash;&nbsp;<a href="/users/15409/arul" title="6553" class="comment-user">arul</a> <span class="comment-date"><span title="2009-01-09 07:55:41Z">Jan 9 '09 at 7:55</span></span></div></td>
+    </tr>
+
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>
+        </table>
+    </div>
+
+
+    <a name="427337"></a>
+    
+    <div id="answer-427337" class="answer ">
+        
+        <table>
+        <tr>
+        <td class="votecell">
+            
+<div class="vote">
+    <input type="hidden" value="427337">
+    <img class="vote-up"
+        src="http://sstatic.net/so/img/vote-arrow-up.png"
+        width="40" height="25"
+        alt="vote up" title="This answer is useful (click again to undo)">
+    <span class="vote-count-post">
+        -1
+    </span>
+    <img class="vote-down"
+        src="http://sstatic.net/so/img/vote-arrow-down.png"
+        width="40" height="25"
+        alt="vote down" title="This answer is not useful (click again to undo)">
+
+</div>
+
+        </td>
+        <td>
+            <div class="post-text"><p>The following line should do the trick:</p>
+
+<pre><code>context.Response.Headers.Set(HttpResponseHeader.Server, "My Personal Server");
+</code></pre>
+
+<p>for a complete list of response headers you can set see: <a href="http://msdn.microsoft.com/en-us/library/system.net.httpresponseheader.aspx" rel="nofollow">HttpResponseHeader Enumeration</a></p>
+</div>
+            <table class="fw">
+            <tr>
+            <td class="vt">
+                <div class="post-menu"><a href="/questions/427326/httplistener-server-header-c/427337#427337" title="permalink to this answer">link</a><span class="lsep">|</span><a id="flag-post-427337" title="flag this post for serious problems">flag</a></div>
+                
+            </td>
+            
+            <td align="right" class="post-signature">
+            <div class="user-info"><div class="user-action-time">answered <span title="2009-01-09 07:38:36Z" class="relativetime">Jan 9 '09 at 7:38</span></div><div class="user-gravatar32"><a href="/users/15409/arul"><img src="http://www.gravatar.com/avatar/ea16e9eeb7b5c7463cd1de7d0f4adaa6?s=32&amp;d=identicon&amp;r=PG" height="32" width="32" alt=""></a></div><div class="user-details"><a href="/users/15409/arul" >arul</a><br><span class="reputation-score" title="reputation score">6,553</span><span title="1 gold badge"><span class="badge1">&#9679;</span><span class="badgecount">1</span></span><span title="8 silver badges"><span class="badge2">&#9679;</span><span class="badgecount">8</span></span><span title="30 bronze badges"><span class="badge3">&#9679;</span><span class="badgecount">30</span></span></div></div>
+            </td>
+            </tr>
+            </table>
+        </td>
+        </tr>
+        
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-427337" class="comments">
+        <table>
+        <tbody>
+                    
+    <tr id="comment-1986880" class="comment">
+        <td></td>
+        <td class="comment-text"><div>It should but it doesn't.   &ndash;&nbsp;<a href="/users/210754/no-refunds-no-returns" title="2496" class="comment-user">No Refunds No Returns</a> <span class="comment-date"><span title="2010-01-13 18:07:24Z">Jan 13 at 18:07</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-1987002" class="comment">
+        <td></td>
+        <td class="comment-text"><div>We figured that out a year ago, look above :P &ndash;&nbsp;<a href="/users/15409/arul" title="6553" class="comment-user">arul</a> <span class="comment-date"><span title="2010-01-13 18:24:43Z">Jan 13 at 18:24</span></span></div></td>
+    </tr>
+
+        </tbody>
+    
+        </table>
+    </div>
+    
+</td>
+</tr>
+        </table>
+    </div>
+
+    <form id="post-form" action="/questions/427326/answer/submit" method="post">
+        <h2 class="space">Your Answer</h2>
+        
+<script src="http://sstatic.net/so/Js/wmd.js?v=6016" type="text/javascript"></script>
+
+<script type="text/javascript">
+    $(function() { 
+        editorReady(1, heartbeat.answers);
+    });   
+</script>
+
+<div id="post-editor">
+
+    
+    <div id="wmd-container">
+        <div id="wmd-button-bar"></div>
+        <textarea id="wmd-input" name="post-text" cols="92" rows="15" tabindex="101"></textarea>
+    </div>
+
+
+    <div class="community-option">
+        <input id="communitymode" name="communitymode" type="checkbox" >
+        <label for="communitymode" title="community owned posts do not generate any reputation for the owner, have a lower reputation barrier for collaborative editing, and show only a revision history instead of a signature block">community wiki</label>
+    </div>
+
+    <div id="wmd-preview"></div>
+
+
+    <div id="edit-block">
+        <input id="fkey" name="fkey" type="hidden" value="0e77972b63c8b0210e242ed0fb976eef">
+        <input id="author" name="author" type="text">
+    </div>
+</div>   
+<div class="form-item">
+    <table>
+    <tr>
+    <td class="vm">
+        <label for="openid_identifier">OpenID Login</label>
+        <input id="openid_identifier" name="openid_identifier" class="openid-identifer" type="text" size="40" maxlength="200" value="" tabindex="104">
+        <div class="form-item-info">
+            Get an <a href="http://openid.net/get/" target="_blank">OpenID</a>
+        </div>
+    </td>
+
+    <td class="orcell">
+        <div class="orword">or</div>
+        <div class="orline"></div>
+    </td>
+    <td class="vm">
+        <div>
+            <label for="display-name">Name</label>
+            <input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105">
+        </div>
+        <div>
+            <label for="m-address">Email</label>
+            <input id="m-address" name="m-address" type="text" size="40" maxlength="100" value="" tabindex="106">
+            <span class="edit-field-overlay" style="color:#999; font-weight:normal">never shown</span>
+        </div>
+        <div>
+            <label for="home-page">Home Page</label>
+            <input id="home-page" name="home-page" type="text" size="40" maxlength="200" value="" tabindex="107">
+        </div>
+    </td>
+
+    </tr>
+    </table>
+</div>
+
+        
+        <div class="form-submit cbt"><input id="submit-button" type="submit" value="Post Your Answer" tabindex="110"></div>
+    </form>
+    
+    
+
+    <h2 class="space">
+        Not the answer you're looking for?
+        Browse other questions tagged <a href="/questions/tagged/c%23" class="post-tag" title="show questions tagged 'c#'" rel="tag">c#</a> <a href="/questions/tagged/httplistener" class="post-tag" title="show questions tagged 'httplistener'" rel="tag">httplistener</a> <a href="/questions/tagged/http" class="post-tag" title="show questions tagged 'http'" rel="tag">http</a>  or <a href="/questions/ask">ask your own question</a>.
+    </h2>
+</div>
+
+<img src="/posts/427326/ivc/9fc4" class="dno" alt="">
+
+</div>
+
+<div id="sidebar" style="width:220px">
+
+
+<div class="module newuser" style="display:none">
+    <h4>Hello World!</h4>
+    <div>
+        <p>Stack Overflow is a <b>collaboratively edited question and answer site for programmers</b> &ndash; regardless of platform or language. It's 100% free, no registration required.</p>
+        <p class="tar"><a href="/about">about &raquo;</a>&nbsp;&nbsp;&nbsp;<a href="/faq">faq &raquo;</a></p>
+    </div>
+</div>
+    <div class="module" style="padding-bottom:1px">
+    <p class="label-key">tagged</p>
+    <div class="tagged">
+        <a href="/questions/tagged/c%23" class="post-tag" title="show questions tagged 'c#'" rel="tag">c#</a>&nbsp;<span class="item-multiplier">&times;&nbsp;68599</span><br>
+<a href="/questions/tagged/http" class="post-tag" title="show questions tagged 'http'" rel="tag">http</a>&nbsp;<span class="item-multiplier">&times;&nbsp;2423</span><br>
+<a href="/questions/tagged/httplistener" class="post-tag" title="show questions tagged 'httplistener'" rel="tag">httplistener</a>&nbsp;<span class="item-multiplier">&times;&nbsp;22</span><br>
+
+    </div> 
+    <p class="label-key">asked</p>
+    <p class="label-value" title="2009-01-09 07:30:12Z">1 year ago</p>
+    <p class="label-key">viewed</p>
+    <p class="label-value">1,823 times</p>
+
+    <p class="label-key">latest activity</p>
+    <p class="label-value" title="2009-01-09 15:10:52Z">1 year ago</p>
+
+    </div>
+
+    
+    <div class="everyonelovesstackoverflow">
+        <script type="text/javascript">
+            document.write('<s'+'cript lang' + 'uage="jav' + 'ascript" src="http://ads.stackoverflow.com/a.aspx?ZoneID=4&amp;Task=Get&amp;IFR=False&amp;PageID=52405&amp;SiteID=1&amp;Random=' + (+new Date()) + '&amp;Keywords=c%23,httplistener,http">'); 
+            document.write('</'+'scr'+'ipt>');
+        </script>
+        <noscript>
+            <div>
+            <a href="http://ads.stackoverflow.com/a.aspx?ZoneID=4&amp;Task=Click&amp;Mode=HTML&amp;SiteID=1&amp;PageID=52405">
+            <img src="http://ads.stackoverflow.com/a.aspx?ZoneID=4&amp;Task=Get&amp;Mode=HTML&amp;SiteID=1&amp;PageID=52405" alt="">
+            </a>
+            </div>
+        </noscript>
+    </div>
+    
+    <div class="welovestackoverflow">
+        <script type="text/javascript">
+            
+	document.write(
+	   '<strong>Wanted:</strong> ' +
+	   '<a href="http://jobs.stackoverflow.com/?6100">' +
+	   "Google Software Engineering Opportunities" +
+	   ' at ' +
+	   "Google Inc.</a> (" +
+	   "Mountain View, CA  94043 / New York, NY  10011 / San Bruno, CA  94066" +
+	   '). See this and other great job listings at ' +
+	   '<a href="http://jobs.stackoverflow.com">jobs.stackoverflow.com</a>.');
+	
+        </script>
+    </div>
+    
+    <div class="module">
+    <h4>Related</h4>
+    <div class="related">
+    <div class="spacer">
+<a href="/questions/1271070/use-httplistener-for-a-production-caliber-web-server" class="question-hyperlink">Use HttpListener for a production caliber web server?</a>
+</div>
+<div class="spacer">
+<a href="/questions/1329932/detect-client-disconnect-with-httplistener" class="question-hyperlink">Detect client disconnect with HttpListener</a>
+</div>
+<div class="spacer">
+<a href="/questions/1147308/httplistener-how-to-get-http-user-and-password" class="question-hyperlink">HttpListener: how to get http user and password ?</a>
+</div>
+<div class="spacer">
+<a href="/questions/794207/how-to-flush-httplistener-response-stream" class="question-hyperlink">How to flush HttpListener response stream?</a>
+</div>
+<div class="spacer">
+<a href="/questions/429439/specified-network-name-is-no-longer-available-in-httplistener" class="question-hyperlink">&ldquo;Specified network name is no longer available&rdquo; in Httplistener</a>
+</div>
+<div class="spacer">
+<a href="/questions/280690/alternative-to-httplistener" class="question-hyperlink">Alternative to HttpListener?</a>
+</div>
+<div class="spacer">
+<a href="/questions/228090/custom-uri-for-httplistener" class="question-hyperlink">Custom URI for HTTPListener?</a>
+</div>
+<div class="spacer">
+<a href="/questions/1616810/why-system-net-httplistener-creates-a-new-process" class="question-hyperlink">Why System.Net.HttpListener creates a new process?</a>
+</div>
+<div class="spacer">
+<a href="/questions/1683281/how-to-set-realm-for-basic-authentication-scheme-in-net-httplistener-google-chro" class="question-hyperlink">How to set realm for Basic Authentication Scheme in .Net HTTPListener Google Chrome issue</a>
+</div>
+<div class="spacer">
+<a href="/questions/2087792/c-httplistener-behind-router" class="question-hyperlink">c# HttpListener behind router</a>
+</div>
+<div class="spacer">
+<a href="/questions/2171006/httplistener-doesnt-work-on-port-80" class="question-hyperlink">httplistener doesn&rsquo;t work on port 80?</a>
+</div>
+<div class="spacer">
+<a href="/questions/2417554/can-a-webservicehost-be-changed-to-avoid-the-use-of-httplistener" class="question-hyperlink">Can a WebServiceHost be changed to avoid the use of HttpListener?</a>
+</div>
+<div class="spacer">
+<a href="/questions/1732115/self-hosting-wcf-with-self-hosting-webserver-httplistener-on-the-same-port-pos" class="question-hyperlink">Self-Hosting WCF with Self-Hosting WebServer (HTTPListener) on the same port. Possible?</a>
+</div>
+<div class="spacer">
+<a href="/questions/223063/how-can-i-create-an-httplistener-class-on-a-random-port-in-c" class="question-hyperlink">How can I create an HttpListener class on a random port in C#?</a>
+</div>
+<div class="spacer">
+<a href="/questions/214644/starting-multiple-http-listeners-on-iis-using-c-net-2-0" class="question-hyperlink">Starting multiple HTTP listeners on IIS using C#.NET 2.0</a>
+</div>
+<div class="spacer">
+<a href="/questions/1307257/how-can-i-get-form-parameters-from-httplistenerrequest" class="question-hyperlink">How can I get form parameters from HttpListenerRequest?</a>
+</div>
+<div class="spacer">
+<a href="/questions/841144/easiest-way-to-decode-basic-authorization-in-net" class="question-hyperlink">Easiest way to decode basic authorization in .NET</a>
+</div>
+<div class="spacer">
+<a href="/questions/710379/http-proxy-server-in-c" class="question-hyperlink">HTTP Proxy server in C#</a>
+</div>
+<div class="spacer">
+<a href="/questions/1730899/raise-event-from-http-listener-async-listener-handler" class="question-hyperlink">Raise event from http listener (Async listener handler)</a>
+</div>
+
+    </div>
+    </div>
+
+</div>
+
+<div id="mainbar-footer">    
+    
+<div id="feed-link">
+    <div id="feed-link-image"><a href="/feeds/question/427326" title="feed of this question and its answers"><img src="http://sstatic.net/so/Img/feed-icon-small.png" width="14" height="14" alt="feed icon"></a></div>
+    <div id="feed-link-text"><a href="/feeds/question/427326" title="feed of this question and its answers">question feed</a></div>
+</div>
+
+</div>
+
+
+        </div>
+    </div>
+    <div id="footer">
+        <div class="container">
+            <div id="footer-menu">
+                <a href="/about">about</a> |
+                <a href="/faq">faq</a> |
+                <a href="http://blog.stackoverflow.com/">blog</a> |
+                <a href="http://itc.conversationsnetwork.org/series/stackoverflow.html">podcast</a> |
+                <a href="/privacy">privacy policy</a> |
+                <a href="http://ads.stackoverflow.com/a.aspx?ZoneID=0&amp;BannerID=323&amp;AdvertiserID=5&amp;CampaignID=194&amp;Task=Click&amp;SiteID=1">advertising info</a> |
+                <b><a href="mailto:team@stackoverflow.com">contact us</a></b> |
+                <b><a href="http://meta.stackoverflow.com">feedback always welcome</a></b>
+                <div id="footer-sites">
+                    <span style="color:#FE7A15;font-size:140%">&#9632;</span>&nbsp;<a href="http://stackoverflow.com">stackoverflow.com</a>&nbsp;&nbsp;
+                    <span style="color:#FE7A15;font-size:140%">&#9632;</span>&nbsp;<a href="http://careers.stackoverflow.com">careers</a>&nbsp;&nbsp;
+                    <span style="color:#E8272C;font-size:140%">&#9632;</span>&nbsp;<a href="http://serverfault.com">serverfault.com</a>&nbsp;&nbsp;
+                    <span style="color:#00AFEF;font-size:140%">&#9632;</span>&nbsp;<a href="http://superuser.com">superuser.com</a>&nbsp;&nbsp;
+                    <span style="color:#969696;font-size:140%">&#9632;</span>&nbsp;<a href="http://meta.stackoverflow.com">meta</a>&nbsp;&nbsp;
+                    <a href="http://www.howtogeek.com">howtogeek.com</a>&nbsp;&nbsp;
+                    <a href="http://doctype.com">doctype.com</a>
+                </div>
+            </div>
+            <div id="footer-flair">
+                <img src="http://sstatic.net/so/Img/footer-cc-wiki-peak-internet.png" width="168" height="67" alt="cc-wiki, PEAK Internet" usemap="#footermap">
+                <map name="footermap">
+                    <area href="http://creativecommons.org/licenses/by-sa/2.5/" alt="cc-wiki" title="Creative Commons: Attribution - Share Alike"
+                        coords="0,0,50,67">
+                    <area href="http://www.peakinternet.com/business/hosting/colocation-dedicated#" alt="PEAK Internet"
+                        title="powered by PEAK Internet dedicated server hosting" coords="62,0,168,67">
+                </map>
+                <div id="svnrev">svn revision: 6487</div>
+            
+            </div>
+            <div id="copyright">
+                site design and logo is &copy; 2010 stackoverflow.com llc; 
+                user contributed content licensed under <a href="http://creativecommons.org/licenses/by-sa/2.5/" rel="license">cc-wiki</a> with <a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license">attribution required</a>
+            </div>
+        </div>
+    </div>
+    
+    <noscript>
+        <div id="noscript-warning">Stack Overflow works best with JavaScript enabled<img src="http://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"></div>
+    </noscript>
+    
+    <script type="text/javascript">
+        document.write(unescape("%3Cscript src='http://www.google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+        var pageTracker = _gat._getTracker("UA-5620270-1");
+        pageTracker._trackPageview();
+    </script>
+    <script type="text/javascript">
+        _qoptions = { qacct : "p-c1rF4kxgLUzNc" };
+    </script>
+    <script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+        
+</body>
+</html>

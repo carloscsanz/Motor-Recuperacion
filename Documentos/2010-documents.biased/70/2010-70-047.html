@@ -1,0 +1,511 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="EN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+<!-- XHTML Tutorial - Convert HTML to XHTML - htmltoxhtml.asp -->
+
+<title>XHTML :: Converting HTML documents to XHTML - An essential XHTML tutorial</title>
+<meta name="description" content="XHTML, which is restructuring of HTML to conform to XML, is the new standard for Web pages. This DMOZ-listed tutorial is a step-by-step tutorial to convert HTML to XHTML." />
+<meta name="keywords" content="converting html to xhtml, html to xml, html, xhtml, tutorial, images, stylesheets, tables, javascript, attributes, htmltoxhtml, html2xhtml, conversion, strict, transitional, learn, help, example, parameters, noshade, basic, programming, beginner, training, writing, write, essential, design, tip, tags, online, forms, guide, article" />
+<meta name="Generator" content="Notepad" />
+<meta name="Author" content="Bejoy Alex Jaison" />
+<meta name="MSSmartTagsPreventParsing" content="true" />
+
+<link rel="stylesheet" href="/beeandnee/images/browser.css" media="screen" type="text/css" />
+<link rel="stylesheet" href="/beeandnee/images/printer.css" media="print" type="text/css" />
+</head>
+
+<body>
+<script language="JavaScript" type="text/javascript">
+<!--
+document.write('<body marginheight="0" marginwidth="0" topmargin="0" leftmargin="0">');
+//-->
+</script>
+
+<div id="pageheader"><a href="/beeandnee/"><img
+	src="/beeandnee/images/logobeeandnee.gif"
+	width="200" height="50"
+	border="0" vspace="0" hspace="0"
+	alt="beeandnee.com"
+	title="beeandnee.com: Not too much, not too less - just what we've to give."/></a></div>
+
+<div id="pagenav">
+
+	<span class="hidden"><a href="#content" class="SmallFont">Skip Navigation Links</a> | </span>
+
+	<a href="/beeandnee/" title="Home is where the start is. Learn about this site.">home</a> |
+	<a href="/beeandnee/techzone/" title="Articles, tutorials on technology, particularly web-related.">techzone</a> |
+	<a href="/beeandnee/beeguides/" title="Read the BeeGuide to E-mail here.">beeguides</a> |
+	<a href="/beeandnee/quiztime/" title="Lots of quizzes on information technology and computers.">quiztime</a> |
+<!--	<a href="/beeandnee/photos/" title="My Photo album">photos</a> | -->
+	<a href="/beeandnee/search.asp" title="Search this site in and out. Powered by atomz.com">sitesearch</a> |
+	<a href="/beeandnee/sitemap.asp" title="Lost your way? Use this sitemap to navigate.">sitemap</a>
+</div>
+<!-- NAVIGATION BAR ENDS -->
+
+<!-- MAIN TABLE -->
+<table width="100%" border="0" cellpadding="10" cellspacing="0">
+<tr>
+<!-- THIS IS WHERE THE PAGE TEXT COMES -->
+<td width="100%" valign='top' class="Text"><a id="content"></a>
+<div class="BreadCrumb">
+	<a href="../../default.asp">Home</a> /
+	<a href="../default.asp">TechZone</a> /
+	<a href="default.asp">Articles</a>
+</div>
+
+<h2>Converting HTML documents to XHTML</h2>
+<p><b>Bejoy Alex Jaison</b><br />
+      28 February 2001 (Last Updated: 1 July 2002)</p>
+
+<div>
+<h3>Contents</h3>
+<ol>
+	<li><a href="#intro">Introduction</a>:
+		What XHTML is and the different XHTML document types.</li>
+	<li><a href="#generalrules">General Rules</a>:
+		The bullet-list to move straight to XHTML.</li>
+	<li><a href="#attributes">Attributes in XHTML</a>:
+		How attributes are specified in XHTML.</li>
+	<li><a href="#tables">XHTML and tables</a>:
+		Tables are also different in XHTML.</li>
+	<li><a href="#images">XHTML and images</a>:
+		Using images in XHTML.</li>
+	<li><a href="#javascript">XHTML and Javascript</a>:
+		About changes to be made to scripts.</li>
+	<li><a href="#stylesheets">XHTML and CSS</a>:
+		Changes to be made to use stylesheets with XHTML.</li>
+	<li><a href="#prohibitions">Element Prohibitions</a>:
+		The syntax restrictions imposed by XHTML.</li>
+	<li><a href="#prohibitions">Resources on the Web</a>:
+		Helpful Links.</li>
+</ol>
+</div>
+
+<h3 id="intro">A Brief Introduction to XHTML</h3>
+<p>Extensible HyperText Markup Language (XHTML) is a reformulation of HTML 4.0
+	to make it XML based. This tutorial deals with the changes to be
+	made to convert HTML documents to valid XHTML. The article is prepared
+	with a view to help and guide you through the conversion process.
+</p>
+
+<p>The W3C, which is the organization that co-ordinates standardisation of Web
+	protocols, has defined three types of XHTML documents. This is based
+	on the XML Document Type Definition (DTD) that is used by the document. The
+	XHTML DTDs are:
+</p>
+	<ol>
+
+	<li><b>Strict</b>: Used when the XHTML document is devoid of all
+		formatting tags like <span class="Code"
+		>&lt;font&gt;</span> and Cascading Style Sheets (CSS)
+		are used for controlling all presentation aspects.
+	</li>
+
+	<li><b>Transitional</b>: This XHTML DTD allows use of presentation
+		tags in the document. This is a safer mode since
+		most of our pages contain many presentation elements.
+	</li>
+
+	<li><b>Frameset</b>: Used for XHTML documents that describes frames.
+	</li>
+
+	</ol>
+
+<p>	This tutorial covers the important steps to be followed to migrate HTML code 
+	to XHTML 1.0 Transitional. A few important reference links are also provided
+	at the end of this article.</p>
+
+<h3 id="generalrules">General Rules for converting HTML to XHTML</h3>
+<ul>
+	<li>The first line in the HTML document <em>may</em> be the XML
+		processing instruction:<br />
+		<div class="Code">
+			&lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+		</div>
+		W3C recommends that this declaration be included in all XHTML documents,
+		although it is absolutely required only when the character encoding of the 
+		document is other than the default Unicode UTF-8 or UTF-16. I said necessary 
+		because there can be problems with older browsers which cannot identify this
+		as a valid HTML tag.
+	</li>
+
+	<li>The document type declaration for transitional XHTML documents is:
+		<div class="Code">
+		&lt;!DOCTYPE html<br />
+			PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"<br />
+			"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;<br />
+		</div>
+	    This should be the next line after the processing instruction. The
+		declarations for the other XHTML DTDs are:
+
+		<div class="Code">
+		&lt;!DOCTYPE html<br />
+			PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"<br />
+			"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;<br />
+		<br />
+		&lt;!DOCTYPE html<br />
+			PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN"<br />
+			"http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd"&gt;<br />
+		</div>
+        </li>
+
+	<li>XML requires that there must be one and only one
+		root element for a document. Hence, in XHTML, all tags should be
+		enclosed within the	<span class="Code">&lt;html&gt;</span> tag, ie.,
+		<span class="Code">&lt;html&gt;</span> should be the root
+		element for the	document.
+	</li>
+
+	<li>The starting tag <span class="Code">&lt;html&gt;</span>
+		should be modified to include namespace information. The modification
+		is as:
+		<div class="Code">
+			&lt;html
+			xmlns="http://www.w3.org/1999/xhtml" lang="EN"&gt;
+		</div>
+		Attribute <span class="Code">xmlns</span> is the
+		XML namespace with which we associate the XHTML
+		document. The value of the attribute
+		<span class="Code">lang</span> is the code for the
+		language of the document as specified in RFC1766.
+	</li>
+
+	<li>All XHTML tag elements should be in lower case. That means
+		<span class="Code">&lt;HTML&gt;</span> and
+		<span class="Code">&lt;Body&gt;</span> are wrong.
+		They should be rewritten as
+		<span class="Code">&lt;html&gt;</span> and
+		<span class="Code">&lt;body&gt;</span>
+		respectively.
+	</li>
+
+	<li>All XHTML tags should have their end tags. In HTML it is common for paragraphs
+		to have	only the starting <span class="Code">&lt;p&gt;</span> tag.
+		In XHTML this is not allowed. You need to end a paragraph with the
+		<span class="Code">&lt;/p&gt;</span> tag.<br />
+		Example: <span class="Code">&lt;p&gt;Hello</span> is wrong; it should
+		be written as <span class="Code">&lt;p&gt;Hello&lt;/p&gt;</span>.
+	</li>
+
+	<li>Empty XHTML tags should be ended with <span class="Code">/&gt;</span> instead of
+		<span class="Code">&gt;</span>.	The commonly used empty tags in XHTML are:
+		<ul>
+			<li><span class="Code">&lt;meta /&gt;</span>: for meta information
+				(contained in the head section)</li>
+			<li><span class="Code">&lt;base /&gt;</span>: used to specify the
+				base URI and also the target frame
+				for hyperlinks (contained in the head section)</li>
+			<li><span class="Code">&lt;basefont /&gt;</span>: used to specify a
+				base font for the document.
+				Note that attribute 'size' is mandatory</li>
+			<li><span class="Code">&lt;param /&gt;</span>: parameters for applets
+				and objects.</li>
+			<li><span class="Code">&lt;link /&gt;</span>: to specify external
+				stylesheets and other references.</li>
+			<li><span class="Code">&lt;img /&gt;</span>: to include images.
+				Attributes 'src' for the source URI
+				and 'alt' for alternate text are mandatory.</li>
+			<li><span class="Code">&lt;br /&gt;</span>: used for forced line
+				break.</li>
+			<li><span class="Code">&lt;hr /&gt;</span>: for horizontal rules.</li>
+			<li><span class="Code">&lt;area /&gt;</span>: used inside image
+				maps. Attribute 'alt' is mandatory.</li>
+			<li><span class="Code">&lt;input /&gt;</span>: used inside forms for
+				input form elements like buttons,
+				textboxes, textareas, checkboxes and radio buttons.</li>
+		</ul>
+			Example: <span class="Code">&lt;br clear="all"&gt;</span>
+			is wrong; it should be rewritten
+			as <span class="Code">&lt;br clear="all" /&gt;</span>.
+			<span class="Code">&lt;img src="back.gif" alt="Back"&gt;</span>
+			is wrong; it should be <span class="Code">&lt;img src="back.gif"
+			alt="Back" /&gt;</span>
+			</li>
+
+	<li>Proper nesting of tags is compulsory in XHTML.<br />
+		Example: <span class="Code">&lt;b&gt;&lt;i&gt;This
+		is bold italics&lt;/b&gt;&lt;i&gt;</span> is wrong.
+		It should be rewritten as <span class="Code">&lt;b&gt;&lt;i&gt;This
+		is bold italics&lt;/i&gt;&lt;b&gt;</span>.</li>
+</ul>
+
+<h3 id="attributes">Rules for XHTML Attributes</h3>
+<ul>
+	<li>All XHTML attribute names should be in lower case.<br />
+			Example: <span class="Code">Width="100"</span>
+			and <span class="Code">WIDTH="100"</span> are wrong; only
+			<span class="Code">width="100"</span> is correct.<br />
+			Similarly
+			<span class="Code">onMouseOut="javascript:myFunction();"</span>
+			is wrong;<br />
+			it should be rewritten as
+			<span class="Code">onmouseout="javascript:myFunction();"</span>.
+			</li>
+
+	<li>All attribute-value pairs should be quoted.<br />
+		Example: <span class="Code">width=100</span> is wrong; it
+		should be <span class="Code">width="100"</span> or <span class="Code">width='100'</span>.</li>
+
+	<li>HTML supports certain attributes which have no values. Examples are
+		<span class="Code">noshade</span> which appears in the
+		<span class="Code">&lt;hr noshade&gt;</span> tag. XHTML
+		does not allow such empty or compact attributes. The compact
+		attributes	generally found in HTML are
+		<span class="Code">compact, nowrap, ismap, declare, noshade,
+		checked, disabled, readonly, multiple, selected, noresize
+		</span> and <span class="Code">defer</span>.
+		They should always
+		have a value. In XHTML this is done by giving the attribute name
+		itself as the value!<br />
+		Example: <span class="Code">noshade</span> becomes
+			<span class="Code">noshade="noshade"</span><br/>
+			<span class="Code">checked</span> becomes
+			<span class="Code">checked="checked"</span>
+        </li>
+
+	<li>The <span class="Code">name</span> attribute is deprecated
+		and will be removed in a future version of XHTML and the
+		<span class="Code">id</span> attribute will take its place.
+		So, for HTML tags that need the <span class="Code">name</span>
+		attribute, an <span class="Code">id</span> attribute
+		should also be specified with the same value as that for
+		<span class="Code">name</span>.<br />
+		Example: <span class="Code">&lt;frame name="myFrame" &gt;</span>
+		becomes <span class="Code">&lt;frame name="myFrame" id="myFrame" &gt;</span>
+	</li>
+
+	<li>All <span class="Code">&amp; (ampersand)</span> characters
+		in the source code have to be replaced with <span class="Code">&amp;amp;</span>,
+		which is the equivalent character entity code.
+		This change should be done in all attribute values and URIs.<br />
+		Example: <span class="Code">Bee&amp;Nee</span> will result
+		in an error if you try to validate it; It should be written as
+		<span class="Code">Bee<b>&amp;amp;</b>Nee</span>. <br />
+		<span class="Code">&lt;a href="my.asp?action=read&amp;value=1"&gt;Go&lt;/a&gt;</span>
+		is wrong; it should be coded as <br />
+		<span class="Code">&lt;a href="my.asp?action=read<b>&amp;amp;</b>value=1"&gt;Go&lt;/a&gt;</span>.
+		</li>
+</ul>
+
+<h3 id="tables">XHTML Tables</h3>
+<ul>
+	<li>For <span class="Code">&lt;table&gt;</span> tag, attribute
+		<span class="Code">height</span> is not supported in XHTML 1.0.
+		Only the <span class="Code">width</span> is supported. The
+		<span class="Code">&lt;td&gt;</span> tag does support the
+		<span class="Code">height</span> attribute.
+	</li>
+
+	<li>The <span class="Code">&lt;table&gt;</span>, <span class="Code">&lt;tr&gt;</span>
+		and the <span class="Code">&lt;td&gt;</span> tag does not support the attribute
+		<span class="Code">background</span> which is used to specify a
+		background image for the table or the cell. Background images
+		will have to be specified either using the
+		<span class="Code">style</span>	attribute or using external
+		stylesheet. The attribute <span class="Code">bgcolor</span>
+		for background color is however supported by these tags.</li>
+</ul>
+
+<h3 id="images">XHTML Images</h3>
+<ul>
+	<li>The <span class="Code">alt</span> attribute is mandatory. This value of this
+		attribute will be the text that has to be shown in older
+		browsers, text-only browsers (like lynx), and in place
+		of the image when it is not available.
+		Note that
+		<span class="Code">&lt;img&gt;</span> is an empty tag. <br />
+		Example: <span class="Code">&lt;img src="back.gif"
+					alt="Back" /&gt;</span></li>
+</ul>
+
+<h3 id="javascript">XHTML and Javascript</h3>
+
+<ul>
+	<li>The <span class="Code">type</span> attribute is mandatory for all
+		<span class="Code">&lt;script&gt;</span> tags.
+		This value of <span class="Code">type</span> is
+		<span class="Code">text/javascript</span> for
+		Javascript.<br />
+	</li>
+	<li>The use of external scripts is recommended. <br />
+		Example:<br />
+		<span class="Code">&lt;script type="text/javascript" language="javascript" src="functions.js"&gt;<br />
+		&lt;/script&gt;</span>
+	</li>
+	<li>If you are using internal scripts, enclose it within the starting tag 
+		<span class="Code">&lt;![CDATA[</span> and the ending
+		tag <span class="Code">]]&gt;</span>. This will mark it as unparsed
+		character data. Otherwise characters like &amp; and &lt; will be treated as start
+		of character entities (like <span class="Code">&amp;nbsp;</span>)
+		and tags (like <span class="Code">&lt;b&gt;</span>)
+		respectively.<br />
+		Example for XHTML Javascript:
+		<div class="Code">
+		&lt;script type="text/javascript" language="Javascript"&gt;<br />
+		&lt;!-- <br />
+		&lt;![CDATA[<br />
+                document.write('Hello World!');<br/>
+		]]&gt;<br />
+		//--&gt;<br />
+		&lt;/script&gt;
+		</div>
+	</li>
+</ul>
+
+<h3 id="stylesheets">XHTML and Stylesheets</h3>
+<ul>
+	<li>The <span class="Code">type</span> attribute is mandatory for 
+		<span class="Code">&lt;style&gt;</span> tag.
+		The value of <span class="Code">type</span> is
+		<span class="Code">text/css</span> for stylesheets.
+	</li>
+	<li>The use of external stylesheets is recommended. <br />
+		Example:<br />
+		<span class="Code">&lt;link rel="stylesheet" type="text/css" href="screen.css" /&gt;</span>
+	</li>
+	<li> Enclose
+		internal style definitions within the starting tag 
+		<span class="Code">&lt;![CDATA[</span> and the ending
+		tag <span class="Code">]]&gt;</span> to mark it as unparsed
+		character data. <br />
+		Example:
+		<div class="Code">
+		&lt;style type="text/stylesheet"&gt;<br />
+		&lt;![CDATA[<br />
+                .MyClass { color: #000000;  }<br />
+		]]&gt;<br />
+		&lt;/style&gt;
+		</div>
+		Otherwise the &amp; and &lt; characters will be treated as start
+		of character entities (like <span class="Code">&amp;nbsp;</span>)
+		and tags (like <span class="Code">&lt;b&gt;</span>)
+		respectively.
+	</li>
+</ul>
+
+<h3 id="prohibitions">Element Prohibitions in XHTML</h3>
+The W3C recommendation also prohibits certain XHTML elements from containing 
+some elements. Those are given below:
+<ul>
+	<li><span class="Code">&lt;a&gt;</span> cannot contain other
+		<span class="Code">&lt;a&gt;</span> elements.
+	</li>
+	<li><span class="Code">&lt;pre&gt;</span> cannot contain the
+		<span class="Code">&lt;img&gt;</span>,
+		<span class="Code">&lt;object&gt;</span>,
+		<span class="Code">&lt;big&gt;</span>,
+		<span class="Code">&lt;small&gt;</span>,
+		<span class="Code">&lt;sub&gt;</span>, or
+		<span class="Code">&lt;sup&gt;</span> elements.
+	</li>
+	<li><span class="Code">&lt;button&gt;</span> cannot contain the
+		<span class="Code">&lt;input&gt;</span>,
+		<span class="Code">&lt;select&gt;</span>,
+		<span class="Code">&lt;textarea&gt;</span>,
+		<span class="Code">&lt;label&gt;</span>,
+		<span class="Code">&lt;button&gt;</span>,
+		<span class="Code">&lt;form&gt;</span>,
+		<span class="Code">&lt;fieldset&gt;</span>,
+		<span class="Code">&lt;iframe&gt;</span>, or
+		<span class="Code">&lt;isindex&gt;</span> elements.
+	</li>
+	<li><span class="Code">&lt;label&gt;</span> cannot contain
+		other <span class="Code">&lt;label&gt;</span>
+		elements.
+	</li>
+	<li><span class="Code">&lt;form&gt;</span> cannot contain
+		other <span class="Code">&lt;form&gt;</span>
+		elements.
+	</li>
+</ul>
+
+<h3 id="resources">XHTML Resources on the Web</h3>
+<ol>
+	<li><a href="http://www.w3.org/TR/xhtml1" target="_blank">The W3C Pages on XML</a>: The W3C are the
+		people who work for the formulation and standardisation of Web technologies including XHTML.
+		They are the best place to go.
+	</li>
+
+	<li><a href="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" target="_blank"
+		>Download the XHTML 1.0 Transitional DTD</a>: The DTD (Document Type Definition)
+		is used to define an XML application. XHTML is also a XML application and
+		all the rules can be found in this well documented DTD.
+	</li>
+	
+	<li><a href="http://www.w3.org/People/Raggett/tidy/" target="_blank">HTML-Tidy</a>: Written by Dave Reggett,
+		this tool can will accept any [bloated or rotten] HTML and make it to adhere to standards.
+		It can also be used to accelerate conversion of HTML to XML or XHTML.</li> 
+
+	<li><a href="http://www.chami.com/html-kit/" target="_blank">Chami's HTML-Kit</a>: An excellent HTML editor
+		(not visual, but supports previewing) which supports XHTML. It supports the HTML-Tidy as a plugin.
+		Recommended.
+	</li> 
+
+	<li><a href="http://validator.w3.org" target="_blank">The W3C Online Validator for XHTML</a>: XHTML documents
+		can be validated online with this W3C Service. Recommended.
+	</li>
+
+	<li><a href="http://www.ietf.org/rfc/rfc1766.txt" target="_blank">RFC1766</a>:
+		This RFC defines the two-letter
+		tags for the Identification of Languages.
+	</li>
+</ol>
+
+<p>If you found this article useful, please take a moment to <a href="http://pub26.bravenet.com/guestmap/show.php?usernum=2191302094&amp;lightmap=0&amp;icons=0&amp;&amp;entrylist=0&amp;zoom=0" onclick="window.open('http://pub26.bravenet.com/guestmap/show.php?usernum=2191302094&amp;lightmap=0&amp;icons=0&amp;&amp;entrylist=0&amp;zoom=0','bnetguestmap','toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=0,resizable=0,width=720,height=470,top=110,left=110');return false;">sign my guestmap</a>. That will encourage me to write more on XHTML and related topics.</p>
+<br />
+
+<div class="sectionnav">
+	<a href="#top">Back to top of page</a> |
+	<a href="./">More technical articles</a>
+</div>
+</td></tr>
+</table>
+
+<div id="pagenav2">
+
+	<span class="hidden"><a href="#content" class="SmallFont">top of page</a></span>
+
+	<a href="/beeandnee/" title="Home is where the start is. Learn about this site.">home</a> |
+	<a href="/beeandnee/techzone/" title="Articles, tutorials on technology, particularly web-related.">techzone</a> |
+	<a href="/beeandnee/beeguides/" title="Read the BeeGuide to E-mail here.">beeguides</a> |
+	<a href="/beeandnee/quiztime/" title="Lots of quizzes on information technology and computers.">quiztime</a> |
+	<a href="/beeandnee/search.asp" title="Search this site in and out. Powered by atomz.com">sitesearch</a> |
+	<a href="/beeandnee/sitemap.asp" title="Lost your way? Use this sitemap to navigate.">sitemap</a>
+</div>
+
+<div id="footer">
+
+	<script language="Javascript" type="text/javascript">
+	<!--
+	document.write('URL: ' + document.location.href);
+	//-->
+	</script>
+	<noscript>This site: http://www22.brinkster.com/beeandnee</noscript>
+	<br />
+
+	Copyright 2000-2002. Bejoy Alex Jaison. 
+
+	Valid <a target="validator" href="http://validator.w3.org/check/referer" class="ScreenOnly"
+		>XHTML 1.0</a> and <a target="validator" href="http://jigsaw.w3.org/css-validator/validator?uri=http%3A%2F%2Fwww22.brinkster.com%2Fbeeandnee%2Fimages%2Fscreen.css&amp;warning=no"
+	>CSS</a>
+
+	<br />
+	Read our <a href="/beeandnee/disclaimer.asp">disclaimer</a>.<br />
+</div>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-485412-2");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+<!-- END OF BODY -->
+</body>
+</html>

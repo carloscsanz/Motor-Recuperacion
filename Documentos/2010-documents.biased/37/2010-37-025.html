@@ -1,0 +1,615 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<base href="http://www.peterbe.com/plog/blogitem-040625-1/" />
+
+
+<title>TBODY tag in a XHTML table - Peterbe.com (Peter Bengtsson on Python, Zope, Kung Fu, London and photos)</title>
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <link rel="stylesheet" type="text/css" media="screen"
+        href="http://static.peterbe.com/misc_/Peterbecom/stylesheet.css,silvercity-optimized.1267838629.css" />
+  <link rel="stylesheet" type="text/css" media="print"
+        href="http://static.peterbe.com/misc_/Peterbecom/print.1264177207.css" />
+   
+<link rel="start" href="/" title="Home">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml" />
+
+
+<link rel="prev"
+      href="http://www.peterbe.com/Dans-just-been-to-Sweden" />
+<link rel="next"
+      href="http://www.peterbe.com/Holiday-for-a-week" />
+
+<meta name="keywords"
+      content="Peter Bengtsson,peterbe.com,Peter,Bengtsson,Zope,Python, Books, Photos, London, Kung fu, kungfu, FWC, bugtracking, issuetracking, issue tracker, bug tracker" />
+
+<meta name="description"
+      content="For all HTML language lawyers out there... I've got a page that is defined as XHTML 1.0 Transitional and in it I use a table that has many &amp;lt;tbody&amp;gt; tags, in these I have a class definition like this: " />
+<meta name="copyright" content="Peter Bengtsson" />
+<meta name="creator" content="Peter Bengtsson" />
+<meta http-equiv="language" content="English" />
+<meta name="generator" content="Zope" />
+<script type="text/javascript"
+        src="http://static.peterbe.com/misc_/Peterbecom/core.js,tw-sack.1264177205.js"></script>
+
+
+
+<script type="text/javascript"> 
+function checkBolder(val) {
+    if (val!="") {
+       if ((document.getElementById) && ($('preview_comment_button')!=null)) {
+          var button = $('preview_comment_button');
+          if (button.style) {
+             button.style.fontWeight = "bold";
+          }
+       }
+    }
+    return false;
+}
+
+function __fillInForm(f, details) {
+  var name = details[0];
+  var email = details[1];
+  var hide_email = parseInt(details[2]);
+  if (name) f.name.value = name;
+  if (email) f.email.value = email;
+  if (hide_email) f['hide_email:boolean'].checked=true;
+    
+}
+function cookienames2form() {
+  var f = $('addcommentform');
+  if (f.name.value=='' && f.email.value=='') {
+    var ajax = new sack('getCommentCookie');
+    ajax.onCompletion=function() {
+      if (ajax.response && ajax.response.split('|').length >2) {
+        __fillInForm(f, ajax.response.split('|'));
+      }
+    };
+    ajax.runAJAX();
+  }
+}
+addEvent(window, 'load', cookienames2form);
+
+function requireCaptcha(f) {
+  var c=f['comment:text'].value;
+  if (c.indexOf('http://')>-1) {
+    var ca=f['captcha_number'].value;
+    if (!ca.length) {
+      $('captchas').style['display']='';
+      alert("If your comment contains a link you must verify the captcha image");
+      return false;
+    }
+  }
+  return true;
+}
+
+/* new requireCaptcha() */
+function requireCaptcha(f) {
+  var ca=f['captcha_number'].value;
+  if (!ca.length) {
+    alert("To prove that you're not a spam robot, please verify the captcha image");
+    $('captchas').style['display']='';
+    return false;
+  } else if ($('captchas').style['display'] != '') {
+    $('captchas').style['display']='';
+  } else {
+    return true;
+  }
+}
+</script>
+<style type="text/css">
+#keywords{display:none}
+div.commentinline {
+  font-family:Arial, Verdana, sans-serif;
+  border-top:1px solid #cccccc;
+  padding:3px 4px 4px 4px;
+  margin-top:10px;
+  margin-bottom:10px;
+  margin-left:15px; 
+}
+.sn {font-weight:bold;font-size:80%}
+
+div.commentpreview {
+  background-color:#e6e6e6;
+  font-family:Arial, Verdana, sans-serif;
+  border-top:1px solid #cccccc;
+  padding:3px 4px 4px 4px;
+  margin-top:10px;
+  margin-bottom:10px;
+  margin-left:5px;
+}
+
+.addcommentadvert {
+  padding:10px;
+  /*border-top:1px solid #666;
+  border-bottom:1px solid #666;*/
+}
+.addcommentadvert p.top {
+  text-align:left;
+  font-size:0.7em;
+  padding-left:5px;
+  margin:0;
+  color:#666;  
+}
+</style>
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-94373-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script');
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 
+        'http://www') + '.google-analytics.com/ga.js';
+    ga.setAttribute('async', 'true');
+    document.documentElement.firstChild.appendChild(ga);
+  })();
+</script>
+
+
+</head>
+
+<body>
+
+<div id="banner">
+
+<a href="http://www.peterbe.com/"><img id="logoface"
+    width="104" height="131" border="0"
+    src="http://static.peterbe.com/misc_/Peterbecom/home/grey_face.1264177201.gif"
+    alt="Peterbe.com (Peter Bengtsson on Python, Zope, Kung Fu, London and photos)" /></a>
+
+<a href="http://www.peterbe.com/"><img id="logotext"
+    width="229" height="61" border="0"
+    src="http://static.peterbe.com/misc_/Peterbecom/home/peterbe_logo_grey.1264177201.gif"
+    alt="Peterbe.com (Peter Bengtsson on Python, Zope, Kung Fu, London and photos)" /></a>
+
+<div id="topright">
+<div id="searchbox">
+<form action="/search">
+Search &nbsp;<input name="q" id="q" maxlength="40" size="16"
+                    value="">&nbsp;<input type="submit" value="Go">
+</form>
+
+</div>
+
+</div>
+
+<div style="position:absolute;top:115px;right:40px;font-size:80%">
+<a href="http://rememberyourfriends.com" title="RememberYourFriends.com - Reminds you to keep in touch">Do you have old friends you don't want to lose contact with?</a>
+
+</div>
+<div id="breadcrumb">
+  <span class="bc">
+    <img width="9" height="11" alt=""
+         src="http://static.peterbe.com/misc_/Peterbecom/home/arrow.1264177201.gif" />
+	<a href="http://www.peterbe.com">Home</a>
+  </span>
+  <span class="bc">
+    <img width="9" height="11" alt=""
+         src="http://static.peterbe.com/misc_/Peterbecom/home/arrow.1264177201.gif" />
+	<a href="http://www.peterbe.com/plog">Plog</a>
+  </span>
+  <span class="bc">
+    <img width="9" height="11" alt=""
+         src="http://static.peterbe.com/misc_/Peterbecom/home/arrow.1264177201.gif" />
+	TBODY tag in a XHTML table
+  </span>
+</div>
+
+
+
+
+</div>
+
+<div id="main">
+<div id="leftcontent">
+
+<div class="m_item" id="issuetrackerproduct_menuimage">
+<a class="mi" href="/issuetrackerproduct"
+   title="
+
+About my baby Open Source project">IssueTrackerProduct</a><br>
+<p>About my baby <a href="http://www.issuetrackerproduct.com">Open Source project</a></p>
+
+
+</div><div class="m_item" id="crosstips_menuimage">
+<a class="mi" href="/crosstips"
+   title="
+
+My fun Crossword solver project. Crosstips.org &amp; Krysstips.se">Crosstips.org</a><br>
+<p>My fun Crossword solver project. <a href="http://crosstips.org/">Crosstips.org</a> & <a href="http://krysstips.se/">Krysstips.se</a></p>
+
+
+</div><div class="m_item" id="kungfu_menuimage">
+<a class="mi" href="/kungfu"
+   title="
+
+Fujian White Crane Kung Fu">Kung Fu</a><br>
+<p>Fujian White Crane Kung Fu</p>
+
+
+</div><div class="m_item" id="fry-it_menuimage">
+<a class="mi" href="/fry-it"
+   title="
+
+Fry-IT is the company I work for">Fry-IT</a><br>
+<p>Fry-IT is the company I work for</p>
+
+
+</div><div class="m_item" id="photos_menuimage">
+<a class="mi" href="/photos"
+   title="
+
+Photoalbum, both old and new.">Photos</a><br>
+<p>Photoalbum, both old and new.</p>
+
+
+</div><div class="m_item" id="zope_menuimage">
+<a class="mi" href="/zope"
+   title="
+
+What I have and am doing with Zope">Zope</a><br>
+<p>What I have and am doing with Zope</p>
+
+
+</div><div class="m_item" id="about_receptsamling_menuimage">
+<a class="mi" href="/about_receptsamling"
+   title="
+
+In Swedish only. About my &quot;Collection of Recipes&quot; website.">Receptsamlingen</a><br>
+<p>In Swedish only. About my "Collection of Recipes" website.</p>
+
+
+</div><div class="m_item" id="contact_menuimage">
+<a class="mi" href="/contact"
+   title="
+
+My contact details and how to contact me.">Contact me</a><br>
+<p>My contact details and how to contact me.</p>
+
+
+</div>
+
+	&nbsp;
+
+<div style="margin:0 4px 0 8px; background-color:#c80c0b">
+<p style="font-size:0.8em;color:white;padding:0 2px 5px 5px">
+<a href="http://kungfupeople.com/"><img
+    alt="KungFuPeople.com" border="0"
+    src="http://static.peterbe.com/misc_/Peterbecom/misc/kfp_logo.1264177202.png" /></a><br />
+<strong>Do you train Kung Fu?</strong><br />
+Or know someone who does?<br />
+Then check out <a style="color:white" href="http://kungfupeople.com/">KungFuPeople.com</a>
+</p>
+</div>
+<br />
+	
+<a style="font-size:80%" title="Mobile version of this page"
+   href="http://peterbe.mobi/plog/blogitem-040625-1"><img
+    alt="Mobile version of this page" border="0"
+    src="http://static.peterbe.com/misc_/Peterbecom/misc/mobile.1264177202.gif" />
+Mobile version of this page</a><br /><br />
+
+
+
+<div class="smaller">
+
+
+
+
+
+<p>
+
+<a href="http://del.icio.us/post" onclick="window.open('http://del.icio.us/post?v=4&amp;noui&amp;jump=close&amp;url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title.split('(')[0]),'delicious','toolbar=no,width=700,height=400'); return false;"><img
+    border="0" alt="del.icio.us"
+    src="http://static.peterbe.com/misc_/Peterbecom/misc/delicious.small.1264177202.gif" /> Save this page in del.icio.us</a></p>
+
+<span>
+<b>Previous:</b><br />
+<a href="http://www.peterbe.com/Dans-just-been-to-Sweden">Dan's just been to Sweden</a><br />
+</span>
+
+<span>
+<b>Next:</b><br />
+<a href="http://www.peterbe.com/Holiday-for-a-week">Holiday for a week</a>
+</span>
+
+
+
+
+
+
+<br />
+
+
+<h4>Related by category</h4>
+
+<div>
+<a href="http://www.peterbe.com/oc-Web+development"><img src="http://www.peterbe.com/plog/categoryimages/webdevelopment.gif" alt="" title="Web Development" height="24" width="32" border="0" />
+Web development</a>
+</div>			 
+
+
+
+
+</div>
+
+<br />&nbsp;
+</div>
+
+<div id="centercontent">
+
+
+  <a href="http://www.peterbe.com/oc-Web+development"><img src="http://www.peterbe.com/plog/categoryimages/webdevelopment.gif" alt="" title="Web development: Click to view items of this category only" height="24" width="32" style="float:right" border="0" /></a>
+
+  
+
+
+<h3>TBODY tag in a XHTML table</h3>
+
+
+
+<br />
+
+<!-- You will NOT be able to see the ad on your site! This unit is hidden on your page, and will only display to your search engine traffic (from US and CA). To preview, paste the code up on your site, then add #chitikatest=mortgage to the end of your URL in your browser's address bar.  Example:  www.yourwebsite.com#chitikatest=mortgage. This will show you what the ad would look like to a user who is interested in "mortgages." -->
+<script type="text/javascript"><!--
+ch_client = "peterbe";
+ch_type = "mpu";
+ch_width = 468;
+ch_height = 180;
+ch_non_contextual = 4;
+ch_vertical ="premium";
+ch_sid = "Chitika Premium";
+var ch_queries = new Array( );
+var ch_selected=Math.floor((Math.random()*ch_queries.length));
+if ( ch_selected < ch_queries.length ) {
+ch_query = ch_queries[ch_selected];
+}
+//--></script>
+<script src="http://scripts.chitika.net/eminimalls/amm.js" type="text/javascript">
+</script>
+
+
+
+<h4>25<sup>th</sup> of June 2004</h4>
+
+
+<p>For all HTML language lawyers out there...
+I've got a page that is defined as <code>XHTML 1.0 Transitional</code> and in it I use a table that has many <code>&lt;tbody&gt;</code> tags, in these I have a <code>class</code> definition like this:
+<br><div class="my_code_default">&nbsp;<span class=h_13>&lt;table&gt;</span><br>&nbsp;&nbsp;&nbsp;<span class=h_13>&lt;tr&gt;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=h_13>&lt;th&gt;</span>No<span class=h_13>&lt;/th&gt;&lt;th&gt;</span>Name<span class=h_13>&lt;/th&gt;</span><br>&nbsp;&nbsp;&nbsp;<span class=h_13>&lt;/tr&gt;</span><br>&nbsp;&nbsp;&nbsp;<span class=h_13>&lt;tbody</span><span class=h_10>&nbsp;</span><span class=h_2>class</span><span class=h_10>=</span><span class=h_7>"foo"</span><span class=h_13>&gt;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=h_13>&lt;tr&gt;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=h_13>&lt;td&gt;</span>1.<span class=h_13>&lt;/td&gt;&lt;td&gt;</span>One<span class=h_13>&lt;/td&gt;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=h_13>&lt;/tr&gt;</span><br>&nbsp;&nbsp;&nbsp;<span class=h_13>&lt;/tbody&gt;</span><br>&nbsp;<span class=h_13>&lt;/table&gt;</span><br></div>
+</p>
+<p>That was not valid XHTML according to the <a href="http://validator.w3.org/">W3C Validator</a>
+and it took me some time to figure out why. Now I've got it! One has to use the <code>thead</code> tag too if you want to use the <code>tbody</code> tag. Here's an example:
+<br><div class="my_code_default">&nbsp;<span class=h_13>&lt;table&gt;</span><br>&nbsp;&nbsp;&nbsp;<span class=h_13>&lt;thead&gt;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=h_13>&lt;tr&gt;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=h_13>&lt;th&gt;</span>No<span class=h_13>&lt;/th&gt;&lt;th&gt;</span>Name<span class=h_13>&lt;/th&gt;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=h_13>&lt;/tr&gt;</span><br>&nbsp;&nbsp;&nbsp;<span class=h_13>&lt;/thead&gt;</span><br>&nbsp;&nbsp;&nbsp;<span class=h_13>&lt;tbody</span><span class=h_10>&nbsp;</span><span class=h_2>class</span><span class=h_10>=</span><span class=h_7>"foo"</span><span class=h_13>&gt;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=h_13>&lt;tr&gt;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=h_13>&lt;td&gt;</span>1.<span class=h_13>&lt;/td&gt;&lt;td&gt;</span>One<span class=h_13>&lt;/td&gt;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=h_13>&lt;/tr&gt;</span><br>&nbsp;&nbsp;&nbsp;<span class=h_13>&lt;/tbody&gt;</span><br>&nbsp;<span class=h_13>&lt;/table&gt;</span><br></div>
+</p>
+<p>Worth remembering.</p>
+
+
+<br />
+
+
+
+<br />
+
+
+
+
+<h4>Comment</h4>
+
+
+
+
+
+
+<div class="comment" id="c0703294gjb">
+
+
+
+<span class="sn">abhinav</span> - 
+<small>29th March 2007</small>
+&nbsp;<span style="font-size:70%">[<a rel="nofollow"
+    href="?replypath=/c0703294gjb#c0703294gjb">&#171;&#171; Reply to this</a>]</span>
+<br />
+
+<span class="commenttext">hi,<br />
+<br />
+your site in very simple and not attractive....design purpose<br />
+<br />
+so i hope you re-design.</span>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<div class="comment" id="c071021d59a">
+
+
+
+<span class="sn">abhinav</span> - 
+<small>20th October 2007</small>
+&nbsp;<span style="font-size:70%">[<a rel="nofollow"
+    href="?replypath=/c071021d59a#c071021d59a">&#171;&#171; Reply to this</a>]</span>
+<br />
+
+<span class="commenttext">Thanks for the article. It was useful.<br />
+<br />
+That's a very unproductive comment abhinav.<br />
+<br />
+Regards,<br />
+Daniel</span>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+<div class="comment">&nbsp;</div>
+<a name="bottom"></a>
+
+
+
+
+
+
+
+<div id="commentform">
+
+
+
+
+
+<!--  onsubmit="return requireCaptcha(this)" -->
+<form action="http://www.peterbe.com/plog/blogitem-040625-1#bottom"
+      method="post" id="addcommentform">
+
+<table border="0">
+	<tr>
+		<td><textarea name="comment:text" cols="41" rows="6"
+                onkeydown="checkBolder(this.value);"
+                onchange="$('captchawarning').style.display=''"></textarea>
+		</td>
+		<td valign="top">
+		
+		<table>
+		    <tr>
+  		    	<td style="font-size:90%">Name:</td>
+			<td><input name="name" size="23" value="" />
+			</td>
+		    </tr>
+		    <tr>
+		    	<td valign="top" style="font-size:90%">Email:</td>
+			<td valign="top"><input name="email" size="23" value="" />
+			
+			<br />
+			<input type="hidden" name="asked_hide_email:boolean" value="1" />
+			<small><input type="checkbox" name="hide_email:boolean" value="1" checked="checked" />
+			        hide my email address.</small>
+			<p style="font-size:80%;color:#666">			
+			Your email address will be encoded to prevent email-extraction
+			spiders from reading it so you won't get spammed 
+			if you decide to show your email address.</p>
+			
+			</td>
+		    </tr>
+		</table>
+		</td>
+
+	</tr>
+
+        <tr>
+		<td align="center">
+		<input type="submit" name="preview_comment" id="preview_comment_button" style="font-weight:normal" value=" Preview first " />
+
+		<input type="submit" name="addComment:method"
+         value=" Add Comment "
+         onclick="if (requireCaptcha(this.form)){this.value='Adding comment...';return true;}else{return false}"
+         style="" />
+		
+		
+		</td>
+		<td colspan="2">&nbsp;
+		<div id="captchas" style="display:none">
+		  What number is this?
+		  
+		  <span>
+		  <img alt="What number is this?"
+         src="/plog/captchas/e.gif" />
+		  <input type="hidden" name="captcha_id" value="e.gif" />
+		  </span>
+		  <input name="captcha_number" size="4" maxlength="5" />
+		  <input type="submit" name="addComment:method" value="OK" />
+		</div>
+		<noscript>Javascript required to enter comments <!--containing links--></noscript>
+		</td>
+	</tr>
+</table>
+<small id="captchawarning" style="display:none">Dear all people entering comments,<br />
+Due to an increase in comment spam I've had to make it mandatory to recognize the imagenumbers. If you're unable to post comments,
+please contact me as soon as possible.</small>
+</form>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+   
+
+</div>
+
+
+
+
+</div>
+
+<br clear="all" />
+
+
+
+<div class="clearer">&nbsp;</div>
+
+
+
+
+
+
+<div id="footer">
+<div class="copyright">&copy;
+<span class="aeh"><a href="mailto:mail_AT_peterbe_dot_com">Peter Bengtsson</a></span> 2003-2010
+<a title="Read more about this site itself"
+   href="http://www.peterbe.com/About">About</a>,
+<a title="RSS feed of this blog" href="/rss.xml">RSS</a>,
+<a href="http://www.fry-it.com" title="Fry-IT - the company I work for and who hosts this site">Fry-IT Ltd</a>
+
+<span>
+<a title="Print view" rel="nofollow"
+   href="http://www.peterbe.com/plog/blogitem-040625-1/pv"><img
+    width="15" height="13" alt="Print view" hspace="3"
+    vspace="0" border="0"
+    src="http://static.peterbe.com/misc_/Peterbecom/misc/printer.1264177202.gif" /></a>
+
+</span>
+
+</div>
+</div>
+
+
+
+</body>
+</html>
+
+        
+

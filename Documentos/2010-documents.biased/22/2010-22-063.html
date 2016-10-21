@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.2//EN" "http://www.openmobilealliance.org/tech/DTD/xhtml-mobile12.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-type" content="application/xhtml+xml; charset=utf-8" />
+    <meta http-equiv="Content-language" content="en-gb" />
+    <title>Fixit - Valid Markup | mobiForge</title>
+            <link media="all" href="/sites/all/themes/zen/mobiforge_mobi/mobile.css" type="text/css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div id='logo'><img width='120' height='27' src='/img/mf_logo.png/none/120/27' alt="mobiForge" /></div>
+    <div id='sect'>
+    <a href='/Starting'>Starting</a> &gt; <a href='/Designing'>Designing</a> &gt; <a href='/Developing'>Developing</a> &gt; <b><a href='/Testing'>Testing</a></b> &gt; <a href='/Running'>Running</a></div>
+    <div id='nbfd'>
+      <a href="/">Home</a> | <a href="/news">News</a> | <a href="/blog">Blogs</a> | <a href='/about'>About</a>
+    </div>
+    <div id='main'>
+                        <h1>Fixit - Valid Markup</h1>
+                <div id='content'>
+            <p>
+    <img src="/img/finepixtrix.jpg/file/120/90/crop/true" width="120" height="90" />        <p>This test runs an XML parser on your document to check if your page validates against its specified schema. A schema (or DTD) constrains the structure and content of an XML document. An XML document which is well-formed and which complies with its schema is said to be valid. Put simply, the schema specifies rules about the structure and content of a document, and your document must follow these rules (as well as general XML well-formedness rules). If the XML parser finds something wrong with your document, then an error message will be displayed. Some errors cause the parser to stop dead in its tracks, while some errors are not so serious, and the parser can continue.    </p> <h3>Understanding the validator error messages</h3> <p>The output of the validator can sometimes be misleading. A list of the most common messages and their remedies are included below:</p> <blockquote>    
+<p>
+<a href="#content_of_element_body">The content of element type &quot;body&quot; must match...</a><br />
+<a href="#content_of_element_form">The content of element type &quot;form&quot; must match...</a><br />
+<a href="#reference_to_entity">The reference to entity &quot;<i>&amp;</i>&quot; must end with the &#39;;&#39; delimiter.</a><br />
+<a href="#attribute_must_be_declared">Attribute &quot;<i>attr</i>&quot; must be declared for element type &quot;<i>element</i>&quot;.</a><br />
+<a href="#element_must_be_declared">Element type &quot;<i>element</i>&quot; must be declared.</a><br />
+<a href="#white_spaces_required">White spaces are required between publicId and systemId.</a><br />
+<a href="#systemId_must_begin_with_quote">The system identifier must begin with either a single or double quote character.</a><br />
+<a href="#content_not_allowed_in_prolog">Content is not allowed in prolog.</a><br />
+<a href="#xml_processing_instruction_not_allowed">The processing instruction target matching &quot;[xX][mM][lL]&quot; is not allowed.</a><br />
+ <a href="#xml_doc_structures">XML document structures must start and end within the same entity.</a><br />
+ <a href="#element_terminating">The element type &quot;<i>element</i>&quot; must be terminated by the matching end-tag &quot;&lt;/<i>element</i>&gt;&quot;.</a></code><br />
+ <a href="#processing_instruction_must_begin_with">The processing instruction must begin with the name of the target.</a><br />
+ <a href="#open_quote_expected">Open quote is expected for attribute &quot;<i>attr</i>&quot; associated with an element type &quot;<i>element</i>&quot;.</a><br />   </p> </blockquote>
+ <p>&nbsp;</p>
+ <h3>The content of element type &quot;body&quot; must match  &quot;(h1|h2|h3|h4|h5|h6|ul|ol|dl|p|div|pre|blockquote|address|hr|table|form|fieldset)*&quot;.
+ <a title="content_of_element_body" name="content_of_element_body" id="content_of_element_body"></a></h3> 
+ <p><b>Cause</b>: 
+ Only certain tags are allowed immediately after the &lt;body&gt; tag</p> 
+ <p><b>Solution</b>: This message indicates that markup immediately following the <span class="geshifilter"><code class="geshifilter-text">&lt;body&gt;</code></span> tag should be one of the tags in the list e.g.</p> 
+ <p>Incorrect: </p> 
+ <p>
+ <div class="geshifilter"><pre class="geshifilter-xml"> <span style="color: #009900;"><span style="font-weight: bold; color: black;">&lt;body<span style="font-weight: bold; color: black;">&gt;</span></span></span>
+ Hello World!
+ <span style="color: #009900;"><span style="font-weight: bold; color: black;">&lt;/body<span style="font-weight: bold; color: black;">&gt;</span></span></span>
+&nbsp;</pre></div> 
+ </p> 
+ 
+ <p>Correct:</p> 
+ <p><div class="geshifilter"><pre class="geshifilter-xml"> <span style="color: #009900;"><span style="font-weight: bold; color: black;">&lt;body<span style="font-weight: bold; color: black;">&gt;</span></span></span>
+ <span style="color: #009900;"><span style="font-weight: bold; color: black;">&lt;p<span style="font-weight: bold; color: black;">&gt;</span></span></span>
+ Hello World!
+ <span style="color: #009900;"><span style="font-weight: bold; color: black;">&lt;/p<span style="font-weight: bold; color: black;">&gt;</span></span></span>
+ <span style="color: #009900;"><span style="font-weight: bold; color: black;">&lt;/body<span style="font-weight: bold; color: black;">&gt;</span></span></span>
+&nbsp;</pre></div></p> 
+ <p>&nbsp;</p>
+ 
+ <h3>The content of element type &quot;form&quot; must match &quot;(h1|h2|h3|h4|h5|h6|ul|ol|dl|p|div|pre|blockquote|address|hr|table|fieldset)+&quot;.<a title="content_of_element_form" name="content_of_element_form" id="content_of_element_form"></a></h3> 
+ <p><b>Cause</b>: Only certain tags are allowed immediately after the <span class="geshifilter"><code class="geshifilter-text">&amp;lt;form&amp;gt;</code></span> tag</p> <p><b>Solution</b>: This message is very similar to the previous one. Markup immediately following the <span class="geshifilter"><code class="geshifilter-text">&amp;lt;form&amp;gt;</code></span> tag should be one of the tags in the list: </p> <p>&nbsp;</p> <p>&nbsp;</p> 
+ 
+ <h3>The reference to entity &quot;<i>&amp;</i>&quot; must end with the &#39;;&#39; delimiter.<a title="reference_to_entity" name="reference_to_entity" id="reference_to_entity"></a></h3> 
+ <p><b>Cause</b>: This message is often displayed where the &#39;&amp;&#39; characters in a URL have not been converted to their corresponding XML entity. </p> <p><b>Solution</b>: Escape special characters such as &#39;&amp;&#39; </p> 
+ <p>Correct:</p> 
+ <p><div class="geshifilter"><pre class="geshifilter-xml"> <span style="color: #009900;"><span style="font-weight: bold; color: black;">&lt;a</span> <span style="color: #000066;">href</span>=<span style="color: #ff0000;">&quot;http://example.mobi?fname=joe&amp;amp;lname=blogs&quot;</span><span style="font-weight: bold; color: black;">&gt;</span></span>...<span style="color: #009900;"><span style="font-weight: bold; color: black;">&lt;/a<span style="font-weight: bold; color: black;">&gt;</span></span></span>
+&nbsp;</pre></div>
+ </p>
+ <p>Incorrect:</p> 
+ <p><div class="geshifilter"><pre class="geshifilter-xml"> <span style="color: #009900;"><span style="font-weight: bold; color: black;">&lt;a</span> <span style="color: #000066;">href</span>=<span style="color: #ff0000;">&quot;http://example.mobi?fname=joe&amp;lname=blogs&quot;</span><span style="font-weight: bold; color: black;">&gt;</span></span>...<span style="color: #009900;"><span style="font-weight: bold; color: black;">&lt;/a<span style="font-weight: bold; color: black;">&gt;</span></span></span>
+&nbsp;</pre></div>
+ </p> 
+ <p>&nbsp;</p> <p>&nbsp;</p> 
+ <h3>Attribute &quot;<i>attr_name</i>&quot; must be declared for element type &quot;<i>element_name</i>&quot;.<a title="attribute_must_be_declared" name="attribute_must_be_declared" id="attribute_must_be_declared"></a></h3> 
+ <p><b>Cause</b>: 
+ This type of message simply means that you may not include attribute <i>attr_name </i>for the element <i>element_name</i>. </p> 
+ <p><b>Solution</b>: To fix the problem, simply omit the offending attribute: e.g. if you receive the message: </p> 
+ <p><span class="geshifilter"><code class="geshifilter-text">Attribute &quot;name&quot; must be declared for element type &quot;form&quot;.</code></span></p> 
+ <p>Remove the name attribute e.g. </p> 
+ <p><div class="geshifilter"><pre class="geshifilter-xml"> <span style="color: #009900;"><span style="font-weight: bold; color: black;">&lt;form</span> <span style="color: #000066;">name</span>=<span style="color: #ff0000;">&quot;myform&quot;</span> <span style="color: #000066;">id</span>=<span style="color: #ff0000;">&quot;myform&quot;</span> ...<span style="font-weight: bold; color: black;">&gt;</span></span></pre></div>
+ </p> 
+ <p>becomes </p> 
+ <p><span class="geshifilter"><code class="geshifilter-text">&nbsp;&lt;form &nbsp;id=&quot;myform&quot; ...&gt;</code></span></p> 
+ 
+ <p>And if you receive the message:</p>
+ <p><span class="geshifilter"><code class="geshifilter-text">&nbsp;Attribute &quot;cellpadding&quot; must be declared for element type &quot;table&quot;.</code></span></p> 
+ <p>Remove the cellpadding attribute e.g. </p>
+ <p><span class="geshifilter"><code class="geshifilter-text">&lt;table cellpadding=&quot;10px&quot; ...&gt;</code></span> 
+ becomes <span class="geshifilter"><code class="geshifilter-text">&lt;table&gt;</code></span> </p>   
+ <p>&nbsp;</p> 
+ <p>If the attribute is a styling attribute and you want to maintain your styling, then you could move the attribute from the tag markup and into a stylesheet. For example, the line:</p> 
+ <p><span class="geshifilter"><code class="geshifilter-text">&lt;td bgcolor=&quot;#009900&quot; height=&quot;25&quot;&gt;Hello World!&lt;/td&gt;</code></span>
+ <p>&nbsp;</p> 
+ <p>would produce the following validation errors:</p> 
+ <div class="geshifilter"><pre class="geshifilter-text"> Attribute &quot;bgcolor&quot; must be declared for element type &quot;td&quot;.
+ Attribute &quot;height&quot; must be declared for element type &quot;td&quot;.</pre></div>
+ <p>&nbsp;</p> 
+ <p>To remedy this without losing your styling, you move the attributes <span class="geshifilter"><code class="geshifilter-text">bgcolor</code></span> and <span class="geshifilter"><code class="geshifilter-text">height</code></span> into a CSS style. So the original markup becomes: </p> 
+ <div class="geshifilter"><pre class="geshifilter-xml"> <span style="color: #009900;"><span style="font-weight: bold; color: black;">&lt;td</span> <span style="color: #000066;">class</span>=<span style="color: #ff0000;">&quot;mystyle&quot;</span><span style="font-weight: bold; color: black;">&gt;</span></span>Hello World!<span style="color: #009900;"><span style="font-weight: bold; color: black;">&lt;/td<span style="font-weight: bold; color: black;">&gt;</span></span></span>
+&nbsp;</pre></div>
+ <p>&nbsp;</p> 
+ <p>And a new style called <span class="geshifilter"><code class="geshifilter-text">mystyle</code></span> is defined:</p>
+ <div class="geshifilter"><pre class="geshifilter-css">   td<span style="color: #6666ff;">.mystyle</span> <span style="color: #66cc66;">&#123;</span>
+     <span style="color: #000000; font-weight: bold;">background-color</span><span style="color: #66cc66;">:</span> <span style="color: #cc00cc;">#<span style="color: #933;">009900</span></span><span style="color: #66cc66;">;</span>
+     <span style="color: #000000; font-weight: bold;">line-height</span><span style="color: #66cc66;">:</span> <span style="color: #933;">25px</span><span style="color: #66cc66;">;</span> 
+   <span style="color: #66cc66;">&#125;</span>
+&nbsp;</pre></div>
+ <p>&nbsp;</p> 
+ <p>However, you need to be careful here. Sometimes the CSS attributes have different names to their HTML counterparts. In this case <span class="geshifilter"><code class="geshifilter-text">bgcolor</code></span>becomes <span class="geshifilter"><code class="geshifilter-text">background-color</code></span>, and <span class="geshifilter"><code class="geshifilter-text">height</code></span> becomes <span class="geshifilter"><code class="geshifilter-text">line-height.</code></span>Please refer to the CSS specification to find out what attributes are available to use. </p> <p>&nbsp;</p> 
+ <h3>Element type "<i>element_name</i>" must be declared.<a title="element_must_be_declared" name="element_must_be_declared" id="element_must_be_declared"></a> </h3> 
+ <p><b>Cause</b>: This means that the element "element_name" has not been specified in the DTD. Thus, it can&#39;t be used in your document. </p> 
+ <p><b>Solution</b>: To remedy, simpy remove the <span class="geshifilter"><code class="geshifilter-text">&lt;element_name&gt;</code></span> tag. 
+ This applies to any error message of the form e.g. </p>
+  <p>If you receive the message:</p> 
+  <p><span class="geshifilter"><code class="geshifilter-text">Element type &quot;font&quot; must be declared.</code></span>
+  </p> 
+  <p>Then you should remove the occurence of the <span class="geshifilter"><code class="geshifilter-text">&lt;font&gt;</code></span> tag from your markup. </p> 
+  <p>&nbsp;</p> <p>&nbsp;</p> 
+  <h3>White spaces are required between publicId and systemId.<a title="white_spaces_required" name="white_spaces_required" id="white_spaces_required"></a></h3> 
+  <p><b>Cause</b>: There is no space between the public and system identifiers in the DOCTYPE declaration</p> <p><b>Solution</b>: To fix this, simply put a space, a newline, or a tab between the public and system identifiers in the DOCTYPE declaration e.g. </p> 
+  <p>Correct:</p> 
+  <div class="geshifilter"><pre class="geshifilter-xml">  <span style="color: #00bbdd;">&lt;!DOCTYPE html PUBLIC &quot;-//WAPFORUM//DTD XHTML Mobile 1.0//EN&quot; </span>
+<span style="color: #00bbdd;">  &quot;http://www.wapforum.org/DTD/xhtml-mobile10.dtd&quot;&gt;</span></pre></div>
+  <p>&nbsp;</p> <p>Incorrect:</p> 
+  <div class="geshifilter"><pre class="geshifilter-text">&lt;!DOCTYPE html PUBLIC &quot;-//WAPFORUM//DTD XHTML Mobile 1.0//EN&quot; 
+  &quot;http://www.wapforum.org/DTD/xhtml-mobile10.dtd&quot;&gt;
+&nbsp;</pre></div> 
+  <p>&nbsp;</p> <p>&nbsp;</p> 
+  <h3>The system identifier must begin with either a single or double quote character.<a title="systemId_must_begin_with_quote" name="systemId_must_begin_with_quote" id="systemId_must_begin_with_quote"></a></h3> 
+  <p><b>Cause</b>: The system identifier (a URL to a copy of the DTD) of the DOCTYPE declaration is not surrounded by quotes</p> <p><b>Solution</b>: Put quotes around the system id e.g.</p> <p>Incorrect:</p> 
+  <span class="geshifilter"><code class="geshifilter-text">&lt;!DOCTYPE html PUBLIC &quot;-//WAPFORUM//DTD XHTML Mobile 1.0//EN&quot; http://www.wapforum.org/DTD/xhtml-mobile10.dtd&gt;</code></span>
+   <p>&nbsp;</p> <p>Correct:</p> 
+   <span class="geshifilter"><code class="geshifilter-text">&lt;!DOCTYPE html PUBLIC &quot;-//WAPFORUM//DTD XHTML Mobile 1.0//EN&quot; &quot;http://www.wapforum.org/DTD/xhtml-mobile10.dtd&quot;&gt;</code></span>
+    <p>&nbsp;</p> <p>&nbsp;</p> 
+  <h3>Content is not allowed in prolog.<a title="content_not_allowed_in_prolog" name="content_not_allowed_in_prolog" id="content_not_allowed_in_prolog"></a></h3> 
+  <p><b>Cause</b>: There is extraneous text at the beginning of the document.</p> <p><b>Solution</b>: Remove any text occuring before the XML declaration. Comments are allowed, but must not occur before the XML decalaration e.g. </p> 
+  <p>Not permitted:</p> 
+  <div class="geshifilter"><pre class="geshifilter-text">  &lt;!-- This is a comment before the XML declaration - this is not allowed --&gt;
+  &lt;?xml version=&quot;1.0&quot; ?&gt;   
+  &lt;!DOCTYPE html PUBLIC &quot;-//WAPFORUM//DTD XHTML Mobile 1.0//EN&quot; &quot;http://www.wapforum.org/DTD/xhtml-mobile10.dtd&quot;&gt;</pre></div> 
+  <p>&nbsp;</p> 
+  <p>Not permitted:</p> 
+  <div class="geshifilter"><pre class="geshifilter-text">  &lt;?xml version=&quot;1.0&quot; ?&gt;
+  This is some content before the DOCTYPE declaration - this is not allowed 
+  &lt;!DOCTYPE html PUBLIC &quot;-//WAPFORUM//DTD XHTML Mobile 1.0//EN&quot; &quot;http://www.wapforum.org/DTD/xhtml-mobile10.dtd&quot;&gt;
+&nbsp;</pre></div> 
+  <p>&nbsp;</p> <p><br />Permitted:</p> 
+  <div class="geshifilter"><pre class="geshifilter-text">  &lt;?xml version=&quot;1.0&quot; ?&gt;
+  &lt;!-- This is a comment before the XML declaration - this is allowed--&gt;
+  &lt;!DOCTYPE html PUBLIC &quot;-//WAPFORUM//DTD XHTML Mobile 1.0//EN&quot; &quot;http://www.wapforum.org/DTD/xhtml-mobile10.dtd&quot;&gt;
+&nbsp;</pre></div> 
+  <p>&nbsp;</p> <p>&nbsp;</p> 
+  <h3>The processing instruction target matching "[xX][mM][lL]" is not allowed.<a title="xml_processing_instruction_not_allowed" name="xml_processing_instruction_not_allowed" id="xml_processing_instruction_not_allowed"></a></h3> 
+  <p><b>Cause</b>: This message can occur where there is extraneous text at the very beginning of the document. </p> <p><b>Solution</b>: Remove any text preceding the XML declaration. Comments are permitted before the DOCTYPE declaration, but not before the XML decalaration. See previous error message. </p> <p>&nbsp;</p> <p>&nbsp; </p> 
+  <h3>XML document structures must start and end within the same entity.<a title="xml_doc_structures" name="xml_doc_structures" id="xml_doc_structures"></a></h3> 
+  <p><b>Cause</b>: This message can occur when the closing <span class="geshifilter"><code class="geshifilter-text">&lt;html&gt;</code></span> tag is missing</p> 
+  <p><b>Solution</b>: Make sure there is a closing <span class="geshifilter"><code class="geshifilter-text">&lt;/html&gt;</code></span> tag at the end of your document </p> <p>&nbsp;</p> <p>&nbsp;</p> 
+  <h3>The element type "<abc>" must be terminated by the matching end-tag "</abc>".<a title="element_terminating" name="element_terminating" id="element_terminating"></a></code></h3>
+   <p><b>Cause</b>: This might occur when tags are not properly nested, or of the name of closing tag has been mispelled. </p> <p><b>Solution</b>: Check that your tags are correctly nested and closed properly. </p> <p>&nbsp;</p> <p>&nbsp;</p> 
+   <h3>The processing instruction must begin with the name of the target.<a title="processing_instruction_must_begin_with" name="processing_instruction_must_begin_with" id="processing_instruction_must_begin_with"></a></h3> 
+   <p><b>Cause</b>: A possible cause of this message is where the the XML declaration is incorrect, for example where extra spaces have been inserted </p> 
+   <p><b>Solution</b>: Ensure the XML declaration and any processing instructions (lines beginning <span class="geshifilter"><code class="geshifilter-text">&lt;?.... ?&gt;</code></span> have been properly stated e.g.</p> 
+   <p>Incorrect:</p> 
+   <span class="geshifilter"><code class="geshifilter-text">&lt;? xml version=&quot;1.0&quot; ?&gt;</code></span>
+   <p>&nbsp;</p> 
+   <p>Correct:</p> 
+   <p><span class="geshifilter"><code class="geshifilter-text">&lt;?xml version=&quot;1.0&quot; ?&gt;</code></span> </p>   
+   <h3>Open quote is expected for attribute "attr" associated with an element type "element".<a title="open_quote_expected" name="open_quote_expected" id="open_quote_expected"></a></h3>
+    <p><b>Cause</b>: This message is genereated when an attribute value is specified <i>without</i> enclosing it in quotes </p> 
+    <p><b>Solution</b>: Make sure that all attributes are enclosed in quotes (either single or double quotes will do). For example, if the error message is:</p> <p><span class="geshifilter"><code class="geshifilter-text">Open quote is expected for attribute &quot;rel&quot; associated with an element type &quot;link&quot;.</code></span></p> 
+    <p>then you should locate the offending occurence of the <span class="geshifilter"><code class="geshifilter-text">rel</code></span> attribute within the <span class="geshifilter"><code class="geshifilter-text">link</code></span> tag, and place quotes around its value: </p> 
+    <p>Incorrect:</p> <span class="geshifilter"><code class="geshifilter-text">&lt;link rel=stylesheet href=&quot;style.css&quot; type=&quot;text/css&quot;&gt;</code></span>
+    <p>&nbsp;</p> 
+    <p>Correct:</p> 
+    <div class="geshifilter"><pre class="geshifilter-text">&lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot; type=&quot;text/css&quot;&gt;
+&nbsp;</pre></div><p>&nbsp;</p>  </p>
+      <p>
+      Posted by ruadhan 3 years ago    </p>
+          </div>
+          </div>
+        <div id='switch'><a onclick='document.cookie="dm_switcher=desktop;path=/;expires=Tue, 01-01-2030 00:00:00 GMT";' href='http://mobiforge.com/testing/story/fixit-valid-markup?dm_switcher=true'><img src='/sites/all/modules/common/dm_switcher/desktop.gif' width='16' height='16' style='border:0;padding-right:2px;vertical-align:bottom' alt='Switcher icon' /></a><a onclick='document.cookie="dm_switcher=desktop;path=/;expires=Tue, 01-01-2030 00:00:00 GMT";' href='http://mobiforge.com/testing/story/fixit-valid-markup?dm_switcher=true'>Switch to our desktop site</a> | <a href='http://mobithinking.mobi'>mobiThinking</a></div>
+    <div id='footer'>Copyright &copy; 2006-10 dotMobi, <a href='/legal'>Legal</a></div>
+    <div>
+<img src="http://p.admob.com/e0?rt=0&amp;z=1268573506.68&amp;a=&amp;s=a1478e15e140d44&amp;o=e4e82025d69643ca7c789c7596318ffc&amp;lt=0.0810370609283&amp;to=1" alt="" width="1" height="1"/>
+
+
+
+</div>
+  </body>
+</html>

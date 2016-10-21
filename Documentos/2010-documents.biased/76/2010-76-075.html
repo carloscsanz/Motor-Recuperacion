@@ -1,0 +1,1189 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Connecting to MySQL with C# and ODBC (C# Programming Tutorial) &#8226; Geekpedia</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="keywords" CONTENT="programming, tutorials, code, source code, faq, programmers, online, free, community, IT, software development, programming language, .NET, C#, CSharp, C Sharp, learn, lesson, software, reviews, courses, interactive, project, .NET framework, sql, delphi, hardware, c++, c, asp, asp .net, php, mysql, visual basic, java, javascript, perl, xml, vb, assembly, help, tutor, teacher, script, reference, snippet, Microsoft, open source, news, webmaster, webdesign, graphics, games"><META NAME="description" CONTENT="Programming tutorials and source code for many programming languages and especially for the .NET Framework. Also has software articles, faqs, reviews, news, projects, forums, blogs from the IT domain."><META NAME="ROBOTS" CONTENT="index">
+<link rel="alternate" type="application/rss+xml" href="http://www.geekpedia.com/RSS/LatestTutorials.xml" title="Geekpedia - Latest Tutorials" />
+<link rel="alternate" type="application/rss+xml" href="http://www.geekpedia.com/RSS/LatestCode.xml" title="Geekpedia - Latest Code" />
+<link rel="alternate" type="application/rss+xml" href="http://www.geekpedia.com/RSS/LatestNews.xml" title="Geekpedia - Latest News" />
+<link rel="alternate" type="application/rss+xml" href="http://www.geekpedia.com/RSS/LatestBargains.xml" title="Geekpedia - Latest Bargains" />
+<link rel="alternate" type="application/rss+xml" href="http://www.geekpedia.com/RSS/LatestPictures.xml" title="Geekpedia - Latest Pictures" />
+<link rel="alternate" type="application/rss+xml" href="http://www.geekpedia.com/RSS/LatestNewsgroups.xml" title="Geekpedia - Latest Newsgroups" />
+<link rel="alternate" type="application/rss+xml" href="http://www.geekpedia.com/RSS/LatestBooks.xml" title="Geekpedia - Latest Books" />
+<link href="style1.css" rel="stylesheet" type="text/css">
+<!-- Casale Media 2005 (C) -->
+<!-- Ad Format: Pop Under -->
+<!-- Domain(s): geekpedia.com -->
+<script language="Javascript"><!--
+var d=new Date();var r=(d.getTime()%8673806982)+Math.random();var u=escape(window.location.href);
+var host=' language="Javascript" src="http://as.casalemedia.com/s?s=';
+document.write('<scr'+'ipt'+host+'53237&u='+u+'&f=1&id='+r+'"></scr'+'ipt>');
+//--></script>
+<!-- Casale Media 2005 (C) -->
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-60485-1";
+urchinTracker();
+</script>
+</head>
+<body>
+<div id="Overall">
+	<a name="Top"></a>
+    <div id="LogoBar">
+        <div id="LogoImg">
+            <a href="http://www.geekpedia.com"><img src="Images/HeadLogo.png" alt="Geekpedia Programming Tutorials" border="0" /></a>
+        </div>
+    </div>
+    <div id="HeadBanner">
+	<script type="text/javascript"><!--
+	   e9 = new Object();
+	   e9.size = "468x60";
+	   e9.noAd = 1;
+	//--></script>
+	<script type="text/javascript" src="http://tags.expo9.exponential.com/tags/Geekpediacom/ROS/tags.js"></script>
+    </div>
+    <ul id="HeadMenuBar">
+        <li><a href="TutorialsArchive.html"><img src="Graphics/Tutorial16.png" align="absmiddle" alt="Tutorials" /> Tutorials</a></li>
+		<li><a href="CodeArchive.html"><img src="Graphics/Code16.png" align="absmiddle" alt="Code" /> Code</a></li>
+		<li><a href="KBArchive.html"><img src="Graphics/Info16.png" align="absmiddle" alt="Knowledge Base" /> Knowledge Base</a></li>
+		<li><a href="NewsArchive.html"><img src="Graphics/News16.png" align="absmiddle" alt="News" /> News</a></li>
+        <li><a href="http://forums.geekpedia.com"><img src="Graphics/Forums16.png" align="absmiddle" alt="Forums" /> Forums</a></li>
+        <li><a href="PicturesArchive.html"><img src="Graphics/Picture16.png" align="absmiddle" alt="Pictures" /> Pictures</a></li>
+        <li><a href="VideosArchive.html"><img src="Graphics/Video16.png" align="absmiddle" alt="Videos" /> Videos</a></li>
+		<li><a href="deals.php"><img src="Graphics/Bargains16.png" align="absmiddle" alt="Bargains" /> Bargains</a></li>
+		<li><a href="icons.php"><img src="Graphics/Icons16.png" align="absmiddle" alt="Icons" /> Icons</a></li>
+		<li><a href="Newsgroups.html"><img src="Graphics/Newsgroups16.png" align="absmiddle" alt="Newsgroups" /> Newsgroups</a></li>
+    </ul>
+    <div id="HeadMenuBarShadow">
+    </div>
+    <div id="LatestTop">
+        <div class="LatestBox">
+            <h1><img src="Graphics/News32.png" align="absmiddle" hspace="3" alt="Latest News" /> <a href="NewsArchive.html">News</a></h1>
+            <ul class="LatestList">
+            <li><a href="news321_Skype-May-Be-Shut-Down.html" class="BlackHref">Skype May Be Shut Down</a></li><li><a href="news320_Google-Voice-Application-Blocked-By-Apple.html" class="BlackHref">Google Voice Application Blocked By Apple</a></li><li><a href="news319_CO2-Buildup-Cuts-Spacewalk-Short.html" class="BlackHref">CO2 buildup cuts spacewalk short</a></li><li><a href="news318_UK-Bans-IPhone-3G-Advertisement.html" class="BlackHref">UK Bans iPhone 3G Advertisement</a></li><li><a href="news317_Recycled-Urine-As-Drinking-Water-For-ISS-Astronauts.html" class="BlackHref">Recycled Urine As Drinking Water For ISS Astronauts</a></li>            </ul>
+        </div>
+        <div class="LatestBox">
+            <h1><img src="Graphics/Tutorial32.png" align="absmiddle" hspace="3" alt="Latest Programming Tutorials" /> <a href="TutorialsArchive.html">Tutorials</a></h1>
+            <ul class="LatestList">
+            <li><a href="tutorial291_Working-With-Collections-In-Java---Part-1.html" class="BlackHref">Working With Collections In Java - Part 1</a></li><li><a href="tutorial290_Quicksort-in-Java.html" class="BlackHref">Quicksort in Java</a></li><li><a href="tutorial289_Multithreading-Fundamentals-in-Java.html" class="BlackHref">Multithreading Fundamentals in Java</a></li><li><a href="tutorial288_Selection-Sort-Algorithm-in-Java.html" class="BlackHref">Selection Sort Algorithm in Java</a></li><li><a href="tutorial272_Bubble-Sort-Algorithm-in-Java.html" class="BlackHref">Bubble Sort Algorithm in Java</a></li>            </ul>
+        </div>
+		<div class="LatestBox">
+            <h1><img src="Graphics/Code32.png" align="absmiddle" hspace="3" alt="Latest Source Code" /> <a href="http://www.geekpedia.com/CodeArchive.html">Code</a></h1>
+            <ul class="LatestList">
+            <li><a href="code171_String-Ends-With-Values-in-Array-of-Strings.html" alt='String Ends With Values in Array of Strings tutorial' class="BlackHref">String Ends With Values in Array of Strings</a></li><li><a href="code169_Display-Time-Left-To-a-Date.html" alt='Display Time Left To a Date tutorial' class="BlackHref">Display Time Left To a Date</a></li><li><a href="code170_Simple-Interest-Calculator-Java-Applet.html" alt='Simple Interest Calculator Java Applet tutorial' class="BlackHref">Simple Interest Calculator Java Applet</a></li><li><a href="code168_Display-Time-That-Passed-Since-a-Date.html" alt='Display Time That Passed Since a Date tutorial' class="BlackHref">Display Time That Passed Since a Date</a></li><li><a href="code167_Validate-String-For-Positive-Integer-Values.html" alt='Validate String For Positive Integer Values tutorial' class="BlackHref">Validate String For Positive Integer Values</a></li>            </ul>
+        </div>
+        <div class="LatestBox">
+            <h1><img src="http://www.geekpedia.com/Graphics/Res32.png" align="absmiddle" hspace="3" alt="Latest Tech Resources" /> <a href="http://www.geekpedia.com/Resources.html">Resources</a></h1>
+            <ul class="LatestList">
+            <li><a href="http://www.geekpedia.com/PageView3290_2000000-Visits-and-Growing.html" class="BlackHref" title="2,000,000 Visits And Growing">2,000,000 Visits and Growing</a></li><li><a href="http://www.geekpedia.com/PageView3289_Pygame-Primer-Mark-2---Movement.html" class="BlackHref" title="Pygame Primer, Mark 2 - Movement">Pygame Primer, Mark 2 - Movement</a></li><li><a href="http://www.geekpedia.com/PageView3288_Creating-WCF-Service-using-Workflow-4.0-Beta-2.html" class="BlackHref" title="Creating WCF Service Using Workflow 4.0 Beta 2">Creating WCF Service using Workflow...</a></li><li><a href="http://www.geekpedia.com/PageView3287_Building-A-Color-Picker-Using-ASP.NET-MVC-And-jQuery.html" class="BlackHref" title="Building A Color Picker Using ASP.NET MVC And JQuery">Building A Color Picker Using ASP.NET...</a></li><li><a href="http://www.geekpedia.com/PageView3286_Open-and-publish-a-live-website-in-Microsoft-Expression-Web-3.html" class="BlackHref" title="Open And Publish A Live Website In Microsoft Expression Web 3">Open and publish a live website in...</a></li>            </ul>
+        </div>
+    </div>
+    <div id="LatestBottom">
+ 	   <div class="LatestBox">
+            <h1><img src="http://www.geekpedia.com/Graphics/Newsgroups32.png" align="absmiddle" hspace="3" alt="Latest Newsgroups" /> <a href="Newsgroups.html">Newsgroups</a></h1>
+            <ul class="LatestList">
+            <li><a href="Thread60481_VB-And-XML-Request.html" title="VB And XML Request" class="BlackHref">VB And XML Request</a></li><li><a href="Thread60367_Funding-Resources-For-Small-Mid-Size-Businesses-45804.html" title="Funding Resources For Small-Mid Size Businesses 45804" class="BlackHref">Funding Resources For Small-Mid...</a></li><li><a href="Thread60767_Office-2007-Smart-Tag-Actions-Menu-Doesnt-Show-All-70-Actions..html" title="Office 2007 Smart Tag Actions Menu Doesn`t Show All 70 Actions." class="BlackHref">Office 2007 Smart Tag Actions Menu...</a></li><li><a href="Thread60614_.NET-Vision-2010-Vol.1---Adding-Chart-And-Diagram-Improvements-PDF.html" title=".NET Vision 2010 Vol.1 - Adding Chart And Diagram Improvements, PDF," class="BlackHref">.NET Vision 2010 Vol.1 - Adding...</a></li><li><a href="Thread60353_How-To-Change-Dataform-Edit-Button-Tooltip.html" title="How To Change Dataform Edit Button Tooltip?" class="BlackHref">How To Change Dataform Edit Button...</a></li>            </ul>
+        </div>
+        <div class="LatestBanner">
+            <script type="text/javascript"><!--
+			google_ad_client = "pub-9212455504616370";
+			google_alternate_ad_url = "http://www.geekpedia.com/Ads/Tribal/728x90.html";
+			google_ad_width = 728;
+
+			google_ad_height = 90;
+			google_ad_format = "728x90_as";
+			//2007-12-05: Geekpedia Header 728x90
+			google_ad_channel = "9935208654";
+			google_ad_type = "text_image";
+			google_color_border = "EFF5FB";
+			google_color_bg = "EFF5FB";
+			google_color_link = "0000FF";
+			google_color_url = "0066CC";
+			google_color_text = "000080";
+			//--></script>
+			<script type="text/javascript"
+			src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+			</script>
+        </div>
+    </div>
+    <div id="LatestBottomShadow">
+    </div>
+	<div class="LatestSep"></div>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+	<td width="15%" valign="top">
+		<div class="MenuTitle">
+		Search
+		</div>
+		<div class="MenuContent">
+		<div style="padding: 8px; text-align: center;">
+		<form action="http://www.geekpedia.com/Search.html" id="cse-search-box" name="csesearchboxleft">
+		  <div>
+			<input type="hidden" name="cx" value="partner-pub-9212455504616370:1dbnziiiubq" />
+			<input type="hidden" name="cof" value="FORID:10" />
+			<input type="text" name="q" size="16" />
+			<a href="javascript:document.csesearchboxleft.submit();"><img src="Graphics/Search20.png" alt="Search" align="absmiddle" name="sa" /></a>
+		  </div>
+		</form>
+		<script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en"></script>
+		</div>
+		</div>
+		<br />
+		<div class="MenuTitle">
+		Tutorials and Code
+		</div>
+		<div class="MenuContent">
+		<ul>
+		<li onclick="javascript:document.location.href='language22_ActionScript.html';"><a href="language22_ActionScript.html">ActionScript</a> <span class="categ_nums">(5)</span></li><li onclick="javascript:document.location.href='language1_ASP.html';"><a href="language1_ASP.html">ASP</a> <span class="categ_nums">(7)</span></li><li onclick="javascript:document.location.href='language19_ASP.NET.html';"><a href="language19_ASP.NET.html">ASP.NET</a> <span class="categ_nums">(28)</span></li><li onclick="javascript:document.location.href='language2_Assembly.html';"><a href="language2_Assembly.html">Assembly</a> <span class="categ_nums">(1)</span></li><li onclick="javascript:document.location.href='language3_C.html';"><a href="language3_C.html">C</a> <span class="categ_nums">(6)</span></li><li onclick="javascript:document.location.href='language5_Csharp.html';"><a href="language5_Csharp.html">C#</a> <span class="categ_nums">(132)</span></li><li onclick="javascript:document.location.href='language4_Cplusplus.html';"><a href="language4_Cplusplus.html">C++</a> <span class="categ_nums">(33)</span></li><li onclick="javascript:document.location.href='language24_CSS.html';"><a href="language24_CSS.html">CSS</a> <span class="categ_nums">(6)</span></li><li onclick="javascript:document.location.href='language21_General.html';"><a href="language21_General.html">General</a> <span class="categ_nums">(4)</span></li><li onclick="javascript:document.location.href='language7_HTML.html';"><a href="language7_HTML.html">HTML</a> <span class="categ_nums">(6)</span></li><li onclick="javascript:document.location.href='language8_Java.html';"><a href="language8_Java.html">Java</a> <span class="categ_nums">(28)</span></li><li onclick="javascript:document.location.href='language9_JavaScript.html';"><a href="language9_JavaScript.html">JavaScript</a> <span class="categ_nums">(38)</span></li><li onclick="javascript:document.location.href='language31_MySQL.html';"><a href="language31_MySQL.html">MySQL</a> <span class="categ_nums">(2)</span></li><li onclick="javascript:document.location.href='language32_Objective-C.html';"><a href="language32_Objective-C.html">Objective C</a> <span class="categ_nums">(1)</span></li><li onclick="javascript:document.location.href='language30_Pascal.html';"><a href="language30_Pascal.html">Pascal</a> <span class="categ_nums">(1)</span></li><li onclick="javascript:document.location.href='language11_PHP.html';"><a href="language11_PHP.html">PHP</a> <span class="categ_nums">(61)</span></li><li onclick="javascript:document.location.href='language12_Python.html';"><a href="language12_Python.html">Python</a> <span class="categ_nums">(3)</span></li><li onclick="javascript:document.location.href='language25_Ruby.html';"><a href="language25_Ruby.html">Ruby</a> <span class="categ_nums">(18)</span></li><li onclick="javascript:document.location.href='language26_Silverlight.html';"><a href="language26_Silverlight.html">Silverlight</a> <span class="categ_nums">(1)</span></li><li onclick="javascript:document.location.href='language13_SQL.html';"><a href="language13_SQL.html">SQL</a> <span class="categ_nums">(7)</span></li><li onclick="javascript:document.location.href='language20_VB.NET.html';"><a href="language20_VB.NET.html">VB.NET</a> <span class="categ_nums">(5)</span></li><li onclick="javascript:document.location.href='language15_Visual-Basic.html';"><a href="language15_Visual-Basic.html">Visual Basic</a> <span class="categ_nums">(3)</span></li>		</ul>
+		</div>
+		<br />
+		<div class="MenuTitle">
+		Syndication
+		</div>
+		<div class="MenuContent">
+		<ul>
+			<li onclick="javascript:document.location.href='http://www.geekpedia.com/RSS/LatestTutorials.xml';">
+				<img src="http://www.geekpedia.com/Images/Rss14.png" align="absmiddle"> 
+				<a href="http://www.geekpedia.com/RSS/LatestTutorials.xml">
+				Latest Tutorials <span class="categ_nums">(RSS)</span>
+				</a>
+			</li>
+			<li onclick="javascript:document.location.href='http://www.geekpedia.com/RSS/LatestCode.xml';">
+				<img src="http://www.geekpedia.com/Images/Rss14.png" align="absmiddle"> 
+				<a href="http://www.geekpedia.com/RSS/LatestCode.xml">
+				Latest Code <span class="categ_nums">(RSS)</span>
+				</a>
+			</li>
+			<li onclick="javascript:document.location.href='http://www.geekpedia.com/RSS/LatestKB.xml';">
+				<img src="http://www.geekpedia.com/Images/Rss14.png" align="absmiddle"> 
+				<a href="http://www.geekpedia.com/RSS/LatestKB.xml">
+				Latest KB Entries <span class="categ_nums">(RSS)</span>
+				</a>
+			</li>
+			<li onclick="javascript:document.location.href='http://www.geekpedia.com/RSS/LatestNews.xml';">
+				<img src="http://www.geekpedia.com/Images/Rss14.png" align="absmiddle"> 
+				<a href="http://www.geekpedia.com/RSS/LatestNews.xml">
+				Latest News <span class="categ_nums">(RSS)</span>
+				</a>
+			</li>
+			<li onclick="javascript:document.location.href='http://www.geekpedia.com/RSS/LatestBargains.xml';">
+				<img src="http://www.geekpedia.com/Images/Rss14.png" align="absmiddle"> 
+				<a href="http://www.geekpedia.com/RSS/LatestBargains.xml">
+				Latest Bargains <span class="categ_nums">(RSS)</span>
+				</a>
+			</li>
+			<li onclick="javascript:document.location.href='http://www.geekpedia.com/RSS/LatestPictures.xml';">
+				<img src="http://www.geekpedia.com/Images/Rss14.png" align="absmiddle"> 
+				<a href="http://www.geekpedia.com/RSS/LatestPictures.xml">
+				Latest Pictures <span class="categ_nums">(RSS)</span>
+				</a>
+			</li>
+			<li onclick="javascript:document.location.href='http://www.geekpedia.com/RSS/LatestNewsgroups.xml';">
+				<img src="http://www.geekpedia.com/Images/Rss14.png" align="absmiddle"> 
+				<a href="http://www.geekpedia.com/RSS/LatestNewsgroups.xml">
+				Latest Newsgroups <span class="categ_nums">(RSS)</span>
+				</a>
+			</li>
+			<li onclick="javascript:document.location.href='http://www.geekpedia.com/RSS/LatestBooks.xml';">
+				<img src="http://www.geekpedia.com/Images/Rss14.png" align="absmiddle"> 
+				<a href="http://www.geekpedia.com/RSS/LatestBooks.xml">
+				Latest Books <span class="categ_nums">(RSS)</span>
+				</a>
+			</li>
+			<li onclick="javascript:document.location.href='http://www.klipfolio.com/download/kid-2386/LatestTutorials.klip';">
+				<img src="http://www.geekpedia.com/Images/Klip14.png" align="absmiddle"> 
+				<a href="http://www.klipfolio.com/download/kid-2386/LatestTutorials.klip">
+				Latest Tutorials <span class="categ_nums">(Klip)</span>
+				</a>
+			</li>
+			<li onclick="javascript:document.location.href='http://www.klipfolio.com/download/kid-7567/LatestCode.klip';">
+				<img src="http://www.geekpedia.com/Images/Klip14.png" align="absmiddle"> 
+				<a href="http://www.klipfolio.com/download/kid-7567/LatestCode.klip">
+				Latest Code <span class="categ_nums">(Klip)</span>
+				</a>
+			</li>
+			<li onclick="javascript:document.location.href='http://www.klipfolio.com/download/kid-7567/LatestKB.klip';">
+				<img src="http://www.geekpedia.com/Images/Klip14.png" align="absmiddle"> 
+				<a href="http://www.klipfolio.com/download/kid-7567/LatestKB.klip">
+				Latest KB Entries <span class="categ_nums">(Klip)</span>
+				</a>
+			</li>
+			<li onclick="javascript:document.location.href='http://www.klipfolio.com/download/kid-7544/LatestNews.klip';">
+				<img src="http://www.geekpedia.com/Images/Klip14.png" align="absmiddle"> 
+				<a href="http://www.klipfolio.com/download/kid-7544/LatestNews.klip">
+				Latest News <span class="categ_nums">(Klip)</span>
+				</a>
+			</li>
+			<li onclick="javascript:document.location.href='http://www.klipfolio.com/download/kid-7568/LatestBargains.klip';">
+				<img src="http://www.geekpedia.com/Images/Klip14.png" align="absmiddle"> 
+				<a href="http://www.klipfolio.com/download/kid-7568/LatestBargains.klip">
+				Latest Bargains <span class="categ_nums">(Klip)</span>
+				</a>
+			</li>
+			<li onclick="javascript:document.location.href='http://www.geekpedia.com/RSS/LatestPictures.klip';">
+				<img src="http://www.geekpedia.com/Images/Klip14.png" align="absmiddle"> 
+				<a href="http://www.geekpedia.com/RSS/LatestPictures.klip">
+				Latest Pictures <span class="categ_nums">(Klip)</span>
+				</a>
+			</li>
+			<li onclick="javascript:document.location.href='http://www.geekpedia.com/RSS/LatestNewsgroups.klip';">
+				<img src="http://www.geekpedia.com/Images/Klip14.png" align="absmiddle"> 
+				<a href="http://www.geekpedia.com/RSS/LatestNewsgroups.klip">
+				Latest Newsgroups <span class="categ_nums">(Klip)</span>
+				</a>
+			</li>
+			<li onclick="javascript:document.location.href='http://www.geekpedia.com/RSS/LatestBooks.klip';">
+				<img src="http://www.geekpedia.com/Images/Klip14.png" align="absmiddle"> 
+				<a href="http://www.geekpedia.com/RSS/LatestBooks.klip">
+				Latest Books <span class="categ_nums">(Klip)</span>
+				</a>
+			</li>
+		</ul>
+		</div>
+		<br />
+		<div class="MenuTitle">
+		My Account
+		</div>
+		<div class="MenuContent">
+		<div style="padding: 8px 8px 5px 8px; font-size: 10px;">
+		<form action="index.php" method="post"><span class="box_multimedia_info"><table border="0" cellpadding="1"><tr><td>Username:</td></tr><tr><td><input name="sess_nick" type="text" size="24" class="input_default"></td></tr><tr><td>Password:</td></tr><tr><td><input name="sess_password" type="password" class="input_default" size="24"></td></tr><tr><td align="center"><input type="submit" class="input_button" value="Login"></td></tr></table><br /><a href="register.php">&raquo; Sign Up</a><br /><a href="reset_pass.php">&raquo; Reset your password</a></form>		</div>
+		<ul>
+			<li onclick="javascript:document.location.href='author/index.php';">
+				<img src="http://www.geekpedia.com/Graphics/User16.gif" align="absmiddle"> 
+				<a href="author/index.php">
+				<b>My Account</b>
+				</a>
+			</li>
+			<li onclick="javascript:document.location.href='author/prog_ttrls_add.php';">
+				<img src="http://www.geekpedia.com/Graphics/Tutorial16.gif" align="absmiddle"> 
+				<a href="author/prog_ttrls_add.php">
+				Add Tutorial
+				</a>
+			</li>
+			<li onclick="javascript:document.location.href='author/news_add.php';">
+				<img src="http://www.geekpedia.com/Graphics/News16.gif" align="absmiddle"> 
+				<a href="author/news_add.php">
+				Add News Story
+				</a>
+			</li>
+			<li onclick="javascript:document.location.href='author/rev_add.php';">
+				<img src="http://www.geekpedia.com/Graphics/Hard16.gif" align="absmiddle"> 
+				<a href="author/rev_add.php">
+				Add Review
+				</a>
+			</li>
+			<li onclick="javascript:document.location.href='author/soft_artcls_add.php';">
+				<img src="http://www.geekpedia.com/Graphics/Art16.gif" align="absmiddle"> 
+				<a href="author/soft_artcls_add.php">
+				Add Article
+				</a>
+			</li>
+		</ul>
+		</div>
+		<br />
+		<div class="MenuTitle">
+		Community Forums
+		</div>
+		<div class="MenuContent">
+		<ul>
+		<li onclick="javascript:document.location.href='http://forums.geekpedia.com/forum1_General-Chat.html';"><a href="http://forums.geekpedia.com/forum1_General-Chat.html">General Chat</a> <span class="categ_nums">(548)</span></li><li onclick="javascript:document.location.href='http://forums.geekpedia.com/forum2_Web-Development.html';"><a href="http://forums.geekpedia.com/forum2_Web-Development.html">Web Development</a> <span class="categ_nums">(78)</span></li><li onclick="javascript:document.location.href='http://forums.geekpedia.com/forum3_Windows-Development.html';"><a href="http://forums.geekpedia.com/forum3_Windows-Development.html">Windows Development</a> <span class="categ_nums">(92)</span></li>		</ul>
+		</div>
+		<br />
+		<div class="MenuTitle">
+		Webmaster Tools
+		</div>
+		<div class="MenuContent">
+		<ul>
+			<li onclick="javascript:document.location.href='http://www.devpub.com/PageRank.php'"><a href="http://www.devpub.com/PageRank.php"><img src="http://www.devpub.com/Pictures/Pr14.gif" align="absmiddle"> PageRank&#8482; Checker</a></li>
+            <li onclick="javascript:document.location.href='http://www.devpub.com/AlexaRank.php'"><a href="http://www.devpub.com/AlexaRank.php"><img src="http://www.devpub.com/Pictures/Alexa14.gif" align="absmiddle"> Alexa Rank Checker</a></li>
+            <li onclick="javascript:document.location.href='http://www.devpub.com/WhoIs.php'"><a href="http://www.devpub.com/WhoIs.php"><img src="http://www.devpub.com/Pictures/WhoIs14.gif" align="absmiddle"> Domain-Name Lookup</a></li>
+		</ul>
+		</div>
+		<br />
+		<div class="MenuTitle">
+		Tech Jobs
+		</div>
+		<div class="MenuContent" style="text-align: center;">
+		<br style="line-height: 0;" />
+		<script type="text/javascript">
+		<!--
+		cb_jobstream_title = '<a href=\'http://information-technology.careerbuilder.com/?lr=cbgeekp&siteid=geekpitj\'>IT Jobs</a>';
+		cb_jobstream_main_bgcolor = "#eef2fe";
+		cb_jobstream_width = "166px";
+		cb_jobstream_height = "700px";
+		cb_jobstream_border = "0px solid #eef2fe";
+		cb_jobstream_title_font = "10px Arial, Helvetica, Sans-serif";
+		cb_jobstream_text_font = "10px Arial, Helvetica, Sans-serif";
+		cb_jobstream_font_color = "#000000";
+		cb_jobstream_link_color = "#0000ff";
+		//-->
+		</script>
+		<script type="text/javascript" src="http://rtq.careerbuilder.com/RTQ/jobstream.aspx?lr=cbgeekp&rssid=geekp_jbstrm&cat=JN008&logo=false"></script>
+		</div>
+	</td>
+	<td width="67%" valign="top">
+		<div id="EchoTopic" class="MainContent"><script type="text/javascript" src="Ajax/prototype.js"></script>
+<script type="text/javascript">
+function SubmitComment(frmName, frmEmail, frmMessage, frmSubscribe)
+{
+	$('CommentResult').innerHTML = "Submitting Comment...";
+	new Ajax.Request("Ajax/SubmitTutComment.php", 
+	{ 
+		method: 'post', 
+		postBody: 'Tut=' + 139 + '&Name=' + frmName.value + '&Email=' + frmEmail.value + '&Message=' + frmMessage.value + '&Subscribe=' + frmSubscribe.checked,
+		onComplete: ShowCommentResponse 
+	});
+}
+
+function ShowCommentResponse(req)
+{
+	$('CommentResult').innerHTML = req.responseText;
+}
+
+function SubmitRate(frmRate)
+{
+	$('RateResult').innerHTML = "Submitting Rating...";
+	new Ajax.Request("Ajax/SubmitTutRate.php", 
+	{ 
+		method: 'post', 
+		postBody: 'Tut=' + 139 + '&Rate=' + frmRate.value,
+		onComplete: ShowRateResponse 
+	});
+}
+
+function ShowRateResponse(req)
+{
+	$('RateResult').innerHTML = req.responseText;
+}
+
+function ValidateForm()
+{
+	if (document.frmComment.txtName.value.length == 0)
+	{
+		alert("Please enter your name.");
+		return false;
+	}
+	if (document.frmComment.chkSubscribe.checked == true)
+	{
+		if (document.frmComment.txtEmail.value.length == 0)
+		{
+			alert("Please enter your email address. It will not be made public and it will only used for emailing you future replies to your comment.");
+			return false;
+		}
+		if (document.frmComment.txtEmail.value.indexOf("@")==-1)
+		{
+			alert("Please enter a valid email address. It will not be made public and only used for emailing you future replies to your comment.");
+			return false;
+		}
+	}
+	if (document.frmComment.txtMessage.value.length == 0)
+	{
+		alert("Please enter a comment.");
+		return false;
+	}
+	SubmitComment(document.frmComment.txtName, document.frmComment.txtEmail, document.frmComment.txtMessage, document.frmComment.chkSubscribe);
+}
+</script>
+<div class="BCrumb">
+	<a href="http://www.geekpedia.com">Geekpedia</a> &raquo; <a href="language5_Csharp.html">C# Tutorials</a> &raquo; <a href="tutorial139_Connecting-to-MySQL-with-Csharp-and-ODBC.html">Connecting to MySQL with C# and ODBC</a></div>
+<table border="0" width="100%">
+	<tr>
+		<td class="ArtTitle">
+		<h1>Connecting to MySQL with C# and ODBC</h1>
+		<p>In this tutorial we will see how a .NET application can connect to a MySQL server and perform queries on the database. The application uses the MyODBC driver to establish an ODBC connection to the server.</p>
+		</td>
+		<td class="ArtAbout" width="35%">
+		On <b>Sunday, August 14th 2005</b> at <b>06:00 PM</b><hr class="BlueHr" />By <a href="author1_Andrew-Pociu.html"><b>Andrew Pociu</b> (View Profile)</a><hr class="BlueHr" /><img src="Graphics/StarOn.gif" style="margin-right: 3px;" alt="*" /><img src="Graphics/StarOn.gif" style="margin-right: 3px;" alt="*" /><img src="Graphics/StarOn.gif" style="margin-right: 3px;" alt="*" /><img src="Graphics/StarOn.gif" style="margin-right: 3px;" alt="*" /><img src="Graphics/StarOn.gif" style="margin-right: 3px;" alt="*" /> &nbsp; (Rated <b>4.7</b> with <b>71 votes</b>)		</td>
+	</tr>
+	<tr>
+		<td colspan="2" class="ArtContent">
+			<div class="InTextAds">
+			<div class="InTextTitle">
+			Contextual Ads
+			</div>
+			<div style="padding: 6px;">
+				<script type="text/javascript"><!--
+				google_ad_client = "pub-9212455504616370";
+				/* 120x240, created 4/6/08 */
+				google_ad_slot = "1655366018";
+				google_ad_width = 120;
+				google_ad_height = 240;
+				//-->
+				</script>
+				<script type="text/javascript"
+				src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+				</script>
+			</div>
+			<div class="InTextTitle">
+			More C# Resources
+			</div>
+			<ul>
+				<li><img src="Graphics/Tutorial16.png" align="absmiddle" alt="Tutorials" /> <a href="language5_Csharp-Tutorials.html">C# Tutorials</a></li>
+				<li><img src="Graphics/Code16.png" align="absmiddle" alt="Code" /> <a href="language5_Csharp-Code.html">C# Code</a></li>
+				<li><img src="Graphics/Jobs16.png" align="absmiddle" alt="Jobs" /> <a href="http://www.careerbuilder.com/JobSeeker/Jobs/JobResults.aspx?strCrit=
+rawWords%3dC%23%3bcty%3d%3bsid%3dALL%2c+US%3bcid%3dUS%3bfre%3d30%3brad%3d10%3bJN%3dAll%3bETD%3dJTFT%3bETD%3dJTPT%3bETD%3dJTIN%3bETD%3dJTCT%3b&lr=cbgeekp&siteid=geekpcs">C# Jobs</a></li>
+			</ul>
+			<div class="InTextTitle">
+			Advertisement
+			</div>
+			<div style="text-align: center;">
+			<!-- BEGIN RICH-MEDIA Burst Network CODE -->
+			<script type="text/javascript" language="JavaScript">
+			rnum=Math.round(Math.random() * 100000);
+			ts=String.fromCharCode(60);
+			if (window.self != window.top) {nf=''} else {nf='NF/'};
+			document.write(ts+'script src="http://www.burstnet.com/cgi-bin/ads/ad10920a.cgi/v=2.3S/sz=120x600A/'+rnum+'/'+nf+'RETURN-CODE/JS/">'+ts+'/script>');
+			</script><noscript><a href="http://www.burstnet.com/ads/ad10920a-map.cgi/ns/v=2.3S/sz=120x600A/" target="_top">
+			<img src="http://www.burstnet.com/cgi-bin/ads/ad10920a.cgi/ns/v=2.3S/sz=120x600A/" border="0" alt="Click Here" /></a>
+			</noscript>
+			<!-- END Burst Network CODE -->
+			</div>
+		</div>
+		Some developers are having a hard time connecting a .NET application to a MySQL server. I found this task to be rather easy, using an ODBC driver called MyODBC. There are several ways to connect to a MySQL database from a .NET application, however using MyODBC proved to be the simplest, cleanest and it works like a charm.<br /><br />
+<h3>Setting up the MyODBC driver</h3><br />
+Before starting you need to download and install MyODBC on the machine that will act as the client (the machine that will connect to the server). Here is what happens if you run the application and try to connect without having MyODBC installed and configured:<br /><br />
+<br /><br />
+<img src="pics/CSharpToMySQL/CSharp%20to%20MySQL%20error.PNG" width="697" height="220" /><br /><br />
+<br /><br />
+<img src="pics/vstudio/Setup.gif" width="32" height="32" align="absmiddle" /> <a href="sample/CSharpToMySQL/MyODBC%203.51.msi" style="text-decoration: none;"><b>Download MyODBC 3.51</b></a> or <a href="http://dev.mysql.com/downloads/connector/odbc/3.51.html" target="_blank" style="text-decoration: none;"><b>download from MySQL.com</b></a><br />
+<br /><br />
+<br /> <br />
+<img src="pics/CSharpToMySQL/MyODBC%20Wizard.PNG" width="649" height="495" /><br /><br />
+<br /><br />
+After installing, open <b>Data Sources (ODBC)</b> from the Control Panel. Click <i>Add...</i> and the following window shows up:<br /><br />
+<br /><br />
+<img src="pics/CSharpToMySQL/ODBC%20Setup.PNG" width="548" height="463" /><br /><br />
+<br /> <br />
+Fill the TextBoxes with information about your MySQL server. The important fields are <i>Server</i>, <i>User</i> and <i>Password</i>. Click Test and with a little bit of luck, you will see the following message:<br /><br />
+<br /><br />
+<img src="pics/CSharpToMySQL/ODBC%20Success.PNG" width="540" height="456" /><br /><br />
+<br /><br />
+You can leave the database field as it is, or you can choose a default database which the driver will connect to. Also, you don't need to deal with the other tabs of the window. <br /><br />
+After clicking Ok to save  the information, you will now see our newly created Data Source in the list:<br /><br />
+<br /><br />
+<img src="pics/CSharpToMySQL/ODBC%20List.PNG" width="482" height="400" /><br /><br />
+<br /><br />
+Now we're ready to build the application and run it.<br />
+<h3>Creating a .NET application that connects to a MySQL database</h3><br />
+<img src="pics/vstudio/VS2005%20Icon.gif" width="30" height="28" align="absmiddle" /> <a href="sample/CSharpToMySQL/CSharpToMySQL.zip" style="text-decoration: none;"><b>Download the project </b></a><br />
+<br /><br />
+<br /> <br />
+Note that the code is written using .NET 2.0 and the project is created in Visual Studio 2005. However, this won't stop you from using the code inside Visual Studio 2003 with .NET 1.1, because the code doesn't need any changes between versions of the .NET Framework.<br /><br />
+Let's look at the most important pieces in our code.<br /><br />
+<table width="100%" border="1" cellpadding="6" cellspacing="0" bordercolor="#CADAFF" bgcolor="#FDFEFF"><br />
+  <tr><br />
+    <td><font size="2" face="Courier New, Courier, mono"> <font color="#0000FF">private</font> System.Data.Odbc.<font color="#009999">OdbcConnection</font> OdbcCon;<br /><br />
+        <font color="#0000FF">private</font> System.Data.Odbc.<font color="#009999">OdbcCommand</font> OdbcCom;<br /><br />
+        <font color="#0000FF">private</font> System.Data.Odbc.<font color="#009999">OdbcDataReader</font> OdbcDR;<br /><br />
+        <font color="#0000FF">private</font> <font color="#009999">string</font> ConStr;</font></td><br />
+  </tr><br />
+</table><br />
+<br /><br />
+Here we declared an ODBC connection, command and data reader. We will need all these to connect, query and read data from the MySQL Server. The <i>ConStr</i> variable is a normal string variable that holds the connection string, of course, we could have passed the connection string directly without using an additional variable, but the code is more organized this way.<br /> <br />
+Now let's have a look in the click event of the <i>Connect</i> button:<br /><br />
+<table width="100%" border="1" cellpadding="6" cellspacing="0" bordercolor="#CADAFF" bgcolor="#FDFEFF"><br />
+  <tr><br />
+    <td><font color="#0000FF" size="2" face="Courier New, Courier, mono">private void</font><font size="2" face="Courier New, Courier, mono"> btnConnect_Click(<font color="#0000FF">object</font> sender, <font color="#009999">EventArgs</font> e)<br /><br />
+{<br /><br />
+   <font color="#009900">// Build the connection string</font><br /><br />
+   ConStr = <font color="#990000">"DRIVER={MySQL ODBC 3.51 Driver};SERVER="</font> + txtIP.Text + <font color="#990000">";PORT="</font> + txtPort.Text + <font color="#990000">";DATABASE="</font> + txtDatabase.Text + <font color="#990000">";UID="</font> + txtUsername.Text + <font color="#990000">";PWD="</font> + txtPassword.Text + <font color="#990000">";OPTION=3"</font>;<br /><br />
+   OdbcCon = <font color="#0000FF">new</font> System.Data.Odbc.<font color="#009999">OdbcConnection</font>(ConStr);<br /><br />
+<font color="#009900">   // Enable the List Tables button </font><br /><br />
+   btnListTables.Enabled = <font color="#0000FF">true</font>;<br />
+</font>      <p><font size="2" face="Courier New, Courier, mono">    <font color="#0000FF">try</font><br /><br />
+           {<br /><br />
+              <font color="#009900">// Try openning the connection<br />
+        </font><br /><br />
+              txtLog.AppendText(<font color="#990000">"Openning connection...\r\n"</font>);<br /><br />
+        <font color="#009900">      // Make sure the connection is closed </font><br /><br />
+              <font color="#0000FF">if</font> (OdbcCon.State == <font color="#009999">ConnectionState</font>.Closed)<br /><br />
+              {<br /><br />
+                 OdbcCon.Open();<br /><br />
+                 txtLog.AppendText(<font color="#990000">"Connection opened\r\n"</font>);<br />
+        <br /><br />
+              }<br /><br />
+           }<br /><br />
+           <font color="#0000FF">catch</font> (System.Data.Odbc.<font color="#009999">OdbcException</font> Ex)<br /><br />
+           {<br /><br />
+        <font color="#009900">      // An error occured, give details </font><br /><br />
+              txtLog.AppendText(Ex.Message + <font color="#990000">"\r\n"</font>);<br /><br />
+              <font color="#009999">MessageBox</font>.Show(<font color="#990000">"Could not access the database.\r\nPlease make sure you completed the fields with the correct information and try    again.\r\n\r\nMore    details:\r\n"</font> + Ex.Message, <font color="#990000">"Database connection error"</font>, <font color="#009999">MessageBoxButtons</font>.OK, <font color="#009999">MessageBoxIcon</font>.Error);<br /><br />
+           }<br /><br />
+    }</font></p></td><br />
+  </tr><br />
+</table><br />
+<br /><br />
+The connection string is initialized here, using data from the TextBoxes on the form. Note the version of the MySQL ODBC driver, inside. Carefully enclosing in try/catch blocks, the lines that open the connection, we change the connection state of the ODBC connection to Open. We first check to make sure the connection is not already open. <br /><br />
+<br /><br />
+Now to list the tables inside the database:<br /><br />
+<table width="100%" border="1" cellpadding="6" cellspacing="0" bordercolor="#CADAFF" bgcolor="#FDFEFF"><br />
+  <tr><br />
+    <td><font color="#0000FF" size="2" face="Courier New, Courier, mono">private void</font><font size="2" face="Courier New, Courier, mono"> btnListTables_Click(<font color="#0000FF">object</font> sender, <font color="#009999">EventArgs</font> e)<br /><br />
+      {<br /><br />
+   <font color="#0000FF">if</font> (OdbcCon.State == <font color="#009999">ConnectionState</font>.Open)<br /><br />
+   {<br /><br />
+      <font color="#009900">// Execute the SHOW TABLES query on the MySQL database</font><br /><br />
+      OdbcCom = <font color="#0000FF">new</font> System.Data.Odbc.OdbcCommand(<font color="#990000">"SHOW TABLES"</font>, OdbcCon);<br /><br />
+      OdbcDR = OdbcCom.ExecuteReader();<br /><br />
+      txtLog.AppendText(<font color="#990000">"Tables inside "</font> + txtDatabase.Text + <font color="#990000">":\r\n"</font>);<br /><br />
+      <font color="#009900">// Loop through the list of tables and display each one</font><br /><br />
+      <font color="#0000FF">while</font> (OdbcDR.Read())<br /><br />
+      {<br /><br />
+         txtLog.AppendText(<font color="#990000">">> "</font> + OdbcDR[0] + <font color="#990000">"\r\n"</font>);<br /><br />
+      }<br /><br />
+   }</font><font size="2" face="Courier New, Courier, mono"><br /><br />
+    }</font></td><br />
+  </tr><br />
+</table> <br />
+<br /> <br />
+We first check the state of the connection. If it is closed, we don't want to try to execute a command on the MySQL Server. Then we execute the <b>SHOW TABLES</b> query, which is the MySQL query for getting a list of tables in the selected database. Using a DataReader we pass through each table and display it inside the <i>txtLog</i> TextBox.<br /><br />
+<br /> <br />
+To keep this tutorial simple, I haven't added any other commands to be executed on the MySQL server, however you can perform any operation on the server. You can create new databases, select values, create tables, add values, edit values, delete databases and any other operation that you can think of, that MySQL supports through a query.<br /><br />
+<br /><br />
+Also I should mention that even though this is a Windows application, the ODBC connection method works great with web applications too. That means you can easily build ASP.NET applications that use a MySQL database.<br /><br />
+<br /><br />
+Here is the application running on Windows Vista:<br /><br />
+<br /><br />
+<img src="pics/CSharpToMySQL/CSharp%20to%20MySQL.PNG" width="403" height="385" />		</td>
+	</tr>
+	<tr>
+	<td colspan="2" class="ArtFeat">
+				<a href="http://digg.com/submit?url=http%3A%2F%2Fwww.geekpedia.com%2Ftutorial139_Connecting-to-MySQL-with-Csharp-and-ODBC.html&title=Connecting+to+MySQL+with+C%23+and+ODBC&bodytext=Some+developers+are+having+a+hard+time+connecting+a+.NET+application+to+a+MySQL+server.+I+found+this...&media=news&topic=programming" target="_blank"><img src="Graphics/Digg24.png" alt="Digg" align="absmiddle" /> Digg It!</a>
+		&nbsp;&nbsp;&nbsp; 
+		<a href="http://del.icio.us/post?url=http%3A%2F%2Fwww.geekpedia.com%2Ftutorial139_Connecting-to-MySQL-with-Csharp-and-ODBC.html&title=Connecting+to+MySQL+with+C%23+and+ODBC" target="_blank"><img src="Graphics/Deli24.png" alt="Del.icio.us" align="absmiddle" /> Del.icio.us</a>
+		&nbsp;&nbsp;&nbsp; 
+		<a href="http://reddit.com/submit?url=http%3A%2F%2Fwww.geekpedia.com%2Ftutorial139_Connecting-to-MySQL-with-Csharp-and-ODBC.html&title=Connecting+to+MySQL+with+C%23+and+ODBC" target="_blank"><img src="Graphics/Reddit24.png" alt="Reddit" align="absmiddle" /> Reddit</a>
+		&nbsp;&nbsp;&nbsp; 
+		<a href="http://www.stumbleupon.com/submit?url=http%3A%2F%2Fwww.geekpedia.com%2Ftutorial139_Connecting-to-MySQL-with-Csharp-and-ODBC.html&title=Connecting+to+MySQL+with+C%23+and+ODBC" target="_blank"><img src="Graphics/Stumble24.png" alt="StumbleUpon" align="absmiddle" /> StumbleIt</a>
+		&nbsp;&nbsp;&nbsp; 
+		<a href="http://newsvine.com/_tools/seed&save?u=http%3A%2F%2Fwww.geekpedia.com%2Ftutorial139_Connecting-to-MySQL-with-Csharp-and-ODBC.html&h=Connecting+to+MySQL+with+C%23+and+ODBC" target="_blank"><img src="Graphics/Newsvine24.png" alt="Newsvine" align="absmiddle" /> Newsvine</a>
+		&nbsp;&nbsp;&nbsp; 
+		<a href="http://www.furl.net/storeIt.jsp?u=http%3A%2F%2Fwww.geekpedia.com%2Ftutorial139_Connecting-to-MySQL-with-Csharp-and-ODBC.html" target="_blank"><img src="Graphics/Furl24.png" alt="Furl" align="absmiddle" /> Furl</a>
+		&nbsp;&nbsp;&nbsp; 
+		<a href="http://blinklist.com/index.php?Action=Blink/addblink.php&Title=Connecting+to+MySQL+with+C%23+and+ODBC&Url=http%3A%2F%2Fwww.geekpedia.com%2Ftutorial139_Connecting-to-MySQL-with-Csharp-and-ODBC.html" target="_blank"><img src="Graphics/Blinklist24.png" alt="BlinkList" align="absmiddle" /> BlinkList</a>
+	</td>
+	</tr>
+	<tr><td><br /></td></tr>
+	<tr>
+	<td class="ArtDetails" valign="top">
+		<div class="DetTitle">
+			<h5><img src="Graphics/Star16.png" align="absmiddle" alt="Rate" /> Rate this tutorial</h5>
+		</div>
+		<div class="DetContent">
+		<div id="RateResult"></div>
+		<table border="0" cellpadding="6" cellspacing="1" width="100%">
+		<tr>
+		<td valign="middle" width="80" class="Td2">
+		<select id="selRate">
+		<option value="5" selected="selected">Excellent</option>
+		<option value="4">Good</option>
+		<option value="3">Fair</option>
+		<option value="2">Mediocre</option>
+		<option value="1">Poor</option>
+		</select>
+		</td>
+		<td class="Td3">
+		<input type="button" id="btnRate" value="Rate" class="frmButton" onclick="SubmitRate(document.getElementById('selRate'));" />
+		</td>
+		</tr>
+		</table>
+		</div>
+		<div class="DetTitle">
+			<h5><img src="Graphics/Comment16.gif" align="absmiddle" alt="Comment" /> Current Comments</h5>
+		</div>
+		<div class="Comment"><div class="CommentTitle">by <b>michelangelo</b> on <b>Sunday, October 16th 2005</b> at <b>06:37 PM</b></div><div class="CommentContent"><p>unfortunately the code built with Visual Studio 2005 cannoy be opened from a older version f Visual Studio</p></div></div><div class="Comment"><div class="CommentTitle">by <b>Andrei Pociu</b> on <b>Monday, October 17th 2005</b> at <b>01:35 AM</b></div><div class="CommentContent"><p>You can create a new Visual Studio 2003 project and copy the code from the Visual Studio 2005 code files.<br />
+<br />
+I will create a 2003 version as soon as I get 3 free minutes :).</p></div></div><div class="Comment"><div class="CommentTitle">by <b>marco</b> on <b>Tuesday, October 25th 2005</b> at <b>04:29 AM</b></div><div class="CommentContent"><p>this would be nice ;)<br />
+i'm a beginner and i can't get a connection to a mysql DB ... i've got only the standart version ... is that the reason? ... but it can't be ... i wont believe it</p></div></div><div class="Comment"><div class="CommentTitle">by <b>jackson</b> on <b>Friday, November 25th 2005</b> at <b>11:54 PM</b></div><div class="CommentContent"><p>If you were to distribute this app, there would be the issue of the end-user requiring the ODBC drivers.</p></div></div><div class="Comment"><div class="CommentTitle">by <b>Andrei Pociu</b> on <b>Saturday, November 26th 2005</b> at <b>01:58 AM</b></div><div class="CommentContent"><p>Indeed, that's the single major inconvenient.<br />
+However, you might be able to include it in the setup package of the application.</p></div></div><div class="Comment"><div class="CommentTitle">by <b>Michael</b> on <b>Wednesday, November 30th 2005</b> at <b>04:11 PM</b></div><div class="CommentContent"><p>[MySQL][ODBC 3.51 Driver]Access Denied for user &quot;*********@*************.com&quot; (Using Password: Yes)<br />
+<br />
+I get that error when I try to set up the information in the ODBC connection creater screen....why is that?  I'm simply trying to access a database on a server - I'm hosted by voltagehosting.com.  Thanks a lot!</p></div></div><div class="Comment"><div class="CommentTitle">by <b>Andrei Pociu</b> on <b>Wednesday, November 30th 2005</b> at <b>04:31 PM</b></div><div class="CommentContent"><p>There can be several reasons, but the best guess is that your IP isn't listed in the &quot;Allowed Hosts&quot; list of MySQL.<br />
+<br />
+MySQL has a list of the IPs (hosts) allowed to connect to the database. Since you are connecting to a remote MySQL server, you need to first add your IP to that list, and the privileges. This can be done via the admin interface of your webhost, or (if you have the required access) through the &quot;user&quot; table on your &quot;mysql&quot; database of the MySQL server.<br />
+<br />
+Good luck!</p></div></div><div class="Comment"><div class="CommentTitle">by <b>Barrett</b> on <b>Friday, December 30th 2005</b> at <b>02:14 PM</b></div><div class="CommentContent"><p>I didn't have to configure MyODBC at all, it worked great, thanks for helping me get my feet wet with C# and MySQL!</p></div></div><div class="Comment"><div class="CommentTitle">by <b>diamond</b> on <b>Monday, February 13th 2006</b> at <b>06:42 AM</b></div><div class="CommentContent"><p>Thanks for short, simple and useful example.</p></div></div><div class="Comment"><div class="CommentTitle">by <b>Michael</b> on <b>Thursday, February 23rd 2006</b> at <b>06:25 PM</b></div><div class="CommentContent"><p>Hey,<br />
+<br />
+     Great tutorial, but just one question.  How would I go about saving the result of OdbcDR[0] into a string.....like string information = OdbcDR[0]; - but that gives me an error....can you help me?</p></div></div><div class="Comment"><div class="CommentTitle">by <b>Elasu Moses</b> on <b>Monday, March 6th 2006</b> at <b>09:54 AM</b></div><div class="CommentContent"><p>Good and intresting tutorial. It helped me alot</p></div></div><div class="Comment"><div class="CommentTitle">by <b>Bert</b> on <b>Tuesday, March 7th 2006</b> at <b>11:39 AM</b></div><div class="CommentContent"><p>i want to use a query like<br />
+&quot; SELECT * FROM 'news' &quot;<br />
+And i want to use a while loop to display all the selected data.  Can anyone tell me how to do this?<br />
+</p></div></div><div class="Comment"><div class="CommentTitle">by <b>Joel</b> on <b>Friday, March 10th 2006</b> at <b>05:42 PM</b></div><div class="CommentContent"><p>Now show us how to do it in ASP :)  There's this really annoying little problem with ODBC when you try to update a table.  It gives you this error &quot;Restricted data type attribute violation.&quot; What an enormous pain.</p></div></div><div class="Comment"><div class="CommentTitle">by <b>MattId</b> on <b>Saturday, March 18th 2006</b> at <b>03:53 PM</b></div><div class="CommentContent"><p>Thanks for this, managed to copy the code to 2003 and it worked like a treat.</p></div></div><div class="Comment"><div class="CommentTitle">by <b>Sjalken</b> on <b>Friday, March 24th 2006</b> at <b>05:51 AM</b></div><div class="CommentContent"><p>Great, thanx..!</p></div></div><div class="Comment"><div class="CommentTitle">by <b>nam phuong</b> on <b>Friday, April 21st 2006</b> at <b>04:27 PM</b></div><div class="CommentContent"><p>Thank a lot <br />
+<br />
+</p></div></div><div class="Comment"><div class="CommentTitle">by <b>Philippos</b> on <b>Wednesday, April 26th 2006</b> at <b>02:10 PM</b></div><div class="CommentContent"><p>i try to connect to a friends pc to retrieve data from his database and it says it cannot connect, my friend has no firewall, the database is running and the user data are correct. can you help me ? also i cannot find odbc anywhere in the control panel !</p></div></div><div class="Comment"><div class="CommentTitle">by <b>Andrei Pociu</b> on <b>Wednesday, April 26th 2006</b> at <b>04:16 PM</b></div><div class="CommentContent"><p>Have you installed ODBC?<br />
+Also make sure he has your IP in MySQL's &quot;allowed&quot; list (this is also a table in the database).</p></div></div><div class="Comment"><div class="CommentTitle">by <b>Ilan NG</b> on <b>Tuesday, May 16th 2006</b> at <b>09:11 AM</b></div><div class="CommentContent"><p>Hi, This might seem like a stupid question but i have to ask anyway:<br />
+You used the ODBC driver in your tutorial. I have downloaded from the MySql site the .Net connector .<br />
+What's the difference? (The .Net connector is working fine for me)</p></div></div><div class="Comment"><div class="CommentTitle">by <b>Ms.Reggie M. Ragot</b> on <b>Thursday, June 8th 2006</b> at <b>03:33 AM</b></div><div class="CommentContent"><p>wowwww this code really helps me...<br />
+<br />
+Thank you very much!!! and hope you continue helping otherss.....<br />
+<br />
+<br />
+wynette :) *philippines*</p></div></div><div class="Comment"><div class="CommentTitle">by <b>Frida</b> on <b>Sunday, July 9th 2006</b> at <b>03:03 PM</b></div><div class="CommentContent"><p>After searching the Internet for hours I finally found this great simple example. Thanks a lot!!</p></div></div><div class="Comment"><div class="CommentTitle">by <b>Purva Joshi</b> on <b>Sunday, August 6th 2006</b> at <b>05:17 AM</b></div><div class="CommentContent"><p>Hey I am really struggling with MySql and C#. I have installed Myodbc from this website and installed it. but i couldn\'t find Data sources(ODBC) option in my control panel will u plss help me with this. I need it urgently</p></div></div><div class="Comment"><div class="CommentTitle">by <b>Purva Joshi</b> on <b>Sunday, August 6th 2006</b> at <b>05:21 AM</b></div><div class="CommentContent"><p>when i run aplication from this site i got an error similar to &quot;[MySQL][ODBC 3.51 Driver]Access Denied for user &quot;*********@*************.com&quot; (Using Password: Yes)&quot;<br />
+What is a password for this database</p></div></div><div class="Comment"><div class="CommentTitle">by <b>Purva Joshi</b> on <b>Sunday, August 6th 2006</b> at <b>09:12 AM</b></div><div class="CommentContent"><p>hey I dunt want to access MySql database from Remote server.I have MySql on my laptop and want to access it thru my programm what changes i need to do.. I am new to this MySql and C#</p></div></div><div class="Comment"><div class="CommentTitle">by <b>Purva Joshi</b> on <b>Sunday, August 6th 2006</b> at <b>11:13 AM</b></div><div class="CommentContent"><p>hey I dunt want to access MySql database from Remote server.I have MySql on my laptop and want to access it thru my programm what changes i need to do.. I am new to this MySql and C#</p></div></div><div class="Comment"><div class="CommentTitle">by <b>Nick</b> on <b>Sunday, September 10th 2006</b> at <b>04:30 PM</b></div><div class="CommentContent"><p>Wow that was really helpful,  thanks for putting in the time to help out</p></div></div><div class="Comment"><div class="CommentTitle">by <b>AncientCPU</b> on <b>Friday, September 29th 2006</b> at <b>01:34 AM</b></div><div class="CommentContent"><p>Great tutorial, the VS2005 project compiles the first time.<br />
+<br />
+To answer the question above, go Control Panel-&gt;Administrative Tools-&gt;Data Sources (ODBC), then click the Add button on the Users tab.</p></div></div><div class="Comment"><div class="CommentTitle">by <b>Mary</b> on <b>Sunday, January 7th 2007</b> at <b>04:16 AM</b></div><div class="CommentContent"><p>about the \&quot;[MySQL][ODBC 3.51 Driver]Access Denied for user \&quot;*********@*************.com\&quot; (Using Password: Yes)\&quot;<br />
+you must type this command :<br />
+for example,<br />
+grant all on mp3collection.* to csharp@127.0.0.1 identified by ‘csharp’;<br />
+into the MySQL command line client.<br />
+Then, on the \&quot;add data source form\&quot; for odbc -  type the server as 127.0.0.1 and password as csharp.<br />
+Then, it should work. You can create you own server and password not neccesarily follow what i have written.<br />
+for example,<br />
+grant all on book.*to csharp@198.1.3.2 identified by \'book\'.<br />
+\&quot;book\&quot; is the database that you have created</p></div></div><div class="Comment"><div class="CommentTitle">by <b>Marco Glorie</b> on <b>Friday, March 2nd 2007</b> at <b>05:48 AM</b></div><div class="CommentContent"><p>Great tutorial for people who never even heard of ODBC... Thank for that!</p></div></div><div class="Comment"><div class="CommentTitle">by <b>Kim Dixit</b> on <b>Monday, April 16th 2007</b> at <b>04:50 PM</b></div><div class="CommentContent"><p>Thank you very much for this great tutorial!<br />
+I have been googling for last two days to find way to connect between MySQL and C#.<br />
+Finally,I could get it because of you.<br />
+I will try.<br />
+Will have ++More Thanks if it works well for me.</p></div></div><div class="Comment"><div class="CommentTitle">by <b>GuusDavidson</b> on <b>Tuesday, May 1st 2007</b> at <b>10:01 PM</b></div><div class="CommentContent"><p>great tutorial <br />
+worked strraight out the box .... <br />
+</p></div></div><div class="Comment"><div class="CommentTitle">by <b>oana</b> on <b>Saturday, May 19th 2007</b> at <b>06:04 PM</b></div><div class="CommentContent"><p>10x, a real help for someone who only has 15 minutes to do the connection and querries. </p></div></div><div class="Comment"><div class="CommentTitle">by <b>Jean Peter Paredes</b> on <b>Monday, May 21st 2007</b> at <b>12:10 PM</b></div><div class="CommentContent"><p>hi ! Great tutorial man !<br />
+<br />
+can i save the changes i made to the table back to the MySql Server?<br />
+<br />
+I made this code :<br />
+<br />
+System.Data.Odbc.OdbcConnection OdbcCon;<br />
+System.Data.Odbc.OdbcCommand OdbcCom;<br />
+System.Data.Odbc.OdbcDataReader OdbcDR;<br />
+string ConStr;<br />
+            <br />
+<br />
+ConStr = \&quot;DRIVER={MySQL ODBC 3.51 Driver};SERVER=Localhost;PORT=3306;DATABASE=loan;UID=Secret;PWD=Secret;OPTION=3\&quot;;<br />
+            OdbcCon = new System.Data.Odbc.OdbcConnection(ConStr);<br />
+<br />
+try<br />
+{<br />
+                if (OdbcCon.State == ConnectionState.Closed)<br />
+                {<br />
+                    OdbcCon.Open();<br />
+                }<br />
+}<br />
+catch<br />
+{<br />
+          MessageBox.Show(\&quot;Could not Connect to the MySql Database, An Error Occured\&quot;);<br />
+}<br />
+<br />
+            DataSet MySqlDataSet = new DataSet();<br />
+            DataTable Accdist = new DataTable();<br />
+            Accdist.TableName = \&quot;Accdist\&quot;;<br />
+            MySqlDataSet.Tables.Add(Accdist);<br />
+<br />
+<br />
+System.Data.Odbc.OdbcDataAdapter AccdistTableAdapter = new System.Data.Odbc.OdbcDataAdapter(\&quot;Select * from accdist\&quot;, OdbcCon);<br />
+<br />
+AccdistTableAdapter.Fill(MySqlDataSet.Tables[\&quot;Accdist\&quot;]);<br />
+<br />
+<br />
+foreach (DataRow MyRows in MySqlDataSet.Tables[\&quot;Accdist\&quot;].Rows)<br />
+            {<br />
+            if (MyRows[\&quot;at_control\&quot;].ToString() == string.Empty)<br />
+                {<br />
+                    MyRows[\&quot;at_control\&quot;] = \&quot;Empty\&quot;;<br />
+                }<br />
+            }<br />
+<br />
+//This repeatition is for checking if i have replace the value of empty field \&quot;at_control\&quot; with the word \&quot;Empty\&quot; in the dataset (in this case it was successfull)<br />
+<br />
+            foreach (DataRow MyRows in MySqlDataSet.Tables[\&quot;Accdist\&quot;].Rows)<br />
+            {<br />
+                MessageBox.Show(MyRows[\&quot;at_control\&quot;].ToString());<br />
+            }<br />
+<br />
+//Updating the table adapter causes an error saying *&amp;^@#*^<br />
+//so maybe i thought i have to execute this accept changes first<br />
+<br />
+MySqlDataSet.Tables[\&quot;Accdist\&quot;].AcceptChanges();<br />
+<br />
+AccdistTableAdapter.Update(MySqlDataSet.Tables[\&quot;Accdist\&quot;]);<br />
+<br />
+<br />
+It ddnt give me any error anymore, but when i browse my MySql loans database using SqlYog , the changes i made was not thrown back to the Database<br />
+<br />
+Help !!!</p></div></div><div class="Comment"><div class="CommentTitle">by <b>davel</b> on <b>Sunday, September 9th 2007</b> at <b>10:26 PM</b></div><div class="CommentContent"><p>I agree with most of the others, this was an excellent resource putting together some pieces to the puzzle that I\'d been having trouble with.<br />
+Many thanks.</p></div></div><div class="Comment"><div class="CommentTitle">by <b>Sharath</b> on <b>Saturday, September 15th 2007</b> at <b>03:23 AM</b></div><div class="CommentContent"><p>Great Tutorial, Ive looked thro\' 100s of tutorials on this topic but one gave me the solution what i want, simply brilliant great job :)</p></div></div><div class="Comment"><div class="CommentTitle">by <b>Bob</b> on <b>Monday, November 19th 2007</b> at <b>12:42 AM</b></div><div class="CommentContent"><p>Greate tutorial! Does anyone know what the driver string is for the 5.0.8.1 connector?</p></div></div><div class="Comment"><div class="CommentTitle">by <b>nep lah</b> on <b>Monday, November 26th 2007</b> at <b>09:07 PM</b></div><div class="CommentContent"><p>Great Tutorial !!! Can we extend this tutorial to show how to take backup of mysql data from C# application?</p></div></div><div class="Comment"><div class="CommentTitle">by <b>Seena</b> on <b>Tuesday, February 5th 2008</b> at <b>05:01 AM</b></div><div class="CommentContent"><p>Good job.simple article which gave me what i want.</p></div></div><div class="Comment"><div class="CommentTitle">by <b>Vignesh</b> on <b>Friday, February 15th 2008</b> at <b>05:23 AM</b></div><div class="CommentContent"><p>hi, Odbc With LocalHost Works Fine. But I Am Not Able To Conect To The Database In My LAN</p></div></div><div class="Comment"><div class="CommentTitle">by <b>Nisar Ahmad</b> on <b>Tuesday, April 1st 2008</b> at <b>11:55 PM</b></div><div class="CommentContent"><p>This is very good example that gave me good idea about Mysql database connectivity with c#.I have connected using the same pattern.But i am having error like{Unable to connect any of Mysql Host}.Database is hosted in Remote server via internet and i access that connection string in  the same way as shown in your example.What could be the problem.Is it from server side or from my application side.On server there is Mysql 3.23.58 version running.Kindly tell me what setting else we have to  make with server and with my local machine.Insted of mysql ODBC ,I also tried by incloding Bytefx  .DLL file in my application but still could not connect.For last one month i am stuck on this kindly help me</p></div></div><div class="Comment"><div class="CommentTitle">by <b>Marcus</b> on <b>Thursday, April 10th 2008</b> at <b>01:03 PM</b></div><div class="CommentContent"><p>Thank you so much. HOURS trying to find the right way to connect is finally to an end. :)</p></div></div><div class="Comment"><div class="CommentTitle">by <b>Rob</b> on <b>Thursday, April 10th 2008</b> at <b>04:35 PM</b></div><div class="CommentContent"><p>Good article... I got this far myself but am now having issues trying to write long strings to a MySQL column of datatype TEXT. Any tips or tricks would be greatfully recieved!! :)</p></div></div><div class="Comment"><div class="CommentTitle">by <b>AWESOME</b> on <b>Friday, May 16th 2008</b> at <b>05:48 PM</b></div><div class="CommentContent"><p>THIS is the only tutorial I have seen that actually works and is in detail on how to set things up!!! Awesome job!</p></div></div><div class="Comment"><div class="CommentTitle">by <b>din</b> on <b>Monday, April 13th 2009</b> at <b>04:23 AM</b></div><div class="CommentContent"><p>even iam trying 2 connect .net app with MYSQL DB but i could not connecting iam getting the error like  The 'MySQLProv' provider is not registered on the local machine</p></div></div><div class="Comment"><div class="CommentTitle">by <b>Tejaswini</b> on <b>Friday, June 12th 2009</b> at <b>06:23 AM</b></div><div class="CommentContent"><p>Hi,<br />
+Thanks a lot for sharing this application and about MyODBC driver. I am new to MySql and now with ur help can easily migrated to mysql   .net :)<br />
+<br />
+Thanks again!<br />
+Happy working with mysql :)</p></div></div><div class="Comment"><div class="CommentTitle">by <b>lehs</b> on <b>Tuesday, September 15th 2009</b> at <b>05:14 PM</b></div><div class="CommentContent"><p><br />
+Hy Andrew,,<br />
+<br />
+great job!<br />
+<br />
+I testet it and it works fine.<br />
+I made a new Project in C# an wants to show the values from my MySQL-Database &quot;db_tb2_Einwohner&quot; (xampp installed) in a DataGridView. There are no errors, but the Values from the &quot;tbl_Ort&quot; arent populated in the DataGridView1.<br />
+Can you help me? Do you find out the &quot;error&quot;?<br />
+<br />
+Thanks a lot<br />
+<br />
+<br />
+****************<br />
+Hier is my code:<br />
+****************<br />
+<br />
+<br />
+using System;<br />
+using System.Collections.Generic;<br />
+using System.ComponentModel;<br />
+using System.Data;<br />
+using System.Drawing;<br />
+using System.Linq;<br />
+using System.Text;<br />
+using System.Windows.Forms;<br />
+<br />
+using System.Data.Common;<br />
+using System.Data.Odbc;<br />
+using System.Data.OleDb;<br />
+using System.Data.ProviderBase;<br />
+using System.Data.Sql;<br />
+using System.Data.SqlClient;<br />
+using System.Data.SqlTypes;<br />
+<br />
+namespace a1<br />
+{<br />
+    public partial class Form1 : Form<br />
+    {<br />
+        private System.Data.Odbc.OdbcConnection OdbcCon;<br />
+        private System.Data.Odbc.OdbcCommand OdbcCom;<br />
+        private System.Data.Odbc.OdbcDataReader OdbcDR;<br />
+        private System.Data.Odbc.OdbcDataAdapter MyDA;<br />
+        private string ConStr;<br />
+<br />
+        public Form1()<br />
+        {<br />
+            InitializeComponent();<br />
+        }<br />
+<br />
+        private void Form1_Load(object sender, EventArgs e)<br />
+        {<br />
+            // Build the connection string<br />
+            ConStr = &quot;DRIVER={MySQL ODBC 5.1 Driver};SERVER=&quot;<br />
+                      &quot;127.0.0.1&quot;<br />
+                      &quot;;PORT=&quot;<br />
+                      &quot;3306&quot;<br />
+                      &quot;;DATABASE=&quot;<br />
+                      &quot;db_tg2_Einwohner&quot;<br />
+                      &quot;;UID=&quot;<br />
+                      &quot;root&quot;<br />
+                      &quot;;PWD=&quot;<br />
+                      &quot;&quot;<br />
+                      &quot;;OPTION=3&quot;;<br />
+            OdbcCon = new System.Data.Odbc.OdbcConnection(ConStr);<br />
+            OdbcCon.Open();<br />
+            lbl_conn_tst.Text = &quot;Connection opened&quot;;<br />
+<br />
+            OdbcDataAdapter MyDA = new OdbcDataAdapter();<br />
+            string sqlSelectAll = &quot;SELECT * FROM tbl_Ort&quot;;<br />
+            MyDA.SelectCommand = new OdbcCommand(sqlSelectAll, OdbcCon);<br />
+<br />
+            DataTable table = new DataTable();<br />
+            MyDA.Fill(table);<br />
+<br />
+            BindingSource bSource = new BindingSource();<br />
+            bSource.DataSource = table;<br />
+<br />
+<br />
+            DataGridView dataGridView1 = new DataGridView();<br />
+<br />
+            dataGridView1.DataSource = bSource;<br />
+<br />
+        }<br />
+    }<br />
+}</p></div></div><div class="Comment"><div class="CommentTitle">by <b>mike</b> on <b>Wednesday, September 30th 2009</b> at <b>07:48 AM</b></div><div class="CommentContent"><p>Openning connection...<br />
+ERROR [IM002] [Microsoft][ODBC Driver Manager] Data source name not found and no default driver specified<br />
+<br />
+i set up my  obdc drivers..</p></div></div><div class="Comment"><div class="CommentTitle">by <b>mickey</b> on <b>Saturday, October 3rd 2009</b> at <b>03:25 PM</b></div><div class="CommentContent"><p>I do the same but...C# give me this error.<br />
+<br />
+ERROR [HYC00] [MySQL][ODBC 5.1 Driver]Optional feature not supported<br />
+<br />
+Why?<br />
+<br />
+</p></div></div><div class="Comment"><div class="CommentTitle">by <b>c#beginner</b> on <b>Tuesday, March 2nd 2010</b> at <b>02:19 PM</b></div><div class="CommentContent"><p>Version of ODBC driver in code must be the same as your installed version of ODBC!!! If you have 5.1, simple change number of version in code and will work it!;)<br />
+</p></div></div><div class="Comment"><div class="CommentTitle">by <b>Chandralekha</b> on <b>Wednesday, March 3rd 2010</b> at <b>01:28 AM</b></div><div class="CommentContent"><p>hello Sir..<br />
+we are developing an web application using c# </p></div></div><div class="Comment"><div class="CommentTitle">by <b>Chandralekha</b> on <b>Wednesday, March 3rd 2010</b> at <b>01:58 AM</b></div><div class="CommentContent"><p>and mysql, this application works fine in my sytem. but when i deploy the same application in the server it is giving me HYT00 MySql ODBC 3.51 Driver access denied Error, i've given server's User Name Password </p></div></div><div class="Comment"><div class="CommentTitle">by <b>Chandrlekha</b> on <b>Wednesday, March 3rd 2010</b> at <b>02:00 AM</b></div><div class="CommentContent"><p>we are developing an web application using c# and mysql, this application works fine in my sytem. but when i deploy the same application in the server it is giving me HYT00 MySql ODBC 3.51 Driver access denied Error, i've given server's User Name Password and IP Address  in the connection String Please Help me.....<br />
+<br />
+<br />
+<br />
+</p></div></div>		<br />
+		<form id="frmComment" name="frmComment">
+		<div class="DetTitle">
+			<h5><img src="Graphics/AddComment16.gif" align="absmiddle" alt="Comment" /> Comment on this tutorial</h5>
+		</div>
+		<div class="DetContent">
+		<div id="CommentResult"></div>
+			<table border="0" cellpadding="6" cellspacing="1" width="100%">
+			<tr>
+			<td class="Td1">Name:</td>
+			<td class="Td2"><input type="text" size="20" name="txtName" /></td>
+			<td class="Td1">Email:</td>
+			<td class="Td2"><input type="text" size="20" name="txtEmail" /></td>
+			</tr>
+			<tr>
+			<td class="Td1">Message:</td>
+			<td class="Td2" colspan="3"><textarea name="txtMessage" rows="10" cols="50"></textarea></td>
+			</tr>
+			<tr>
+			<td colspan="4" class="Td2">
+			<input type="checkbox" value="yes" name="chkSubscribe" id="chkSubscribe" class="frmCheckbox" checked="checked" /><label for="chkSubscribe"> Subscribe me to future replies</label>
+			</td>
+			</tr>
+			<tr>
+			<td colspan="4" align="center">
+			<input type="button" id="btnComment" value="Submit" class="frmButton" onclick="ValidateForm();" />
+			</td>
+			</tr>
+			</table>
+		</div>
+		</form>
+	</td>
+	<td rowspan="5" class="ArtDetails" valign="top">
+		<div class="DetTitle">
+			<h5><img src="Graphics/Tutorial16.png" align="absmiddle" alt="Comment" /> Related Tutorials</h5>
+		</div>
+		<div style="font-size: 10px; text-align: center; font-style: italic; padding: 8px;">There are no related tutorials.</div>		<br />
+		<div class="DetTitle">
+			<h5><img src="Graphics/Code16.png" align="absmiddle" alt="Comment" /> Related Source Code</h5>
+		</div>
+		<div style="font-size: 10px; text-align: center; font-style: italic; padding: 8px;">There is no related source code.</div>		<br />
+		<div class="DetTitle">
+			<h5><img src="Graphics/Jobs16.png" align="absmiddle" alt="Jobs" /> C# Job Search</h5>
+		</div>
+		<table border=0 width="100%" cellpadding=0 cellspacing=0 style="line-height: 18px; text-align: center;">
+		<form action="http://www.careerbuildercollege.com/PLI/QuickSrch.aspx" method=get>
+		<input type="hidden" name="lr" value="cbgeekp">
+		<input type="hidden" name="siteid" value="geekp003">
+		<input type="hidden" name="use" value="all">
+		<tr><td style="padding:8px;"><strong>My skills include:</strong>
+		<input type=text style="width:175px;" maxlength=256 name=mxjobsrchcriteria_rawwords tabindex=1 value="C#"><br>
+		<strong>Enter&nbsp;a&nbsp;City:</strong><br>
+		<input type=input style="width:175px;" name=mxjobsrchcriteria_city value="" size=21 tabindex=2><br>
+		<strong>Select a State:</strong><br>
+		<select name=mxjobsrchcriteria_state size=1 tabindex=3 style="width:180px;">
+			<option value="ALL, US">&nbsp;&#150;&nbsp;All United States&nbsp;&#150;&nbsp;</option>
+			<option value="AL, US">Alabama</option>
+			<option value="AK, US">Alaska</option>
+			<option value="AZ, US">Arizona</option>
+			<option value="AR, US">Arkansas</option>
+			<option value="CA, US">California</option>
+			<option value="CO, US">Colorado</option>
+			<option value="CT, US">Connecticut</option>
+			<option value="DE, US">Delaware</option>
+			<option value="DC, US">District of Columbia</option>
+			<option value="FL, US">Florida</option>
+			<option value="GA, US">Georgia</option>
+			<option value="HI, US">Hawaii</option>
+			<option value="ID, US">Idaho</option>
+			<option value="IL, US">Illinois</option>
+			<option value="IN, US">Indiana</option>
+			<option value="IA, US">Iowa</option>
+			<option value="KS, US">Kansas</option>
+			<option value="KY, US">Kentucky</option>
+			<option value="LA, US">Louisiana</option>
+			<option value="ME, US">Maine</option>
+			<option value="MD, US">Maryland</option>
+			<option value="MA, US">Massachusetts</option>
+			<option value="MI, US">Michigan</option>
+			<option value="MN, US">Minnesota</option>
+			<option value="MS, US">Mississippi</option>
+			<option value="MO, US">Missouri</option>
+			<option value="MT, US">Montana</option>
+			<option value="NE, US">Nebraska</option>
+			<option value="NV, US">Nevada</option>
+			<option value="NH, US">New Hampshire</option>
+			<option value="NJ, US">New Jersey</option>
+			<option value="NM, US">New Mexico</option>
+			<option value="NY, US">New York</option>
+			<option value="NC, US">North Carolina</option>
+			<option value="ND, US">North Dakota</option>
+			<option value="OH, US">Ohio</option>
+			<option value="OK, US">Oklahoma</option>
+			<option value="OR, US">Oregon</option>
+			<option value="PA, US">Pennsylvania</option>
+			<option value="RI, US">Rhode Island</option>
+			<option value="SC, US">South Carolina</option>
+			<option value="SD, US">South Dakota</option>
+			<option value="TN, US">Tennessee</option>
+			<option value="TX, US">Texas</option>
+			<option value="UT, US">Utah</option>
+			<option value="VT, US">Vermont</option>
+			<option value="VA, US">Virginia</option>
+			<option value="WA, US">Washington</option>
+			<option value="WV, US">West Virginia</option>
+			<option value="WI, US">Wisconsin</option>
+			<option value="WY, US">Wyoming</option>
+		</select><br>
+		<img src=http://img.icbdr.com/images/pixel.gif width=1 height=1 vspace=2><br>
+		<div align=center><input type=submit value="Find Jobs" tabindex=5 id=submit name=submit></div>
+        </td>
+		</tr>
+		<tr><td style=padding:8px;><a href="http://www.careerbuildercollege.com/jobseeker/jobs/jobfindadv.aspx?lr=cbgeekp&siteid=cbgeekp003" style="text-decoration: none;"><font face="arial,helvetica" size="1" style="font-size:11px; color: f60;"><b>Advanced Search >></b></font></a></td></tr>
+        </form>
+		</table>
+	</td>
+	</tr>
+</table>
+</div>
+</td>
+<td width="18%" valign="top">
+<div class="RMenuTitle">
+	Latest Tech Bargains
+</div>
+<div class="RMenuContent">
+			<div class="MenuBigItem" onclick="javascript:self.location='deal300_Nokia-6085-Quad-Band-GoPhone.html'">
+		<a href="deal300_Nokia-6085-Quad-Band-GoPhone.html"><img src="Pictures/Deals/T300.jpg" align="left" alt="Nokia 6085 Quad-Band GoPhone" style="margin-right: 5px;" /></a>
+		<h2><a href="deal300_Nokia-6085-Quad-Band-GoPhone.html">Nokia 6085 Quad-Band GoPhone</a></h2>
+		<span class="Price">$29.99 w/ free shipping</span>
+		<div class="ClearBoth"></div>
+		</div>
+				<div class="MenuBigItem" onclick="javascript:self.location='deal299_Crucial-Ballistix-Tracer-Dual-Channel-1GB-DDR2-Memory.html'">
+		<a href="deal299_Crucial-Ballistix-Tracer-Dual-Channel-1GB-DDR2-Memory.html"><img src="Pictures/Deals/T299.jpg" align="left" alt="Crucial Ballistix Tracer Dual Channel 1GB DDR2 Memory" style="margin-right: 5px;" /></a>
+		<h2><a href="deal299_Crucial-Ballistix-Tracer-Dual-Channel-1GB-DDR2-Memory.html">Crucial Ballistix Tracer Dual Channel 1GB DDR2 Memory</a></h2>
+		<span class="Price">FREE after $35 rebate</span>
+		<div class="ClearBoth"></div>
+		</div>
+				<div class="MenuBigItem" onclick="javascript:self.location='deal298_Maxtor-500GB-Ultra16-SATA-II--HDD.html'">
+		<a href="deal298_Maxtor-500GB-Ultra16-SATA-II--HDD.html"><img src="Pictures/Deals/T298.jpg" align="left" alt="Maxtor 500GB Ultra16 SATA II  HDD" style="margin-right: 5px;" /></a>
+		<h2><a href="deal298_Maxtor-500GB-Ultra16-SATA-II--HDD.html">Maxtor 500GB Ultra16 SATA II  HDD</a></h2>
+		<span class="Price">$49.99 w/ free shipping</span>
+		<div class="ClearBoth"></div>
+		</div>
+				<div class="MenuBigItem" onclick="javascript:self.location='deal297_Samsung-A117-Prepaid-wor-No-Contract.html'">
+		<a href="deal297_Samsung-A117-Prepaid-wor-No-Contract.html"><img src="Pictures/Deals/T297.jpg" align="left" alt="Samsung A117 Prepaid w/ No Contract" style="margin-right: 5px;" /></a>
+		<h2><a href="deal297_Samsung-A117-Prepaid-wor-No-Contract.html">Samsung A117 Prepaid w/ No Contract</a></h2>
+		<span class="Price">$9.99 w/ free shipping</span>
+		<div class="ClearBoth"></div>
+		</div>
+			<div class="ClearBoth"></div>
+	<div class="MenuMoreButton" onclick="javascript:self.location='http://www.geekpedia.com/deals.php'">
+	<a href="http://www.geekpedia.com/deals.php"><img src="Graphics/Bargains16.png" alt="Bargains" align="absmiddle" /> View More Bargains</a>
+	</div>
+	<div class="MenuMoreButton" onclick="javascript:self.location='http://www.geekpedia.com/RSS/LatestBargains.xml'">
+	<a href="http://www.geekpedia.com/RSS/LatestBargains.xml"><img src="Graphics/Feed16.png" alt="RSS Feed" align="absmiddle" /> Bargains RSS Feed</a>
+	</div>
+</div>
+<br />
+<div class="RMenuTitle">
+	Advertisement
+</div>
+<div class="RMenuContent" style="padding: 6px 0 6px 0; text-align: center;">
+	<script type="text/javascript"><!--
+	   e9 = new Object();
+	   e9.size = "160x600,120x600";
+	   e9.noAd = 1;
+	//--></script>
+	<script type="text/javascript" src="http://tags.expo9.exponential.com/tags/Geekpediacom/ROS/tags.js"></script>
+</div>
+<br />
+<div class="RMenuTitle">
+	Free Magazine Subscriptions
+</div>
+<div class="RMenuContent">
+			<div class="MenuBigItem" onclick="javascript:self.location='magazine25_oracle-magazine.html'">
+		<a href="magazine25_oracle-magazine.html"><img src="Pictures/Magazines/Torm.jpg" align="left" alt="Oracle Magazine" style="margin-right: 5px;" /></a>
+		<h2><a href="magazine25_oracle-magazine.html">Oracle Magazine</a></h2>
+		<span class="Price">FREE SUBSCRIPTION</span>
+		<br />
+		<span style="color: #999999;">
+		by Oracle Corporation		</span>
+		<div class="ClearBoth"></div>
+		</div>
+				<div class="MenuBigItem" onclick="javascript:self.location='magazine30_zorjournal.html'">
+		<a href="magazine30_zorjournal.html"><img src="Pictures/Magazines/Tzj.jpg" align="left" alt="z/Journal" style="margin-right: 5px;" /></a>
+		<h2><a href="magazine30_zorjournal.html">z/Journal</a></h2>
+		<span class="Price">FREE SUBSCRIPTION</span>
+		<br />
+		<span style="color: #999999;">
+		by Thomas Communications, Inc.		</span>
+		<div class="ClearBoth"></div>
+		</div>
+				<div class="MenuBigItem" onclick="javascript:self.location='magazine51_website-magazine.html'">
+		<a href="magazine51_website-magazine.html"><img src="Pictures/Magazines/Twebs.jpg" align="left" alt="Website Magazine" style="margin-right: 5px;" /></a>
+		<h2><a href="magazine51_website-magazine.html">Website Magazine</a></h2>
+		<span class="Price">FREE SUBSCRIPTION</span>
+		<br />
+		<span style="color: #999999;">
+		by Website Services Inc.		</span>
+		<div class="ClearBoth"></div>
+		</div>
+				<div class="MenuBigItem" onclick="javascript:self.location='magazine47_pc-world.html'">
+		<a href="magazine47_pc-world.html"><img src="Pictures/Magazines/Tpcwd.jpg" align="left" alt="PC World" style="margin-right: 5px;" /></a>
+		<h2><a href="magazine47_pc-world.html">PC World</a></h2>
+		<span class="Price">FREE SUBSCRIPTION</span>
+		<br />
+		<span style="color: #999999;">
+		by PC World Communications, Inc.		</span>
+		<div class="ClearBoth"></div>
+		</div>
+			<div class="ClearBoth"></div>
+	<div class="MenuMoreButton" onclick="javascript:self.location='http://www.geekpedia.com/Magazines.html'">
+	<a href="http://www.geekpedia.com/Magazines.html"><img src="Graphics/Mag16.png" alt="Magazines" align="absmiddle" /> View More Magazines</a>
+	</div>
+</div>
+<br />
+<div class="RMenuTitle">
+	Today's Pictures
+</div>
+<div class="RMenuContent">
+			<div class="MenuBigItem" onclick="javascript:self.location='Picture435_wetkeys-washable-keyboard.html'">
+		<a href="Picture435_wetkeys-washable-keyboard.html"><img src="gallery/thumb/wetkeys-washable-keyboard.jpg" align="left" alt="Wetkeys Washable Keyboard" style="margin-right: 5px;" width="100" /></a>
+		<h2><a href="picture435_wetkeys-washable-keyboard.html">Wetkeys Washable Keyboard</a></h2>
+		<br />
+		<span style="color: #999999;">
+		Tags: 
+		<a href="Pictures837_Keyboard.html">Keyboard</a>, <a href="Pictures838_Gadgets.html">Gadgets</a>		</span>
+		<div class="ClearBoth"></div>
+		</div>
+				<div class="MenuBigItem" onclick="javascript:self.location='Picture434_windows-7-blue-wallpaper.html'">
+		<a href="Picture434_windows-7-blue-wallpaper.html"><img src="gallery/thumb/windows-7-blue-wallpaper.jpg" align="left" alt="Windows 7 Blue Wallpaper" style="margin-right: 5px;" width="100" /></a>
+		<h2><a href="picture434_windows-7-blue-wallpaper.html">Windows 7 Blue Wallpaper</a></h2>
+		<br />
+		<span style="color: #999999;">
+		Tags: 
+		<a href="Pictures6_Wallpaper.html">Wallpaper</a>, <a href="Pictures257_Windows-7.html">Windows 7</a>		</span>
+		<div class="ClearBoth"></div>
+		</div>
+				<div class="MenuBigItem" onclick="javascript:self.location='Picture433_orange-red-toshiba-wallpaper.html'">
+		<a href="Picture433_orange-red-toshiba-wallpaper.html"><img src="gallery/thumb/orange-red-toshiba-wallpaper.jpg" align="left" alt="Orange-Red Toshiba Wallpaper" style="margin-right: 5px;" width="100" /></a>
+		<h2><a href="picture433_orange-red-toshiba-wallpaper.html">Orange-Red Toshiba Wallpaper</a></h2>
+		<br />
+		<span style="color: #999999;">
+		Tags: 
+		<a href="Pictures833_Toshiba.html">Toshiba</a>, <a href="Pictures6_Wallpaper.html">Wallpaper</a>		</span>
+		<div class="ClearBoth"></div>
+		</div>
+			<div class="ClearBoth"></div>
+	<div class="MenuMoreButton" onclick="javascript:self.location='http://www.geekpedia.com/PicturesArchive.html'">
+	<a href="http://www.geekpedia.com/PicturesArchive.html"><img src="Graphics/Picture16.png" alt="Pictures" align="absmiddle" /> View More Pictures</a>
+	</div>
+</div>
+<br />
+<div class="RMenuTitle">
+	Today's Video
+</div>
+<div class="RMenuContent">
+<div class="MenuBigItem" onclick="javascript:self.location='Video457_microsoft-gaze.html'" style="text-align: center;">
+<div class="PicShadow"><div class="PicFile"><a href="Video457_Microsoft-Gaze.html"><img src="http://i4.ytimg.com/vi/sC6hr2lB52w/default.jpg" alt="Microsoft Gaze" border="0" style="margin: auto;"></a></div></div><br /><b><a href="Video457_Microsoft-Gaze.html">Microsoft Gaze</a></b></div>
+	<div class="ClearBoth"></div>
+	<div class="MenuMoreButton" onclick="javascript:self.location='http://www.geekpedia.com/VideosArchive.html'" style="text-align: left;">
+	<a href="http://www.geekpedia.com/VideosArchive.html"><img src="Graphics/Video16.png" alt="Videos" align="absmiddle" /> View More Videos</a>
+	</div>
+</div>
+<br />
+<div class="RMenuTitle">
+	Other Resources
+</div>
+<div class="RMenuContent">
+<ul class="MiniUl">
+<li><a href="http://www.bargainez.com" target="_blank" title="Bargains">Bargains</a></li><li><a href="http://www.specialtyansweringservice.net/" target="_blank" title="Answering Service">Answering Service</a></li><li><a href="http://www.microsofttraining.net/microsoft-office-training.php" target="_blank" title="Microsoft Office Training">Microsoft Office Training</a></li><li><a href="http://www.invisibleonyahoo.com" target="_blank" title="Invisible On Yahoo!">Invisible On Yahoo!</a></li><li><a href="http://www.errorbank.com" target="_blank" title="Error Bank">Error Bank</a></li><li><a href="http://www.ffpedia.com/forums" target="_blank" title="FlashForward Forums">FlashForward Forums</a></li><li><a href="http://www.windowsvienna.com" target="_blank" title="Order Microsoft Windows 7">Order Microsoft Windows 7</a></li></ul>
+</div>
+<br />
+<div class="RMenuTitle">
+	Latest Download
+</div>
+<div class="RMenuContent">
+			<div class="MenuBigItem" onclick="javascript:self.location='download11_Building-Line-of-Business-Applications-with-WPF.html'">
+		<a href="download11_Building-Line-of-Business-Applications-with-WPF.html"><img src="Pictures/Downloads/T-Pdf.png" align="left" alt="Building Line of Business Applications with WPF" style="margin-right: 5px;" /></a>
+		<h2><a href="download11_Building-Line-of-Business-Applications-with-WPF.html">Building Line of Business Applications with WPF</a></h2>
+		<div style="clear: both; height: 0; line-height: 0;"></div>
+		</div>
+			<div class="ClearBoth"></div>
+	<div class="MenuMoreButton" onclick="javascript:self.location='http://www.geekpedia.com/downloads.php'">
+	<a href="downloads.php"><img src="Graphics/Down16.png" alt="Downloads" align="absmiddle" />  View More Downloads</a>
+	</div>
+</div>
+<br />
+<div class="RMenuTitle">
+	Latest Icons
+</div>
+<div class="RMenuContent">
+	<table border="0" width="100%">
+	<tr>		<td align="center" style="cursor: hand;" onclick="javascript:self.location='icon14485_.html'">
+	   <a href="icon14485_Windows-Live-Logo.html"><img src="Pictures/Icons/vista-wow-windows-live-logo_256x256.png" alt="Windows Live Logo" width="64" style="margin-right: 5px;" /></a>
+		</td>
+			<td align="center" style="cursor: hand;" onclick="javascript:self.location='icon14484_.html'">
+	   <a href="icon14484_Windows-Basic-Cubes.html"><img src="Pictures/Icons/vista-wow-windows-basic-cubes_256x256.png" alt="Windows Basic Cubes" width="64" style="margin-right: 5px;" /></a>
+		</td>
+	</tr><tr>		<td align="center" style="cursor: hand;" onclick="javascript:self.location='icon14483_.html'">
+	   <a href="icon14483_Live-Search.html"><img src="Pictures/Icons/vista-wow-live-search_256x256.png" alt="Live Search" width="64" style="margin-right: 5px;" /></a>
+		</td>
+			<td align="center" style="cursor: hand;" onclick="javascript:self.location='icon14481_.html'">
+	   <a href="icon14481_Video-Reel.html"><img src="Pictures/Icons/vista-wow-video-reel_256x256.png" alt="Video Reel" width="64" style="margin-right: 5px;" /></a>
+		</td>
+	</tr>	</table>
+	<div class="ClearBoth"></div>
+	<div class="MenuMoreButton" onclick="javascript:self.location='http://www.geekpedia.com/icons.php'">
+	<a href="icons.php"><img src="Graphics/Icons16.png" alt="Icons" align="absmiddle" />  View More Icons</a>
+	</div>
+</div>
+</td>
+</tr>
+</table>
+<div class="Footer">
+<table border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td class="TdLinks">
+<h6>About Geekpedia</h6>
+<ul>
+<li><a href="contact.php">Contact Us</a></li>
+<li><a href="advertise.php">Advertise</a></li>
+<li><a href="statistics.php">Statistics</a></li>
+<li><a href="faq.php">FAQ</a></li>
+</ul>
+</td>
+<td class="TdLinks">
+<h6>Legal</h6>
+<ul>
+<li><a href="privacy_policy.php">Privacy Policy</a></li>
+<li><a href="terms.php">Terms and Conditions</a></li>
+<li><a href="terms.php">Copyright Information</a></li>
+</ul>
+</td>
+<td class="TdLinks">
+<h6>More Resources</h6>
+<ul>
+<li><img src="Graphics/Res16.png" align="absmiddle" alt="Resources" /> <a href="Resources.html">External Resources</a></li>
+<li><img src="Graphics/Book16.png" align="absmiddle" alt="Free Books" /> <a href="BooksArchive.html">Free Books</a></li>
+<li><img src="Graphics/Mag16.png" align="absmiddle" alt="Free Magazines" /> <a href="Magazines.html">Free Magazines</a></li>
+<li><img src="Graphics/Jobs16.png" align="absmiddle" alt="Tech Jobs" /> <a href="Programming-Jobs.php">Tech Jobs</a></li>
+<li><img src="Graphics/Down16.png" align="absmiddle" alt="Downloads" /> <a href="downloads.php">Downloads</a></li>
+<li><img src="Graphics/Search16.png" align="absmiddle" alt="Search" /> <a href="Search.html">Search</a></li>
+</ul>
+</td>
+<td class="TdLinks">
+<h6>Closed Sections</h6>
+<ul>
+<li><a href="ann_list.php">Announcements</a></li>
+<li><a href="lexicon_list.php">Lexicon</a></li>
+<li><a href="reviews_list.php">Reviews</a></li>
+<li><a href="hard_artcls_list.php">Hardware</a></li>
+<li><a href="prj_proj_list.php">Projects</a></li>
+<li><a href="poll_list.php">Polls</a></li>
+</ul>
+</td>
+<td class="TdLinks">
+<h6>Geekpedia Network</h6>
+<ul>
+<li><a href="http://www.devpub.com" target="_blank">DevPub.com</a></li>
+<li><a href="http://www.errorbank.com" target="_blank">ErrorBank.com</a></li>
+<li><a href="http://www.windowsvienna.com" target="_blank">WindowsVienna.com</a></li>
+<li><a href="http://www.dotnetonweb.com" target="_blank">DotNetOnWeb.com</a></li>
+</ul>
+</td>
+</tr>
+</table>
+<br /><br />
+<img src="Graphics/GeekpediaMiniLogo.png" alt="Geekpedia Logo" />
+<br />
+Copyright &copy; Geekpedia 2004 - 2010. All Rights Reserved.
+</div>
+<img src="Images/TopNavBgAlt.png" width="1" height="1" />
+<!-- Kontera ContentLink(TM);-->
+<script type='text/javascript'>
+var dc_AdLinkColor = '#006837' ;
+var dc_PublisherID = 40888 ;
+</script>
+<script type='text/javascript' src='http://kona.kontera.com/javascript/lib/KonaLibInline.js'>
+</script>
+<!-- Kontera ContentLink(TM) -->
+</body>
+</html>

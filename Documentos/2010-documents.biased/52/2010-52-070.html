@@ -1,0 +1,288 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+	<meta name="author" content="Joseph Skidmore" />
+	<meta name="keywords" content="html, xhtml, hypertext markup language, extensible, tables, tr, td, adding background, table cell, rowspan, colspan, align" />
+	<meta name="description" content="Probably everything you will ever need to know about tables in this tutorial. I am going to show you how to apply styles to them so you can have valid coding weather you are using HTML 4.01 Transitional / Strict or using XHTML." />
+
+	<title>Joe2Torials.com &nbsp; &Dagger; &nbsp; xhtml / html - Tables</title>
+
+	<link href="http://www.joe2torials.com/styles.css" rel="stylesheet" type="text/css" />
+	<link href="http://www.joe2torials.com/site_images/favicon.ico" rel="shortcut icon" type="image/ico" />
+</head>
+<body>
+
+<div id="Layer_01">
+<div id="Layer_02">
+<div id="Layer_03">
+
+<div id="Header">
+	<h1>Joe2Torials.com</h1>
+	<p><acronym title="HyperText Markup Language">html</acronym> / <acronym title="Extensible HyperText Markup Language">xhtml</acronym>, <acronym title="Cascading Style Sheets">css</acronym>, <acronym title="Hypertext Preprocessor">php</acronym>, mysql, javascript, <acronym title="Active Server Pages">asp</acronym>, <acronym title="Search Engine Optimisation">seo</acronym>, web management, semantics, accessibility and more.</p>
+</div>
+<div id="Content">
+<div id="Tutorial-Record">
+<h2>Tables</h2>
+
+<div id="Synopsis">
+<p>Probably everything you will ever need to know about tables in this tutorial. I am going to show you how to apply styles to them so you can have valid coding weather you are using HTML 4.01 Transitional / Strict or using XHTML.</p>
+<p><em>In category <a href="subject.php?view=1" title="xhtml / html">xhtml / html</a>.</em></p>
+
+<p><em>Posted by <a href="http://www.joe2kiss.co.uk/" title="http://www.joe2kiss.co.uk/">Joseph Skidmore</a> on 09.09.05.</em></p>
+<p><em>Last edited on 09.09.05.</em></p>
+</div>
+
+<p>Probably everything you will ever need to know about tables in this tutorial. I am going to show you how to apply styles to them so you can have valid coding weather you are using HTML 4.01 Transitional / Strict or using XHTML.</p>
+
+<p><a href="http://www.joe2torials.com/html-xhtml/examples/tablesexamples.html" target="_blank" title="Tables Reference Sheet">Tables Reference Sheet</a>. This page contains working examples of all the code that I am using throughout the tutorial, so if you want to see any of the examples in working conditions then it might be better to have this sheet open.</p>
+
+<p>Now lets begin, to create a very basic table the code would be:</p>
+
+<pre>
+&lt;table border="1"&gt;
+&lt;tr&gt;
+&lt;td&gt;content&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</pre>
+
+<p>Now you will need to set the width and height attributes for the table and the table cells.</p>
+
+<pre>
+&lt;table width="200" height="200" border="1"&gt;
+&lt;tr&gt;
+&lt;td width="100" height="100"&gt;top left cell&lt;/td&gt;
+&lt;td width="100" height="100"&gt;top right cell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td width="100" height="100"&gt;bottom left cell&lt;/td&gt;
+&lt;td width="100" height="100"&gt;bottom right cell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</pre>
+
+<p>Now you see in this code the entire table width and height are both 200px, each cell within the table are 100px width and height each, all adding up to 200px.</p>
+
+<p>Table with only 1 cell on the bottom row.</p>
+
+<pre>
+&lt;table width="200" height="200" border="1"&gt;
+&lt;tr&gt;
+&lt;td width="100" height="100"&gt;top left cell&lt;/td&gt;
+&lt;td width="100" height="100"&gt;top right cell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td colspan="2" width="200" height="100"&gt;bottom spanned cell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</pre>
+
+<p>Now you can see a new attribute in this code, the <strong>colspan</strong> attribute, this means how many columns the cell should be spanned across, in this case 2, because there are only 2 columns we want the cell to be spanned over. You should also notice the width of the cell now has been changed to 200, this is because we are adding up the total of the cells that the new cell is spanning across.</p>
+
+<pre>
+&lt;table width="200" height="200" border="1"&gt;
+&lt;tr&gt;
+&lt;td width="100" height="100"&gt;top left cell&lt;/td&gt;
+&lt;td rowspan="2" width="100" height="200"&gt;right spanned cell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td width="100" height="100"&gt;bottom left cell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</pre>
+
+<p>Now you will notice we have the attribute <strong>rowspan</strong>, this is the same as the colspan attribute  except for the fact it controls the amount of rows the cell spans.</p>
+
+<p>This code would not validate in XHTML or HTML 4.01 Strict because the width and height attributes are removed in favour of using stylesheets (CSS). CSS can be placed in the head of your page or it can be placed in an external stylesheet. There is also another way, you can add styles to your tags.</p>
+
+<p>E.G.</p>
+<pre>
+&lt;table style="border: 1px; width: 100%; width: 100%;"&gt;
+</pre>
+
+<p>By adding styles instead of using <em>&lt;table width="100%" height="100%"&gt;</em> you will get valid coding and in most cases less code bloat (repeating code).</p>
+
+<pre>
+&lt;table style="border: 1px solid black; width: 200px; height: 200px;"&gt;
+&lt;tr&gt;
+&lt;td style="border: 1px solid black; width: 100px; height: 100px;"&gt;
+top left cell&lt;/td&gt;
+&lt;td style="border: 1px solid black; width: 100px; height: 100px;"&gt;
+top right cell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="border: 1px solid black; width: 100px; height: 100px;"&gt;
+bottom left cell&lt;/td&gt;
+&lt;td style="border: 1px solid black; width: 100px; height: 100px;"&gt;
+bottom right cell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</pre>
+
+<p>Now you will see that we have applied a border to both the table and td tags, the codes I used were <strong>1px solid black</strong> - This just means that the border will be 1 pixel thick, solid lines and color black. I have also added a width and height attribute to each of these, since all of these tags have all the same attributes and values it would be a good idea to put the CSS in the head tag, but now we are going to give each tag a different value.</p>
+
+<pre>
+&lt;table style="border: 1px solid black; width: 200px; height: 200px;"&gt;
+&lt;tr&gt;
+&lt;td style="border: 1px solid black; width: 100px; height: 100px;"&gt;
+top left cell&lt;/td&gt;
+&lt;td style="border: 1px solid black; width: 100px; height: 100px;"&gt;
+top right cell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td colspan="2" style="border: 1px solid black; width: 200px; 
+height: 100px; text-align: center;"&gt;
+bottom center cell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</pre>
+
+<p>You can see the bottom row of the table has only one cell that is spanned across 2 columns with the width attribute now set to 200px and a new attribute <strong>text-align</strong> which is simply saying align all text in the center of the cell.</p>
+
+<p>Now we are going to get complicated and add many different attributes to each of the tags</p>
+
+<pre>
+&lt;table style="width: 400px; height: 400px; padding: 0px;"&gt;
+&lt;tr&gt;
+&lt;td style="border: 1px solid black; width: 100px; height: 100px;"&gt;
+top left cell&lt;/td&gt;
+&lt;td rowspan="2" style="border: 1px dotted black; width: 200px; 
+height: 200px; text-align: center;"&gt;
+spanned center cell&lt;/td&gt;
+&lt;td style="border: 0px; width: 100px; height: 100px;"&gt;
+top right cell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="border: 1px solid black; width: 100px; height: 100px;"&gt;
+bottom left cell&lt;/td&gt;
+&lt;td style="border: 1px dashed black; width: 100px; height: 100px;"&gt;
+bottom right cell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</pre>
+
+<p>This is why styles come in useful, instead of applying a class to each of the tags so you can put all your CSS in the head of the page you now have all the CSS in the body of your page in the tag itself. Which is less confusing sometimes.</p>
+
+<p>Now I will show you how to add background colors and images to your tables and cells. You used to be able to use the code <em>&lt;td background="image.gif" background-color="red"</em> ect but now CSS can do all that for us with valid coding.</p>
+
+<p>To start we first need an image to be shown inside a cell, I think I will use this one 
+<img src="http://www.joe2torials.com/html-xhtml/examples/wink.gif" alt="Wink" /> But for now I will show you how to add background colors to the cells of your choice.</p>
+
+<pre>
+&lt;table style="border: 1px solid black; width: 200px; height: 200px; 
+padding: 0px;"&gt;
+&lt;tr&gt;
+&lt;td style="border: 1px solid black; width: 100px; height: 100px; 
+background-color: #000000; color: #FFFFFF;"&gt;top left cell&lt;/td&gt;
+&lt;td style="border: 1px solid black; width: 100px; height: 100px;"&gt;
+top right cell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="border: 1px solid black; width: 100px; height: 100px;"&gt;
+bottom left cell&lt;/td&gt;
+&lt;td style="border: 1px solid black; width: 100px; height: 100px; 
+background-color: red;"&gt;bottom right cell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</pre>
+
+<p>Here you will see that there are 2 new attributes, <strong>background-color</strong> and <strong>color</strong></p>
+
+<p><strong>background-color:</strong> sets the colour the background of the cell should be.</p>
+<p><strong>color:</strong> sets the color of the font in this cell</p>
+
+<p>By looking at the example we have 2 cells with coloured backgrounds, lets give the other 2 background images.</p>
+
+<pre>
+&lt;table style="border: 1px solid black; width: 200px; height: 200px; 
+padding: 0px;"&gt;
+&lt;tr&gt;
+&lt;td style="border: 1px solid black; width: 100px; height: 100px; 
+background-color: #000000; color: #FFFFFF;"&gt;top left cell&lt;/td&gt;
+&lt;td style="border: 1px solid black; width: 100px; height: 100px; 
+background-image: url(wink.gif);"&gt;top right cell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="border: 1px solid black; width: 100px; height: 100px; 
+background-image: url(wink.gif);"&gt;bottom left cell&lt;/td&gt;
+&lt;td style="border: 1px solid black; width: 100px; height: 100px; 
+background-color: red;"&gt;bottom right cell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</pre>
+
+<p>You can see we have filled the cells with this image by using the new attribute <strong>background-image:</strong>, you will also notice we have got in the value <strong>url (imagesrc.gif)</strong> - This just means the place where the image is located. But now what if we only want the image to appear once and for it to be centred.</p>
+
+<pre>
+&lt;table style="border: 1px solid black; width: 200px; height: 200px; 
+padding: 0px;"&gt;
+&lt;tr&gt;
+&lt;td style="border: 1px solid black; width: 200px; height: 200px; 
+background-image: url(wink.gif); background-repeat: no-repeat; 
+background-position: center;"&gt;&nbsp;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</pre>
+
+<p>In this example we have got 2 new attributes again:</p>
+
+<p><strong>background-repeat:</strong> - This dictates whether the image should be repeated throughout the cell or weather it should be repeated a certain way.</p>
+<p><strong>background-position:</strong> - This dictates the position of the image, weather the image should be aligned left / center or right.</p>
+
+<p>And there you have it, hopefully this should be everything you need to know about table layouts and CSS table codes to enable you to go and make great layouts of your own, all with valid coding.</p>
+
+<div class="Page-Stats Generated"><p><em>Page generated in 0.0019 seconds.</em></p></div>
+<div class="Page-Stats Bookmark"><p><em><a href="#" rel="sidebar" onclick="if(document.all &amp;&amp; !window.opera){ window.external.AddFavorite(location.href, document.title);
+return false; }else{ this.title = document.title; }" title="bookmark this page">Bookmark This Page</a>.</em></p></div>
+<div class="Page-Stats Print"><p><em><a href="print.php?print=27" title="print this article">Print This Article</a>.</em></p></div>
+
+</div>
+</div>
+
+<div id="Navigation">
+<dl>
+	<dt>Navigation</dt>
+		<dd><a href="http://www.joe2torials.com/index.php" title="index">index</a></dd>
+
+	<dt>Tutorials / Articles</dt>
+		<dd><a href="http://www.joe2torials.com/subject.php?view=1" title="xhtml / html">xhtml / html</a> <em>(12)</em></dd>
+		<dd><a href="http://www.joe2torials.com/subject.php?view=2" title="css">css</a> <em>(17)</em></dd>
+		<dd><a href="http://www.joe2torials.com/subject.php?view=3" title="php">php</a> <em>(23)</em></dd>
+		<dd><a href="http://www.joe2torials.com/subject.php?view=4" title="asp">asp</a> <em>(2)</em></dd>
+		<dd><a href="http://www.joe2torials.com/subject.php?view=5" title="mysql">mysql</a> <em>(0)</em></dd>
+		<dd><a href="http://www.joe2torials.com/subject.php?view=6" title="photoshop">photoshop</a> <em>(8)</em></dd>
+		<dd><a href="http://www.joe2torials.com/subject.php?view=7" title="web management">web management</a> <em>(6)</em></dd>
+		<dd><a href="http://www.joe2torials.com/subject.php?view=8" title="javascript">javascript</a> <em>(2)</em></dd>
+
+	<dt>Miscellaneous</dt>
+		<dd><a href="http://www.joe2torials.com/webmaster_resources.php" title="webmaster resources">webmaster resources</a></dd>
+		<dd><a href="http://www.joe2torials.com/site_map.php" title="site map">site map</a></dd>
+		<dd><a href="http://www.joe2torials.com/copyright_information.php" title="copyright information">copyright information</a></dd>
+		<dd><a href="http://www.joe2torials.com/standards.php" title="standards">standards</a></dd>
+		<dd><a href="http://www.joe2torials.com/accessibility.php" title="accessibility">accessibility</a></dd>
+		<dd><a href="http://www.joe2torials.com/faq.php" title="frequently asked questions">faq</a></dd>
+</dl>
+
+<div id="Standards">
+	<p><a href="http://validator.w3.org/check/referer" title="W3.org XHTML 1.1 Validation Results"><img src="site_images/w3_valid-xhtml.gif" alt="W3.org Valid XHTML 1.1 Button" /></a></p>
+	<p><a href="http://jigsaw.w3.org/css-validator/check/referer" title="W3.org CSS Validation Results"><img src="site_images/w3_valid-css.gif" alt="W3.org Valid CSS Stylesheet Button" /></a></p>
+	<p><a href="http://getfirefox.com/" title="Get Firefox - The Browser, Reloaded."><img src="site_images/mozilla_firefox.gif" alt="Mozilla Firefox Promotional Button" /></a></p>
+	<p><a href="http://www.mozilla.org/products/thunderbird/" title="Mozilla Thunderbid.  Reclaim Your Inbox."><img src="site_images/mozilla_thunderbird.gif" alt="Mozilla Thunderbird Promotional Button" /></a></p>
+	<p><a href="http://browsehappy.com/" title="Browse Happy - Online. Worry-free."><img src="site_images/browse_happy.gif" alt="Browse Happy Promotional Button" /></a></p>
+</div>
+
+</div>
+<div id="Footer"><p><em>Copyright 2002 - 2006 &copy; &nbsp; &Dagger; &nbsp; Joseph Skidmore. All rights reserved.</em></p></div>
+
+</div>
+</div>
+</div>
+
+<script type="text/javascript" src="/scripts/pphlogger.js"></script>
+
+<div style="visibility: hidden;">
+<img alt="Whatcounter Free Invisible Stats Counter" src="http://www.whatcounter.com/pphlogger.php?id=joe2torials&amp;st=img" /><a href="http://www.whatcounter.com">Free invisible hit counter</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,1005 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+            <title>XPath - Watir - OpenQA Wiki</title>
+    
+        
+
+                        
+    
+    
+            
+<meta id="confluence-context-path" name="confluence-context-path" content="">
+<meta id="atlassian-token" name="atlassian-token" content="Wlu8WLt5Od">
+<meta id="confluence-space-key" name="confluence-space-key" content="WTR">
+
+<script type="text/javascript">
+    // Deprecated global variables. To be removed in a future version of Confluence.
+    var contextPath = '';
+</script>
+
+    
+
+<!-- include system css resources -->
+<link type="text/css" rel="stylesheet" href="/s/1722/1/3/_/download/superbatch/css/batch.css" media="all">
+<!--[if IE]>
+<link type="text/css" rel="stylesheet" href="/s/1722/1/3/_/download/superbatch/css/batch.css?ieonly=true" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="/s/1722/1/3/_/download/superbatch/css/batch.css?media=print" media="print">
+<link type="text/css" rel="stylesheet" href="/s/1722/1/1.0.3/_/download/batch/com.atlassian.confluence.plugins.drag-and-drop:support/com.atlassian.confluence.plugins.drag-and-drop:support.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/1722/1/1.6.8/_/download/batch/confluence.macros.advanced:fancy-box/confluence.macros.advanced:fancy-box.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/1722/1/1.0/_/download/batch/confluence.web.resources:labels-editor/confluence.web.resources:labels-editor.css" media="all">
+
+<!-- end system css resources -->
+
+    <link rel="stylesheet" href="/s/1722/1/1/_/styles/combined.css?spaceKey=WTR" type="text/css">
+
+    <meta name="confluence-request-time" content="1268573431955">
+
+<meta name="loggedInUsername" content="">
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" href="/s/1722/1/_/images/logo/confluence_16.png">
+
+<link rel="search" type="application/opensearchdescription+xml" href="/opensearch/osd.action" title="OpenQA Wiki"/>
+
+        <!-- include system javascript resources -->
+                        
+    
+    <script type="text/javascript" src="/s/1722/1/3/_/download/superbatch/js/batch.js" ></script>
+<script type="text/javascript" src="/s/1722/1/1.0.3/_/download/batch/com.atlassian.confluence.plugins.drag-and-drop:support/com.atlassian.confluence.plugins.drag-and-drop:support.js" ></script>
+<script type="text/javascript" src="/s/1722/1/1.0.3/_/download/batch/com.atlassian.confluence.plugins.drag-and-drop:drag-and-drop-for-view-content/com.atlassian.confluence.plugins.drag-and-drop:drag-and-drop-for-view-content.js" ></script>
+<script type="text/javascript" src="/s/1722/1/1.6.8/_/download/batch/confluence.macros.advanced:fancy-box/confluence.macros.advanced:fancy-box.js" ></script>
+<script type="text/javascript" src="/s/1722/1/1.6.8/_/download/batch/confluence.macros.advanced:thumbnail-images/confluence.macros.advanced:thumbnail-images.js" ></script>
+<script type="text/javascript" src="/s/1722/1/1.0/_/download/resources/confluence.web.resources:dwr/engine.js" ></script>
+<script type="text/javascript" src="/s/1722/1/1.0/_/download/resources/confluence.web.resources:dwr/util.js" ></script>
+<script type="text/javascript" src="/s/1722/1/1.0/_/download/resources/confluence.web.resources:labels-editor/AddLabeltoEntity.js" ></script>
+<script type="text/javascript" src="/s/1722/1/1.0/_/download/resources/confluence.web.resources:labels-editor/RemoveLabelFromEntity.js" ></script>
+<script type="text/javascript" src="/s/1722/1/1.0/_/download/resources/confluence.web.resources:labels-editor/SuggestedLabelsForEntity.js" ></script>
+<script type="text/javascript" src="/s/1722/1/1.0/_/download/batch/confluence.web.resources:labels-editor/confluence.web.resources:labels-editor.js" ></script>
+
+    <!-- end system javascript resources -->
+
+    
+
+    
+    <link rel="canonical" href="http://wiki.openqa.org/display/WTR/XPath">
+    <link rel="shortlink" href="http://wiki.openqa.org/x/MABd">
+    <meta name="wikilink" content="[WTR:XPath]">
+
+</head>
+
+<body             onload="placeFocus()"
+     id="com-atlassian-confluence" class="">
+<div id="full-height-container">
+
+
+
+<fieldset class="hidden parameters">
+    <input type="hidden" id="statusDialogHeading" value="What are you working on?">
+    <input type="hidden" id="statusDialogLatestLabel" value="Last update:">
+    <input type="hidden" id="statusDialogUpdateButtonLabel" value="Update">
+    <input type="hidden" id="statusDialogCancelButtonLabel" value="Cancel">
+</fieldset>
+
+<fieldset class="hidden parameters">
+    <input type="hidden" id="globalSettingsAttachmentMaxSize" value="10485760">
+    <input type="hidden" id="userLocale" value="en_GB">
+</fieldset>
+
+    
+<div id="header" class="">
+        <form id="quick-search" class="quick-search" method="get" action="/dosearchsite.action">
+        <fieldset>
+            <legend>Quick Search</legend>
+            <input class="quick-search-query" id="quick-search-query" type="text" accessKey="q" autocomplete="off" name="queryString" size="25" />
+            <input class="quick-search-submit" id="quick-search-submit" type="submit" value="Search" />
+            <div class="aui-dd-parent quick-nav-drop-down"><!-- Quick nav appears here --></div>
+        </fieldset>
+        <fieldset class="hidden parameters">
+            <input type="hidden" id="quickNavEnabled" value="true" />
+                    </fieldset>
+    </form>
+    <ul id="header-menu-bar" class="ajs-menu-bar">
+                    
+        
+            <li class="normal ajs-menu-item">
+        <a id="browse-menu-link" class="browse trigger ajs-menu-title" href="#"><span><span>Browse</span></span></a>         <div class="hidden ajs-drop-down">
+                        <ul  id="browse-menu-link-leading"                 class="section-leading first">
+                                        <li>
+    
+        
+    
+    <a  id="space-pages-link" href="/pages/listpages.action?key=WTR"  class=""   title="Page restrictions apply. Click the lock icon to view or edit the restriction.">
+                   <span>Pages</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="space-blogposts-link" href="/pages/viewrecentblogposts.action?key=WTR"  class=""   title="Page restrictions apply. Click the lock icon to view or edit the restriction.">
+                   <span>Blog</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="space-labels-link" href="/labels/listlabels-heatmap.action?key=WTR"  class=""   title="Page restrictions apply. Click the lock icon to view or edit the restriction.">
+                   <span>Labels</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="space-attachments-link" href="/spaces/listattachmentsforspace.action?key=WTR"  class=""   title="Page restrictions apply. Click the lock icon to view or edit the restriction.">
+                   <span>Attachments</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  href="/spaces/space-bookmarks.action?spaceKey=WTR"  class=""   title="Page restrictions apply. Click the lock icon to view or edit the restriction.">
+                   <span>Bookmarks</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="space-mail-link" href="/spaces/viewmailarchive.action?key=WTR"  class=""   title="Page restrictions apply. Click the lock icon to view or edit the restriction.">
+                   <span>Mail</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="space-advanced-link" href="/spaces/viewspacesummary.action?key=WTR"  class=""   title="Page restrictions apply. Click the lock icon to view or edit the restriction.">
+                   <span>Advanced</span></a>        </li>
+                            </ul>
+                        <ul  id="browse-menu-link-global"                 class="section-global">
+                                        <li>
+    
+            
+    
+    <a  id="gadget-directory-link" href="#"  class="user-item administration-link"   title="Browse gadgets provided by Confluence">
+                   <span>Confluence Gadgets</span></a>        </li>
+                            </ul>
+                    </div>
+    </li>
+        
+                                                         <li class="ajs-menu-item normal">
+        
+        
+    
+    <a  id="login-link" href="/login.action?os_destination=%2Fdisplay%2FWTR%2FXPath"  class="user-item login-link"  >
+                   <span>Log In</span></a>        </li>
+                            <li class="ajs-menu-item normal">
+    
+        
+    
+    <a  id="signup-link" href="/signup.action"  class="user-item signup-link"  >
+                   <span>Sign Up</span></a>        </li>
+                            </ul>
+    
+    
+    <ol id="breadcrumbs">
+                    
+        <li class="first" >
+                                    <span><a href="/dashboard.action">Dashboard</a></span>
+                </li>
+                    
+        <li>
+                                    <span><a href="/display/WTR">Watir</a></span>
+                </li>
+                                        <li id="ellipsis" title="    &#8230;
+                    Project Home
+             &gt;         Start Here
+             &gt;         Tutorial
+        &#8230;
+"><span><strong>&#8230;</strong></span></li>
+                                    
+        <li class="hidden-crumb" >
+                                    <span><a href="/display/WTR/Project+Home">Project Home</a></span>
+                </li>
+                                
+        <li class="hidden-crumb" >
+                                    <span><a href="/display/WTR/Start+Here">Start Here</a></span>
+                </li>
+                                
+        <li class="hidden-crumb" >
+                                    <span><a href="/display/WTR/Tutorial">Tutorial</a></span>
+                </li>
+                    
+        <li>
+                                    <span><a href="/display/WTR/Finding+Page+Elements">Finding Page Elements</a></span>
+                </li>
+                    
+        <li>
+                                    <span>XPath</span>
+                </li>
+        </ol>
+
+</div>
+<div id="main"  >
+    
+    
+    <div id="navigation" class="content-navigation view">
+        <fieldset class="hidden parameters">
+            <input type="hidden" id="pageId" value="6094896">
+        </fieldset>
+        <ul class="ajs-menu-bar">
+                                
+                        
+            <li class="normal ajs-menu-item">
+        <a id="action-menu-link" class="action trigger ajs-menu-title" href="#"><span><span>Tools</span></span></a>         <div class="hidden ajs-drop-down">
+                        <ul  id="action-menu-link-primary"                 class="section-primary first">
+                                        <li>
+    
+        
+    
+    <a  id="view-attachments-link" href="/pages/viewpageattachments.action?pageId=6094896"  class="action-view-attachments"  accessKey="a" >
+                   <span><u>A</u>ttachments (0)</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="action-view-history-link" href="/pages/viewpreviousversions.action?pageId=6094896"  class="action-view-history"  >
+                   <span>Page History</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="action-page-permissions-link" href="/pages/viewinfo.action?pageId=6094896"  class="action-page-permissions"  >
+                   <span>Restrictions</span></a>        </li>
+                            </ul>
+                        <ul  id="action-menu-link-secondary"                 class="section-secondary">
+                                        <li>
+    
+        
+    
+    <a  id="view-page-info-link" href="/pages/viewinfo.action?pageId=6094896"  class="action-view-info"  accessKey="i" >
+                   <span><u>I</u>nfo</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="link-to-page-link" href="/pages/viewinfo.action?pageId=6094896"  class=""  >
+                   <span>Link to this Page&hellip;</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="action-view-source-link" href="/pages/viewpagesrc.action?pageId=6094896"  class="action-view-source popup-link"  >
+                   <span>View Wiki Markup</span></a>        </li>
+                            </ul>
+                    </div>
+    </li>
+            </ul>
+    </div>
+
+    
+    <h1 id="title-heading" class="pagetitle">
+                    <a href="/display/WTR"><img class="logo space custom" src="/download/attachments/310/WTR?version=1&amp;modificationDate=1263787566079" alt=""></a>        
+		<span id="title-text">
+					            <a href="/display/WTR/XPath">XPath</a>
+    				</span>
+    </h1>
+
+    
+
+    
+    
+    
+    <div id="content" class="page view">
+        
+
+
+<fieldset id="link-to-page-fields" class="hidden parameters">
+    <input type="hidden" id="linkToThisPageHeading" value="Link to this Page">
+    <input type="hidden" id="linkToThisPageLink" value="Link">
+    <input type="hidden" id="linkToThisPageTinyLink" value="Tiny Link">
+    <input type="hidden" id="linkToThisPageWikiMarkup" value="Wiki Markup">
+    <input type="hidden" id="linkToThisPageClose" value="Close">
+</fieldset>
+    <fieldset class="hidden parameters">
+    <input type="hidden" title="movePageDialogViewPageTitle" value="Move Page &ndash; &#8216;XPath&#8217;">
+    <input type="hidden" title="movePageDialogEditPageTitle" value="Set Page Location">
+    <input type="hidden" title="movePageDialogMoveButton" value="Move">
+    <input type="hidden" title="movePageDialogOkButton" value="OK">
+    <input type="hidden" title="movePageDialogCancelButton" value="Cancel">
+    <input type="hidden" title="movePageDialogBrowsePanelTip" value="Click to select the new parent page for this page and its children.">
+    <input type="hidden" title="movePageDialogSearchPanel" value="Search">
+    <input type="hidden" title="movePageDialogHistoryPanel" value="Recently Viewed">
+    <input type="hidden" title="movePageDialogHistoryNoResults" value="There were no recently viewed pages found.">
+    <input type="hidden" title="movePageDialogLocationPanel" value="Known Location">
+    <input type="hidden" title="movePageDialogLocationNotFound" value="The specified page was not found.">
+    <input type="hidden" title="movePageDialogBrowsePanel" value="Browse">
+    <input type="hidden" title="movePageDialogPanelLoadErrorMsg" value="Error reading the panel content from the server.">
+    <input type="hidden" title="movePageDialogPanelLoadErrorTip" value="You could try reloading the page and launching the dialog again.">
+    <input type="hidden" title="movePageDialogPanelLoadErrorStatus" value="HTTP Status">
+    <input type="hidden" title="movePageDialogNoSelectionErrorMsg" value="You must make a selection in the tree before you can move the page.">
+    <input type="hidden" title="movePageDialogSearchError" value="Failed to retrieve search results from the server.">
+    <input type="hidden" title="movePageDialogSearchNoResults" value="There were no pages found containing <b>{0}</b>.">
+    <input type="hidden" title="movePageDialogSearchResultCount" value="Showing <b>{0}</b>-<b>{1}</b> of <b>{2}</b> pages containing <b>{3}</b>.">
+    <input type="hidden" title="movePageDialogMoveFailed" value="Move failed. There was a problem contacting the server.">
+    <input type="hidden" title="movePageDialogCannotChangeSpace" value="You cannot move this page to another space because you do not have permission to remove it from this space.">
+    <input type="hidden" title="pageTitle" value="XPath"/>
+    <input type="hidden" title="parentPageTitle" value="Finding Page Elements"/>
+    <input type="hidden" title="fromPageTitle" value=""/>
+    <input type="hidden" title="spaceKey" value="WTR"/>
+    <input type="hidden" title="spaceName" value="Watir"/>
+    <input type="hidden" title="movePageDialogInvalidLocation" value="You cannot move a page to be underneath itself or its children."/>
+</fieldset>
+
+<script type="text/x-template" title="movePageDialog">
+    <div class="row information">
+        Specify the new parent page for this page and its children by space and title.
+    </div>
+    <div class="form">
+        <div class="row">
+            <label for="new-space">New space:</label>
+            <div class="value new-space-value">
+                <input id="new-space-key" name="new-space-key" type="hidden" value="WTR">
+                                    <span class="space-input">
+                        <input id="new-space" name="new-space" value="Watir" disabled="disabled">
+                    </span>
+                    <span class="description warning">You cannot move this page to another space because you do not have permission to remove it from this space.</span>
+                                <div class="new-space-dropdown aui-dd-parent"></div>
+            </div>
+        </div>
+        <div class="row">
+            <label for="new-parent-page">New parent page:</label>
+            <div class="value new-parent-page-value">
+                <span class="page-input">
+                    <input id="new-parent-page" name="new-parent-page" value="Finding Page Elements">
+                </span>
+                <span class="description">Start typing a page title to see a list of suggestions.</span>
+                <div class="new-parent-page-dropdown aui-dd-parent"></div>
+            </div>
+        </div>
+    </div>
+    <div class="location-info">
+        <div class="row">
+            <label>Current location:</label>
+            <div class="value breadcrumbs-container">
+                <div class="breadcrumbs-line">
+                    <ul id="current-parent-breadcrumbs" class="breadcrumbs">
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <label>New location:</label>
+            <div class="value breadcrumbs-container">
+                <div class="breadcrumbs-line">
+                    <ul id="new-parent-breadcrumbs" class="breadcrumbs">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/x-template" title="movePageErrors">
+    <div id="move-errors" class="hidden warning"></div>
+</script>
+<script type="text/x-template" title="movePageBreadcrumb">
+    <li><a class="{2}" title="{3}" tabindex="-1"><span>{0}</span></a></li>
+</script>
+<script type="text/x-template" title="movePageBreadcrumbLoading">
+    <li class="loading"><span>Loading breadcrumbs&hellip;</span></li>
+</script>
+<script type="text/x-template" title="movePageBreadcrumbError">
+    <li class="warning last"><span>Error retrieving breadcrumbs.</span></li>
+</script>
+<script type="text/x-template" title="movePageNoMatchingPages">
+    <ol><li><span class="warning">No matching pages found.</span></li></ol>
+</script>
+<script type="text/x-template" title="movePageNoMatchingSpaces">
+    <ol><li><span class="warning">No matching spaces found.</span></li></ol>
+</script>
+
+<script type="text/x-template" title="movePageSearchPanel">
+<div class="row information">
+    Search for and select the new parent page for this page and its children.
+</div>
+<div id="move-page-search-container" class="row">
+    <div class="search-form">
+        <input class="search-query">
+                    <select class="search-space" disabled="disabled">
+                <option value="WTR" selected="selected">Watir</option>
+            </select>
+                <input type="button" value="Search">
+                    <div class="description warning">You cannot move this page to another space because you do not have permission to remove it from this space.</div>
+            </div>
+    <div class="search-results">
+    </div>
+</div>
+</script>
+<script type="text/x-template" title="movePageSearchResult">
+    <tr class="search-result">
+        <th class="search-result-title"><a href="{1}" class="content-type-{2}"><span>{0}</span></a></th>
+        <td class="search-result-space"><a class="space" href="/display/{4}/" title="{3}">{3}</a></td>
+        <td class="search-result-date"><span class="date" title="{6}">{5}</span></td>
+    </tr>
+</script>
+<script type="text/x-template" title="movePageSearchResultsCount">
+    <p class="search-result-count">{0}</p>
+</script>
+<script type="text/x-template" title="movePageSearchResultsTable">
+    <table>
+        <tr class="header">
+            <th class="search-result-title">Page Title</th>
+            <th class="search-result-space">Space</th>
+            <th class="search-result-date">Updated</th>
+        </tr>
+    </table>
+</script>
+<script type="text/x-template" title="movePageSearchResultsLoading">
+    <div class="searching">Searching…</div>
+</script>
+
+<script type="text/x-template" title="movePageHistoryPanel">
+<div class="row information">
+    Select the new parent page for this page and its children from your history.
+</div>
+<div id="move-page-search-container" class="row">
+    <div class="search-results">
+    </div>
+</div>
+</script>
+<script type="text/x-template" title="movePageHistoryLoading">
+    <div class="searching">Loading…</div>
+</script>
+
+
+<script type="text/x-template" title="movePageBrowsePanel">
+    <div class="row information">
+        Click to select the new parent page for this page and its children.
+    </div>
+    <div class="tree"></div>
+</script>
+<script type="text/x-template" title="movePageBrowsePanelLoading">
+    <span>Loading…</span>
+</script>
+<script type="text/x-template" title="movePageBrowsePanelSpace">
+    <ul><li id='tree-root-node-item' class='root-node-list-item'><a class='root-node' href='#'>{0}</a></li></ul>
+</script>
+
+    <!-- Start restrictions section -->
+<fieldset class="hidden parameters i18n">
+        <input type="hidden" id="i18n.page.perms.error.invalid.entity.names" value="Unknown user or group:">
+        <input type="hidden" id="i18n.page.perms.dialog.heading" value="Page Restrictions">
+        <input type="hidden" id="i18n.page.perms.editing.restricted.to" value="Editing restricted to:">
+        <input type="hidden" id="i18n.cancel.name" value="Cancel">
+        <input type="hidden" id="i18n.close.name" value="Close">
+        <input type="hidden" id="i18n.update.name" value="Save">
+</fieldset>
+
+<script type="text/x-template" title="page-permissions-div">
+<div id="page-permissions-div">
+    <div id="page-permissions-editor-form">
+
+                <div id="page-permissions-error-div" class="hidden">
+            <a href="#" id="permissions-error-div-close">Ok</a>
+            <div></div>
+        </div>
+
+                <div id="page-permissions-type-radios" class="page-permissions-label-rows">
+            <div>
+                <input id="restrictViewRadio" type="radio" checked="checked" name="pagePermissionTypeRadio" value="view"/>
+                <label for="restrictViewRadio">Restrict viewing of this page</label>
+                <input id="restrictEditRadio" type="radio" name="pagePermissionTypeRadio" value="edit"/>
+                <label for="restrictEditRadio">Restrict editing of this page</label>
+            </div>
+        </div>
+        <div id="page-permissions-input" class="page-permissions-label-rows">
+            <div class="page-permissions-label">To:</div>
+            <div id="page-permissions-chooser-box">
+                                <span id="page-permissions-choose-user" class="ajs-button">
+                    
+
+
+
+    
+
+
+
+<a href="#" id='userpicker-popup-link-image' onClick="var picker = window.open('/spaces/openuserpicker.action?key=WTR&amp;startIndex=0&amp;onPopupSubmit=AJS.PagePermissions.addUserPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=700,height=680,scrollbars=yes'); picker.focus(); return false;"><img src="/s/1722/1/_/images/icons/user_16.gif" height=16 width=16 border=0 align="absmiddle"  title="Choose users" /></a>
+<a href="#" id='userpicker-popup-link-text' onClick="var picker = window.open('/spaces/openuserpicker.action?key=WTR&amp;startIndex=0&amp;onPopupSubmit=AJS.PagePermissions.addUserPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=700,height=680,scrollbars=yes'); picker.focus(); return false;">Person...</a>
+
+
+                </span>
+                <span id="page-permissions-choose-group" class="ajs-button">
+                    
+
+
+
+    
+
+ 
+
+<a href="#" id='grouppicker-popup-link-image' onClick="var picker = window.open('/spaces/opengrouppicker.action?key=WTR&amp;startIndex=0&amp;actionName=dosearchgroups.action&amp;onPopupSubmit=AJS.PagePermissions.addGroupPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=580,height=550,scrollbars=yes'); picker.focus(); return false;"><img src="/s/1722/1/_/images/icons/group_16.gif" height=16 width=16 border=0 align="absmiddle"  title="Choose groups" /></a>
+<a href="#" id='grouppicker-popup-link-text' onClick="var picker = window.open('/spaces/opengrouppicker.action?key=WTR&amp;startIndex=0&amp;actionName=dosearchgroups.action&amp;onPopupSubmit=AJS.PagePermissions.addGroupPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=580,height=550,scrollbars=yes'); picker.focus(); return false;">Group...</a>
+
+
+                </span>
+            </div>
+            <div id="page-permissions-input-box">
+                                <span>
+                    <input type="text" id="page-permissions-names-input" class="input-placeholder" value="Enter user or group name" name="permissionNames" size="30" autocomplete="off"/>
+                </span>
+                <input
+    type="hidden"
+                            id="page-permissions-names-hidden"           />                <img height="16px" width="1px" src="/s/1722/1/_/images/border/spacer.gif"/>
+                <input type="button" id="add-typed-names" value="Restrict">
+            </div>
+        </div>
+    </div>
+    <div id="page-permissions-tables">
+        <div id="page-permissions-table-div">
+                        <table id="page-permissions-table" class="page-permissions-table">
+                <tr id="page-permissions-no-views" class="marker-row">
+                    <td colspan="3" class="page-permissions-marker-cell"><span>No view restrictions are defined for this page</span></td>
+                </tr>
+                <tr id="page-permissions-no-edits" class="marker-row">
+                    <td colspan="3" class="page-permissions-marker-cell"><span>No edit restrictions are defined for this page</span></td>
+                </tr>
+            </table>
+        </div>
+        <div id="page-inherited-permissions-table-div" class="hidden">
+            <span id="page-inherited-permissions-table-desc">
+                <a class="icon twisty-closed">Show/Hide</a>
+                <a id="toggle-inherited-permissions" title="Click to see inherited restrictions">This page has restricted parent pages. It can only be seen by users who can see those parent pages.</a>
+            </span>
+            <div id="page-inherited-permissions-tables" class="hidden page-inheritance-togglable"></div>
+        </div>
+    </div>
+</div>
+</script>
+
+<script type="text/x-template" title="permissions-row-template">
+    <tr class="permission-row">
+                                
+                <td class="page-permissions-marker-cell" width="20%">
+            <span>Viewing restricted to:</span>
+        </td>
+                <td class="permission-entity" nowrap="true" width="40%">
+            <span class="entity-container">
+                <img class="permission-entity-picture"/>
+                <span class="permission-entity-display-name"></span>
+                <span class="permission-entity-name-wrap">&nbsp;(<span class="permission-entity-name"></span>)</span>
+            </span>
+        </td>
+        <td class="permission-detail-column">
+            <div class="permission-remove-div">
+                <a href="#" class="remove-permission-link">Remove restriction</a>
+            </div>
+        </td>
+    </tr>
+</script>
+<script type="text/x-template" title="permissions-username-no-suggestion-template">
+    <ol>
+        <li><a href="#" class="message"><span>No matches</span></a></li>
+    </ol>
+</script>
+<script type="text/x-template" title="page-inherited-permissions-table-div-template">
+        <div class="page-inherited-permissions-owner-div">
+        <div class="page-inherited-permissions-table-desc">Viewing restrictions apply to “<a></a>”. In order to see “<span></span>”, a user must be in the following list of users and groups:</div>
+        <table class="page-permissions-table"></table>
+    </div>
+</script>
+<script type="text/x-template" title="page-restrictions-help-link">
+    <div class="dialog-help-link">
+            <a href="http://confluence.atlassian.com/display/DOC/Page+Restrictions" target="_blank">Help</a>
+    </div>
+</script>
+<!-- End restrictions section -->
+
+
+        
+    
+    
+        <fieldset class="hidden parameters">
+            <input type="hidden" title="parentPageId" value="11206726">
+        </fieldset>
+    
+        
+                            
+    
+
+                    
+
+        
+        <div class="page-metadata">
+    <ul>
+                    <li class="page-metadata-item noprint">
+    
+            
+    
+    <a  id="content-metadata-page-restrictions" href="#"  class="page-metadata-icon page-restrictions hidden"   title="Page restrictions apply. Click the lock icon to view or edit the restriction.">
+                   <span>Page restrictions apply</span></a>        </li>
+                <li class="page-metadata-modification-info">
+                    Added by <a class="url fn" href="/display/~zeljko.filipin@gmail.com">Zeljko</a>, last edited by <a class="url fn" href="/display/~zeljko.filipin@gmail.com">Zeljko</a> on Nov 10, 2009
+                                        <span class="noprint">&nbsp;(<a id="view-change-link" href="/pages/diffpages.action?pageId=6094896&originalId=26706149">view change</a>)</span>
+                            </li>
+                <li class="show-hide-comment-link">
+            <a id="show-version-comment" class="inline-control-link" href="#">show comment</a>
+            <a id="hide-version-comment" class="inline-control-link" style="display:none;" href="#">hide comment</a>
+        </li>
+            </ul>
+      <div id="version-comment" class="noteMacro" style="display: none;">
+      <strong>Comment:</strong>
+      changed navigation to `Tutorial: next page`<br />
+  </div>
+</div>        
+        <fieldset class="hidden parameters">
+                        <input type="hidden" title="browsePageTreeMode" value="view">
+        </fieldset>            
+
+        <div class="wiki-content">
+           <!-- wiki content -->
+            <h1><a name="XPath-XPath"></a>XPath</h1>
+
+<p><em>Created by <a href="http://angrez.blogspot.com/" class="external-link" rel="nofollow">Angrez Singh</a>.</em></p>
+
+<h2><a name="XPath-Whatisit%3F"></a>What is it?</h2>
+
+<p>XPath for Watir supplies a more powerful way to identify page elements in a Watir script. The more powerful way uses XPath expressions to identify specific elements of interest in the page.</p>
+
+<h2><a name="XPath-Whyisitrequired%3F"></a>Why is it required?</h2>
+
+<p>The attributes that Watir provides for identifying the HTML elements on the page are sometimes not sufficient enough to identify element(s) on the page especially if you are testing non-trivial real world web applications. XPath is well established and powerful query language for XML documents. It is trivial to clean HTML and convert it into XHTML such that we can use powerful query language XPath for identifying the element structurally on the page. XPath empowers user to generate scripts which are more generalized and less brittle.</p>
+
+<p>For example, if you have the following HTML:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-html">
+<span class="code-tag">&lt;table&gt;</span>
+  <span class="code-tag">&lt;tr&gt;</span>
+    <span class="code-tag">&lt;td&gt;</span><span class="code-tag">&lt;img src=<span class="code-quote">"1.jpg"</span>&gt;</span>First Image<span class="code-tag">&lt;/td&gt;</span>
+  <span class="code-tag">&lt;/tr&gt;</span>
+<span class="code-tag">&lt;/table&gt;</span>
+<span class="code-tag">&lt;table&gt;</span>
+  <span class="code-tag">&lt;tr&gt;</span>
+    <span class="code-tag">&lt;td&gt;</span><span class="code-tag">&lt;img src=<span class="code-quote">"2.jpg"</span>&gt;</span>Second Image<span class="code-tag">&lt;/td&gt;</span>
+  <span class="code-tag">&lt;/tr&gt;</span>
+<span class="code-tag">&lt;/table&gt;</span>
+<span class="code-tag">&lt;table&gt;</span>
+  <span class="code-tag">&lt;tr&gt;</span>
+    <span class="code-tag">&lt;td&gt;</span><span class="code-tag">&lt;img src=<span class="code-quote">"3.jpg"</span>&gt;</span>Third Image<span class="code-tag">&lt;/td&gt;</span>
+  <span class="code-tag">&lt;/tr&gt;</span>
+<span class="code-tag">&lt;/table&gt;</span>
+</pre>
+</div></div>
+
+<p>Now you want the text of <em>&lt;td&gt;</em> tag which has image with source <em>3.jpg</em>. This is called structural addressing where you try to find out the element with respect to some other elements that may be above or below the element of interest, based on the tree structure of HTML that will be shown on the browser. </p>
+
+<p>Now if you want to try this using Watir (without XPath), then the code might be as follows:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-none">
+ie.tables.each do |t|                      # since you don't have ID's, look at every table
+  for i in 1..t.row_count                  # for every row in this table
+    t[i].each do |cell|                    # for every column in this row, look at its contents
+      if cell.image(:src, /3.jpg/).exists? # if true, this is your cell
+        puts cell.text
+      end
+    end
+  end
+end
+</pre>
+</div></div>
+
+<p>On the other hand XPath is a very powerful mechanism for identifying the element structurally on the page. </p>
+
+<p>If you try to access that element using Watir with XPath the code will be:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-none">
+puts ie.cell(:xpath, "//img[@src='3.jpg']/../").text
+</pre>
+</div></div>
+
+<p>In both cased the output will be</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">
+Third Image
+</pre>
+</div></div>
+
+<h2><a name="XPath-WhatshouldIhavebeforeusingXPathWatir%3F"></a>What should I have before using XPath-Watir?</h2>
+
+<p>If you have the latest Ruby and Watir, you are fine.</p>
+
+<p>If not, you should have at least:</p>
+
+<ul>
+	<li><a href="http://rubyforge.org/frs/?group_id=167" class="external-link" rel="nofollow">Ruby 1.8.2</a></li>
+	<li><a href="http://www.germane-software.com/software/XML/rexml/" class="external-link" rel="nofollow">REXML &gt; 3.1.6</a></li>
+	<li>Watir &gt; 1.4.1</li>
+</ul>
+
+
+<h2><a name="XPath-HowtouseXPathintestscript%3F"></a>How to use XPath in test script?</h2>
+
+<p>All commonly used HTML elements for testing has been provided with a new attribute in Watir called <em>xpath</em> for identifying them using an XPath query. This attribute is provided for most of the elements except for frame. All you have to do is to provide XPath query as second argument with this attribute and get the element.</p>
+
+<p>For example:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">
+ie.select_list(:xpath, <span class="code-quote">"xpath query"</span>)
+</pre>
+</div></div>
+
+<h3><a name="XPath-ExampleCode"></a>Example Code</h3>
+
+<p>If you want to get text from this link:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-html">
+<span class="code-tag">&lt;a href=<span class="code-quote">"test.htm"</span>&gt;</span>click me<span class="code-tag">&lt;/a&gt;</span>
+</pre>
+</div></div>
+
+<p>you can use this code:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-none">
+ie.link(:xpath,"//a[@href='test.htm']/").text # =&gt; "click me"
+</pre>
+</div></div>
+
+<p>The Watir class that you use for identifying the element using XPath (link in above example) should match with the element that you are trying to access. Now you can use any of the methods or properties that are exposed by Watir for Link element.</p>
+
+<h2><a name="XPath-WhattodoforelementsnothavingclassinWatir%3F"></a>What to do for elements not having class in Watir?</h2>
+
+<p>You can use <em>element_by_xpath</em> function of IE class to get the underlying ole_object. Then you can invoke any method supported by that element.</p>
+
+<h3><a name="XPath-ExampleCode"></a>Example Code</h3>
+
+<p>Suppose you have a <em>map</em> and you want to click an <em>area</em>. As Watir don't have any class for map or area, directly use element_by_xpath function to get underlying ole_object.</p>
+
+<p>HTML code:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-html">
+<span class="code-tag">&lt;html&gt;</span>
+  <span class="code-tag">&lt;body&gt;</span>
+    <span class="code-tag">&lt;map name=<span class="code-quote">"chart"</span>&gt;</span>
+      <span class="code-tag">&lt;area shape=<span class="code-quote">"poly"</span> coords=<span class="code-quote">"150,16,159,17,168,20,175,25,182,32,150,56,150,56"</span> &gt;</span>
+      <span class="code-tag">&lt;area shape=<span class="code-quote">"poly"</span> coords=<span class="code-quote">"182,32,188,43,190,56,150,56,150,56"</span> href=<span class="code-quote">"PieChart.html?category=Critical&amp;pieIndex=0"</span>&gt;</span>	
+    <span class="code-tag">&lt;/map&gt;</span>
+  <span class="code-tag">&lt;/body&gt;</span>
+<span class="code-tag">&lt;/html&gt;</span>
+</pre>
+</div></div>
+
+<p>Watir code:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-none">
+# get the underlying object and execute click method
+ie.element_by_xpath("//area[contains(@href , 'PieChart.html')]/").click
+</pre>
+</div></div>
+
+<h2><a name="XPath-Limitations"></a>Limitations</h2>
+
+<p>There is no support for frames, however the existing functionality that Watir provides will remain. That is you can access frames using the attributes that Watir provides but you can't use <em>xpath</em> attribute for accessing frames.</p>
+
+<h2><a name="XPath-Howitisimplemented%3F"></a>How it is implemented?</h2>
+
+<p>XPath support is added using REXML. We retrieve source HTML from the IE DOM model, which is then cleaned and converted into XHTML. Cleaned XHTML output is passed to the REXML parser. XPath supplied by the user is resolved locally using REXML to get the complete path of element(s) from the document root. We then traverse element's complete path over IE DOM using series of COM calls and return the requested element. </p>
+
+<ol>
+	<li>Get the source HTML from the IE DOM model.</li>
+	<li>Clean the HTML source and convert it to a valid XHTML.</li>
+	<li>Pass the cleaned XHTML as input to REXML.</li>
+	<li>Resolve the XPath expression locally using REXML and get the complete path of the element(s).</li>
+	<li>Traverse the element's complete path over IE DOM using series of COM calls and return the requested element.</li>
+</ol>
+
+
+<h2><a name="XPath-CodeDesign"></a>Code Design</h2>
+
+<h3><a name="XPath-rexmldocumentobject"></a>rexml_document_object</h3>
+
+<p>Function returns the REXML document object.</p>
+
+<h3><a name="XPath-createrexmldocumentobject"></a>create_rexml_document_object</h3>
+
+<p>This is a private function and is called only if REXML document is not created before for that HTML page. This function is called internally by rexml_document_object by checking the variable rexmlDomobject which gets set to nil when new page is rendered in the browser. If you execute multiple XPath queries on the same source page, then the object is created once on first request and reused hence forth.                                   </p>
+
+<h3><a name="XPath-elementsbyxpath%28XPath%29"></a>elements_by_xpath(XPath)</h3>
+
+<p>This function resolves the XPath query, provided by the user and returns all qualified elements. The XPath query should be compatible with REXML i.e. it should contain only those attributes or functions that are supported by REXML. The function gets the complete path from the root element for all qualified elements locally using REXML. Now this path is passed to elements_by_absolute_xpath and finally qualified elements are returned back to the caller.</p>
+
+<h3><a name="XPath-elementbyabsolutexpath%28XPath%29"></a>element_by_absolute_xpath(XPath)</h3>
+
+<p>This is the private function that maps the element's complete path (passed XPath) to actual element in IE DOM tree. It traverses over the IE DOM starting from the &lt;body&gt; tag following the passed complete path. We call IHtmlElement::getChildNodes function to get all the child nodes and select the one of our interest as indicated by the complete path. We loop till we have traversed the complete path and finally desired element is returned back.</p>
+
+<h3><a name="XPath-htmlsource%28element%2ChtmlString%2CspaceString%29"></a>html_source(element, htmlString, spaceString)</h3>
+
+<p>This function traverses the IE DOM model and creates a string that contains the HTML displayed on the browser. Same as you see with view source option when you right click on the browser. This function is initially called with element as body. During processing the function gets all the attributes of the element using IHtmlElement::outerHtml. Then the attributes of element are cleaned. If element can't have child nodes then the tag is made as self closing tag, else we just close the tag. Then this function is called recursively on the child nodes of this element. While unwinding the stack created during recursion we again check if element can have child nodes if yes then we place a closing tag that was left opened else we simple return. Script and comments tags are not taken into consideration.</p>
+
+<h3><a name="XPath-tokenizetagline%28outerHtml%29"></a>tokenize_tagline(outerHtml)</h3>
+
+<p>This function scans the outer HTML of the element and returns an array of tokens. Token could be either tagName or "=" or attribute name or attribute value. Attribute value could be either quoted string or single word.</p>
+
+<p>Input:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-html">
+<span class="code-tag">&lt;input type=radio name=WATiR checked&gt;</span>
+</pre>
+</div></div>
+
+<p>Output: An array with values.</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">
+{'input', 'type', '=', 'radio', 'name', '=', 'WATiR', 'checked'}
+</pre>
+</div></div>
+
+<h3><a name="XPath-alltagattributes%28outerHtml%29"></a>all_tag_attributes(outerHtml)</h3>
+
+<p>This function is called by HTML source function to get all the attributes of the tag. This function calls tokenize_tagline to separate attributes name and value. Now this function cleans the outer HTML by placing quote around the attribute values. If only attribute name is present then it attribute value is set to same as attribute name.</p>
+
+<p>Input:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-html">
+<span class="code-tag">&lt;input type=radio name=WATiR checked&gt;</span>
+</pre>
+</div></div>
+<p>Output:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-html">
+<span class="code-tag">&lt;input type=<span class="code-quote">"radio"</span> name=<span class="code-quote">"WATiR"</span> checked=<span class="code-quote">"checked"</span>&gt;</span>
+</pre>
+</div></div>
+
+<h3><a name="XPath-xmlescape"></a>xml_escape</h3>
+
+<p>This function is used to escape the characters that are not considered as valid data in XML. For eg: &amp;, &lt;, &gt;, ", etc.</p>
+
+<h2><a name="XPath-MoreinformationonREXML"></a>More information on REXML</h2>
+
+<p>The XPath that is returned by REXML is of the format:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">
+/html/body/table/tbody/tr[2]/td[2]/div/table/tbody/tr[3]/td[1]/a[2]
+</pre>
+</div></div>
+
+<p>The XPath string returned by REXML provides information about the location of the element from the root element for which XPath query is given.</p>
+
+<p>For e.g.:<br/>
+If the above provided string is returned as a result then it means that the element resides inside HTML (root element), body tag inside html (element1 inside element2: this means element2 tag inside element1 tag obtained in previous step), table tag inside body, tbody tag inside table, second tr tag inside tbody, second td tag inside row, div tag inside td, table tag inside div, tbody tag inside table, third tr tag inside tbody, first td tag inside tr, second a tag inside td.</p>
+
+<h2><a name="XPath-FutureEnhancements"></a>Future Enhancements</h2>
+
+<p>Tweak the code of REXML to get the position of element with respect to parent. REXML code can be tweaked provided TIDY doesn't mess with the ordering of the tags. This will avoid series of COM calls required for iterating over children, we can directly jump to intended child via index.</p>
+
+<h2><a name="XPath-Moreinformation"></a>More information</h2>
+
+<p><a href="http://angrez.blogspot.com/2006/06/xpath-and-watir.html" class="external-link" rel="nofollow">XPath and WATiR</a> article at Angrez's blog.</p>
+
+<div class='panelMacro'><table class='infoMacro'><colgroup><col width='24'><col></colgroup><tr><td valign='top'><img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td><a href="/display/WTR/Tutorial" title="Tutorial">Tutorial</a>: <a href="/display/WTR/Validating+Test+Results" title="Validating Test Results"><b>next page</b></a></td></tr></table></div>
+        </div>
+
+        <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+         <rdf:Description
+    rdf:about="http://wiki.openqa.org/display/WTR/XPath"
+    dc:identifier="http://wiki.openqa.org/display/WTR/XPath"
+    dc:title="XPath"
+    trackback:ping="http://wiki.openqa.org/rpc/trackback/6094896"/>
+</rdf:RDF>
+-->
+
+            
+
+
+<fieldset class="hidden parameters">
+    <legend>Labels parameters</legend>
+    <input type="hidden" id="editLabel" value="Edit">
+    <input type="hidden" id="addLabel" value="Add Labels">
+    <input type="hidden" id="domainName" value="http://wiki.openqa.org">
+    <input type="hidden" id="pageId" value="6094896">
+    <input type="hidden" id="spaceKey" value="WTR">
+</fieldset>
+
+<div id="labels-section" class="pageSection">
+    <div id="default-labels-header" class="section-header">
+        <h2 id="labels-section-title" class="section-title  hidden ">Labels</h2>
+            </div>
+
+    <div class="labels-editor">
+        <div id="labelsList">
+                    </div>
+
+        <span class="errorMessage error" id="errorSpan"></span>
+        <form method="GET" action="" id="add-labels-form">
+            <div id="labelInputSpan" class="labels-input">
+                <div id="labelOperationErrorContainer" class="hidden">
+                    <span class="error"><span class="errorMessage" id="labelOperationErrorMessage"></span></span>
+                </div>
+
+                <div class="caption">Enter labels to add to this page:</div>
+                <div id="label-input-fields">
+                    <input autocomplete="off" id="labelsString" name="labelsString" value="" size="40">
+                    <input id="add-labels-editor-button" type="submit" class="add-labels" value="Add">
+                    <input id="close-labels-editor-button" type="submit" class="hide-labels-editor" value="Done">
+                </div>
+                <div id="waitImageAndStatus">
+                    <img class="waiting" alt="Please wait" src="/s/1722/1/_/images/icons/wait.gif">&nbsp;
+                    <span id="labelOperationStatus" class="smalltext"></span>
+                </div>
+                <div id="labelsAutocompleteList" class="aui-dd-parent"></div>
+                <div class="labels-tip">
+                    <div id="suggestedLabelsSpan"></div>
+                    Looking for a label? Just start typing.
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+            
+            
+
+
+
+
+            
+    
+    
+
+
+<fieldset class="parameters hidden">
+    <input type="hidden" id="deleteCommentConfirmMessage" value="Are you sure you want to remove the comment?">
+    <input type="hidden" id="collapseTooltip" value="Click to toggle the display of this comment.">
+</fieldset>
+
+
+
+
+
+
+<div id="comments-section" class="pageSection">
+    
+    
+    
+    
+                                    </div>
+
+
+            
+</div>
+    <br class="clear">
+</div>
+
+<div id="footer">
+                                                <p class="license license-community">
+                  Powered by a free <b>Atlassian Confluence Community License</b> granted to OpenQA. <a href="http://www.atlassian.com/c/conf/11460">Evaluate Confluence today</a>.<br>
+                </p>
+                            <ul id="poweredby">
+        <li class="noprint">Powered by <a href="http://www.atlassian.com/software/confluence" class="smalltext">Atlassian Confluence</a> 3.1, the <a href="http://www.atlassian.com/software/confluence" class="smalltext">Enterprise Wiki</a>.</li>
+        <li class="print-only">Printed by Atlassian Confluence 3.1, the Enterprise Wiki.</li>
+        <li class="noprint"><a href="http://jira.atlassian.com/secure/BrowseProject.jspa?id=10470" class="smalltext">Bug/feature request</a> &#8211;</li>
+        <li class="noprint"><a href="http://www.atlassian.com/about/connected.jsp?s_kwcid=Confluence-stayintouch" class="smalltext">Atlassian News</a> &#8211;</li>
+        <li class="noprint"><a href="/administrators.action">Contact administrators</a></li>
+    </ul>
+
+    
+
+            
+    </div>    <!-- include system javascript resources -->
+                        
+    
+    
+    <!-- end system javascript resources -->
+</div>
+</body>
+</html>

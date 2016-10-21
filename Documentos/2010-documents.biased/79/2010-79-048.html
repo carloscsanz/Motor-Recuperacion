@@ -1,0 +1,766 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head><title>
+	Observer Design Pattern in C# and VB.NET.
+</title><meta name="copyright" content="Copyright © dofactory.com. All rights reserved." /><link rel="stylesheet" href="/assets/css/do.css?v=3" />
+    <script type="text/javascript" src="/assets/js/do.js?v=3" ></script>
+    
+<link rel="shortcut icon" type="image/x-icon" href="http://www.dofactory.com/favicon.ico"></link><link rel="canonical" href="http://www.dofactory.com/Patterns/PatternObserver.aspx"></link><meta name="keywords" content="Observer Design Pattern, Object Oriented Design, Microsoft .NET, ASP.NET, C#, VB.Net, Java, UML" /><meta name="description" content="Observer Design Pattern C# and VB.NET. Beyond OO Design and Development. Valuable source code and UML" /></head>
+<body id="dofactory-com">
+  <div id="container">
+    <form name="aspnetForm" method="post" action="PatternObserver.aspx" id="aspnetForm">
+<div>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTg2ODQ5OTk5MGRkkTJllpxl12IFRITVB1QSwFD2/2U=" />
+</div>
+
+    
+    
+    
+        
+    <div id="header">
+        <div id="logo">
+           <a id="ctl00_HyperLinkLogo" href="/Default.aspx" style="display:inline-block;height:85px;width:85px;"><img src="../Images/logo.gif" style="border-width:0px;" /></a>
+        </div>
+        
+        <div id="userbox">
+          
+
+<table width="204"  cellpadding="0" cellspacing="0" border="0">
+  <tr>
+   <td style="height:24px; vertical-align:middle; text-align:center">
+   <a class="user-link" href="/join.aspx">Join Now</a></td>
+   <td style="height:24px;"><font color="#aaaaaa">|</font></td>
+   <td style="height:24px; vertical-align:middle; text-align:center"><a class="user-link" href="/login.aspx">Login</a></td>
+  </tr>
+</table>
+
+
+
+        </div>
+    </div>
+    
+    
+        
+    <table border="0" cellpadding="0" cellspacing="0">
+     <tr>
+      
+      <td valign="top" align="left" width="200">
+        <div id="ctl00_TheMenu">
+	<div id="menuhead"></div>  <div id="menu"><div class="menuitem"><a href="/Default.aspx">home</a></div><div class="menuitem"><a href="/login.aspx">login</a></div><div class="menuitem"><a href="/join.aspx">join now</a></div><div class='menudivider'>&nbsp;</div><div class='menuheading'><img src='/images/menu-heading-resources.jpg' width='84' height='13' alt='' /></div><div class="menuitem"><a href="/Framework/Framework.aspx">pattern framework</a><img src='/Images/types/menu-tm.gif' width='14' height='12' /></div><div class="menuitemactive"><a href="/Patterns/Patterns.aspx" class="active">design patterns</a></div><div class="menuitem"><a href="/job/jobs.aspx">.net / pattern jobs</a></div><div class='menudivider'>&nbsp;</div><div class='menuheading'><img src='/images/menu-heading-forum.jpg' width='84' height='13' alt='' /></div><div class="menuitem"><a href="/topic/topics.aspx">pattern topics</a></div><div class="menuitem"><a href="/topic/add.aspx">start new topic</a></div><div class="menuitem"><a href="/topic/search.aspx">search</a></div><div class="menuitem"><a href="/tag/tags.aspx">tags</a></div><div class="menuitem"><a href="/user/users.aspx">users</a></div><div class="menuitem"><a href="/topic/faq.aspx">faq</a></div><div class="menuitem"><a href="/topic/dashboard.aspx">dashboard</a></div><div class='menudivider'>&nbsp;</div><div class='menuheading'><img src='/images/menu-heading-reference.jpg' width='84' height='13' alt='' /></div><div class="menuitem"><a href="/reference/reference.aspx">all references</a></div><div class="menuitem"><a href="/Connect/Connect.aspx">connection strings</a></div><div class="menuitem"><a href="/ShortCutKeys/ShortCutKeys.aspx">visual studio shortcuts</a></div><div class='menudivider'>&nbsp;</div><div class='menuheading'><img src='/images/menu-heading-company.jpg' width='84' height='13' alt='' /></div><div class="menuitem"><a href="/Contact/Contact.aspx">contact us</a></div><div class="menuitem"><a href="/Courses/Courses.aspx">training courses</a></div><div class="menuitem"><a href="/Schedule/Schedule.aspx">schedule</a></div><div class="menuitem"><a href="/Register/Register.aspx">registration</a></div><div class="menuitem"><a href="/Sitemap/Sitemap.aspx">sitemap</a></div><div class="menuitem"><a href="/About/About.aspx">about us</a></div><div class="menudivider"></div><div class="menudivider"></div></div><div id="training">training and education for professional developers</div>
+</div>
+        
+        <div id="menuoverlay">
+          
+
+<div style="padding-left:10px;">
+  <a class="menuitem-overlay" href="/login.aspx">login</a>
+</div>
+<div style="padding-left:10px;">
+  <a class="menuitem-overlay" href="/join.aspx">join now</a>
+</div>
+
+        </div>
+      </td>
+      
+      
+      <td valign="top" align="left" width="800">
+       
+         
+         <div id="subheader-wide">
+           <div id="ctl00_TheBanner">
+	<div id="banner"><div class='dash-wide'></div><div class="ban"><div class="banleft"></div><div class="banright">C#, ASP.NET, WPF, WCF, LINQ, PATTERNS&nbsp;</div></div></div>
+</div>
+         </div>
+               
+         <div id="content-xwide">
+           
+
+<table cellpadding="0" cellspacing="0" border="0" id="contentTable">
+<tr>
+<td width="595" valign="top" id="contentMain">
+
+
+<div id="ctl00_ContentPlaceHolder1_Crumbs" class="breadcrumb">
+	<div class='crumbs-all'><a class='breadcrumb' href='/Default.aspx'>Home</a>&nbsp;&nbsp;<img src='/Images/more.gif' />&nbsp;&nbsp;<a class='breadcrumb' href='/Patterns/Patterns.aspx'>Design Patterns</a>&nbsp;&nbsp;<img src='/Images/more.gif' />&nbsp;&nbsp;<span class='lastcrumb'>Observer</span></div>
+</div>
+
+
+
+  <h1>Observer <span class="dp">Design Pattern</span></h1>
+ 
+  
+
+	
+
+	<table cellspacing='0' cellpadding='0' width="100%" border='0'>
+		<tr>
+  		<td valign='top' width='160' style="PADDING-LEFT: 20px">
+				<img id="ctl00_ContentPlaceHolder1_Image1" src="../Images/redarrow.gif" style="border-width:0px;height:7px;width:8px;" />&nbsp;<a href="#intent" class="alwayson1" >definition</a><br />
+				<img id="ctl00_ContentPlaceHolder1_Image2" src="../Images/redarrow.gif" style="border-width:0px;height:7px;width:8px;" />&nbsp;<a href="#UML" class="alwayson1" >UML diagram</a><br />
+				<img id="ctl00_ContentPlaceHolder1_Image3" src="../Images/redarrow.gif" style="border-width:0px;height:7px;width:8px;" />&nbsp;<a href="#participants" class="alwayson1" >participants</a><br />
+			</td>
+  		<td valign='top' align='left' width='300'>
+	  		<img id="ctl00_ContentPlaceHolder1_Image4" src="../Images/redarrow.gif" style="border-width:0px;height:7px;width:8px;" />&nbsp;<a href="#csharp" class="alwayson1" >sample code in C#</a><br /><br />
+	  		
+		  </td>
+	  </tr>
+  </table>
+			    
+  <br />
+  <div class="dash-wide"></div>
+	<br />
+
+  <table cellspacing='0' cellpadding='0' width="100%" border='0'>
+		<tr>
+	  	<td>
+	  	  <a name='intent'></a>
+	  	  <h3 id="definition-scroll">definition</h3>
+						
+				<table cellspacing='0' cellpadding='0' width="100%" border='0'>
+					<tr>
+						<td width='1'><img id="ctl00_ContentPlaceHolder1_Image6" src="../Images/pixel.gif" style="border-width:0px;height:1px;width:1px;" /></td>
+						<td>
+               
+    Define a one-to-many dependency between objects so that when one
+    object changes state, all its dependents are notified and updated automatically.
+  
+               <br /><br />
+			    		Frequency of use: <img src="../Images/use_high.gif" style="border-width:0px;height:20px;width:101px;" />&nbsp;&nbsp;high
+            </td>
+					</tr>
+        </table>
+        
+		  </td>
+      <td align='right' width='95'><img id="ctl00_ContentPlaceHolder1_Image53" src="../Images/552092_4.jpg" style="border-width:0px;height:75px;width:75px;" /></td>
+	  </tr>
+	</table>
+<br />
+  <div id="ctl00_ContentPlaceHolder1_Totop1">
+	<div class="totop"><p class="returntotop"><a name="UML"></a><a href="#"><img src="/Images/up.gif" align="absbottom"></a><a href="#">return to top</a></p><div class='dash-wide'></div></div>
+</div>
+	
+    <h3 id="uml-scroll">UML class diagram</h3>
+	<br />	
+   <div style="padding-left:20px;">
+	<img src='Diagrams/observer.gif' border='0' />
+   </div>		
+   
+  <div id="ctl00_ContentPlaceHolder1_Totop2">
+	<div class="totop"><p class="returntotop"><a name="participants"></a><a href="#"><img src="/Images/up.gif" align="absbottom"></a><a href="#">return to top</a></p><div class='dash-wide'></div></div>
+</div>
+
+  <h3 id="participants-scroll">participants</h3>
+	<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;The classes and/or objects participating in this pattern are:
+  </p>
+
+	
+					<ul>
+					<li><font color='#aa0000'><b>Subject</b></font>&nbsp;&nbsp;<font color='#007733'><b>(Stock)</b></font>
+					<ul>
+					<li>knows its observers. Any number of 
+													Observer objects may observe a subject 
+					                
+					<li>provides an interface for attaching and detaching Observer objects.</li>
+					</ul>
+					<li><font color='#aa0000'><b>ConcreteSubject</b></font>&nbsp;&nbsp;<font color='#007733'><b>(IBM)</b></font>
+					<ul>
+					<li>stores state of interest to 
+													ConcreteObserver 
+					                
+					<li>sends a notification to its observers when its state changes</li>
+					</ul>
+					<li><font color='#aa0000'><b>Observer</b></font>&nbsp;&nbsp;<font color='#007733'><b>(IInvestor)</b></font>
+					<ul>
+					<li>defines an updating interface for objects that should be notified of changes in a subject.</li>
+					</ul>
+					<li><font color='#aa0000'><b>ConcreteObserver</b></font>&nbsp;&nbsp;<font color='#007733'><b>(Investor)</b></font>
+					<ul>
+					<li>maintains a reference to a 
+													ConcreteSubject object 
+					                
+					<li>stores state that should stay 
+													consistent with the subject's 
+					                
+					<li>implements the Observer updating interface to keep its state consistent
+					with the subject's</li>
+					</ul></li>
+					</ul>
+        
+		
+  <div id="ctl00_ContentPlaceHolder1_Totop4">
+	<div class="totop"><p class="returntotop"><a name="csharp"></a><a href="#"><img src="/Images/up.gif" align="absbottom"></a><a href="#">return to top</a></p><div class='dash-wide'></div></div>
+</div>
+
+  <h3 id="csharp-scroll">sample code in C#</h3>
+
+	<p>
+	
+                This <font color='#bb0000'>structural</font> code demonstrates the Observer pattern in which registered objects
+				are notified of and updated with a state change.
+            
+  </p>
+
+
+
+
+   <a href="#_self1" id="xStructure" onclick="ShowHide('Structure');"><font face="Arial,helvetica" color="#aa0000" size='2'><b><u>Show code</u></b></font></a>
+   <br /><br />
+
+    <table bgcolor="#fffaef"  width="100%" cellpadding='0' cellspacing='0' border='0'>
+     <tr>
+      <td>
+       <div class='sourcecode'><font color='green'>
+        // Observer pattern -- Structural example      
+       </font>
+      </div>
+      </td>        
+     </tr>
+
+    <tbody id="Structure" style="DISPLAY:none">
+
+    <tr>
+     <td>
+      <div class='sourcecode'><br />
+       
+<div class='divsource'>
+<p style="margin: 0px;"><span style="color: blue;">using</span> System;</p>
+<p style="margin: 0px;"><span style="color: blue;">using</span> System.Collections.Generic;</p>
+<p style="margin: 0px;">&nbsp;</p>
+<p style="margin: 0px;"><span style="color: blue;">namespace</span> DoFactory.GangOfFour.Observer.Structural</p>
+<p style="margin: 0px;">{</p>
+<p style="margin: 0px;">&nbsp;&nbsp;<span style="color: gray;">///</span><span style="color: green;"> </span><span style="color: gray;">&lt;summary&gt;</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;<span style="color: gray;">///</span><span style="color: green;"> MainApp startup class for Structural </span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;<span style="color: gray;">///</span><span style="color: green;"> Observer Design Pattern.</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;<span style="color: gray;">///</span><span style="color: green;"> </span><span style="color: gray;">&lt;/summary&gt;</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;<span style="color: blue;">class</span> <span style="color: #2b91af;">MainApp</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;{</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: gray;">///</span><span style="color: green;"> </span><span style="color: gray;">&lt;summary&gt;</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: gray;">///</span><span style="color: green;"> Entry point into console application.</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: gray;">///</span><span style="color: green;"> </span><span style="color: gray;">&lt;/summary&gt;</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">static</span> <span style="color: blue;">void</span> Main()</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: green;">// Configure Observer pattern</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #2b91af;">ConcreteSubject</span> s = <span style="color: blue;">new</span> <span style="color: #2b91af;">ConcreteSubject</span>();</p>
+<p style="margin: 0px;">&nbsp;</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s.Attach(<span style="color: blue;">new</span> <span style="color: #2b91af;">ConcreteObserver</span>(s, <span style="color: #a31515;">"X"</span>));</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s.Attach(<span style="color: blue;">new</span> <span style="color: #2b91af;">ConcreteObserver</span>(s, <span style="color: #a31515;">"Y"</span>));</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s.Attach(<span style="color: blue;">new</span> <span style="color: #2b91af;">ConcreteObserver</span>(s, <span style="color: #a31515;">"Z"</span>));</p>
+<p style="margin: 0px;">&nbsp;</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: green;">// Change subject and notify observers</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s.SubjectState = <span style="color: #a31515;">"ABC"</span>;</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s.Notify();</p>
+<p style="margin: 0px;">&nbsp;</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: green;">// Wait for user</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #2b91af;">Console</span>.ReadKey();</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p style="margin: 0px;">&nbsp;&nbsp;}</p>
+<p style="margin: 0px;">&nbsp;</p>
+<p style="margin: 0px;">&nbsp;&nbsp;<span style="color: gray;">///</span><span style="color: green;"> </span><span style="color: gray;">&lt;summary&gt;</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;<span style="color: gray;">///</span><span style="color: green;"> The 'Subject' abstract class</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;<span style="color: gray;">///</span><span style="color: green;"> </span><span style="color: gray;">&lt;/summary&gt;</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;<span style="color: blue;">abstract</span> <span style="color: blue;">class</span> <span style="color: #2b91af;">Subject</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;{</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">private</span> <span style="color: #2b91af;">List</span>&lt;<span style="color: #2b91af;">Observer</span>&gt; _observers = <span style="color: blue;">new</span> <span style="color: #2b91af;">List</span>&lt;<span style="color: #2b91af;">Observer</span>&gt;();</p>
+<p style="margin: 0px;">&nbsp;</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">public</span> <span style="color: blue;">void</span> Attach(<span style="color: #2b91af;">Observer</span> observer)</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_observers.Add(observer);</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p style="margin: 0px;">&nbsp;</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">public</span> <span style="color: blue;">void</span> Detach(<span style="color: #2b91af;">Observer</span> observer)</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_observers.Remove(observer);</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p style="margin: 0px;">&nbsp;</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">public</span> <span style="color: blue;">void</span> Notify()</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">foreach</span> (<span style="color: #2b91af;">Observer</span> o <span style="color: blue;">in</span> _observers)</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o.Update();</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p style="margin: 0px;">&nbsp;&nbsp;}</p>
+<p style="margin: 0px;">&nbsp;</p>
+<p style="margin: 0px;">&nbsp;&nbsp;<span style="color: gray;">///</span><span style="color: green;"> </span><span style="color: gray;">&lt;summary&gt;</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;<span style="color: gray;">///</span><span style="color: green;"> The 'ConcreteSubject' class</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;<span style="color: gray;">///</span><span style="color: green;"> </span><span style="color: gray;">&lt;/summary&gt;</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;<span style="color: blue;">class</span> <span style="color: #2b91af;">ConcreteSubject</span> : <span style="color: #2b91af;">Subject</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;{</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">private</span> <span style="color: blue;">string</span> _subjectState;</p>
+<p style="margin: 0px;">&nbsp;</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: green;">// Gets or sets subject state</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">public</span> <span style="color: blue;">string</span> SubjectState</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">get</span> { <span style="color: blue;">return</span> _subjectState; }</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">set</span> { _subjectState = <span style="color: blue;">value</span>; }</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p style="margin: 0px;">&nbsp;&nbsp;}</p>
+<p style="margin: 0px;">&nbsp;</p>
+<p style="margin: 0px;">&nbsp;&nbsp;<span style="color: gray;">///</span><span style="color: green;"> </span><span style="color: gray;">&lt;summary&gt;</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;<span style="color: gray;">///</span><span style="color: green;"> The 'Observer' abstract class</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;<span style="color: gray;">///</span><span style="color: green;"> </span><span style="color: gray;">&lt;/summary&gt;</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;<span style="color: blue;">abstract</span> <span style="color: blue;">class</span> <span style="color: #2b91af;">Observer</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;{</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">public</span> <span style="color: blue;">abstract</span> <span style="color: blue;">void</span> Update();</p>
+<p style="margin: 0px;">&nbsp;&nbsp;}</p>
+<p style="margin: 0px;">&nbsp;</p>
+<p style="margin: 0px;">&nbsp;&nbsp;<span style="color: gray;">///</span><span style="color: green;"> </span><span style="color: gray;">&lt;summary&gt;</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;<span style="color: gray;">///</span><span style="color: green;"> The 'ConcreteObserver' class</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;<span style="color: gray;">///</span><span style="color: green;"> </span><span style="color: gray;">&lt;/summary&gt;</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;<span style="color: blue;">class</span> <span style="color: #2b91af;">ConcreteObserver</span> : <span style="color: #2b91af;">Observer</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;{</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">private</span> <span style="color: blue;">string</span> _name;</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">private</span> <span style="color: blue;">string</span> _observerState;</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">private</span> <span style="color: #2b91af;">ConcreteSubject</span> _subject;</p>
+<p style="margin: 0px;">&nbsp;</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: green;">// Constructor</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">public</span> ConcreteObserver(</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #2b91af;">ConcreteSubject</span> subject, <span style="color: blue;">string</span> name)</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">this</span>._subject = subject;</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">this</span>._name = name;</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p style="margin: 0px;">&nbsp;</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">public</span> <span style="color: blue;">override</span> <span style="color: blue;">void</span> Update()</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_observerState = _subject.SubjectState;</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #2b91af;">Console</span>.WriteLine(<span style="color: #a31515;">"Observer {0}'s new state is {1}"</span>,</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_name, _observerState);</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p style="margin: 0px;">&nbsp;</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: green;">// Gets or sets subject</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">public</span> <span style="color: #2b91af;">ConcreteSubject</span> Subject</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">get</span> { <span style="color: blue;">return</span> _subject; }</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">set</span> { _subject = <span style="color: blue;">value</span>; }</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p style="margin: 0px;">&nbsp;&nbsp;}</p>
+<p style="margin: 0px;">}</p>
+</div>
+
+    
+      </div>
+    </td>
+   </tr>
+   <tr>
+    <td bgcolor='white'>
+     <br />
+      <font face="arial, helvetica" size='2'>Output</font> 
+       <div class='output'>
+        
+Observer X's new state is ABC<br />
+Observer Y's new state is ABC<br />
+Observer Z's new state is ABC<br />
+        
+       </div>
+     </td>
+    </tr>
+  </tbody>
+  
+ </table>
+
+   <br />
+   <br />            
+   <hr size='1' width="100%" />
+   <br />
+   <p>  
+   
+This <font color='#00aa55'>real-world</font> code demonstrates the Observer pattern in which registered investors
+are notified every time a stock changes value.
+                  
+   </p>
+   
+   <a href="#_self2" id="xRealWorld" onclick="ShowHide('RealWorld');"> 
+   <font color='#007733' face="Arial,helvetica" size='2'><b><u>Show code</u></b></font></a>   <br /><br />
+
+   <table bgcolor="#fffaef"  width="100%" cellpadding='0' cellspacing='0' border='0'>
+    <tr>
+     <td>
+     <div class='sourcecode'><font color='green'>
+     // Observer pattern -- Real World example
+     </font></div>
+     </td>        
+    </tr>
+
+   <tbody id="RealWorld" style="DISPLAY:none">
+    <tr>
+     <td>
+      <div class='sourcecode'>
+		    <br />
+		    
+<div class='divsource'>
+<p style="margin: 0px;"><span style="color: blue;">using</span> System;</p>
+<p style="margin: 0px;"><span style="color: blue;">using</span> System.Collections.Generic;</p>
+<p style="margin: 0px;">&nbsp;</p>
+<p style="margin: 0px;"><span style="color: blue;">namespace</span> DoFactory.GangOfFour.Observer.RealWorld</p>
+<p style="margin: 0px;">{</p>
+<p style="margin: 0px;">&nbsp;&nbsp;<span style="color: gray;">///</span><span style="color: green;"> </span><span style="color: gray;">&lt;summary&gt;</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;<span style="color: gray;">///</span><span style="color: green;"> MainApp startup class for Real-World </span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;<span style="color: gray;">///</span><span style="color: green;"> Observer Design Pattern.</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;<span style="color: gray;">///</span><span style="color: green;"> </span><span style="color: gray;">&lt;/summary&gt;</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;<span style="color: blue;">class</span> <span style="color: #2b91af;">MainApp</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;{</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: gray;">///</span><span style="color: green;"> </span><span style="color: gray;">&lt;summary&gt;</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: gray;">///</span><span style="color: green;"> Entry point into console application.</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: gray;">///</span><span style="color: green;"> </span><span style="color: gray;">&lt;/summary&gt;</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">static</span> <span style="color: blue;">void</span> Main()</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: green;">// Create IBM stock and attach investors</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #2b91af;">IBM</span> ibm = <span style="color: blue;">new</span> <span style="color: #2b91af;">IBM</span>(<span style="color: #a31515;">"IBM"</span>, 120.00);</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ibm.Attach(<span style="color: blue;">new</span> <span style="color: #2b91af;">Investor</span>(<span style="color: #a31515;">"Sorros"</span>));</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ibm.Attach(<span style="color: blue;">new</span> <span style="color: #2b91af;">Investor</span>(<span style="color: #a31515;">"Berkshire"</span>));</p>
+<p style="margin: 0px;">&nbsp;</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: green;">// Fluctuating prices will notify investors</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ibm.Price = 120.10;</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ibm.Price = 121.00;</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ibm.Price = 120.50;</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ibm.Price = 120.75;</p>
+<p style="margin: 0px;">&nbsp;</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: green;">// Wait for user</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #2b91af;">Console</span>.ReadKey();</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p style="margin: 0px;">&nbsp;&nbsp;}</p>
+<p style="margin: 0px;">&nbsp;</p>
+<p style="margin: 0px;">&nbsp;&nbsp;<span style="color: gray;">///</span><span style="color: green;"> </span><span style="color: gray;">&lt;summary&gt;</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;<span style="color: gray;">///</span><span style="color: green;"> The 'Subject' abstract class</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;<span style="color: gray;">///</span><span style="color: green;"> </span><span style="color: gray;">&lt;/summary&gt;</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;<span style="color: blue;">abstract</span> <span style="color: blue;">class</span> <span style="color: #2b91af;">Stock</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;{</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">private</span> <span style="color: blue;">string</span> _symbol;</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">private</span> <span style="color: blue;">double</span> _price;</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">private</span> <span style="color: #2b91af;">List</span>&lt;<span style="color: #2b91af;">IInvestor</span>&gt; _investors = <span style="color: blue;">new</span> <span style="color: #2b91af;">List</span>&lt;<span style="color: #2b91af;">IInvestor</span>&gt;();</p>
+<p style="margin: 0px;">&nbsp;</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: green;">// Constructor</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">public</span> Stock(<span style="color: blue;">string</span> symbol, <span style="color: blue;">double</span> price)</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">this</span>._symbol = symbol;</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">this</span>._price = price;</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p style="margin: 0px;">&nbsp;</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">public</span> <span style="color: blue;">void</span> Attach(<span style="color: #2b91af;">IInvestor</span> investor)</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_investors.Add(investor);</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p style="margin: 0px;">&nbsp;</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">public</span> <span style="color: blue;">void</span> Detach(<span style="color: #2b91af;">IInvestor</span> investor)</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_investors.Remove(investor);</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p style="margin: 0px;">&nbsp;</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">public</span> <span style="color: blue;">void</span> Notify()</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">foreach</span> (<span style="color: #2b91af;">IInvestor</span> investor <span style="color: blue;">in</span> _investors)</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;investor.Update(<span style="color: blue;">this</span>);</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p style="margin: 0px;">&nbsp;</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #2b91af;">Console</span>.WriteLine(<span style="color: #a31515;">""</span>);</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p style="margin: 0px;">&nbsp;</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: green;">// Gets or sets the price</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">public</span> <span style="color: blue;">double</span> Price</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">get</span> { <span style="color: blue;">return</span> _price; }</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">set</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">if</span> (_price != <span style="color: blue;">value</span>)</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_price = <span style="color: blue;">value</span>;</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Notify();</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p style="margin: 0px;">&nbsp;</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: green;">// Gets the symbol</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">public</span> <span style="color: blue;">string</span> Symbol</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">get</span> { <span style="color: blue;">return</span> _symbol; }</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p style="margin: 0px;">&nbsp;&nbsp;}</p>
+<p style="margin: 0px;">&nbsp;</p>
+<p style="margin: 0px;">&nbsp;&nbsp;<span style="color: gray;">///</span><span style="color: green;"> </span><span style="color: gray;">&lt;summary&gt;</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;<span style="color: gray;">///</span><span style="color: green;"> The 'ConcreteSubject' class</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;<span style="color: gray;">///</span><span style="color: green;"> </span><span style="color: gray;">&lt;/summary&gt;</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;<span style="color: blue;">class</span> <span style="color: #2b91af;">IBM</span> : <span style="color: #2b91af;">Stock</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;{</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: green;">// Constructor</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">public</span> IBM(<span style="color: blue;">string</span> symbol, <span style="color: blue;">double</span> price)</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <span style="color: blue;">base</span>(symbol, price)</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p style="margin: 0px;">&nbsp;&nbsp;}</p>
+<p style="margin: 0px;">&nbsp;</p>
+<p style="margin: 0px;">&nbsp;&nbsp;<span style="color: gray;">///</span><span style="color: green;"> </span><span style="color: gray;">&lt;summary&gt;</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;<span style="color: gray;">///</span><span style="color: green;"> The 'Observer' interface</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;<span style="color: gray;">///</span><span style="color: green;"> </span><span style="color: gray;">&lt;/summary&gt;</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;<span style="color: blue;">interface</span> <span style="color: #2b91af;">IInvestor</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;{</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">void</span> Update(<span style="color: #2b91af;">Stock</span> stock);</p>
+<p style="margin: 0px;">&nbsp;&nbsp;}</p>
+<p style="margin: 0px;">&nbsp;</p>
+<p style="margin: 0px;">&nbsp;&nbsp;<span style="color: gray;">///</span><span style="color: green;"> </span><span style="color: gray;">&lt;summary&gt;</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;<span style="color: gray;">///</span><span style="color: green;"> The 'ConcreteObserver' class</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;<span style="color: gray;">///</span><span style="color: green;"> </span><span style="color: gray;">&lt;/summary&gt;</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;<span style="color: blue;">class</span> <span style="color: #2b91af;">Investor</span> : <span style="color: #2b91af;">IInvestor</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;{</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">private</span> <span style="color: blue;">string</span> _name;</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">private</span> <span style="color: #2b91af;">Stock</span> _stock;</p>
+<p style="margin: 0px;">&nbsp;</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: green;">// Constructor</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">public</span> Investor(<span style="color: blue;">string</span> name)</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">this</span>._name = name;</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p style="margin: 0px;">&nbsp;</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">public</span> <span style="color: blue;">void</span> Update(<span style="color: #2b91af;">Stock</span> stock)</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #2b91af;">Console</span>.WriteLine(<span style="color: #a31515;">"Notified {0} of {1}'s "</span> +</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #a31515;">"change to {2:C}"</span>, _name, stock.Symbol, stock.Price);</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p style="margin: 0px;">&nbsp;</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: green;">// Gets or sets the stock</span></p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">public</span> <span style="color: #2b91af;">Stock</span> Stock</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">get</span> { <span style="color: blue;">return</span> _stock; }</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">set</span> { _stock = <span style="color: blue;">value</span>; }</p>
+<p style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p style="margin: 0px;">&nbsp;&nbsp;}</p>
+<p style="margin: 0px;">}</p>
+</div>
+       
+		  </div>
+     </td>
+    </tr>
+    <tr>
+     <td bgcolor='white'><br />
+       <font face="arial, helvetica" size='2'>Output</font><br />
+        <div class='output'>
+         
+Notified Sorros of IBM's change to $120.10<br />
+Notified Berkshire of IBM's change to $120.10<br />
+<br />
+Notified Sorros of IBM's change to $121.00<br />
+Notified Berkshire of IBM's change to $121.00<br />
+<br />
+Notified Sorros of IBM's change to $120.50<br />
+Notified Berkshire of IBM's change to $120.50<br />
+<br />
+Notified Sorros of IBM's change to $120.75<br />
+Notified Berkshire of IBM's change to $120.75<br />
+         
+       </div>
+     </td>
+    </tr>
+
+   </tbody>
+   </table>
+
+   <br />
+   <br />            
+   <hr size='1' width="100%" />
+   <br />
+   <p>            
+    
+     This <font color='#0044aa'>.NET optimized</font> code demonstrates the 
+     same real-world situation as above but uses modern, built-in .NET features,
+     such as, generics, reflection, object initializers, automatic properties, etc.
+        
+   </p>
+
+   <a href="#_self1" id="xNetOptimized" onclick="ShowHide('NetOptimized');">
+   <font face="Arial,helvetica" color='#0044aa' size='2'><b><u>Show code</u></b></font></a>
+   <br /><br />
+
+    <table bgcolor="#fffaef" width="100%" cellpadding='0' cellspacing='0' border='0'>
+     <tr>
+      <td>
+       <div class='sourcecode'><font color='green'>
+        // Observer pattern -- .NET optimized      
+        </font>
+       </div>
+      </td>        
+     </tr>
+    
+    <tbody id="NetOptimized" style="DISPLAY:none">
+   
+     <tr>
+      <td>
+        <div class='sourcecode'>
+         <br />
+           <table style='border: 1px dotted #000;' width='560' bgcolor='white' cellpadding='0' cellspacing='0' border='0'>  <tr>   <td width='220' align='left' valign='middle'>    <br /><a href='../Framework/Framework.aspx'>    <img src='../Images/patternboxcsandvb35-medium.gif' width='210' height='136' border='0'></a><br />    &nbsp;&nbsp;&nbsp;<a href='../Framework/Framework.aspx'><font color='#bb0000'><b>Two editions: C# and VB.NET</b></font></a><br />   </td><td width='16'>&nbsp;</td>   <td width='324' valign='top'><br />The .NET optimized code is part of our<br />    <a href='../Framework/Framework.aspx' class='alwayson'>Design Pattern Framework 3.5</a><sup>TM</sup> with:     <br />   <font face='arial' color='#FF4500' size='3' style='margin-left:2px;margin-right:8px;top:3px'><b>•</b></font><font color="#FF4500">69 gang-of-four pattern projects</font><br />   <font face='arial' color='#FF4500' size='3' style='margin-left:2px;margin-right:8px;top:3px'><b>•</b></font><font color="#FF4500">46 head-first pattern projects</font><br />   <font face='arial' color='#FF4500' size='3' style='margin-left:2px;margin-right:8px;top:3px'><b>•</b></font><font color="#FF4500">Fowler's enterprise patterns</font><br />   <font face='arial' color='#FF4500' size='3' style='margin-left:2px;margin-right:8px;top:3px'><b>•</b></font><font color="#FF4500">SOA & Message patterns</font><br />   <font face='arial' color='#FF4500' size='3' style='margin-left:2px;margin-right:8px;top:3px'><b>•</b></font><font color="#FF4500">Cloud Facade, Business rules</font><br />   <font face='arial' color='#FF4500' size='3' style='margin-left:2px;margin-right:8px;top:3px'><b>•</b></font><font color="#FF4500">e-commerce web application</font><br />   <font face='arial' color='#FF4500' size='3' style='margin-left:2px;margin-right:8px;top:3px'><b>•</b></font><font color="#FF4500">WCF, WPF, & LINQ</font><br />   <font face='arial' color='#FF4500' size='3' style='margin-left:2px;margin-right:8px;top:3px'><b>•</b></font><font color="#FF4500">MVC, MVP, & MVVM</font><br />   <font face='arial' color='#FF4500' size='3' style='margin-left:2px;margin-right:8px;top:3px'><b>•</b></font><font color="#FF4500">100% pure source code</font><br /><br />   <font color="black">Instant download. <a href="../Framework/Framework.aspx" class="alwayson">Order now!</a></font><br />   <br />   </td>   </tr> </table>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face='arial'>See our <a href="PatternSingleton.aspx" class="alwayson">Singleton</a> page for a <i>.NET optimized</i> code sample.</font><div class="sourcecode"><br /></div>
+        </div>
+      </td>
+     </tr>
+     <tr>
+      <td bgcolor='white'>
+      
+      </td>
+     </tr>
+    </tbody>
+   </table>
+
+   <br />
+   <br />
+   <hr size='1' width="100%" />
+   <br />
+   
+   <b>Need to know more?</b><br /><br />
+   &nbsp;&nbsp;&nbsp;<img id="ctl00_ContentPlaceHolder1_Image5" src="../Images/redarrow.gif" style="border-width:0px;height:7px;width:8px;" />&nbsp;<a id="ctl00_ContentPlaceHolder1_HyperLinkForum" class="alwayson1" href="/topic/search.aspx?q=observer">see what others are saying about the Observer pattern</a>
+   <br /><br /><br />
+
+</td>
+<td width="205" valign="top" id="contentRight" align="right">
+
+
+
+ <br />
+<br />
+
+
+<table bgcolor="#ff4400" width="169" cellpadding="3" cellspacing="1" border="0">
+ <tr>
+  <td bgcolor="white" align="center">
+  <br />
+
+  <table cellpadding="0" cellspacing="1" border="0" width="167">
+    <tr>
+      <td align="left" bgcolor="white">
+        <ul style="list-style-position:outside; left:-10px; margin-bottom: 1px; margin-top:9px; position:relative">
+          <li><span style="background:yellow;color:#bb0000"> Better Code </span></li>
+          <li><span style="background:yellow;color:#bb0000"> Better Career </span></li>
+          <li><span style="background:yellow;color:#bb0000"> Better Lifestyle </span></li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+      
+  <br />
+  <br />
+     
+  <a id="ctl00_ContentPlaceHolder1_FrameworkSmallControl1_HyperLinkFramework" class="alwayson" href="../Framework/Framework.aspx">
+    <font size="4">
+      <span style="line-height:17pt; text-decoration: none; font-weight:bold;">
+        Design Pattern<br />
+        Framework<sup><font size="2" color="#aa0000">TM</font></sup> 3.5
+      </span>
+     </font>
+  </a>
+      
+  <br /><br />
+   <a id="ctl00_ContentPlaceHolder1_FrameworkSmallControl1_HyperLink1" href="../Framework/Framework.aspx"><img id="ctl00_ContentPlaceHolder1_FrameworkSmallControl1_ImageBox" src="../Images/patternboxcsandvb35-small.gif" style="border-width:0px;height:110px;width:170px;" /></a>  
+  &nbsp;<br />
+  <a id="ctl00_ContentPlaceHolder1_FrameworkSmallControl1_HyperLink2" class="alwayson" href="../Framework/Framework.aspx">
+   <b>C# and VB.NET</b>
+  </a>
+
+  <br /><br />
+
+  <table cellpadding="0" cellspacing="0" border="0" width="174">
+    <tr>
+      <td align="left" bgcolor="white"><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="background:yellow;color:#bb0000">Here's what you get:</span>
+        <ul style="list-style-position:outside; left:-16px; margin-bottom:1px; margin-top:9px; position:relative">
+          <li>Gang of Four Patterns</li>
+          <li>Head First Patterns</li>
+          <li>Enterprise Patterns</li>
+          <li>SOA Patterns<br /><br /></li>
+          <li>WPF Best Practices</li>
+          <li>WCF Best Practices</li>
+          <li>LINQ Best Practices<br /><br /></li>
+          <li>Model View Controller</li>
+          <li>Model View Presenter</li>
+          <li>Model View ViewModel<br /><br /></li>
+          <li>More...</li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+              
+  <br />
+  <a id="ctl00_ContentPlaceHolder1_FrameworkSmallControl1_HyperLink3" class="alwayson" href="../Framework/Framework.aspx" style="background-color:yellow">Click here for details</a>
+  <br /><br />
+
+ <b>-- Instant Access --<br />
+ Instant Download</b><br /><br />
+
+               
+ </td>
+ </tr>
+</table>
+<br />
+
+
+
+</td>
+</tr>
+</table>
+
+<script type="text/javascript">
+    //<![CDATA[
+    function ShowHide(ref) 
+    {
+        var color;
+        if (ref.indexOf('Structure') > -1) color = 'aa0000';
+        if (ref.indexOf('RealWorld') > -1) color = '007733';
+        if (ref.indexOf('NetOptimized') > -1) color = '0044aa';
+
+        var structure = document.getElementById(ref);
+        var xstructure = document.getElementById("x" + ref);
+
+        if (structure.style.display == 'none') {
+            xstructure.innerHTML = '<font face="Arial,helvetica" color=' + color + ' size=2><b><u>Hide code</u></b></font>';
+            structure.style.display = '';
+        }
+        else {
+            xstructure.innerHTML = '<font face="Arial,helvetica" color=' + color + ' size=2><b><u>Show code</u></b></font>';
+            structure.style.display = 'none';
+        }
+    } 
+//]]>
+</script>
+
+
+
+
+         </div>
+         
+         <div id="ctl00_TheToTop">
+	<div class="totop"><p class="returntotop"><a name="home"></a><a href="#"><img src="/Images/up.gif" align="absbottom"></a><a href="#">return to top</a></p><div class='dash-xwide'></div></div>
+</div>
+       
+      </td>
+     </tr>
+    </table>
+    
+    <div id="ctl00_TheFooter">
+	<br /><table width='1000' cellpadding='0' cellspacing='0' border='0'><tr><td width='200'>&nbsp;</td><td width='800' align='center' valign='top'><div id='footer'><a href='/Default.aspx'>home</a><span>|</span><a href='/join.aspx'>join</a><span>|</span><a href='/login.aspx'>login</a><span>|</span><a href='/Patterns/Patterns.aspx'>design patterns</a><span>|</span><a href='/Framework/Framework.aspx'>design pattern framework</a><span>|</span><a href='/topic/topics.aspx'>pattern topics</a><span>|</span><a href='/tag/tags.aspx'>tags</a><span>|</span><a href='/user/users.aspx'>users</a><span>|</span><a href='/topic/add.aspx'>new topic</a><span>|</span><a href='/topic/search.aspx'>search</a><span>|</span><a href='/topic/faq.aspx'>faq</a><div align='center'><a href='/reference/reference.aspx'>resources</a><span>|</span><a href='/Connect/Connect.aspx'>connection strings</a><span>|</span><a href='/ShortCutKeys/ShortCutKeys.aspx'>visual studio shortcuts</a><span>|</span><a href='/Courses/Courses.aspx'>courses</a><span>|</span><a href='/Schedule/Schedule.aspx'>schedule</a><span>|</span><a href='/Register/Register.aspx'>registration</a><span>|</span><a href='/Sitemap/Sitemap.aspx'>sitemap</a><span>|</span><a href='/About/About.aspx'>about us</a><hr><div id='copyright'>Copyright 2001 - 2010 Data &amp; Object Factory, LLC. All rights reserved.<br /> Data &amp; Object Factory™, dofactory.com™, DoFactory™, Design Pattern Framework™, and the 'slanting do' logo are trademarks of Data &amp; Object Factory, LLC.</div><div id='terms'><a href='/terms.aspx'>terms of service</a><span>&nbsp;|&nbsp;</span><a href='/privacy.aspx'>privacy statement</a></div><!-- terms --></div><!-- footer --></td></tr></table>
+</div>
+        
+    </form>
+   </div> <!-- container -->
+
+  
+   
+    <script type="text/javascript">
+    //<![CDATA[
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    //]]>
+    </script>
+    <script type="text/javascript">
+     //<![CDATA[
+      try {
+        var pageTracker = _gat._getTracker("UA-1223200-3");
+        pageTracker._trackPageview();
+      } catch (err) { }
+    //]]>
+    </script>
+
+  
+</body>
+</html>

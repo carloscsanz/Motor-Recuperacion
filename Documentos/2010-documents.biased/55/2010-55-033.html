@@ -1,0 +1,571 @@
+<HTML><HEAD><TITLE>[ANN] xx-2.1.0</TITLE>
+<script language="javascript">
+<!--
+  function chk() {
+    var name = navigator.appName;
+    var ver = navigator.appVersion;
+    if (name.charAt(0) == "M") {
+      if (ver.charAt(0) >= 5 ||
+        ver.indexOf(" 5.5") >= 0 ||
+        ver.indexOf(" 6") >= 0
+         )
+        return(true);
+      return(false);
+    } else if (name.charAt(0) == "N") {
+      if (ver.charAt(0) >= 5)
+        return(true);
+      return(false);
+    } else {
+      return(false);
+    }
+  }
+
+  function hilight(x) {
+    if (!chk()) return;
+    if (parent) {
+      try {
+        parent.frames[0].hilight(x);
+      } catch(e) {
+       //alert(e);
+      }
+    }
+  }
+
+  //Navigation Bar
+  var IE = document.all;
+  var PosTimer;
+  function stickNavi() {
+    var y = document.body.scrollTop;
+    var s = document.getElementById('navi').style
+    s.top = y + 7;
+    s.left = 8;
+  }
+  function stickNaviLoop() {
+    if (PosTimer){clearTimeout(PosTimer);}
+    stickNavi();
+    PosTimer = setTimeout("stickNaviLoop()", 10);
+  }
+
+  function setNavi() {
+    if (IE) {document.body.onscroll = stickNavi;}
+    else {stickNaviLoop();}
+  }
+
+//-->
+</script>
+<link rel="stylesheet" href="http://blade.nagaokaut.ac.jp/css/blade.css" type="text/css" title="blade"></HEAD><BODY onLoad="setNavi()">
+<A NAME=head></A><div id="navi" style="position:absolute;top:7px;left:8px;"><A HREF="240741" class="a-button" onclick="hilight(240741)"><span id="normal" title="&lt;">&nbsp;&lt;&nbsp;</span></A><A HREF="/ruby/ruby-talk/240601-240800.shtml#240742" class="a-button" target="_top"><span id="normal" title="^">^</span></A><A HREF="240743" class="a-button" onclick="hilight(240743)"><span id="normal" title="&gt;">&nbsp;&gt;&nbsp;</span></A> <a href="240760" onclick="hilight(240760)" class="a-button"><span id="red" title="[previous]">&nbsp;P&nbsp;</span></a><a href="240749" onclick="hilight(240749)" class="a-button"><span id="green" title="[next]">&nbsp;N&nbsp;</span></a> <a href="240728" onclick="hilight(240728)" class="a-button"><span id="red" title="[previous thread]">|&lt;</span></a><a href="240747" onclick="hilight(240747)" class="a-button"><span id="red" title="[next thread]">&gt;|</span></a><span id="normal" title="[parent]">^</span><a href="240749" onclick="hilight(240749)" class="a-button"><span id="normal" title="[child]">_</span></a><span id="normal" title="[elder]">&gt;</span><span id="normal" title="[younger]">&lt;</span> <a href="/cgi-bin/vframe.rb/ruby/ruby-talk/240742?240701-249193" target="_top" class="a-button"><span id="normal" title="[thread frame]">---</span></a><a href="/cgi-bin/vframe.rb/ruby/ruby-talk/240742?240701-249193+split-mode-vertical" target="_top" class="a-button"><span id="normal" title="[thread frame vertical]">&nbsp;|&nbsp;</span></a><a href="240742" target="_top" onclick="hilight(240742)" class="a-button"><span id="normal" title="[frame close]">&nbsp;~&nbsp;</span></a><a href="/ruby/ruby-talk/index.shtml" target="_top" class="a-button"><span id="normal" title="[index]">.</span></a><a href="/ruby/ruby-talk/../index.shtml" target="_top" class="a-button"><span id="normal" title="[iindex]">..</span></a><a href="http://www.excite.co.jp/world/url/?wb_url=http://blade.nagaokaut.ac.jp/cgi-bin/rcat.rb/ruby/ruby-talk/240742&wb_lp=enja" class=\"a-button\" target="Excite"><span id="normal" title="[Japanese]">J</span></a><a href="/cgi-bin/scat.rb/ruby/ruby-talk/240742?help-en" class="a-button"><span id="normal" title="[Help]">Help</span></a></div>
+<div id="header"><br>
+Subject: <strong></strong><strong>[ANN] xx-2.1.0</strong><br>
+From: &quot;<strong>Ara.T.Howard</strong>&quot; &lt;ara.t.howard noaa.gov&gt;<br>
+Date: Sun, 25 Feb 2007 11:13:38 +0900</div>
+<pre>
+NAME
+
+   xx
+
+
+SYNOPSIS
+
+   xhtml and xml generation =&gt; twice as dirty!
+
+
+USAGE
+
+   require &quot;xx&quot;
+
+   include XX::XHTML
+
+   doc = xhtml_{
+     html_{
+       head_{ title_{ &quot;  go xx!  &quot; } }
+       body_{ &quot;  one more and it would be illegal  &quot; }
+     }
+   }
+
+   puts doc
+
+
+INSTALL
+
+   harp:~ &gt; gem install &quot;double x&quot;
+
+
+URIS
+
+   <A HREF="http://rubyforge.org/projects/codeforpeople/" target="_top">http://rubyforge.org/projects/codeforpeople/</A>
+   hhtp://codeforpeople.com/xx/
+
+
+DESCRIPTION
+
+   xx is a library designed to extend ruby objects with html, xhtml, and xml
+   generation methods.  the syntax provided by xx aims to make the generation
+   of xml or xhtml as clean looking and natural as ruby itself, while still
+   being entirely robust and safe.
+
+   the approach taken, that of extending objects, allows natural document
+   generation while preserving access to instance data.  in essence it provides
+   ruby objects (including the top level 'main' object) mixin ability to
+   generate various markup views of their data in a way that is correct and
+   elegant.
+
+   xx is brought to you by the good folks at <A HREF="http://eparklabs.com." target="_top">http://eparklabs.com.</A>
+
+
+HISTORY
+
+   2.1.0:
+     - introduction of XX::Template (see samples h,i,j)
+     - fixed and indentation bug (too much)
+
+
+SAMPLES
+
+   &lt;========&lt; samples/a.rb &gt;========&gt;
+
+   ~ &gt; cat samples/a.rb
+
+     require &quot;xx&quot;
+     include XX::XHTML
+     #
+     # xx modules extend any object with natural document markup methods.  the
+     # special 'tag_name_(attributes){ block }' is a bit odd first but, as you will
+     # see, has many important properties
+     #
+
+     puts xhtml_{
+       html_{
+         head_{ title_{ &quot; go xx! &quot; } }
+         body_{ &quot; one more 'x' and it would be illegal &quot; }
+       }
+     }
+
+   ~ &gt; ruby samples/a.rb
+
+     &lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;<A HREF="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" target="_top">http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd</A>&quot;&gt;
+     &lt;html lang='en' xml:lang='en' xmlns='<A HREF="http://www.w3.org/1999/xhtml" target="_top">http://www.w3.org/1999/xhtml</A>'&gt;
+       &lt;head&gt;
+         &lt;title&gt; go xx! &lt;/title&gt;
+       &lt;/head&gt;
+       &lt;body&gt; one more &amp;apos;x&amp;apos; and it would be illegal &lt;/body&gt;
+     &lt;/html&gt;
+
+
+   &lt;========&lt; samples/b.rb &gt;========&gt;
+
+   ~ &gt; cat samples/b.rb
+
+     require &quot;xx&quot;
+     #
+     # xx doesn't name clash
+     #
+     class C
+       include XX::XHTML
+
+       attr 'body'
+
+       def initialize
+         @body = 'body'
+       end
+
+       def to_html
+         xhtml_{ html_{ body_{   body   } } }
+       end
+     end
+
+     puts C.new.to_html
+
+   ~ &gt; ruby samples/b.rb
+
+     &lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;<A HREF="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" target="_top">http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd</A>&quot;&gt;
+     &lt;html lang='en' xml:lang='en' xmlns='<A HREF="http://www.w3.org/1999/xhtml" target="_top">http://www.w3.org/1999/xhtml</A>'&gt;
+       &lt;body&gt;body&lt;/body&gt;
+     &lt;/html&gt;
+
+
+   &lt;========&lt; samples/c.rb &gt;========&gt;
+
+   ~ &gt; cat samples/c.rb
+
+     require &quot;xx&quot;
+     #
+     # no reserved words prohibiting tags - oh, and xml too.  also note the
+     # blockless form of tag generation which is also supported
+     #
+     class C
+       include XX::XML
+
+       attr 'table'
+
+       def initialize
+         @table = %w( a b c ), %w( 1 2 3 )
+       end
+
+       def to_xml
+         xml_{
+           class_{ self.class }
+           object_id_{ 42 }
+           send_ 'send'
+           exit_ 'exit'
+
+           table_{
+             table.each do |row|
+               tr_{
+                 row.each do |cell|
+                   td_ cell
+                 end
+               }
+             end
+           }
+         }
+       end
+     end
+
+     puts C.new.to_xml.pretty # auto indentation with 'pretty'
+
+   ~ &gt; ruby samples/c.rb
+
+     &lt;?xml version='1.0'?&gt;
+     &lt;class&gt;C&lt;object_id&gt;42&lt;/object_id&gt;
+       &lt;send&gt;send&lt;/send&gt;
+       &lt;exit&gt;exit&lt;/exit&gt;
+       &lt;table&gt;
+         &lt;tr&gt;
+           &lt;td&gt;a&lt;/td&gt;
+           &lt;td&gt;b&lt;/td&gt;
+           &lt;td&gt;c&lt;/td&gt;
+         &lt;/tr&gt;
+         &lt;tr&gt;
+           &lt;td&gt;1&lt;/td&gt;
+           &lt;td&gt;2&lt;/td&gt;
+           &lt;td&gt;3&lt;/td&gt;
+         &lt;/tr&gt;
+       &lt;/table&gt;
+     &lt;/class&gt;
+
+
+   &lt;========&lt; samples/d.rb &gt;========&gt;
+
+   ~ &gt; cat samples/d.rb
+
+     require &quot;xx&quot;
+     #
+     # the brackets make it dang easy to bounce on the '%' key (or whatever key
+     # matches braces in your editor) to balance tags.  and the phrase '_{' is very
+     # useful for searching huge doccuments for tag generation methods
+     #
+     class C
+       include XX::XML
+
+       def to_xml
+         xml_{ a_{ b_{ c_{ d_{ e_{ f_{ '  but am i balanced?  ' }}}}}}}  # vim will tell you!
+       end
+     end
+
+     puts C.new.to_xml
+
+   ~ &gt; ruby samples/d.rb
+
+     &lt;?xml version='1.0'?&gt;&lt;a&gt;&lt;b&gt;&lt;c&gt;&lt;d&gt;&lt;e&gt;&lt;f&gt; but am i balanced? &lt;/f&gt;&lt;/e&gt;&lt;/d&gt;&lt;/c&gt;&lt;/b&gt;&lt;/a&gt;
+
+
+   &lt;========&lt; samples/e.rb &gt;========&gt;
+
+   ~ &gt; cat samples/e.rb
+
+     require &quot;xx&quot;
+     #
+     # the handy '_' method can bail you out when your tags aren't valid ruby
+     # syntax
+     #
+
+     include XX::XML
+
+     puts xml_{ _('mething missing is cool'){ 'but not always the best fit' } }
+
+   ~ &gt; ruby samples/e.rb
+
+     &lt;?xml version='1.0'?&gt;&lt;mething missing is cool&gt;but not always the best fit&lt;/mething missing is cool&gt;
+
+
+   &lt;========&lt; samples/f.rb &gt;========&gt;
+
+   ~ &gt; cat samples/f.rb
+
+     require &quot;xx&quot;
+     #
+     # '_' really bails you out for namespaces
+     #
+     module Furniture
+       class Table
+         include XX::XML
+
+         attr 'legs'
+
+         def initialize
+           @legs = %w[ 1 2 3 4 ]
+         end
+
+         def to_xml
+           xml_{
+             _('furniture:table', 'xmlns:f' =&gt; '<A HREF="http://www.w3schools.com/furniture" target="_top">http://www.w3schools.com/furniture</A>'){
+               legs.each{|leg|
+                 _('furniture:leg'){ &quot;leg #{ leg }&quot; }
+               }
+             }
+           }
+         end
+       end
+     end
+
+     #
+     # xml types don't get formatted by default - use pretty for that
+     #
+     puts Furniture::Table.new.to_xml.pretty
+
+   ~ &gt; ruby samples/f.rb
+
+     &lt;?xml version='1.0'?&gt;
+     &lt;furniture:table xmlns:f='<A HREF="http://www.w3schools.com/furniture" target="_top">http://www.w3schools.com/furniture</A>'&gt;
+       &lt;furniture:leg&gt;leg 1&lt;/furniture:leg&gt;
+       &lt;furniture:leg&gt;leg 2&lt;/furniture:leg&gt;
+       &lt;furniture:leg&gt;leg 3&lt;/furniture:leg&gt;
+       &lt;furniture:leg&gt;leg 4&lt;/furniture:leg&gt;
+     &lt;/furniture:table&gt;
+
+
+   &lt;========&lt; samples/g.rb &gt;========&gt;
+
+   ~ &gt; cat samples/g.rb
+
+     require &quot;xx&quot;
+     #
+     # there are bunch of shorthand methods - each is 'escaped' via a double
+     # underscore
+     #
+     include XX::XHTML
+     include XX::XML
+
+     puts xml_{ t__{ 'this is text data' } }
+     puts xml_{ x__{ '&lt;xml&gt; in raw form, nothing is auto-escaped &lt;/xml&gt;' } }
+     puts xml_{ h__{ '&lt;html&gt; entities like &amp; are ignored &lt;/html&gt;' } }
+     puts xml_{ c__{ 'cdata' } }
+     puts xml_{ tag_(a__('k=v, x=y')){ 'a__ is a handy attribute parser' } }
+     puts xml_{ tag_(y__('k: v, a: b')){ 'y__ is too - yaml style' } }
+
+   ~ &gt; ruby samples/g.rb
+
+     &lt;?xml version='1.0'?&gt;this is text data
+     &lt;?xml version='1.0'?&gt;&lt;xml&gt; in raw form, nothing is auto-escaped &lt;/xml&gt;
+     &lt;?xml version='1.0'?&gt;&lt;html&gt; entities like &amp; are ignored &lt;/html&gt;
+     &lt;?xml version='1.0'?&gt;&lt;![CDATA[cdata]]&gt;
+     &lt;?xml version='1.0'?&gt;&lt;tag k='v' x='y'&gt;a__ is a handy attribute parser&lt;/tag&gt;
+     &lt;?xml version='1.0'?&gt;&lt;tag k='v' a='b'&gt;y__ is too - yaml style&lt;/tag&gt;
+
+
+   &lt;========&lt; samples/h.rb &gt;========&gt;
+
+   ~ &gt; cat samples/h.rb
+
+     require &quot;xx&quot;
+     #
+     # xx supports templates with grace and applomb
+     #
+     template = XX::Template::Inline.new &lt;&lt;-xhtml
+       xhtml_{
+         html_{
+           body_{
+             table_{ @table.each{|row| tr_{ row.each{|cell| td_ cell} }} }
+
+             b_ local_variable
+           }
+         }
+       }
+     xhtml
+
+     @table = [
+       %w( a b c ),
+       %w( x y z ),
+     ]
+
+     local_variable = 'local_variable'
+
+     template.expand binding
+
+   ~ &gt; ruby samples/h.rb
+
+     &lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;<A HREF="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" target="_top">http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd</A>&quot;&gt;
+     &lt;html lang='en' xml:lang='en' xmlns='<A HREF="http://www.w3.org/1999/xhtml" target="_top">http://www.w3.org/1999/xhtml</A>'&gt;
+       &lt;body&gt;
+         &lt;table&gt;
+           &lt;tr&gt;
+             &lt;td&gt;a&lt;/td&gt;
+             &lt;td&gt;b&lt;/td&gt;
+             &lt;td&gt;c&lt;/td&gt;
+           &lt;/tr&gt;
+           &lt;tr&gt;
+             &lt;td&gt;x&lt;/td&gt;
+             &lt;td&gt;y&lt;/td&gt;
+             &lt;td&gt;z&lt;/td&gt;
+           &lt;/tr&gt;
+         &lt;/table&gt;
+         &lt;b&gt;local_variable&lt;/b&gt;
+       &lt;/body&gt;
+     &lt;/html&gt;
+
+   &lt;========&lt; samples/i.rb &gt;========&gt;
+
+   ~ &gt; cat samples/i.rb
+
+     require &quot;xx&quot;
+     #
+     # file based templates are also supported
+     #
+     xhtml = &lt;&lt;-xhtml
+       xhtml_{
+         html_{
+           body_{
+             table_{ @table.each{|row| tr_{ row.each{|cell| td_ cell} }} }
+
+             b_ local_variable
+           }
+         }
+       }
+     xhtml
+
+     # generate template on the fly
+     require &quot;tempfile&quot;
+     t = Tempfile.new Process.pid.to_s
+     t &lt;&lt; xhtml
+     t.close
+
+     template = XX::Template::File.new t.path
+
+     @table = [
+       %w( a b c ),
+       %w( x y z ),
+     ]
+
+     local_variable = 'local_variable'
+
+     template.expand binding
+
+   ~ &gt; ruby samples/i.rb
+
+     &lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;<A HREF="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" target="_top">http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd</A>&quot;&gt;
+     &lt;html lang='en' xml:lang='en' xmlns='<A HREF="http://www.w3.org/1999/xhtml" target="_top">http://www.w3.org/1999/xhtml</A>'&gt;
+       &lt;body&gt;
+         &lt;table&gt;
+           &lt;tr&gt;
+             &lt;td&gt;a&lt;/td&gt;
+             &lt;td&gt;b&lt;/td&gt;
+             &lt;td&gt;c&lt;/td&gt;
+           &lt;/tr&gt;
+           &lt;tr&gt;
+             &lt;td&gt;x&lt;/td&gt;
+             &lt;td&gt;y&lt;/td&gt;
+             &lt;td&gt;z&lt;/td&gt;
+           &lt;/tr&gt;
+         &lt;/table&gt;
+         &lt;b&gt;local_variable&lt;/b&gt;
+       &lt;/body&gt;
+     &lt;/html&gt;
+
+   &lt;========&lt; samples/j.rb &gt;========&gt;
+
+   ~ &gt; cat samples/j.rb
+
+     require &quot;xx&quot;
+     #
+     # the return type of all tag_ methods are suitable for injection into a
+     # doccument, so you can break apart html generation into methods.  note that
+     # these methods are not returning strings, but REXML elements which can be
+     # injected into other doccuments
+     #
+     class Table &lt; Array
+       include XX::XHTML
+       def to_html
+         xhtml_{ html_{ body_{ table_{ each{|row| row_html row} } } } }
+       end
+       def row_html row
+         tr_{ row.each{|cell| cell_html cell} }
+       end
+       def cell_html cell
+         td_{ cell }
+       end
+     end
+
+     t = Table[ %w( 0 1 2 ), %w( 3 4 5 ) ]
+
+     puts t.to_html
+
+   ~ &gt; ruby samples/j.rb
+
+     &lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;<A HREF="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" target="_top">http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd</A>&quot;&gt;
+     &lt;html lang='en' xml:lang='en' xmlns='<A HREF="http://www.w3.org/1999/xhtml" target="_top">http://www.w3.org/1999/xhtml</A>'&gt;
+       &lt;body&gt;
+         &lt;table&gt;
+           &lt;tr&gt;
+             &lt;td&gt;0&lt;/td&gt;
+             &lt;td&gt;1&lt;/td&gt;
+             &lt;td&gt;2&lt;/td&gt;
+           &lt;/tr&gt;
+           &lt;tr&gt;
+             &lt;td&gt;3&lt;/td&gt;
+             &lt;td&gt;4&lt;/td&gt;
+             &lt;td&gt;5&lt;/td&gt;
+           &lt;/tr&gt;
+         &lt;/table&gt;
+       &lt;/body&gt;
+     &lt;/html&gt;
+
+
+AUTHORS
+
+   dan fitzpatrick &lt;dan / eparklabs.com&gt;
+   ara.t.howard &lt;ara.t.howard / eparklabs.com&gt;
+
+
+BUGS
+
+   please send bug reports to /dev/null.  patches to addresses above.  ;-)
+
+
+LICENSE
+
+   ePark Labs Public License version 1 Copyright (c) 2005, ePark Labs, Inc. and
+   contributors All rights reserved.
+
+   Redistribution and use in source and binary forms, with or without
+   modification, are permitted provided that the following conditions are met:
+
+     1. Redistributions of source code must retain the above copyright notice,
+     this list of conditions and the following disclaimer.
+
+     2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution.
+
+     3. Neither the name of ePark Labs nor the names of its contributors may be
+     used to endorse or promote products derived from this software without
+     specific prior written permission.
+
+   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot;
+   AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+   IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+   DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE
+   FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+   DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+   SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+   CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+   OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+-a
+-- 
+be kind whenever possible... it is always possible.
+- the dalai lama
+
+<a name=tail></a></pre>
+</BODY></HTML>

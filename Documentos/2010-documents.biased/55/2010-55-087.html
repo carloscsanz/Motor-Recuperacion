@@ -1,0 +1,1711 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+ 
+xmlns:media="http://search.yahoo.com/searchmonkey/media/" xmlns:dc="http://purl.org/dc/terms/"  
+
+xmlns:fb="http://www.facebook.com/2008/fbml"
+>
+
+<head>
+	<title>How to POP3 in C#</title>
+	<meta name="verify-v1" content="L4NJcP1bTYOJFMHbpoh8ERVHKc1WzM7/WG+vA6ZncWs=" />
+	<meta http-equiv="Content-Type" content="text/HTML; charset=UTF-8" />
+    
+    <meta name="title" content="How to POP3 in C#" />
+    
+	<meta name="description" content="How to POP3 in C#.  " />
+	<meta name="keywords" content="documents, document sharing, flashpaper, embedded documents, pdf download, free download, pdf" />
+				<link rel="canonical" href="http://www.scribd.com/doc/6926572/How-to-POP3-in-C" />
+	
+
+    
+      
+        <link rel="alternate" type="application/json+oembed"
+          href="http://www.scribd.com/services/oembed?url=http%3A%2F%2Fwww.scribd.com%2Fdoc%2F6926572%2FHow-to-POP3-in-C&format=json" 
+          title="How to POP3 in C# oEmbed Profile" />
+      
+        <link rel="alternate" type="application/xml+oembed"
+          href="http://www.scribd.com/services/oembed?url=http%3A%2F%2Fwww.scribd.com%2Fdoc%2F6926572%2FHow-to-POP3-in-C&format=xml" 
+          title="How to POP3 in C# oEmbed Profile" />
+      
+       
+      
+          <link rel="image_src" href="http://i5.scribdassets.com/profiles/images/9cmyqz8ajyze-thumb.jpg" /> 
+      
+    
+		
+	<link href="http://yui.yahooapis.com/combo?2.8.0r4/build/assets/skins/sam/skin.css" media="screen" rel="stylesheet" type="text/css" />
+
+
+
+
+	
+	<link href="http://s6.scribdassets.com/aggregated/css/base.css?1268439931" media="screen" rel="stylesheet" type="text/css" />
+<link href="http://s7.scribdassets.com/aggregated/css/web.css?1268439931" media="screen" rel="stylesheet" type="text/css" />
+	
+	
+	
+	
+	<!--[if gte IE 6]>
+		<link href="http://s5.scribdassets.com/aggregated/css/ie.css?1268439931" media="screen" rel="stylesheet" type="text/css" />
+	<![endif]-->
+	
+	<!--[if gte IE 7]>
+		<link href="http://s5.scribdassets.com/aggregated/css/ie7.css?1268439931" media="screen" rel="stylesheet" type="text/css" />
+	<![endif]-->
+	
+	
+	
+	
+    <script type="text/javascript">
+        
+        if(!window.Scribd) var Scribd = new Object();
+        Scribd.cdn_path = 'http://s6.scribdassets.com/';
+        Scribd.rails_env = 'production';
+        Scribd.logged_in = false;
+        
+            if (top!=self) top.location.href=self.location.href;
+        
+        var perfStart = new Date();
+	</script>
+
+	
+		<script src="http://s6.scribdassets.com/aggregated/javascript/doc_view.js?1268439931" type="text/javascript"></script>
+	
+	
+	
+		<link rel="alternate" type="application/rss+xml" title="Scribd RSS feed" href="http://www.scribd.com/feeds/rss" />
+	
+	
+	<link rel="shortcut icon" href="http://s6.scribdassets.com/favicon.ico" />
+	
+	
+	
+	
+
+  
+	
+
+	  	<!-- BEGIN Google Ad Manager -->
+		<script type="text/javascript" src="http://partner.googleadservices.com/gampad/google_service.js"></script>
+		<script type="text/javascript">
+			GS_googleAddAdSenseService("ca-pub-7291399211842501");
+			GS_googleEnableAllServices();
+		</script>
+		<script type="text/javascript">
+			GA_googleAddSlot("ca-pub-7291399211842501", "View_Doc_Upper_Right_250x250");
+			GA_googleAddSlot("ca-pub-7291399211842501", "View_Doc_Upper_Right_300x250");
+			GA_googleAddSlot("ca-pub-7291399211842501", "ABTest_View_Doc_Upper_Right_250x250");
+			GA_googleAddSlot("ca-pub-7291399211842501", "ABTest_View_Doc_Upper_Right_300x250");
+			GA_googleAddSlot("ca-pub-7291399211842501", "View_Doc_Comments_Top_468x60");
+			GA_googleAddSlot("ca-pub-7291399211842501", "View_Doc_Comments_Top_728x90");
+			GA_googleAddSlot("ca-pub-7291399211842501", "View_Doc_Comments_Bottom_468x60");
+			GA_googleAddSlot("ca-pub-7291399211842501", "View_Doc_Comments_Bottom_728x90");
+			GA_googleAddSlot("ca-pub-7291399211842501", "Deleted_Doc_Bottom_728x90");
+			GA_googleAddSlot("ca-pub-7291399211842501", "Deleted_Doc_Top_728x90");
+			GA_googleAddSlot("ca-pub-7291399211842501", "Deleted_Doc_Listing_234x60");		
+			GA_googleAddSlot("ca-pub-7291399211842501", "Deleted_Doc_Right_336x280");
+			GA_googleAddSlot("ca-pub-7291399211842501", "Browse_Right_160x600");
+			GA_googleAddSlot("ca-pub-7291399211842501", "view_doc_upper_right_with_top_leaderboard");
+			GA_googleAddSlot("ca-pub-7291399211842501", "view_doc_page_top_leaderboard");
+			GA_googleAddSlot("ca-pub-7291399211842501", "view_doc_page_top_banner");
+			GA_googleAddSlot("ca-pub-7291399211842501", "MS_Explore_Button");
+			GA_googleAddSlot("ca-pub-7291399211842501", "View_Doc_Side_Top");
+			GA_googleAddSlot("ca-pub-7291399211842501", "View_Doc_Side_Bottom");
+			GA_googleAddSlot("ca-pub-7291399211842501", "View_Doc_Side_Excel");
+			GA_googleAddSlot("ca-pub-7291399211842501", "View_Doc_Side_PowerPoint");
+			GA_googleAddSlot("ca-pub-7291399211842501", "View_Doc_Side_Pixel");
+	
+			GA_googleAddAdSenseSlotAttr("View_Doc_Upper_Right_300x250", "google_alternate_ad_url", "http://www.scribd.com/ads/rubicon_medium_rectangle");
+			GA_googleAddAdSenseSlotAttr("View_Doc_Comments_Top_468x60", "google_alternate_ad_url", "http://www.scribd.com/ads/rubicon_banner");
+			GA_googleAddAdSenseSlotAttr("View_Doc_Comments_Bottom_468x60", "google_alternate_ad_url", "http://www.scribd.com/ads/rubicon_banner");
+		</script>
+		<script type="text/javascript">
+		    GA_googleFetchAds();
+	  	</script>
+	  <!-- END Google Ad Manager -->
+  	
+  
+
+
+	<link rel="media:document"
+href="http://d1.scribdassets.com/ScribdViewer.swf?document_id=6926572&amp;access_key=key-1rvwjw37k3dy0x1z1iy7&amp;version=1&amp;viewMode=" 
+xmlns:media="http://search.yahoo.com/searchmonkey/media/" 
+xmlns:dc="http://purl.org/dc/terms/" />
+
+<meta property="dc:creator" content="api_user_11797_zrehman862060" /> 
+<meta property="dc:description" content="" /> 
+<meta property="media:title" content="How to POP3 in C#" /> 
+<meta property="dc:type" content="Text" /> 
+
+
+
+	<link rel="media:thumbnail" href="http://i5.scribdassets.com/profiles/images/9cmyqz8ajyze-tiny.jpg" /> 
+
+
+
+<!--
+<PageMap>
+	<DataObject type="document">
+		<Attribute name="title">How to POP3 in C#</Attribute>
+		<Attribute name="author">api_user_11797_zrehman862060</Attribute>
+		<Attribute name="description"></Attribute>
+		<Attribute name="page_count">6</Attribute>
+		<Attribute name="view_count">987</Attribute>
+		<Attribute name="time_ago">10 / 16 / 2008</Attribute>
+		
+		
+		<Attribute name="filetype_image">http://s5.scribdassets.com/images/filetypes/pdf_16x16.gif?1268439931</Attribute>
+	</DataObject>
+	
+	<DataObject type="thumbnail">
+		<Attribute name="src" value="http://i5.scribdassets.com/profiles/images/9cmyqz8ajyze-tiny.jpg"/>
+	</DataObject>
+	
+	
+	<DataObject type="action">
+		<Attribute name="label" value="Download"/>
+		<Attribute name="url" value="http://www.scribd.com/document_downloads/6926572?extension=pdf"/>
+		<Attribute name="class" value="download"/>
+	</DataObject>
+	
+	<DataObject type="action">
+		<Attribute name="label" value="Fullscreen View"/>
+		<Attribute name="url" value="http://d1.scribdassets.com/ScribdViewer.swf?document_id=6926572&access_key=key-1rvwjw37k3dy0x1z1iy7&version=1&viewMode=fullscreen"/>
+		<Attribute name="class" value="fullscreen"/>
+	</DataObject>
+</PageMap>
+-->
+
+	
+</head>
+
+<body class="loc_word loc_word_view">
+		
+	
+
+	
+
+
+
+	<div id="lightboxes">
+	
+		
+
+<div class="lightbox " id="login_lb" style="display:none;"><div class="content">
+    <a href="javascript:void(0)" onclick="Scribd.login.close(this);return false" class="close_button"></a>
+    
+    <div class="login_section">
+        <h1 class="first" id="login_lb_header">Log in</h1> 
+        
+
+<div class="global_login_form form clearfix">
+    
+
+    <form action="http://www.scribd.com/login?from=login_lb" class="lightbox_form clearfix" method="post" name="login_lb_form_login_lb">
+
+        <div class="hidden" id="login_form_inner_login_lb">
+            
+        </div>
+
+        <div class="clearfix">
+            <div class="login_input_container">
+                <label for="login_or_email">email address or username</label>
+                <input type="text" id="login_or_email" class="input" size="20" name="login_or_email">
+            </div>
+        
+            <div class="password_input_container">
+                <label for="word_user_password_login_lb">password</label>
+                <input type="password" id="word_user_password_login_lb" class="input" name="login_password" size="20">
+            </div>
+        </div>
+    
+        <div class="button_container">
+            <span class="button login_submit"><span class="button_inner"><input name="commit" type="submit" value="Log In" /></span></span>
+            <img alt="Spinner_mac_white" class="spinner" src="http://s5.scribdassets.com/images/spinner_mac_white.gif?1268439931" style="display:none" />
+    
+            <a href="javascript:void(0);" class="trouble" onclick="LB.close(&quot;login_lb&quot;);LB.open(&quot;forgot_password_lb&quot;);">Trouble logging in?</a>
+        </div>
+    </form>
+    
+    <div class="other_options_container">
+        <div class="other_options">
+            <p>Other login options:</p>
+        
+            <ul>
+                <li>
+    <div class="facebook_connect_button_container clearfix" id="facebook_connect_7080">
+        <span class="pseudoLink fb_connect_button">Facebook Connect</span>
+        <img alt="Spinner_mac_white" class="spinner" src="http://s5.scribdassets.com/images/spinner_mac_white.gif?1268439931" style="display:none" />
+    </div>
+
+<span id="FB_HiddenContainer" style="display:none"></span>
+
+</li>
+                <li>
+
+
+
+<a href="#" id="login_login_lb_openid_login_show" onclick="$(&quot;login_login_lb_openid_login&quot;).show();
+$(&quot;login_login_lb_openid_login_show&quot;).hide();
+$(&quot;login_login_lb_openid_login_hide&quot;).show();; return false;"><img alt="Btn_openid_86x25" src="http://s6.scribdassets.com/images/login/btn_openID_86x25.png?1268439931" /></a>
+
+<a href="#" id="login_login_lb_openid_login_hide" onclick="$(&quot;login_login_lb_openid_login&quot;).hide();
+$(&quot;login_login_lb_openid_login_show&quot;).show();
+$(&quot;login_login_lb_openid_login_hide&quot;).hide();; return false;" style="display:none"><img alt="Btn_openid_86x25" src="http://s6.scribdassets.com/images/login/btn_openID_86x25.png?1268439931" /></a>
+</li>
+                <li>
+
+
+
+<div id="login_login_lb_openid_login" style="display:none">
+    <form action="http://www.scribd.com/openid_session" id="openid_form" method="post">
+        <p><input class="openid_login float" id="url" name="url" onfocus="this.value=''" type="text" value="Enter OpenID URL" /> <span class="button"><span class="button_inner"><input name="commit" type="submit" value="Sign In" /></span></span></p>
+        <div></div>
+    </form>
+</div>
+</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    </div>
+    
+    <h1 class="signup_header">New to Scribd?</h1>
+    
+    <p class="signup_toggle"><a href="javascript:void(0)">Sign Up for a free account today</a></p>
+    
+    
+
+<div class="global_signup_form clearfix">
+
+    <div class="form_col">
+        <form action="http://www.scribd.com/login/signup?from=login_lb" class="lightbox_form form" method="post" name="signup_form_login_lb">
+
+            <div class="hidden" id="signup_form_inner_login_lb" style="display:none">
+                
+                    <input id="login_params_context" name="login_params[context]" type="hidden" value="default" />
+                
+            </div>
+
+            
+                <label class="first" for="word_user_email_login_lb">email address (required)</label>
+                <input type="text" name="word_user[email]" id="word_user_email_login_lb" class="input" onblur="Scribd.login.checkField('http://www.scribd.com/people/check_availability?from=login_lb&amp;icon=true&amp;invalid=true', this);">
+                <div id="availability_email_login_lb" class="alert">
+                                    </div>
+            
+    
+                <label for="word_user_login_login_lb">create username</label>
+                <input type="text" maxlength="20" id="word_user_login_login_lb" class="input last" name="word_user[login]"  onblur="Scribd.login.checkField('http://www.scribd.com/people/check_availability?from=login_lb&amp;icon=true', this);">
+        
+                
+        
+                <div id="availability_login_login_lb" class="alert">
+                                    </div>
+        
+            <label for="word_user_password_login_lb">create password (required)</label>
+            <input type="password" class="input" name="word_user[password]" id="word_user_password_login_lb">
+            <div class="alert">
+                            </div>
+
+            <div class="button_container">
+                <span class="button login_submit" onclick="$(&quot;signup_spinner&quot;).show(); try{signup_tracking();}catch(e){};"><span class="button_inner"><input name="commit" type="submit" value="Continue" /></span></span> <span class="privacy"><a href="http://www.scribd.com/privacy" onclick="window.open(this.href);return false;">Privacy policy</a></span>
+
+                <img alt="Spinner_mac_white" class="spinner" id="signup_spinner" src="http://s5.scribdassets.com/images/spinner_mac_white.gif?1268439931" style="display:none" />
+            </div>
+        </form>
+        
+
+    </div>
+    
+    <div class="why">
+        <h3>Why Sign up?</h3>
+        <p>
+            Start downloading documents right away. Publish your documents quickly and easily,
+            share them with others, and manage or update them online!
+        </p>
+    </div>
+    
+    <div class="emptyclear"></div>
+    
+    <div class="other_options_container"></div>
+</div>
+</div><div class="footer"></div></div>
+
+<div class="lightbox " id="login_successful_lb" style="display:none;"><div class="content">
+    <div class="lb_inner">
+    <h1>Login Successful</h1>
+    <p>Now bringing you back...</p>
+    <br><img alt="Spinner_mac_white" src="http://s5.scribdassets.com/images/spinner_mac_white.gif?1268439931" />
+    </div>
+</div><div class="footer"></div></div>
+
+<div class="lightbox " id="forgot_password_lb" style="display:none;"><div class="content">
+    <p id="forgot_password_lb_back" class="right"><a href="#" onclick="LB.close(&quot;forgot_password_lb&quot;); LB.open(&quot;login_lb&quot;);; return false;">&laquo; Back to Login</a></p>
+
+<h1>Reset your password</h1>
+
+<p id="embedded_error" class="error"></p>
+
+
+<div id="reset_form">
+	<p>Please enter your email address below to reset your password. We will send you an email with instructions on how to continue.</p>
+	
+	<form action="http://www.scribd.com/password/forgot" method="post" name="lb_forgot_password_form">
+	
+	<table>
+	<tr>
+		<td><p style="margin-right:10px;"><b>Email address:</b></p></td>
+		<td>
+			<input type="text" name="email" onblur="new Ajax.Request('http://www.scribd.com/passwords/check_login_required', {asynchronous:true, evalScripts:true, parameters:'email='+escape(this.value)})">
+		</td>
+	</tr>
+	
+	<tr id="login_required" style="display:none">
+		<td colspan="2">
+			<p>You need to provide a login for this account as well.</p>
+		</td>
+	</tr>
+	
+	<tr id="login_required_2" style="display:none">
+		<td><p><strong>Login:</strong></p></td> 
+		<td><p><input id="login" name="login" type="text" /></p></td>
+	</tr>
+	
+	<tr>
+		<td></td>
+		<td>
+			<span class="button reset_password_button"><span class="button_inner"><input name="commit" type="submit" value="Submit" /></span></span>
+            
+		</td>
+	</tr>
+	</table>
+	
+	</form>
+	
+</div>
+
+</div><div class="footer"></div></div>
+
+		
+	
+</div>
+
+
+	<div id="global_header">
+    <div class="inner clearfix">
+        <a href="/" class="logo"><img alt="Scribd" src="http://s5.scribdassets.com/images/global_header/logo_108x17.gif?1268439931" /></a>
+        
+        <div class="left_bar"></div>
+        
+        <ul class="menu">
+                            <li ><a href="http://www.scribd.com/explore">Explore</a></li>
+                            <li ><a href="http://www.scribd.com/community">Community</a></li>
+                    </ul>
+        
+        <a href="http://www.scribd.com/to_upload?from=topbar_non_docview" class="upload_button" id="global_header_upload_button"><img alt="Transparent" src="http://s6.scribdassets.com/images/buttons/transparent.gif?1268439931" /></a>
+        
+        <div class="right_bar"></div>
+        
+        
+	
+
+	
+	
+	<form action="http://www.scribd.com/search" class="global_search" method="get">
+		<input class="search_input" id="query_header" name="q" type="text" value="" />
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+		<input class="search_button" name="sa" src="http://s6.scribdassets.com/images/buttons/transparent.gif?1268439931" type="image" />
+	</form>
+	
+
+
+
+        
+        
+            <ul class="utilities" id="header_login">
+                    <li><a href="#" onclick="; Scribd.login.open('login', {}); return false;">Log In</a></li>
+                    <li class="v_bar"><span>|</span></li>
+                    
+                    <li class="signup"><a class="signup_button" href="#" onclick="; Scribd.login.open('login', {&quot;context&quot;:&quot;join&quot;,&quot;next_url&quot;:null}); return false;">Sign Up</a></li>
+            </ul>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+	
+
+    <div id="wrap" class="clearfix">
+    	
+            <div id="flashes_placeholder" style="display:none"></div>
+
+    		    <script type="text/javascript">
+  var cookieJar = new CookieJar({
+    expires: 315576000.0,
+    path: '/'
+        , domain: ".scribd.com"
+      });
+  var docViewsCookie = cookieJar.get("scribd_doc_views");
+  var madeNewCookie = false;
+  if (docViewsCookie == null) { madeNewCookie = true; docViewsCookie = { documents: [ ] }; }
+  if (docViewsCookie.total_documents == null) { docViewsCookie.total_documents = docViewsCookie.documents.length; }
+  if (! docViewsCookie.documents.include(6926572)) {
+    docViewsCookie.documents = docViewsCookie.documents.concat([ 6926572 ]);
+    docViewsCookie.total_documents += 1;
+  }
+  if (docViewsCookie.documents.length > 25) {
+    docViewsCookie.documents = docViewsCookie.documents.slice(0, 25);
+  }
+
+  if (docViewsCookie.documents.length > 10 && (docViewsCookie.last_interstitial_id == null)) {
+    window.location = ["h", "t", "t", "p", ":", "/", "/", "w", "w", "w", ".", "s", "c", "r", "i", "b", "d", ".", "c", "o", "m", "/", "u", "p", "l", "o", "a", "d", "/", "d", "o", "c", "u", "m", "e", "n", "t", "_", "v", "i", "e", "w", "_", "i", "n", "t", "e", "r", "s", "t", "i", "t", "i", "a", "l", "?", "d", "o", "c", "_", "i", "d", "=", "6", "9", "2", "6", "5", "7", "2"].join('') + "&docs_viewed=" + docViewsCookie.documents.length;
+  }
+  
+  cookieJar.put("scribd_doc_views", docViewsCookie);
+</script>
+
+
+<div class="header_wrap ">
+    <div class="header clearfix">
+        
+                              <div id="doc_top_leaderboard_ad" style="text-align:left; margin:0; width: 680px; overflow:hidden">
+                            <script type="text/javascript">
+                                if (Scribd.is_safari()) {
+                                    <!-- YB: leaderboard (728x90) -->
+                                    yieldbuild_site = 1070;
+                                    yieldbuild_layout = "s_article";
+                                    yieldbuild_loc = "s_header";
+                                    yieldbuild_options = {};
+                                } else {
+                                    <!-- YB: s_superfooter (468x60) -->
+                                    yieldbuild_site = 1070;
+                                    yieldbuild_layout = "s_article";
+                                    yieldbuild_loc = "s_superfooter";
+                                }
+                            </script>
+                            <script type="text/javascript" src="http://hook.yieldbuild.com/s_ad.js"></script>
+                        </div>
+
+    
+
+        
+        
+
+        
+
+        
+
+        
+            
+            <div id="ipaper_uploader_info_container">
+                <div class="uploader_info clearfix" id="ipaper_uploader_info">
+    <a href="http://www.scribd.com/api_user_11797_zrehman862060" class="profile_image"><img alt="Cbd404e112" src="http://img4.scribdassets.com/images/users/3764000/tiny/cbd404e112" /></a>
+    
+    <div class="user_container">
+        <div class="username_container">From: <a href="http://www.scribd.com/api_user_11797_zrehman862060" class="username ">api_user_11797_zr...</a></div>
+        
+    
+
+        <span class="follow_button">
+        
+            <a class="inner_follow_button" href="#" onclick="trackEvent('Follow', 'Follow', 'document_page - Logged Out'); Scribd.login.open('login', {&quot;callback&quot;:&quot;new Ajax.Request('http://www.scribd.com/friends?followship%5Bpublisher_id%5D=3764000&amp;followship%5Bsource%5D=document_page', {asynchronous:true, evalScripts:true, onComplete:function(request){window.location = 'http://www.scribd.com/doc/6926572/How-to-POP3-in-C'}})&quot;,&quot;context&quot;:&quot;follow&quot;}); return false;">+ Subscribe</a>
+        
+    	</span>
+
+    
+
+
+    </div>
+    
+</div>
+
+            </div>
+        
+
+        <div id="ipaper_title_container">
+            <div id="ipaper_title_wrapper">
+    <div id="doc_title_display">
+        
+        <h1 class="title" id="">
+            How to POP3 in C#
+            
+            
+            
+        </h1>
+    </div>
+
+    
+</div>
+
+        </div>
+
+        
+
+        <div id="ipaper_top_toolbar_container">
+            
+            <div id="ipaper_top_toolbar_inner_container">
+    <div class="top_toolbar clearfix" id="ipaper_top_toolbar">
+
+        
+            <a href="javascript:void(0)" class="download_button lb_button" id="toolbar_download"></a>
+        
+
+        
+            <a href="javascript:void(0)" class="mobile_button" id="toolbar_mobile" onclick="Scribd.ipaperToolbar.mobileButtonClick()"></a>
+        
+
+        
+            
+                <a href="javascript:iPaperCallbacks.onPrintClick()" class="print_button" id="toolbar_print"></a>
+            
+        
+
+        <a href="javascript:void(0)" class="fullscreen_button" id="toolbar_fullscreen"></a>
+        <a href="javascript:void(0)" class="share_button lb_button" id="toolbar_share"></a>
+        
+
+    </div>
+
+    <div class="toolbar_lightboxes">
+        
+        <div class="lightbox " id="toolbar_download_lightbox" style="display:none;"><div class="content"></div><div class="footer"></div></div>
+        <div class="lightbox " id="toolbar_print_lightbox" style="display:none;"><div class="content"></div><div class="footer"></div></div>
+        <div class="lightbox " id="toolbar_share_lightbox" style="display:none;"><div class="content"></div><div class="footer"></div></div>
+        <div class="lightbox " id="toolbar_mobile_lightbox" style="display:none;"><div class="content"></div><div class="footer"></div></div>
+        
+        
+        
+        
+        
+        
+        
+        
+    </div>
+
+    
+</div>
+
+        </div>
+    </div>
+</div>
+
+
+<div id="view_container" class="clearfix">
+    <script type="text/javascript">
+		var view_page = new ViewPage();
+        view_page.set_view_container();
+    </script>
+
+    <script type="text/javascript">
+        var analytics = new Analytics();
+        var seo_query = null, seo_keywords = null;
+        if (analytics.isSearchEngineVisitor()) {
+            seo_query = analytics.getSearchEngineQuery();
+            seo_keywords = analytics.getSearchEngineKeywords();
+        }
+        if (seo_query && $('disable_highlighting')) {
+            $('query_highlighting').innerHTML = seo_query.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            $('disable_highlighting').show();
+            $('ipaper_highlighting_box').show();
+        }
+    </script>
+
+    <div id="view_main">
+        <script type="text/javascript">
+            view_page.set_view_main();
+        </script>
+
+        
+
+            <div id="viewer">
+                <div id="viewer_document">
+
+    
+
+    
+
+</div>
+
+            </div>
+
+        
+    </div>
+
+    <div id="view_bar">
+        
+        
+
+      
+          
+              <div id="house_ad"></div>
+              
+          
+          
+      
+
+      
+
+      
+
+
+
+                      <!-- YB ad locations for s_article -->
+                      <!-- YB: s_sidebar (300x250) -->
+                      <script type="text/javascript"><!--
+                      yieldbuild_client = 1070;
+                      yieldbuild_layout = "s_article";
+                      yieldbuild_loc = "s_sidebar";
+                      yieldbuild_options = {};
+                      //--></script>
+                      <script type="text/javascript" src="http://hook.yieldbuild.com/s_ad.js"></script>
+
+
+
+
+      
+
+
+
+      <div class="autogen_class_views_word_view_buy_link" id="autogen_id_793247473"></div>
+
+
+      <div id="other_documents">
+    
+<div id="related_docs_outer_container">
+<div id="related_docs_container">
+    <h2>Related</h2>
+
+    <div class="side_doc_list" id="related_docs">
+        <ul>
+            <li>
+                <a href="http://www.scribd.com/doc/25443032/Glosario-Medico" onclick="new Ajax.Request('/similars/click/6926572/25443032/0');">Glosario Medico</a><br />
+                <span class="rstats">70 reads</span>
+                <div class="clear"></div>
+            </li>
+            <li>
+                <a href="http://www.scribd.com/doc/17137745/hy000001" onclick="new Ajax.Request('/similars/click/6926572/17137745/1');">hy000001</a><br />
+                <span class="rstats">320 reads</span>
+                <div class="clear"></div>
+            </li>
+            <li>
+                <a href="http://www.scribd.com/doc/26595717/Anonimo-Diccionario-de-Lunfardo" onclick="new Ajax.Request('/similars/click/6926572/26595717/2');">Anonimo - Diccionario de Lunfardo</a><br />
+                <span class="rstats">24 reads</span>
+                <div class="clear"></div>
+            </li>
+            <li>
+                <a href="http://www.scribd.com/doc/7010520/Post-Office-Protocol-POP" onclick="new Ajax.Request('/similars/click/6926572/7010520/3');">Post Office Protocol {POP}</a><br />
+                <span class="rstats">397 reads</span>
+                <div class="clear"></div>
+            </li>
+            <li>
+                <a href="http://www.scribd.com/doc/9452290/Pop-Over-Generator" onclick="new Ajax.Request('/similars/click/6926572/9452290/4');">Pop Over Generator</a><br />
+                <span class="rstats">309 reads</span>
+                <div class="clear"></div>
+            </li>
+            <li>
+                <a href="http://www.scribd.com/doc/6996234/3" onclick="new Ajax.Request('/similars/click/6926572/6996234/5');">3</a><br />
+                <span class="rstats">131 reads</span>
+                <div class="clear"></div>
+            </li>
+            <li>
+                <a href="http://www.scribd.com/doc/7322603/w210SMTP" onclick="new Ajax.Request('/similars/click/6926572/7322603/6');">w2-10-SMTP</a><br />
+                <span class="rstats">225 reads</span>
+                <div class="clear"></div>
+            </li>
+            <li>
+                <a href="http://www.scribd.com/doc/9607512/Popups" onclick="new Ajax.Request('/similars/click/6926572/9607512/7');">Pop-ups</a><br />
+                <span class="rstats">387 reads</span>
+                <div class="clear"></div>
+            </li>
+            <li>
+                <a href="http://www.scribd.com/doc/6932825/Java-Message-Service-API-Tutorial" onclick="new Ajax.Request('/similars/click/6926572/6932825/8');">Javaâ„¢ Message Service API Tutorial</a><br />
+                <span class="rstats">269 reads</span>
+                <div class="clear"></div>
+            </li>
+            <li>
+                <a href="http://www.scribd.com/doc/9980511/ch11" onclick="new Ajax.Request('/similars/click/6926572/9980511/9');">ch11</a><br />
+                <span class="rstats">455 reads</span>
+                <div class="clear"></div>
+            </li>
+            <li>
+                <a href="http://www.scribd.com/doc/7096256/Jms-Tutorial1-3-1" onclick="new Ajax.Request('/similars/click/6926572/7096256/10');">Jms Tutorial-1 3 1</a><br />
+                <span class="rstats">155 reads</span>
+                <div class="clear"></div>
+            </li>
+            <li>
+                <a href="http://www.scribd.com/doc/7400556/JMS-Tutorial" onclick="new Ajax.Request('/similars/click/6926572/7400556/11');">JMS Tutorial</a><br />
+                <span class="rstats">4332 reads</span>
+                <div class="clear"></div>
+            </li>
+            <li>
+                <a href="http://www.scribd.com/doc/7005592/Jms-Tutorial1-3-1" onclick="new Ajax.Request('/similars/click/6926572/7005592/12');">Jms Tutorial-1 3 1</a><br />
+                <span class="rstats">123 reads</span>
+                <div class="clear"></div>
+            </li>
+            <li>
+                <a href="http://www.scribd.com/doc/7238133/JMS-Message-Structure" onclick="new Ajax.Request('/similars/click/6926572/7238133/13');">Jms Message Structure</a><br />
+                <span class="rstats">905 reads</span>
+                <div class="clear"></div>
+            </li>
+        </ul>
+    </div>
+
+    <script type="text/javascript"><!--
+        if($('user_docs_show') && $('user_docs_hidden')) {
+            $('user_docs_hidden').show();
+            $('user_docs_show').hide();
+        }
+        
+        if(Ajax && Ajax.Updater)
+            new Ajax.Updater({ success: 'related_docs' },
+                             '/similars/thumbnails/6926572',
+                             { method: 'get', evalJS: true, evalScripts:true });
+    --></script>
+</div>
+
+</div>
+
+    
+        
+<div id="user_docs_holder">
+
+    <div id="latest_user_docs">
+        <h2>More from this user</h2>
+    
+        <div class="side_doc_list">
+            <div class="autogen_class_views_shared_documents_carousel autogen_class_views_shared_carousel_base" id="autogen_id_169033982">
+  <div class="carousel_content_container" id="autogen_id_169033982_carousel">
+    <div class="carousel_content">
+      <ol>
+        <li><div class="autogen_class_views_shared_documents_basic_list" id="autogen_id_169034586">  <div class="autogen_class_views_shared_documents_basic" id="autogen_id_169035594">
+    <div class="clearfix inner ">
+      <div class="document_thumbnail"><div class="tiny_letter_thumbnail"><a href="http://www.scribd.com/doc/6926617/Whenever-you-right-click-on-any-file-you-see-different-menu-items" class="" orig="http://img3.scribdassets.com/images/documents/6926617/tiny/a0ae56d3ca" style="background-image: url('http://s6.scribdassets.com/images/blank_thumbnails/tiny_letter.gif?1268439931')" title=""><span class="no_of_pages">1 p.</span><span class='outer_border' style=''></span></a></div></div>
+      <div class="metadata" style="margin-left: 62px">
+        <p class="title"><a href="http://www.scribd.com/doc/6926617/Whenever-you-right-click-on-any-file-you-see-different-menu-items">Whenever you right click on any...</a></p>
+        <p class="secondary"><span class="metadata_label">From: </span><a href="http://www.scribd.com/api_user_11797_zrehman862060" class="username ">api_user_11797_zr...</a></p>
+        <p class="secondary"><span class="metadata_label">Reads: </span>153</p>
+      </div>
+    </div>
+  </div>
+  <div class="autogen_class_views_shared_documents_basic" id="autogen_id_169036412">
+    <div class="clearfix inner ">
+      <div class="document_thumbnail"><div class="tiny_letter_thumbnail"><a href="http://www.scribd.com/doc/6926616/Windows-RUN-Commands" class="" orig="http://img4.scribdassets.com/images/documents/6926616/tiny/4d0302f840" style="background-image: url('http://s6.scribdassets.com/images/blank_thumbnails/tiny_letter.gif?1268439931')" title=""><span class="no_of_pages">3 p.</span><span class='outer_border' style=''></span></a></div></div>
+      <div class="metadata" style="margin-left: 62px">
+        <p class="title"><a href="http://www.scribd.com/doc/6926616/Windows-RUN-Commands">Windows RUN Commands</a></p>
+        <p class="secondary"><span class="metadata_label">From: </span><a href="http://www.scribd.com/api_user_11797_zrehman862060" class="username ">api_user_11797_zr...</a></p>
+        <p class="secondary"><span class="metadata_label">Reads: </span>185</p>
+      </div>
+    </div>
+  </div>
+  <div class="autogen_class_views_shared_documents_basic" id="autogen_id_169037417">
+    <div class="clearfix inner ">
+      <div class="document_thumbnail"><div class="tiny_letter_thumbnail"><a href="http://www.scribd.com/doc/6926574/Socket-Programming-in-C-Part-2" class="" orig="http://img3.scribdassets.com/images/documents/6926574/tiny/17dbda98ae" style="background-image: url('http://s6.scribdassets.com/images/blank_thumbnails/tiny_letter.gif?1268439931')" title=""><span class="no_of_pages">6 p.</span><span class='outer_border' style=''></span></a></div></div>
+      <div class="metadata" style="margin-left: 62px">
+        <p class="title"><a href="http://www.scribd.com/doc/6926574/Socket-Programming-in-C-Part-2">Socket Programming in C# - Part 2</a></p>
+        <p class="secondary"><span class="metadata_label">From: </span><a href="http://www.scribd.com/api_user_11797_zrehman862060" class="username ">api_user_11797_zr...</a></p>
+        <p class="secondary"><span class="metadata_label">Reads: </span>2,262</p>
+      </div>
+    </div>
+  </div>
+</div>
+</li>
+        <li><div class="autogen_class_views_shared_documents_basic_list" id="autogen_id_169038061">  <div class="autogen_class_views_shared_documents_basic" id="autogen_id_169039848">
+    <div class="clearfix inner ">
+      <div class="document_thumbnail"><div class="tiny_letter_thumbnail"><a href="http://www.scribd.com/doc/6926572/How-to-POP3-in-C" class="" orig="http://img1.scribdassets.com/images/documents/6926572/tiny/ad24395673" style="background-image: url('http://s6.scribdassets.com/images/blank_thumbnails/tiny_letter.gif?1268439931')" title=""><span class="no_of_pages">6 p.</span><span class='outer_border' style=''></span></a></div></div>
+      <div class="metadata" style="margin-left: 62px">
+        <p class="title"><a href="http://www.scribd.com/doc/6926572/How-to-POP3-in-C">How to POP3 in C#</a></p>
+        <p class="secondary"><span class="metadata_label">From: </span><a href="http://www.scribd.com/api_user_11797_zrehman862060" class="username ">api_user_11797_zr...</a></p>
+        <p class="secondary"><span class="metadata_label">Reads: </span>987</p>
+      </div>
+    </div>
+  </div>
+  <div class="autogen_class_views_shared_documents_basic" id="autogen_id_169024086">
+    <div class="clearfix inner ">
+      <div class="document_thumbnail"><div class="tiny_letter_thumbnail"><a href="http://www.scribd.com/doc/6926570/FTP-client-library-for-C" class="" orig="http://img4.scribdassets.com/images/documents/6926570/tiny/52afcd906b" style="background-image: url('http://s6.scribdassets.com/images/blank_thumbnails/tiny_letter.gif?1268439931')" title=""><span class="no_of_pages">2 p.</span><span class='outer_border' style=''></span></a></div></div>
+      <div class="metadata" style="margin-left: 62px">
+        <p class="title"><a href="http://www.scribd.com/doc/6926570/FTP-client-library-for-C">FTP client library for C#</a></p>
+        <p class="secondary"><span class="metadata_label">From: </span><a href="http://www.scribd.com/api_user_11797_zrehman862060" class="username ">api_user_11797_zr...</a></p>
+        <p class="secondary"><span class="metadata_label">Reads: </span>919</p>
+      </div>
+    </div>
+  </div>
+  <div class="autogen_class_views_shared_documents_basic" id="autogen_id_169025437">
+    <div class="clearfix inner ">
+      <div class="document_thumbnail"><div class="tiny_letter_thumbnail"><a href="http://www.scribd.com/doc/6926548/icassp2005chen" class="" orig="http://img1.scribdassets.com/images/documents/6926548/tiny/038b9500a1" style="background-image: url('http://s6.scribdassets.com/images/blank_thumbnails/tiny_letter.gif?1268439931')" title=""><span class="no_of_pages">4 p.</span><span class='outer_border' style=''></span></a></div></div>
+      <div class="metadata" style="margin-left: 62px">
+        <p class="title"><a href="http://www.scribd.com/doc/6926548/icassp2005chen">icassp2005-chen</a></p>
+        <p class="secondary"><span class="metadata_label">From: </span><a href="http://www.scribd.com/api_user_11797_zrehman862060" class="username ">api_user_11797_zr...</a></p>
+        <p class="secondary"><span class="metadata_label">Reads: </span>126</p>
+      </div>
+    </div>
+  </div>
+</div>
+</li>
+      </ol>
+    </div>
+  </div>
+  <div class="see_more_container clearfix">
+    <div class="arrows"><a class="carousel-control left_arrow" rel="prev"></a><a class="carousel-control right_arrow" rel="next"></a></div>
+<a href="http://www.scribd.com/people/documents/3764000-api-user-11797-zrehman862060" class="see_all_link">See all</a></div>
+  <script type="text/javascript">
+// <![CDATA[
+
+          new Scribd.SharedCarouselManager({
+            container: $('autogen_id_169033982'),
+            pages: 2,
+            carousel_dom_id: 'autogen_id_169033982_carousel'
+          });
+        
+// ]]>
+</script>
+
+</div>
+
+        </div>
+    </div>
+
+<!-- Served by app05 in 0.114 secs. cpu: 0.100 -->
+</div>
+    
+    
+    
+<div id="featured_docs_container">
+<div class="autogen_class_views_word_view_featured_docs" id="autogen_id_750936491">
+  <h2>Featured on Scribd</h2>
+  <div class="side_doc_list">    <div class="autogen_class_views_shared_documents_carousel autogen_class_views_shared_carousel_base" id="autogen_id_750939811">
+      <div class="carousel_content_container" id="autogen_id_750939811_carousel">
+        <div class="carousel_content">
+          <ol>
+            <li><div class="autogen_class_views_shared_documents_basic_list" id="autogen_id_750938931">  <div class="autogen_class_views_shared_documents_basic" id="autogen_id_750941299">
+    <div class="clearfix inner ">
+      <div class="document_thumbnail"><div class="tiny_letter_thumbnail"><a href="http://www.scribd.com/doc/28285432/Nokia-s-Motion-to-Dismiss-Apple-s-Implausible-Claims" class="" orig="http://img4.scribdassets.com/images/documents/28285432/tiny/433055d036" style="background-image: url('http://s6.scribdassets.com/images/blank_thumbnails/tiny_letter.gif?1268439931')" title=""><span class="no_of_pages">28 p.</span><span class='outer_border' style=''></span></a></div></div>
+      <div class="metadata" style="margin-left: 62px">
+        <p class="title"><a href="http://www.scribd.com/doc/28285432/Nokia-s-Motion-to-Dismiss-Apple-s-Implausible-Claims">Nokia's Motion to Dismiss Apple...</a></p>
+        <p class="secondary"><span class="metadata_label">From: </span><a href="http://www.scribd.com/Erictric" class="username ">Erictric</a></p>
+        <p class="secondary"><span class="metadata_label">Reads: </span>3,632</p>
+      </div>
+    </div>
+  </div>
+  <div class="autogen_class_views_shared_documents_basic" id="autogen_id_750940138">
+    <div class="clearfix inner ">
+      <div class="document_thumbnail"><div class="tiny_letter_thumbnail"><a href="http://www.scribd.com/doc/28286166/Poets-and-Artists-O-S-March-April-2010" class="" orig="http://img2.scribdassets.com/images/documents/28286166/tiny/5281c4fea2" style="background-image: url('http://s6.scribdassets.com/images/blank_thumbnails/tiny_letter.gif?1268439931')" title=""><span class="no_of_pages">152 p.</span><span class='outer_border' style=''></span></a></div></div>
+      <div class="metadata" style="margin-left: 62px">
+        <p class="title"><a href="http://www.scribd.com/doc/28286166/Poets-and-Artists-O-S-March-April-2010">Poets and Artists (O&amp;S March/Ap...</a></p>
+        <p class="secondary"><span class="metadata_label">From: </span><a href="http://www.scribd.com/goss183" class="username ">goss183</a></p>
+        <p class="secondary"><span class="metadata_label">Reads: </span>6,685</p>
+      </div>
+    </div>
+  </div>
+  <div class="autogen_class_views_shared_documents_basic" id="autogen_id_750943734">
+    <div class="clearfix inner ">
+      <div class="document_thumbnail"><div class="tiny_letter_thumbnail"><a href="http://www.scribd.com/doc/28046184/0-to-Bitch-in-10-Seconds-or-Less" class="" orig="http://img3.scribdassets.com/images/documents/28046184/tiny/5eadf8229c" style="background-image: url('http://s6.scribdassets.com/images/blank_thumbnails/tiny_letter.gif?1268439931')" title=""><span class="no_of_pages">322 p.</span><span class="thumb_buy_banner_small">&nbsp;</span><span class='outer_border' style=''></span></a></div></div>
+      <div class="metadata" style="margin-left: 62px">
+        <p class="title"><a href="http://www.scribd.com/doc/28046184/0-to-Bitch-in-10-Seconds-or-Less">0 to Bitch in 10 Seconds or Less</a></p>
+        <p class="secondary"><span class="metadata_label">From: </span><a href="http://www.scribd.com/Sourcebooks" class="username ">Sourcebooks</a></p>
+        <p class="secondary"><span class="metadata_label">Reads: </span>6,150</p>
+      </div>
+    </div>
+  </div>
+</div>
+</li>
+            <li><div class="autogen_class_views_shared_documents_basic_list" id="autogen_id_750942139">  <div class="autogen_class_views_shared_documents_basic" id="autogen_id_750929855">
+    <div class="clearfix inner ">
+      <div class="document_thumbnail"><div class="tiny_letter_thumbnail"><a href="http://www.scribd.com/doc/22464657/The-Graduate-Job-Search-Guide-IE" class="" orig="http://img4.scribdassets.com/images/documents/22464657/tiny/476a1802a1" style="background-image: url('http://s6.scribdassets.com/images/blank_thumbnails/tiny_letter.gif?1268439931')" title=""><span class="no_of_pages">20 p.</span><span class='outer_border' style=''></span></a></div></div>
+      <div class="metadata" style="margin-left: 62px">
+        <p class="title"><a href="http://www.scribd.com/doc/22464657/The-Graduate-Job-Search-Guide-IE">The Graduate Job Search Guide(IE)</a></p>
+        <p class="secondary"><span class="metadata_label">From: </span><a href="http://www.scribd.com/monsteruk" class="username ">monsteruk</a></p>
+        <p class="secondary"><span class="metadata_label">Reads: </span>1,847</p>
+      </div>
+    </div>
+  </div>
+  <div class="autogen_class_views_shared_documents_basic" id="autogen_id_750928893">
+    <div class="clearfix inner ">
+      <div class="document_thumbnail"><div class="tiny_letter_thumbnail"><a href="http://www.scribd.com/doc/28279582/EVHS-Cheer-Card" class="" orig="http://img3.scribdassets.com/images/documents/28279582/tiny/e0447d9640" style="background-image: url('http://s6.scribdassets.com/images/blank_thumbnails/tiny_letter.gif?1268439931')" title=""><span class="no_of_pages">2 p.</span><span class='outer_border' style=''></span></a></div></div>
+      <div class="metadata" style="margin-left: 62px">
+        <p class="title"><a href="http://www.scribd.com/doc/28279582/EVHS-Cheer-Card">EVHS Cheer Card</a></p>
+        <p class="secondary"><span class="metadata_label">From: </span><a href="http://www.scribd.com/sfnmwebeditor" class="username ">sfnmwebeditor</a></p>
+        <p class="secondary"><span class="metadata_label">Reads: </span>1,036</p>
+      </div>
+    </div>
+  </div>
+  <div class="autogen_class_views_shared_documents_basic" id="autogen_id_750931651">
+    <div class="clearfix inner ">
+      <div class="document_thumbnail"><div class="tiny_letter_thumbnail"><a href="http://www.scribd.com/doc/28270027/Refill-Madness-Storyboard" class="" orig="http://img4.scribdassets.com/images/documents/28270027/tiny/81d2304aa9" style="background-image: url('http://s6.scribdassets.com/images/blank_thumbnails/tiny_letter.gif?1268439931')" title=""><span class="no_of_pages">291 p.</span><span class='outer_border' style=''></span></a></div></div>
+      <div class="metadata" style="margin-left: 62px">
+        <p class="title"><a href="http://www.scribd.com/doc/28270027/Refill-Madness-Storyboard">&quot;Refill Madness&quot; Storyboard</a></p>
+        <p class="secondary"><span class="metadata_label">From: </span><a href="http://www.scribd.com/fredseibert" class="username ">fredseibert</a></p>
+        <p class="secondary"><span class="metadata_label">Reads: </span>1,544</p>
+      </div>
+    </div>
+  </div>
+</div>
+</li>
+            <li><div class="autogen_class_views_shared_documents_basic_list" id="autogen_id_750930160">  <div class="autogen_class_views_shared_documents_basic" id="autogen_id_750933390">
+    <div class="clearfix inner ">
+      <div class="document_thumbnail"><div class="tiny_letter_thumbnail"><a href="http://www.scribd.com/doc/27077111/Vintners-Lunch-Menu-Elizabeth-Spencer-Wines-March-26-2010" class="" orig="http://img2.scribdassets.com/images/documents/27077111/tiny/373b7620aa" style="background-image: url('http://s6.scribdassets.com/images/blank_thumbnails/tiny_letter.gif?1268439931')" title=""><span class="no_of_pages">1 p.</span><span class='outer_border' style=''></span></a></div></div>
+      <div class="metadata" style="margin-left: 62px">
+        <p class="title"><a href="http://www.scribd.com/doc/27077111/Vintners-Lunch-Menu-Elizabeth-Spencer-Wines-March-26-2010">Vintners Lunch Menu - Elizabeth...</a></p>
+        <p class="secondary"><span class="metadata_label">From: </span><a href="http://www.scribd.com/Napa%20Valley%20Wine%20Train" class="username ">Napa Valley Wine ...</a></p>
+        <p class="secondary"><span class="metadata_label">Reads: </span>1,041</p>
+      </div>
+    </div>
+  </div>
+  <div class="autogen_class_views_shared_documents_basic" id="autogen_id_750932889">
+    <div class="clearfix inner ">
+      <div class="document_thumbnail"><div class="tiny_letter_thumbnail"><a href="http://www.scribd.com/doc/28261916/7-Myths-of-Social-Media-Friendships" class="" orig="http://img3.scribdassets.com/images/documents/28261916/tiny/5f31cff098" style="background-image: url('http://s6.scribdassets.com/images/blank_thumbnails/tiny_letter.gif?1268439931')" title=""><span class="no_of_pages">4 p.</span><span class='outer_border' style=''></span></a></div></div>
+      <div class="metadata" style="margin-left: 62px">
+        <p class="title"><a href="http://www.scribd.com/doc/28261916/7-Myths-of-Social-Media-Friendships">7 Myths of Social Media Friends...</a></p>
+        <p class="secondary"><span class="metadata_label">From: </span><a href="http://www.scribd.com/JedDiamondPhD" class="username ">JedDiamondPhD</a></p>
+        <p class="secondary"><span class="metadata_label">Reads: </span>1,622</p>
+      </div>
+    </div>
+  </div>
+  <div class="autogen_class_views_shared_documents_basic" id="autogen_id_750935710">
+    <div class="clearfix inner ">
+      <div class="document_thumbnail"><div class="tiny_letter_thumbnail"><a href="http://www.scribd.com/doc/28270105/Peer-Participation-and-Software" class="" orig="http://img2.scribdassets.com/images/documents/28270105/tiny/923d178b8e" style="background-image: url('http://s6.scribdassets.com/images/blank_thumbnails/tiny_letter.gif?1268439931')" title=""><span class="no_of_pages">113 p.</span><span class='outer_border' style=''></span></a></div></div>
+      <div class="metadata" style="margin-left: 62px">
+        <p class="title"><a href="http://www.scribd.com/doc/28270105/Peer-Participation-and-Software">Peer Participation and Software</a></p>
+        <p class="secondary"><span class="metadata_label">From: </span><a href="http://www.scribd.com/The%20MIT%20Press" class="username ">The MIT Press</a></p>
+        <p class="secondary"><span class="metadata_label">Reads: </span>961</p>
+      </div>
+    </div>
+  </div>
+</div>
+</li>
+            <li><div class="autogen_class_views_shared_documents_basic_list" id="autogen_id_750934166">  <div class="autogen_class_views_shared_documents_basic" id="autogen_id_750921486">
+    <div class="clearfix inner ">
+      <div class="document_thumbnail"><div class="tiny_letter_thumbnail"><a href="http://www.scribd.com/doc/28273177/Dave-the-Donkey-by-Andrew-McDonough" class="" orig="http://img4.scribdassets.com/images/documents/28273177/tiny/249edad421" style="background-image: url('http://s6.scribdassets.com/images/blank_thumbnails/tiny_letter.gif?1268439931')" title=""><span class="no_of_pages">34 p.</span><span class='outer_border' style=''></span></a></div></div>
+      <div class="metadata" style="margin-left: 62px">
+        <p class="title"><a href="http://www.scribd.com/doc/28273177/Dave-the-Donkey-by-Andrew-McDonough">Dave the Donkey by Andrew McDon...</a></p>
+        <p class="secondary"><span class="metadata_label">From: </span><a href="http://www.scribd.com/Zondervan" class="username ">Zondervan</a></p>
+        <p class="secondary"><span class="metadata_label">Reads: </span>1,330</p>
+      </div>
+    </div>
+  </div>
+  <div class="autogen_class_views_shared_documents_basic" id="autogen_id_750920660">
+    <div class="clearfix inner ">
+      <div class="document_thumbnail"><div class="tiny_letter_thumbnail"><a href="http://www.scribd.com/doc/28231325/Harvard-Law-Record-V-130-No-5-March-11-2010" class="" orig="http://img2.scribdassets.com/images/documents/28231325/tiny/a6e4f0f5ba" style="background-image: url('http://s6.scribdassets.com/images/blank_thumbnails/tiny_letter.gif?1268439931')" title=""><span class="no_of_pages">12 p.</span><span class='outer_border' style=''></span></a></div></div>
+      <div class="metadata" style="margin-left: 62px">
+        <p class="title"><a href="http://www.scribd.com/doc/28231325/Harvard-Law-Record-V-130-No-5-March-11-2010">Harvard Law Record, V. 130 No. ...</a></p>
+        <p class="secondary"><span class="metadata_label">From: </span><a href="http://www.scribd.com/hlrecord" class="username ">hlrecord</a></p>
+        <p class="secondary"><span class="metadata_label">Reads: </span>867</p>
+      </div>
+    </div>
+  </div>
+  <div class="autogen_class_views_shared_documents_basic" id="autogen_id_750923108">
+    <div class="clearfix inner ">
+      <div class="document_thumbnail"><div class="tiny_letter_thumbnail"><a href="http://www.scribd.com/doc/28267109/What-Comes-Next-in-Yemen-Al-Qaeda-the-Tribes-and-State-Building" class="" orig="http://img1.scribdassets.com/images/documents/28267109/tiny/c06de08116" style="background-image: url('http://s6.scribdassets.com/images/blank_thumbnails/tiny_letter.gif?1268439931')" title=""><span class="no_of_pages">26 p.</span><span class='outer_border' style=''></span></a></div></div>
+      <div class="metadata" style="margin-left: 62px">
+        <p class="title"><a href="http://www.scribd.com/doc/28267109/What-Comes-Next-in-Yemen-Al-Qaeda-the-Tribes-and-State-Building">What Comes Next in Yemen? Al-Qa...</a></p>
+        <p class="secondary"><span class="metadata_label">From: </span><a href="http://www.scribd.com/Carnegie%20Endowment%20for%20International%20Peace" class="username ">Carnegie Endowmen...</a></p>
+        <p class="secondary"><span class="metadata_label">Reads: </span>744</p>
+      </div>
+    </div>
+  </div>
+</div>
+</li>
+            <li><div class="autogen_class_views_shared_documents_basic_list" id="autogen_id_750922539">  <div class="autogen_class_views_shared_documents_basic" id="autogen_id_750925805">
+    <div class="clearfix inner ">
+      <div class="document_thumbnail"><div class="tiny_letter_thumbnail"><a href="http://www.scribd.com/doc/28270012/Shamrock-Coffee-Cozie" class="" orig="http://img3.scribdassets.com/images/documents/28270012/tiny/36ed4bedca" style="background-image: url('http://s6.scribdassets.com/images/blank_thumbnails/tiny_letter.gif?1268439931')" title=""><span class="no_of_pages">1 p.</span><span class='outer_border' style=''></span></a></div></div>
+      <div class="metadata" style="margin-left: 62px">
+        <p class="title"><a href="http://www.scribd.com/doc/28270012/Shamrock-Coffee-Cozie">Shamrock Coffee Cozie</a></p>
+        <p class="secondary"><span class="metadata_label">From: </span><a href="http://www.scribd.com/Purple%20Cows" class="username ">Purple Cows</a></p>
+        <p class="secondary"><span class="metadata_label">Reads: </span>894</p>
+      </div>
+    </div>
+  </div>
+  <div class="autogen_class_views_shared_documents_basic" id="autogen_id_750924636">
+    <div class="clearfix inner ">
+      <div class="document_thumbnail"><div class="tiny_letter_thumbnail"><a href="http://www.scribd.com/doc/28129437/Gender-Equality-for-Smarter-Cities" class="" orig="http://img2.scribdassets.com/images/documents/28129437/tiny/daa5628e9c" style="background-image: url('http://s6.scribdassets.com/images/blank_thumbnails/tiny_letter.gif?1268439931')" title=""><span class="no_of_pages">42 p.</span><span class='outer_border' style=''></span></a></div></div>
+      <div class="metadata" style="margin-left: 62px">
+        <p class="title"><a href="http://www.scribd.com/doc/28129437/Gender-Equality-for-Smarter-Cities">Gender Equality for Smarter Cities</a></p>
+        <p class="secondary"><span class="metadata_label">From: </span><a href="http://www.scribd.com/UN-HABITAT" class="username ">UN-HABITAT</a></p>
+        <p class="secondary"><span class="metadata_label">Reads: </span>828</p>
+      </div>
+    </div>
+  </div>
+  <div class="autogen_class_views_shared_documents_basic" id="autogen_id_750927401">
+    <div class="clearfix inner ">
+      <div class="document_thumbnail"><div class="tiny_letter_thumbnail"><a href="http://www.scribd.com/doc/28231498/Everyone-Communicates-Few-Connect-by-John-C-Maxwell" class="" orig="http://img4.scribdassets.com/images/documents/28231498/tiny/3a5764ac5e" style="background-image: url('http://s6.scribdassets.com/images/blank_thumbnails/tiny_letter.gif?1268439931')" title=""><span class="no_of_pages">36 p.</span><span class='outer_border' style=''></span></a></div></div>
+      <div class="metadata" style="margin-left: 62px">
+        <p class="title"><a href="http://www.scribd.com/doc/28231498/Everyone-Communicates-Few-Connect-by-John-C-Maxwell">Everyone Communicates, Few Conn...</a></p>
+        <p class="secondary"><span class="metadata_label">From: </span><a href="http://www.scribd.com/ThomasNelson" class="username ">ThomasNelson</a></p>
+        <p class="secondary"><span class="metadata_label">Reads: </span>6,458</p>
+      </div>
+    </div>
+  </div>
+</div>
+</li>
+            <li><div class="autogen_class_views_shared_documents_basic_list" id="autogen_id_750926364">  <div class="autogen_class_views_shared_documents_basic" id="autogen_id_750913491">
+    <div class="clearfix inner ">
+      <div class="document_thumbnail"><div class="tiny_letter_thumbnail"><a href="http://www.scribd.com/doc/27453099/Picasso-Knows" class="" orig="http://img3.scribdassets.com/images/documents/27453099/tiny/6044991aaf" style="background-image: url('http://s6.scribdassets.com/images/blank_thumbnails/tiny_letter.gif?1268439931')" title=""><span class="no_of_pages">1 p.</span><span class='outer_border' style=''></span></a></div></div>
+      <div class="metadata" style="margin-left: 62px">
+        <p class="title"><a href="http://www.scribd.com/doc/27453099/Picasso-Knows">Picasso Knows</a></p>
+        <p class="secondary"><span class="metadata_label">From: </span><a href="http://www.scribd.com/lisahickey" class="username ">lisahickey</a></p>
+        <p class="secondary"><span class="metadata_label">Reads: </span>2,173</p>
+      </div>
+    </div>
+  </div>
+  <div class="autogen_class_views_shared_documents_basic" id="autogen_id_750912074">
+    <div class="clearfix inner ">
+      <div class="document_thumbnail"><div class="tiny_letter_thumbnail"><a href="http://www.scribd.com/doc/27636039/One-Great-Sentence" class="" orig="http://img1.scribdassets.com/images/documents/27636039/tiny/1059791c97" style="background-image: url('http://s6.scribdassets.com/images/blank_thumbnails/tiny_letter.gif?1268439931')" title=""><span class="no_of_pages">1 p.</span><span class='outer_border' style=''></span></a></div></div>
+      <div class="metadata" style="margin-left: 62px">
+        <p class="title"><a href="http://www.scribd.com/doc/27636039/One-Great-Sentence">One Great Sentence</a></p>
+        <p class="secondary"><span class="metadata_label">From: </span><a href="http://www.scribd.com/lisahickey" class="username ">lisahickey</a></p>
+        <p class="secondary"><span class="metadata_label">Reads: </span>3,726</p>
+      </div>
+    </div>
+  </div>
+  <div class="autogen_class_views_shared_documents_basic" id="autogen_id_750915848">
+    <div class="clearfix inner ">
+      <div class="document_thumbnail"><div class="tiny_letter_thumbnail"><a href="http://www.scribd.com/doc/28228424/Lehman-Brothers-Examiner-s-Report-Vol-1" class="" orig="http://img1.scribdassets.com/images/documents/28228424/tiny/bfa5c3579a" style="background-image: url('http://s6.scribdassets.com/images/blank_thumbnails/tiny_letter.gif?1268439931')" title=""><span class="no_of_pages">239 p.</span><span class='outer_border' style=''></span></a></div></div>
+      <div class="metadata" style="margin-left: 62px">
+        <p class="title"><a href="http://www.scribd.com/doc/28228424/Lehman-Brothers-Examiner-s-Report-Vol-1">Lehman Brothers Examiner's Repo...</a></p>
+        <p class="secondary"><span class="metadata_label">From: </span><a href="http://www.scribd.com/DealBook" class="username ">DealBook</a></p>
+        <p class="secondary"><span class="metadata_label">Reads: </span>7,083</p>
+      </div>
+    </div>
+  </div>
+</div>
+</li>
+            <li><div class="autogen_class_views_shared_documents_basic_list" id="autogen_id_750914975">  <div class="autogen_class_views_shared_documents_basic" id="autogen_id_750917102">
+    <div class="clearfix inner ">
+      <div class="document_thumbnail"><div class="tiny_letter_thumbnail"><a href="http://www.scribd.com/doc/28213134/Green-Mama-by-Tracey-Bianchi-Excerpt" class="" orig="http://img4.scribdassets.com/images/documents/28213134/tiny/00b97dab5d" style="background-image: url('http://s6.scribdassets.com/images/blank_thumbnails/tiny_letter.gif?1268439931')" title=""><span class="no_of_pages">30 p.</span><span class='outer_border' style=''></span></a></div></div>
+      <div class="metadata" style="margin-left: 62px">
+        <p class="title"><a href="http://www.scribd.com/doc/28213134/Green-Mama-by-Tracey-Bianchi-Excerpt">Green Mama by Tracey Bianchi, E...</a></p>
+        <p class="secondary"><span class="metadata_label">From: </span><a href="http://www.scribd.com/Zondervan" class="username ">Zondervan</a></p>
+        <p class="secondary"><span class="metadata_label">Reads: </span>1,787</p>
+      </div>
+    </div>
+  </div>
+  <div class="autogen_class_views_shared_documents_basic" id="autogen_id_750916543">
+    <div class="clearfix inner ">
+      <div class="document_thumbnail"><div class="tiny_letter_thumbnail"><a href="http://www.scribd.com/doc/5986655/The-Boojazz-Crazy-Sexy-Models-Modeling-Photography-Brochure" class="" orig="http://img1.scribdassets.com/images/documents/5986655/tiny/70b96782d7" style="background-image: url('http://s6.scribdassets.com/images/blank_thumbnails/tiny_letter.gif?1268439931')" title=""><span class="no_of_pages">6 p.</span><span class='outer_border' style=''></span></a></div></div>
+      <div class="metadata" style="margin-left: 62px">
+        <p class="title"><a href="http://www.scribd.com/doc/5986655/The-Boojazz-Crazy-Sexy-Models-Modeling-Photography-Brochure">The Boojazz Crazy, Sexy, Models...</a></p>
+        <p class="secondary"><span class="metadata_label">From: </span><a href="http://www.scribd.com/Boojazz" class="username ">Boojazz</a></p>
+        <p class="secondary"><span class="metadata_label">Reads: </span>8,135</p>
+      </div>
+    </div>
+  </div>
+  <div class="autogen_class_views_shared_documents_basic" id="autogen_id_750919977">
+    <div class="clearfix inner ">
+      <div class="document_thumbnail"><div class="tiny_letter_thumbnail"><a href="http://www.scribd.com/doc/23472771/GREEK-HISTORY-A-Presentation" class="" orig="http://img2.scribdassets.com/images/documents/23472771/tiny/af91ccd723" style="background-image: url('http://s6.scribdassets.com/images/blank_thumbnails/tiny_letter.gif?1268439931')" title=""><span class="no_of_pages">24 p.</span><span class='outer_border' style=''></span></a></div></div>
+      <div class="metadata" style="margin-left: 62px">
+        <p class="title"><a href="http://www.scribd.com/doc/23472771/GREEK-HISTORY-A-Presentation">GREEK HISTORY: A Presentation</a></p>
+        <p class="secondary"><span class="metadata_label">From: </span><a href="http://www.scribd.com/api_user_11797_p132i" class="username ">api_user_11797_p132i</a></p>
+        <p class="secondary"><span class="metadata_label">Reads: </span>1,621</p>
+      </div>
+    </div>
+  </div>
+</div>
+</li>
+            <li><div class="autogen_class_views_shared_documents_basic_list" id="autogen_id_750918206">  <div class="autogen_class_views_shared_documents_basic" id="autogen_id_750969359">
+    <div class="clearfix inner ">
+      <div class="document_thumbnail"><div class="tiny_letter_thumbnail"><a href="http://www.scribd.com/doc/27783172/Proposed-bill-to-put-President-Reagan-face-on-50" class="" orig="http://img3.scribdassets.com/images/documents/27783172/tiny/60ee9ab3ac" style="background-image: url('http://s6.scribdassets.com/images/blank_thumbnails/tiny_letter.gif?1268439931')" title=""><span class="no_of_pages">2 p.</span><span class='outer_border' style=''></span></a></div></div>
+      <div class="metadata" style="margin-left: 62px">
+        <p class="title"><a href="http://www.scribd.com/doc/27783172/Proposed-bill-to-put-President-Reagan-face-on-50">Proposed bill to put President ...</a></p>
+        <p class="secondary"><span class="metadata_label">From: </span><a href="http://www.scribd.com/USAToday" class="username ">USAToday</a></p>
+        <p class="secondary"><span class="metadata_label">Reads: </span>1,345</p>
+      </div>
+    </div>
+  </div>
+  <div class="autogen_class_views_shared_documents_basic" id="autogen_id_750968584">
+    <div class="clearfix inner ">
+      <div class="document_thumbnail"><div class="tiny_letter_thumbnail"><a href="http://www.scribd.com/doc/28215006/State-Farm-Letter" class="" orig="http://img3.scribdassets.com/images/documents/28215006/tiny/4ddfbea534" style="background-image: url('http://s6.scribdassets.com/images/blank_thumbnails/tiny_letter.gif?1268439931')" title=""><span class="no_of_pages">9 p.</span><span class='outer_border' style=''></span></a></div></div>
+      <div class="metadata" style="margin-left: 62px">
+        <p class="title"><a href="http://www.scribd.com/doc/28215006/State-Farm-Letter">State Farm Letter</a></p>
+        <p class="secondary"><span class="metadata_label">From: </span><a href="http://www.scribd.com/HoustonChronicle" class="username ">HoustonChronicle</a></p>
+        <p class="secondary"><span class="metadata_label">Reads: </span>1,353</p>
+      </div>
+    </div>
+  </div>
+  <div class="autogen_class_views_shared_documents_basic" id="autogen_id_750971047">
+    <div class="clearfix inner ">
+      <div class="document_thumbnail"><div class="tiny_letter_thumbnail"><a href="http://www.scribd.com/doc/28214418/Ottomania-The-Romantics-and-the-Myth-of-the-Islamic-Orient" class="" orig="http://img3.scribdassets.com/images/documents/28214418/tiny/b0d8e01faf" style="background-image: url('http://s6.scribdassets.com/images/blank_thumbnails/tiny_letter.gif?1268439931')" title=""><span class="no_of_pages">36 p.</span><span class='outer_border' style=''></span></a></div></div>
+      <div class="metadata" style="margin-left: 62px">
+        <p class="title"><a href="http://www.scribd.com/doc/28214418/Ottomania-The-Romantics-and-the-Myth-of-the-Islamic-Orient">Ottomania: The Romantics and th...</a></p>
+        <p class="secondary"><span class="metadata_label">From: </span><a href="http://www.scribd.com/IBTauris" class="username ">IBTauris</a></p>
+        <p class="secondary"><span class="metadata_label">Reads: </span>2,374</p>
+      </div>
+    </div>
+  </div>
+</div>
+</li>
+            <li><div class="autogen_class_views_shared_documents_basic_list" id="autogen_id_750970697">  <div class="autogen_class_views_shared_documents_basic" id="autogen_id_750973613">
+    <div class="clearfix inner ">
+      <div class="document_thumbnail"><div class="tiny_letter_thumbnail"><a href="http://www.scribd.com/doc/28216252/WellDone-Trip-Report-2008" class="" orig="http://img3.scribdassets.com/images/documents/28216252/tiny/68a6595552" style="background-image: url('http://s6.scribdassets.com/images/blank_thumbnails/tiny_letter.gif?1268439931')" title=""><span class="no_of_pages">28 p.</span><span class='outer_border' style=''></span></a></div></div>
+      <div class="metadata" style="margin-left: 62px">
+        <p class="title"><a href="http://www.scribd.com/doc/28216252/WellDone-Trip-Report-2008">WellDone Trip Report - 2008</a></p>
+        <p class="secondary"><span class="metadata_label">From: </span><a href="http://www.scribd.com/welldone" class="username ">welldone</a></p>
+        <p class="secondary"><span class="metadata_label">Reads: </span>1,395</p>
+      </div>
+    </div>
+  </div>
+  <div class="autogen_class_views_shared_documents_basic" id="autogen_id_750972116"></div>
+  <div class="autogen_class_views_shared_documents_basic" id="autogen_id_750975927"></div>
+</div>
+</li>
+          </ol>
+        </div>
+      </div>
+      <div class="see_more_container clearfix">
+        <div class="arrows"><a class="carousel-control left_arrow" rel="prev"></a><a class="carousel-control right_arrow" rel="next"></a></div>
+      </div>
+      <script type="text/javascript">
+// <![CDATA[
+
+          new Scribd.SharedCarouselManager({
+            container: $('autogen_id_750939811'),
+            pages: 9,
+            carousel_dom_id: 'autogen_id_750939811_carousel'
+          });
+        
+// ]]>
+</script>
+
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+      
+      
+          
+	<!-- YB: s_moreinfo (300x250) -->
+	<script type="text/javascript"><!--
+		yieldbuild_site = 1070;
+		yieldbuild_layout = "s_article";
+		yieldbuild_loc = "s_moreinfo";
+	//--></script>
+	<script type="text/javascript" src="http://hook.yieldbuild.com/s_ad.js"></script>    
+
+      
+    </div>
+
+    
+        <div id="html_wrapper" class="plain">
+          <!-- Using plain text format -->
+          <p><b><b><h1>Printed from http://www.developerfusion.co.uk/show/4071/</h1></b></b></p><p>Rated Viewed 75765 times Actions Save as Favourite Share with a Friend PDF Version Report Problem Contents 1. Introduction 2. Getting Started 3. Connecting and Disconnecting 4. Retrieving Messages 5. Removing Messages 6. Supporting Functions 7. Using the Class</p><p><b><b>How to POP3 in C# - Introduction</b><br/>Author Randy Charles Morin</b></p><p><b>Introduction</b><br/>This is the second in a series of articles on Internet programming with Microsoft's new C# programming language. In the first article, I wrote a simple SMTP class. In this article, I'm going to write a simple POP3 class. The SMTP class that I wrote was not very useful, except maybe as an exercise, as there already exists a similar SMTP class in the Web.Mail namespace of the .NET framework called SmtpMail. Our POP3 class in this article will be a little more useful as it doesn't already exist in the .NET framework. I have encountered many POP3 C# classes in my searches of the Internet and most were sufficient to begin programming email clients.</p><p><b>Getting Started</b><br/>I usually begin writing new classes by introducing an exception class that I can use to throw and catch all exceptions of the class.</p><p><b>public class Pop3Exception : System. ApplicationException { public Pop3Exception( string str) : base( str) { } }</b></p><p>I will not explain the exception class, but rather I expect the reader have enough expertise with C# to understand this exception class before reading the rest of the article. Next I created a small class that defines a POP3 message. public class Pop3Message { public long number; public long bytes; public bool retrieved; public string message; }</p><p>When you retrieve lists of POP3 messages from a POP3 server, the list includes a message number and number of bytes. You can then use the message number to retrieve the message content. You'll see this later when we define our List and Retrieve methods. We derive our Pop3 class from the System. Net.Sockets.TcpClient class in the .NET framework. public class Pop3 : System.Net.Sockets.TcpClient {</p><p>The TcpClient class and the other classes in the System.Net.Sockets namespace of the .NET framework are great encapsulations of the familiar function-oriented socket library.</p><p><b>Connecting and Disconnecting</b><br/>The first method of our Pop3 class is the Connect method. This method takes a server name, username and password parameter to connect to a remote (sometimes local) POP3 server.</p><p>public void Connect(string server, string username, string password) { string message; string response; Connect(server, 110); response = Response(); if (response.Substring(0, 3) != &quot;+OK&quot;) { throw new Pop3Exception(response); } message = &quot;USER &quot; + username + &quot;\r\n&quot;; Write(message); response = Response(); if (response.Substring(0, 3) != &quot;+OK&quot;) { throw new Pop3Exception(response); } message = &quot;PASS &quot; + password + &quot;\r\n&quot;; Write(message); response = Response(); if (response.Substring(0, 3) != &quot;+OK&quot;) { throw new Pop3Exception(response); } }</p><p>We begin by calling the TcpClient.Connect method passing the server name and the 110 port. The 110 port number is the well known port number for POP3 operations. What that means is that POP3 servers by default should listen for connections on port 110. When the POP3 server connects to a client, it should immediately respond with the +OK acknowledgement message. Next we send two messages, USER and PASS, back to the server. The POP3 server should acknowledge a successful login by acknowledging both messages. If the POP3 server returns anything but +OK, then the message will contain the reason for the failure. In the advent of a failure, I attach that failure message to our exception class and throw it back to the client. It should be noted that some POP3 servers don't require authentication and may reject the calls to USER and PASS. I haven't encountered such a POP3 server, but the protocol allows it. In those cases, you'll have to slightly modify the class to make things work. Any use of our Pop3 class should begin with a call to Connect and end with a class to Disconnect.</p><p>public void Disconnect() { string message; string response; message = &quot;QUIT\r\n&quot;; Write(message); response = Response(); if (response.Substring(0, 3) != &quot;+OK&quot;) { throw new Pop3Exception(response); } }</p><p><b>The Disconnect method sends a QUIT message to the POP3 server.</b></p><p><b>Retrieving Messages</b><br/>Between the calls to Connect and Disconnect, the client may call three other methods, List, Retrieve and Delete, any number of times. The client will usually begin by calling our List method to retrieve an array of messages that are queued on the POP3 server. public ArrayList List() { string message;</p><p>string response; ArrayList retval = new ArrayList(); message = &quot;LIST\r\n&quot;; Write(message); response = Response(); if (response.Substring(0, 3) != &quot;+OK&quot;) { throw new Pop3Exception(response); } while (true) { response = Response(); if (response == &quot;.\r\n&quot;) { return retval; } else { Pop3Message msg = new Pop3Message(); char[] seps = { ' ' }; string[] values = response.Split(seps); msg.number = Int32.Parse(values[0]); msg.bytes = Int32.Parse(values[1]); msg.retrieved = false; retval.Add(msg); continue; } } }</p><p>After sending the LIST message to the POP3 server, the server will respond with a +OK acknowledgement, followed by several lines representing one message each and finally by a line with a single period indicating the end of the messages. Each message line has two numbers, the first indicating the unique number of the message and the second indicating the message size in bytes. Our List method will return a list of Pop3Message objects. The objects will only contain the message number and size of each message. In order to retrieve the full message, you can pass the message object to the Retrieve method. The Retrieve method will then respond with another Pop3Message containing the message content.</p><p>public Pop3Message Retrieve(Pop3Message rhs) { string message; string response; Pop3Message msg = new Pop3Message(); msg.bytes = rhs.bytes; msg.number = rhs.number; message = &quot;RETR &quot; + rhs.number + &quot;\r\n&quot;; Write(message); response = Response(); if (response.Substring(0, 3) != &quot;+OK&quot;) { throw new Pop3Exception(response); } msg.retrieved = true; while (true) { response = Response(); if (response == &quot;.\r\n&quot;) { break; } else {</p><p><b><b>msg.message += response; } } return msg; }</b></b></p><p>To retrieve a message from a POP3 server, we send a RETR message with the unique message number. The server then responds with the +OK acknowledgement, the message content and finally the single period terminating line.</p><p><b>Removing Messages</b><br/>Retrieving a message does not remove the message from the POP3 server. A further call to LIST will still return the message. To remove a message from POP3 server, you have to call the Delete method.</p><p>public void Delete(Pop3Message rhs) { string message; string response; message = &quot;DELE &quot; + rhs.number + &quot;\r\n&quot;; Write(message); response = Response(); if (response.Substring(0, 3) != &quot;+OK&quot;) { throw new Pop3Exception(response); } }</p><p>The Delete method sends a DELE message with the message number to the POP3 server. The server will respond with the +OK acknowledgment message, if successful.</p><p><b>Supporting Functions</b><br/>The List, Retrieve and Delete methods used two private methods, Write and Response, to send and receive messages from the POP3 server. private void Write(string message) { System.Text.ASCIIEncoding en = new System.Text.ASCIIEncoding() ; byte[] WriteBuffer = new byte[1024] ; WriteBuffer = en.GetBytes(message) ; NetworkStream stream = GetStream() ; stream.Write(WriteBuffer, 0, WriteBuffer.Length); Debug.WriteLine(&quot;WRITE:&quot; + message); }</p><p>C# native strings, like Java native strings, are UNICODE. We therefore need to encode and decode the strings to and from ASCII. After encoding the string, we can then retrieve the socket stream by calling the TcpClient.GetStream method. I finish the Write method by called the Debug.Writeline method. This sends the string to the debug stream for help with debugging. private string Response() { System.Text.ASCIIEncoding enc = new System.Text.ASCIIEncoding(); byte[] serverbuff = new Byte[1024]; NetworkStream stream = GetStream(); int count = 0; while (true) { byte[] buff = new Byte[2];</p><p>int bytes = stream.Read(buff, 0, 1 ); if (bytes == 1) { serverbuff[count] = buff[0]; count++; if (buff[0] == '\n') { break; } } else { break; }; }; string retval = enc.GetString(serverbuff, 0, count ); Debug.WriteLine(&quot;READ:&quot; + retval); return retval; }</p><p>The Response method is similar to the Write method accept that we retrieve bytes from the stream before decoding them. Again we call the Debug.WriteLine method to send the read data to the debug stream and help with debugging. Note that we have a limitation in the Response method. We can only retrieve or send up to 1024 bytes at a time. I'll fix this in a later release. If you intend to use this in production, then you'll have to do the same first.</p><p><b>Using the Class</b><br/>Using the new class is pretty easy. static void Main(string[] args) { try { Pop3 obj = new Pop3(); obj.Connect(&quot;mail.xxx.com&quot;, &quot;yyy&quot;, &quot;zzz&quot;); ArrayList list = obj.List(); foreach (Pop3Message msg in list ) { Pop3Message msg2 = obj.Retrieve(msg); System.Console.WriteLine(&quot;Message {0}: {1}&quot;, msg2.number, msg2.message); } obj.Disconnect(); } catch (Pop3Exception e ) { System.Console.WriteLine(e.ToString()); } catch (System.Exception e) { System.Console.WriteLine(e.ToString()); } }</p><p>Instantiate a new object, then call the List method. The List method will return an array of Pop3Message objects. You can then iterate through the Pop3Message objects and retrieve each in turn. Finally, you call the Disconnect method to release the socket. POP3 is described in RFC 1939. You can read the full specification from the IETF website. Randy's article are Copyright 1998-2003 Randy Charles Morin</p><p><b><b>Related Content</b><br/>How to NNTP in C# Custom SMTP in C# Accessing Hotmail using C#</b></p><p>FTP client library for C# Retrieving HTTP content in .NET Sending email from ASP.NET<br/>PDF Generated by ABCpdf 5.0 © Copyright 1999-2005 Developer Fusion Ltd</p>
+        </div>
+    
+
+    <div id="view_meta">
+        <script type="text/javascript">
+            view_page.set_view_meta();
+        </script>
+
+        <div id="below_ipaper">
+            <div class="below_ipaper_ad">
+                			<!-- YB: s_footer (468x60) -->
+			<script type="text/javascript"><!--
+				yieldbuild_client = 1070;
+				yieldbuild_layout = "s_article";
+				yieldbuild_loc = "s_footer";
+				yieldbuild_options = {};
+			//--></script>
+			<script type="text/javascript" src="http://hook.yieldbuild.com/s_ad.js"></script>
+
+
+            </div>
+            
+            <div id="docinfo_wrapper">
+    <ul class="content_tabs" id="docinfo_tabs">
+        
+        <li class="current"><a href="#about">About</a></li>
+        <li><a href="/analytics/doc_stats/6926572#stats" rel="nofollow">Statistics</a></li>
+    </ul>
+		
+	<div id="docinfo_container" class="clearfix">
+        <div id="metadata-about">
+    <ul class="clearfix data">
+        <li class="stats" id="document_stats">
+            <h4>Reads:</h4>
+            987
+        </li>
+        
+        
+        
+        <li>
+            <div id="rating_container">
+    <h4>Rated:  </h4>
+    <div id="rating"></div>
+</div>
+
+        </li>
+
+        <li>
+            <h4>Published:</h4>
+            10 / 16 / 2008</li>
+
+        <li class="last">
+            <h4>Category:</h4>
+            <div id="doc_cat_container">
+                
+<div id="">
+  
+		<div>
+            <em>Uncategorized.</em>
+		</div>
+	
+</div>
+
+
+
+            </div>
+        </li>
+    </ul>
+    
+    
+
+    
+        <div id="document_description_short" class="document_description_short">
+            <h4>Description:</h4>
+            <p><em>No description.</em></p>
+        </div>
+    
+    
+    
+    
+<div class="autogen_class_views_shared_containers_revealer" id="autogen_id_793244533">
+  <div class="revealer clearfix">
+    <div class="inner"><a class="plus" href="javascript:void(0)"><span class="show_more" style="display:none">Show More</span></a></div>
+  </div>
+  <div class="to_reveal" style="display:none">
+    
+    <div id="document_description_full_container" class="clearfix">
+		<h4>
+	Description:
+</h4>
+
+
+<div id="document_description_full">
+    
+            <p><em>No description.</em></p>
+    
+    
+</div>		
+
+
+
+	</div>
+    <div class="other_info">
+        
+        <div class="info_row clearfix">
+            <h4>Tags:</h4>
+            
+<div id="document_tags_view">
+                    
+            <p>
+            
+                <em>No tags.</em>
+            
+            </p>
+
+            
+
+</div>
+
+
+        </div>
+
+       
+
+        
+        
+        
+            <div class="info_row uneditable">
+                <h4>Copyright:</h4>
+                    <p>
+                        <a href="http://creativecommons.org/licenses/by-nc/3.0/" onclick="window.open(this.href,'new_window','height=800,width=800,left=100,top=100,scrollbars=yes');return false;" rel="license nofollow">Attribution Non-commercial</a> 
+                    </p>
+            </div>
+        
+
+        
+
+         
+    </div>
+    <a class="less"><span class="minus">-</span> <span class="show_less">Show less</span></a>
+    
+</div>
+</div>
+
+</div>
+    
+
+
+
+
+        <div id="metadata-stats" style="display:none;">
+            <div id="more_stats">
+                <img src="http://s5.scribdassets.com/images/spinner_mac_white.gif?1268439931" class="spinner" />
+            </div>
+        </div>
+	</div>
+		
+	
+</div>
+
+
+
+
+
+            
+            
+<div id="comments_section">
+        
+	
+		
+            <form action="http://www.scribd.com/documents/6926572/comments" class="form clearfix" id="document_comment" method="post" name="document_comment">
+                    <div class="tiny_thumbnail"><a href="http://www.scribd.com/doc/6926572" class="" style="background-image: url('http://s5.scribdassets.com/images/blank/default/tiny.gif?1268439931')" title=""></a></div>
+                    <h3 class="first scribble_signup"><a href="#" onclick="; Scribd.login.open('login', {&quot;context&quot;:&quot;comment&quot;}); return false;">Login</a> or <a href="#" onclick="; Scribd.login.open('login', {&quot;context&quot;:&quot;join&quot;}); return false;">Sign Up</a> to Add a Scribble</h3>
+                    <textarea cols="40" disabled="disabled" id="scribble_input" name="event_status_base[text]" rows="20"></textarea>
+                    <span class="button button_disabled" id="post_document_comment_button"><span class="button_inner"><input disabled="disabled" name="commit" type="submit" value="Submit" /></span></span> 
+    		</form>
+
+        
+	
+
+	<div id="document_activity">
+		
+
+
+        
+	</div>
+	
+
+
+        
+        
+    
+</div>
+
+
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+    	
+	</div>
+
+	
+<div id="footer">
+    <div id="footer_navbar">
+        <a href="http://www.scribd.com/to_upload?from=footer_navbar_non_docview" class="upload_button" id="global_footer_upload_button"><img alt="Transparent" src="http://s6.scribdassets.com/images/buttons/transparent.gif?1268439931" /></a>
+        <div class="left_bar"></div>
+        
+	
+
+	
+	
+	<form action="http://www.scribd.com/search" class="global_search" method="get">
+		<input class="search_input" id="query_footer" name="q" type="text" value="" />
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+		<input class="search_button" name="sa" src="http://s6.scribdassets.com/images/buttons/transparent.gif?1268439931" type="image" />
+	</form>
+	
+
+
+
+                    <h5 class="footer_trends"><a href="http://www.scribd.com/explore/trending">Popular Scribd Searches:</a></h5>
+            <div id="footer_trends">
+               <a href="http://www.scribd.com/search?query=Academy+Awards" onclick="trackEvent('hot search term','Academy Awards')">Academy Awards</a>, <a href="http://www.scribd.com/search?query=Calendars" onclick="trackEvent('hot search term','Calendars')">Calendars</a>, <a href="http://www.scribd.com/search?query=Iditarod" onclick="trackEvent('hot search term','Iditarod')">Iditarod</a>, <a href="http://www.scribd.com/search?query=comics" onclick="trackEvent('hot search term','comics')">comics</a>...
+            </div>
+            </div>
+    <div id="footer_cols" class="clearfix">
+		
+		<div class="col6">
+			<h5>Scribd</h5>
+			<ul>
+				<li><a href="http://www.scribd.com/about" rel="nofollow">About</a></li>
+				<li><a href="http://www.scribd.com/static/press" rel="nofollow">Press</a></li>
+				<li><a href="http://www.scribd.com/jobs" rel="nofollow">Jobs</a></li>
+				<li><a href="http://www.scribd.com/contact" rel="nofollow">Contact</a></li>
+				<li><a href="http://blog.scribd.com/" rel="nofollow">Blog</a></li>
+				<li><a href="http://www.scribd.com/store/about" rel="nofollow">Scribd Store</a></li>
+			</ul>
+			
+		</div>
+		
+		<div class="col6">
+			<h5>Legal</h5>
+			<ul>
+				<li><a href="http://www.scribd.com/terms" rel="nofollow">Terms - General</a></li>
+				<li><a href="http://www.scribd.com/publisher/apitos" rel="nofollow">Terms - API</a></li>
+				<li><a href="http://support.scribd.com/forums/33939/entries/25580" rel="nofollow">Terms - Privacy</a></li>
+				<li><a href="http://www.scribd.com/copyright" rel="nofollow">Copyright</a></li>
+			</ul>
+		</div>
+		
+		<div class="col6">	
+			<h5>Help &amp; Tools</h5>
+			<ul>
+				<li><a href="http://support.scribd.com/forums/33626/entries" rel="nofollow">Getting Started</a></li>
+				<li><a href="http://support.scribd.com/forums/33761/entries/73479" rel="nofollow">Community Guidelines</a></li>
+				<li><a href="http://support.scribd.com" rel="nofollow">Support</a> &amp; <a href="http://www.scribd.com/faq" rel="nofollow">FAQ</a></li>
+                <li><a href="/webstuff" rel="nofollow">Web Stuff</a></li>
+			</ul>
+		</div>
+
+		<div class="col6">
+			<h5>Partners</h5>
+			<ul>
+				<li><a href="http://www.scribd.com/partners" rel="nofollow">Partners / Publishers</a></li>
+				<li><a href="http://www.scribd.com/brandedreader" rel="nofollow">Branded Reader</a></li>
+				<li><a href="http://www.scribd.com/developers" rel="nofollow">Developers / API</a></li>
+			</ul>
+		</div>
+		
+		
+		<div class="col6">
+		
+			<h5>Subscribe to Us</h5>
+			
+			<ul>
+				<li id="on_scribd"><a href="/scribd" title="Subscribe to Scribd's Scribd profile">On Scribd</a></li>
+				<li id="follow_on_twitter"><a href="http://twitter.com/scribd" title="Follow Scribd on Twitter" rel="nofollow">On Twitter</a></li>
+				<li id="follow_on_fbook"><a href="http://www.facebook.com/pages/Scribd/6978454082" title="Fan Scribd on Facebook" rel="nofollow">On Facebook</a></li>
+			</ul>
+
+			<div id="newsletter_signup" class="form" style="display: none;">
+				<div id="newsletter_signup_msg" class="text" style="display: none;"></div>
+				<form action="http://www.scribd.com/newsletter_emails/create" method="post" onSubmit="Scribd.Remote.Form(this);return false">
+					<label for="email">Enter your email address:</label>
+					<input class="input" id="email" name="email" type="text" value="" />
+
+				  <p class="clear" style="margin-bottom:20px; width: 200px;">
+					<span class="button"><span class="button_inner"><input name="commit" type="submit" value="Sign Up" /></span></span> or
+					<input class="cancel" type="button" onclick="$('newsletter_signup').hide(); return false;" value="Cancel"/>
+					<img alt="Spinner_mac_white" class="spinner" src="http://s5.scribdassets.com/images/spinner_mac_white.gif?1268439931" style="display:none" />
+				  </p>
+
+				</form>
+			</div>
+
+		</div>
+
+		<div class="col6">
+			<h5>What's New</h5>
+			<ul>
+			    <li class="updated_tos"><a href="http://www.scribd.com/terms" rel="nofollow">We have updated our Terms of Service</a></li>
+				<li><a href="http://www.scribd.com/brandedreader" rel="nofollow">Branded Reader</a></li>
+				<li><a href="http://www.scribd.com/to_upload" rel="nofollow">Multi-file Uploader</a></li>
+			</ul>
+
+		</div>
+
+	</div>
+</div>
+
+	
+	<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript">
+    var pageTracker = _gat._getTracker("UA-443684-2");
+    
+    pageTracker._trackPageview();
+
+    var pageTrackerCustom = _gat._getTracker("UA-443684-5");
+    var pageTrackerPerf = _gat._getTracker("UA-443684-17");
+
+    pageTrackerPerf._initData();
+    document.observe('dom:loaded', function() {
+        if (typeof(perfStart) != 'undefined') {
+            trackPerfAnalytics(pageTrackerPerf, perfStart, new Date(), false);
+        }
+    });
+
+    Event.observe(window, 'load', function() {
+        if (typeof(perfStart) != 'undefined') {
+            trackPerfAnalytics(pageTrackerPerf, perfStart, new Date(), true);
+        }
+    });
+</script>
+
+
+
+
+
+	<script type="text/javascript">
+	
+	    trackPageViewCustom("doc_type/pdf");
+	
+	    trackPageViewCustom("publishers/442-Jared Friedman/6926572-How to POP3 in C#");
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+	</script>
+
+
+
+
+<!-- Start Quantcast tag -->
+
+  <script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+  <script type="text/javascript">_qacct="p-13DPpb-yg8ofc";quantserve();</script>
+  <noscript>
+    <a href="http://www.quantcast.com/p-13DPpb-yg8ofc" target="_blank"><img src="http://pixel.quantserve.com/pixel/p-13DPpb-yg8ofc.gif" style="display: none;" border="0" height="1" width="1" alt="Quantcast"/></a>
+  </noscript>
+
+<!-- End Quantcast tag -->
+
+
+
+	
+	
+    
+	
+	<script type="text/javascript">
+	
+        Scribd.ipaperToolbar = new Scribd.ipaperToolbarManager({
+            container: $('ipaper_top_toolbar'),
+            document_id: 6926572,
+            secret_password: 'nil',
+            logged_in: false
+        });
+    
+                  new Ajax.Request(["h", "t", "t", "p", ":", "/", "/", "w", "w", "w", ".", "s", "c", "r", "i", "b", "d", ".", "c", "o", "m", "/", "a", "d", "s", "/", "h", "o", "u", "s", "e", "_", "a", "d"].join(''), {asynchronous:true, evalScripts:true});
+              
+        $('autogen_id_793247473').observe('click', function(e) {
+          window.location = '';
+        });
+      
+
+        Scribd.setDocInfoReveal();
+    
+        update_document_view(6926572);
+
+		function saveRating(event) {
+            
+                Scribd.login.open('login', {"next_url":"http://www.scribd.com/doc/6926572/How-to-POP3-in-C","fallback_url":"/","context":"rate"});
+            
+		}
+
+		setRatingBox(0.0, null, null, true);
+
+        document.observe('dom:loaded', function() {
+            if($('rating')){
+				$('rating').observe('starbox:rated', saveRating);
+			}
+        });
+    
+    var metadata_tabs = new Scribd.tabber($$("#docinfo_tabs li"), "metadata", "about", {onShow: function(tab){
+        if(this.current_tab == 'stats' && !$('doc_stat_graph')){
+            new Ajax.Updater("more_stats", ["h", "t", "t", "p", ":", "/", "/", "w", "w", "w", ".", "s", "c", "r", "i", "b", "d", ".", "c", "o", "m", "/", "a", "n", "a", "l", "y", "t", "i", "c", "s", "/", "d", "o", "c", "_", "s", "t", "a", "t", "s", "/", "6", "9", "2", "6", "5", "7", "2"].join(''), {method:'get'});
+        }
+    }});
+
+	
+	if(!window.LB) var LB = new Scribd.lightboxManager();
+	
+    $("facebook_connect_7080").down('.pseudoLink').observe('click', Scribd.FBQuickLogin.bindAsEventListener(this, "1b464203f13e585f17de89797e59bd98", function(){
+        
+            var url = "http://www.scribd.com/facebook_session";
+        
+        new Ajax.Request(url);
+    }));
+
+                    $('word_user_login_login_lb').observe('keypress', Scribd.restrictCharactersForUsername);
+                
+	Event.observe(window, 'load', function(){
+		$(document.forms.lb_forgot_password_form).observe('submit', Scribd.login.sendForm);
+	});
+	
+			Scribd.login = new Scribd.loginManager(LB, { facebookApiKey: '1b464203f13e585f17de89797e59bd98' });
+		
+		var a = new Analytics();
+		document.observe("dom:loaded", function() {
+			if (a.isSearchEngineVisitor()) {
+				var query = a.getSearchEngineQuery();
+				if (query != null && query.length > 0) {
+					$('query_header').value = query;
+				}
+			}
+		});
+	
+		var a = new Analytics();
+		document.observe("dom:loaded", function() {
+			if (a.isSearchEngineVisitor()) {
+				var query = a.getSearchEngineQuery();
+				if (query != null && query.length > 0) {
+					$('query_footer').value = query;
+				}
+			}
+		});
+	
+
+	</script>
+	
+
+	
+
+	<script type="text/javascript">
+	if((typeof(window['GA_CUSTOM']) != "undefined") && (typeof(window['GA']) != "undefined"))
+	{
+		GA_CUSTOM.attachAll();
+		GA.attachAll();		
+	}
+	</script>
+</body>
+</html>
+
+<!-- Served by app07 in 0.286 secs. cpu: 0.230 -->

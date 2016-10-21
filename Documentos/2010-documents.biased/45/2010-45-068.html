@@ -1,0 +1,971 @@
+<html>
+<head>
+<title>NVIDIA GeForce 8800GTX Review</title>
+<script type="text/javascript" src="/js/vr.js"></script>
+</head>
+<body>
+<table width="90%" border=0>
+  <tr>
+    <td><h2><strong>VR-Zone.com &mdash; NVIDIA GeForce 8800GTX Review</strong></h2>
+      <p>
+      <table width="100%" border="0">
+        <tr>
+          <td><strong>Filed Under: </strong></td>
+          <td width="600">Archives, Graphics Cards, Reviews           </td>
+        </tr>
+        <tr>
+          <td><strong>Posted By:</strong></td>
+          <td>VRArchiver</td>
+        </tr>
+        <tr>
+          <td width="110"><strong>Date Posted:</strong></td>
+          <td>Wed November 8 2006 8:16 pm</td>
+        </tr>
+      </table>
+      <font color=black size=2><br>
+      </font></font>
+      <div>
+        <p><strong><span style='text-decoration:underline;'>GeForce 8800 GTX: A Whole New Architecture</span></strong></p><p align="justify">It is here! The first DirectX 10 Graphics Card, the NVIDIA 
+  GeForce 8800GTX! </p>
+<p align="center"><img src="/./gallery_cache/6ad44e88272e870402f171aa83127b0e.jpg" onerror="ImgErr(this)" CUSTOM_TAG="/./gallery_cache/6ad44e88272e870402f171aa83127b0e.jpg" onerror="ImgErr(this)" CUSTOM_TAG="/./gallery_cache/6ad44e88272e870402f171aa83127b0e.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/28.jpg"  ></p>
+<p align="justify">We take a more indepth look at the new architecture of the 
+  G80 GPU powering this long and black card.</p>
+<p align="justify">The GeForce 8800 GTX GPU implements a massively parallel, unified 
+  shader design, consisting of 128 individual stream processors running at 1.35 
+  GHz. Each processor is capable of being dynamically allocated to vertex, pixel, 
+  geometry, or physics operations for the utmost efficiency in GPU resource allocation, 
+  and maximum flexibility in load balancing shader programs. Efficient power utilization 
+  and management delivers industry leading performance per watt and performance 
+  per square millimeter. </p>
+<p align="center"><img src="/./gallery_cache/5cbf44dc28b5cbc59797797f8572b832.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/12.jpg"  ></p>
+<p align="justify">The green units are actually scalar stream processors (SPs), 
+  128 of them in total. The key to GeForce 8800 architecture is the use of numerous 
+  scalar stream processors (SPs) to perform shader operations. Stream processors 
+  are highly efficient computing engines that perform calculations on an input 
+  stream, while producing an output stream that can be used by other stream processors. 
+  Stream processors can be grouped in close proximity, and in large numbers, to 
+  provide immense parallel processing power. Generally, specialized high-speed 
+  instruction decode and execution logic is built into a stream processor, and 
+  similar operations are performed on the different elements of a data stream. 
+  On-chip memory is typically used to store output of a stream processor, and 
+  the memory can be quickly read as input by other stream processors for subsequent 
+  processing. SIMD (single instruction/multiple data) instructions can be implemented 
+  across groupings of stream processors in an efficient manner, and massively 
+  parallel stream processor clusters are well-suited for processing graphics data 
+  streams. </p>
+<p align="justify"><strong>To skip this technical portion and jump striaght to the performance review, skip to <a href="http://sg.vr-zone.com/?i=4216&s=10">this page.</a></strong> </p><p><strong><span style='text-decoration:underline;'>Unified Architecture to Maximize Efficiency</span></strong></p><p align="center"><img src="/./gallery_cache/9d1563eeca6c5cf34ba89e89733661df.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/7.jpg"  ></p>
+<p align="justify">With its unified pipeline and shader architecture, GeForce 
+  8800 GPU design significantly reduces the number of pipeline stages, and changes 
+  the sequential flow to be more looping oriented. Inputs are fed to the top of 
+  the unified shader core, and outputs are written to registers, and then fed 
+  back into the top of the shader core for the next operation. The classic pipeline 
+  uses discrete shader types represented in different colors, where data flows 
+  sequentially down the pipeline through different shader types. The illustration 
+  on the right depicts a unified shader core with one or more standardized, unified 
+  shader processors.</p>
+<p align="center"><img src="/./gallery_cache/2119de8c84f3416e12c342d0353af13f.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/3.jpg"  ></p>
+<p align="justify">Data coming in the top left of the unified design (such as 
+  vertices), are dispatched to the shader core for processing, and results are 
+  sent back to the top of the shader core, where they are dispatched again, processed 
+  again, looped to the top, and so on until all shader operations are performed 
+  and the pixel fragment is passed on to the ROP subsystem.</p>
+<p align="justify">The GeForce 8800 design team realized that extreme amounts 
+  of hardware-based shading horsepower would be necessary for high-end DirectX 
+  10 3D games. While DirectX 10 specifies a unified instruction set, it does not 
+  demand a unified GPU shader design, but NVIDIA GeForce 8800 engineers believed 
+  a unified GPU shader architecture made most sense to allow effective DirectX 
+  10 shader program load-balancing, efficient GPU power utilization, and significantly 
+  improved GPU architectural efficiency. </p>
+<p align="justify">Note that the GeForce 8800 unified shaders can be also be used 
+  with DirectX 9, OpenGL, and older DirectX versions. No restrictions or fixed 
+  numbers of unified shading units need to be dedicated to pixel or vertex processing 
+  for any of the API programming models.</p>
+<p align="justify">In general, numerous challenges had to be overcome with such 
+  a radical new design over the four year GeForce 8800 GPU development timeframe. 
+  Looking more closely at graphics programming, we can safely say that in general, 
+  the number of pixels outnumbers vertices by a wide margin, which is why you 
+  saw a much larger number of pixel shader units versus vertex shader units in 
+  prior fixed shader GPU architectures. </p>
+<p align="center"><img src="/./gallery_cache/0c4b10493aec59eede93f7c991d28e7d.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/4.jpg"  ></p>
+<p align="justify">But different applications do have different shader processing 
+  requirements at any given point in time&#8212;some scenes may be pixel-shader 
+  intensive and other scenes may be vertex shader-intensive. In a GPU with a fixed 
+  number of specific types of shader units, restrictions are placed on operating 
+  efficiency, attainable performance, and application design. For illustration, 
+  the figure below shows a theoretical GPU with a fixed number of four vertex 
+  shader units and eight pixel shader units, or a total of 12 shader units altogether.</p>
+<p align="center"><img src="/./gallery_cache/cf9e7bd47f868a585c274001c4b3a71e.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/5.jpg"  ></p>
+<p align="justify">The top scenario shows a scene that is vertex shader intensive, 
+  and it can only attain performance as fast as the maximum number of vertex units, 
+  which in this case is &#8220;4&#8221;. In the bottom scenario, the scene is 
+  pixel shader intensive, which might be due to various complex lighting effects 
+  for the water. In this case, it is pixel shader limited, and can only attain 
+  a maximum performance of &#8220;8&#8221;, equal to the number of pixel shader 
+  units, which is the bottleneck in this case. Both situations are not optimal, 
+  because hardware is idle and performance is left on the table so to speak. Also, 
+  it&#8217;s not efficient from a power (performance/watt) or die size and cost 
+  (performance/sqmm) perspective. </p>
+<p align="justify">With a unified shader architecture, at any given moment when 
+  an application might be vertex shader intensive, you can see the majority of 
+  unified shader processors are applied to processing vertex data, and in this 
+  case, the overall performance is increased to &#8220;11&#8221;. Similarly, if 
+  pixel shader heavy, the majority of unified shader units can be applied to pixel 
+  processing, also attaining a score of &#8220;11&#8221; in the example below.</p>
+<p align="center"><img src="/./gallery_cache/95b08cdcd4cbf70c541f9b3f7474d356.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/6.jpg"  ></p>
+<p align="justify">Unified streaming processors (SPs) in GeForce 8800 GPUs can 
+  process vertices, pixels, or geometry&#8212;they are effectively general purpose 
+  floating point processors. Different workloads can be mapped to the processors, 
+  including Physics and other possible workloads we may see in the near future. 
+  Note that geometry shading is a new feature of the DirectX 10 specification. 
+  The GeForce 8800 unified stream processors can process geometry shader programs, 
+  permitting a powerful new range of effects and features, while reducing dependence 
+  on the CPU for geometry processing. </p>
+<p align="justify">The GPU dispatch and control logic can dynamically assign vertex, 
+  geometry, or pixel operations to available SPs without worrying about fixed 
+  numbers of specific types of shader units. In fact, this feature is just as 
+  important to developers, who need not worry as much that certain aspects of 
+  their code might be too pixel shader intensive or too vertex shader intensive. 
+  Then again, many developers would still be mindful of what type of hardware 
+  majority of gamers are running... </p>
+<p align="justify">Not only does a unified shader design assist in load-balancing 
+  shader workloads, it actually helps redefine how a graphics pipeline is organized. 
+  In the future, it is possible that other types of workloads can be run on a 
+  unified stream processor.</p>
+<p><strong><span style='text-decoration:underline;'>Scalar Processor Replaces Vector Processor</span></strong></p><p align="justify"><strong>Scalar Processor Design Improves GPU Efficiency</strong></p>
+<p align="justify"> Although leading GPUs to date have used vector processing 
+  units, because many operations in graphics occur with vector data (such as R-G-B-A 
+  components operating in pixel shaders or 4x4 matrices for geometry transforms 
+  in vertex shaders), many scalar operations also occur. During the early GeForce 
+  8800 architecture design phases, NVIDIA engineers analyzed hundreds of shader 
+  programs which showed an increasing use of scalar computations. They realized 
+  that with a mix of vector and scalar instructions, especially evident in longer, 
+  more complex shaders, it’s hard to efficiently utilize all processing 
+  units at any given instant with a vector architecture. Scalar computations are 
+  difficult to compile and schedule efficiently on a vector pipeline.</p>
+<p align="justify">Both NVIDIA and ATI vector-based GPUs have used shader hardware 
+  that permits dual instruction issue. Recent ATI GPUs use a “3+1” 
+  design, allowing single issue of a four-element vector instruction, or dual-issue 
+  of a three element vector instruction and a scalar instruction. NVIDIA GeForce 
+  6x and GeForce 7x GPUs are more efficient with 3+1 AND 2+2 dual-issue design, 
+  but still not as efficient as a GeForce 8800 GPU scalar design, which can issue 
+  scalar operations to it’s scalar processors with 100% shader processor 
+  efficiency. NVIDIA engineers have estimated as much as 2X performance improvement 
+  can be realized from a scalar architecture that uses 128 scalar processors versus 
+  one that uses 32 4-component vector processors, based on architectural efficiency 
+  of the scalar design. (Note that vector-based shader program code is converted 
+  to scalar operations inside a GeForce 8800 GPU to ensure complete efficiency.)</p>
+<p><strong><span style='text-decoration:underline;'>New Anti-Aliasing - CSAA + More Accurate Filtering</span></strong></p><p align="justify"><strong>Lumenex Engine - Improved Antialiasing, HDR, and Anisotropic 
+  Filtering</strong> </p>
+<p align="justify"><strong>CSAA</strong><br>
+  NVIDIA’s Lumenex Engine technology present in GeForce 8800 GPUs implements 
+  entirely new and very high quality antialiasing (AA) and anisotropic filtering 
+  (AF) technologies. The new antialiasing technology uses both coverage samples 
+  and geometry samples and is called Coverage Sampling Antialiasing (CSAA). With 
+  four new single GPU-based multisampled antialiasing modes, CSAA enhances application 
+  antialiasing modes with much higher quality antialiasing. The new modes are 
+  called 8x, 8xQ, 16x, and 16xQ. The 8xQ and 16xQ modes provide great antialiasing 
+  quality on the desktop PC.</p>
+<p align="justify">Each new AA mode can be enabled from the NVIDIA driver control 
+  panel and requires the use to select an option called “Enhance the Application 
+  Setting”. Users must first turn on ANY antialiasing level within the game’s 
+  control panel for the new AA modes to work, since they need the game to properly 
+  allocate and enable anti-aliased rendering surfaces. If a game does not natively 
+  support antialiasing, a user can select an NVIDIA driver control panel option 
+  called “Override Any Applications Setting”, which allows any control 
+  panel AA settings to be used with the game. Note that this setting does not 
+  always work with all applications. For games with AA capability built-in, the 
+  Enhancing the Application Setting is an easy way to improve overall image quality.</p>
+<p align="justify">In many games, the new 16x high quality mode will yield frame-per-second 
+  performance results similar to standard 4x multisampled mode, but with much 
+  vastly improved image quality. In certain cases, such as the edge of stencil 
+  shadow volumes, the new antialiasing modes will not be enabled, and those portions 
+  of the scene will fall back to 4x multisampled mode.</p>
+<p align="justify"><strong>High Quality AF</strong><br>
+  Anisotropic Filtering (AF) improves the clarity and sharpness of various scene 
+  objects that are viewed at sharp angles and/or recede into the distance. Anisotropic 
+  filtering is memory bandwidth intensive, particularly at high AF levels. GeForce 
+  8800 GPUs include a new anisotropic filtering control panel setting called “Angular 
+  LOD Control” which provides two settings; quality and high quality. Setting 
+  to high quality removes angle optimizations and yields near perfect anisotropic 
+  filtering as shown below.</p>
+<p align="center"><img src="/./gallery_cache/12d815cc0003f918f4efc084229255ec.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/8.jpg"  ></p>
+<p align="center">You can see how much more accurate the filtering is with High 
+  Quality AF. We test this out in the later part of this article. </p>
+<p><strong><span style='text-decoration:underline;'>Decoupled Shader & Branching Improvements</span></strong></p><p align="justify"><strong><br>
+  Decoupled Shader Math and Texture Operations</strong><br>
+  Texture addressing, fetching, and filtering can take many GPU core clock cycles. 
+  If an architecture requires a texture to be fetched and filtered before performing 
+  the next math operation in a particular shader, the considerable texture fetch 
+  and filtering (such as 16x anisotropic filtering) latencies can really slow 
+  down a GPU. <br>
+  A GeForce 7 Series GPU texture address calculation was interleaved with shader 
+  floating point math operations in Shader Unit 1 of a pixel pipeline. This may 
+  cause some shader math bottlenecks when textures were fetched, preventing use 
+  of a shader processor until the texture was retrieved. GeForce 8800 GPUs attacks 
+  the shader math and texture processing efficiency problem by decoupling shader 
+  and texture operations so that texture operations can be performed independent 
+  of shader math operations.</p>
+<p align="center"><img src="/./gallery_cache/eff5d4cdd90c6ebe9856a5e008ef3355.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/9.jpg"  ></p>
+<p align="justify"> While a thread fetching a texture is executing, a GeForce 
+  8800 GPU can swap in other threads to execute, ensuring that shader processors 
+  are never idle when other work needs to done. </p>
+<p align="justify"><strong>Branching Efficiency Improvements</strong><br>
+  An important aspect of overall GPU performance in processing complex DX10 shader 
+  workloads is branch efficiency. For background and comparison, G7x GPUs were 
+  designed to be efficient when processing typical DirectX 9 shaders. When an 
+  IF-THEN-ELSE statement was encountered in pixel shader code, a batch of 880 
+  pixels (also called threads) were processed at once. Some of the pixels in the 
+  batch would generally require pixel shading effects applied based on the &#8220;THEN&#8221; 
+  code path, while the other pixels in the batch just went along the same code 
+  path for the ride, but were effectively masked out of any operations. Then the 
+  whole batch would take the ELSE code path, where just the opposite would occur, 
+  and the other set of pixels would respond to the ELSE code, while the rest went 
+  along for the ride.</p>
+<p align="justify">GeForce 8800 Series GPUs are designed to process complex DX10 
+  shaders. Programmers will enjoy as fine 16 pixel (thread) branching granularity 
+  up to 32 pixels in some cases. Compared to the ATI X1900 series which uses 48 
+  pixel granularity, the GeForce 8800 architecture is far more efficient with 
+  32 pixel granularity for pixel shader programs. The chart in Figure 20 shows 
+  perfect branch efficiency for even numbers of coherent 4x4 pixel tiles.</p>
+<p align="center"><img src="/./gallery_cache/3cb731b4f02d79b37ff966934dd0f18f.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/16.jpg"  ></p>
+<p><strong><span style='text-decoration:underline;'>Early Z-Culling to Save Resources</span></strong></p><p align="justify"><strong><br>
+  Early Z Comparison Checking</strong><br>
+  Modern GPUs use a Z buffer (also known as depth buffer) to keep track of which 
+  pixels in a scene are visible to the eye, and which do not need to be displayed 
+  because they are occluded by other pixels. Every pixel has corresponding Z information 
+  in the Z buffer.</p>
+<p align="justify"> In the course of constructing a single 2D frame in a given 
+  unit of time, such as 1/60th of s second, multiple polygons and their corresponding 
+  pixels may overlay the same 2D screen-based pixel locations. This is often called 
+  depth complexity, and modern games might have depth complexities of three or 
+  four, where three or four pixels rendered in a frame overlay the same 2D screen 
+  location. Only one make it to your eyes. </p>
+<p align="justify">A few methods exist to use Z buffer information to help cull 
+  or prevent pixels from being rendered if they are occluded. Z-cull is a method 
+  to remove pixels from the pipeline during the rasterization stage, and can examine 
+  and remove groups of occluded pixels very swiftly. A GeForce 8800 GTX GPU can 
+  cull pixels at four times the speed of GeForce 7900 GTX, but neither GPU catches 
+  catch all occlusion situations at the individual pixel level. Z comparisons 
+  for individual pixel data have generally occurred late in the graphics pipeline 
+  in the ROP (raster operations) unit. The problem with evaluating individual 
+  pixels in the ROP is that pixels must traverse nearly the entire pipeline to 
+  ultimately discover some are occluded and will be discarded. With complex shader 
+  programs that have hundreds or thousands of processing steps, all the processing 
+  is wasted on pixels that will never be displayed!</p>
+<p align="justify">Early Z technique tests Z values of pixels before they enter 
+  the pixel shading pipeline. Much useless work are avoided, improving performance 
+  and conserving power.</p>
+<p align="center"><img src="/./gallery_cache/720e7fbac442ce7db1932ff91504ad06.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/15.jpg"  ></p>
+<p><strong><span style='text-decoration:underline;'>CUDA for Easily Programmable GPUs</span></strong></p><p align="justify">The new direction NVIDIA is heading towards is obviously programmable 
+  GPUs for flexibility and widespread use in applications and this is manifested 
+  through CUDA Thread Computing:</p>
+<p align="center"><img src="/./gallery_cache/407dccf51143cc2ab499f4f1b8017003.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/nved2006/45.jpg"  ></p>
+<p align="center"><img src="/./gallery_cache/30802bdd872f652c17c41c34f7cf4e3f.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/nved2006/46.jpg"  ></p>
+<p align="center"><img src="/./gallery_cache/87124855143eed6356caab5504d6dc86.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/nved2006/49.jpg"  ></p>
+<p align="justify">This aspect of of the G80 should see some fruits in the future. 
+  Basically what I see NVIDIA and ATi (with their new 6.10 drivers) doing is expanding 
+  the use of their processors beyond video applications.</p>
+<p><strong><span style='text-decoration:underline;'>Shader Model 4.0</span></strong></p><p align="justify">Being the only DirectX 10 Card out in the market right now, 
+  the GeForce 8800 GTX naturally is the only card supporting Shader Model 4.0 
+  which is due together with DirectX 10.</p>
+<p align="justify">While similar in many respects to Shader Model 3, new features 
+  added with Shader Model 4 include a new unified instruction set, many more registers 
+  and constants, integer computation, unlimited program length, fewer state changes 
+  (less CPU intervention), 8 multiple render target regions instead of 4, more 
+  flexible vertex input via the input assembler, all pipeline stages can access 
+  buffers, textures, and render targets with few restrictions, and data may be 
+  recirculated through pipeline stages (stream out). Shader Model 4 also includes 
+  a very different render state model, where application state is batched much 
+  more efficiently, and more work can be pushed to the GPU with less CPU involvement. 
+</p>
+<p align="center"><img src="/./gallery_cache/73c249c0aca70a0876efc73ee92f9124.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/14.jpg"  ></p>
+<p><strong><span style='text-decoration:underline;'>The Raw Numbers</span></strong></p><p align="justify">We go onto the raw numbers, the clock rates. Each stream processor 
+  on a GeForce 8800 GTX operates at 1.35GHz and supports dual issue of a scalar 
+  MAD and a scalar MUL operation, for a total of roughly 520 gigaflops of raw 
+  shader horsepower. Texture filtering units are fully decoupled from the stream 
+  processors and deliver 64 pixels per clock worth of raw texture filtering horsepower 
+  (vs. 24 in GeForce 7900 GTX), 32 pixels per clock worth of texture addressing, 
+  32 pixels per clock of 2X anisotropic filtering, and 32-bilinear-filtered pixels 
+  per clock. </p>
+<p align="justify">In essence, full speed bilinear anisotropic filtering is nearly 
+  free on GeForce 8800 GPUs. FP16 bilinear texture filtering is also performed 
+  at 32 pixels per clock (about 5x faster than GeForce 7x GPUs), and FP16 2:1 
+  anisotropic filtering is done at 16 pixels clock. Note that the texture units 
+  run at the core clock, which is 575MHz on the GeForce 8800 GTX . </p>
+<p align="justify">At the core clock rate of 575MHz, texture fill rate for both 
+  bilinear filtered texels and 2:1 bilinear anisotropic filtered texels is 575MHz 
+  x 32 = 18.4 billion texels/second. However, 2:1 bilinear anisotropic filtering 
+  uses two bilinear samples to derive a final filtered texel to apply to a pixel. 
+  Therefore, GeForce 8800 GPUs have an effective 36.8 billion texel/second fill 
+  rate when equated to raw bilinear texture filtering horsepower.</p>
+<p align="center"><img src="/./gallery_cache/b0462b37af9557b695231939b0f8c879.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/13.jpg"  ></p>
+<p align="justify">The GeForce 8800 GTX has 6 Raster Operation (ROP) partitions, 
+  and each partition can process 4 pixels (16 subpixel samples, as shown in the 
+  diagram) for a total of 24 pixel/clock output capability with color and Z processing. 
+  For Z-only processing, an advanced new technique allows up to 192 samples/clock 
+  to be processed when a single sample is used per pixel. If 4x multisampled antialiasing 
+  is enabled, then 48 pixels per clock Z-only processing is possible. </p>
+<p align="justify">The GeForce 8800 ROP subsystem supports multisampled, supersampled, 
+  and transparency adaptive antialiasing. Most important is the addition of four 
+  new single-GPU antialiasing modes &#8211; 8x, 8xQ, 16x, and 16xQ which provide 
+  the absolute best antialiasing quality for a single GPU in the market today.</p>
+<p align="justify">The 6 memory partitions existing on a GeForce 8800 GTX GPU 
+  a 64-bit interface to memory each, yielding a 384-bit combined interface width. 
+  The 768MB memory subsystem implements a high-speed crossbar design, similar 
+  to GeForce 7x GPUs, and supports DDR1, DDR2, DDR3, GDDR3, and GDDR4 memory. 
+  The GeForce 8800 GTX uses GDDR3 memory default clocked at 900MHz. With a 384-bit 
+  (48 byte-wide) memory interface running at 900MHz (1800MHz DDR data rate), frame 
+  buffer memory bandwidth is very high at 86.4GB/sec. With 768MB of frame buffer 
+  memory, far more complex models and textures can be supported at high resolutions 
+  and image quality settings.</p>
+<p align="center"><img src="/./gallery_cache/00ea013c01345c974d6effe725bd7153.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/nved2006/42.jpg"  ></p>
+<p align="center"><img src="/./gallery_cache/9b577eb40422b9a485400f6cf13cc3be.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/66.jpg"  ></p>
+<p><strong><span style='text-decoration:underline;'>Pictures of the Card</span></strong></p><p align="center"><img src="/./gallery_cache/6ad44e88272e870402f171aa83127b0e.jpg" onerror="ImgErr(this)" CUSTOM_TAG="/./gallery_cache/6ad44e88272e870402f171aa83127b0e.jpg" onerror="ImgErr(this)" CUSTOM_TAG="/./gallery_cache/6ad44e88272e870402f171aa83127b0e.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/28.jpg"  ></p>
+<p align="center"> </p>
+<p align="center">One of the first things you'll notice on this card is the dual 
+  PCI-E power connectors onboard:</p>
+<p align="center"><img src="/./gallery_cache/e3c2f91e3568a68e9f37bcf559993fd2.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/30.jpg"  ></p>
+<p align="justify">I've heard rumours that initial samples were of a single 6-pin 
+  power connector and a single 8-pin power connector (No, not like the +12v EPS 
+  for your Motherboard), which the work-in-progress R600 from ATi should be sporting, 
+  perhaps as part of PCI-E 2.0 specs. This one apparently ended up with dual 6-pin 
+  connectors.</p>
+<p align="center"><img src="/./gallery_cache/f86ee4b7e0e6c0055cc244156b8ea39c.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/9.jpg"  > </p>
+<p align="center">But you can see behind the power connectors that one is actually 
+  electrically routed for a 8-pin connector.</p>
+<p align="center">The next thing one would notice is the prescence of dual SLI 
+  connectors: </p>
+<p align="center"><img src="/./gallery_cache/fa99f16754c8d5aa0e7f0d9ddb4ae5b3.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/32.jpg"  ></p>
+<p align="center">The exact use of this has not been revealed right now, but most 
+  of us would be betting on "Quading" being at least one use of these. 
+</p>
+<p align="justify"> </p>
+<p align="center"><img src="/./gallery_cache/ef0ab87d22dc28afaa5cc5c9811c3a56.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/29.jpg"  ></p>
+<p align="center"><img src="/./gallery_cache/e815d6f26b4880e72f7b94397ac867a9.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/31.jpg"  ></p>
+<p align="center">A Dual DVI output and S-Video output lie at the rear slot panel. 
+  The dual slot card spots an exhaust grill for heat expulsion here.</p>
+<p><strong><span style='text-decoration:underline;'>More Pictures</span></strong></p><p align="center">Not much need to wait, let's rip the cooler off and take a closer 
+  look! </p>
+<p align="center"><img src="/./gallery_cache/f51d3d54afc0467d181517e7bd6fc33c.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/3.jpg"  ></p>
+<p align="justify">That was so much easier said than done! I had to unscrew many 
+  screws just to dismount the cooler! And the cooler was sticking to the core 
+  contact point even after the screws were removed. Why?</p>
+<p align="justify">&nbsp;</p>
+<p align="center"><img src="/./gallery_cache/11961bb39cf3fe3213146f86e74ac106.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/2.jpg"  ></p>
+<p align="justify">Because the core is just so damn big! Alright, not exactly 
+  a core, it's an integrated heatspreader over the actual core... but you can 
+  imagine the size of a core that requires a heatspreader this size, packed with 
+  <strong>681 Million transistors.</strong> Also notice the shim around the core, which is actually 
+  there more for tighter heatsink retention than to prevent chips to the core 
+  with such a heatspreader.</p>
+<p align="center">Apparently, this shim is easily removable as it is just stuck 
+  on using some black-colored tape:</p>
+<p align="center"><img src="/./gallery_cache/56e4aa968f8d5d47222b9814f99776f0.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/15.jpg"  ></p>
+<p align="center"><img src="/./gallery_cache/968b8db3fd3aebf468cedc2008bed841.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/1.jpg"  ></p>
+<p align="center"><em>Looks better this way!</em></p>
+<p align="center">Look, its an A2 revision of the G80 core, made in week 38 of 
+  2006, that's about one month ago in September.</p>
+<p align="justify">&nbsp;</p>
+<p align="center"><img src="/./gallery_cache/e88561ed5e7014d8ae7745220b44d163.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/4.jpg"  ></p>
+<p align="center">On the rear end of the card lies all the power and voltage regulating 
+  modules. The outter IC chips are part of the circuitry for Memory voltage. </p>
+<p align="justify">&nbsp;</p>
+<p align="center"><img src="/./gallery_cache/daed6fbf7fba83100ccdf8a1eedc8b8e.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/5.jpg"  ></p>
+<p align="center">The 4 sets of inner ones does it for the GPU Core voltage and 
+  the 4 FETs you see tells you that the GPU runs off a 4-phase power module.</p>
+<p><strong><span style='text-decoration:underline;'>More Pictures</span></strong></p><p align="center">Going around the perimeter of the GPU lie 12 GDDR3 Memory chips 
+  that make up 768MB of onboard Memory.</p>
+<p align="center"><img src="/./gallery_cache/40dc55d159ba1491dcb7a5b371b1d0cc.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/13.jpg"  ></p>
+<p align="center"><em>Samsung K4J52324QE-BJ1A GDDR3 modules rated at 1.0ns</em></p>
+<p align="center">Did we not see another chip onboard, to the left of the GPU?</p>
+<p align="center"><img src="/./gallery_cache/258a0378da7fe7ee326fd62eadce609a.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/14.jpg"  ></p>
+<p align="justify">This seems to me like a Bridge Chip of some sort, like the ones 
+  we see on the 7950GX2. I was guessing this is somehow tied in with the dual SLI 
+  connectors and potential expansion beyond dual VGA Card Configs. However some sites report it as the external RAMDAC. I couldn't get an answer from NVIDIA on this for the moment.</p>
+<p align="center">Enough of frontals, let's flip her around!</p>
+<p align="center"><img src="/./gallery_cache/8335bf4e9932d7d3ebf5db2f7b2d30f8.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/6.jpg"  ></p>
+<p align="justify">You straightaway see the many mounting holes across the whole 
+  card. This means one thing: "Get to work Swift-Tech, Danger Den,. etc!". 
+</p>
+<p align="center">On the far end lies the Memory Voltage regulator, AT-7G running 
+  on 2 phase power.</p>
+<p align="center"><img src="/./gallery_cache/367f7f186a87fb893d4dc4ea68833c8f.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/8.jpg"  ></p>
+<p align="justify"> </p>
+<p align="center">Beside it closer to the GPU lies the Primarion PCX3540 Voltage 
+  regulator for GPU Core voltage, running on 4-phase power.</p>
+<p align="center"><img src="/./gallery_cache/bd284414260632e9e2852eeb04dc4ae5.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/7.jpg"  ></p>
+<p align="justify"> </p>
+<p align="center">Near the DVI output lies the Intersil ISL chip which regulates 
+  voltage for the small little chip.</p>
+<p align="center"><img src="/./gallery_cache/949322a89dab0d157dac5fe07a0dc88d.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/11.jpg"  ></p>
+<p><strong><span style='text-decoration:underline;'>The New Cooler</span></strong></p><p align="justify">Well now, not only do we examine the card in detail, let's 
+  take a close look at the cooler onboard this card since this is the first of 
+  it's kind in NVIDIA's inventory of GPU Coolers. Rumour has it that this is made 
+  by CoolerMaster.</p>
+<p align="center"><img src="/./gallery_cache/545afbcac76148d83711695148031519.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/16.jpg"  ></p>
+<p align="justify">Quite obviously, you can tell they used Grey thermal compound 
+  much like the Shinetsu Brand for the Core contact. The rest of the contact points 
+  are interfaced by thick white thermal pads.</p>
+<p align="center">Wiping the copper base clean of thermal paste:</p>
+<p align="center"><img src="/./gallery_cache/ca4e42a3c580073ac23725db2946efab.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/17.jpg"  ></p>
+<p align="center"><img src="/./gallery_cache/2c6a41b7c271d2176f910e46b2a4749b.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/18.jpg"  ></p>
+<p align="center">You can see this extrusion on the cooler made to tap the heat 
+  away from the seperate small chip on the card.</p>
+<p align="justify"> </p>
+<p align="center"><img src="/./gallery_cache/5816abc7002b406e22c5db846156e672.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/19.jpg"  ></p>
+<p align="center">Extrusions are also made to tap the heat away from the Power 
+  Regulation ICs for the Core voltage.</p>
+<p align="center">The Cooler's gotta be stripped further:</p>
+<p align="center"><img src="/./gallery_cache/e75bc56d16f2fadb3d4dcefebf279ea9.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/20.jpg"  ></p>
+<p align="center"><img src="/./gallery_cache/6a3460edc023641e81fc81ec1de9beba.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/21.jpg"  ></p>
+<p align="justify">Notice in the above picture that the shroud is not fully covered 
+  all the way to the rear. This means that some of the hot air will be expelled 
+  onto the lower compartment of your Case than the outside of the Case. Perhaps 
+  too much airflow pressure (resulting with noise) is required to effectively 
+  push hot air all the way to the rear exhaust efficiently so having more outlets 
+  along the way helps.</p>
+<p><strong><span style='text-decoration:underline;'>More Pictures of Cooler</span></strong></p><p align="center"><img src="/./gallery_cache/db82ddb7e6e05f2912f5bf8d17b7430d.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/22.jpg"  ></p>
+<p align="center"><img src="/./gallery_cache/65ae5756897b85f686785ffc169bbabf.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/23.jpg"  ></p>
+<p align="center"><img src="/./gallery_cache/5033c08a1e295341428bf678409b4a39.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/24.jpg"  ></p>
+<p align="center">The single heatpipe pulls the heat away from the copper base 
+  and spreads it across the fins.</p>
+<p align="center"><img src="/./gallery_cache/e4014177d50720787e88392768505e53.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/25.jpg"  ></p>
+<p align="center"><img src="/./gallery_cache/3ddecae5b03d75df3e67fddd7e4234e3.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/26.jpg"  ></p>
+<p align="center"> </p>
+<p align="center">Yes, a Delta blower, but this is not loud at all at normal fan 
+  speed. The fan is rated at 0.48A.</p>
+<p align="center"><img src="/./gallery_cache/b094a517d00f8467df1f33fd4db65352.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/27.jpg"  ></p>
+<p align="justify"> </p>
+<p align="center">The card is certainly long and protrudes a normal ATX Motherboard's 
+  width by around 2cm.</p>
+<p align="center"><img src="/./gallery_cache/4ef47691072334901ee9118861846c75.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/17.jpg"  ></p>
+<p><strong><span style='text-decoration:underline;'>EVGA's 8800GTX</span></strong></p><p align="justify">We take a look at a retail GeForce 8800GTX (one you may buy 
+  off the shelf, not a NVIDIA sample, by NVIDIA's closest Launch Partner this 
+  generation of motherboards and Video Cards, EVGA.</p>
+<p align="center"><img src="/./gallery_cache/7e2ab8447a41bfc6fd901a52713e4454.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/54.jpg"  ></p>
+<p align="center"><img src="/./gallery_cache/b14f449ba715464d2e3e67f57142476b.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/53.jpg"  ></p>
+<p align="justify">Yep it comes with a Free Game, a pretty new Role-Playing Game 
+  based on a very old family, Dark Messiah of Might and Magic. This is the ACS3 
+  Edition. What's the difference? See for yourself:</p>
+<p align="center"><img src="/./gallery_cache/d75c79d412de6c21cfc26cab886df7e5.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/45.jpg"  ></p>
+<p align="center">Looking like a black armored tank, it feels significantly heavier 
+  than the reference sample. This is due to the additional amount of aluminum 
+  on it.</p>
+<p align="center"><img src="/./gallery_cache/d38ba6cb8fe49c16f03f4f3cfa6ff691.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/47.jpg"  ></p>
+<p align="center">As you can see above, instead of the plastic shroud housing 
+  the reference sample uses, EVGA actually uses an aluminum shroud. </p>
+<p align="center"><img src="/./gallery_cache/a7d8416ec8aae86e168617bed06d7dd3.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/49.jpg"  ></p>
+<p align="center">An opening in the aluminum shroud for the dual PCI-E Power Coinnectors.</p>
+<p align="center"><img src="/./gallery_cache/34b154391c8f3d9bb5769f4e1d8f1ff3.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/51.jpg"  ></p>
+<p align="center">The dual SLI Connectors</p>
+<p align="justify">&nbsp;</p>
+<p align="center"><img src="/./gallery_cache/cd4716b4f6250d1c671c3f6b2941c2d3.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/48.jpg"  ></p>
+<p align="justify">Instead of expelling the hot air out from behind the card entirely, 
+  there are some ventilation holes at the front of the shroud to actually allow 
+  some expulsion of hot air. </p><p><strong><span style='text-decoration:underline;'>EVGA's ACS3 Cooling</span></strong></p><p align="justify">Yes you see a long thick piece of aluminum heatsink behind 
+  the core for additional cooling, anoidised black, just like the armored shroud 
+  attire, to fit in the all-black theme. It would be blasphemic for any AIC to 
+  do so, but I would think anodising these red instead would actually make a nicer 
+  color blend with the black card.</p>
+<p align="center"><img src="/./gallery_cache/c385c6a78417fdbef7ed16d1b4fcb554.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/50.jpg"  ></p>
+<p align="center"><img src="/./gallery_cache/12a2d761d591630e90ca3a2462434193.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/52.jpg"  ></p>
+<p align="justify">Take note you people who love third party cooling that you 
+  may need to void the warranty to remove the heatsink at the back, as you can 
+  see a warranty sticker pasted over one of the screws.</p>
+<p align="center"><img src="/./gallery_cache/51c4f7b921bd685087feacf68497934b.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/62.jpg"  ></p>
+<p align="justify">Who needs the warranty?? Ah there.... the thick and long aluminum 
+  heatsink behind has the heat transfered over via a huge piece of grey thermal 
+  pad... imagine some of those thermal interface used on Video Card Memory, but 
+  gigantised.</p>
+<p align="center"><img src="/./gallery_cache/5c64969234f303bd9a22303c5d4f0051.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/43.jpg"  ></p>
+<p align="center">Since I was at it, doing what I do best ripping things apart, 
+  the front had to go as well.</p>
+<p align="center"><img src="/./gallery_cache/37846f0689ea489acf2789444d7d3a06.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/41.jpg"  ></p>
+<p align="center"><img src="/./gallery_cache/d11a5cd882d0d4ca2135d868c7695b6a.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/44.jpg"  ></p>
+<p align="center">Now you see why they are using a aluminum shroud instead of 
+  a plastic one.</p>
+<p align="center"><img src="/./gallery_cache/6269cbce9bbbfe4f7f8766084c2da878.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/42.jpg"  ></p>
+<p align="justify">See the imprint on the piece of grey thermal pad? That is made 
+  by the heatsink fins, meaning that the thermal pad presses against the fins, 
+  conducting heat away from the fins onto the &quot;armor shroud&quot;. This provides 
+  a secondary chanel of dissipation, rather than solely relying on air to fin 
+  contact. As a cooling freak myself, I find this pretty innovative and got me 
+  going, &quot;Aha!&quot;.</p>
+<p align="justify">&nbsp;</p>
+<p align="center"><img src="/./gallery_cache/4f425705a60c128983b240c928b3acfe.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/46.jpg"  ></p>
+<p align="center">A pretty standard bundle array, and as said, the Dark Messiah 
+  comes with it.</p>
+<p align="justify">Other than the bundle, it's quite evident that ALL this first 
+  shipment of GeForce 8800GTX are NVIDIA reference cards, while the AICs play 
+  around with bundles, cooling, good service and pricing. Apparently, EVGA has 
+  invested quite a bit of time on the cooling aspect. It has changed out the plastic 
+  shroud with an aluminum shroud and added a big heatsink behind the card's back. 
+  How this translates in degrees celsius, you'll see in a while.<br>
+</p>
+<p><strong><span style='text-decoration:underline;'>ASUS EN8800GTS</span></strong></p><p align="justify">Nearing just this launch review date, I got a pair of 8800GTX 
+  from ASUS so I could compare between the 2 new gen brothers:</p>
+<p align="center"><img src="/./gallery_cache/048d63c8ee7a1c13d4f6e9ba5e35afc7.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/37.jpg"  > </p>
+<p align="justify">As seen above, the GeForce 8800GTS is shorter and more of a 
+  normal video card's length. However, the cooler employed is basically the same.</p>
+
+
+
+<p align="center"><img src="/./gallery_cache/480a525bccd611f2251972d9ce19b437.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/97.jpg"></p>
+
+
+<p align="center"><img src="/./gallery_cache/c0d81e47a379c6002c3eb5751d9d25dc.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/38.jpg"  ></p>
+<p align="center">The PCB layout is definitely different from the GTX.</p>
+<p align="justify"> </p>
+<p align="center"><img src="/./gallery_cache/efdfab6943f57bd539efd868c303f878.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/40.jpg"  ></p>
+<p align="justify">Even though the same Primarion Voltage Regulator regulates 
+  GPU voltage, the one on the GTS is 3 phase power.</p>
+<p align="center">Memory voltage is governed by the cheaper ISL6549:</p>
+<p align="center"><img src="/./gallery_cache/35860ad6e492da9ca9b93cc32facd8a5.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/65.jpg"  ></p>
+<p align="justify"> </p>
+<p align="center">The regulator supplies voltage for the small seperate chip 
+  which is also present on the GTS.</p>
+<p align="center"><img src="/./gallery_cache/34f192bd4717767ca7f181698d0dab7c.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/39.jpg"  ></p>
+<p><strong><span style='text-decoration:underline;'> Testing Configuration</span></strong></p><p align="justify"> </p>
+<p align="center"><img src="/./gallery_cache/0bfccb13c61b732d9f046bd9370ce2ab.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/33.jpg"  ></p>
+<div align="justify">
+  <table id="table1" style="border-collapse: collapse;" border="1" bordercolor="#111111" cellpadding="2" cellspacing="0" width="100%">
+    <tbody>
+      <tr> 
+        <td width="21%"  bgcolor="#003366"> <p align="justify"><font color="#ffffff" face="Arial" size="2"><b>Platform 
+            Test Setup</b></font></td>
+        <td colspan="3" align="center" bgcolor="#003366"> <p align="justify"> 
+        </td>
+      </tr>
+      <tr bgcolor="#FFFFFF"> 
+        <td width="21%"  nowrap> <p align="justify"><font style="font-weight: 700;" face="Arial" size="2">CPU</font></td>
+        <td colspan="3" align="center" nowrap> <p align="justify"> <font size="2" face="Tahoma">Intel 
+            Core 2 Duo X6800 2.93GHz</font></td>
+      </tr>
+      <tr bgcolor="#FFFFFF"> 
+        <td width="21%" > <p align="justify"><strong><span style="font-weight: 700;"><font face="Arial" size="2">Motherboard</font></span></strong></td>
+        <td  colspan="3" align="center"><p align="justify"><font size="2" face="Tahoma">EVGA 
+            NForce 680i SLI (NVIDIA C55 Chipset, BIOS vP17)</font></td>
+      </tr>
+      <tr> 
+        <td width="21%" > <p align="justify"><font style="font-weight: 700;" face="Arial" size="2">Memory</font></td>
+        <td  colspan="3" align="center"> <p align="justify"> <font face="Tahoma" size="2">2 
+            x 1GB Corsair TWIN2X2048-9136C5 DOMINATOR DDR2 Memory</font></td>
+      </tr>
+      <tr bgcolor="#00FFFF"> 
+        <td width="21%" > <p align="justify"> <font style="font-weight: 700;" face="Arial" size="2">Graphics 
+            Card</font></td>
+        <td width="27%" align="center"> <p align="justify"> <font color="#000000"><strong><font size="2" face="Tahoma">NVIDIA 
+            GeForce 8800GTX</font></strong></font></td>
+        <td width="27%" align="center"><div align="justify"><font color="#000000"><strong><font size="2" face="Tahoma">NVIDIA 
+            GeForce 7950GX2 </font></strong></font></div></td>
+        <td width="25%" align="center"><div align="justify"><font color="#000000"><strong><font size="2" face="Tahoma">ATi 
+            X1950 XTX </font></strong></font></div></td>
+      </tr>
+      <tr> 
+        <td width="21%" > <p align="justify"> <span style="font-weight: 700"><font face="Arial" size="2">Power 
+            Supply</font></span></td>
+        <td colspan="3" align="center"> <p align="justify"> <font face="Tahoma" size="2">Silverstone 
+            Zeus ST85ZF</font></td>
+      </tr>
+      <tr> 
+        <td width="21%" > <p align="justify"> <span style="font-weight: 700"><font face="Arial" size="2">Optical 
+            Storage</font></span></td>
+        <td colspan="3" align="center"> <p align="justify"> <font face="Tahoma" size="2">ASUS 
+            16x DVD Rom</font></td>
+      </tr>
+      <tr> 
+        <td width="21%" > <p align="justify"> <span style="font-weight: 700"><font face="Arial" size="2">Hard 
+            Disk </font></span></td>
+        <td colspan="3" align="center"> <p align="justify"> <font face="Tahoma" size="2">Seagate 
+            80GB Barracuda SATA<font face="Arial"> & </font><font face="Tahoma" size="2">Seagate 
+            80GB Barracuda PATA</font></font></td>
+      </tr>
+      <tr> 
+        <td > <p align="justify"> <span style="font-weight: 700"><font face="Arial" size="2">Drivers</font></span></td>
+        <td colspan="2" align="center"> <p align="justify"> <font size="2" face="Tahoma">NVIDIA 
+            96.94 Beta Drivers for 8800GTX, NVIDIA 96.89 Beta Drivers for 7950GX2</font></td>
+        <td align="center"><font face="Tahoma" size="2">ATi Catalyst 6.10 Beta 
+          </font></td>
+      </tr>
+      <tr> 
+        <td width="21%" > <p align="justify"><font style="font-weight: 700;" face="Arial" size="2">Operating 
+            System</font></td>
+        <td colspan="3" align="center"> <p align="justify"> <font face="Tahoma" size="2">Windows 
+            XP Professional SP2</font></td>
+      </tr>
+    </tbody>
+  </table>
+  <p>I did not use the same NVIDIA Drivers as installing the 96.94 drivers on 
+    the 7950GX2 gave me this:</p>
+  <p align="center"><img src="/./gallery_cache/45b978606e4037797e08b3e7bef8a64f.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/68.jpg"  ></p>
+  <p>Furthermore, performance was worse on this drivers, which seems like beta 
+    drivers made for the 8800.</p><p><strong><span style='text-decoration:underline;'>3D Mark 06, Quake 4</span></strong></p><p align="justify">Let's start off with the all too familiar, 3D Mark 06 benchmarks. 
+  I tuned settings to fastest to get the best possible scores for each card, stock 
+  clocks of course.</p>
+<p align="center"><img src="/./gallery_cache/8522ca15af9355b5b587c80dd9dd8bd7.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/69.jpg"  > </p>
+<p align="justify">More Memory (1GB) and one more graphics processor onboard 
+  doesn't bring the GX2 even close to the 8800GTX's tail here. Clearly, in 3D 
+  Mark 06, the GeForce 8800GTX smokes the rest of the competition. You may know 
+  however, that 3D Mark scores and games performance may differ a great deal, 
+  so now let's look at the heart of it all. After all, getting a 8800GTX is all 
+  about gaming fast and pretty.</p><hr>
+<p align="justify"><strong>For Quake 4, I used High Quality Texture Filtering 
+  on all 3 cards, 16x AF turned on, with High Quality selected for the ATi X1950XTX. 
+  4xAA turned on from driver settings. Ran at 1600x1200 Ultra Quality in-game 
+  settings.</strong></p>
+<p align="center"><img src="/./gallery_cache/bf9f27fa5d323d5c401780b7e8238396.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/70.jpg"  ></p>
+<p align="justify">You see that we do not even need to go up to high definition 
+  resolutions to see the 8800GTX pull apart this much. You will find that as settings 
+  get tuned up more and more, the gaps between the cards will grow, you'll see 
+  later. Quake 4 at higher settings, see for yourself as I compared the 7950GX2 
+  against the 8800GTX:</p>
+<p align="center"><img src="/./gallery_cache/a1e50ca41598aa90fe2419a87a31955f.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/71.jpg"  ></p>
+<p align="justify">The 8800GTX totally beat the 7950GX2 to pulp as we turn on 
+  the High Quality AA, running a <strong>189%</strong> lead over the GX2 at 16x 
+  Quality AA, maintaining very playable frame rates while the GX2 slows down to 
+  a below 20fps mark. Take note that at 16xS AA the GX2 can only run single GPU. 
+  Still, a <strong>189%</strong> lead over last gen's flagship.... can you imagine??</p>
+<p><strong><span style='text-decoration:underline;'>Battlefield 2142,  Call Of Duty 2</span></strong></p><p align="justify">Time to check out EA's latest Battlefield, this time set in 
+  the future. Battlefield 2142.</p>
+<p align="justify"><strong>For Battlefield 2142, I used High Quality Texture Filtering 
+  on all 3 cards, 16x AF turned on, with High Quality selected for the ATi X1950XTX. 
+  AA set at determined by application on driver settings. Ran at 1600x1200 with 
+  maximum Quality in-game settings, and 4xAA selected. It seems that the game 
+  does not let me select any higher AA setting with any of the 3 cards.</strong></p>
+<p align="center"><strong><img src="/./gallery_cache/f5ac5b1bab24f79f069259ac8b4b18dc.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/72.jpg"  ></strong> 
+</p>
+<p align="justify">Since I could record a demo but found no way to play back it, 
+  I ran a single-player map starting at the same location going about the game 
+  similarly and used FRAPS to charter me a 5 minute gameplay frame rate report.</p>
+<p align="center"><img src="/./gallery_cache/549b0971832fae950a5ff459847d8c60.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/73.jpg"  ></p>
+<p align="justify">No surprise who's the winner here, but seeing the 8800GTX run 
+  this fast at such settings is pretty unbelievable. I was surprised to see the 
+  ATi X1950XTX perform so well in this game as well, but it's still a big 65% 
+  slower than the 8800GTX. The system's probably even a little CPU limited at 
+  this setting, I think it's not high enough to really drag the 8800GTX yet!</p>
+<p align="justify">Just for kicks, I slap on 16xS AA on the GX2 and 16xQ AA on 
+  the 8800GTX. When the game supports AA in-game settings, selecting "Force16xQ 
+  AA" or "Enhance application 16xQ AA" on the 8800GTX yielded the 
+  same image quality and performance.</p>
+
+<p align="center"><img src="/./gallery_cache/34c7b5406a3d0499c1a67f118776a56a.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/96.jpg"></p>
+<p>
+ Take note that at 16xS AA the GX2 can only 
+  run single GPU. </p>
+<p align="center"><img src="/./gallery_cache/2517298f13ebb51997e89159b0f5cee2.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/74.jpg"  ></p>
+<p align="justify">Still very playable on the 8800GTX, but no smooth frame rates 
+  for the GX2... More than 3 times the performance, that is madness! It's not like 
+  I'm comparing a high-end card to an entry level card, but a last gen's flagship 
+  head to head with this gen's.</p>
+<p align="justify">Some of you may be wondering why I did not run the 8xAA tests 
+  on the ATi X1950XTX. Simply because this option is not available with the card.</p>
+<hr>
+<p align="justify">Although I hate the slow-pace of Call Of Duty 2, it is still 
+  a very popularly benchmarked game so shall we not take a look? <strong>For Call 
+  Of Duty 2, I used High Quality Texture Filtering on all 3 cards, 16x AF turned 
+  on, with High Quality selected for the ATi X1950XTX. AA set at determined by 
+  application on driver settings. Ran at 1600x1200 with maximum Quality in-game 
+  settings, and 4xAA selected.</strong></p>
+<p align="center"><img src="/./gallery_cache/6bbb1cd0acaa16d58f4f49466ce345bc.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/75.jpg"  ></p>
+<p align="justify">So close to doubling the performance on the ATi X1950XTX, so 
+  damn impressive. Call Of Duty never did seem to run very high frame rates for 
+  me at high quality settings before, but the 8800GTX got that nailed easily.</p>
+<p align="justify">More please, Tune up the settings. 16xS AA on GX2 and 16xQ 
+  AA on 8800GTX. Take note that at 16xS AA the GX2 can only run single GPU. </p>
+<p align="center"><img src="/./gallery_cache/36f08adf285f5dcf81f56e327fae6f28.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/76.jpg"  ></p>
+<p align="justify">The 8800GTX never seems to want to slow down. The 7950GX2 cries 
+  in humiliating defeat, even a trouncing win sounds like an understatement for 
+  a 280% lead. Needless to say, COD2 is still smooth as butter at this setting, 
+  unbelievable!</p>
+<p><strong><span style='text-decoration:underline;'>FEAR, Half Life 2 Episode One</span></strong></p><p align="justify"><strong>For FEAR, I used High Quality Texture Filtering on 
+  all 3 cards, 16x AF turned on, with High Quality selected for the ATi X1950XTX. 
+  AA set at determined by application on driver settings. Ran at 1600x1200 with 
+  maximum Quality in-game settings except Soft Shadows turned off and 4xAA selected. 
+  </strong></p>
+<p align="center"><img src="/./gallery_cache/f07504263dc61613af7e55b437ebfa58.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/77.jpg"  ></p>
+<p align="justify">I feel almost numb to these exaggerated numbers by now... at 
+  a popular high quality setting such as this which I'm sure a lot of hard core 
+  gamers are used to, the 8800GTX delivers more than double the performance of 
+  the X1950XTX.</p>
+<p align="justify">You are probably guessing by now... am I going to do it? Yes, 
+  I'm going to do it, just because it's so enjoyably refreshing seeing such big 
+  margins after playing with computer hardware for such a long period. Perhaps 
+  it's the little saddist inside of me... whatever let's see the numbers!</p>
+<p align="center"><img src="/./gallery_cache/116901403c0c3f43e6f50a2d38c9415a.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/80.jpg"  ></p>
+<p align="justify">Double double double, considering the past track records, I'm 
+  even surprised the difference is "just" double.</p>
+<hr>
+<p align="justify"><strong>For Half Life 2 Episode One, I used High Quality Texture 
+  Filtering on all 3 cards, 16x AF turned on, with High Quality selected for the 
+  ATi X1950XTX. AA set at determined by application on driver settings. Ran at 
+  1600x1200 with maximum Quality in-game settings with Bloom Lighting and 4xAA 
+  selected. </strong></p>
+<p align="center"><img src="/./gallery_cache/d3d6ecf74556822abce7dc051d957e19.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/84.jpg"  ></p>
+<p align="justify">The 8800GTX is so fast here that the CPU becomes the bottleneck, 
+  even at high image settings such as this. </p>
+<p align="center"><img src="/./gallery_cache/12a91f2591d63808fab75aaebad007d2.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/83.jpg"  ></p>
+<p align="justify">Maxing out the image quality through Anti Aliasing if one is 
+  stuck on a maximum resolution of 1600x1200. </p>
+<p><strong><span style='text-decoration:underline;'>Dark Messiah, COH, Oblivion</span></strong></p><p align="justify">Being on the same Engine as Half Life 2 Episode One, Dark Messiah 
+  of Might and Magic tends to be quite a bit more taxing on the graphics end. 
+  <strong>For Dark Messiah of Might and Magic, I used High Quality Texture Filtering 
+  on all 3 cards, 16x AF turned on, with High Quality selected for the ATi X1950XTX. 
+  AA set at determined by application on driver settings. Ran at 1600x1200 with 
+  maximum Quality in-game settings with Bloom Lighting and 6xAA selected. </strong></p>
+<p align="center"><img src="/./gallery_cache/3cad3aa7befc55cca61e7770512560e8.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/85.jpg"  ></p>
+<p align="justify">Even though based on the same engine, the 3 cards performed 
+  quite differently margin wise. The 8800GTX pulls part from the X1950XTX by a 
+  huge 133%.</p>
+<p align="justify">I tried another Anti-Aliasing max out test but this time, it 
+  seems weird that the 8800GTX does not dip in frame rates at all even as I set 
+  16xQ AA. It's probably not registering the AA properly so I'll skip this test 
+  for this game.</p>
+<hr>
+<p align="justify">Company Of Heroes, a rather new RTS game has a weird in-game 
+  benchmark test. The whole test runs a real-time rendered cinematic demo clip 
+  (with some great looking fire and explosion effects but ugly characters) but 
+  the effects and graphics are so different in actual game-play, which takes place 
+  through an isometric outlook. You will find that even though you may get low 
+  frame rates running the benchmark, you may actually find gameplay very playable.</p>
+<p align="justify"><strong>For COH, I used High Quality Texture Filtering on all 
+  3 cards, 16x AF turned on, with High Quality selected for the ATi X1950XTX. 
+  AA set at determined by application on driver settings. Ran at 1600x1200 with 
+  maximum Quality in-game settings and AA selected. </strong></p>
+<p align="center"><img src="/./gallery_cache/8510255219d6f639ca480c6d19d0d650.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/89.jpg"  ></p>
+<p align="center"><img src="/./gallery_cache/c1e7b2b73b72d0bb02554ba831cd74f7.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/90.jpg"  ></p>
+<p align="justify">The 8800GTX seems to be built to excel at this game, while 
+  other cards are panting to keep up, this card isn't even flinching from the 
+  burden!! This is even exagerating for a new architecture! It's as though there 
+  was a fast forward in 3D technology... It also seems that there is currently an application bug that prevents Company of Heroes working correctly with SLI. This affects SLI
+systems and the 7950 GX2. Relic is working on a patch that should be
+released soon. </p>
+<p align="justify">I've had to do this to keep with the consistency even though 
+  this may hurt some GX2 owners' ego, here's some higher quality AA performance 
+  numbers:</p>
+<p align="center"><img src="/./gallery_cache/efcc293b27310d21ca66f6131f148cb8.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/91.jpg"  ></p>
+<p align="justify">That's it, a land mark number acheived, more than 4 times more 
+  performance than last gen's flagship product. I've probably not been in the 
+  industry long enough to judge, but I've never seen anything do this before.</p>
+<hr>
+<p align="justify">I decided to leave this game at the very end. Yes, the mother 
+  of all Video Cards Test, Oblivion, the epitome of graphics intensity.<strong> 
+  For Oblivion, I used High Quality Texture Filtering on all 3 cards, 16x AF turned 
+  on, with High Quality selected for the ATi X1950XTX. AA set at determined by 
+  application on driver settings. Ran at 1600x1200 with maximum Quality in-game 
+  settings with Bloom Lighting and 4xAA selected. Even though the curse of no 
+  HDR with AA is gone with the 8800GTX, I couldn't seem to get Oblivion to set 
+  HDR with AA.</strong></p>
+<p align="center"><strong><img src="/./gallery_cache/31a6eda5c92b6a15a8923d3201f15880.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/86.jpg"  ></strong></p>
+<p align="justify">Awesome feeling to see this game break an average of 50fps 
+  at this setting, no other cards have managed to accomplish this till now! <strong>However 
+  do take note that there are very obvious flickering shadows, especially when 
+  turning your character, with the beta drivers tested on the 8800GTX in this 
+  game. With the latest 97.02 drivers, this problem has been fixed.</strong></p>
+<p align="justify">Do we dare max out the AA? Why the hell not?</p>
+<p align="center"><img src="/./gallery_cache/049bee2a783a01128d3623665498a605.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/87.jpg"  ></p>
+<p align="justify"> I would never have expected any single card to be even playable 
+  at this setting, let alone be this smooth. Seeing similar margins on some of 
+  the other games still would not convince me for this game until I ran it. I 
+  hate to dramatise, but this IS Jaw-dropping!</p>
+<p><strong><span style='text-decoration:underline;'>High Definition Gaming</span></strong></p><p align="justify">Right, enough on the &quot;low res&quot; Game tests already, 
+  I can hear some of the 30&quot; LCD owners rant. Let's see some High Definition 
+  Game Test results.</p>
+<p align="center"><img src="/./gallery_cache/ca83e5b344607d1955f20baae24df77e.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/92.jpg"  ></p>
+<p align="center">&nbsp;</p>
+<p align="justify"><strong>Best Playable Settings:</strong></p>
+<p align="justify"><strong>Oblivion: 2560x1600 16xAF, 4xAA is very playable</strong>, 
+  but turning on 8xQ AA makes it very jerky in fights especially when spells are 
+  cast, and all the fire and lighting effects.</p>
+<p align="justify"><strong>Battlefield 2142: The game only supports up to 2048x1536, 
+  it is very playable at 2048x1536, 16xAF, 8xQ AA </strong>and is borderline playable 
+  when turned up to 16xQ AA. </p>
+<p align="justify"><strong>Company Of Heroes: Very playable at 2560x1600, 16xAF, 
+  8xQ AA </strong>and still quite playable when turned up to 16xQ AA.</p>
+<p align="justify"><strong>Quake 4: The game only supports up to 2048x1536, it 
+  is very playable at 2048x1536, 16xAF, 4x AA,</strong> but 8xQ AA is a bit choppy 
+  for the fast-paced game.</p>
+<p align="justify">You can easily step up one to two resolutions or turn on 4xAA 
+  or step up to 16xQ AA when you switch from a 7950GX2 or X1950XTX to this card. 
+  Really easily. For example, Oblivion is just playable at 2048x1536 without any 
+  AA on the GX2, but you can easily attain similar or better frame rates with 
+  the 8800GTX gami9ng at 2560x1600 with 4xAA.</p>
+<p align="justify">The immersiveness of playing Oblivion at 2560x1600 is pretty 
+  much orgasmic if you're one who can appreciate good graphics... heck anyone 
+  will be impressed.</p>
+<p align="center"><img src="/./gallery_cache/08add6252f252339890206ddca1d317f.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/64.jpg"  ></p><p><strong><span style='text-decoration:underline;'>Better Anti-Aliasing & Anisotropic Filtering?</span></strong></p><p>The GeForce 8800GTX supposedly offers better and more efficient Anti-Aliasing 
+  and Anisotropic Filtering as compared to the previous generation of NVIDIA Graphics 
+  Cards, with AF being touted to even beat ATi's High Quality AF. We checked out 
+  the image quality comparision and share some pictures with you.</p>
+<p align="center"><img src="/./gallery_cache/1d4d7cae26f48c49c892f50e36da90b4.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g80image/2.jpg"  > 
+</p>
+<p align="center"><img src="/./gallery_cache/ecbfd10ba657acda77f0f1ddd48141e2.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g80image/8.jpg"  ></p>
+<p align="center"><img src="/./gallery_cache/89cae9ded01a2ee2f3d1512562133049.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g80image/10.jpg"  ></p>
+<p>This Stone bridge from Oblivion curves upwards and I try to catch Anti-aliasing 
+  benefits on this. Nothing noticable at all. I tried to scrutinize the long sword 
+  my chracter is holding for Anti-Aliasing image enhancements as well.</p>
+<p align="center"><img src="/./gallery_cache/6ce2a1cfc3519ed851dc8dcc6b28fd70.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g80image/4.jpg"  ></p>
+<p align="center"><img src="/./gallery_cache/5077ce3571f2aa1e870880cec831b9bb.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g80image/3.jpg"  ></p>
+<p align="center">Really I do not see any image enhancements in terms of AA though 
+  the performance benefit is probably present.</p>
+<p>Anisotropic Filtering is another matter altogether. There is a marked and distinct 
+  improvement in filtering over the GeForce 7000 series for sure.</p>
+<p align="center"><img src="/./gallery_cache/c1bd41ba7292149f554bf6e622ee7513.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g80image/5.jpg"  ></p>
+<p>What better spot to check for better and sharper filtering than the cobblepot 
+  floors in Oblivion? You can already see sharper textures and lines without looking 
+  too closely.</p>
+<p align="center"><img src="/./gallery_cache/528c02524ed2136a9fc2bed24f7db1fd.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g80image/6.jpg"  ></p>
+<p>Zooming in, you can see that the accuracy of the filtering is significantly 
+  better on the 8800GTX. Textures and lines are sharper, resulting in the graphics 
+  appearing detailed and image, sharper.</p>
+<p align="center">How does it match up with ATi's High Quality AF then? Can it 
+  beat that?</p>
+<p align="center"><img src="/./gallery_cache/45e919f55c9fb0068152c487c7c390d5.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g80image/12.jpg"  ></p>
+<p align="center"><img src="/./gallery_cache/46579b7c3ad63aa4e33dcb819c6a5d71.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g80image/13.jpg"  ></p>
+<p>Even though the distinction is less noticable, when you look closer, and in 
+  the zoomed-in pictures, you can clearly see better filtering with the 8800GTX, 
+  attaining sharper and more detailed image quality. So no longer will ATi hold 
+  the Anisotropic Filtering Image Quality crown!</p>
+<p>So even though the AA is nothing really to shout about (in terms of image quality, 
+  not talking about speed), the AF is really pretty significantly improved!</p>
+<p><strong><span style='text-decoration:underline;'> Heat, Power, Overclocks</span></strong></p><p align="justify">We've all heard rumours of some monstrously hot cards and power 
+  hungry GPUs before the cards came into light. Truth is rather far from this 
+  and let's take a look.</p>
+<p align="center"><img src="/./gallery_cache/bc0b175b70709661f8d580aeb48af897.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/93.jpg"></p>
+<p align="justify">Take note that Tests were carried out in a case-less environment, 
+  so most users may see higher figures. No cool card for sure, but great thing 
+  is that the fan at automatic speed is rather silent and even when I manually 
+  set it at 100% speed, there's no high-pitched whine but more of a whooshing 
+  air sound. So we see that the ACS3 Cooling for the EVGA card really does help 
+  lower the running temperatures of the card. </p>
+<p align="justify">So we have seen the 8800GTX take every single card out there 
+  and stampede on them monstrously. More performance is never rejected 
+  right? </p>
+<p align="center"><img src="/./gallery_cache/be8e2eb2614ae90383527cf919f623a5.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/94.jpg"  ></p>
+<p align="justify">I tuned the fan speed to 100% and hit 640MHz core and 1100MHz 
+  Memory. That's an 11% overclock on Core speed and a 22% up in Memory speed. 
+  Decent overclocker but nothing too drop-dead with the stock cooling. Unfortunately, 
+  even though the EVGA lowers the temperature a bit, the card hits the same limit. 
+</p>
+<p align="justify">How about power consumption? Running the 3D Mark 06 HDR1 Test 
+  at 1600x1200 16xAF pretty much applies one of the heaviest load on a GPU. The 
+  8800GTX consumes about <strong>23 watts more than the 7950GX2</strong> and <strong>11 
+  watts more than the X1950XTX. </strong>Really not that bad when you look at 
+  the performance it offers, or actually, it's performance per watt ratio is great.</p>
+<hr>
+<p align="justify">Some of you may be wondering if the Quad Core CPU QX6700 is 
+  going to boost graphics performance on the 8800GTX. I did a test side by side 
+  on the Core 2 Duo X6800 2.93GHz vs a Core 2 Quad QX6700 clocked to the same 
+  2.93GHz clock speed. </p>
+<p align="center"><img src="/./gallery_cache/1bff54da3416020b3d440c7bb56b94e3.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/95.jpg"  ></p>
+<p align="justify">You notice that even though the score goes up by more than 
+  1,000 points, the actual graphics performance is the same and the higher score 
+  is only due to the CPU Tests. So no, no Quad Core Driver Optimizations to be 
+  milked yet for this card.</p>
+<p><strong><span style='text-decoration:underline;'>ASUS 8800GTS SLI</span></strong></p><p align="center">I managed to do some quick tests on the ASUS 8800GTS SLI configuration 
+  on the EVGA 680i SLI Motherboard.</p>
+<p align="center"><img src="/./gallery_cache/11d834a2deea977739edb118119ebeaf.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/66.jpg"  ></p>
+<p align="center"><img src="/./gallery_cache/1fe7d5e09ad9d89663c171112b2254f4.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/67.jpg"  ></p>
+<p align="center">Easily cracks <strong>17K</strong> 3D Mark 06 Score with just 
+  mildly overclocked graphics cards!! Of course, much more tests will be conducted 
+  soon.</p>
+<p><strong><span style='text-decoration:underline;'>  I Mean Really Overclock it Dammit!</span></strong></p><p align="justify">Now that most of the gaming tests have been done, it was time 
+  to unwind and have some fun in some REAL Overclocking. This card poses a serious 
+  challenge with regards to providing third party cooling due to several reasons. 
+  First of all, the Core, with the Heatspreader on is huge and a base the same 
+  size or bigger than the core is prefered. </p>
+<p align="justify">Secondly, the mounting holes for the card is different from 
+  previous generations of NVIDIA graphics cards. Thirdly, there is that seperate 
+  small chip to find a way to cool although I do not expect it to get too hot.</p>
+<p align="justify">Well, time to custom-make some coolers! I got my friend Vinnzzz 
+  of the <a href="http://sg.vr-zone.com/index.php?i=3743">Automated Dry Ice PC 
+  Fame</a> to cook me up some Fat Momma Coolers:</p>
+<p align="center"><img src="/./gallery_cache/53bc67a1cb717a87946e5ea8c21cedae.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/55.jpg"  ></p>
+<p align="center"><img src="/./gallery_cache/09bf6c7c4e318826964f50c726035baa.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/56.jpg"  ></p>
+<p align="center">These are to be used with Dry Ice or Liquid Nitrogen Cooling.</p>
+<p align="justify">Time's tight, wanna get some results in time for launch... 
+  so I took the EVGA, restripped her again, clamped her on and Dry Ice was ordered! 
+  The old and tired Cascade Refrigeration Cooling was thrown onto the CPU. Which 
+  board shall I not use but the EVGA NForce 680i SLI??</p>
+<p align="center"><img src="/./gallery_cache/ae2eff6f5ecfb2ad6a119f52cd4d9aed.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/60.jpg"  ></p>
+<p align="justify"> </p>
+<p align="justify">Ok, ran through some tests quick enough, checked for cold bugs.... 
+  none detected even at -65C!! Well, ATI Tool reads the GTX as 48985984C at below 
+  0C while nTune reads 200+C. No matter, clock away it must!</p>
+<p align="center"><img src="/./gallery_cache/101ca9cae0369853a4948a04c5260e2d.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/100.jpg"  ></p>
+<p align="justify">Very nicely, she did a <strong>823MHz</strong> Core and <strong>1100MHz</strong> 
+  Memory run! <strong>16,752</strong> 3D Mark 06 with just a <strong>Single</strong> card! A lot 
+  more to milk from this card for sure. The funny thing about this card is that 
+  at high Memory speed, it does not artifact but instead develop "bubbly 
+  sparks" especially in HDR intensive scenes:</p>
+<p align="center"><img src="/./gallery_cache/8ff6f8b68d4e9dbb0f9b85c6228553d9.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/63.jpg"  ></p>
+<p align="center">I'll show you another funny picture, apparently, this great 
+  card can be had for $ 10.95!!</p>
+<p align="center"><img src="/./gallery_cache/fa1d94ef34b8e472f31c1697b7b630f9.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/61.jpg"  ></p>
+<p align="center">According to Futuremark that is. Quite a bargain for a 16,000 
+  3D Mark 06 card wouldn't you agree? :)</p>
+<p><strong><span style='text-decoration:underline;'>Conclusion</span></strong></p><p align="justify">How can anyone not be thoroughly impressed with this Video 
+  Card? Revolutionary is a word very commonly used advertisements, but very seldom 
+  lived up to. Using it to describe this card is technically accurate but not 
+  sincere enough. I've seen a lot of Video Cards come and go, starting from before 
+  there was 3dfx, and even though the gap between each generation of video cards 
+  seem to shorten in recent years, I've never seen such a huge leap in graphics 
+  performance before. Best way to describe it is that this card seems to be a 
+  GeForce 9000 series card than an 8000 series. It consistently doubles the performance 
+  of the current top cards, but pull even bigger margins in some scenarios. </p>
+<p align="justify">It is a garantee that you can easily step up one to two resolutions 
+  and turn on more image enhancement qualities, sustaining better frame rates, 
+  as you upgrade from the current top cards before the 8000 series. This card 
+  delivers the best texture filtering in the market right now for sure, so improved 
+  image quality to go along with the speed is another one of the perks. Then there 
+  is that whole other dimension to it, since it is built as the first card for 
+  DirectX 10, DX10 games are probably going to be most fine-tuned for it. Being 
+  one of the lucky few to have actually seen the DX10 game Crysis run real-time 
+  on this card, I can tell you it will be really hard to focus on the gameplay- 
+  because you will inevitably be taken by the graphics.</p>
+<p align="center"><img src="/./gallery_cache/6ad44e88272e870402f171aa83127b0e.jpg" onerror="ImgErr(this)" CUSTOM_TAG="/./gallery_cache/6ad44e88272e870402f171aa83127b0e.jpg" onerror="ImgErr(this)" CUSTOM_TAG="/./gallery_cache/6ad44e88272e870402f171aa83127b0e.jpg" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/Shamino/g80/g8800/28.jpg"></p>
+<p align="justify">Going for around USD$ 699 or so, I suspect prices may go up 
+  shortly as supply will probably not meet the demand at first shipment. Even 
+  the pricing is humble in comparision to the performance monster this card is. 
+  Card's close to perfect, but I'll deduct 5 points off for not so-pretty cooler 
+  :)</p>
+
+<br>
+<small>
+<font class="text">
+  <p align="center">
+  <a href="http://resources.vr-zone.com/reviews/Awards/95vrmarks.gif" target="_blank">
+  <img border="0" src="/./gallery_cache/b4db873681e717adec4e977791b0a031.gif" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/reviews/Awards/95vrmarks-s.gif"  ></a></p>
+
+  <p align="center"><small>
+                <b><font size="3">Overall Rating : 95 VRMarks!</font></b></small><br>
+
+</p>
+ <p align="center">
+  
+  <img border="0" src="/./gallery_cache/f6e776a3bb203c102efb1a6bd602073e.gif" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/reviews/Awards/award-merit-performance.gif"></p>
+<br>
+<p align="center">Also check out our review of the EVGA NForce 680i SLI Motherboard 
+  <a href="http://sg.vr-zone.com/?i=4215">here.</a></p><br>
+<blockquote>
+<p align="center"><a style="FONT-WEIGHT: 700; TEXT-DECORATION: none" href="http://forums.vr-zone.com/index.php"><font color="#0080c0" size="2">Discuss This Review in our Forum</font></a><br /></p>
+</blockquote><small>
+<p align="right"><font size="2"><img  alt="blue_arrow.gif (130 bytes)" src="/./gallery_cache/e61bf1f797cc3a3c79632cec3fb99c0b.gif" onerror="ImgErr(this)" CUSTOM_TAG="/./gallery_cache/e61bf1f797cc3a3c79632cec3fb99c0b.gif" onerror="ImgErr(this)" CUSTOM_TAG="/./gallery_cache/e61bf1f797cc3a3c79632cec3fb99c0b.gif" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/pics/blue_arrow.gif"  /> </font><strong><a style="TEXT-DECORATION: none" href="http://sg.vr-zone.com/" target="_self"><font color="#0080c0" size="2">Return Home</font></a></strong></p>
+<p align="right"><strong><font color="#0080c0" size="2"><img  alt="blue_arrow.gif (130 bytes)" src="/./gallery_cache/e61bf1f797cc3a3c79632cec3fb99c0b.gif" onerror="ImgErr(this)" CUSTOM_TAG="/./gallery_cache/e61bf1f797cc3a3c79632cec3fb99c0b.gif" onerror="ImgErr(this)" CUSTOM_TAG="/./gallery_cache/e61bf1f797cc3a3c79632cec3fb99c0b.gif" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/pics/blue_arrow.gif"  /> </font><a style="TEXT-DECORATION: none" href="http://resources.vr-zone.com/clubVR/"><font color="#0080c0" size="2">Check Hottest Deals</font></a></strong></p>
+<p align="right"><strong><font color="#0080c0" size="2"><img  alt="blue_arrow.gif (130 bytes)" src="/./gallery_cache/e61bf1f797cc3a3c79632cec3fb99c0b.gif" onerror="ImgErr(this)" CUSTOM_TAG="/./gallery_cache/e61bf1f797cc3a3c79632cec3fb99c0b.gif" onerror="ImgErr(this)" CUSTOM_TAG="/./gallery_cache/e61bf1f797cc3a3c79632cec3fb99c0b.gif" onerror="ImgErr(this)" CUSTOM_TAG="http://resources.vr-zone.com/pics/blue_arrow.gif"  /> </font><a style="TEXT-DECORATION: none" href="http://resources.vr-zone.com/sls/"><font color="#0080c0" size="2">Check Latest Price</font></a></strong></p>
+</small>      </div></td>
+  </tr>
+</table>
+<font size=2 face=arial>For More Articles, visit <font color="#0000FF"> www.vr-zone.com</font>.<font size=1><br>
+Copyright 1999-2008, VR-ZONE. All Rights Reserved.</font>
+<p>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5901053-1");
+pageTracker._trackPageview();
+</script>
+<script type="text/javascript" src="http://vr-zone.us.intellitxt.com/intellitxt/front.asp?ipid=1215"></script>
+</body>
+</html>

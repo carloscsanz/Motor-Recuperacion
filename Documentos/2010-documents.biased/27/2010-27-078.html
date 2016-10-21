@@ -1,0 +1,1795 @@
+
+
+<HTML>
+<HEAD>
+	<TITLE>15 Seconds : HTTP Handlers and HTTP Modules in ASP.NET</TITLE>
+	
+ 
+<META Name="date" Content="2002-04-17"></META>
+<META Name="description" Content="Learn how to create your own file extensions and secure Web applications using HTTP Handlers and HTTP Modules."></META>
+<META Name="channel" Content="Windows Internet Technology"></META>
+<META Name="author" Content="Mansoor Ahmed Siddiqui"></META>
+<META Name="keywords" Content="ASP, VBScript, XML, SOAP, ASP.NET, .NET, IIS, SQL, VB, COM, active server pages, database, ADSI, ISAPI"></META>
+<META http-equiv="PICS-Label" content='(PICS-1.1 "http://www.rsac.org/ratingsv01.html" l gen true comment "RSACi North America Server" by "waynebe@signmeup.com" for "http://www.15Seconds.com" on "1997.07.29T08:43-0800" r (n 0 s 0 v 0 l 0))'></META>
+
+<link rel="alternate" type="application/rss+xml" title="15Seconds.com Features" href="http://www.15seconds.com/dyna/15secs_rss.asp">
+
+
+<script language="JavaScript">var section_name="";</script>
+
+	
+	<SCRIPT LANGUAGE=JavaScript src="http://www.15seconds.com/common/setup.js"></SCRIPT>
+
+<link rel="stylesheet" href="/common/15seconds.css">
+</HEAD>
+<BODY LEFTMARGIN="0" TOPMARGIN="0" MARGINWIDTH="0" MARGINHEIGHT="0" BGCOLOR="#FFFFFF" LINK="#0000FF" ALINK="#0000FF" VLINK="Purple" TEXT="#000000">
+<CENTER>
+
+<CENTER>
+<center>
+
+<script language="javascript" type="text/javascript">
+<!--
+OAS_AD('house_ribbon');
+//-->
+</script><noscript><a href="http://63.236.18.118/RealMedia/ads/click_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!house_ribbon"><img src="http://63.236.18.118/RealMedia/ads/adstream_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!house_ribbon" border="0" alt="house_ribbon"></a></noscript>
+
+
+</center>
+<P>
+<TABLE HEIGHT="92" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+	<TR> 
+		<TD WIDTH="50">  
+			<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0">
+				<TR>
+					<TD WIDTH="50" HEIGHT="40">
+					</TD>
+				</TR>			
+				<TR>
+					<TD WIDTH="50" HEIGHT="3" BGCOLOR="#0000FF">
+					</TD>
+				</TR> 
+<TR>
+					<TD WIDTH="50" HEIGHT="17">
+					</TD>
+				</TR>
+			</TABLE>
+		</TD>
+		<TD WIDTH="121" ALIGN="LEFT" VALIGN="MIDDLE">
+			<A HREF="http://www.15Seconds.com"><IMG BORDER="0" ALT="asp tutorials, asp.net tutorials, sample code, and Microsoft news from 15Seconds" ALIGN="LEFT" VALIGN="CENTER" HEIGHT="92" WIDTH="121" SRC="/graphics/logo.gif"></A>
+		</TD>
+		<TD WIDTH="550"> 
+			<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0">
+				<TR>		
+					<TD VALIGN="BOTTOM" ALIGN="CENTER" HEIGHT="40">
+					<A HREF="/focus/Data%20Access.htm"><SPAN CLASS="clsNavBar">Data Access</SPAN></A>
+						<!--
+						&#160;| &#160;
+						<A HREF="/focus/Just%20Beginning.htm"><SPAN CLASS="clsNavBar">Beginning</SPAN></A>
+						&#160;| &#160;
+						-->
+						&#160;| &#160;
+						<A HREF="/focus/Troubleshooting.htm"><SPAN CLASS="clsNavBar">Troubleshooting</SPAN></A>
+						&#160;| &#160;
+						<A HREF="/focus/Security.htm"><SPAN CLASS="clsNavBar">Security</SPAN></A>
+						&#160;| &#160;
+						<A HREF="/focus/Performance.htm"><SPAN CLASS="clsNavBar">Performance</SPAN></A>					
+						&#160;| &#160;
+						<A HREF="/focus/ADSI.htm"><SPAN CLASS="clsNavBar">ADSI</SPAN></A>
+						<!--
+						&#160;| &#160;
+						<A HREF="/focus/ISAPI.htm"><SPAN CLASS="clsNavBar">ISAPI</SPAN></A> 
+						&#160;| &#160;
+						<A HREF="/focus/Site%20Server.htm"><SPAN CLASS="clsNavBar">Site&#160;Server</SPAN></A>
+						
+						&#160;| &#160;
+						<A HREF="/focus/FTP.htm"><SPAN CLASS="clsNavBar">FTP</SPAN></A>
+						-->
+						&#160;| &#160;
+						<A HREF="/focus/Upload.htm"><SPAN CLASS="clsNavBar">Upload</SPAN></A>
+						<!-- &#160;| &#160;
+						<A HREF="/focus/State.htm"><SPAN CLASS="clsNavBar">State</SPAN></A>
+						-->
+						&#160;| &#160;
+						<A HREF="/focus/Email.htm"><SPAN CLASS="clsNavBar">Email</SPAN></A>
+						<!--&#160;| &#160;
+						<A HREF="/focus/Scripting.htm"><SPAN CLASS="clsNavBar">Scripting</SPAN></A>
+						-->
+						&#160;| &#160;
+						<A HREF="/focus/Control%20Building.htm"><SPAN CLASS="clsNavBar">Control Building</SPAN></A>
+						&#160;| &#160;
+						<A HREF="/focus/Component%20Building.htm"><SPAN CLASS="clsNavBar">Component&#160;Building</SPAN></A>					
+						&#160;| &#160;
+						<A HREF="/focus/Forms.htm"><SPAN CLASS="clsNavBar">Forms</SPAN></A>
+						&#160;| &#160;
+						<A HREF="/focus/XML.htm"><SPAN CLASS="clsNavBar">XML</SPAN></A>
+						&#160;| &#160;
+						<A HREF="/focus/Web%20Services.htm"><SPAN CLASS="clsNavBar">Web&#160;Services</SPAN></A>
+						&#160;| &#160;
+						<A HREF="/focus/ASP.NET.htm"><SPAN CLASS="clsNavBar">ASP.NET</SPAN></A>
+						&#160;| &#160;
+						<A HREF="/focus/.NET%20Features.htm"><SPAN CLASS="clsNavBar">.NET Features</SPAN></A>
+						&#160;| &#160;
+						<A HREF="http://www.15seconds.com/focus/NETv2.htm"><SPAN CLASS="clsNavBar">.NET 2.0</SPAN></A>
+						&#160;| &#160;
+						<A HREF="/focus/App%20Development.htm"><SPAN CLASS="clsNavBar">App&#160;Development</SPAN></A>
+						&#160;| &#160;
+						<A HREF="/focus/App%20Architecture.htm"><SPAN CLASS="clsNavBar">App&#160;Architecture</SPAN></A>
+						&#160;| &#160;										
+			
+						<A HREF="/focus/IIS.htm"><SPAN CLASS="clsNavBar">IIS</SPAN></A>
+						&#160;| &#160;
+						<A HREF="/focus/Wireless.htm"><SPAN CLASS="clsNavBar">Wireless</SPAN></A>
+						
+						
+						
+
+
+					</TD>	
+				</TR>
+				<TR>
+					<TD WIDTH="550" HEIGHT="3">
+					</TD>
+				</TR>				
+				<TR>
+					<TD WIDTH="550" HEIGHT="3" BGCOLOR="#0000FF">
+					</TD>
+				</TR>
+				<TR>
+					<TD WIDTH="550" VALIGN="TOP" ALIGN="LEFT">
+&nbsp;<br><TABLE BORDER=0>
+<TR>
+<TD VALIGN=TOP WIDTH="55%">
+						<SPAN CLASS="clsSlogan">Pioneering Active Server</SPAN></TD><TD VALIGN=TOP WIDTH="45%"><form action="http://search.internet.com/www.15seconds.com" method="post">
+         <input type=hidden name="IC_QueryDatabase" value="www.15seconds.com"><input type="text" name="IC_QueryText" value="" size="10">
+         <input type="submit" value="Search">&nbsp;<font size="-1"><a href="/search/">Power Search</a></font></form>		
+					</TD></TR></TABLE></TD>
+				</TR>
+
+				
+			</TABLE>
+		</TD>
+		<TD>
+		</TD>
+	</TR>
+	
+</TABLE>
+</CENTER>
+
+<TR>
+	<TD WIDTH="100%" ALIGN="CENTER" VALIGN="TOP">
+
+
+		<script language="javascript" type="text/javascript">
+<!--
+OAS_AD('468x60-1');
+//-->
+</script><noscript><a href="http://63.236.18.118/RealMedia/ads/click_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!468x60-1"><img src="http://63.236.18.118/RealMedia/ads/adstream_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!468x60-1" border="0" alt="468x60-1"></a></noscript>
+
+<br />
+<br />
+<script language="javascript" type="text/javascript">
+<!--
+OAS_AD('ciu');
+//-->
+</script><noscript><a href="http://63.236.18.118/RealMedia/ads/click_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!ciu"><img src="http://63.236.18.118/RealMedia/ads/adstream_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!ciu" border="0" alt="ciu"></a></noscript>
+<P>
+
+
+	</TD>
+</TR>
+
+
+
+<TABLE CELLSPACING=3 CELLPADDING=2 WIDTH=100% BORDER=0>
+<TR>
+	<TD VALIGN=TOP NOWRAP ALIGN=LEFT>
+	<A HREF="http://www.internet.com"><IMG BORDER=0 SRC="/graphics/buttons/internet.gif"></A><BR><BR>
+
+
+
+
+
+
+<P>
+
+
+<table border="0" cellspacing="0" cellpadding="0" width="150" align="center">
+	<tr><td><script language="javascript" type="text/javascript">
+<!--
+OAS_AD('marketplace01');
+//-->
+</script><noscript><a href="http://63.236.18.118/RealMedia/ads/click_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!marketplace01"><img src="http://63.236.18.118/RealMedia/ads/adstream_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!marketplace01" border="0" alt="marketplace01"></a></noscript>
+</td></tr><tr><td><img src="/images/spacer.gif" width="1" height="3" border="0"></td></tr>
+	<tr><td><script language="javascript" type="text/javascript">
+<!--
+OAS_AD('marketplace02');
+//-->
+</script><noscript><a href="http://63.236.18.118/RealMedia/ads/click_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!marketplace02"><img src="http://63.236.18.118/RealMedia/ads/adstream_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!marketplace02" border="0" alt="marketplace02"></a></noscript>
+</td></tr><tr><td><img src="/images/spacer.gif" width="1" height="3" border="0"></td></tr>
+	<tr><td><script language="javascript" type="text/javascript">
+<!--
+OAS_AD('marketplace03');
+//-->
+</script><noscript><a href="http://63.236.18.118/RealMedia/ads/click_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!marketplace03"><img src="http://63.236.18.118/RealMedia/ads/adstream_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!marketplace03" border="0" alt="marketplace03"></a></noscript>
+</td></tr><tr><td><img src="/images/spacer.gif" width="1" height="3" border="0"></td></tr>
+	<tr><td><script language="javascript" type="text/javascript">
+<!--
+OAS_AD('marketplace04');
+//-->
+</script><noscript><a href="http://63.236.18.118/RealMedia/ads/click_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!marketplace04"><img src="http://63.236.18.118/RealMedia/ads/adstream_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!marketplace04" border="0" alt="marketplace04"></a></noscript>
+</td></tr><tr><td><img src="/images/spacer.gif" width="1" height="3" border="0"></td></tr>
+	<tr><td><script language="javascript" type="text/javascript">
+<!--
+OAS_AD('marketplace05');
+//-->
+</script><noscript><a href="http://63.236.18.118/RealMedia/ads/click_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!marketplace05"><img src="http://63.236.18.118/RealMedia/ads/adstream_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!marketplace05" border="0" alt="marketplace05"></a></noscript>
+</td></tr>
+	<!--
+	<tr><td></td></tr>
+	<tr><td></td></tr>
+	<tr><td></td></tr>
+	<tr><td></td></tr>
+	<tr><td></td></tr>
+	-->
+	<tr><td><script language="javascript" type="text/javascript">
+<!--
+OAS_AD('120x60-1');
+//-->
+</script><noscript><a href="http://63.236.18.118/RealMedia/ads/click_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!120x60-1"><img src="http://63.236.18.118/RealMedia/ads/adstream_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!120x60-1" border="0" alt="120x60-1"></a></noscript>
+</td></tr>
+</table><form action="http://member.internet.com/subscribe.php" method="post" id="frmActiveNews">
+<table width="125" border="0" cellspacing="0" bgcolor="#0000FF">
+	<tr>
+		<td width="100%">
+			<table width="100%" cellspacing="0" cellpadding="3" border="0">
+				<tr>
+					<td bgcolor="#0000FF" align="center">
+						<font color="#FFFFFF" face="Arial, Helvetica" size="-1"><strong>Active News</strong></font>
+					</td>
+				</tr>
+				<tr>
+					<td bgcolor="#FFFFFF" align="center">
+						<font face="Arial, Helvetica" size="2">15 Seconds Weekly Newsletter</font>
+					</td>
+				<tr>
+					<td bgcolor="#EEEEEE">
+						<font size="-2">
+						&#149; Complete Coverage<br />
+						&#149; Site Updates<br />
+						&#149; Upcoming Features
+						</font>
+					</td>
+				</tr>
+				<tr>
+					<td BGCOLOR="#FFFFFF" align="center">
+						<input type="hidden" name="list_names[]" value="15seconds-html">
+						<input type="submit" name="submit" value="Subscribe!"><br />
+						<font size="1" face="Arial, Helvetica"><strong><a href="http://member.internet.com/">More Free Newsletters</a></strong></font>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+</form>
+
+
+<TABLE CELLPADDING=0 CELLSPACING=0 BORDER=0>
+<TR>
+	<TD COLSPAN="2" NOWRAP="">
+		<SPAN CLASS="clsIndexTitle">Reference</SPAN>
+	</TD>
+</TR>
+<TR>
+	<TD COLSPAN="2">
+		<TABLE CELLPADDING="0" CELLSPACING="0" BORDER="0">
+			<TR>
+				<TD>
+					<TABLE CELLPADDING="0" CELLSPACING="0" BORDER="0">
+						<TR>
+							<TD NOWRAP="" VALIGN="MIDDLE" WIDTH="20">
+						
+							</TD>
+							<TD>
+								<A CLASS="clsIndexItem" HREF="http://www.15seconds.com/News/">News</A>
+							</TD>
+						</TR>
+						<TR>
+							<TD NOWRAP="" VALIGN="MIDDLE" WIDTH="20">
+						
+							</TD>
+							<TD>
+								<A CLASS="clsIndexItem" HREF="default.htm">Articles</A>
+							</TD>
+						</TR>
+						
+						<TR>
+							<TD>
+							</TD>
+							<TD>
+								<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0">
+									<TR>
+										<TD NOWRAP="" VALIGN="MIDDLE" WIDTH="20">
+						
+										</TD>
+										<TD NOWRAP="">
+											<A CLASS="clsIndexItem" HREF="archive.htm">Archive</A>
+										</TD>
+									</TR>
+								</TABLE>
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+							</TD>
+							<TD>
+								<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0>
+									<TR>
+										<TD NOWRAP VALIGN=MIDDLE WIDTH=20>
+						
+										</TD>
+										<TD NOWRAP>
+											<FONT SIZE=+0><A CLASS="clsIndexItem" HREF="writers.htm">Writers</A></FONT>
+										</TD>
+									</TR>
+								</TABLE>
+							</TD>
+						</TR>
+											
+						
+						<TR>
+							<TD NOWRAP="" VALIGN="MIDDLE" WIDTH="20">
+
+							</TD>
+							<TD NOWRAP="">
+								<A CLASS="clsIndexItem" HREF="/howto/allhowtos.htm">Code&#160;Samples</A>
+							</TD>
+						</TR>
+						<TR>
+							 <TD NOWRAP="" VALIGN="MIDDLE" WIDTH="20">
+						
+							</TD>
+							<TD NOWRAP="">
+								<A CLASS="clsIndexItem" HREF="/component/default.htm">Components</A>
+							</TD>
+						</TR>
+						
+<TR>
+							<TD NOWRAP="" VALIGN="MIDDLE" WIDTH="20">
+						
+							</TD>
+							
+						</TR>
+					<TR>
+						 <TD NOWRAP="" VALIGN="MIDDLE" WIDTH="20">
+					
+						</TD>
+						<TD NOWRAP="">
+							<A CLASS="clsIndexItem" HREF="/tool/default.htm">Tools</A>
+						</TD>
+					</TR>
+											
+												
+<TR>
+							<TD NOWRAP="" VALIGN="MIDDLE" WIDTH="20">
+						
+							</TD>
+							<TD NOWRAP="">
+								<A CLASS="clsIndexItem" HREF="/faq/default.htm">FAQ</A>
+							</TD>
+						</TR>
+						<TR>
+							<TD NOWRAP="" VALIGN="MIDDLE" WIDTH="20">
+								<!--IMG SRC="/graphics/new.gif"-->
+							</TD>
+							<TD NOWRAP="">
+								<A CLASS="clsIndexItem" HREF="http://aspnet.15seconds.com/feedback/">Feedback</A><BR>
+							</TD>
+						</TR>
+<!--
+							<TR>
+						<TD NOWRAP="" VALIGN="MIDDLE" WIDTH="20">
+						<IMG SRC="/graphics/new.gif">
+							</TD>
+						<TD NOWRAP="">
+								<A CLASS="clsIndexItem" HREF="http://aspnet.15seconds.com/blogs/15secs.aspx">WebLog</A><BR>
+							</TD>
+							</TR>
+-->
+						
+						<TR>
+							<TD NOWRAP="" VALIGN="MIDDLE" WIDTH="20">
+						
+							</TD>
+							<TD NOWRAP="">
+								<A CLASS="clsIndexItem" HREF="/book/default.htm">Books</A>
+							</TD>
+						</TR>
+						<TR>
+							<TD NOWRAP="" VALIGN="MIDDLE" WIDTH="20">
+						
+							</TD>
+							<TD NOWRAP="">
+								<A CLASS="clsIndexItem" HREF="/links/default.htm">Links</A>
+							</TD>
+						</TR>
+						
+
+					<TR>
+						<TD NOWRAP="" VALIGN="MIDDLE" WIDTH="20">
+						</TD>
+						<TD>
+							<A CLASS="clsIndexItem" HREF="http://www.15Seconds.com/archive/default.asp"><FONT COLOR="FF0000">DL Archives</FONT></A>
+						</TD>
+					</TR>
+					</TABLE>
+				</TD>
+			</TR>
+		</TABLE>
+	</TD>
+</TR>
+<TR>
+	<TD COLSPAN="2" NOWRAP="">
+		<SPAN CLASS="clsIndexTitle">Community</SPAN>
+	</TD>
+</TR>
+<TR>
+	<TD COLSPAN="2">
+		<TABLE CELLPADDING="0" CELLSPACING="0" BORDER="0">
+			<TR>
+				<TD>
+					<TABLE CELLPADDING="0" CELLSPACING="0" BORDER="0">
+						<TR>
+							<TD NOWRAP="" VALIGN="MIDDLE" WIDTH="20"></TD>
+							<TD>
+								<A CLASS="clsIndexItem" HREF="http://www.aspmessageboard.com/">Messageboard</A>
+							</TD>
+						</TR>
+
+						<TR>
+							<TD NOWRAP="" VALIGN="MIDDLE" WIDTH="20">
+						
+							</TD>
+							<TD>
+								<A CLASS="clsIndexItem" HREF="/listserver.htm">List Servers</A>
+							</TD>
+						</TR>
+						<TR>
+							<TD NOWRAP="" VALIGN="MIDDLE" WIDTH="20">
+						
+							</TD>
+							<TD>
+								<A CLASS="clsIndexItem" HREF="http://e-newsletters.internet.com/15seconds.html">Mailing List</A>
+							</TD>
+						</TR>
+						<TR>
+							<TD NOWRAP="" VALIGN="MIDDLE" WIDTH="20">
+						
+							<TD NOWRAP="">
+								<A  CLASS="clsIndexItem" HREF="http://www.15seconds.com/WebHosts/">WebHosts</A>
+							</TD>
+						</TR>
+						<TR>
+							<TD NOWRAP="" VALIGN="MIDDLE" WIDTH="20">
+						
+							</TD>
+							<TD NOWRAP="">
+								<A CLASS="clsIndexItem" HREF="/consultant/default.htm">Consultants</A>
+							</TD>
+						</TR>
+						
+						<TR>
+							<TD NOWRAP="" VALIGN="MIDDLE" WIDTH="20">
+						
+							</TD>
+							<TD NOWRAP="">
+								<a class="clsIndexItem" href="http://www.justtechjobs.com/Jobseekers.asp">Tech&nbsp;Jobs</a>
+							</TD>
+						</TR>
+						
+					</TABLE>
+				</TD>
+			</TR>
+		</TABLE>
+	</TD>
+</TR>
+<TR>
+	<TD COLSPAN="2" NOWRAP="">
+		<SPAN CLASS="clsIndexTitle">15 Seconds</SPAN>
+	</TD>
+</TR>
+<TR>
+	<TD COLSPAN="2">
+		<TABLE CELLPADDING="0" CELLSPACING="0" BORDER="0">
+			<TR>
+				<TD>
+					<TABLE CELLPADDING="0" CELLSPACING="0" BORDER="0">
+						<TR>
+							<TD NOWRAP="" VALIGN="MIDDLE" WIDTH="20">
+						
+							</TD>
+							<TD>
+								<A CLASS="clsIndexItem" HREF="/default.htm">Home</A>
+							</TD>
+						</TR>
+						<TR>
+							<TD NOWRAP="" VALIGN="MIDDLE" WIDTH="20">
+						
+							</TD>
+							<TD NOWRAP="">
+								<A CLASS="clsIndexItem" HREF="/map/default.htm">Site Map</A>
+							</TD>
+						</TR>
+					
+						<TR>
+							<TD NOWRAP="" VALIGN="MIDDLE" WIDTH="20">
+						
+							</TD>
+							<TD NOWRAP="">
+								<A CLASS="clsIndexItem" HREF="http://www.internet.com/corporate/press.html">Press</A>
+							</TD>
+						</TR>
+						<TR>
+							<TD NOWRAP="" VALIGN="MIDDLE" WIDTH="20">
+							</TD>
+							<TD NOWRAP="">
+								<A CLASS="clsIndexItem" HREF="http://www.internet.com/corporate/legal.html">Legal</A>
+							</TD>
+						</TR>
+						<TR>
+							<TD NOWRAP="" VALIGN="MIDDLE" WIDTH="20">
+							</TD>
+							<TD NOWRAP="">
+								<A CLASS="clsIndexItem" HREF="http://www.internet.com/corporate/privacy/privacypolicy.html">Privacy Policy</A>
+							</TD>
+						</TR>
+					</TABLE>
+				</TD>
+			</TR>
+		</TABLE>
+	</TD>
+</TR>
+		
+<TR>
+			<TD COLSPAN="2" NOWRAP="">
+				<SPAN CLASS="clsIndexTitle">internet.commerce</SPAN>
+			</TD>
+		</TR>
+		<TR>
+			<TD COLSPAN="2" NOWRAP="">
+<FONT SIZE="-1">
+<script language="javascript" type="text/javascript">
+<!--
+OAS_AD('cp1');
+//-->
+</script><noscript><a href="http://63.236.18.118/RealMedia/ads/click_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!cp1"><img src="http://63.236.18.118/RealMedia/ads/adstream_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!cp1" border="0" alt="cp1"></a></noscript>
+<br />
+<script language="javascript" type="text/javascript">
+<!--
+OAS_AD('cp2');
+//-->
+</script><noscript><a href="http://63.236.18.118/RealMedia/ads/click_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!cp2"><img src="http://63.236.18.118/RealMedia/ads/adstream_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!cp2" border="0" alt="cp2"></a></noscript>
+<br />
+<script language="javascript" type="text/javascript">
+<!--
+OAS_AD('cp3');
+//-->
+</script><noscript><a href="http://63.236.18.118/RealMedia/ads/click_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!cp3"><img src="http://63.236.18.118/RealMedia/ads/adstream_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!cp3" border="0" alt="cp3"></a></noscript>
+<br />
+<script language="javascript" type="text/javascript">
+<!--
+OAS_AD('cp4');
+//-->
+</script><noscript><a href="http://63.236.18.118/RealMedia/ads/click_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!cp4"><img src="http://63.236.18.118/RealMedia/ads/adstream_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!cp4" border="0" alt="cp4"></a></noscript>
+<br />
+<script language="javascript" type="text/javascript">
+<!--
+OAS_AD('cp5');
+//-->
+</script><noscript><a href="http://63.236.18.118/RealMedia/ads/click_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!cp5"><img src="http://63.236.18.118/RealMedia/ads/adstream_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!cp5" border="0" alt="cp5"></a></noscript>
+<br />
+<script language="javascript" type="text/javascript">
+<!--
+OAS_AD('cp6');
+//-->
+</script><noscript><a href="http://63.236.18.118/RealMedia/ads/click_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!cp6"><img src="http://63.236.18.118/RealMedia/ads/adstream_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!cp6" border="0" alt="cp6"></a></noscript>
+<br />
+<script language="javascript" type="text/javascript">
+<!--
+OAS_AD('cp7');
+//-->
+</script><noscript><a href="http://63.236.18.118/RealMedia/ads/click_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!cp7"><img src="http://63.236.18.118/RealMedia/ads/adstream_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!cp7" border="0" alt="cp7"></a></noscript>
+<br />
+<script language="javascript" type="text/javascript">
+<!--
+OAS_AD('cp8');
+//-->
+</script><noscript><a href="http://63.236.18.118/RealMedia/ads/click_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!cp8"><img src="http://63.236.18.118/RealMedia/ads/adstream_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!cp8" border="0" alt="cp8"></a></noscript>
+<br />
+<script language="javascript" type="text/javascript">
+<!--
+OAS_AD('cp9');
+//-->
+</script><noscript><a href="http://63.236.18.118/RealMedia/ads/click_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!cp9"><img src="http://63.236.18.118/RealMedia/ads/adstream_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!cp9" border="0" alt="cp9"></a></noscript>
+<br />
+<script language="javascript" type="text/javascript">
+<!--
+OAS_AD('cp10');
+//-->
+</script><noscript><a href="http://63.236.18.118/RealMedia/ads/click_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!cp10"><img src="http://63.236.18.118/RealMedia/ads/adstream_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!cp10" border="0" alt="cp10"></a></noscript>
+<br />
+<script language="javascript" type="text/javascript">
+<!--
+OAS_AD('cp11');
+//-->
+</script><noscript><a href="http://63.236.18.118/RealMedia/ads/click_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!cp11"><img src="http://63.236.18.118/RealMedia/ads/adstream_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!cp11" border="0" alt="cp11"></a></noscript>
+<br />
+<script language="javascript" type="text/javascript">
+<!--
+OAS_AD('cp12');
+//-->
+</script><noscript><a href="http://63.236.18.118/RealMedia/ads/click_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!cp12"><img src="http://63.236.18.118/RealMedia/ads/adstream_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!cp12" border="0" alt="cp12"></a></noscript>
+<br />
+<script language="javascript" type="text/javascript">
+<!--
+OAS_AD('cp13');
+//-->
+</script><noscript><a href="http://63.236.18.118/RealMedia/ads/click_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!cp13"><img src="http://63.236.18.118/RealMedia/ads/adstream_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!cp13" border="0" alt="cp13"></a></noscript>
+<br />
+<script language="javascript" type="text/javascript">
+<!--
+OAS_AD('cp14');
+//-->
+</script><noscript><a href="http://63.236.18.118/RealMedia/ads/click_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!cp14"><img src="http://63.236.18.118/RealMedia/ads/adstream_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!cp14" border="0" alt="cp14"></a></noscript>
+<br />
+
+</FONT>
+
+			</TD>
+		</TR>
+		<TR>
+			<TD COLSPAN="2" NOWRAP="">
+				<SPAN CLASS="clsIndexTitle">internet.com</SPAN>
+			</TD>
+		</TR>
+		<TR>
+			<TD NOWRAP COLSPAN="2">
+<FONT SIZE="2">
+
+						
+<A HREF="http://www.internet.com/it/" CLASS="icomtb" rel="nofollow">IT</A><BR>
+<A HREF="http://www.internet.com/developer/" CLASS="icomtb" rel="nofollow">Developer</A><BR>
+<A HREF="http://www.internetnews.com" CLASS="icomtb" rel="nofollow">Internet News</A><BR>
+<A HREF="http://www.smallbusinesscomputing.com" CLASS="icomtb" rel="nofollow">Small Business</A> <BR>
+<A HREF="http://www.internet.com/personaltechnology/" CLASS="icomtb" rel="nofollow">Personal Technology</A><BR>
+<!--<A HREF="http://www.internet.com/sections/international.html" CLASS="icomtb" rel="nofollow">International</A><BR>-->
+ <BR>
+<A HREF="http://search.internet.com" CLASS="icomtb" rel="nofollow">Search internet.com</A><BR>
+<A HREF="http://www.internet.com/mediakit/" CLASS="icomtb" rel="nofollow">Advertise</A><BR>
+<A HREF="http://www.internet.com/Internetcom/Door/41188" CLASS="icomtb" rel="nofollow">Corporate Info</A><BR>
+<A HREF="http://e-newsletters.internet.com/" CLASS="icomtb" rel="nofollow">Newsletters</A><BR>
+<A HREF="http://www.justtechjobs.com/" CLASS="icomtb" rel="nofollow">Tech Jobs</A><BR>
+<A HREF="http://e-newsletters.internet.com/mailinglists.html" CLASS="icomtb" rel="nofollow">E-mail Offers</A><BR>
+
+
+
+</FONT>			</TD>
+		</TR>
+<TR>
+<TD>
+<br />
+<SCRIPT LANGUAGE="javascript"> 
+function SetFormAction12() {
+ newLocation = "http://shop.hardwarecentral.com/xGS?KW=" + document.frmGSRequest12.keyword.value + "&NS=1&linkin_id=8005028";
+ document.location.href = newLocation;
+ return;
+}
+</script>
+
+<table border="0" width="125" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" style="border-right: 1px solid #1F3983; border-top: 1px solid #1F3983; border-left: 1px solid #1F3983; border-bottom: 1px solid #1F3983">
+	<tr>
+		<td align="center"><a href="http://shop.hardwarecentral.com/?linkin_id=3063160"><img src="http://www.internet.com/icom_includes/special/dealtime/img/dt_hardwarecentral_logo.gif" alt="HardwareCentral" width="121" height="12" border="0" vspace="8" hspace="1"></a></td>
+	</tr>
+	<tr>
+		<td bgcolor="#F9F604" height="3"><img src="http://www.internet.com/icom_includes/special/dealtime/img/dt_blank.gif" alt="" width="1" height="3" border="0"></td>
+	</tr>
+	<tr>
+		<td bgcolor="#F91813" height="9"><img src="http://www.internet.com/icom_includes/special/dealtime/img/dt_blank.gif" alt="" width="1" height="9" border="0"></td>
+	</tr>
+	<tr>
+		<td bgcolor="#1F3983" align="center" height="90">
+		
+		<table border="0" width="100%" cellspacing="0" cellpadding="8">
+			<tr>
+			   <form name="frmGSRequest12" method="get" onsubmit="javascript:SetFormAction12();return false;">				<td align="center"><a href="http://shop.hardwarecentral.com/?linkin_id=3063160"><font size="-2" color="#FFFFFF" face="verdana,arial,helvetica"><b>Compare products, prices, and stores at Hardware Central!</b></font></a>
+				<br>
+				<input type="text" name="keyword"  size="9"><br><input value="Search" type="image" src="http://www.internet.com/icom_includes/special/dealtime/img/dt_search_but.gif" BORDER="0" vspace="2"></td>
+			 </form>				
+			</tr>
+		</table>				
+		</td>
+	</tr>
+	<tr>
+		<td align="center">
+		<div style="height: 575px; overflow: hidden;">
+		<script src="http://img.shopping.com/sc/pac/shopwidget_v1.0_proxy.js"> </script>
+		<script>
+		<!--
+		   // icom_gpsdevices
+		   var sw = new ShopWidget();
+		   sw.mode            = "kw";
+		   sw.width           = 120;
+		   sw.height          = 600;
+		   sw.linkColor       = "#0033cc";
+		   sw.borderColor     = "#ffffff";
+		   sw.fontColor       = "#000000";
+		   sw.font            = "arial";
+		   sw.linkin          = "8005028";
+		   sw.categoryId      = "1398";
+		   sw.keyword         = "";
+		   sw.render();
+		//-->
+		</script>
+		</div>		
+		</td>
+	</tr>
+</table><IMG SRC="%%SERVER%%/RealMedia/ads/adstream_lx.cgi/%%PAGE%%/%%RAND%%/%%POS%%/%%CAMP%%/%%IMAGE%%/%%USER%%?_RM_EMPTY_" WIDTH=1 HEIGHT=1>
+
+
+</TD>
+</TR>
+</TABLE>
+
+	</TD>
+<TD ALIGN=LEFT VALIGN=TOP>
+<TABLE CELLSPACING=0 CELLPADDING=5 BORDER=0>
+	
+	<TR>
+		<TD>
+
+<!-- Kontera ContentLink(TM);-->
+<script type='text/javascript'>
+var dc_AdLinkColor = 'blue' ;
+var dc_PublisherID = 125539 ;
+</script>
+<script type='text/javascript' src='http://kona.kontera.com/javascript/lib/KonaLibInline.js'>
+</script>
+<!-- Kontera ContentLink(TM) -->
+
+
+<TABLE WIDTH="100%" BORDER=0><TR><TD><SPAN CLASS="clsTitle">HTTP Handlers and HTTP Modules in ASP.NET</SPAN><BR> By Mansoor Ahmed Siddiqui</TD><TD>
+
+<FONT SIZE="-1">Rating: <B> 4.4 </B> out of  5<BR><a href="#rate">Rate this article</a></FONT>
+
+</TD></TR></TABLE>
+<!--print_start-->
+<FONT SIZE="2">
+<br>
+ <LI><script language="JavaScript">
+       document.write("<a href=http://www.internet.com/icom_cgi/print/print.cgi?url=" + window.location + ">print this article</a>")
+</script>
+<br>
+<!--print_stop-->	
+
+<!--email article start-->
+<LI> <a href="/_email/email_a_colleague.htm">email this article to a colleague</a>
+<br>
+<!--email article stop-->
+<LI> <a href="http://aspnet.15seconds.com/feedback" target="top">suggest an article</a>
+
+<!-- <a href="http://www.15seconds.com/dyna/prepare.asp?title=HTTP Handlers and HTTP Modules in ASP.NET">suggest an article</a> -->
+</FONT>
+<P>
+			<P>
+			<TABLE CELLPADDING=0 CELLSPACING=0 BORDER=0>
+	<TR>
+		<TD VALIGN=TOP>
+
+		
+<SPAN CLASS="clsTitle">Introduction</SPAN><TABLE ALIGN=RIGHT><TR><TD><script language="javascript" type="text/javascript">
+<!--
+OAS_AD('flex');
+//-->
+</script><noscript><a href="http://63.236.18.118/RealMedia/ads/click_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!flex"><img src="http://63.236.18.118/RealMedia/ads/adstream_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!flex" border="0" alt="flex"></a></noscript>
+<br />
+<script language="javascript" type="text/javascript">
+<!--
+OAS_AD('accessunit');
+//-->
+</script><noscript><a href="http://63.236.18.118/RealMedia/ads/click_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!accessunit"><img src="http://63.236.18.118/RealMedia/ads/adstream_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!accessunit" border="0" alt="accessunit"></a></noscript>
+<br />
+<script type="text/javascript" src="http://jlinks.industrybrains.com/jsct?sid=829&amp;ct=INTERNETCOM_DEVELOPER&amp;tr=15SECONDS&amp;num=5&amp;layt=7&amp;fmt=simp"></script>
+</TD></TR></TABLE>
+	<SPAN CLASS="clsBlurb"><P><!--content_start-->
+<P>
+In the Internet world, Web servers serve resources that have been put on the Internet and provide other services like security, logging, etc.
+<P>
+At the beginning of the Internet era, clients' needs were very limited; .htm files were often satisfactory. As time passed, however, clients' requirements extended beyond the functionality contained in .htm files or static files. 
+<P>
+Developers needed a way to extend or complement the functionality of Web servers. Web server vendors devised different solutions, but they all followed a common theme: "Plug some component into the Web server". All Web server complement technologies allowed developers to create and plug in components for enhancing Web server functionality. Microsoft came up with ISAPI (Internet Server API); Netscape came up with NSAPI (Netscape Server API), etc.
+<P>
+ISAPI is an important technology that allows us to enhance the capabilities of an ISAPI-compliant Web server (IIS is an ISAPI-compliant Web server). The following components serve this purpose:
+<P>
+<UL>
+<LI> ISAPI Extensions
+<LI> ISAPI Filters
+</UL>
+<P>
+ISAPI extensions are implemented by using Win32 DLLs. You can think of an ISAPI extension as a normal application. ISAPI extensions are the target of http requests. That means you must call them to activate them. For example, the following URL calls the store.dll ISAPI extension and passes two values to it:
+<P>
+http://www.myownwebsite.com/Store.dll?sitename=15seconds&location=USA
+<P>
+Think of an ISAPI filter as just that: a filter. It sits between your Web server and the client. Every time a client makes a request to the server, it passes through the filter.
+<P>
+Clients do not specifically target the filter in their requests, rather, clients simply send requests to the Web server, and then the Web server passes that request to the interested filters.
+<P>
+Filters can then modify the request, perform some logging operations, etc.
+<P>
+It was very difficult to implement these components because of the complexities involved. One had to use C/C++ to develop these components, and for many, development in C/C++ is a pain.
+<P>
+So what does ASP.NET offer to harness this functionality? ASP.NET offers HttpHandlers and HttpModules. 
+<P>
+Before going into the details of these components, it is worth looking at the flow of http requests as it passes through the HTTP modules and HTTP handlers.
+<P>
+<P></SPAN>
+	<SPAN CLASS="clsTitle">Setting up the Sample Applications</SPAN><P>
+						<SPAN CLASS="clsBlurb">
+						<P>
+I have created the following C# projects, which demonstrate different components of the application.
+<P>
+<UL>
+<LI> NewHandler (HTTP handler)
+<LI> Webapp (Demonstrates HTTP handler)
+<LI> SecurityModules (HTTP module)
+<LI> Webapp2 (Demonstrated HTTP module)
+</UL>
+<P>
+To install the applications:
+<P>
+<UL>
+<LI> Extract all the code from the <a href="http://www.15seconds.com/files/020417.zip">attached zip file</a>.
+<LI> Create two virtual directories named webapp and webapp2; point these directories to the actual physical folders for the Webapp and Webapp2 web applications.
+<LI> Copy the Newhandler.dll file from the NewHandler project into the bin directory of webapp web application.
+<LI> Copy the SecurityModules.dll file from the SecurityModules project into the bin directory of webapp2 web application.
+</UL>
+<P>
+    
+						</SPAN>   
+					<P> 
+<SPAN CLASS="clsTitle">ASP.NET Request Processing</SPAN><P>
+						<SPAN CLASS="clsBlurb">
+						<P>
+ASP.NET request processing is based on a pipeline model in which ASP.NET passes http requests to all the modules in the pipeline. Each module  receives the http request and has full control over it.  The module can play with the request in any way it sees fit. Once the request passes through all of the HTTP modules, it is eventually served by an HTTP handler. The HTTP handler performs some processing on it, and the result again passes through the HTTP modules in the pipeline. 
+<P>
+The following figure describes this flow.
+<P>
+<IMG SRC="/graphics/issue/020417_01.jpg">
+<P>
+Notice that during the processing of an http request, only one HTTP handler will be called, whereas more than one HTTP modules can be called.
+<P>
+    
+						</SPAN>   
+					<P> 
+<SPAN CLASS="clsTitle">Http Handlers</SPAN><P>
+						<SPAN CLASS="clsBlurb">
+						<P>
+HTTP handlers are the .NET components that implement the System.Web.IHttpHandler interface. Any class that implements the IHttpHandler interface can act as a target for the incoming HTTP requests. HTTP handlers are somewhat similar to ISAPI extensions.  One difference between HTTP handlers and ISAPI extensions is that HTTP handlers can be called directly by using their file name in the URL, similar to ISAPI extensions.
+<P>
+HTTP handlers implement the following methods.
+<P>
+<TABLE BORDER=1> 
+<TR><TD><B>Method Name</B></TD><TD><B>Description</B></TD></TR>
+<TD>ProcessRequest</TD><TD>This method is actually the heart of all http handlers. This method is called to process http requests. </TD></TR>
+<TR><TD>IsReusable</TD><TD>This property is called to determine whether this instance of http handler can be reused for fulfilling another requests of the same type. HTTP handlers can return either true or false in order to specify whether they can be reused.</TD></TR>
+</TABLE>
+<P>
+These classes can be mapped to http requests by using the web.config or machine.config file. Once that is done, ASP.NET will instantiate http handler whenever the corresponding request comes in. We will see how to specify all of these details in web.config and/or machine.config files.
+<P>
+ASP.NET also supports the creation of http handlers by means of the IHttpHandlerFactory interface. ASP.NET provides the capability of routing http requests to an object of the class that implements the IHttpHandlerFactory interface. Here, ASP.NET utilizes the Factory design pattern. This pattern provides an interface for creating families of related objects without specifying their concrete classes. In simple terms, you can consider such a class as a factory that creates http handler objects depending on the parameters passed to it. We don't have to specify a particular http handler class to instantiate; http handler factory takes care of it.
+The benefit of this is if in the future the implementation of the object that implements the IHttpHandler interface changes, the consuming client is not affected as long as the interface remains the same.
+<P>
+These are following methods in IHttpHandlerFactory interface:
+<P>
+<TABLE BORDER=1> 
+<TR><TD><B>Method Name</B></TD><TD><B>Description</B></TD></TR>
+<TR><TD>GetHandler</TD><TD>This method is responsible for creating the appropriate handler and returns the reference out to the calling code (the ASP.NET runtime). Handler object returned by this method should implement the IHttpHandler interface.</TD></TR>
+<TR><TD>ReleaseHandler</TD><TD>This method is responsible for releasing the http handler once request processing is complete. The implementation of the factory decides what it should do. Factory implementation can either actually destroy the instance or return it to a pool for future requests.</TD></TR>
+</TABLE>
+<P>
+    
+						</SPAN>   
+					<P> 
+<SPAN CLASS="clsTitle">Registering HTTP Handlers and HTTP Handler Factories in Configuration Files</SPAN><P>
+						<SPAN CLASS="clsBlurb">
+						<P>
+ASP.NET maintains its configuration information in the following configuration files:
+<P>
+<UL>
+<LI> machine.config
+<LI> web.config
+</UL>
+<P>
+machine.config file contains the configuration settings that apply to all the Web applications installed on that box.
+<P>
+web.config file is specific to each Web application. Each Web application can have its own web.config file. Any sub directory of a Web application may have its own web.config file; this allows them to override the settings imposed by the parent directories.
+<P>
+We can use &#060;httpHandlers&#062; and &#060;add&#062; nodes for adding HTTP handlers to our Web applications. In fact the handlers are listed with &#060;add&#062; nodes in between &#060;httpHandlers&#062; and &#060;/httpHandlers&#062; nodes. Here is a generic example of adding an HTTP handler:
+<PRE>
+<FONT FACE="ARIAL,HELVETICA" SIZE="2" COLOR="#0000FF">
+&#060;httpHandlers&#062;
+	&#060;add verb="supported http verbs" path="path" type="namespace.classname, assemblyname" /&#062;
+&#060;httpHandlers&#062;
+</FONT>
+</PRE>
+
+In the above XML,
+<P>
+<UL>
+<LI> The verb attribute specifies the HTTP verbs supported by the handler. If the handler supports all of the HTTP verbs, simply use "*", otherwise list the supported verbs in a comma separated list. So if your handler supports only HTTP GET and POST, then verb attribute will be "GET, POST".
+<LI> The path attribute specifies the path or wildcard specification of the files for which this handler will be invoked. For example, if you want your handler to be called only when test.xyz file is requested, then the path attribute will contain "test.xyz"; similarly if you want your handler called for any file having .xyz extension, the path attribute will contain "*.xyz".
+<LI> The <I>type</I> attribute specifies the actual type of the handler or handler factory in the form of a combination of namespace, class name and assembly name. ASP.NET runtime first searches the assembly DLL in the application's bin directory and then searches in the Global Assembly Cache (GAC).
+</UL>
+<P>
+    
+						</SPAN>   
+					<P> 
+<SPAN CLASS="clsTitle">Use of HTTP Handlers by the ASP.NET Runtime</SPAN><P>
+						<SPAN CLASS="clsBlurb">
+						<P>
+Believe it or not, ASP.NET uses HTTP handlers for implementing a lot of its own functionality. ASP.NET uses handlers for processing .aspx, .asmx, .soap and other ASP.NET files. 
+<P>
+The following is the snippet from the machine.config file:
+<PRE>
+<FONT FACE="ARIAL,HELVETICA" SIZE="2" COLOR="#0000FF">
+&#060;httpHandlers&#062;
+&#060;add verb="*" path="trace.axd" type="System.Web.Handlers.TraceHandler"/&#062;
+ 
+ &#060;add verb="*" path="*.aspx" type="System.Web.UI.PageHandlerFactory"/&#062;
+ 
+ &#060;add verb="*" path="*.ashx" type="System.Web.UI.SimpleHandlerFactory"/&#062;
+
+ &#060;add verb="*" path="*.config" type="System.Web.HttpForbiddenHandler"/&#062;
+ 
+ &#060;add verb="GET,HEAD" path="*" type="System.Web.StaticFileHandler"/&#062;
+ 
+ . . . . . . 
+ . . . . . .
+&#060;/httpHandlers&#062;
+</FONT>
+</PRE>
+You can see in the above configuration that all the requests for .aspx files are processed by the System.Web.UI.PageHandlerFactory class. Similarly all the requests for .config and other files, which should not be directly accessible to the clients, are handled by the System.Web.HttpForbiddenHandler class. As you might have already guessed, this class simply returns an error to the client stating that these kinds of files are not served.
+<P>    
+						</SPAN>   
+					<P> 
+<SPAN CLASS="clsTitle">Implementing HTTP Handlers</SPAN><P>
+						<SPAN CLASS="clsBlurb">
+						<P>
+Now we will see how to implement an HTTP handler. So what should our new handler do? Well, as I stated above, handlers are mostly used for adding new functionalities to Web servers; therefore, we will create a handler that handles new types of files, files that have a .15seconds extension. Once we implement this handler and register it in the web.config file of our Web application, all requests for .15seconds files will be handled by this new handler.
+<P>
+You might be thinking about the use of such a handler. Well, what if you want to introduce a new kind of server scripting language or dynamic server file such as asp, aspx? You can write your own handler for this. Similarly, what will you do if you want to run Java servlets, JSPs and other server side Java components on IIS? One way of doing this is to install some ISAPI extension like Allaire or Macromedia Jrun. Or you can write your own HTTP handler. Although it is a difficult task for third-party vendors like Allaire and Macromedia, it is a very attractive option because their HTTP handlers will have access to all the new functionalities exposed by the ASP.NET runtime.
+<P>
+Steps involved in implementing our HTTP handler are as follows:
+<OL>
+<LI> Write a class which implements IHttpHandler interface
+<LI> Register this handler in web.config or machine.config file.
+<LI> Map the file extension (.15seconds) to ASP.NET ISAPI extension DLL (aspnet_isapi.dll) in Internet Services Manager.
+</OL>
+<B>Step1</B><BR>
+Create a new C# Class Library project in Visual Studio.NET and name it  "MyHandler". Visual Studio.NET will automatically add a class named "Class1.cs" into the project. Rename it  "NewHandler"; open this class in the code window and change the class name and constructor name to "NewHandler".
+<P>
+The following is the code for the NewHandler class.
+<PRE>
+<FONT FACE="ARIAL,HELVETICA" SIZE="2" COLOR="#0000FF">
+using System;
+using System.Web;
+
+namespace MyHandler
+{
+	/// &#060;summary&#062;
+	/// Summary description for NewHandler.
+	/// &#060;/summary&#062;
+	public class NewHandler : IHttpHandler
+	{
+		public NewHandler()
+		{
+			//
+			// TODO: Add constructor logic here
+			//
+		}
+
+		#region Implementation of IHttpHandler
+		public void ProcessRequest(System.Web.HttpContext context)
+		{
+			HttpResponse objResponse = context.Response ;
+objResponse.Write("&#060;html&#062;&#060;body&#062;&#060;h1&#062;Hello 15Seconds   Reader ") ;
+			objResponse.Write("&#060;/body&#062;&#060;/html&#062;") ;
+		}
+
+		public bool IsReusable
+		{
+			get
+			{
+				return true;
+			}
+		}
+		#endregion
+	}
+}
+</FONT>
+</PRE>
+As you can see in the ProcessRequest method, the HTTP handler has access to all ASP.NET intrinsic objects passed to it in its parameter through the System.Web.HttpContext object. Implementing the ProcessRequest method is simply extracting the HttpResponse object from the context object and then sending some HTML out to the client. Similarly,  IsReusable returns true to designate that this handler can be reused for processing the other HTTP requests.
+<P>
+Let's compile it and place it in the bin directory of the webapp virtual directory.
+<P>
+<B>Step 2</B><BR>
+Register this handler by adding the following text in the web.config file:
+<PRE>
+<FONT FACE="ARIAL,HELVETICA" SIZE="2" COLOR="#0000FF">
+&#060;httpHandlers&#062;
+  &#060;add verb="*" path="*.15seconds" type="MyHandler.NewHandler,MyHandler"/&#062;
+&#060;/httpHandlers&#062;
+</PRE>
+</FONT>
+<B>Step 3</B><BR>
+Since we are creating a handler for handling files of a new extension, we also need to tell IIS about this extension and map it to ASP.NET. If we don't perform this step and try to access the <B>Hello.15seconds</B> file, IIS will simply return the file rather than pass it to ASP.NET runtime.  As a consequence, the HTTP handler will not be called.
+<P>
+Launch the <B>Internet Services Manager</B> tool, right click on <B>Default Web Site</B>, select <B>Properties</B>, go to <B>Home Directory</B> tab and press <B>Configuration</B> button. This will popup <B>Application Configuration</B> dialog. Click <B>Add</B> button and fill the <B>Executable</B> field with the path to the aspnet_isapi.dll file and fill .15seconds in the <B>Extension</B> field. Leave the other fields as is; the dialog box should look as follows:
+<P>
+<IMG SRC="/graphics/issue/020417_02.jpg">
+<P>
+Close the <B>Application Configuration</B> and <B>Default Web Site Properties</B> dialog boxes by pressing the <B>OK</B> button.
+<P>
+Now we are good to go. Launch Internet Explorer and go to the following url:
+<P> 
+http://localhost/webapp/hello.15seconds
+<P>
+You should see the following page:
+<P>
+<IMG SRC="/graphics/issue/020417_03.jpg">
+<P>
+    
+						</SPAN>   
+					<P> 
+<SPAN CLASS="clsTitle">Session State in HTTP Handlers</SPAN><P>
+						<SPAN CLASS="clsBlurb">
+						<P>
+Maintaining session state is one of the most common tasks that Web applications perform. HTTP handlers also need to have access to the session state. But session state is not enabled by default for HTTP handlers. In order to read and/or write session data, HTTP handlers are required to implement one of the following interfaces:
+<UL>
+<LI> IRequiresSessionState
+<LI> IReadOnlySessionState.
+</UL>
+<P>
+An HTTP handler should implement the IRequiresSessionState interface when it requires read-write access to the session data. If a handler only needs read access to session data, then it should only implement the IReadOnlySessionState interface.
+<P>
+Both of these interfaces are just marker interfaces and do not contain any methods. So if we want to enable session state for our NewHandler handler, then declare the NewHandler class as followed:
+<PRE>
+<FONT FACE="ARIAL,HELVETICA" COLOR="#0000FF" SIZE="2">
+public class NewHandler : IHttpHandler, IRequiresSessionState
+</FONT>
+</PRE>
+    
+						</SPAN>   
+					<P> 
+<SPAN CLASS="clsTitle">HTTP Modules</SPAN><P>
+						<SPAN CLASS="clsBlurb">
+						<P>
+HTTP modules are .NET components that implement the System.Web.IHttpModule interface. These components plug themselves into the ASP.NET request processing pipeline by registering themselves for certain events. Whenever those events occur, ASP.NET invokes the interested HTTP modules so that the modules can play with the request.
+<P>
+An HTTP module is supposed to implement the following methods of the IHttpModule interface:
+<P>
+<TABLE BORDER="1">
+<TR><TD><B>Method Name</B></TD><TD><B>Description</B></TD></TR>
+<TR><TD>Init</TD><TD>This method allows an HTTP module to register its event handlers to the events in the HttpApplication object.</TD></TR>
+<TR><TD>Dispose</TD><TD>This method gives HTTP module an opportunity to perform any clean up before the object gets garbage collected.</TD></TR>
+</TABLE>
+<P>
+An HTTP module can register for the following events exposed by the System.Web.HttpApplication object.
+<P>
+<TABLE BORDER="1">
+<TR><TD><B>Event Name</B></TD><TD><B>Description</B></TD></TR>
+<TR><TD>AcquireRequestState</TD><TD>
+This event is raised when ASP.NET runtime is ready to acquire the Session state of the current HTTP request. </TD></TR>
+<TR><TD>AuthenticateRequest</TD><TD>
+This event is raised when ASP.NET runtime is ready to authenticate the identity of the user. </TD></TR>
+<TR><TD>AuthorizeRequest</TD><TD>
+This event is raised when ASP.NET runtime is ready to authorize the user for the resources user is trying to access. </TD></TR>
+<TR><TD>BeginRequest</TD><TD>
+This event is raised when ASP.NET runtime receives a new HTTP request. </TD></TR>
+<TR><TD>Disposed</TD><TD>
+This event is raised when ASP.NET completes the processing of HTTP request. </TD></TR>
+<TR><TD>EndRequest</TD><TD>
+This event is raised just before sending the response content to the client. </TD></TR>
+<TR><TD>Error</TD><TD>
+This event is raised when an unhandled exception occurs during the processing of HTTP request. </TD></TR>
+<TR><TD>PostRequestHandlerExecute</TD><TD>
+This event is raised just after HTTP handler finishes execution. </TD></TR>
+<TR><TD>PreRequestHandlerExecute</TD><TD>
+This event is raised just before ASP.NET begins executing a handler for the HTTP request. After this event, ASP.NET will forward the request to the appropriate HTTP handler. </TD></TR>
+<TR><TD>PreSendRequestContent</TD><TD>
+This event is raised just before ASP.NET sends the response contents to the client. This event allows us to  change the contents before it gets delivered to the client. We can use this event to add the contents, which are common in all pages, to the page output. For example, a common menu, header or footer. </TD></TR>
+<TR><TD>PreSendRequestHeaders</TD><TD>
+This event is raised just before ASP.NET sends the HTTP response headers to the client. This event allows us to change the headers before they get delivered to the client. We can use this event to add cookies and custom data into headers. </TD></TR>
+<TR><TD>ReleaseRequestState</TD><TD>
+This event is raised after ASP.NET finishes executing all request handlers.
+<TR><TD>ResolveRequestCache</TD><TD>
+This event is raised to determine whether the request can be fulfilled by returning the contents from the Output Cache. This depends on how the Output Caching has been setup for your web application. </TD></TR>
+<TR><TD>UpdateRequestCache</TD><TD>
+This event is raised when ASP.NET has completed processing the current HTTP request and the output contents are ready to be added to the Output Cache. This depends on how the Output Caching has been setup for your Web application. </TD></TR>
+</TABLE>
+<P>
+Apart from these events, there are four more events that we can use. We can hook up to these events by implementing the methods in the global.asax file of our Web application.
+<P>
+ These events are as follows:
+<P>
+<UL>
+<LI> Application_OnStart<BR>
+This event is raised when the very first request arrives to the Web application.
+<LI> Application_OnEnd<BR>
+This event is raised just before the application is going to terminate.
+<LI> Session_OnStart<BR>
+This event is raised for the very first request of the user's session.
+<LI> Session_OnEnd<BR>
+This event is raised when the session is abandoned or expired.
+</UL>
+<P>
+    
+						</SPAN>   
+					<P> 
+<SPAN CLASS="clsTitle">Registering HTTP Modules in Configuration Files</SPAN><P>
+						<SPAN CLASS="clsBlurb">
+						<P>
+Once an HTTP module is built and copied into the bin directory of our Web application or copied into the Global Assembly Cache, then we will register it in either the web.config or machine.config file.
+<P>
+We can use &#060;httpModules&#062; and &#060;add&#062; nodes for adding HTTP modules to our Web applications. In fact the modules are listed by using &#060;add&#062; nodes in between &#060;httpModules&#062; and &#060;/httpModules&#062; nodes. 
+<P>
+Since configuration settings are inheritable, the child directories inherit configuration settings of the parent directory. As a consequence, child directories might inherit some unwanted HTTP modules as part of the parent configuration; therefore, we need a way to remove those unwanted modules. We can use the &#060;remove&#062; node for this.
+<P>
+If we want to remove all of the inherited HTTP modules from our application, we can use the &#060;clear&#062; node.
+<P>
+The following is a generic example of adding an HTTP module:
+<PRE>
+<FONT SIZE="2" FACE="ARIAL,HELVETICA" COLOR="#0000FF">
+&#060;httpModules&#062;
+	&#060;add type="classname, assemblyname" name="modulename"  /&#062;
+&#060;httpModules&#062;
+</FONT>
+</PRE>
+The following is a generic example of removing an HTTP module from your application.
+<PRE>
+<FONT SIZE="2" FACE="ARIAL,HELVETICA" COLOR="#0000FF">
+&#060;httpModules&#062;
+	&#060;remove name="modulename"  /&#062;
+&#060;httpModules&#062;
+</FONT>
+</PRE>
+In the above XML, 
+<P>
+<UL>
+<LI> The type attribute specifies the actual type of the HTTP module in the form of class and assembly name.
+<LI> The name attribute specifies the friendly name for the module. This is the name that will be used by other applications for identifying the HTTP module.
+</UL>
+<P>
+    
+						</SPAN>   
+					<P> 
+<SPAN CLASS="clsTitle">Use of HTTP Modules by the ASP.NET Runtime</SPAN><P>
+						<SPAN CLASS="clsBlurb">
+						<P>
+ASP.NET runtime uses HTTP modules for implementing some special features. The following snippet from the machine.config file shows the HTTP modules installed by the ASP.NET runtime.
+<PRE>
+<FONT SIZE="2" FACE="ARIAL,HELVETICA" COLOR="#0000FF">
+&#060;httpModules&#062;
+ &#060;add name="OutputCache" type="System.Web.Caching.OutputCacheModule"/&#062;
+ &#060;add name="Session" type="System.Web.SessionState.SessionStateModule"/&#062;
+ &#060;add name="WindowsAuthentication"
+   type="System.Web.Security.WindowsAuthenticationModule"/&#062;
+ &#060;add name="FormsAuthentication"
+   type="System.Web.Security.FormsAuthenticationModule"/&#062;
+ &#060;add name="PassportAuthentication"
+   type="System.Web.Security.PassportAuthenticationModule"/&#062;
+ &#060;add name="UrlAuthorization"
+   type="System.Web.Security.UrlAuthorizationModule"/&#062;
+ &#060;add name="FileAuthorization"
+   type="System.Web.Security.FileAuthorizationModule"/&#062;
+&#060;/httpModules&#062;
+</FONT>
+</PRE>
+All of the above HTTP modules are used by ASP.NET to provide services like authentication and authorization, session management and output caching. Since these modules have been registered in machine.config file, these modules are automatically available to all of the Web applications.
+<P>    
+						</SPAN>   
+					<P> 
+<SPAN CLASS="clsTitle">Implementing an HTTP Module for Providing Security Services</SPAN><P>
+						<SPAN CLASS="clsBlurb">
+						<P>
+Now we will implement an HTTP module that provides security services for our Web application. Our HTTP module will basically provide a custom authentication service. It will receive authentication credentials in HTTP request and will determine whether those credentials are valid.  If yes, what roles are the user associated with? Through the User.Identity object, it will associate those roles that are accessible to our Web application pages to the user's identity.
+<P>
+Following is the code of our HTTP module.
+<PRE>
+<FONT SIZE="2" FACE="ARIAL,HELVETICA" COLOR="#0000FF">
+using System;
+using System.Web;
+using System.Security.Principal;
+
+namespace SecurityModules
+{
+ /// &#060;summary&#062;
+ /// Summary description for Class1.
+ /// &#060;/summary&#062;
+
+ public class CustomAuthenticationModule : IHttpModule
+ {
+  public CustomAuthenticationModule()
+  {
+  }
+  public void Init(HttpApplication r_objApplication)
+  {
+   // Register our event handler with Application object.
+   r_objApplication.AuthenticateRequest += 
+               new EventHandler(this.AuthenticateRequest) ;
+  }
+
+  public void Dispose()
+  {
+   // Left blank because we dont have to do anything.
+  }
+
+  private void AuthenticateRequest(object r_objSender,
+                                   EventArgs r_objEventArgs)
+  {
+   // Authenticate user credentials, and find out user roles.
+   1. HttpApplication objApp = (HttpApplication) r_objSender ;
+   2. HttpContext objContext = (HttpContext) objApp.Context ;
+   3. if ( (objApp.Request["userid"] == null) ||
+   4.                     (objApp.Request["password"] == null) )
+   5. {
+   6.  objContext.Response.Write("&#060;H1&#062;Credentials not provided&#060;/H1&#062;") ;
+   7.  objContext.Response.End() ;
+   8. }
+
+   9. string userid = "" ;
+   10. userid = objApp.Request["userid"].ToString() ;
+   11. string password = "" ;
+   12. password = objApp.Request["password"].ToString() ;
+			
+   13. string[] strRoles ;
+   14. strRoles = AuthenticateAndGetRoles(userid, password) ;
+   15. if ((strRoles == null) || (strRoles.GetLength(0) == 0))
+   16. {
+   17. objContext.Response.Write("&#060;H1&#062;We are sorry but we could not
+       find this user id and password in our database&#060;/H1&#062;") ;
+   18. objApp.CompleteRequest() ;
+   19. }
+
+   20. GenericIdentity objIdentity = new GenericIdentity(userid,
+                                             "CustomAuthentication") ;
+   21. objContext.User = new GenericPrincipal(objIdentity, strRoles) ;
+  }
+
+  private string[] AuthenticateAndGetRoles(string r_strUserID,
+                                                 string r_strPassword)
+  {
+   string[] strRoles = null ;
+   if ((r_strUserID.Equals("Steve")) &&
+                                  (r_strPassword.Equals("15seconds")))
+   {
+    strRoles = new String[1] ;
+    strRoles[0] = "Administrator" ;
+   }
+   else if ((r_strUserID.Equals("Mansoor")) &&
+                                        (r_strPassword.Equals("mas")))
+   {
+     strRoles = new string[1] ;
+     strRoles[0] = "User" ;				
+    }
+    return strRoles ;
+   }
+  }
+}
+</PRE>
+</FONT>
+Let's explore the code. 
+<P>
+We start with the Init function. This function plugs in our handler for the AuthenticateRequest event into the Application object's event handlers list. This will cause the Application object to call this method whenever the AuthenticationRequest event is raised.
+<P>
+Once our HTTP module is initialized, its AuthenticateRequest method will be called for authenticating client requests. AuthenticateRequest method is the heart of the security/authentication mechanism. In that function:
+<P>
+Line 1 and Line 2 extract the HttpApplication and HttpContext objects.
+Line 3 through Line 7 checks whether any of the userid or password is not provided to us. If this is the case, error is displayed and the request processing is terminated.
+<P>
+Line 9 through Line 12 extract the user id and password from the HttpRequest object.
+<P>
+Line 14 calls a helper function, named AuthenticateAndGetRoles. This function basically performs the authentication and determines the user role. This has been hard-coded and only two users are allowed, but we can generalize this method and add code for interacting with some user database to retrieve user roles.
+<P>
+Line 16 through Line 19 checks whether the user has any role assigned to it. If this is not the case that means the credentials passed to us could not be verified; therefore, these credentials are not valid. So, an error message is sent to the client and the request is completed.
+<P>
+Line 20 and Line 21 are very important because these lines actually inform the ASP.NET HTTP runtime about the identity of the logged-in user. Once these lines are successfully executed, our aspx pages will be able to access this information by using the User object.
+<P>
+Now let's see this authentication mechanism in action. Currently we are only allowing the following users to log in to our system:
+<P>
+<UL>
+<LI> User id = Steve, Password = 15seconds, Role = Administrator
+<LI> User id = Mansoor, Password = mas, Role = User
+</UL>
+<P>
+Note that user id and password are case-sensitive.
+<P>
+First try logging-in without providing credentials. Go to http://localhost/webapp2/index.aspx and you should see the following message.
+<P>
+<IMG SRC="/graphics/issue/020417_04.jpg">
+<P>
+Now try logging-in with the user id "Steve" and password "15seconds". Go to http://localhost/webapp2/index.aspx?userid=Steve&password=15seconds and you should see the following welcome message.
+<P>
+<IMG SRC="/graphics/issue/020417_05.jpg">
+<P>
+Now try to log-in with the user id "Mansoor" and password "15seconds". Go to http://localhost/webapp2/index.aspx?userid=Mansoor&password=mas and you should see the following welcome page.
+<P>
+<IMG SRC="/graphics/issue/020417_06.jpg">
+<P>
+Now try to log-in with the wrong combination of user id and password. Go to http://localhost/webapp2/index.aspx?userid=Mansoor&password=xyz and you should see the following error message.
+<P>
+<IMG SRC="/graphics/issue/020417_07.jpg">
+<P>
+This shows our security module in action. You can generalize this security module by using database-access code in the AuthenticateAndGetRoles method.
+<P>
+For all of this to work, we have to perform some changes in our web.config file. First of all, since we are using our own custom authentication, we don't need any other authentication mechanism. To specify this, change the &#060;authentication&#062; node in web.config file of webapp2 to look like this:
+<PRE>
+<FONT SIZE="2" FACE="ARIAL,HELVETICA" COLOR="#0000FF">
+&#060;authentication mode="None"/&#062;
+</PRE>
+</FONT>
+Similarly, don't allow anonymous users to our Web site. Add the following to web.config file:
+<PRE>
+<FONT SIZE="2" FACE="ARIAL,HELVETICA" COLOR="#0000FF">
+&#060;authorization&#062;
+ &#060;deny users="?"/&#062;
+&#060;/authorization&#062;
+</FONT>
+</PRE>
+Users should at least have anonymous access to the file that they will use for providing credentials.  Use the following configuration setting in the web.config file for specifying index.aspx as the only anonymously accessible file:
+<PRE>
+<FONT SIZE="2" FACE="ARIAL,HELVETICA" COLOR="#0000FF">
+&#060;location path="index.aspx"&#062;
+ &#060;system.web&#062;
+  &#060;authorization&#062;
+   &#060;allow users="*"/&#062;
+  &#060;/authorization&#062;
+ &#060;/system.web&#062;
+&#060;/location&#062;
+</FONT>
+</PRE>
+    
+						</SPAN>   
+					<P> 
+<SPAN CLASS="clsTitle">Conclusion</SPAN><P>
+						<SPAN CLASS="clsBlurb">
+						<P>
+As you might have realized with HTTP handlers and modules, ASP.NET has put a lot of power in the hands of developers. Plug your own components into the ASP.NET request processing pipeline and enjoy the benefits.
+<P>
+This article should at least get you started with these components. As an exercise, you might want to go and make this sample authentication module more flexible and tune it according to your needs.
+<P>
+    
+						</SPAN>   
+					<P> 
+<SPAN CLASS="clsTitle">About the Author</SPAN><P>
+						<SPAN CLASS="clsBlurb">
+						<P>
+
+Mansoor Ahmed Siddiqui is a software consultant and technical writer working in the United States. He has a masters degree in computer science and been involved in software development since 1997. His areas of expertise include designing and developing Web-based applications, client-server applications, and n-tier applications, with a special focus on middle-tier and Win32 programming. 
+<P>
+He has expertise in Microsoft. NET Framework, ASP.NET, C#, Visual Studio .NET, Web Services, ADO.NET, ASP, JavaScript, eXtensible Markup Language (XML), Simple Object Access Protocol (SOAP), Visual C++, Microsoft Foundation Class Library (MFC), Active Template Library (ATL), Visual Basic 6.0, ActiveX Data Objects (ADO), COM/DCOM/COM+, Microsoft Transaction Server (MTS), Microsoft Message Queue (MSMQ), SQL Server 7.0/2000, OMG's Unified Modeling Language (UML), Rational Software Corp.'s Rational Rose, Java, Java Server Page (JSP), servlets, Enterprise JavaBeans (EJBs), Java 2 Platform Enterprise Edition (J2EE).
+Currently, he is working with Visual Studio 7.0 and the Microsoft .NET platform. He is an MCSD and is Brainbench certified in different languages.
+<P>
+Apart from technical writing, other interests include listening to music, swimming, playing cricket and pool, and hanging out with friends. He can be reached at mansoorasiddiqui@hotmail.com and ICQ 151707288.
+<P>
+<!--content_stop-->    
+						</SPAN>   
+					<P> 
+
+
+		</TD>
+	</TR>
+</TABLE>
+
+</TD>
+	</TR>
+	
+<TR>
+		<TD>
+<A NAME="rate"></a>
+<FORM ACTION="/dyna/rating/results.asp" METHOD="POST">
+<TABLE BORDER=0>
+<TR>
+<TD COLSPAN=3><CENTER><B>Rate This Article</B></CENTER></TD>
+</TR>
+<TR>
+<TD>Not Helpful</TD><TD></TD><TD>Most Helpful</TD>
+</TR>
+<TR>
+<TD></TD><TD>
+<INPUT TYPE="HIDDEN" NAME="pageid" VALUE="402">
+1<INPUT TYPE="radio" NAME="score" VALUE="1"> 2<INPUT TYPE="radio" NAME="score" VALUE="2"> 3<INPUT TYPE="radio" NAME="score" VALUE="3"> 4<INPUT TYPE="radio" NAME="score" VALUE="4"> 5<INPUT TYPE="radio" NAME="score" VALUE="5">
+</TD>
+<TD><TD>
+</TR>
+<TR>
+<TD COLSPAN=3><CENTER><INPUT TYPE="SUBMIT" VALUE="submit"></CENTER></TD>
+</TR>
+</TABLE>
+</FORM>		</TD>
+	</TR>
+<TR>
+		<TD>
+			
+		</TD>
+	</TR>	
+	<TR>
+		<TD>
+			
+		</TD>
+	</TR>	
+	<TR>
+		<TD>
+			<A HREF="http://e-newsletters.internet.com/15seconds.html"><SPAN CLASS="clsTitle">Mailing List</SPAN></A><BR>
+<SPAN CLASS="clsBlurb">
+Want to receive email when the next article is published? Just <A HREF="http://e-newsletters.internet.com/15seconds.html">Click Here</A> to sign up.
+</SPAN>
+
+
+		</TD>
+	</TR>
+</TABLE>
+</TD>
+</TR>
+<TR>
+<TD COLSPAN=2>
+<HR COLOR="#0000FF"></HR>
+<CENTER>
+<SPAN CLASS="clsBlurb">Support the Active Server Industry</SPAN><BR>
+<TABLE CELLSPACING="5" CELLPADDING="0" BORDER="0">
+	<TR>
+		<TD WIDTH="100">
+			<TABLE WIDTH="100" CELLSPACING="0" CELLPADDING="0" BORDER="0">
+				
+				<TR>
+					<TD HEIGHT="100" WIDTH="100" ALIGN="CENTER" VALIGN="MIDDLE"
+
+<!-- BEGIN WEB RING CODE -->
+<IMG SRC="http://www.asp101.com/webring/linked/aspringlogo100x100.gif"
+WIDTH=100 HEIGHT=100 BORDER=0 USEMAP="#ASPWebRingMap">
+<MAP NAME="ASPWebRingMap">
+       <AREA SHAPE="RECT" COORDS="0,  0, 100,  69" HREF="http://www.asp101.com/webring">
+       <AREA SHAPE="RECT" COORDS="0, 70, 100,  85" HREF="http://www.webring.org/cgi-bin/webring?ring=asp101;id=327;prev">
+       <AREA SHAPE="RECT" COORDS="0, 86, 100, 100" HREF="http://www.webring.org/cgi-bin/webring?ring=asp101;id=327;next">
+</MAP>
+<!-- END WEB RING CODE -->
+					
+					</TD>
+				</TR>
+			</TABLE>
+		</TD>
+	</TR>
+</TABLE>
+<P>
+
+	
+	
+		<script language="javascript" type="text/javascript">
+<!--
+OAS_AD('468x60-2');
+//-->
+</script><noscript><a href="http://63.236.18.118/RealMedia/ads/click_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!468x60-2"><img src="http://63.236.18.118/RealMedia/ads/adstream_nx.ads/intm/webdev/www.15seconds.com@468x60-1,468x60-2,house_ribbon,ciu,flex,accessunit,accessunit_one,accessunit_two,accessunit_three,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,marketplace01,marketplace02,marketplace03,marketplace04,marketplace05,marketplace06,marketplace07,marketplace08,marketplace09,marketplace10,120x60-1!468x60-2" border="0" alt="468x60-2"></a></noscript>
+
+
+
+</CENTER>
+<P/>
+<CENTER>
+<SPAN CLASS="clsFooter">
+
+<!-- Kontera exclusion div starts -->
+<div class="konafilter">
+
+<!-- Google Analytics -->
+<script src="/icom_includes/footers/scripts/ga.js"  type="text/javascript">
+</script>
+<script  type="text/javascript" >
+<!--     hide from no js browsers
+delete Array.prototype.itemValidation;
+delete Array.prototype.isArray;
+var superTracker = _gat._getTracker("UA-2838492-1");
+superTracker._initData();
+superTracker._trackPageview();
+
+-->
+</script>
+<script  type="text/javascript" >
+   var site_name =  location.hostname;
+   if ( site_name.indexOf("www.") != 0 ) {
+     site_name  = "www."+site_name ;
+   }
+   document.write("<SCR" + "IPT LANGUAGE='JavaScript1.2' SRC='/icom_includes/footers/sites/"+ site_name +".js' TYPE='text/javascript'><\/SCR" + "IPT>");
+-->
+</script>
+<script  type="text/javascript" >
+<!--     hide from no js browsers
+   pageTracker._initData();
+   pageTracker._trackPageview();
+   // -->
+</script>
+<!-- End Google Analytics -->
+
+
+<!-- Revenue Science API -->
+<script src="http://js.revsci.net/gateway/gw.js?csid=K08784"></script>
+<script>
+  DM_addEncToLoc("pid","INT");
+  DM_tag();
+
+</script>
+<!-- Revenue Science API -->
+
+
+
+
+<style type="text/css">
+@charset "UTF-8";
+/* CSS Document */
+
+
+/* JOM CSS */
+
+#jomfooter {
+	border: 0;
+	margin: 5px;
+	padding: 5px;
+	}
+
+#jomfooter * {
+	font-family: Arial, Helvetica, sans-serif;
+	padding: 0;
+	margin: 0;
+	}
+
+#jomfooter img {
+	border: 0;
+	behavior: url('/icom_includes/footers/css/iepngfix.htc');
+	padding: 5px;
+	padding: expression('0');
+	}
+
+#jomfooter p {
+	font-size: 11px;
+	line-height: 20px;
+	margin: 10px;
+	}
+
+#jomfooter form b {
+	font-size: 12px;
+	}
+
+#jomfooter a {
+	text-decoration: underline;
+	}
+
+#jomfooter a:hover {
+	text-decoration: none;
+	}
+
+#jomfooter table td {
+	border: 0;
+	}
+
+
+/* GEMS Solutions CSS */
+
+#jomfooter #solsect {
+	margin: 0 auto;
+	padding: 10px 0;
+	width: 720px;
+	}
+
+#jomfooter #solsect .top {
+	background: url('/icom_includes/footers/soltopbg.gif') repeat-x #bbb;
+	height: 26px;
+	margin-bottom: 1px;
+	}
+
+#jomfooter #solsect .top a {
+	font-size: 16px;
+	font-weight: bold;
+	color:#333;
+	text-decoration:none;
+	margin-left: 5px;
+	padding: 0;
+	line-height: 25px;
+	}
+
+#jomfooter #solsect .top a:hover {
+	text-decoration: none;
+	}
+
+#jomfooter #solsect .solsectpad {
+	background: #fff;
+	}
+
+#jomfooter #solsect .solsectpad .main {
+	background:url('/icom_includes/footers/solmidbg.gif') repeat-x #e7e8e3;
+	padding: 5px;
+	margin-bottom: 1px;
+	}
+
+#jomfooter #solsect .solsectpad .main h2 {
+	font-size: 12px;
+	color: #000;
+	font-weight: normal;
+	padding-bottom: 3px;
+	}
+
+#jomfooter #solsect a {
+	color: #333;
+	font-size: 10px;
+	text-decoration: none;
+	line-height: 13px;
+	}
+
+#jomfooter #solsect a:hover {
+	text-decoration: underline;
+	}
+</style>
+
+
+
+<!-- Begin JOM Footer -->
+
+
+<div id="jomfooter" align="center">
+<p>
+    <a href="http://www.internet.com/"><img src="http://www.internet.com/icom_includes/footers/img/icom_logo_qsfooter.png" width="240" height="40" hspace="0" /></a>
+
+    <br>
+    The Network for Technology Professionals</p>
+<form method="POST" action="http://search.internet.com/www.jupiterweb.com" target="_top">        
+        <input type="HIDDEN" name="IC_Summary" value="1">
+        <input type="HIDDEN" name="IC_StartNumber" value="0">
+        <input type="HIDDEN" name="IC_BatchSize" value="10">
+        <input type="HIDDEN" name="IC_RelevanceThreshold" value="50">
+        <input type="hidden" name="IC_QueryDatabase" value="all">
+        <b>Search:</b> 
+        <input type="text" name="IC_QueryText" size="45">
+
+        <input type="image" border="0" value="Find" name="SUBMIT" src="/icom_includes/footers/but_find.gif" width="41" height="20" align="absmiddle">
+  </form>
+    <p>
+        <a target="_blank" rel="nofollow" href="http://www.internet.com/Internetcom/Door/41188"> About Internet.com</a> 
+        <br>
+      <script type="text/javascript">
+            document.write(' Copyright ');
+            var today = new Date();
+            document.write(  + today.getFullYear());
+            document.write(' QuinStreet Inc. All Rights Reserved.');
+        </script>
+  <noscript>
+        Copyright 2010 QuinStreet Inc. All Rights Reserved.
+  </noscript>
+
+  </p>
+       <p> <a target="_blank" rel="nofollow" href="http://www.internet.com/Internetcom/Door/41187">Legal Notices</a>, <a target="_blank" rel="nofollow" href="http://www.internet.com/Internetcom/Door/41189#Licensing1">Licensing</a>, <a target="_blank" rel="nofollow" href="http://www.internet.com/Internetcom/Door/41189#Permissions">Permissions</a>, <a target="_blank" rel="nofollow" href="http://www.internet.com/Internetcom/Door/41186">Privacy  Policy</a>.
+        <br />
+
+        <a target="_blank" rel="nofollow" href="http://www.internet.com/mediakit/">Advertise</a> | <a target="_blank" rel="nofollow" href="http://e-newsletters.internet.com/">Newsletters</a> |  <a target="_blank" rel="nofollow" href="http://e-newsletters.internet.com/announcement_list.html">E-mail Offers</a>
+
+  </p>
+
+
+<!-- start solutions links section -->
+    <div id="solsect">
+        <div class="top" align="left"><a href="#">Solutions</a></div>
+        <div class="solsectpad">
+                        <div class="main" align="left">
+				<h2>Whitepapers and eBooks</h2>
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        <td width="50%" valign="top" align="left">
+                                                        <a target="_blank" href="http://ad.doubleclick.net/clk;222322094;45370569;e">Intel Whitepaper: 2010 Intel Core vPro Processors Overview</a><br>
+						   						                              <a target="_blank" href="http://www.devx.com/HotList/HotList-Adobe/Article/43031">Article: Adobe Helps PHP Developers Create Rich Internet Applications</a><br>
+						   						                              <a target="_blank" href="http://www.internet.com/Microsoft/Everybodys_Business/Article/41884/Reduce-Your-Infrastructure-Costs-with-Microsoft-System-Center">Article: Reduce Your Infrastructure Costs with Microsoft System Center</a><br>
+						   						                              <a target="_blank" href="http://www.devx.com/IntelResourceCenter/Link/41289">Intel Brief: Five-Star IT Support--Intel Core 2 processor with vPro Delivers ROI of 524 Percent</a><br>
+						   						                              <a target="_blank" href="http://www.internet.com/Microsoft/Everybodys_Business/Article/40993/Security-Enhancements-Abound-in-Windows-Server-2008">Article: Security Enhancements Abound in Windows Server 2008</a><br>
+						   						                              <a target="_blank" href="http://www.devx.com/IntelResourceCenter/Link/41285">Intel Whitepaper: Implementing Intel vPro Technology to Drive Down Client Management Costs</a><br>
+						   						                              <a target="_blank" href="http://www.internet.com/Microsoft/Everybodys_Business/Link/41337/Improve-Communications-and-Collaboration">Microsoft Whitepaper: Improve Communications and Collaboration</a><br>
+						                               </td>
+                        <td width="10"> </td>
+                        <td width="50%" valign="top" align="left">
+												                              <a target="_blank" href="http://www.devx.com/HotList/HotList-Intel/Article/44043">Intel Article: Intel Core i5 vPro Brings Intelligence to the Processor</a><br>
+						   						                              <a target="_blank" href="http://www.internet.com/Microsoft/Everybodys_Business/Door/40965">Microsoft Personalized Whitepapers and Resources for You</a><br>
+						   						                              <a target="_blank" href="http://www.devx.com/VS_2010/Door/43217">Microsoft Articles: Visual Studio 2010</a><br>
+						   						                              <a target="_blank" href="http://www.devx.com/HotList/hotlist-Adobe/link/42707">Adobe Article: Java Developers Finding a Home at Adobe Flex</a><br>
+						   						                              <a target="_blank" href="http://www.internet.com/Microsoft/Everybodys_Business/Link/41053/Make-Better-Decisions">Microsoft Whitepaper: Make Better Decisions - SQL Server 2008 Business Intelligence. </a><br>
+						   						                              <a target="_blank" href="http://www.devx.com/solutions">MORE WHITEPAPERS, EBOOKS, AND ARTICLES</a><br>
+						   						                          </td>
+                    </tr>
+                </table>
+            </div>
+                        <div class="main" align="left">
+				<h2>Webcasts</h2>
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        <td width="50%" valign="top" align="left">
+                                                        <a target="_blank" href="http://www.internet.com/Micro_Focus/SSOTarget/41752">Micro Focus Webcast: Boosting the Impact and Effectiveness of Software Development QA and Testing</a><br>
+						   						                              <a target="_blank" href="http://www.internet.com/Microsoft/Everybodys_Business/Link/41282/Webcast-Simplified-Access-and-Single-SignOn">Microsoft Webcast: Simplified Access and Single Sign-On </a><br>
+						                               </td>
+                        <td width="10"> </td>
+                        <td width="50%" valign="top" align="left">
+												                              <a target="_blank" href="http://ad.doubleclick.net/clk;222118379;45370569;n">Intel Video: 2010 Intel Core Processor Technologies</a><br>
+						   						                              <a target="_blank" href="http://www.devx.com/solutions">MORE WEBCASTS, PODCASTS, AND VIDEOS</a><br>
+						   						                          </td>
+                    </tr>
+                </table>
+            </div>
+                        <div class="main" align="left">
+				<h2>Downloads and eKits</h2>
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        <td width="50%" valign="top" align="left">
+                                                        <a target="_blank" href="http://ad.doubleclick.net/clk;222683940;46430576;k">Adobe Download: Tour de Flex Application and Explore Flex</a><br>
+						   						                              <a target="_blank" href="http://clk.atdmt.com/MRT/go/196613727/direct/01/">Get Started: Create Applications Without Infrastructure Limits with the Windows Azure Platform</a><br>
+						   						                              <a target="_blank" href="http://www.internet.com/Solutions/Link/41398">HP PartnerONE | SolutionsINFINITE   Visit us at hp.com/partners/us</a><br>
+						                               </td>
+                        <td width="10"> </td>
+                        <td width="50%" valign="top" align="left">
+												                              <a target="_blank" href="http://www.devx.com/HotList/HotList-IronSpeed/Article/40848">Iron Speed Designer Application Generator</a><br>
+						   						                              <a target="_blank" href="http://www.devx.com/solutions">MORE DOWNLOADS, EKITS, AND FREE TRIALS</a><br>
+						   						                          </td>
+                    </tr>
+                </table>
+            </div>
+                        <div class="main" align="left">
+				<h2>Tutorials and Demos</h2>
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        <td width="50%" valign="top" align="left">
+                                                        <a target="_blank" href="http://ad.doubleclick.net/clk;222683916;46430572;j">Free Adobe Online Flex Training: Check Out this Video Training Course Here</a><br>
+						   						                              <a target="_blank" href="http://clk.atdmt.com/MRT/go/196613727/direct/01/">Develop Cloud Applications - Get Started Now with the Windows Azure Platform</a><br>
+						   						                              <a target="_blank" href="http://www.internet.com/Microsoft/Everybodys_Business/Door/40967">Learn Unified Communications</a><br>
+						   						                              <a target="_blank" href="http://www.internet.com/Microsoft/Everybodys_Business/Door/40968">Learn SQL Server 2008</a><br>
+						   						                              <a target="_blank" href="http://www.internet.com/Microsoft/Everybodys_Business/Door/40966">Learn Windows Server 2008 R2</a><br>
+						   						                              <a target="_blank" href="http://www.devx.com/HotList/Link/40644">Internet.com Hot List: Get the Inside Scoop on IT and Developer Products</a><br>
+						                               </td>
+                        <td width="10"> </td>
+                        <td width="50%" valign="top" align="left">
+												                              <a target="_blank" href="http://altfarm.mediaplex.com/ad/ck/12124-95019-245-4?mpt=">Join the Intel AtomDeveloper Program: Develop and sell netbook applications!</a><br>
+						   						                              <a target="_blank" href="http://www.internet.com/Microsoft/Everybodys_Business/Door/40970">Learn Forefront</a><br>
+						   						                              <a target="_blank" href="http://www.internet.com/Microsoft/Everybodys_Business/Door/40969">Learn System Center</a><br>
+						   						                              <a target="_blank" href="http://www.devx.com/ebook/Article/39031">All About Botnets</a><br>
+						   						                              <a target="_blank" href="http://www.internet.com/Microsoft/Everybodys_Business/Door/40971">Learn SharePoint</a><br>
+						   						                              <a target="_blank" href="http://www.devx.com/solutions">MORE TUTORIALS, DEMOS AND STEP-BY-STEP GUIDES</a><br>
+						   						                          </td>
+                    </tr>
+                </table>
+            </div>
+                    </div>
+    </div>
+</div>
+<!-- Kontera exclusion div ends -->
+</div>
+<!-- End JOM Footer -->
+
+</SPAN>
+</CENTER>
+
+
+
+
+
+
+</TD>
+</TR>
+</TABLE>
+</CENTER>
+</BODY>
+</HTML>
+
+<!-- Created with XBuilder (2.5.3727.1), Copyright (c) 1997-1999 Berry International, Inc. All Rights Reserved -->
+<!-- Page: http://dynamic.15seconds.com/issue/page.asp?Page_Id=402 -->
+<!-- Date: 09/30/05 04:36 PM -->

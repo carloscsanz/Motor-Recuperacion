@@ -1,0 +1,960 @@
+<!-- Vignette V6 Fri Mar 12 10:04:45 2010 -->
+ <html>
+<head>
+	<title>Search Engines: Information Retrieval in Practice: International Version - Pearson Education EMA  Catalogue </title>
+
+	<META NAME="USAGE_TYPE" CONTENT="academic">
+	<META NAME="DISCIPLINE_CODE" CONTENT="CS">
+	<META NAME="ISBN" CONTENT="0131364898">
+	<META NAME="FULL_ISBN" CONTENT="0131364898">
+	<META NAME="COPYRIGHT_YEAR" CONTENT="2010">
+	<META NAME="FULL_TITLE" CONTENT="Search Engines: Information Retrieval in Practice: International Version">
+	<META NAME="EDITION" CONTENT="1">
+	 
+	<META NAME="AUTHOR_1" CONTENT="Croft, Bruce ">
+		 
+	<META NAME="AUTHOR_2" CONTENT="Metzler, Donald ">
+		 
+	<META NAME="AUTHOR_3" CONTENT="Strohman, Trevor ">
+		 </head>
+
+<BODY leftmargin="4" topmargin="4" marginwidth="4" marginheight="4" BGCOLOR="#FFFFFF">
+
+
+	
+	
+
+<!--FOO BAR-->
+<link rel="stylesheet" href="/catalog/catalog.css">
+<!-- <LINK REL="SHORTCUT ICON" HREF="/logo.ico"> -->
+<SCRIPT language="javascript">
+<!--
+function loadPage(newpage) {
+	location.href="http://www.pearsoned.ca/highered/" + newpage;
+}
+function CheckSpace(thisForm){
+       //alert("a"+thisForm.INP_CODE.value+"b");
+		thisForm.INP_CODE.value = trim(thisForm.INP_CODE.value);
+		//alert("a"+thisForm.INP_CODE.value+"b");
+		thisForm.submit();
+		//return true;
+	}
+function trim(strText) 
+{	
+        // this will get rid of leading spaces 
+        while (strText.substring(0,1) == ' ') 
+            strText = strText.substring(1, strText.length);
+
+        // this will get rid of trailing spaces 
+        while (strText.substring(strText.length-1,strText.length) == ' ')
+            strText = strText.substring(0, strText.length-1);
+
+        return strText;
+}
+
+function showCRDPasswordInfoWebCT(aURL) 
+    {
+ 	    alert('To view this free demonstration you will need the following passwords:\n Username: pearsondemo\n Password: pearsondemo');
+   		
+		var wOpen;
+   		var sOptions;
+
+	    sOptions = 'status=yes,menubar=yes,scrollbars=yes,resizable=yes,toolbar=yes';
+	    sOptions = sOptions + ',width=' + (screen.availWidth - 10).toString();
+	    sOptions = sOptions + ',height=' + (screen.availHeight - 122).toString();
+	    sOptions = sOptions + ',screenX=0,screenY=0,left=0,top=0';
+
+	    wOpen = window.open( '', 'demoWnd', sOptions );
+	    wOpen.location = aURL;
+	    wOpen.focus();
+	    wOpen.moveTo( 0, 0 );
+	    wOpen.resizeTo( screen.availWidth, screen.availHeight );
+	    return wOpen;	 
+	    
+	}
+
+function showCRDPasswordInfo(aURL) 
+    {
+ 	 //alert('To view this free demonstration you will need the following passwords:\n Username: pearsondemo\n Password: pearsondemo');
+   		showModelessDialog("/demologin?demourl="+aURL,window,"status:false;dialogWidth:530px;dialogHeight:570px");
+		
+	}
+function viewDemo(aURL) 
+    {	
+
+		var wOpen;
+   		var sOptions;
+
+	    sOptions = 'status=yes,menubar=yes,scrollbars=yes,resizable=yes,toolbar=yes,location=yes';
+	    sOptions = sOptions + ',width=' + (screen.availWidth - 10).toString();
+	    sOptions = sOptions + ',height=' + (screen.availHeight - 122).toString();
+	    sOptions = sOptions + ',screenX=0,screenY=0,left=0,top=0';
+
+	    wOpen = window.open( '', 'demoWnd', sOptions );
+	    wOpen.location = aURL;
+	    wOpen.focus();
+	    wOpen.moveTo( 0, 0 );
+	    wOpen.resizeTo( screen.availWidth, screen.availHeight );
+	    return wOpen;	 
+	    
+	}
+
+
+/* START: This function will check if user is searching on the basis of Keyword and if 	so the function will check for the searched string. If the string entered looks-like an ISBN 		then the search will be based on ISBN (bn) else Keyword (kw) */
+	function ChkISBN() {
+	var ta= document.searchForm.search_by_text.value;
+	ta = trim(ta);
+	var temp_str = ta.replace(/-/g, '');
+    if (temp_str.length == '10') {
+		temp_str = temp_str.match( /[0-9]{9}[Xx0-9]{1}/g );
+			if (temp_str) {
+				document.searchForm.isISBN.value = 'Y';
+			}
+	} else if (temp_str.length == '13') {
+		temp_str = temp_str.match( /[0-9]{13}/g );
+			if (temp_str) {
+				document.searchForm.isISBN.value = 'Y';
+			}
+	}
+	//alert(document.searchForm.isISBN.value);
+	 
+   
+	return true;
+	}
+	 
+				
+
+
+
+-->
+</SCRIPT>
+
+<!-- BEGIN TOP NAV -->
+
+			
+		 		
+	
+
+
+<!-- BEGIN TABLE #1 -->
+
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%">
+<TR>
+<TD colspan="4">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="866">
+<TR>
+
+
+	
+		<TD nowrap align="left">
+	 
+		<A HREF="http://www.pearsoned.co.uk" onFocus="if(this.blur)this.blur()" target="_top"><IMG SRC="/catalog/images/uk-logo.gif" ALT="Pearson Education Home" HSPACE="0" VSPACE="0" BORDER="0"></A> </td>
+
+	
+		<TD class="" bgcolor="#004F99" BACKGROUND="/catalog/images/piece.gif" nowrap align="left"><A HREF="/home" onFocus="if(this.blur)this.blur()" target="_top"><IMG SRC="/catalog/images/home.gif" ALT="Higher Education Home" WIDTH="57" HEIGHT="59" HSPACE="0" VSPACE="0" BORDER="0"></A><A HREF="/catalog/main_content/0,1151,-10,00.html" onFocus="if(this.blur)this.blur()" target="_top"><IMG SRC="/catalog/images/instructor.gif" ALT="Instructor Support" WIDTH="80" HEIGHT="59" HSPACE="0" VSPACE="0" BORDER="0"></A><A HREF="/catalog/main_content/0,1151,-11,00.html" onFocus="if(this.blur)this.blur()" target="_top"><IMG SRC="/catalog/images/student.gif" ALT="Student Support" WIDTH="68" HEIGHT="59" HSPACE="0" VSPACE="0" BORDER="0"></A><A HREF="/catalog/main_content/0,1151,-12,00.html" onFocus="if(this.blur)this.blur()" target="_top"><IMG SRC="/catalog/images/about.gif" ALT="About Us" WIDTH="65" HEIGHT="59" HSPACE="0" VSPACE="0" BORDER="0"></A><A HREF="/catalog/main_content/0,1151,-14,00.html" onFocus="if(this.blur)this.blur()" target="_top"><IMG SRC="/catalog/images/careers.gif" ALT="Careers" WIDTH="55" HEIGHT="59" HSPACE="0" VSPACE="0" BORDER="0"></A><IMG SRC="/catalog/images/piece.gif" ALT="" WIDTH="10" HEIGHT="59" HSPACE="0" VSPACE="0" BORDER="0"></TD>
+	
+
+
+
+<TD class="headerBg" bgcolor="#004F99" BACKGROUND="/catalog/images/piece.gif" nowrap="" align="left" width="13%">
+	<TABLE border="0" align="left" width="100%" CELLPADDING="0" CELLSPACING="0">
+		<TR>
+			<TD class="headerBg" bgcolor="#004F99" BACKGROUND="/catalog/images/piece.gif" nowrap="" align="left">
+			<A HREF="http://www.pearsoned.co.uk/bookshop" target="_top">
+				<IMG SRC="/catalog/images/bookshop.gif" ALT="Bookshop" WIDTH="139" HEIGHT="57" HSPACE="0" VSPACE="0" BORDER="0">
+			</A>
+			</TD>
+		</TR>
+	</TABLE>
+</TD>	
+
+
+	<TD BACKGROUND="/catalog/images/piece.gif" bgcolor="#fff"  width="193" align="left">
+ <!-- BEGIN TABLE #2 -->
+<!-- TO CREATE TEXT & TECH SECTION -->
+<!-- THE GRAPHIC ALIGNMENT IS CONTINGENT ON CARRIAGE RETURNS WITHIN THE HTML ON OLDER BROWSERS -->
+
+<FORM NAME="disciplineForm" style="display:inline;">
+<TABLE WIDTH="193" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+
+	<TR><TD ROWSPAN="4" VALIGN="TOP"><IMG SRC="/catalog/images/side.gif" ALT="" WIDTH="28" HEIGHT="59" HSPACE="0" VSPACE="0" BORDER="0"></TD></TR>
+	<TR><TD VALIGN="TOP"><IMG SRC="/catalog/images/text.gif" ALT="Texts & Technology" WIDTH="165" HEIGHT="22" HSPACE="0" VSPACE="0" BORDER="0"></TD></TR>
+
+<TR><TD VALIGN="TOP">
+		<select name="selectURL" onChange="top.location.href=document.disciplineForm.selectURL.options[document.disciplineForm.selectURL.selectedIndex].value; return true;" style="font-family: Verdana, Arial, Helvetica; font-size: 10px; font-weight: normal; color: black; background:white;">
+			<option selected value="#">Select a Discipline</option>
+			
+				
+					
+						<option value="/catalog/academic/discipline/0,1142,340992,00.html">Accounting and Taxation</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,344185,00.html">Agriculture</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,388102,00.html">American Studies</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,343447,00.html">Anthropology</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,341996,00.html">Art</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,342840,00.html">Biology</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,341297,00.html">Business & Management</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,342948,00.html">Chemistry</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,518595,00.html">Communication Sciences & Disorders</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,530730,00.html">Communication: Mass Comm</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,530653,00.html">Communication: Speech Comm</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,341426,00.html">Computer Science</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,341394,00.html">Decision Science</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,341053,00.html">Economics</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,343459,00.html">Education</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,341835,00.html">Engineering: Chemical</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,341568,00.html">Engineering: Civil and Environmental</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,341685,00.html">Engineering: Electrical</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,341633,00.html">Engineering: Industrial</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,341800,00.html">Engineering: Intro Level</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,341882,00.html">Engineering: Mechanical</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,421690,00.html">English: Composition</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,341155,00.html">Finance</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,341965,00.html">Further Education</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,343112,00.html">Geography</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,343027,00.html">Geology</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,343357,00.html">Health & Nursing</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,343658,00.html">History</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,344270,00.html">Hospitality, Travel, Tourism & Leisure</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,342712,00.html">Information Systems</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,572996,00.html">Journalism</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,342770,00.html">Law</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,342083,00.html">Linguistics</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,342139,00.html">Literature</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,341217,00.html">Marketing</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,425645,00.html">Mathematics</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,342201,00.html">Media and Film Studies</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,342350,00.html">Music</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,342432,00.html">Philosophy</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,343278,00.html">Physics</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,343803,00.html">Politics</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,343919,00.html">Psychology</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,342514,00.html">Religion</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,887330,00.html">Social Work/Social Welfare</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,344050,00.html">Sociology</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,342227,00.html">Sports Science</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,520785,00.html">Study Skills</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,530690,00.html">Theatre</option>
+					 
+					
+						<option value="/catalog/academic/discipline/0,1142,947242,00.html">World Languages</option>
+					   </SELECT></TD></TR>
+
+	<TR><TD class="headerBg" VALIGN="BOTTOM" BACKGROUND="/catalog/images/short-piece.gif"><IMG SRC="/catalog/images/bottom.gif" ALT="" WIDTH="165" HEIGHT="13" HSPACE="0" VSPACE="0" BORDER="0"></TD></TR>
+</TABLE>
+</FORM>
+
+<!--END TABLE #2 -->
+
+</TD>
+
+</TR>
+
+</TABLE>
+</TD>
+
+</TR>
+
+
+ <TR><TD colspan="4" class="subNav" WIDTH="760">
+
+
+<!-- START TABLE #3 --> 
+
+<!-- SUB NAV --> 
+
+
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="710">
+<TR><td WIDTH="250">
+	
+		<FORM onSubmit="return CheckSpace(this)" ACTION="/replocator/1,2946,L2VtYS9yZXBsb2NhdG9yOjEw,00.html?" METHOD="post" NAME="repsearch" style="display:inline;" TARGET="_top">
+		<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" width="250">
+		<tr><TD class="subNav"><IMG SRC="/catalog/images/find-rep.gif" ALT="Find Your Rep" WIDTH="104" HEIGHT="40" HSPACE="2" VSPACE="0" BORDER="0"></TD>
+			<TD class="subNav">
+				
+				
+					<SCRIPT LANGUAGE="JAVASCRIPT">
+						function selectText(obj) {
+							if (obj.value == "Enter Post/Zip Code") {
+							obj.value='';
+							window.status='Enter Post/Zip Code';  								
+							}
+						}
+					</SCRIPT>
+					
+					<INPUT TYPE="text" NAME="INP_CODE" SIZE="20" MAXLENGTH="20" ALIGN="middle" VALUE="Enter Post/Zip Code" CLASS="searchBox" style="font-family: Verdana, Arial, Helvetica; font-size:10px; font-weight: normal;" onfocus="javascript:if(this.value=='Enter Post/Zip Code'){this.value='';}{window.status='Enter Post/Zip Code'}" onblur="window.status=window.defaultStatus">
+				 
+			</TD>
+			<TD class="subNav"><INPUT TYPE="image" NAME="gozip" BORDER="0" SRC="/catalog/images/go.gif" AlIGN="middle"></TD>
+		</tr>
+		</table>
+		</FORM>
+	</td>
+
+<td>
+
+
+
+<form name="searchForm" method="post" onSubmit="ChkISBN();" action="/catalog/Fast_Search/fast_quick_search/1,3064,,00.html">
+
+
+    
+	<!--abhi:Added HIDDEN params-->
+	<INPUT TYPE="hidden" NAME="isISBN" VALUE="N">
+	<INPUT TYPE="hidden" NAME="type_of_search" VALUE="quicksearch">
+	<INPUT TYPE="hidden" NAME="quickSearchText" VALUE=>
+	<!--abhi:Added HIDDEN params-->
+  	<INPUT TYPE="hidden" NAME="Action" VALUE="FilterSearch">
+  	<INPUT TYPE="hidden" NAME="ServerKey" VALUE="Primary">
+  	<INPUT TYPE="hidden" NAME="QueryMode" VALUE="Simple">
+		
+	
+		<INPUT TYPE="hidden" NAME="Collection" VALUE="UKA_Collection">
+	 
+	
+    <input type="hidden" value="APP_NAME:aiv" name="qt">
+	<INPUT TYPE="hidden" NAME="callingURL" VALUE="http://vig.pearsoned.co.uk:80">
+	<INPUT TYPE="hidden" NAME="productpage" VALUE="catalog/academic/product">
+	<!--<INPUT TYPE="hidden" NAME="Filter" VALUE="shared_filter.hts">
+	<INPUT TYPE="hidden" NAME="ResultTemplate" VALUE="sharedframes.hts">-->
+	<INPUT TYPE="hidden" NAME="staticbox" VALUE="http://vig-fp.prenhall.com">
+  	<INPUT TYPE="hidden" NAME="ResultCount" VALUE="15">
+  	<INPUT TYPE="hidden" NAME="limit_to" VALUE="all">
+	<input type="hidden" name="series_url" value="catalog/series/">
+	
+		
+	<!--<INPUT TYPE="hidden" NAME="SortSpec" VALUE="CRY DESC SCORE DESC FT ASC">-->    
+		
+    <!--<INPUT TYPE="hidden" NAME="category" VALUE="16" >-->
+	
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" width="540">
+	<tr>
+		<TD class="subNav">
+			<IMG  SRC="/catalog/images/search_catalogue.gif" ALT="Search Our Catalogue"  WIDTH="122" HEIGHT="40" HSPACE="2" VSPACE="0" BORDER="0">
+		</TD>
+		<TD class="subNav">
+			&nbsp;
+		<TD class="subNav">
+		<input type="text" name="search_by_text" size="33" maxlength="250" align="middle" value="Enter author, title, or ISBN" class="searchBox" style="font-family: Verdana, Arial, Helvetica; font-size:10px; font-weight: normal;" onfocus="javascript:if(this.value=='Enter author, title, or ISBN'){this.value='';}{window.status='Enter author, title, or ISBN'}" onblur="window.status=window.defaultStatus"/>
+		                 
+		</TD>
+		<TD class="subNav">
+			<INPUT TYPE="image" NAME="" BORDER="0" SRC="/catalog/images/go.gif" AlIGN="middle">
+		</TD>
+		<TD class="subNav" NOWRAP>
+			&nbsp;<A HREF="/catalog/search/1,1152,,00.html" target="_top">Advanced Search</A>&nbsp;&nbsp;		
+		</TD>
+		
+		
+		
+			<TD class="subNav" NOWRAP>
+				<A HREF="http://www.pearsoneducationbooks.com/shoppingbasket.asp" target="_top">
+				<IMG SRC="/catalog/images/basket2.gif" ALT="View Basket" HSPACE="0" VSPACE="0" BORDER="0">
+				</A>
+			</TD>
+			<TD class="subNav" NOWRAP>
+				&nbsp;<A HREF="http://www.pearsoneducationbooks.com/shoppingbasket.asp" target="_top">View Basket
+				</A>
+			</TD>
+		 <TD class="subNav" NOWRAP>
+		
+			&nbsp;&nbsp;<A HREF='/catalog/ExamCopyBookBagDisplay/1,2997,,00.html' TARGET='_top'>View ExamCopy BookBag</A>
+		 </TD>
+		
+					
+</tr>
+</table>
+</FORM>
+</td>
+
+</TR>
+</TABLE>
+
+<!-- END SUB NAV -->
+<!-- END TABLE #3 --> 
+
+</TD><td class="subNav">&nbsp;</td></TR>
+
+<TR><TD colspan="4" BGCOLOR="#666666" WIDTH="760"><IMG SRC="/catalog/images/clear.gif" ALT="" WIDTH="760" HEIGHT="1" HSPACE="0" VSPACE="0" BORDER="0"></TD><td BGCOLOR="#666666"><IMG SRC="/catalog/images/clear.gif" ALT="" HSPACE="0" VSPACE="0" BORDER="0"></td></TR>
+
+</TABLE>
+<!-- END TABLE #1 -->
+<!-- END TOP NAV-->
+<!-- START TABLE #4 -->
+<!-- END BODY -->
+<!-- END TABLE #4 -->
+<script language="javascript">
+<!--
+	function signOut() {
+	    var the_cookie = "username=alldone";
+	    document.cookie = the_cookie;
+
+		alert(document.cookie);
+		self.location.reload();
+	}
+
+	function getUsername() {
+		var cookieString = document.cookie;
+		var start = cookieString.indexOf('username=');
+		var end = cookieString.length;
+        
+		var username = cookieString.substring(start + 9, end);
+		check_end = username.indexOf(';');
+		if (check_end > 0)
+		   {
+		    username = username.substring(0, check_end);
+		   }
+		   
+		if (start > 0) {
+			return 'Welcome, ' + username.replace('+',' ') + ' | <a href="/catalog/sms/logout">Sign out</a>';
+		} else {
+			return '&nbsp;'
+		}
+		
+	}
+	
+-->
+</script>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" id="CART_ACCOUNT">
+  <tr>
+    <td align="right" class="ver11"><script language="javascript">document.write(getUsername());</script></td>
+  </tr>
+</table>
+
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%">
+
+
+
+
+ 
+	
+	 
+	
+		  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a name="top"></a>
+
+<table width="98%" border="0" cellspacing="0" cellpadding="4" align="center">
+	<tr>
+		<td width="1%" align="left" valign="top">
+			<!-- left column -->
+			
+				<table border="0" cellspacing="0" cellpadding="1" class="aboutborder">
+				<tr><td align="left" valign="top">
+						<table border="0" cellspacing="0" cellpadding="2" class="aboutbgcolor" name="ABOUT_THIS_PRODUCT">
+							
+	
+		 
+		
+			
+				 <tr>
+					<td class="about" colspan="2" nowrap>ABOUT THIS PRODUCT</td>
+				</tr>
+			 
+			
+			 
+				<tr>
+					<td valign="top"><img src="/catalog/images/smallgreysquare.gif" width="3" height="3" vspace="6" hspace="0"></td>
+					<td nowrap>
+						
+							
+							
+																
+															
+								<a href="/catalog/academic/product/0,1144,0131364898,00.html" class="aboutlinks">Description</a>
+								   </td>
+				</tr>
+			  
+		
+			 
+			
+			 
+				<tr>
+					<td valign="top"><img src="/catalog/images/smallgreysquare.gif" width="3" height="3" vspace="6" hspace="0"></td>
+					<td nowrap>
+						
+							
+							
+																
+															
+								<a href="/catalog/academic/product/0,1144,0131364898-TOC,00.html" class="aboutlinks">Table of Contents</a>
+								   </td>
+				</tr>
+			  
+		
+			 
+			
+			 
+				<tr>
+					<td valign="top"><img src="/catalog/images/smallgreysquare.gif" width="3" height="3" vspace="6" hspace="0"></td>
+					<td nowrap>
+						
+							
+							
+																
+															
+								<a href="/catalog/academic/product/0,1144,0131364898-FEA,00.html" class="aboutlinks">Features</a>
+								   </td>
+				</tr>
+			  
+		 
+		 
+		 
+		 
+		
+			 
+			
+			 
+				<tr>
+					<td valign="top"><img src="/catalog/images/smallgreysquare.gif" width="3" height="3" vspace="6" hspace="0"></td>
+					<td class="aboutcurrent" nowrap>
+						
+							About the Author(s)  </td>
+				</tr>
+			  
+		 
+		 
+		 
+
+	
+	<tr>
+		<td colspan="2">&nbsp;</td>
+	</tr>
+	
+ 
+	
+		
+		
+		  
+
+	
+ 
+	
+		
+			
+				 <tr>
+					<td colspan="2" class="about" nowrap>RESOURCES</td>
+				</tr>
+			 
+			<tr>
+					<td valign="top"><img src="/catalog/images/smallgreysquare.gif" width="3" height="3" vspace="6" hspace="0"></td>
+					<td nowrap><a href="/catalog/academic/product/0,1144,0131364898-SS,00.html" class="aboutlinks">Student</a></td>
+			</tr>
+			  
+		
+			 
+			<tr>
+					<td valign="top"><img src="/catalog/images/smallgreysquare.gif" width="3" height="3" vspace="6" hspace="0"></td>
+					<td nowrap><a href="/catalog/academic/product/0,1144,0131364898-IS,00.html" class="aboutlinks">Instructor</a></td>
+			</tr>
+			  
+		 
+		 
+		
+			 
+				
+					<tr>
+						<td valign="top"><img src="/catalog/images/smallgreysquare.gif" width="3" height="3" vspace="6" hspace="0"></td>
+						<td nowrap><a href="/catalog/academic/product/0,1144,0131364898-FDOC,00.html" class="aboutlinks">First Day of Class</a></td>
+					</tr>				
+				   
+
+	
+	<tr>
+		<td colspan="2">&nbsp;</td>
+	</tr>
+	
+ 
+	
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+
+	
+ 
+	
+		
+			 <tr>
+				<td colspan="2" class="about" nowrap>RELATED TITLES</td>
+			</tr>
+		 <tr>
+			<td valign="top"><img src="/catalog/images/smallgreysquare.gif" width="3" height="3" vspace="6" hspace="0"></td>
+			<td><a href="/catalog/academic/course/0,1143,341488,00.html" class="aboutlinks">Information Retrieval (Computer Science)</a></td>
+		</tr>
+	
+ </table>
+			
+						
+							<!-- AD-HOC LINKS UK + 906929 + cda -->
+							<!-- Vignette V6 Sun Jan 18 11:46:16 2009 -->
+
+	<!-- &nbsp; -->
+  </td></tr>
+				</table>
+			 <img src="/images/clear.gif" width="150" height="1" border="0" alt="">
+		</td>
+		<td align="left" valign="top">
+			<!-- right column -->
+			<table border="0" cellspacing="0" cellpadding="5" id="CORE_DATA">
+				<tr>
+					<td colspan="3" class="title">Search Engines: Information Retrieval in Practice: International Version</td>
+				</tr>
+				  <tr>
+					<td align="center" valign="top" width="1%">
+						<table border="0" cellpadding="1" cellspacing="0">
+							<tr>
+							
+								
+									<td bgcolor="#000000"><a href="http://vig-fp.pearsoned.co.uk/bigcovers/0131364898.jpg" class="small" title="View Larger Cover Image" target="_blank"><img src="http://vig-fp.pearsoned.co.uk/coverimage/0131364898.jpg" border="0" alt="View Larger Cover Image"></a></td>
+								  </tr>
+						</table>
+						
+							<a href="http://vig-fp.pearsoned.co.uk/bigcovers/0131364898.jpg" class="small" target="_blank">View Larger Image</a>
+						 </td>
+
+					
+					<td align='left' valign='top' width='50%'><p class='authname'><b> Bruce  Croft</b><br><b> Donald  Metzler</b><br><b> Trevor  Strohman</b><br><p class='small'>Publisher: Pearson Higher Education<br>Copyright: 2010<br>Format: Paper; 552 pp<br><br><table><tr><td align='left'>ISBN-10:</td><td align='right'> 0131364898</td><td></td></tr><tr><td align='left'>ISBN-13:</td><td align='right'>9780131364899</td><td><a href='http://www.pearsoned.com/isbn-13/' target='_blank'><image src='/catalog/images/ico_dl_help_small.gif' width="13" height="12" align="absmiddle" border="0" vspace="0" hspace="3" alt="Help icon"></a></td></tr></table><p><p class='price'><b>Our Price: &pound;52.99</b><br>
+					 Instock<br>Published: 30 Apr 2009<br><A HREF='#' onClick='javascript:openNotForSaleWindow();'>This title is not for sale to the US or Canada.</A> <BR><A title='Buy this item' HREF='javascript:submitEMABuyForm(document.EMABuyForm_0B_G_DaKG4);'><img src='/catalog/images/but_buy.gif' vspace='3' hspace='3' align='absmiddle' border='0' alt='Add this item to my shopping basket'></A><FORM NAME='EMABuyForm_0B_G_DaKG4' METHOD='POST' ACTION='http://www.pearsoneducationbooks.com/f0rward/h00k.asp'><INPUT TYPE='HIDDEN' NAME='a' VALUE='0131364898'><INPUT TYPE='HIDDEN' NAME='c' VALUE='&pound;52.99'><INPUT TYPE='HIDDEN' NAME='b' VALUE='Search Engines: Information Retrieval in Practice: International Version'><INPUT TYPE='HIDDEN' NAME='d' VALUE='0'><INPUT TYPE='HIDDEN' NAME='e' VALUE='http://vig.pearsoned.co.uk/catalog/academic/product/0,,0131364898-ABI,00+en-USS_01DBC.html'><INPUT TYPE='HIDDEN' NAME='f' VALUE='http://vig.pearsoned.co.uk/catalog/academic/product?ISBN=0131364898'></FORM> 
+					<td align="left" valign="top" width="49%">
+						<table width="31%" border="0" cellspacing="0" cellpadding="10" name="BADGE">
+							<tr>
+								<td align="center" valign="top">
+										
+								
+									 
+											   </td>
+									</tr>
+									</table>
+									  
+				</td>
+			</tr>
+      	
+		  
+
+
+
+
+	<tr><td colspan="3" class="ver11">
+		 
+			  
+				<hr noshade size="1" width="100%" color="#DDDDD2">
+				
+				
+				
+						
+					 <table width="100%">
+						<tr>
+							<td width="50%" align="left">
+							
+								<a href="#" onClick="javascript:submitExamCopyForm();"><img src="/catalog/images/deskcopy.gif" vspace="0" hspace="4" alt="Add to Exam Copy Bookbag" border="0" width="11" height="16" align="middle">Add to Exam Copy Bookbag</a>
+							 </td>
+							<td width="50%" align="right">
+								<a href="/catalog/academic/EZPrint_Product/0,2989,0131364898,00.html" target="_blank"><img src="/catalog/images/printer_icon.gif" vspace="0" hspace="4" alt="Print" border="0" width="20" height="16" align="middle">Print Product Information</a>
+							</td>
+						</tr>
+					</table> 
+				 
+				
+			   <hr noshade size="1" width="100%" color="#DDDDD2">
+
+		  </td></tr>
+</table>
+<form name="ExamCopyForm" method="post" action="/catalog/ExamCopyEntry/1,3004,,00.html">
+	<input type="hidden" name="isbn" value="0131364898">
+	<input type="hidden" name="title" value="Search Engines: Information Retrieval in Practice: International Version">
+	<input type="hidden" name="authors" value=" Bruce  Croft,  Donald  Metzler,  Trevor  Strohman">
+	<INPUT TYPE="HIDDEN" NAME="addFlag" VALUE="Y">
+</form>
+
+	
+	
+	
+	
+	
+	<!-- Vignette V6 Thu Dec 17 23:42:49 2009 -->
+
+	   
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+<table width="100%" border="0" cellspacing="0" cellpadding="5" name="AUTHOR_BIO">
+	
+		<tr>
+			<td align="left" valign="top" class="ver14">
+				
+				
+					About the Author(s)  
+			</td>
+		</tr>
+
+		<tr>
+			<td align="left" valign="top" class="ver11">
+	
+	  <P><strong>W. Bruce Croft</strong> is a Distinguished Professor in the Department of Computer Science at the University of Massachusetts, Amherst, which he joined in 1979. In 1992, he became the Director of the Center for Intelligent Information Retrieval (CIIR), which combines basic research with technology transfer to a variety of government and industry partners. He has published more than 180 articles related to information retrieval. Dr. Croft was elected a Fellow of ACM in 1997, received the Research Award from the American Society for Information Science and Technology in 2000, and received the Gerard Salton Award from the ACM Special Interest Group in Information Retrieval (SIGIR) in 2003.</P>  <P><strong>Donald Metzler</strong> is a Research Scientist in the Search and Computational Advertising group at Yahoo! Research in Santa Clara, CA. He obtained his Ph.D. from the University of Massachusetts in 2007. During his graduate studies he was awarded a Microsoft Live Labs Graduate Fellowship. His research interests include formal information retrieval models, web search, advertising, and machine learning.  <br></P>  <P><strong>Trevor Strohman</strong> is a software engineer in the Google search quality division. His Ph.D., from the University of Massachusetts Amherst, focused on high-performance text retrieval systems that are easily adaptable to fit specific retrieval applications. He has published papers and presented a tutorial at the top information retrieval conference, SIGIR. He is the creator of the Galago search engine, and the primary developer of the Indri search engine (www.lemurproject.org/indri). He has ten years of professional software development experience, including desktop, server, and web applications.</P>  					  				 </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+	</tr>
+</table>
+ </td>
+	</tr>
+</table>
+
+
+
+
+
+
+
+<SCRIPT LANGUAGE="JAVASCRIPT">
+	
+	function submitEMABuyForm (form) {
+		form.submit();
+	}
+	
+	function openNotForSaleWindow() {
+		var wobj = window.open("/catalog/notforsaleinusorca/0,2920,,00.html" , "NotForSale" , "height=300,width=500,toolbar=yes,status=yes,menubar=no,location=yes,scrollbars=yes,resizable=yes");
+	}
+	function submitExamCopyForm() {
+		document.ExamCopyForm.submit();
+	}
+	function submitBuyForm (form) {
+		form.submit();
+	}	
+</SCRIPT>
+<!--Monika:5566:Start:added class so that uk will display title heading with no text decoration-->
+<STYLE LANGUAGE="JAVASCRIPT">
+<!--
+	ul.productlistwide3 {
+
+	list-style:none;
+	text-decoration:none;
+}
+
+	ul.productlistwide3 li{
+
+		list-style:none;
+
+		clear:both;
+
+		visibility:visible;
+
+		text-decoration:none;
+
+		 color:#000000;
+
+		/*font-size:11px;*/
+
+		line-height:1.2;
+
+}
+
+ul.productlistwide3 li a {
+    color:navy;
+	text-decoration:none;
+
+}
+
+ul.productlistwide3 li a:visited {
+    color:navy;
+	text-decoration:none;
+
+}
+
+ul.productlistwide3 li a:hover {
+    color:#cc3300;
+	text-decoration:none;
+
+}
+ul.productlistwide3 li a:active {
+    color:#666666;
+	text-decoration:none;
+
+}
+-->
+</STYLE>
+<!--Monika:5566:End:added class so that uk will display title heading with no text decoration-->
+
+
+
+ 
+
+ 		
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%">
+<TR><TD WIDTH="140"> 
+	
+		<A HREF="http://www.pearsoned.co.uk" TARGET="_blank" onFocus="if(this.blur)this.blur()">
+			<IMG SRC="/catalog/images/pearson-logo-footer.gif" ALT="Pearson Education Home" WIDTH="70" HEIGHT="41" HSPACE="5" VSPACE="0" BORDER="0"></A></TD>
+		<!--TD class="footer" VALIGN="top"> Copyright &copy;2010 by-->
+		<TD class="footer" VALIGN="top"> Copyright &copy;<script type="text/javascript">var theDate=new Date(); document.write(theDate.getFullYear());</script> by
+			<A HREF="http://www.pearsoned.co.uk" TARGET="_blank">Pearson Education</A> -
+			<A HREF="http://www.pearsoned.co.uk/Legalnotice/" TARGET="_blank">Legal Notice</A> -
+			<A HREF="http://www.pearsoned.co.uk/Privacynotice/" TARGET="_blank">Privacy Notice</A> - 
+			<A HREF="http://www.pearsoned.co.uk/RightsPermissions/" TARGET="_blank">Rights & Permissions</A>
+					
+	 </TR>
+</TABLE>
+
+<!-- START OF SmartSource Data Collector TAG -->
+<!-- Copyright (c) 1996-2009 WebTrends Inc.  All rights reserved. -->
+<!-- Version: 8.6.0 -->
+<!-- Tag Builder Version: 2.1.0  -->
+<!-- Created: 2/16/2009 14:35:27 -->
+<script src="/javascript/webtrends.js" type="text/javascript"></script>
+<!-- ----------------------------------------------------------------------------------- -->
+<!-- Warning: The two script blocks below must remain inline. Moving them to an external -->
+<!-- JavaScript include file can cause serious problems with cross-domain tracking.      -->
+<!-- ----------------------------------------------------------------------------------- -->
+<script type="text/javascript">
+var _tag=new WebTrends();
+_tag.dcsGetId();
+</script>
+<script type="text/javascript">
+_tag.dcsCollect();
+</script>
+<noscript>
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="http://statse.webtrendslive.com/dcs4830ac00000wk18yp230k9_8r2q/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.0"/></div>
+</noscript>
+<!-- END OF SmartSource Data Collector TAG -->
+</body>
+</html>
+

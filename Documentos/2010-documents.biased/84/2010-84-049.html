@@ -1,0 +1,1656 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head profile="http://gmpg.org/xfn/11">
+
+
+	<title>
+	   Introducing Google Analytics API with asp.net / C#			</title>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="WordPress 2.6" /> <!-- leave this for stats -->
+
+<link rel="stylesheet" href="http://www.akamarketing.com/blog/wp-content/themes/default/style.css" type="text/css" media="screen" />
+<link href="http://www.akamarketing.com/css/style800.css" rel="stylesheet" type="text/css" id="style800">
+<link href="http://www.akamarketing.com/css/style1024.css" rel="stylesheet" type="text/css" id="style1024">
+<link href="http://www.akamarketing.com/css/style1152.css" rel="stylesheet" type="text/css" id="style1152">
+
+<script type="text/javascript" src="http://www.akamarketing.com/scripts/scripts.js"></script>
+<link rel="alternate" type="application/rss+xml" title="blogged thoughts RSS Feed" href="http://www.akamarketing.com/blog/feed" />
+<link rel="pingback" href="http://www.akamarketing.com/blog/xmlrpc.php" />
+
+<style type="text/css" media="screen">
+/*	To accomodate differing install paths of WordPress, images are referred only here,
+	and not in the wp-layout.css file. If you prefer to use only CSS for colors and what
+	not, then go right ahead and delete the following lines, and the image files. */
+		
+	
+	#page { background: url("http://www.akamarketing.com/blog/wp-content/themes/default/images/kubrickbgwide.jpg") repeat-y top; border: none; } 
+	#header { background: url("http://www.akamarketing.com/blog/wp-content/themes/default/images/kubrickheader.jpg") no-repeat bottom center; }
+	#footer { background: url("http://www.akamarketing.com/blog/wp-content/themes/default/images/kubrickfooter.jpg") no-repeat bottom; border: none;}
+
+</style>
+
+<link rel="stylesheet" href="http://www.akamarketing.com/blog/wp-content/plugins/codesnippet/codesnippet.css" type="text/css" />
+<style type="text/css">
+.codesnip-container  {border:1px solid #ccc; background:#eee; padding: 5px;margin:10px;}
+</style>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.akamarketing.com/blog/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.akamarketing.com/blog/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+<body>
+
+	
+<div id="topouter"><div class="logorect"><img height="85" width="25%" src="http://www.akamarketing.com/images/gradhoz.gif" border=0><a href="http://www.akamarketing.com/index.php"><img src="http://www.akamarketing.com/images/logotest2.gif" alt="AKA Marketing.com Logo" border="0"></a><img height="85" width="25%" src="http://www.akamarketing.com/images/gradhoz2.gif" border=0><span style="border-bottom:1px solid white; background-color:#d20000; color:white; font-weight:bold;"><a href=http://www.akamarketing.com/blog?ref=toptab><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VISIT THE BLOG&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font></a></span></div>
+	
+
+	
+
+
+
+	 
+
+
+<div class="toprect"> 
+  <h1 class="styledhead"><!-- InstanceBeginEditable name="contentspecific" -->Blogged thoughts, is our web blog. Expect views, opinion, rants and tirades about everything and anything&nbsp;<br>
+    <!-- InstanceEndEditable --></h1>
+</div>
+ 
+<div class="rect">&laquo;<a href="http://www.akamarketing.com" style="color:#ffffff; font-weight:bold">&nbsp;Home&nbsp;</a>/<a href="http://www.akamarketing.com/webmaster-forums" style="color:#ffffff">&nbsp;Forums&nbsp;</a>&raquo;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</div>
+
+</div>
+<div id="outerdiv">
+
+
+
+<div class="leftnav"> 
+
+
+			<ul class="nav">
+		<li><a href="http://www.akamarketing.com/index.php"><font color=red>Home</font></a></li>
+			<li><a href="http://www.akamarketing.com/search-engine-optimization-articles.php">Articles</a></li>
+			<li><a href="http://www.akamarketing.com/webmaster-forums">Webmaster forums</a></li>
+			<li><a href="http://www.akamarketing.com/seo-tools/">SEO tools</a></li>
+			
+			<li><a href="http://www.akamarketing.com/webmaster-tips.html">Internet latest</a></li>
+			<li><a href="http://www.akamarketing.com/site-search-msn-api.php">PHP tutorials</a></li>
+			<li><a href="http://www.akamarketing.com/css-introduction.php">CSS tutorials</a></li>
+			<li><a href="http://www.akamarketing.com/blog">Blogged thoughts</a></li>
+			<li><a href="http://www.akamarketing.com/blog/category/seo">SEO Blog</a></li>
+		</ul>
+	
+
+	
+
+				 <div align=center style="text-align:left; float:center; border:0px dashed #000000; margin:2px; width:185px; padding:2px; margin-top: 2px; margin-bottom: 10px; padding: 7px; float:left; margin-left:7px;">
+				 <table border=0 style="border:0px dashed black;" class=commentsBox>
+				
+								
+				<tr><td>
+				<form style="border:1px solid #ccc;padding:3px;text-align:center;" action="http://www.feedburner.com/fb/a/emailverify" method="post" target="popupwindow" onsubmit="window.open('http://www.feedburner.com', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true"><br>Subscribe to our SEO / IT related blog by entering your email address below<p><input type="text" style="width:140px" name="email"/></p><input type="hidden" value="http://feeds.feedburner.com/~e?ffid=1123767" name="url"/><input type="hidden" value="blogged thoughts" name="title"/><input type="hidden" name="loc" value="en_US"/><input type="submit" value="Subscribe" /></p></form>
+				</td></tr>
+
+								
+				
+				</table>
+				</div>
+				
+				
+
+
+
+		<ul class="services">
+			
+						
+			
+		</ul>
+
+ 
+	
+</div>
+<!-- InstanceBeginEditable name="contentarea" -->
+<div id="content"> 
+  <div class="whiteback"><a href="http://www.akamarketing.com/blog">Blogged thoughts</a>
+</div>
+
+  <h2 class="customh2"><a href="http://feeds.feedburner.com/BloggedThoughts" rel="alternate" type="application/rss+xml"><img src="http://www.feedburner.com/fb/images/pub/feed-icon32x32.png" alt="" style="vertical-align:middle;border:0"/></a> Blogged thoughts</h2>
+  | by the www.akamarketing.com team 
+  <p id="ppp"></p>
+
+  
+  
+
+
+	<div id="contentBLOG" class="widecolumn">
+				
+  	
+		<div class="navigation2">
+			<div class="alignleft">&laquo; <a href="http://www.akamarketing.com/blog/307-web-developer-tools-included-with-internet-explorer-8.html">Web developer tools included with Internet Explorer 8</a></div>
+			<div class="alignright"><a href="http://www.akamarketing.com/blog/360-passing-listbox-parameters-into-objectdatasource-controls-in-aspnet-workaround.html">Passing ListBox parameters into ObjectDataSource controls in ASP.NET workaround</a> &raquo;</div>
+		</div>
+	<BR><BR>
+
+	<h2 class="specspacer"><a href="http://www.akamarketing.com/blog/103-introducing-google-analytics-api-with-aspnet-c.html" rel="bookmark" title="Permanent Link: Introducing Google Analytics API with asp.net / C#">Introducing Google Analytics API with asp.net / C#</a></h2>
+	
+		<div class="post" id="post-103">
+			
+			<div class="entrytext">
+				<P><p>Recently Google released it&#8217;s Google Analytics API into public beta, which means any old joe soap developer can give it a go without having to apply. Despite the fact I didn&#8217;t apply for the private beta I&#8217;ve been looking forward to this API for a long time&#8230; I know, I know get a life. Seriously though this opens the door to some pretty tight integration between web / mobile / desktop apps and analytical data, the possibilities are endless.</p><div class="adsense" style="border:0px;">
+				
+				<script type="text/javascript"><!--
+google_ad_client = "pub-2705467901144689";
+/* 300x250, created 17/03/09 */
+google_ad_slot = "4045382129";
+google_ad_width = 300;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+				
+				</div>
+<p><strong>Google Analytics Data Export API</strong><br />
+The API is easy to use and works with standard HTTP requests which return XML feeds so you can use it from any programming language. I&#8217;m going to explore the API more over the next while but I&#8217;ve used it below to pull the top 20 content items from an Analytics profile along with pageView counts for each.</p>
+<p>Before you dive in please have a look over the developer guide <strong>but the Protocol page in particular</strong>.</p>
+<p><a href="http://code.google.com/apis/analytics/docs/gdata/gdataDeveloperGuide.html" target="_blank">http://code.google.com/apis/analytics/docs/gdata/gdataDeveloperGuide.html</a><br />
+<a href="http://code.google.com/apis/analytics/docs/gdata/1.0/gdataProtocol.html" target="_blank">http://code.google.com/apis/analytics/docs/gdata/1.0/gdataProtocol.html</a></p>
+<p><strong>Using the Analytics API mostly centers around 3 key tasks which include Authentication, Account Authorization Query and finally profile Query.</strong> Account Authorization Query is not required if you know the numeric ID of the account/profile combo you need to access. All these steps include (in a nutshell) loading a webpage and examining the response for what you need. I&#8217;ll go through these steps with code later on but here&#8217;s a plain english overview of what&#8217;s involved first.</p>
+<h4>Authentication</h4>
+<p>You need to tell Google which user your app is representing/requesting data for. Google offers three ways to authenticate your app for access to a certain Google Analytics profile. These are AuthSub, OAuth and ClientLogin.</p>
+<p><strong>AuthSub</strong> means Google manages the entering of the username/password of the account you want to work with. This will be reassuring to a lot of people as they login via Google.com and your app will get access to only the services they explicitly approve (in this case Google Analytics). Drawback is you lose a bit of control and Google displays nasty warning messages of differing severity depending on a number of things.</p>
+<p><strong>OAuth</strong> is kind of an open standard version of AuthSub which can be used for authorising the use of data in many apps (not just Google ones). A security certificate corresponding to your app must be uploaded to use it.</p>
+<p><strong>ClientLogin</strong> on the other hand is more traditional and requires your app to request username/password from the user or manually define (perhaps in the web.config file) it if it is static. If it is static and your working with the same account (your or your clients account) all the time this is not a problem but if your application works with arbitrary accounts, users of those accounts may be uneasy about giving you their Google login details as you might use it in an unethical way or store it stupidly and later be hacked. Additionally when they give your app their user/pass combo they are giving you access to their entire range of Google services which they use (not just Google Analytics).</p>
+<p>Therefore depending the type of app your building one authentication mode may be more appropriate than the others. I&#8217;ve written C# code which utilizes both AuthSub and ClientLogin authentication which I&#8217;ll step through later but if you want to read more about OAuth please visit <a href="http://code.google.com/apis/accounts/docs/OAuth.html" target="_blank">OAuth Authentication for Web Applications</a></p>
+<h4>Account Authorization Query</h4>
+<p>After your app has &#8216;logged in&#8217; (authenticated) you need to retrieve the profile ID of the account/profile combo which you want to query for certain data as this is required in the next step. If you intend querying the same profile(s) all the time then you can manually retrieve IDs for these profile(s) via the Google Analytics GUI, simply login and click the &#8216;Edit&#8217; link listed beside all your website profiles, you will then see the ID listed on the next page. You can hardcode one or more profile IDs into your web.config if you like. If you will not know which website profiles your app will query ahead of time you must run an account query first from which Google will return all website profiles your authenticated user is authorised to work with.</p>
+<h4>Profile Query</h4>
+<p>When you are authenticated and have the ID of the profile you want to query you can then do just that, query. This step like the others before involves submitting a HTTP request (asking for a webpage). The response from that request is an XML feed with all the data you asked for. You define the data you want by configuring query params for your aforementioned HTTP request.</p>
+<h3>Step through - Top 20 page titles by pageview count for March 2009</h3>
+<p>OK lets actually see how to get our hands on some data. I&#8217;m going to grab the top 20 pages (by pageviews) for March 2009 and just output that data in plain text. A rough demo I put together is located at <a href="http://www.davecallan.com/analytics/" target="_blank">http://www.davecallan.com/analytics/</a>, source code is available at the end of this post.</p>
+<p><strong>How to make a HTTP Request (with specified headers) with ASP.NET/C#?</strong><br />
+The whole API is HTTP request based so you&#8217;ll need to know how to do this. I&#8217;m using the below method as a kind of helper when I need to interact with the API at all. The main classes of interest here are <a href="http://msdn.microsoft.com/en-us/library/system.net.httpwebrequest.aspx" target="_blank">HttpWebRequest</a> and <a href="httpwebresponse" target="_blank">HttpWebResponse</a> (if anyone cares these are (roughly speaking) equivalent to using <em>Curl </em>in PHP). Both of these classes are located in the System.Net namespace.</p>
+<div class="codesnip-container" >public static string GArequestResponseHelper(string url, string token, mode mode)<br />
+{</p>
+<p style="padding-left: 30px;">HttpWebRequest myRequest = (HttpWebRequest)WebRequest.Create(url);</p>
+<p style="padding-left: 30px;"> //will always be a token of some sort required in the header but the format<br />
+ //it is passed in will depend on what type of authorization is being used<br />
+ if (mode == mode.ClientLogin)<br />
+ {<br />
+     myRequest.Headers.Add(&#8221;Authorization: GoogleLogin auth=&#8221; + token);<br />
+ }<br />
+ else if (mode == mode.AuthSub)<br />
+ {<br />
+     myRequest.Headers.Add(&#8221;Authorization: AuthSub token=&#8221; + token);<br />
+ }</p>
+<p style="padding-left: 30px;"> //obviously you need some kind of try/catch here<br />
+ //but OK to bubble auth/connection failures up for demo<br />
+ HttpWebResponse myResponse = (HttpWebResponse)myRequest.GetResponse();<br />
+ Stream responseBody = myResponse.GetResponseStream();</p>
+<p style="padding-left: 30px;"> Encoding encode = System.Text.Encoding.GetEncoding(&#8221;utf-8&#8243;);<br />
+ StreamReader readStream = new StreamReader(responseBody, encode);</p>
+<p style="padding-left: 30px;"> //return string itself (easier to work with)<br />
+ return readStream.ReadToEnd();</p>
+<p>}</p></div>
+<p>The above code requests &#8216;url&#8217; and returns the response to the calling code. You&#8217;ll need to import System.Net, System.I0 and System.Text to use it. The Google Analytics API requires (well not always but mostly) authorization tokens to be included in headers which are sent along with requests to the API. An example of how an authorization key is included via HTTP headers when AuthSub or ClientLogin mode is used is also included above. You&#8217;ll notice the expected format of the <em>Authorization</em> header changes slightly based on what authentication mode your app is using.</p>
+<p><strong>How to authenticate (step 1 of possible 3) using AuthSub. (ClientLogin can be used here instead)</strong><br />
+As outlined by Google on the <a href="http://code.google.com/apis/analytics/docs/gdata/1.0/gdataProtocol.html#AuthSub" target="_blank">Protocol page</a> regarding AuthSub authentication:</p>
+<p><em>AuthSub proxy authentication is used by web applications that need to authenticate users to Google Accounts. With AuthSub, the website operator and the client code never see the user&#8217;s username and password. Instead, the client obtains special AuthSub tokens which it uses to act on a particular user&#8217;s behalf.</em></p>
+<p>To use this mode your app must first direct users (via a standard link) to the Google site to login securely. After logging in takes place Google will redirect users back to your app with a query param named &#8216;token&#8217; embedded in the URL. Your app then in turn needs to upgrade this once off token for a session token, it does this yes you guessed it via a HTTP request.</p>
+<p>Click on the &#8216;AUTHSUB REMOTE LOGIN&#8217; link on <a href="http://www.davecallan.com/analytics/">http://www.davecallan.com/analytics/</a> to see what the process is like (notice the address bar when you get redirected back to my site). Notice also the structure of the link which directs users to the login page on Googles site in the first place. In my case it&#8217;s</p>
+<p><a href="https://www.google.com/accounts/AuthSubRequest?&amp;next=http://www.davecallan.com/analytics/default.aspx">https://www.google.com/accounts/AuthSubRequest?<br />
+&amp;next=<strong>http://www.davecallan.com/analytics/default.aspx</strong></a><br />
+&amp;scope=https://www.google.com/analytics/feeds/<br />
+&amp;secure=0<br />
+&amp;session=1</p>
+<p>The most important param here is &#8216;next&#8217;. It is used by Google after authentication to determine where to redirect the user to. Please read <a href="http://code.google.com/apis/analytics/docs/gdata/1.0/gdataProtocol.html#AuthSub" target="_blank">http://code.google.com/apis/analytics/docs/gdata/1.0/gdataProtocol.html#AuthSub</a> for an explanation of the other params.</p>
+<p>In terms of upgrading the once of token in the address bar to a longer term session token, well I&#8217;m using the method below for that</p>
+<div class="codesnip-container" >//used when you have authenticated on Google (via AuthSub &amp; query params) &amp; have a temp token<br />
+public static string getSessionTokenAuthSub(string tempToken)<br />
+{</p>
+<p style="padding-left: 30px;">string response = GArequestResponseHelper(&#8221;<a href="https://www.google.com/accounts/AuthSubSessionToken">https://www.google.com/accounts/AuthSubSessionToken</a>&#8220;, tempToken, mode.AuthSub);</p>
+<p style="padding-left: 30px;"> //temp (once off) token will have been exchanged for session token, return it<br />
+ return response.Split(&#8217;=')[1];</p>
+<p>}</p></div>
+<p>Following the API reference on the analytics developer site I know what URL to ask for. I also specify the authentication mode so the HTTP request/response helper method will know what format of header to include.</p>
+<p><strong>How to get a <a href="http://code.google.com/apis/analytics/docs/gdata/1.0/gdataProtocol.html#RetrievingAccounts" target="_blank">list of website profiles which authenticated user is allowed access</a> (step 2 of 3).<br />
+</strong>This step is not needed if you know the ID of the profile you want to work with. The method I&#8217;m using is below</p>
+<div class="codesnip-container" >public static NameValueCollection getAccountInfo(string sessionToken, mode mode)<br />
+{</p>
+<p style="padding-left: 30px;">string response = GArequestResponseHelper(&#8221;<a href="https://www.google.com/analytics/feeds/accounts/default">https://www.google.com/analytics/feeds/accounts/default</a>&#8220;, sessionToken, mode);</p>
+<p style="padding-left: 30px;">//response will contain an XML formatted string similar to<br />
+//http://code.google.com/p/ga-api-http-samples/source/browse/trunk/src/v1/accountFeedResponse.xml</p>
+<p style="padding-left: 30px;">//we need to convert it to proper XML for parsing<br />
+XmlDocument accountinfoXML = new XmlDocument(); accountinfoXML.LoadXml(response);</p>
+<p style="padding-left: 30px;">//each account/profile combo the current user is authorized for will have an &#8216;entry&#8217; element<br />
+XmlNodeList entries = accountinfoXML.GetElementsByTagName(&#8221;entry&#8221;);</p>
+<p style="padding-left: 30px;">NameValueCollection profiles = new NameValueCollection();<br />
+for (int i = 0; i &lt; entries.Count; i++)<br />
+{<br />
+    //profile name, profile ID - profile ID is needed for ID what data you want from the API<br />
+    profiles.Add(entries.Item(i).ChildNodes[2].InnerText,entries.Item(i).ChildNodes[7].Attributes["value"].Value);<br />
+}</p>
+<p style="padding-left: 30px;">return profiles;</p>
+<p>}</p></div>
+<p>Pass in the token (now a session token) aquired in the previous step. This method parses the XML response to get website profile name and profile ID which I have bound to a dropdownlist (see the demo) so the user can select the relevant profile to query (in the next step). You need System.XML namespace for the above to work.</p>
+<p><strong>How to actually query an account (step 3 of 3).<br />
+</strong>Authentication this, authorization that&#8230; it&#8217;s time to actually request and get some real data. Specifying what data you want is all done by configuring query params in the URL which you request from the Analytics API. The <a href="http://code.google.com/apis/analytics/docs/gdata/1.0/gdataProtocol.html#retrievingData" target="_blank">Retrieving Report Data </a>section on the protocol page has a wealth of information (but there&#8217;s more to be had on other sections of the analytics developer site too) so get it open in another window if you haven&#8217;t already done so.</p>
+<p>As before it&#8217;s all based around a HTTP request (asking for a webpage) so we&#8217;ll be using our friend <em>GArequestResponseHelper again.</em> The base request URL is <a href="https://www.google.com/analytics/feeds/data">https://www.google.com/analytics/feeds/data</a> however we need to add a load of query string params to that URL to instruct Google what type of information we want. First I&#8217;ll show you the URL I have hardcoded (for the purposes of this demo only) which gets me the top 20 page titles by pageviews and then I&#8217;ll explain it somewhat. Please refer to the retrieving report data section linked to above for more.</p>
+<p><a href="https://www.google.com/analytics/feeds/data?ids=ga:202020">https://www.google.com/analytics/feeds/data?ids=ga:202020</a><br />
+&amp;metrics=ga:pageviews<br />
+&amp;dimensions=ga:pageTitle<br />
+&amp;sort=-ga:pageviews<br />
+&amp;start-date=2009-03-01<br />
+&amp;end-date=2009-03-31<br />
+&amp;max-results=20</p>
+<p><em>IDs</em> is required and allows you to specify the profileID for the profile you want data for (you got this ID previously). The last four params should be fairly obvious. Metrics are the actual values you want to get hold off. In this case I&#8217;ve requested pageview counts. <strong>Dimensions relates to metric contexts or breakdowns (or cross sections) .</strong> Without dimensions specified the metric value reflects data in an Analytics account as a whole (1 aggregated value only) however if you specify that you want to see a metric (or metrics) broken down by a dimension, you get a breakdown of dimension-&gt;value combos. In this instance I don&#8217;t just want a count of total pageviews in an Analytics acccout, I want total page views for each (top 20) individual pagetitle in the account.</p>
+<p>What&#8217;s returned from the API is completely dependent on what you ask for in the request parameters (assuming you have any data in the first place of course). An excerpt from the XML returned by the above request (on the Google Analytics website profile for akamarketing.com) is below:</p>
+<div class="codesnip-container" >
+<div><span style="font-size: xx-small;">&lt;entry&gt;<br />
+&lt;id&gt;http://www.google.com/analytics/feeds/data?ids=ga:459940&amp;amp;ga:pageTitle=dynamic%20URL%20rewriter%20tool%20%7C%20mod%20rewrite%20tool%20%7C%20convert%20dynamic%20urls%20into%20static%20urls&amp;amp;start-date=2009-03-01&amp;amp;end-date=2009-03-31&lt;/id&gt;<br />
+&lt;updated&gt;2009-03-30T17:00:00.001-07:00&lt;/updated&gt;<br />
+&lt;title type=&#8217;text&#8217;&gt;ga:pageTitle=dynamic URL rewriter tool | mod rewrite tool | convert dynamic urls into static urls&lt;/title&gt;<br />
+&lt;link rel=&#8217;alternate&#8217; type=&#8217;text/html&#8217; href=&#8217;http://www.google.com/analytics&#8217;/&gt;<br />
+&lt;dxp:dimension name=&#8217;ga:pageTitle&#8217; value=&#8217;dynamic URL rewriter tool | mod rewrite tool | convert dynamic urls into static urls&#8217;/&gt;<br />
+&lt;dxp:metric confidenceInterval=&#8217;0.0&#8242; name=&#8217;ga:pageviews&#8217; type=&#8217;integer&#8217; value=&#8217;409&#8242;/&gt;<br />
+&lt;/entry&gt;</span></div>
+<div><span style="font-size: xx-small;">&lt;entry&gt;<br />
+&lt;id&gt;http://www.google.com/analytics/feeds/data?ids=ga:459940&amp;amp;ga:pageTitle=Google%20Analytics%20-%20exclude%20your%20visits%20even%20with%20a%20dynamic%20IP&amp;amp;start-date=2009-03-01&amp;amp;end-date=2009-03-31&lt;/id&gt;<br />
+&lt;updated&gt;2009-03-30T17:00:00.001-07:00&lt;/updated&gt;<br />
+&lt;title type=&#8217;text&#8217;&gt;ga:pageTitle=Google Analytics - exclude your visits even with a dynamic IP&lt;/title&gt;<br />
+&lt;link rel=&#8217;alternate&#8217; type=&#8217;text/html&#8217; href=&#8217;http://www.google.com/analytics&#8217;/&gt;<br />
+&lt;dxp:dimension name=&#8217;ga:pageTitle&#8217; value=&#8217;Google Analytics - exclude your visits even with a dynamic IP&#8217;/&gt;<br />
+&lt;dxp:metric confidenceInterval=&#8217;0.0&#8242; name=&#8217;ga:pageviews&#8217; type=&#8217;integer&#8217; value=&#8217;389&#8242;/&gt;<br />
+&lt;/entry&gt;</span></div>
+<div><span style="font-size: xx-small;"> </span><span style="font-size: xx-small;">              </span></div>
+</div>
+<p>Each dimension (pagetitle) is separated into &#8216;entry&#8217; elements. In this case each &#8216;entry&#8217; element has only one dimension and metric however sInce you can request multiple metrics and multiple dimensions in the same request this will not always be the case. You will therefore have to alter your XML parsing code depending on what exact data your requesting. It is important to note that not all metrics can be combined with all dimensions, some data relationships just don&#8217;t make sense. If you request a bad combination Google will throw a &#8216;bad request&#8217; exception.</p>
+<p>I&#8217;ve used AuthSub method for step 1 above. Step 2 and 3 above are the same regardless of which authentication mode is used. I won&#8217;t go through the ClientLogin mode much as it&#8217;s simple enough and the code is available &amp; commented. Basically to use ClientLogin you need to POST username/password details to a specific URL (as defined in the API reference), if they are correct you will get back a session token which you will use exactly the same way as if the token had originated from AuthSub authentication.</p>
+<p>I&#8217;ve put all code helper segments into a class called <a href="http://www.davecallan.com/analytics/GoogleAnalytics.txt" target="_blank">GoogleAnalytics</a> for you to see the full source. It&#8217;s by no means production ready code, so please don&#8217;t comment me bringing that to my attention. If you want to see the full code for what&#8217;s located on <a href="http://www.davecallan.com/analytics">http://www.davecallan.com/analytics</a> then I&#8217;ve created an <a href="http://www.davecallan.com/analytics/analytics.zip" target="_blank">analytics.zip</a> file which might be helpful. The code behind for the default page is quite simple and really just makes use of the static helper methods in the GoogleAnalytics class but if you&#8217;ve any questions let me know. The main thing for you, me &amp; everyone else to do at this stage is to just play around with the new API and eventually I&#8217;m sure lots of excellent resources, tutorials and walkthroughs will appear to enable it to really take off.</p>
+<p><strong>If your not an ASP.Net developer heres some PHP resources about the new Analytics API<br />
+</strong>Similiar to this blog post only targetted towards PHP programmers<br />
+<a href="http://www.alexc.me/using-the-google-analytics-api-getting-total-number-of-page-views/74/" target="_blank">http://www.alexc.me/using-the-google-analytics-api-getting-total-number-of-page-views/74/</a></p>
+<p>Using PHP &amp; CURL to authenticate against ClientLogin<br />
+<a href="http://www.electrictoolbox.com/google-analytics-login-php-curl-username-password/" target="_blank">http://www.electrictoolbox.com/google-analytics-login-php-curl-username-password/</a></p>
+<p>PHP Class for doing common API thing.<br />
+<a href="http://www.electrictoolbox.com/php-class-google-analytics-api/" target="_blank">http://www.electrictoolbox.com/php-class-google-analytics-api/</a></p>
+
+				<div>
+				<h2 style="background-color:#eeeeee">&nbsp;Related posts which may also interest you</h2>
+					<ul>
+					 <ul><li><a href="http://www.akamarketing.com/blog/40-google-analytics-excluding-your-visits-despite-having-a-dynamic-ip.html" rel="bookmark" title="August 8, 2006">Google Analytics - exclude your visits even with a dynamic IP</a></li>
+
+<li><a href="http://www.akamarketing.com/blog/60-ajax-example-staff-directory-search-with-php-c-aspnet.html" rel="bookmark" title="August 5, 2007">Ajax example - staff directory search with PHP &#038; C# ASP.Net</a></li>
+
+<li><a href="http://www.akamarketing.com/blog/135-importing-xml-into-sql-server-table-aspnet.html" rel="bookmark" title="August 3, 2008">Importing XML data into a SQL Server table with C# asp.net</a></li>
+
+<li><a href="http://www.akamarketing.com/blog/256-csv-datatable.html" rel="bookmark" title="October 6, 2008">C# CSV DataTable -  Convert CSV data to a ASP.Net DataTable</a></li>
+
+<li><a href="http://www.akamarketing.com/blog/53-aspnet-search-engine-optimization.html" rel="bookmark" title="March 11, 2007">ASP.NET search engine optimization</a></li>
+</ul><!-- Similar Posts took 8.600 ms -->					</ul>
+				</div>
+
+				
+	
+					
+				<p class="postmetadata alt">
+					<small>
+						This entry was posted
+						 
+						on Saturday, April 25th, 2009 at 4:32 pm						and is filed under <a href="http://www.akamarketing.com/blog/category/aspnet" title="View all posts in ASP.NET" rel="category tag">ASP.NET</a>,  <a href="http://www.akamarketing.com/blog/category/internet" title="View all posts in Internet" rel="category tag">Internet</a>.
+						You can follow any responses to this entry through the <a href='http://www.akamarketing.com/blog/103-introducing-google-analytics-api-with-aspnet-c.html/feed'>RSS 2.0</a> feed. 
+						
+													You can <a href="#respond">leave a response</a>, or <a href="http://www.akamarketing.com/blog/103-introducing-google-analytics-api-with-aspnet-c.html/trackback" rel="trackback">trackback</a> from your own site.
+						
+												
+					</small>
+				</p>
+	
+			</div>
+		</div>
+		
+	
+<!-- You can start editing here. -->
+
+
+<table align=center class="commentGrey2"><tr><td>57 Comments on &#8220;Introducing Google Analytics API with asp.net / C#&#8221;</td></tr></table>
+	
+	
+		
+	
+	<table align=center  class=commentsviewGrey2  width=95%>
+		<tr class="alt"><td>
+		<!-- class="alt" id="comment-75984"> -->
+			1| <B><a href='http://blog.sitereactor.dk/2009/04/26/google-analytics-for-umbraco-first-installment/' rel='external nofollow'>Google Analytics for Umbraco - First installment &laquo; MC&#8217;s BLOG</a></b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-75984" title=""><u><font color=black>26th April 2009 @  20:49</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class="alt"><td colspan=2>
+			
+
+			<p>[...] the .NET client library, this article is a good place to start for using the available api in C#: Introducing Google Analytics API with asp.net / C#. It could of course be implemented using javascript, but not sure how well it would fit into the [...]</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewWhite2  width=95%>
+		<tr class=""><td>
+		<!-- class="" id="comment-76007"> -->
+			2| <B><a href='http://www.idreams.nl' rel='external nofollow'>Bart</a></b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-76007" title=""><u><font color=black>27th April 2009 @  09:30</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class=""><td colspan=2>
+			
+
+			<p>Nicely done. Actually. I was trying my self. Nearly finished it and then found your post! Nice example</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewGrey2  width=95%>
+		<tr class="alt"><td>
+		<!-- class="alt" id="comment-76063"> -->
+			3| <B><a href='http://www.sisense.com' rel='external nofollow'>Jess</a></b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-76063" title=""><u><font color=black>28th April 2009 @  11:55</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class="alt"><td colspan=2>
+			
+
+			<p>You website <a href="http://www.davecallan.com/" rel="nofollow">http://www.davecallan.com/</a> is down can you please send me the code</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewWhite2  width=95%>
+		<tr class=""><td>
+		<!-- class="" id="comment-76066"> -->
+			4| <B>David Callan</b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-76066" title=""><u><font color=black>28th April 2009 @  12:53</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class=""><td colspan=2>
+			
+
+			<p>Don&#8217;t think it&#8217;s down. There&#8217;s nothing on the homepage but demo is at <a href="http://www.davecallan.com/analytics/" rel="nofollow">http://www.davecallan.com/analytics/</a></p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewGrey2  width=95%>
+		<tr class="alt"><td>
+		<!-- class="alt" id="comment-76106"> -->
+			5| <B>Kim Jensen</b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-76106" title=""><u><font color=black>29th April 2009 @  09:05</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class="alt"><td colspan=2>
+			
+
+			<p>That is very, very sweet! Thanks Dave!</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewWhite2  width=95%>
+		<tr class=""><td>
+		<!-- class="" id="comment-76359"> -->
+			6| <B><a href='http://blog.tboda.com' rel='external nofollow'>luke</a></b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-76359" title=""><u><font color=black>5th May 2009 @  05:25</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class=""><td colspan=2>
+			
+
+			<p>Great tutorial, will help me out a lot.</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewGrey2  width=95%>
+		<tr class="alt"><td>
+		<!-- class="alt" id="comment-76379"> -->
+			7| <B>David Callan</b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-76379" title=""><u><font color=black>5th May 2009 @  13:40</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class="alt"><td colspan=2>
+			
+
+			<p>Thanks folks, glad your liking the post. Any backlinks are appreciated <img src='http://www.akamarketing.com/blog/wp-includes/images/smilies/icon_smile.gif' alt=':-)' class='wp-smiley' /></p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewWhite2  width=95%>
+		<tr class=""><td>
+		<!-- class="" id="comment-76412"> -->
+			8| <B><a href='http://www.netstorm.be' rel='external nofollow'>Thomas</a></b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-76412" title=""><u><font color=black>6th May 2009 @  12:48</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class=""><td colspan=2>
+			
+
+			<p>Hello,<br />
+would it be possible to publish the source of <a href="http://www.davecallan.com/analytics/" rel="nofollow">http://www.davecallan.com/analytics/</a> ?<br />
+I would like to use the implementation on a number of ASP.NET websites.<br />
+Best regards</p>
+<p>Thomas Debray</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewGrey2  width=95%>
+		<tr class="alt"><td>
+		<!-- class="alt" id="comment-76421"> -->
+			9| <B>David Callan</b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-76421" title=""><u><font color=black>6th May 2009 @  15:59</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class="alt"><td colspan=2>
+			
+
+			<p>Code is very basic, it&#8217;s available through the zip mentioned above. </p>
+<p><a href="http://www.davecallan.com/analytics/analytics.zip" rel="nofollow">http://www.davecallan.com/analytics/analytics.zip</a></p>
+<p>Rgds<br />
+Dave.</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewWhite2  width=95%>
+		<tr class=""><td>
+		<!-- class="" id="comment-76504"> -->
+			10| <B>Sutanu</b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-76504" title=""><u><font color=black>8th May 2009 @  09:31</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class=""><td colspan=2>
+			
+
+			<p>How to calculate Direct Traffic,Referring Sites,Search Engines,Home Page Bounce Rate using Google Analytics API with ASP.NET/C#?</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewGrey2  width=95%>
+		<tr class="alt"><td>
+		<!-- class="alt" id="comment-76949"> -->
+			11| <B>Lukas Bart</b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-76949" title=""><u><font color=black>18th May 2009 @  10:52</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class="alt"><td colspan=2>
+			
+
+			<p>Hi,</p>
+<p>Thanks alot about this post.</p>
+<p>A great help to begin develop in Google Analytics Export API.</p>
+<p>Regards,<br />
+LB</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewWhite2  width=95%>
+		<tr class=""><td>
+		<!-- class="" id="comment-76976"> -->
+			12| <B>Komweb</b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-76976" title=""><u><font color=black>19th May 2009 @  14:58</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class=""><td colspan=2>
+			
+
+			<p>Hi Dave, </p>
+<p>Great code, it&#8217;s really helping me along the way. I&#8217;m however a very newbie ASP developer, so I was wondering if you could give me some pointers:</p>
+<p>1. How would I go about to manually define the login information for ClientLogin?<br />
+2. How do I manually define which profile/tableID for the script to pull data from?</p>
+<p>I&#8217;m trying to create a static page with top content sorted by pageviews, which I can then pull an RSS feed from.</p>
+<p>Kind Regards,<br />
+Siam</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewGrey2  width=95%>
+		<tr class="alt"><td>
+		<!-- class="alt" id="comment-76977"> -->
+			13| <B>David Callan</b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-76977" title=""><u><font color=black>19th May 2009 @  15:43</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class="alt"><td colspan=2>
+			
+
+			<p>Manually define data in the web.config file when you know what that data is ahead of time. There&#8217;s a setting in there called appSettings:</p>
+<p>appSettings<br />
+add key=&#8221;analyticsLoginEmail&#8221; value=&#8221;siam@siam.com&#8221;<br />
+add key=&#8221;analyticsLoginPassword&#8221; value=&#8221;XXXXXXXXX&#8221;<br />
+appSettings</p>
+<p>Put the angles in above yourself (wordpress takes angles out) </p>
+<p>You can then access that data via configurationManager namespace as in :        </p>
+<p>string analyticsLoginEmail = ConfigurationManager.AppSettings["analyticsLoginEmail"].ToString();</p>
+<p>Google for web.config and appSettings to know more.</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewWhite2  width=95%>
+		<tr class=""><td>
+		<!-- class="" id="comment-77112"> -->
+			14| <B>Saurabh Pant</b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-77112" title=""><u><font color=black>22nd May 2009 @  18:22</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class=""><td colspan=2>
+			
+
+			<p>Hi dear,<br />
+Great code.Please tell me one more thing.<br />
+How can I retrieve pagePath, pageTitle and pageviews  in a single request from google analytics account Content template.<br />
+Thanks</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewGrey2  width=95%>
+		<tr class="alt"><td>
+		<!-- class="alt" id="comment-77443"> -->
+			15| <B><a href='http://www.cesarnicola.com/blog/2009/getting-data-from-google-analytics-with-cshar/' rel='external nofollow'>Obteniendo datos de Google Analytics con CSharp | Conocimiento compartido - Blog de César Nicola</a></b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-77443" title=""><u><font color=black>29th May 2009 @  13:25</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class="alt"><td colspan=2>
+			
+
+			<p>[...] Fuentes: <a href="http://analytics.blogspot.com/2009_05_01_analytics_archive.html" rel="nofollow">http://analytics.blogspot.com/2009_05_01_analytics_archive.html</a> <a href="http://www.akamarketing.com/blog/103-introducing-google-analytics-api-with-aspnet-c.html" rel="nofollow">http://www.akamarketing.com/blog/103-introducing-google-analytics-api-with-aspnet-c.html</a> <a href="http://code.google.com/apis/analytics/docs/gdata/1.0/gdataProtocol.html" rel="nofollow">http://code.google.com/apis/analytics/docs/gdata/1.0/gdataProtocol.html</a> [...]</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewWhite2  width=95%>
+		<tr class=""><td>
+		<!-- class="" id="comment-77699"> -->
+			16| <B><a href='http://vjrepublic.com' rel='external nofollow'>Dylan</a></b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-77699" title=""><u><font color=black>3rd June 2009 @  12:28</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class=""><td colspan=2>
+			
+
+			<p>Hi Dave.</p>
+<p>Read your code. Its really helpful. But Im a newbie and im a bit lost in the coding. Im gonna use it for a statiscal desktop application. They dont want it via web. I hope you could help me out.</p>
+<p>Dylan</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewGrey2  width=95%>
+		<tr class="alt"><td>
+		<!-- class="alt" id="comment-77707"> -->
+			17| <B>David Callan</b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-77707" title=""><u><font color=black>3rd June 2009 @  15:12</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class="alt"><td colspan=2>
+			
+
+			<p>What part are you getting stuck on specifically? Have you parsed XML using C# before?</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewWhite2  width=95%>
+		<tr class=""><td>
+		<!-- class="" id="comment-77712"> -->
+			18| <B><a href='http://vjrepublic.com' rel='external nofollow'>Dylan</a></b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-77712" title=""><u><font color=black>4th June 2009 @  04:42</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class=""><td colspan=2>
+			
+
+			<p>Nope i havent. Ill study the code u gave first and try convert it to a desktop application. Ill get back to your forum. And email you my codes.</p>
+<p>As an appreciation to your effort. And of course the credit is yours.</p>
+<p>Thanks.</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewGrey2  width=95%>
+		<tr class="alt"><td>
+		<!-- class="alt" id="comment-77767"> -->
+			19| <B><a href='http://www.raulcarrion.com/programacion-web/como-integrar-google-analytics-en-una-web-en-net' rel='external nofollow'>Cómo integrar Google Analytics en una web en .net | Raúl Carrión</a></b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-77767" title=""><u><font color=black>7th June 2009 @  17:10</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class="alt"><td colspan=2>
+			
+
+			<p>[...] Y si necesitáis otros tipos de acceso hay mucha información en este tutorial de Akamarketing de donde he obtenido información para este [...]</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewWhite2  width=95%>
+		<tr class=""><td>
+		<!-- class="" id="comment-77772"> -->
+			20| <B>Vishwanatha Rao</b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-77772" title=""><u><font color=black>7th June 2009 @  22:10</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class=""><td colspan=2>
+			
+
+			<p>I am new to Google Health API. I want to build a sample app with H9. How can I request AuthSub Token using C# code? Can someone please give me sample code?</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewGrey2  width=95%>
+		<tr class="alt"><td>
+		<!-- class="alt" id="comment-78351"> -->
+			21| <B>Raj</b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-78351" title=""><u><font color=black>22nd June 2009 @  07:45</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class="alt"><td colspan=2>
+			
+
+			<p>This is a nice post. It is really very helpful.<br />
+How to use Custom segment section?<br />
+I have two custom segments IsAdmin and IsValid.<br />
+I just required to use only IsAdmin.<br />
+I am trying with UserdefinedValue, the issue with me is I am getting all the custom defined values grouped by  as<br />
+IsAdmin=1/IsValid=1,<br />
+ IsAdmin=1/IsValid=0,<br />
+IsAdmin=0/IsValid=1 and<br />
+IsAdmin=0/IsValid=0.<br />
+Instead of this, I require only IsAdmin. I mean two rows.<br />
+Is there a way to  group by IsAdmin.<br />
+Please let me know.<br />
+Thanks in Advance,<br />
+Raj</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewWhite2  width=95%>
+		<tr class=""><td>
+		<!-- class="" id="comment-78394"> -->
+			22| <B>Raj</b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-78394" title=""><u><font color=black>23rd June 2009 @  08:45</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class=""><td colspan=2>
+			
+
+			<p>How to use filters for userDefinedValue(custom segments)?<br />
+We can filter  city using<br />
+filters=ga:city%3D%3DIrvine<br />
+how to apply filters for userDefinedValue(ga:userDefinedValue)?<br />
+I have a user defined value &#8220;station&#8221;. I have to filter with station=&#8221;Manila&#8221;.<br />
+Can any one help me here?<br />
+Thanks in Advance,<br />
+Raj</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewGrey2  width=95%>
+		<tr class="alt"><td>
+		<!-- class="alt" id="comment-79453"> -->
+			23| <B>Mitul</b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-79453" title=""><u><font color=black>17th July 2009 @  13:46</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class="alt"><td colspan=2>
+			
+
+			<p>i need analytics.zip for .net 2.0, how can i get it?<br />
+please, help me</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewWhite2  width=95%>
+		<tr class=""><td>
+		<!-- class="" id="comment-80359"> -->
+			24| <B>John Benjamin</b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-80359" title=""><u><font color=black>6th August 2009 @  14:48</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class=""><td colspan=2>
+			
+
+			<p>Hey it was very helpful. Thanks. But i need a little more. I could not get the charts from google. Can you explain to me how i can get charts or images from my GoogleAnalytics account.</p>
+<p>Best Regards</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewGrey2  width=95%>
+		<tr class="alt"><td>
+		<!-- class="alt" id="comment-80548"> -->
+			25| <B>Franz</b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-80548" title=""><u><font color=black>9th August 2009 @  18:43</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class="alt"><td colspan=2>
+			
+
+			<p>Dude!  I owe you a six pack for that one!  You just saved me a ton of time!</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewWhite2  width=95%>
+		<tr class=""><td>
+		<!-- class="" id="comment-80608"> -->
+			26| <B><a href='http://emanbass.com' rel='external nofollow'>Carolus Holman</a></b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-80608" title=""><u><font color=black>10th August 2009 @  19:58</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class=""><td colspan=2>
+			
+
+			<p>Is it possible to save the AuthSub Session Token and re-use at a later date and time. For instance I want the user to allow access to their GA account so out application can make daily request on their behalf. It seems as thought the session ends as soon as I stop debugging? When I read Googles documentation they make it seem as though the session is still going on their servers indefinitely.</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewGrey2  width=95%>
+		<tr class="alt"><td>
+		<!-- class="alt" id="comment-81408"> -->
+			27| <B><a href='http://commvault.com' rel='external nofollow'>Vasanth</a></b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-81408" title=""><u><font color=black>21st August 2009 @  18:56</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class="alt"><td colspan=2>
+			
+
+			<p>hi<br />
+i am trying to use the api and somehow the pageviews displayed in the data and the page views displayed in the analytics website seems to be inconsistent. i get 96 as the numebr when the website shows 2000. any thing that ic ould be missing.</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewWhite2  width=95%>
+		<tr class=""><td>
+		<!-- class="" id="comment-82307"> -->
+			28| <B>Vish</b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-82307" title=""><u><font color=black>26th August 2009 @  10:43</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class=""><td colspan=2>
+			
+
+			<p>Hi, I have downloaded your sample code and have tried running it through Visual studio. The problem in the line myRequest.GetRequestStream() in function getSessionTokenClientLogin() is getting timedout with a socket exception with the message ( SocketException (0&#215;274c): A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 209.85.227.103:443]). When i used my google analytics account and password on your website ( top 20 visits) then it was able to access the analytics server and provide me the correct list of profiles. Can you help shed some light on why it is not working on my server? I am able to connect to internet from my machine using IE.</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewGrey2  width=95%>
+		<tr class="alt"><td>
+		<!-- class="alt" id="comment-83479"> -->
+			29| <B>Sutanu</b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-83479" title=""><u><font color=black>4th September 2009 @  11:20</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class="alt"><td colspan=2>
+			
+
+			<p>Hi,</p>
+<p>Thanks alot about this post.<br />
+How to calculate Direct Traffic,Referring Sites,Search Engines,Home Page Bounce Rate using Google Analytics API with ASP.NET/C#?<br />
+Best Regards</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewWhite2  width=95%>
+		<tr class=""><td>
+		<!-- class="" id="comment-84573"> -->
+			30| <B>Trilok Giri</b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-84573" title=""><u><font color=black>11th September 2009 @  12:53</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class=""><td colspan=2>
+			
+
+			<p>I created new project and took Default.aspx, Default.aspx.cs and GoogleAnalytics.cs file in my new web project. I tried to run the application, it ask me creadential, after giving credential it fetch all website in dropdown. wheb I tried to click &#8216;Get Top 20 Content Items with Pageviews for March 2009&#8242;, I&#8217;m getting error like &#8220;The remote server returned an error: (400) Bad Request.&#8221; Please help me on this.</p>
+<p>Thanks in Advance</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewGrey2  width=95%>
+		<tr class="alt"><td>
+		<!-- class="alt" id="comment-84650"> -->
+			31| <B>Will</b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-84650" title=""><u><font color=black>11th September 2009 @  20:21</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class="alt"><td colspan=2>
+			
+
+			<p>For Step 2/3, I recommend getting the node values by name instead of index.   Google just changed around the order so the line:</p>
+<p>profiles.Add(entries.Item(i).ChildNodes[2].InnerText,entries.Item(i).ChildNodes[7].Attributes["value"].Value);</p>
+<p>..no longer works as profile ID is now index #6.   I changed this to:</p>
+<p>profiles.Add(entries.Item(i)["title"].InnerText, entries.Item(i).SelectSingleNode(&#8221;dxp:property[@name='ga:profileId']&#8220;, man).Attributes["value"].Value);</p>
+<p>and now its working.   Please correct my horrible coding here to get at the specific profileID node as im definitely not an expert on the matter.</p>
+<p>The &#8220;man&#8221; variable above is the namespacemanager.  If you want to use SelectSingleNode, you have to add the namespace:</p>
+<p>XmlNamespaceManager man = new XmlNamespaceManager(accountinfoXML.NameTable);<br />
+man.AddNamespace(&#8221;dxp&#8221;, &#8220;http://schemas.google.com/analytics/2009&#8243;);</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewWhite2  width=95%>
+		<tr class=""><td>
+		<!-- class="" id="comment-86338"> -->
+			32| <B>Daniel</b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-86338" title=""><u><font color=black>24th September 2009 @  12:54</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class=""><td colspan=2>
+			
+
+			<p>When using the ClientLogin method at <a href="http://www.davecallan.com/analytics/" rel="nofollow">http://www.davecallan.com/analytics/</a> and when I puch the button Get Top 20.. I got a error; <a href="http://www.davecallan.com/analytics/" rel="nofollow">http://www.davecallan.com/analytics/</a>.</p>
+<p>Details:<br />
+Line 120:        //obviously you need some kind of try/catch here<br />
+Line 121:        //but OK to bubble auth/connection failures up for demo<br />
+Line 122:        HttpWebResponse myResponse = (HttpWebResponse)myRequest.GetResponse();<br />
+Line 123:        Stream responseBody = myResponse.GetResponseStream();</p>
+<p>Do you know the solution for this error?</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewGrey2  width=95%>
+		<tr class="alt"><td>
+		<!-- class="alt" id="comment-86796"> -->
+			33| <B><a href='http://www.adventurelink.com' rel='external nofollow'>Raj</a></b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-86796" title=""><u><font color=black>28th September 2009 @  23:18</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class="alt"><td colspan=2>
+			
+
+			<p>I have tried your sample code and also the URL you given to test, both are throwing error, Can you help me out to fix this. thanks in advance</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewWhite2  width=95%>
+		<tr class=""><td>
+		<!-- class="" id="comment-86909"> -->
+			34| <B>Dana</b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-86909" title=""><u><font color=black>30th September 2009 @  18:03</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class=""><td colspan=2>
+			
+
+			<p>Hey David&#8230; When I started doing some research as to how to get Google Analytics stats into an ASP.NET, this was the first article I came across.  (I think that Google might even have a link to you?)  I eventually stumbled across this Google supported open source project:</p>
+<p><a href="http://code.google.com/p/google-gdata/" rel="nofollow">http://code.google.com/p/google-gdata/</a></p>
+<p>While the current release version (1.4.0.2) does not include support for Analytics, the Subversion truck does:</p>
+<p><a href="http://google-gdata.googlecode.com/svn/trunk/" rel="nofollow">http://google-gdata.googlecode.com/svn/trunk/</a></p>
+<p>In any case, definitely worth checking out for you or anybody else who reads this blog entry.  Thanks for your help.</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewGrey2  width=95%>
+		<tr class="alt"><td>
+		<!-- class="alt" id="comment-86941"> -->
+			35| <B><a href='http://www.thevictory.nl' rel='external nofollow'>Bjorn van der Neut</a></b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-86941" title=""><u><font color=black>1st October 2009 @  08:38</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class="alt"><td colspan=2>
+			
+
+			<p>Hello If I run your code on:<br />
+<a href="http://www.davecallan.com/analytics/" rel="nofollow">http://www.davecallan.com/analytics/</a> </p>
+<p>I can retreive the accounts but when I want to get the top 20 I get this error message:</p>
+<p>The remote server returned an error: (400) Bad Request.<br />
+HttpWebResponse myResponse = (HttpWebResponse)myRequest.GetResponse();</p>
+<p>Is there something changed during your version and the API whats beeing called?</p>
+<p>Thanks,<br />
+Bjorn</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewWhite2  width=95%>
+		<tr class=""><td>
+		<!-- class="" id="comment-86961"> -->
+			36| <B>David Callan</b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-86961" title=""><u><font color=black>1st October 2009 @  14:24</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class=""><td colspan=2>
+			
+
+			<p>Hi everyone, I have to update the code. The Google guys changed the API a little a couple of months after I wrote this blog post so that&#8217;s why some of yous are getting 400 errors - bad request. I&#8221;ll get to it as soon as possible.</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewGrey2  width=95%>
+		<tr class="alt"><td>
+		<!-- class="alt" id="comment-87041"> -->
+			37| <B>Tim</b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-87041" title=""><u><font color=black>2nd October 2009 @  19:30</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class="alt"><td colspan=2>
+			
+
+			<p>Hi Guys the only way i got this to work with the interface was to change to the profile id instead of the account id, i think i might have picked up the new interface so excuse me if i&#8217; wrong.</p>
+<p>Just a qucik fix as it&#8217;s been ages since i have palyed with XML in .net i changed this</p>
+<p>In the getAccountInfo sub</p>
+<p>profiles.Add(entries.Item(i).ChildNodes(2).InnerText, entries.Item(i).ChildNodes(7).Attributes(&#8221;value&#8221;).Value)<br />
+        Next</p>
+<p>To </p>
+<p>profiles.Add(entries.Item(i).ChildNodes(2).InnerText, entries.Item(i).ChildNodes(6).Attributes(&#8221;value&#8221;).Value)<br />
+        Next</p>
+<p>This returns the profile id instead of the account id, so might need some more code to bring out the account id, hope it helps.</p>
+<p>Tim.</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewWhite2  width=95%>
+		<tr class=""><td>
+		<!-- class="" id="comment-87423"> -->
+			38| <B><a href='http://www.pixcode.se' rel='external nofollow'>Henrik</a></b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-87423" title=""><u><font color=black>6th October 2009 @  21:30</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class=""><td colspan=2>
+			
+
+			<p>Hi. I also has the problem with 400 error.<br />
+It would be great if you could help us.</p>
+<p>Thanks,<br />
+Henrik</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewGrey2  width=95%>
+		<tr class="alt"><td>
+		<!-- class="alt" id="comment-87425"> -->
+			39| <B><a href='http://www.pixcode.se' rel='external nofollow'>Henrik</a></b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-87425" title=""><u><font color=black>6th October 2009 @  22:32</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class="alt"><td colspan=2>
+			
+
+			<p>Hi Again.<br />
+I Fixed the Error 400.</p>
+<p>Change the line 84 in GoogleAnalytics.cs to &#8230;<br />
+profiles.Add(entries.Item(i).ChildNodes[2].InnerText,entries.Item(i).ChildNodes[6].Attributes["value"].Value);</p>
+<p>Now the demo is working.</p>
+<p>/Henrik</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewWhite2  width=95%>
+		<tr class=""><td>
+		<!-- class="" id="comment-87464"> -->
+			40| <B>Ashok</b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-87464" title=""><u><font color=black>8th October 2009 @  11:47</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class=""><td colspan=2>
+			
+
+			<p>David , Please Let Me know when you can get the updated code , i waiting eagerly , i need to integrate it.</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewGrey2  width=95%>
+		<tr class="alt"><td>
+		<!-- class="alt" id="comment-88470"> -->
+			41| <B>jessy venus</b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-88470" title=""><u><font color=black>19th October 2009 @  07:45</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class="alt"><td colspan=2>
+			
+
+			<p>if you changed the code can you sent it to me which property we must take  please sent me codes</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewWhite2  width=95%>
+		<tr class=""><td>
+		<!-- class="" id="comment-89295"> -->
+			42| <B>Sandy</b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-89295" title=""><u><font color=black>28th October 2009 @  14:11</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class=""><td colspan=2>
+			
+
+			<p>Is there any update on code modification?</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewGrey2  width=95%>
+		<tr class="alt"><td>
+		<!-- class="alt" id="comment-89316"> -->
+			43| <B>Alex Jayson</b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-89316" title=""><u><font color=black>29th October 2009 @  02:06</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class="alt"><td colspan=2>
+			
+
+			<p>HELLO David ,this blog post was so helpful and fruity . i am wondering did you fix the error (400) bad request which occurs eveytime i try to get the report data . Hopefully  you update it as soon as possible  because i really need it .<br />
+thank you</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewWhite2  width=95%>
+		<tr class=""><td>
+		<!-- class="" id="comment-89342"> -->
+			44| <B>Sandy</b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-89342" title=""><u><font color=black>29th October 2009 @  11:51</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class=""><td colspan=2>
+			
+
+			<p>Hi Everyone, I got a fix in GoogleAnalytics.cs page to avoid rhe bad request<br />
+In the method getAccountInfo, while adding the Profile in collection,<br />
+Replace the code as<br />
+profiles.Add(entries.Item(i).ChildNodes[2].InnerText,entries.Item(i).ChildNodes[6].Attributes["value"].Value);<br />
+Here<br />
+I have changed the index in the second parameter from 7 to 6 to get the Profile ID but not the Profile account code</p>
+<p>Happy coding<br />
+Regards,<br />
+Sandy</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewGrey2  width=95%>
+		<tr class="alt"><td>
+		<!-- class="alt" id="comment-90350"> -->
+			45| <B>Milos</b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-90350" title=""><u><font color=black>12th November 2009 @  14:01</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class="alt"><td colspan=2>
+			
+
+			<p>Hi Bjorn,</p>
+<p>There was little changes in data feed parameters understanding. You were probably using profileID value (looks like &#8216;UA-xxxxxxx-x&#8217;) in &#8220;ids&#8221;-<br />
+parameter. But have to change &#8220;ids&#8221;-parameter<br />
+manually to value provided in web interface of Google Analytics (in<br />
+link <a href="https://www.google.com/analytics/reporting/?reset=1&amp;id=xxxxxxx&amp;pdr=20.." rel="nofollow">https://www.google.com/analytics/reporting/?reset=1&amp;id=xxxxxxx&amp;pdr=20..</a>.<br />
+it is &#8220;id&#8221;-parameter&#8217;s value) and our script started to work properly<br />
+again!</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewWhite2  width=95%>
+		<tr class=""><td>
+		<!-- class="" id="comment-90356"> -->
+			46| <B>sagi</b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-90356" title=""><u><font color=black>12th November 2009 @  19:17</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class=""><td colspan=2>
+			
+
+			<p>is the 400 error fixed?? i realy want to use this code&#8230;</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewGrey2  width=95%>
+		<tr class="alt"><td>
+		<!-- class="alt" id="comment-90540"> -->
+			47| <B>matt</b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-90540" title=""><u><font color=black>16th November 2009 @  16:48</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class="alt"><td colspan=2>
+			
+
+			<p>add this to line 100 of GoogleAnalytics.cs to solve those (400)Bad Request Errors.<br />
+profileID = profileID.Split(&#8217;-')[1];</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewWhite2  width=95%>
+		<tr class=""><td>
+		<!-- class="" id="comment-90541"> -->
+			48| <B>matt</b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-90541" title=""><u><font color=black>16th November 2009 @  16:50</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class=""><td colspan=2>
+			
+
+			<p>with your code and a few others like it, I am able to retrieve the auth token just fine, but the request for the actual feed always comes back (401) unauthorized.  I have checked to make sure im forwarding token in header.  Ive tried on a live domain.  I&#8217;ve tried on a live domain in a directory where Network Service has write permission. Do I need to set something in the analytics account?</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewGrey2  width=95%>
+		<tr class="alt"><td>
+		<!-- class="alt" id="comment-91390"> -->
+			49| <B>Paul</b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-91390" title=""><u><font color=black>2nd December 2009 @  16:50</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class="alt"><td colspan=2>
+			
+
+			<p>David</p>
+<p>Have you fixed the issues the other guys where getting yet ?</p>
+<p>Thanks</p>
+<p>Paul</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewWhite2  width=95%>
+		<tr class=""><td>
+		<!-- class="" id="comment-91489"> -->
+			50| <B>Greg</b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-91489" title=""><u><font color=black>3rd December 2009 @  15:33</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class=""><td colspan=2>
+			
+
+			<p>You need to change this line&#8230;</p>
+<p>profiles.Add(entries.Item(i).ChildNodes[2].InnerText, entries.Item(i).ChildNodes[7].Attributes["value"].Value);</p>
+<p>To this&#8230;</p>
+<p>profiles.Add(entries.Item(i).ChildNodes[2].InnerText, entries.Item(i).ChildNodes[6].Attributes["value"].Value);</p>
+<p>It looks like they move the profile id location in the xml file.</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewGrey2  width=95%>
+		<tr class="alt"><td>
+		<!-- class="alt" id="comment-92087"> -->
+			51| <B>Aman</b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-92087" title=""><u><font color=black>15th December 2009 @  22:50</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class="alt"><td colspan=2>
+			
+
+			<p>I am also getting 400 errors - bad request<br />
+Did anybody figured it out? Thanks</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewWhite2  width=95%>
+		<tr class=""><td>
+		<!-- class="" id="comment-94666"> -->
+			52| <B>David Callan</b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-94666" title=""><u><font color=black>25th January 2010 @  17:16</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class=""><td colspan=2>
+			
+
+			<p>Thanks to all the people who noted that an index number needed to be changed in the code to make it work. Also if possible I recommend following Wills advice above and using node names rather than indexes as the are less sensitive to change (from for example Google engineers). </p>
+<p>I&#8217;ve updated code in the demo and the zip file, sorry for the major delay.</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewGrey2  width=95%>
+		<tr class="alt"><td>
+		<!-- class="alt" id="comment-94679"> -->
+			53| <B><a href='http://www.pixcode.se' rel='external nofollow'>Henrik</a></b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-94679" title=""><u><font color=black>25th January 2010 @  22:02</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class="alt"><td colspan=2>
+			
+
+			<p>Thanks for the code anyway.<br />
+We made it work.</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewWhite2  width=95%>
+		<tr class=""><td>
+		<!-- class="" id="comment-95868"> -->
+			54| <B>Arjay45</b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-95868" title=""><u><font color=black>9th February 2010 @  10:32</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class=""><td colspan=2>
+			
+
+			<p>Hi David. What should I change to get the site visits only and not the total page views? Thanks <img src='http://www.akamarketing.com/blog/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' /></p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewGrey2  width=95%>
+		<tr class="alt"><td>
+		<!-- class="alt" id="comment-95972"> -->
+			55| <B><a href='http://www.kingfishersoftware.biz' rel='external nofollow'>Mike Chase</a></b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-95972" title=""><u><font color=black>10th February 2010 @  23:27</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class="alt"><td colspan=2>
+			
+
+			<p>Hi - great job. I need to dig into the code and try it. Thanks again.</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewWhite2  width=95%>
+		<tr class=""><td>
+		<!-- class="" id="comment-97544"> -->
+			56| <B><a href='http://www.thecyberwizard.com/4/google-analytics-api-in-c-introduction/' rel='external nofollow'>Google Analytics API in C# &ndash; Introduction | The Cyberwizard</a></b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-97544" title=""><u><font color=black>8th March 2010 @  19:09</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class=""><td colspan=2>
+			
+
+			<p>[...] VB.NET) code.&#160; After a quick search on Google, I found an article on akamarketing.com called Introducing Google Analytics API with asp.net / C#.&#160; Exactly what I [...]</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+	
+	<table align=center  class=commentsviewGrey2  width=95%>
+		<tr class="alt"><td>
+		<!-- class="alt" id="comment-97685"> -->
+			57| <B><a href='http://www.thecyberwizard.com/5/google-analytics-api-in-c-part-1/' rel='external nofollow'>Google Analytics API in C# &#8211; Part 1 | The Cyberwizard</a></b> said, </td><td align=right><small class="commentmetadata"><a href="#comment-97685" title=""><u><font color=black>10th March 2010 @  22:05</font></u></a>&nbsp; </small></td></tr>
+			
+						
+			<tr class="alt"><td colspan=2>
+			
+
+			<p>[...] am starting with the code I downloaded from Introducing Google Analytics API with asp.net / C# by AKA Marketing.&#160; As I was looking around, I also found an article by Jacob Reimers called [...]</p>
+			</td></tr>
+		
+
+	
+	</table>
+
+
+	
+		
+
+
+ 
+
+
+<table align=center class="commentGrey2"><tr><td>Leave a Comment</td></tr></table>
+<table align=center border=0 class=commentsBox2 width=95%>
+
+
+<form action="http://www.akamarketing.com/blog/wp-comments-post.php" method="post" id="commentform">
+
+
+
+<tr><td width=40>Name:</td><td><input type="text" size="20" name="author" id="author" value=""  tabindex="1" /><label for="author">(Required)</label></td></tr><tr><td width=40>Email:</td><td><input size="20" type="text" name="email" id="email" value="" tabindex="2" /><label for="email">(Will not be displayed)(Required)</label></td></tr><tr><td width=40>Website:</td><td><input type="text" name="url" id="url" value="" size="20" tabindex="3" />
+</td></tr>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<tr><td width=40></td><td><textarea name="comment" id="comment" style="width:95%" rows="5" tabindex="4"></textarea></td></tr><tr><td width=40>&nbsp;</td><td align="left"><input name="submit" type="submit" tabindex="5" value="Add Comment"/>
+
+	<p style="clear: both;" class="subscribe-to-comments">
+	<input type="checkbox" name="subscribe" id="subscribe" value="subscribe" style="width: auto;" />
+	<label for="subscribe">Notify me of followup comments via email</label>
+	</p>
+
+
+<input type="hidden" name="comment_post_ID" value="103" /></td></tr>
+
+
+
+
+</form>
+
+
+</table>
+	
+		
+	</div>
+
+
+
+	
+		<!-- 25 queries. 0.710 seconds. -->
+
+
+	<div class="redback">
+
+
+	<a href="">HOME</a> | <a href="/aboutus.html" rel="nofollow">ABOUT US</a> | <a href="/contactus.php" rel="nofollow">CONTACT US</a> | <a href="/sitemap.php">SITEMAP</a> | <a href="http://www.google.com/search?hl=en&q=site%3Awww.akamarketing.com&btnG=Google+Search" rel="nofollow">GOOGLE SITE SEARCH</a>  | <a href="#top" onclick="self.scrollTo(0, 0); return false;">TOP</a>
+	<BR>12 Lorcan Crescent, Santry, Dublin 9, Ireland +353 87 9807629 
+
+</div>
+<!-- Gorgeous design by Michael Heilemann - http://binarybonsai.com/kubrick/ -->
+
+		</div>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-299469-1";
+urchinTracker();
+</script>
+</body>
+</html>
+
+ 

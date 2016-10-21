@@ -1,0 +1,2071 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head id="ctl00_ctl00_ctl00"><meta name="GENERATOR" content="CommunityServer 2007 SP1 (Build: 20510.895)" />
+<link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
+<link rel="alternate" type="application/rss+xml" title="Forums RSS (RSS 2.0)" href="http://forums.asp.net/aggregaterss.aspx?Mode=0"  />
+<link rel="alternate" type="application/rss+xml" title="Tips &amp; Tricks (RSS 2.0)" href="http://forums.asp.net/rss.aspx?ForumID=53&amp;Mode=0"  />
+<link rel="alternate" type="application/rss+xml" title="How To: Connect to SQL using C# and SELECT INSERT UPDATE ? (RSS 2.0)" href="http://forums.asp.net/rss.aspx?ForumID=53&amp;PostID=2056772"  />
+
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <meta http-equiv="X-UA-Compatible" content="IE=7" /> 
+            
+                <link rel="stylesheet" href="http://i2.asp.net/common/forums-css/common.css?cdn_id=01112010_2" media="all" type="text/css" />      
+                <link rel="stylesheet" href="http://i1.asp.net/common/forums-css/common_print.css?cdn_id=01112010_2" media="print" type="text/css" />      
+                <link rel="stylesheet" href="http://i2.asp.net/common/forums-css/fan.css?cdn_id=01112010_2" media="screen" type="text/css" />      
+                <link rel="stylesheet" href="http://i3.asp.net/common/forums-css/fan_print.css?cdn_id=01112010_2" media="print" type="text/css" />      
+                <link rel="shortcut icon" href="http://i1.asp.net/common/www-css/i/favicon.ico?cdn_id=01112010_2" /> 
+                
+                <script type="text/javascript" src="http://i2.asp.net/script/forums.asp.net/forums-all.js?cdn_id=01112010_2" ></script>
+                <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery/jquery-1.3.2.min.js" ></script>
+                
+           
+            
+            
+    
+    
+       
+        
+    <!--[if lte IE 7]> <script language="javascript"> function fixIEPaintBug(){ var c = document.getElementById('CommonContent');  if (c) { c.style.height = "1%";} } attachEvent("onload", fixIEPaintBug); </script> <![endif]--> 
+        
+    <title>
+	How To: Connect to SQL using C# and SELECT INSERT UPDATE ? - ASP.NET Forums
+</title></head>    
+    
+	<body class="forum" >
+
+		<form name="aspnetForm" method="post" action="/p/1193643/3652687.aspx" id="aspnetForm">
+<div>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+
+<script src="/ScriptResource.axd?d=ujewXb1RkafGS8O5TIHXVcen1z7-c0eWoNMedUZc88nOY90xB3eDTFG5UouValtp-6Qu91Xec9dyOE_VMFiyB9-2K65Oqy-p5f0nucazwHQ1&amp;t=ffffffffa74340d0" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=ujewXb1RkafGS8O5TIHXVcen1z7-c0eWoNMedUZc88nOY90xB3eDTFG5UouValtp-6Qu91Xec9dBAi2uytwiw8kryRY0aejq0&amp;t=ffffffffa74340d0" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=HGB68otmMsAAmCzWoiidtHi3s9stakylnHh3fhr284MATMxUGzpDZAOlL_F-YzrZ_rpHRDg8VuRWVfV4_k8--sRMSV3-m4noksNdqknzYPQ1&amp;t=ffffffffb3b706d0" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=HGB68otmMsAAmCzWoiidtHi3s9stakylnHh3fhr284MATMxUGzpDZAOlL_F-YzrZ_rpHRDg8VuRQ6qKBNAtfpVF_qDpeHQhB4OdfxTlXSSIWNEwLeLuV9GThtfPWWsxt0&amp;t=ffffffffb3b706d0" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=ujewXb1RkafGS8O5TIHXVcen1z7-c0eWoNMedUZc88nOY90xB3eDTFG5UouValtp-6Qu91Xec9ckNGoXOqsIPmjTU3qw29pMyLZfWkflQaE1&amp;t=ffffffffa74340d0" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=ujewXb1RkafGS8O5TIHXVcen1z7-c0eWoNMedUZc88nOY90xB3eDTFG5UouValtp-6Qu91Xec9ckNGoXOqsIPlJbu_9HFyHIov02M6QbbUc1&amp;t=ffffffffa74340d0" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=ujewXb1RkafGS8O5TIHXVcen1z7-c0eWoNMedUZc88nOY90xB3eDTFG5UouValtp-6Qu91Xec9d8z_DooPRVmVo_4mxq003L5q-IT-ROgb41&amp;t=ffffffffa74340d0" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=HCJUnBhvHpDajYT6Ana6x3k3FfaTGaRGrPd3Ou3bRLV30vlFuGrMWusd2b8oBVfGmZpfOcFSUWJRimUSR52SeILSiItL3De80&amp;t=ffffffff960c82b3" type="text/javascript"></script>
+			
+			
+			
+
+            <div class="content_container">
+		        
+					<div class="header_container">  
+                    
+                        <div class="header_top">
+                            <div class="header_top_right"></div>
+                        </div>
+                        <div class="header_content mix10">
+                            <div class="header_content_right">
+                            
+                            <!--Mixx-->
+                                <style>
+                                    .mix10 .logo {left:5px; position:absolute; top:-4px; z-index:20;}
+                                    .logo_mix_2010 {left:7px; position:absolute; top:-3px; z-index:20;}
+                                    .mix10 .header_content_right {background-position:right -28px; min-height:56px; padding:0 0 0 175px;}
+                                    .mix10 ul.nav_main {bottom:-5px; left:194px; margin:0; padding:0; position:absolute;}
+                                </style>
+								<a id="LogoLink" title="Home Page" href="http://asp.net/"><img class="logo" src="http://i1.asp.net/common/www-css/i/logo_mix.png?cdn_id=01112010_2" alt="Microsoft ASP.net" /></a>
+        <a href="http://live.visitmix.com/" title="Mix 2010"><img src="http://i1.asp.net/common/www-css/i/logo_mix_2010.png?cdn_id=01112010_2" alt="Mix 2010" class="logo_mix_2010" /></a>
+
+
+                                <ul class="nav_main">
+                                    <li class="first"><a href="http://www.asp.net">Home</a></li>
+                                    <li><a href="http://www.asp.net/get-started/">Get Started</a></li>
+                                    <li><a href="http://www.asp.net/downloads/">Downloads</a></li>
+                                    <li><a href="http://www.asp.net/web-forms/">Web Forms</a></li>
+					                <li><a href="http://www.asp.net/mvc/">MVC</a></li>
+					                <li><a href="http://www.asp.net/ajax/">AJAX</a></li>
+                                    <li><a href="http://www.asp.net/community/">Community</a></li>
+                                    <li><a href="http://wiki.asp.net/">Wiki</a></li>
+                                    <li class="active"><a href="http://forums.asp.net">Forums</a></li>
+                                    <li class="search">                                            
+                                            <div id="SearchBoxWrapper">
+                                                <input name="ctl00$ctl00$bhcr$SearchForm1$ctl00$TitleBarSearchText" type="text" maxlength="64" id="ctl00_ctl00_bhcr_SearchForm1_ctl00_TitleBarSearchText" class="search_box" onclick="if(this.defaultValue==this.value) this.value='';" onblur="if(this.value=='') this.value=this.defaultValue;" onkeydown="if( typeof(KeyDownHandlerctl00_ctl00_bhcr_SearchForm1_ctl00_TitleBarSearchButton) == 'undefined' || KeyDownHandlerctl00_ctl00_bhcr_SearchForm1_ctl00_TitleBarSearchButton == null) return false; else return KeyDownHandlerctl00_ctl00_bhcr_SearchForm1_ctl00_TitleBarSearchButton(event);" />
+                                            </div>                                            
+                                            <input type="submit" name="ctl00$ctl00$bhcr$SearchForm1$ctl00$TitleBarSearchButton" value="Search" id="ctl00_ctl00_bhcr_SearchForm1_ctl00_TitleBarSearchButton" class="search_button" />
+                                        </li>                                    
+                                </ul>                       
+                                <div class="nav_login_user">                                
+                                     
+        <p>
+            <a href="/login.aspx?ReturnUrl=%2fp%2f1193643%2f3652687.aspx">Sign in </a>
+             | <a href="/user/CreateUser.aspx?ReturnUrl=">Join</a>
+         </p>
+     
+
+
+
+		                        </div>
+		                    </div>
+                        </div>
+                        <div class="header_breadcrumb_top">
+                            <div class="header_breadcrumb_top_right"></div>
+                        </div>
+                        <div class="header_breadcrumb_content">
+                            <div class="header_breadcrumb_content_right"><a href="http://www.asp.net">Home</a> &#8250; 
+                                
+    
+    <div class="CommonBreadCrumbArea"><div class="Common"><a href="/">ASP.NET Forums</a> &raquo; <a href="/default.aspx?GroupID=36">Community</a> &raquo; <a href="/53.aspx">Tips & Tricks</a> &raquo; <a href="/t/1193643.aspx">How To: Connect to SQL using C# and SELECT INSERT UPDATE ?</a></div></div>
+
+                      
+                            </div>
+                        </div>
+                        <div class="header_breadcrumb_bottom">
+                            <div class="header_breadcrumb_bottom_right"></div>
+                        </div>                       
+                    </div>
+                    <!-- END HEADER & BREADCRUMB -->   
+		        
+		        <div class="advertisement">
+		            
+    <div class="adRegionSelector" align="center" style="padding-top:5px;padding-bottom:5px;height:90px;" adurl="http://forums.asp.net/a/CSFeaturedAd.ashx?ZoneID=6" adwidth="728" adheight="90">
+    </div>
+
+
+
+
+
+
+
+
+		        </div>
+                            
+		        <div id="CommonSidebarRight">
+		            
+    
+<div class="CommonSidebar">
+    
+
+
+
+
+
+
+    <div class="adRegionSelector" align="center" style="padding-top:5px;padding-bottom:5px;height:285px;" adurl="http://forums.asp.net/a/CSFeaturedAd.ashx?ZoneID=353" adwidth="300" adheight="285">
+    </div>
+
+
+    
+    <br />
+	    
+	            <div class="CommonSidebarArea">
+	                <div class="CommonSidebarRoundTop"><div class="r1"></div><div class="r2"></div><div class="r3"></div><div class="r4"></div></div>
+	                <div class="CommonSidebarInnerArea">
+			            <h4 class="CommonSidebarHeader">Shortcuts</h4>
+			            <div class="CommonSidebarContent">
+			                <ul class="CommonSidebarList">
+			                    
+			                
+			                    <li><a href="../../../TopicsActive.aspx" id="ctl00_ctl00_rcr_rcr_PlaceHolder6_ctl00_A1">Active Posts</a></li>
+			                    <li><a href="../../../TopicsNotAnswered.aspx" id="ctl00_ctl00_rcr_rcr_PlaceHolder6_ctl00_A2">Unanswered Posts</a></li>
+                                    
+                                        
+			                    <li><a href="/user/ViewOnline.aspx">Who is Online</a></li>
+			                    <li><a href="http://www.asp.net/resources/support/default.aspx?tabid=41">Support Options</a></li>
+			                    <li><a href="../../../search/" id="ctl00_ctl00_rcr_rcr_PlaceHolder6_ctl00_A3">Advanced Search</a></li>
+                            </ul>
+			            </div>
+			        </div>
+		            <div class="CommonSidebarRoundBottom"><div class="r1"></div><div class="r2"></div><div class="r3"></div><div class="r4"></div></div>
+                </div>
+            
+</div>
+
+
+		        </div>
+		        
+		        <div id="CommonSidebarLeft">
+			        
+			    </div>
+		        
+		        <div id="CommonContent">
+		            <div id="CommonContentInner">
+                        <div class="CommonContentArea">
+		                    
+    
+    
+
+
+<div class="CommonContentArea">
+
+
+	<div class="CommonContent">
+	
+	    <div style="text-align: right; font-size: 70%">
+	        <a class="CommonImageTextButton" href="/ThreadNavigation.aspx?PostID=2056772&amp;NavType=Previous"><span class="CommonPreviousButton">Previous</span></a>
+	        <a class="CommonImageTextButton" href="/ThreadNavigation.aspx?PostID=2056772&amp;NavType=Next"><span class="CommonNextButton">Next</span></a>
+	    </div>
+	
+        <div class="CommonInlineMessageTitle">
+            <div class="CommonInlineMessageTitleRight"></div>
+            <h2>How To: Connect to SQL using C# and SELECT INSERT UPDATE ?</h2>
+        </div>	
+	    <div class="CommonInlineMessageArea">
+            <div class="CommonInlineMessageTop"><span></span></div>
+            <div class="CommonInlineMessageContent">
+                <p style="float: right;">
+                    <span id="ctl00_ctl00_bcr_bcr_ctl00_ctl02" title="Rated Excellent [5 out of 5 / rated 1 time(s)]." onclick="OpenWindow('/utility/PostRating.aspx?PostID=2056772')" style="cursor: pointer;"></span><input type="hidden" value="5" id="ctl00_ctl00_bcr_bcr_ctl00_ctl02_Value" />
+                            Rate It (1)
+                        
+                </p>
+                <p>Last post 03-04-2010 9:55 AM by <a href="/members/Simon-Deshaies.aspx">Simon Deshaies</a>. 57 replies.</p>
+                <p>
+                    
+		            
+                    
+		                    Sort Posts:
+		                    <select name="ctl00$ctl00$bcr$bcr$ctl00$ctl05$ctl00$SortOrder" id="ctl00_ctl00_bcr_bcr_ctl00_ctl05_ctl00_SortOrder" onchange="window.setTimeout('__doPostBack(\'ctl00$ctl00$bcr$bcr$ctl00$ctl05\',\'\')',0)">
+	<option selected="selected" value="0">Oldest to newest</option>
+	<option value="1">Newest to oldest</option>
+
+</select>
+		                
+		        </p>
+            </div>
+            <div class="CommonInlineMessageBottom"><span></span></div>
+        </div>
+        
+        <ul class="ForumPostList">
+			    <li>
+			        <a name="3040017"></a>
+			        <div class="ForumPostHeader">
+                        <div class="ForumPostHeaderRight"></div>
+                        <h2> Re: How To: Connect to SQL using C# and SELECT INSERT UPDATE ?</h2><div style="clear: both" />                     
+                        <table width="100%" class="ForumPostHeaderAction" cellpadding="5" cellspacing="0">
+                            <tr>
+                                <td width="20%" style="padding-left: 8px;" valign="top" nowrap="nowrap">
+                                    03-26-2009, 9:01 AM                                
+        						    
+                                    
+                                </td>
+                                
+                                <td width="80%" align="right" valign="middle">
+
+                                    
+                                    
+                                    
+                                    
+				                                                        
+                                
+				                    
+			                                <div style="float: right; height: 27px; padding-right:5px  ">        
+			                            <a class="CommonImageTextButton" onclick="return window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01_ClientPopulatedPopupMenu.LoadMenu(this,event,['771696','Simon Deshaies','0','1','','http://weblog.simondeshaies.net','','/search/SearchResults.aspx?q=userid%3a771696&amp;o=DateDescending'],null);" href="#"><span class="CommonContactButton">Contact</span></a>
+                                            </div>				                            
+			                            
+                                                                
+                                    
+				                                                        
+			                        
+                                
+ 
+			                       
+
+				                    
+
+                                                                    
+                                    
+		                                    <div style="float: right; height: 27px;  padding-right:5px ">        
+		                                <a class="CommonImageTextButton" href="/AddPost.aspx?ReplyToPostID=3040017&amp;Quote=False">
+				                            <span class="CommonReplyButton">Reply</span>
+			                            </a>
+                                            </div>				                            
+		                                
+    
+    
+				                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>	
+                    
+				    <div class="ForumPostArea" style="margin-top: 0px; background-color: white">
+					    <table id="tbl0" cellspacing="0" cellpadding="0" border="0" width="100%">
+						    <tr valign=top>
+							    <td rowspan="2" class="ForumPostUserArea">
+								    <div class="ForumPostUserContent">
+								    <ul class="ForumPostUserPropertyList">
+									    <li class="ForumPostUserAvatar"><img src="http://i1.asp.net/avatar/Simon%20Deshaies.jpg?forceidenticon=False&amp;dt=634041558000000000&amp;cdn_id=01112010_2" alt="" style="border-width:0px;" /></li>
+								        <li class="ForumPostUserAttribute">
+									        <div class="reputation-user-level"><img alt="Member" src="http://i3.asp.net/asp.net/images/rs/level-Member.gif?cdn_id=01112010_2"/></div>
+									        <div class="reputation-user-points">144 point <b>Member</b></div>
+        								</li>
+									    <li class="ForumPostUserName">
+									        
+									                
+									            
+									        <a href="/members/Simon-Deshaies.aspx">Simon Deshaies</a>
+									    </li>
+									    
+								                <li class="ForumPostUserAttribute">Member since 11-17-2007, 10:59 AM</li>
+								                <li class="ForumPostUserAttribute">Montr&amp;#233;al, Canada</li>
+								                <li class="ForumPostUserAttribute">Posts <a href="/search/SearchResults.aspx?q=userid%3a771696&amp;o=DateDescending">71</a></li>
+								                
+                                                
+                                            
+								    </ul>
+								    </div>
+							    </td>
+							    <td class="ForumPostContentArea">
+    							    <table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" style="table-layout: fixed;">
+									    <tr>
+									        <td>
+									            <div class="ForumPostBodyArea">
+									                <div class="ForumPostContentText">
+										                <p>Hi phoebe_ph,</p>
+<p>The VB you posted is not valid... can you give us the whole method/function/sub ?</p>
+<p>Thanks,</p>
+<p>Simon</p>
+										                <span class="ForumPostContentScrollbarCorrector"></span>
+										                
+            									    </div>
+			            						    <div class="ForumPostSignature">Simon Deshaies<br /><br />Support Specialist / Support C# Analyst at Nstein Technologies<br /><br /><a href="http://weblog.simondeshaies.net">weblog.simondeshaies.net</a><p>Please remember to click “Mark as Answer” on the post that helps you.</p><br /></div>
+						        			    </div>
+									        </td>
+									    </tr>
+								    </table>
+							    </td>
+						    </tr>
+						    <tr valign="bottom">
+							    <td class="ForumPostFooterArea">	
+								    <div><span id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl01"></span><input type="hidden" name="ctl00$ctl00$bcr$bcr$ctl00$PostList$ctl02$ctl07$ctl01" id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl01_State" value="nochange" /></div>
+								    <ul class="ForumPostStatistics CommonPrintHidden" style="clear: both;">
+								        <li></li>
+								        
+									    
+									    
+									    
+								    </ul>
+							    </td>
+						    </tr>
+					    </table>
+				    </div>
+			    </li>
+            
+			    <li>
+			        <a name="3043756"></a>
+			        <div class="ForumPostHeader">
+                        <div class="ForumPostHeaderRight"></div>
+                        <h2> Re: How To: Connect to SQL using C# and SELECT INSERT UPDATE ?</h2><div style="clear: both" />                     
+                        <table width="100%" class="ForumPostHeaderAction" cellpadding="5" cellspacing="0">
+                            <tr>
+                                <td width="20%" style="padding-left: 8px;" valign="top" nowrap="nowrap">
+                                    03-27-2009, 4:13 PM                                
+        						    
+                                    
+                                </td>
+                                
+                                <td width="80%" align="right" valign="middle">
+
+                                    
+                                    
+                                    
+                                    
+				                                                        
+                                
+				                    
+			                                <div style="float: right; height: 27px; padding-right:5px  ">        
+			                            <a class="CommonImageTextButton" onclick="return window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01_ClientPopulatedPopupMenu.LoadMenu(this,event,['854612','clownshoes2009','0','1','','','','/search/SearchResults.aspx?q=userid%3a854612&amp;o=DateDescending'],null);" href="#"><span class="CommonContactButton">Contact</span></a>
+                                            </div>				                            
+			                            
+                                                                
+                                    
+				                                                        
+			                        
+                                
+ 
+			                       
+
+				                    
+
+                                                                    
+                                    
+		                                    <div style="float: right; height: 27px;  padding-right:5px ">        
+		                                <a class="CommonImageTextButton" href="/AddPost.aspx?ReplyToPostID=3043756&amp;Quote=False">
+				                            <span class="CommonReplyButton">Reply</span>
+			                            </a>
+                                            </div>				                            
+		                                
+    
+    
+				                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>	
+                    
+				    <div class="ForumPostArea" style="margin-top: 0px; background-color: white">
+					    <table id="tbl1" cellspacing="0" cellpadding="0" border="0" width="100%">
+						    <tr valign=top>
+							    <td rowspan="2" class="ForumPostUserArea">
+								    <div class="ForumPostUserContent">
+								    <ul class="ForumPostUserPropertyList">
+									    <li class="ForumPostUserAvatar"><img src="http://i1.asp.net/avatar/clownshoes2009.jpg?forceidenticon=True&amp;dt=634041558000000000&amp;cdn_id=01112010_2" alt="" style="border-width:0px;" /></li>
+								        <li class="ForumPostUserAttribute">
+									        <div class="reputation-user-level"><img alt="Member" src="http://i3.asp.net/asp.net/images/rs/level-Member.gif?cdn_id=01112010_2"/></div>
+									        <div class="reputation-user-points">14 point <b>Member</b></div>
+        								</li>
+									    <li class="ForumPostUserName">
+									        
+									                
+									            
+									        <a href="/members/clownshoes2009.aspx">clownshoes2009</a>
+									    </li>
+									    
+								                <li class="ForumPostUserAttribute">Member since 02-11-2009, 9:36 AM</li>
+								                
+								                <li class="ForumPostUserAttribute">Posts <a href="/search/SearchResults.aspx?q=userid%3a854612&amp;o=DateDescending">135</a></li>
+								                
+                                                
+                                            
+								    </ul>
+								    </div>
+							    </td>
+							    <td class="ForumPostContentArea">
+    							    <table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" style="table-layout: fixed;">
+									    <tr>
+									        <td>
+									            <div class="ForumPostBodyArea">
+									                <div class="ForumPostContentText">
+										                <p>Hi Simon - any chance you can check this code and see why it isn&#39;t inserting vlaues into my databse?</p>
+<p>&nbsp;</p>
+<p>using System;</p>
+<p>using System.Data.SqlClient;</p>
+<p>using System.Text;</p>
+<p>using System.Data;</p>
+<p>using System.Configuration;</p>
+<p>using System.Collections;</p>
+<p>using System.Web;</p>
+<p>using System.Net;</p>
+<p>using System.Net.Mail;</p>
+<p>using System.Web.Security;</p>
+<p>using System.Web.UI;</p>
+<p>using System.Web.UI.WebControls;</p>
+<p>using System.Web.UI.WebControls.WebParts;</p>
+<p>using System.Web.UI.HtmlControls;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>public partial class competition : System.Web.UI.Page</p>
+<p>{</p>
+<p>&nbsp;&nbsp;&nbsp; protected void Page_Load(object sender, EventArgs e)</p>
+<p>&nbsp;&nbsp;&nbsp; {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Label1.Text = txtFname.Text;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Label2.Text = txtLname.Text;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Label3.Text = txtEmail.Text;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Label4.Text = txtad1.Text;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Label5.Text = txtpostcode.Text;</p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Label6.Text = RadioButtonList1.SelectedValue;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Label7.Text = RadioButtonList2.SelectedValue;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Label8.Text = RadioButtonList3.SelectedValue;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Label9.Text = RadioButtonList4.SelectedValue;</p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Label10.Text = txtTieBreaker.Text;</p>
+<p>&nbsp;&nbsp;&nbsp; }</p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp; protected void Wizard1_FinishButtonClick(object sender, WizardNavigationEventArgs e)</p>
+<p>&nbsp;&nbsp;&nbsp; {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string strQuery;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SqlCommand cmd;</p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; strQuery = &quot;INSERT INTO competition (FirstName, LastName, PhoneNumber, Email, Address, PostCode, Question1, Question2, Question3, Question4, TieBreaker) values (@FirstName, @LastName, @PhoneNumber, @Email, @Address, @PostCode, @Question1, @Question2, @Question3, @Question4, @TieBreaker)&quot;;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cmd = new SqlCommand(strQuery);</p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SmtpClient smtpClient = new SmtpClient();</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MailMessage message = new MailMessage();</p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; StringBuilder sb = new StringBuilder();</p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sb.Append(&quot;First Name: &quot;);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sb.Append(txtFname.Text);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sb.Append(&quot;\r\n&quot;);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sb.Append(&quot;\r\n&quot;);</p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sb.Append(&quot;Last Name: &quot;);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sb.Append(txtLname.Text);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sb.Append(&quot;\r\n&quot;);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sb.Append(&quot;\r\n&quot;);</p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sb.Append(&quot;Email: &quot;);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sb.Append(txtEmail.Text);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sb.Append(&quot;\r\n&quot;);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sb.Append(&quot;\r\n&quot;);</p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sb.Append(&quot;Phone Number: &quot;);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sb.Append(txtMobile.Text);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sb.Append(&quot;\r\n&quot;);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sb.Append(&quot;\r\n&quot;);</p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sb.Append(&quot;Address 1: &quot;);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sb.Append(txtad1.Text);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sb.Append(&quot;\r\n&quot;);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sb.Append(&quot;\r\n&quot;);</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sb.Append(&quot;Post Code: &quot;);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sb.Append(txtpostcode.Text);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sb.Append(&quot;\r\n&quot;);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sb.Append(&quot;\r\n&quot;);</p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sb.Append(&quot;Question 1: &quot;);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sb.Append(RadioButtonList1.SelectedItem.Value);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sb.Append(&quot;\r\n&quot;);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sb.Append(&quot;\r\n&quot;);</p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sb.Append(&quot;Question 2: &quot;);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sb.Append(RadioButtonList2.SelectedItem.Value);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sb.Append(&quot;\r\n&quot;);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sb.Append(&quot;\r\n&quot;);</p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sb.Append(&quot;Question 3: &quot;);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sb.Append(RadioButtonList3.SelectedItem.Value);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sb.Append(&quot;\r\n&quot;);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sb.Append(&quot;\r\n&quot;);</p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sb.Append(&quot;Question 4: &quot;);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sb.Append(RadioButtonList4.SelectedItem.Value);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sb.Append(&quot;\r\n&quot;);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sb.Append(&quot;\r\n&quot;);</p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sb.Append(&quot;Tie Breaker: &quot;);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sb.Append(txtTieBreaker.Text);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sb.Append(&quot;\r\n&quot;);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sb.Append(&quot;\r\n&quot;);</p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MailAddress fromAddress = new MailAddress(&quot;email@mydomain.com&quot;);</p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; smtpClient.Host = &quot;localhost&quot;;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.Net.NetworkCredential NetworkCred = new System.Net.NetworkCredential();</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NetworkCred.UserName = &quot;email@mydomain.com&quot;;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NetworkCred.Password = &quot;password&quot;;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; smtpClient.UseDefaultCredentials = true;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; smtpClient.Credentials = NetworkCred;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; smtpClient.Port = 25;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; message.From = fromAddress;</p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; message.To.Add(txtEmail.Text);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; message.Bcc.Add(&quot;email@mydomain.com&quot;);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; message.Subject = &quot;Entry&quot;;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; message.IsBodyHtml = false;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; message.Body = sb.ToString();</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; smtpClient.Send(message);</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cmd.Parameters.AddWithValue(&quot;@FirstName&quot;, txtFname.Text);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cmd.Parameters.AddWithValue(&quot;@LastName&quot;, txtLname.Text);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cmd.Parameters.AddWithValue(&quot;@PhoneNumber&quot;, txtMobile.Text);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cmd.Parameters.AddWithValue(&quot;@Email&quot;, txtEmail.Text);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cmd.Parameters.AddWithValue(&quot;@Address1&quot;, txtad1.Text);</p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cmd.Parameters.AddWithValue(&quot;@PostCode&quot;, txtpostcode.Text);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cmd.Parameters.AddWithValue(&quot;@Question1&quot;, RadioButtonList1.SelectedItem.Value);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cmd.Parameters.AddWithValue(&quot;@Question2&quot;, RadioButtonList2.SelectedItem.Value);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;cmd.Parameters.AddWithValue(&quot;@Question3&quot;, RadioButtonList3.SelectedItem.Value);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cmd.Parameters.AddWithValue(&quot;@Question4&quot;, RadioButtonList4.SelectedItem.Value);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cmd.Parameters.AddWithValue(&quot;@TieBreaker&quot;, txtTieBreaker.Text);</p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; InsertUpdateData(cmd);</p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Response.Redirect(&quot;anotherpage.aspx&quot;);</p>
+<p>&nbsp;&nbsp;&nbsp; }</p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp; private Boolean InsertUpdateData(SqlCommand cmd)</p>
+<p>&nbsp;&nbsp;&nbsp; {</p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; String strConnString = System.Configuration.ConfigurationManager.ConnectionStrings[&quot;constring&quot;].ConnectionString;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SqlConnection con = new SqlConnection(strConnString);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cmd.CommandType = CommandType.Text;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cmd.Connection = con;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; try</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; con.Open();</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cmd.ExecuteNonQuery();</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return true;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>
+<p>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;catch (Exception ex)</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Response.Write(ex.Message);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return false;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; finally</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; con.Close();</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; con.Dispose();</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>
+<p>&nbsp;&nbsp;&nbsp; }</p>
+<p>}</p>
+<p>Thanks!</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+										                <span class="ForumPostContentScrollbarCorrector"></span>
+										                
+            									    </div>
+			            						    
+						        			    </div>
+									        </td>
+									    </tr>
+								    </table>
+							    </td>
+						    </tr>
+						    <tr valign="bottom">
+							    <td class="ForumPostFooterArea">	
+								    <div><span id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl03_ctl07_ctl01"></span><input type="hidden" name="ctl00$ctl00$bcr$bcr$ctl00$PostList$ctl03$ctl07$ctl01" id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl03_ctl07_ctl01_State" value="nochange" /></div>
+								    <ul class="ForumPostStatistics CommonPrintHidden" style="clear: both;">
+								        <li></li>
+								        
+									    
+									    
+									    
+								    </ul>
+							    </td>
+						    </tr>
+					    </table>
+				    </div>
+			    </li>
+            
+			    <li>
+			        <a name="3044825"></a>
+			        <div class="ForumPostHeader">
+                        <div class="ForumPostHeaderRight"></div>
+                        <h2> Re: How To: Connect to SQL using C# and SELECT INSERT UPDATE ?</h2><div style="clear: both" />                     
+                        <table width="100%" class="ForumPostHeaderAction" cellpadding="5" cellspacing="0">
+                            <tr>
+                                <td width="20%" style="padding-left: 8px;" valign="top" nowrap="nowrap">
+                                    03-28-2009, 8:13 AM                                
+        						    
+                                    
+                                </td>
+                                
+                                <td width="80%" align="right" valign="middle">
+
+                                    
+                                    
+                                    
+                                    
+				                                                        
+                                
+				                    
+			                                <div style="float: right; height: 27px; padding-right:5px  ">        
+			                            <a class="CommonImageTextButton" onclick="return window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01_ClientPopulatedPopupMenu.LoadMenu(this,event,['771696','Simon Deshaies','0','1','','http://weblog.simondeshaies.net','','/search/SearchResults.aspx?q=userid%3a771696&amp;o=DateDescending'],null);" href="#"><span class="CommonContactButton">Contact</span></a>
+                                            </div>				                            
+			                            
+                                                                
+                                    
+				                                                        
+			                        
+                                
+ 
+			                       
+
+				                    
+
+                                                                    
+                                    
+		                                    <div style="float: right; height: 27px;  padding-right:5px ">        
+		                                <a class="CommonImageTextButton" href="/AddPost.aspx?ReplyToPostID=3044825&amp;Quote=False">
+				                            <span class="CommonReplyButton">Reply</span>
+			                            </a>
+                                            </div>				                            
+		                                
+    
+    
+				                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>	
+                    
+				    <div class="ForumPostArea" style="margin-top: 0px; background-color: white">
+					    <table id="tbl2" cellspacing="0" cellpadding="0" border="0" width="100%">
+						    <tr valign=top>
+							    <td rowspan="2" class="ForumPostUserArea">
+								    <div class="ForumPostUserContent">
+								    <ul class="ForumPostUserPropertyList">
+									    <li class="ForumPostUserAvatar"><img src="http://i1.asp.net/avatar/Simon%20Deshaies.jpg?forceidenticon=False&amp;dt=634041558000000000&amp;cdn_id=01112010_2" alt="" style="border-width:0px;" /></li>
+								        <li class="ForumPostUserAttribute">
+									        <div class="reputation-user-level"><img alt="Member" src="http://i3.asp.net/asp.net/images/rs/level-Member.gif?cdn_id=01112010_2"/></div>
+									        <div class="reputation-user-points">144 point <b>Member</b></div>
+        								</li>
+									    <li class="ForumPostUserName">
+									        
+									                
+									            
+									        <a href="/members/Simon-Deshaies.aspx">Simon Deshaies</a>
+									    </li>
+									    
+								                <li class="ForumPostUserAttribute">Member since 11-17-2007, 10:59 AM</li>
+								                <li class="ForumPostUserAttribute">Montr&amp;#233;al, Canada</li>
+								                <li class="ForumPostUserAttribute">Posts <a href="/search/SearchResults.aspx?q=userid%3a771696&amp;o=DateDescending">71</a></li>
+								                
+                                                
+                                            
+								    </ul>
+								    </div>
+							    </td>
+							    <td class="ForumPostContentArea">
+    							    <table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" style="table-layout: fixed;">
+									    <tr>
+									        <td>
+									            <div class="ForumPostBodyArea">
+									                <div class="ForumPostContentText">
+										                <p>Hi clownshoes2009,</p>
+<p>What is your exception? You code seems good...</p>
+<p>Regards,</p>
+<p>Simon</p>
+										                <span class="ForumPostContentScrollbarCorrector"></span>
+										                
+            									    </div>
+			            						    <div class="ForumPostSignature">Simon Deshaies<br /><br />Support Specialist / Support C# Analyst at Nstein Technologies<br /><br /><a href="http://weblog.simondeshaies.net">weblog.simondeshaies.net</a><p>Please remember to click “Mark as Answer” on the post that helps you.</p><br /></div>
+						        			    </div>
+									        </td>
+									    </tr>
+								    </table>
+							    </td>
+						    </tr>
+						    <tr valign="bottom">
+							    <td class="ForumPostFooterArea">	
+								    <div><span id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl04_ctl07_ctl01"></span><input type="hidden" name="ctl00$ctl00$bcr$bcr$ctl00$PostList$ctl04$ctl07$ctl01" id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl04_ctl07_ctl01_State" value="nochange" /></div>
+								    <ul class="ForumPostStatistics CommonPrintHidden" style="clear: both;">
+								        <li></li>
+								        
+									    
+									    
+									    
+								    </ul>
+							    </td>
+						    </tr>
+					    </table>
+				    </div>
+			    </li>
+            
+			    <li>
+			        <a name="3045062"></a>
+			        <div class="ForumPostHeader">
+                        <div class="ForumPostHeaderRight"></div>
+                        <h2> Re: How To: Connect to SQL using C# and SELECT INSERT UPDATE ?</h2><div style="clear: both" />                     
+                        <table width="100%" class="ForumPostHeaderAction" cellpadding="5" cellspacing="0">
+                            <tr>
+                                <td width="20%" style="padding-left: 8px;" valign="top" nowrap="nowrap">
+                                    03-28-2009, 11:12 AM                                
+        						    
+                                    
+                                </td>
+                                
+                                <td width="80%" align="right" valign="middle">
+
+                                    
+                                    
+                                    
+                                    
+				                                                        
+                                
+				                    
+			                                <div style="float: right; height: 27px; padding-right:5px  ">        
+			                            <a class="CommonImageTextButton" onclick="return window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01_ClientPopulatedPopupMenu.LoadMenu(this,event,['854612','clownshoes2009','0','1','','','','/search/SearchResults.aspx?q=userid%3a854612&amp;o=DateDescending'],null);" href="#"><span class="CommonContactButton">Contact</span></a>
+                                            </div>				                            
+			                            
+                                                                
+                                    
+				                                                        
+			                        
+                                
+ 
+			                       
+
+				                    
+
+                                                                    
+                                    
+		                                    <div style="float: right; height: 27px;  padding-right:5px ">        
+		                                <a class="CommonImageTextButton" href="/AddPost.aspx?ReplyToPostID=3045062&amp;Quote=False">
+				                            <span class="CommonReplyButton">Reply</span>
+			                            </a>
+                                            </div>				                            
+		                                
+    
+    
+				                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>	
+                    
+				    <div class="ForumPostArea" style="margin-top: 0px; background-color: white">
+					    <table id="tbl3" cellspacing="0" cellpadding="0" border="0" width="100%">
+						    <tr valign=top>
+							    <td rowspan="2" class="ForumPostUserArea">
+								    <div class="ForumPostUserContent">
+								    <ul class="ForumPostUserPropertyList">
+									    <li class="ForumPostUserAvatar"><img src="http://i1.asp.net/avatar/clownshoes2009.jpg?forceidenticon=True&amp;dt=634041558000000000&amp;cdn_id=01112010_2" alt="" style="border-width:0px;" /></li>
+								        <li class="ForumPostUserAttribute">
+									        <div class="reputation-user-level"><img alt="Member" src="http://i3.asp.net/asp.net/images/rs/level-Member.gif?cdn_id=01112010_2"/></div>
+									        <div class="reputation-user-points">14 point <b>Member</b></div>
+        								</li>
+									    <li class="ForumPostUserName">
+									        
+									                
+									            
+									        <a href="/members/clownshoes2009.aspx">clownshoes2009</a>
+									    </li>
+									    
+								                <li class="ForumPostUserAttribute">Member since 02-11-2009, 9:36 AM</li>
+								                
+								                <li class="ForumPostUserAttribute">Posts <a href="/search/SearchResults.aspx?q=userid%3a854612&amp;o=DateDescending">135</a></li>
+								                
+                                                
+                                            
+								    </ul>
+								    </div>
+							    </td>
+							    <td class="ForumPostContentArea">
+    							    <table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" style="table-layout: fixed;">
+									    <tr>
+									        <td>
+									            <div class="ForumPostBodyArea">
+									                <div class="ForumPostContentText">
+										                <p>Ok - my error lived up to my username. It was a setting in the SQL table itself.</p>
+<p>Perhaps you can help with another thing though. I have got the data writing to the table. Now after this there is a payment process. When they have paid I&#39;d like the final column - payment to be updated with either yes or no.</p>
+<p>Any ideas on how to tackle this? I&#39;m working with Alertpay&#39;s IPN, butI&#39;m not sure of how to do this bit.</p>
+<p>Any help would be fab</p>
+										                <span class="ForumPostContentScrollbarCorrector"></span>
+										                
+            									    </div>
+			            						    
+						        			    </div>
+									        </td>
+									    </tr>
+								    </table>
+							    </td>
+						    </tr>
+						    <tr valign="bottom">
+							    <td class="ForumPostFooterArea">	
+								    <div><span id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl05_ctl07_ctl01"></span><input type="hidden" name="ctl00$ctl00$bcr$bcr$ctl00$PostList$ctl05$ctl07$ctl01" id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl05_ctl07_ctl01_State" value="nochange" /></div>
+								    <ul class="ForumPostStatistics CommonPrintHidden" style="clear: both;">
+								        <li></li>
+								        
+									    
+									    
+									    
+								    </ul>
+							    </td>
+						    </tr>
+					    </table>
+				    </div>
+			    </li>
+            
+			    <li>
+			        <a name="3045210"></a>
+			        <div class="ForumPostHeader">
+                        <div class="ForumPostHeaderRight"></div>
+                        <h2> Re: How To: Connect to SQL using C# and SELECT INSERT UPDATE ?</h2><div style="clear: both" />                     
+                        <table width="100%" class="ForumPostHeaderAction" cellpadding="5" cellspacing="0">
+                            <tr>
+                                <td width="20%" style="padding-left: 8px;" valign="top" nowrap="nowrap">
+                                    03-28-2009, 12:55 PM                                
+        						    
+                                    
+                                </td>
+                                
+                                <td width="80%" align="right" valign="middle">
+
+                                    
+                                    
+                                    
+                                    
+				                                                        
+                                
+				                    
+			                                <div style="float: right; height: 27px; padding-right:5px  ">        
+			                            <a class="CommonImageTextButton" onclick="return window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01_ClientPopulatedPopupMenu.LoadMenu(this,event,['854612','clownshoes2009','0','1','','','','/search/SearchResults.aspx?q=userid%3a854612&amp;o=DateDescending'],null);" href="#"><span class="CommonContactButton">Contact</span></a>
+                                            </div>				                            
+			                            
+                                                                
+                                    
+				                                                        
+			                        
+                                
+ 
+			                       
+
+				                    
+
+                                                                    
+                                    
+		                                    <div style="float: right; height: 27px;  padding-right:5px ">        
+		                                <a class="CommonImageTextButton" href="/AddPost.aspx?ReplyToPostID=3045210&amp;Quote=False">
+				                            <span class="CommonReplyButton">Reply</span>
+			                            </a>
+                                            </div>				                            
+		                                
+    
+    
+				                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>	
+                    
+				    <div class="ForumPostArea" style="margin-top: 0px; background-color: white">
+					    <table id="tbl4" cellspacing="0" cellpadding="0" border="0" width="100%">
+						    <tr valign=top>
+							    <td rowspan="2" class="ForumPostUserArea">
+								    <div class="ForumPostUserContent">
+								    <ul class="ForumPostUserPropertyList">
+									    <li class="ForumPostUserAvatar"><img src="http://i1.asp.net/avatar/clownshoes2009.jpg?forceidenticon=True&amp;dt=634041558000000000&amp;cdn_id=01112010_2" alt="" style="border-width:0px;" /></li>
+								        <li class="ForumPostUserAttribute">
+									        <div class="reputation-user-level"><img alt="Member" src="http://i3.asp.net/asp.net/images/rs/level-Member.gif?cdn_id=01112010_2"/></div>
+									        <div class="reputation-user-points">14 point <b>Member</b></div>
+        								</li>
+									    <li class="ForumPostUserName">
+									        
+									                
+									            
+									        <a href="/members/clownshoes2009.aspx">clownshoes2009</a>
+									    </li>
+									    
+								                <li class="ForumPostUserAttribute">Member since 02-11-2009, 9:36 AM</li>
+								                
+								                <li class="ForumPostUserAttribute">Posts <a href="/search/SearchResults.aspx?q=userid%3a854612&amp;o=DateDescending">135</a></li>
+								                
+                                                
+                                            
+								    </ul>
+								    </div>
+							    </td>
+							    <td class="ForumPostContentArea">
+    							    <table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" style="table-layout: fixed;">
+									    <tr>
+									        <td>
+									            <div class="ForumPostBodyArea">
+									                <div class="ForumPostContentText">
+										                <p>One tihng i have noticed. I was testing my table view with a grid view.</p>
+<p>Upon checking whether i could delete or update an entry i received an error</p>
+<p>&nbsp;</p>
+<p>System.Data.SqlClient.SqlException: The data types text and nvarchar are incompatible in the equal to operator.</p>
+<p>&nbsp;</p>
+<p>How does one fix that?</p>
+										                <span class="ForumPostContentScrollbarCorrector"></span>
+										                
+            									    </div>
+			            						    
+						        			    </div>
+									        </td>
+									    </tr>
+								    </table>
+							    </td>
+						    </tr>
+						    <tr valign="bottom">
+							    <td class="ForumPostFooterArea">	
+								    <div><span id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl06_ctl07_ctl01"></span><input type="hidden" name="ctl00$ctl00$bcr$bcr$ctl00$PostList$ctl06$ctl07$ctl01" id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl06_ctl07_ctl01_State" value="nochange" /></div>
+								    <ul class="ForumPostStatistics CommonPrintHidden" style="clear: both;">
+								        <li></li>
+								        
+									    
+									    
+									    
+								    </ul>
+							    </td>
+						    </tr>
+					    </table>
+				    </div>
+			    </li>
+            
+			    <li>
+			        <a name="3048666"></a>
+			        <div class="ForumPostHeader">
+                        <div class="ForumPostHeaderRight"></div>
+                        <h2> Re: How To: Connect to SQL using C# and SELECT INSERT UPDATE ?</h2><div style="clear: both" />                     
+                        <table width="100%" class="ForumPostHeaderAction" cellpadding="5" cellspacing="0">
+                            <tr>
+                                <td width="20%" style="padding-left: 8px;" valign="top" nowrap="nowrap">
+                                    03-30-2009, 9:06 AM                                
+        						    
+                                    
+                                </td>
+                                
+                                <td width="80%" align="right" valign="middle">
+
+                                    
+                                    
+                                    
+                                    
+				                                                        
+                                
+				                    
+			                                <div style="float: right; height: 27px; padding-right:5px  ">        
+			                            <a class="CommonImageTextButton" onclick="return window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01_ClientPopulatedPopupMenu.LoadMenu(this,event,['771696','Simon Deshaies','0','1','','http://weblog.simondeshaies.net','','/search/SearchResults.aspx?q=userid%3a771696&amp;o=DateDescending'],null);" href="#"><span class="CommonContactButton">Contact</span></a>
+                                            </div>				                            
+			                            
+                                                                
+                                    
+				                                                        
+			                        
+                                
+ 
+			                       
+
+				                    
+
+                                                                    
+                                    
+		                                    <div style="float: right; height: 27px;  padding-right:5px ">        
+		                                <a class="CommonImageTextButton" href="/AddPost.aspx?ReplyToPostID=3048666&amp;Quote=False">
+				                            <span class="CommonReplyButton">Reply</span>
+			                            </a>
+                                            </div>				                            
+		                                
+    
+    
+				                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>	
+                    
+				    <div class="ForumPostArea" style="margin-top: 0px; background-color: white">
+					    <table id="tbl5" cellspacing="0" cellpadding="0" border="0" width="100%">
+						    <tr valign=top>
+							    <td rowspan="2" class="ForumPostUserArea">
+								    <div class="ForumPostUserContent">
+								    <ul class="ForumPostUserPropertyList">
+									    <li class="ForumPostUserAvatar"><img src="http://i1.asp.net/avatar/Simon%20Deshaies.jpg?forceidenticon=False&amp;dt=634041558000000000&amp;cdn_id=01112010_2" alt="" style="border-width:0px;" /></li>
+								        <li class="ForumPostUserAttribute">
+									        <div class="reputation-user-level"><img alt="Member" src="http://i3.asp.net/asp.net/images/rs/level-Member.gif?cdn_id=01112010_2"/></div>
+									        <div class="reputation-user-points">144 point <b>Member</b></div>
+        								</li>
+									    <li class="ForumPostUserName">
+									        
+									                
+									            
+									        <a href="/members/Simon-Deshaies.aspx">Simon Deshaies</a>
+									    </li>
+									    
+								                <li class="ForumPostUserAttribute">Member since 11-17-2007, 10:59 AM</li>
+								                <li class="ForumPostUserAttribute">Montr&amp;#233;al, Canada</li>
+								                <li class="ForumPostUserAttribute">Posts <a href="/search/SearchResults.aspx?q=userid%3a771696&amp;o=DateDescending">71</a></li>
+								                
+                                                
+                                            
+								    </ul>
+								    </div>
+							    </td>
+							    <td class="ForumPostContentArea">
+    							    <table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" style="table-layout: fixed;">
+									    <tr>
+									        <td>
+									            <div class="ForumPostBodyArea">
+									                <div class="ForumPostContentText">
+										                <p><BLOCKQUOTE><div><img src="/Themes/fan/images/icon-quote.gif"> <strong>clownshoes2009:</strong></div><div>System.Data.SqlClient.SqlException: The data types text and nvarchar are incompatible in the equal to operator.</div></BLOCKQUOTE></p>
+<p><span style="WIDOWS:2;TEXT-TRANSFORM:none;TEXT-INDENT:0px;BORDER-COLLAPSE:separate;FONT:13px -webkit-monospace;WHITE-SPACE:pre-wrap;ORPHANS:2;LETTER-SPACING:normal;WORD-SPACING:0px;-webkit-border-horizontal-spacing:0px;-webkit-border-vertical-spacing:0px;-webkit-text-decorations-in-effect:none;-webkit-text-size-adjust:auto;-webkit-text-stroke-width:0;" class="Apple-style-span">It means that somewhere in your code you try to assign a text to nvarchar SQL types. This is either when you assign the parameter in the SQL command or it&#39;s at the SQL server, you try to assign a typed nvarchar value to a text column.</span></p>
+<p><span style="WIDOWS:2;TEXT-TRANSFORM:none;TEXT-INDENT:0px;BORDER-COLLAPSE:separate;FONT:13px -webkit-monospace;WHITE-SPACE:pre-wrap;ORPHANS:2;LETTER-SPACING:normal;WORD-SPACING:0px;-webkit-border-horizontal-spacing:0px;-webkit-border-vertical-spacing:0px;-webkit-text-decorations-in-effect:none;-webkit-text-size-adjust:auto;-webkit-text-stroke-width:0;" class="Apple-style-span">This is what I can think of, you need to run in debug step into and try to execute your query directly against the SQL Server in management studio. Like this you will see if it&#39;s your SQL or you C# the issue. </span></p>
+<p><span style="WIDOWS:2;TEXT-TRANSFORM:none;TEXT-INDENT:0px;BORDER-COLLAPSE:separate;FONT:13px -webkit-monospace;WHITE-SPACE:pre-wrap;ORPHANS:2;LETTER-SPACING:normal;WORD-SPACING:0px;-webkit-border-horizontal-spacing:0px;-webkit-border-vertical-spacing:0px;-webkit-text-decorations-in-effect:none;-webkit-text-size-adjust:auto;-webkit-text-stroke-width:0;" class="Apple-style-span">There are no magic tricks. Just debugging.</span></p>
+<p><span style="WIDOWS:2;TEXT-TRANSFORM:none;TEXT-INDENT:0px;BORDER-COLLAPSE:separate;FONT:13px -webkit-monospace;WHITE-SPACE:pre-wrap;ORPHANS:2;LETTER-SPACING:normal;WORD-SPACING:0px;-webkit-border-horizontal-spacing:0px;-webkit-border-vertical-spacing:0px;-webkit-text-decorations-in-effect:none;-webkit-text-size-adjust:auto;-webkit-text-stroke-width:0;" class="Apple-style-span">Regards, </span></p>
+<p><span style="WIDOWS:2;TEXT-TRANSFORM:none;TEXT-INDENT:0px;BORDER-COLLAPSE:separate;FONT:13px -webkit-monospace;WHITE-SPACE:pre-wrap;ORPHANS:2;LETTER-SPACING:normal;WORD-SPACING:0px;-webkit-border-horizontal-spacing:0px;-webkit-border-vertical-spacing:0px;-webkit-text-decorations-in-effect:none;-webkit-text-size-adjust:auto;-webkit-text-stroke-width:0;" class="Apple-style-span">Simon</span></p>
+										                <span class="ForumPostContentScrollbarCorrector"></span>
+										                
+            									    </div>
+			            						    <div class="ForumPostSignature">Simon Deshaies<br /><br />Support Specialist / Support C# Analyst at Nstein Technologies<br /><br /><a href="http://weblog.simondeshaies.net">weblog.simondeshaies.net</a><p>Please remember to click “Mark as Answer” on the post that helps you.</p><br /></div>
+						        			    </div>
+									        </td>
+									    </tr>
+								    </table>
+							    </td>
+						    </tr>
+						    <tr valign="bottom">
+							    <td class="ForumPostFooterArea">	
+								    <div><span id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl07_ctl07_ctl01"></span><input type="hidden" name="ctl00$ctl00$bcr$bcr$ctl00$PostList$ctl07$ctl07$ctl01" id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl07_ctl07_ctl01_State" value="nochange" /></div>
+								    <ul class="ForumPostStatistics CommonPrintHidden" style="clear: both;">
+								        <li></li>
+								        
+									    
+									    
+									    
+								    </ul>
+							    </td>
+						    </tr>
+					    </table>
+				    </div>
+			    </li>
+            
+			    <li>
+			        <a name="3052316"></a>
+			        <div class="ForumPostHeader">
+                        <div class="ForumPostHeaderRight"></div>
+                        <h2> Re: How To: Connect to SQL using C# and SELECT INSERT UPDATE ?</h2><div style="clear: both" />                     
+                        <table width="100%" class="ForumPostHeaderAction" cellpadding="5" cellspacing="0">
+                            <tr>
+                                <td width="20%" style="padding-left: 8px;" valign="top" nowrap="nowrap">
+                                    03-31-2009, 11:47 AM                                
+        						    
+                                    
+                                </td>
+                                
+                                <td width="80%" align="right" valign="middle">
+
+                                    
+                                    
+                                    
+                                    
+				                                                        
+                                
+				                    
+			                                <div style="float: right; height: 27px; padding-right:5px  ">        
+			                            <a class="CommonImageTextButton" onclick="return window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01_ClientPopulatedPopupMenu.LoadMenu(this,event,['862691','umar.tarar','0','1','','','','/search/SearchResults.aspx?q=userid%3a862691&amp;o=DateDescending'],null);" href="#"><span class="CommonContactButton">Contact</span></a>
+                                            </div>				                            
+			                            
+                                                                
+                                    
+				                                                        
+			                        
+                                
+ 
+			                       
+
+				                    
+
+                                                                    
+                                    
+		                                    <div style="float: right; height: 27px;  padding-right:5px ">        
+		                                <a class="CommonImageTextButton" href="/AddPost.aspx?ReplyToPostID=3052316&amp;Quote=False">
+				                            <span class="CommonReplyButton">Reply</span>
+			                            </a>
+                                            </div>				                            
+		                                
+    
+    
+				                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>	
+                    
+				    <div class="ForumPostArea" style="margin-top: 0px; background-color: white">
+					    <table id="tbl6" cellspacing="0" cellpadding="0" border="0" width="100%">
+						    <tr valign=top>
+							    <td rowspan="2" class="ForumPostUserArea">
+								    <div class="ForumPostUserContent">
+								    <ul class="ForumPostUserPropertyList">
+									    <li class="ForumPostUserAvatar"><img src="http://i1.asp.net/avatar/umar.tarar.jpg?forceidenticon=True&amp;dt=634041558000000000&amp;cdn_id=01112010_2" alt="" style="border-width:0px;" /></li>
+								        <li class="ForumPostUserAttribute">
+									        <div class="reputation-user-level"><img alt="Member" src="http://i3.asp.net/asp.net/images/rs/level-Member.gif?cdn_id=01112010_2"/></div>
+									        <div class="reputation-user-points">2 point <b>Member</b></div>
+        								</li>
+									    <li class="ForumPostUserName">
+									        
+									                
+									            
+									        <a href="/members/umar.tarar.aspx">umar.tarar</a>
+									    </li>
+									    
+								                <li class="ForumPostUserAttribute">Member since 03-31-2009, 2:50 PM</li>
+								                
+								                <li class="ForumPostUserAttribute">Posts <a href="/search/SearchResults.aspx?q=userid%3a862691&amp;o=DateDescending">1</a></li>
+								                
+                                                
+                                            
+								    </ul>
+								    </div>
+							    </td>
+							    <td class="ForumPostContentArea">
+    							    <table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" style="table-layout: fixed;">
+									    <tr>
+									        <td>
+									            <div class="ForumPostBodyArea">
+									                <div class="ForumPostContentText">
+										                <p>&nbsp;Dear Simon,</p><p>can you please guide me what should I do to speed up my data insertion (I&#39;m using C# &amp; MySQL), as I&#39;ve to insert thouands of data rows per execution and it takes huge amount of time (in hours). At present I&#39;m usiing INSERT command inside a loop (loop iterates untill I still have data to be inserted that I&#39;m reading from a file), although I&#39;ve put the MySQLCommand variables&#39; initializations outside the loop.</p><p>What comes to my mind is to find out a way to insert data as bulk or may be as a transaction, but I dont know yet how to insert data in bulk to optimize speed using C#.NET</p><p>so can you help me in this case.</p><p>&nbsp;thanks in advance</p><p>&nbsp;Umar <br /></p>
+										                <span class="ForumPostContentScrollbarCorrector"></span>
+										                
+            									    </div>
+			            						    
+						        			    </div>
+									        </td>
+									    </tr>
+								    </table>
+							    </td>
+						    </tr>
+						    <tr valign="bottom">
+							    <td class="ForumPostFooterArea">	
+								    <div><span id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl08_ctl07_ctl01">Filed under: <a href="/tags/MySQL+SLOW+DATA+INSERTION+INSERT+USING+C_2300_/default.aspx" rel="tag">MySQL SLOW DATA INSERTION INSERT USING C#</a></span><input type="hidden" name="ctl00$ctl00$bcr$bcr$ctl00$PostList$ctl08$ctl07$ctl01" id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl08_ctl07_ctl01_State" value="nochange" /></div>
+								    <ul class="ForumPostStatistics CommonPrintHidden" style="clear: both;">
+								        <li></li>
+								        
+									    
+									    
+									    
+								    </ul>
+							    </td>
+						    </tr>
+					    </table>
+				    </div>
+			    </li>
+            
+			    <li>
+			        <a name="3067075"></a>
+			        <div class="ForumPostHeader">
+                        <div class="ForumPostHeaderRight"></div>
+                        <h2> Re: How To: Connect to SQL using C# and SELECT INSERT UPDATE ?</h2><div style="clear: both" />                     
+                        <table width="100%" class="ForumPostHeaderAction" cellpadding="5" cellspacing="0">
+                            <tr>
+                                <td width="20%" style="padding-left: 8px;" valign="top" nowrap="nowrap">
+                                    04-06-2009, 12:57 PM                                
+        						    
+                                    
+                                </td>
+                                
+                                <td width="80%" align="right" valign="middle">
+
+                                    
+                                    
+                                    
+                                    
+				                                                        
+                                
+				                    
+			                                <div style="float: right; height: 27px; padding-right:5px  ">        
+			                            <a class="CommonImageTextButton" onclick="return window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01_ClientPopulatedPopupMenu.LoadMenu(this,event,['854612','clownshoes2009','0','1','','','','/search/SearchResults.aspx?q=userid%3a854612&amp;o=DateDescending'],null);" href="#"><span class="CommonContactButton">Contact</span></a>
+                                            </div>				                            
+			                            
+                                                                
+                                    
+				                                                        
+			                        
+                                
+ 
+			                       
+
+				                    
+
+                                                                    
+                                    
+		                                    <div style="float: right; height: 27px;  padding-right:5px ">        
+		                                <a class="CommonImageTextButton" href="/AddPost.aspx?ReplyToPostID=3067075&amp;Quote=False">
+				                            <span class="CommonReplyButton">Reply</span>
+			                            </a>
+                                            </div>				                            
+		                                
+    
+    
+				                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>	
+                    
+				    <div class="ForumPostArea" style="margin-top: 0px; background-color: white">
+					    <table id="tbl7" cellspacing="0" cellpadding="0" border="0" width="100%">
+						    <tr valign=top>
+							    <td rowspan="2" class="ForumPostUserArea">
+								    <div class="ForumPostUserContent">
+								    <ul class="ForumPostUserPropertyList">
+									    <li class="ForumPostUserAvatar"><img src="http://i1.asp.net/avatar/clownshoes2009.jpg?forceidenticon=True&amp;dt=634041558000000000&amp;cdn_id=01112010_2" alt="" style="border-width:0px;" /></li>
+								        <li class="ForumPostUserAttribute">
+									        <div class="reputation-user-level"><img alt="Member" src="http://i3.asp.net/asp.net/images/rs/level-Member.gif?cdn_id=01112010_2"/></div>
+									        <div class="reputation-user-points">14 point <b>Member</b></div>
+        								</li>
+									    <li class="ForumPostUserName">
+									        
+									                
+									            
+									        <a href="/members/clownshoes2009.aspx">clownshoes2009</a>
+									    </li>
+									    
+								                <li class="ForumPostUserAttribute">Member since 02-11-2009, 9:36 AM</li>
+								                
+								                <li class="ForumPostUserAttribute">Posts <a href="/search/SearchResults.aspx?q=userid%3a854612&amp;o=DateDescending">135</a></li>
+								                
+                                                
+                                            
+								    </ul>
+								    </div>
+							    </td>
+							    <td class="ForumPostContentArea">
+    							    <table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" style="table-layout: fixed;">
+									    <tr>
+									        <td>
+									            <div class="ForumPostBodyArea">
+									                <div class="ForumPostContentText">
+										                <p>Hi there</p>
+<p>Just wondering if there was a solution for my problem.</p>
+<p>I have a sqldatasource and gridview displaying the contents of a table. The display works fine BUT update and delete don&#39;t work. No error&nbsp;message - just flips back to what&nbsp;was orgianlly there.&nbsp;</p>
+<p>I have two tables though, both have a primary datakey called CustomerId. Now one of my tables updates and deletes perfectly. The second one, doesn&#39;t. Is this the reason do you think?</p>
+										                <span class="ForumPostContentScrollbarCorrector"></span>
+										                
+            									    </div>
+			            						    
+						        			    </div>
+									        </td>
+									    </tr>
+								    </table>
+							    </td>
+						    </tr>
+						    <tr valign="bottom">
+							    <td class="ForumPostFooterArea">	
+								    <div><span id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl09_ctl07_ctl01"></span><input type="hidden" name="ctl00$ctl00$bcr$bcr$ctl00$PostList$ctl09$ctl07$ctl01" id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl09_ctl07_ctl01_State" value="nochange" /></div>
+								    <ul class="ForumPostStatistics CommonPrintHidden" style="clear: both;">
+								        <li></li>
+								        
+									    
+									    
+									    
+								    </ul>
+							    </td>
+						    </tr>
+					    </table>
+				    </div>
+			    </li>
+            
+			    <li>
+			        <a name="3067244"></a>
+			        <div class="ForumPostHeader">
+                        <div class="ForumPostHeaderRight"></div>
+                        <h2> Re: How To: Connect to SQL using C# and SELECT INSERT UPDATE ?</h2><div style="clear: both" />                     
+                        <table width="100%" class="ForumPostHeaderAction" cellpadding="5" cellspacing="0">
+                            <tr>
+                                <td width="20%" style="padding-left: 8px;" valign="top" nowrap="nowrap">
+                                    04-06-2009, 2:37 PM                                
+        						    
+                                    
+                                </td>
+                                
+                                <td width="80%" align="right" valign="middle">
+
+                                    
+                                    
+                                    
+                                    
+				                                                        
+                                
+				                    
+			                                <div style="float: right; height: 27px; padding-right:5px  ">        
+			                            <a class="CommonImageTextButton" onclick="return window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01_ClientPopulatedPopupMenu.LoadMenu(this,event,['771696','Simon Deshaies','0','1','','http://weblog.simondeshaies.net','','/search/SearchResults.aspx?q=userid%3a771696&amp;o=DateDescending'],null);" href="#"><span class="CommonContactButton">Contact</span></a>
+                                            </div>				                            
+			                            
+                                                                
+                                    
+				                                                        
+			                        
+                                
+ 
+			                       
+
+				                    
+
+                                                                    
+                                    
+		                                    <div style="float: right; height: 27px;  padding-right:5px ">        
+		                                <a class="CommonImageTextButton" href="/AddPost.aspx?ReplyToPostID=3067244&amp;Quote=False">
+				                            <span class="CommonReplyButton">Reply</span>
+			                            </a>
+                                            </div>				                            
+		                                
+    
+    
+				                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>	
+                    
+				    <div class="ForumPostArea" style="margin-top: 0px; background-color: white">
+					    <table id="tbl8" cellspacing="0" cellpadding="0" border="0" width="100%">
+						    <tr valign=top>
+							    <td rowspan="2" class="ForumPostUserArea">
+								    <div class="ForumPostUserContent">
+								    <ul class="ForumPostUserPropertyList">
+									    <li class="ForumPostUserAvatar"><img src="http://i1.asp.net/avatar/Simon%20Deshaies.jpg?forceidenticon=False&amp;dt=634041558000000000&amp;cdn_id=01112010_2" alt="" style="border-width:0px;" /></li>
+								        <li class="ForumPostUserAttribute">
+									        <div class="reputation-user-level"><img alt="Member" src="http://i3.asp.net/asp.net/images/rs/level-Member.gif?cdn_id=01112010_2"/></div>
+									        <div class="reputation-user-points">144 point <b>Member</b></div>
+        								</li>
+									    <li class="ForumPostUserName">
+									        
+									                
+									            
+									        <a href="/members/Simon-Deshaies.aspx">Simon Deshaies</a>
+									    </li>
+									    
+								                <li class="ForumPostUserAttribute">Member since 11-17-2007, 10:59 AM</li>
+								                <li class="ForumPostUserAttribute">Montr&amp;#233;al, Canada</li>
+								                <li class="ForumPostUserAttribute">Posts <a href="/search/SearchResults.aspx?q=userid%3a771696&amp;o=DateDescending">71</a></li>
+								                
+                                                
+                                            
+								    </ul>
+								    </div>
+							    </td>
+							    <td class="ForumPostContentArea">
+    							    <table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" style="table-layout: fixed;">
+									    <tr>
+									        <td>
+									            <div class="ForumPostBodyArea">
+									                <div class="ForumPostContentText">
+										                <span style="WIDOWS:2;TEXT-TRANSFORM:none;TEXT-INDENT:0px;BORDER-COLLAPSE:separate;FONT:13px -webkit-monospace;WHITE-SPACE:pre-wrap;ORPHANS:2;LETTER-SPACING:normal;WORD-SPACING:0px;-webkit-border-horizontal-spacing:0px;-webkit-border-vertical-spacing:0px;-webkit-text-decorations-in-effect:none;-webkit-text-size-adjust:auto;-webkit-text-stroke-width:0;" class="Apple-style-span"><span style="WIDOWS:2;TEXT-TRANSFORM:none;TEXT-INDENT:0px;BORDER-COLLAPSE:separate;FONT:13px -webkit-monospace;WHITE-SPACE:pre-wrap;ORPHANS:2;LETTER-SPACING:normal;WORD-SPACING:0px;-webkit-border-horizontal-spacing:0px;-webkit-border-vertical-spacing:0px;-webkit-text-decorations-in-effect:none;-webkit-text-size-adjust:auto;-webkit-text-stroke-width:0;" class="Apple-style-span">clownshoes2009, <br /><br />Do you load your data on the page_load. If so when you post back it load the page_load before it gets to your call. Using ASP.NET control is always complex since they behave unexpectedly. <br /><br />Regards,<br /><br />Simon </span><br class="Apple-interchange-newline" /></span>
+										                <span class="ForumPostContentScrollbarCorrector"></span>
+										                
+            									    </div>
+			            						    <div class="ForumPostSignature">Simon Deshaies<br /><br />Support Specialist / Support C# Analyst at Nstein Technologies<br /><br /><a href="http://weblog.simondeshaies.net">weblog.simondeshaies.net</a><p>Please remember to click “Mark as Answer” on the post that helps you.</p><br /></div>
+						        			    </div>
+									        </td>
+									    </tr>
+								    </table>
+							    </td>
+						    </tr>
+						    <tr valign="bottom">
+							    <td class="ForumPostFooterArea">	
+								    <div><span id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl10_ctl07_ctl01"></span><input type="hidden" name="ctl00$ctl00$bcr$bcr$ctl00$PostList$ctl10$ctl07$ctl01" id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl10_ctl07_ctl01_State" value="nochange" /></div>
+								    <ul class="ForumPostStatistics CommonPrintHidden" style="clear: both;">
+								        <li></li>
+								        
+									    
+									    
+									    
+								    </ul>
+							    </td>
+						    </tr>
+					    </table>
+				    </div>
+			    </li>
+            
+			    <li>
+			        <a name="3643014"></a>
+			        <div class="ForumPostHeader">
+                        <div class="ForumPostHeaderRight"></div>
+                        <h2> Re: How To: Connect to SQL using C# and SELECT INSERT UPDATE ?</h2><div style="clear: both" />                     
+                        <table width="100%" class="ForumPostHeaderAction" cellpadding="5" cellspacing="0">
+                            <tr>
+                                <td width="20%" style="padding-left: 8px;" valign="top" nowrap="nowrap">
+                                    01-27-2010, 6:17 AM                                
+        						    
+                                    
+                                </td>
+                                
+                                <td width="80%" align="right" valign="middle">
+
+                                    
+                                    
+                                    
+                                    
+				                                                        
+                                
+				                    
+			                                <div style="float: right; height: 27px; padding-right:5px  ">        
+			                            <a class="CommonImageTextButton" onclick="return window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01_ClientPopulatedPopupMenu.LoadMenu(this,event,['901636','anishshenoy_7','0','1','','','','/search/SearchResults.aspx?q=userid%3a901636&amp;o=DateDescending'],null);" href="#"><span class="CommonContactButton">Contact</span></a>
+                                            </div>				                            
+			                            
+                                                                
+                                    
+				                                                        
+			                        
+                                
+ 
+			                       
+
+				                    
+
+                                                                    
+                                    
+		                                    <div style="float: right; height: 27px;  padding-right:5px ">        
+		                                <a class="CommonImageTextButton" href="/AddPost.aspx?ReplyToPostID=3643014&amp;Quote=False">
+				                            <span class="CommonReplyButton">Reply</span>
+			                            </a>
+                                            </div>				                            
+		                                
+    
+    
+				                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>	
+                    
+				    <div class="ForumPostArea" style="margin-top: 0px; background-color: white">
+					    <table id="tbl9" cellspacing="0" cellpadding="0" border="0" width="100%">
+						    <tr valign=top>
+							    <td rowspan="2" class="ForumPostUserArea">
+								    <div class="ForumPostUserContent">
+								    <ul class="ForumPostUserPropertyList">
+									    <li class="ForumPostUserAvatar"><img src="http://i1.asp.net/avatar/anishshenoy_7.jpg?forceidenticon=True&amp;dt=634041558000000000&amp;cdn_id=01112010_2" alt="" style="border-width:0px;" /></li>
+								        <li class="ForumPostUserAttribute">
+									        <div class="reputation-user-level"><img alt="Member" src="http://i3.asp.net/asp.net/images/rs/level-Member.gif?cdn_id=01112010_2"/></div>
+									        <div class="reputation-user-points">12 point <b>Member</b></div>
+        								</li>
+									    <li class="ForumPostUserName">
+									        
+									                
+									            
+									        <a href="/members/anishshenoy_5F00_7.aspx">anishshenoy_7</a>
+									    </li>
+									    
+								                <li class="ForumPostUserAttribute">Member since 11-17-2009, 6:17 AM</li>
+								                
+								                <li class="ForumPostUserAttribute">Posts <a href="/search/SearchResults.aspx?q=userid%3a901636&amp;o=DateDescending">6</a></li>
+								                
+                                                
+                                            
+								    </ul>
+								    </div>
+							    </td>
+							    <td class="ForumPostContentArea">
+    							    <table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" style="table-layout: fixed;">
+									    <tr>
+									        <td>
+									            <div class="ForumPostBodyArea">
+									                <div class="ForumPostContentText">
+										                <p>thanks a lot for the explanation with the code bro it helped me alot...:-)</p>
+										                <span class="ForumPostContentScrollbarCorrector"></span>
+										                
+            									    </div>
+			            						    
+						        			    </div>
+									        </td>
+									    </tr>
+								    </table>
+							    </td>
+						    </tr>
+						    <tr valign="bottom">
+							    <td class="ForumPostFooterArea">	
+								    <div><span id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl11_ctl07_ctl01"></span><input type="hidden" name="ctl00$ctl00$bcr$bcr$ctl00$PostList$ctl11$ctl07$ctl01" id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl11_ctl07_ctl01_State" value="nochange" /></div>
+								    <ul class="ForumPostStatistics CommonPrintHidden" style="clear: both;">
+								        <li></li>
+								        
+									    
+									    
+									    
+								    </ul>
+							    </td>
+						    </tr>
+					    </table>
+				    </div>
+			    </li>
+            
+			    <li>
+			        <a name="3652687"></a>
+			        <div class="ForumPostHeader">
+                        <div class="ForumPostHeaderRight"></div>
+                        <h2> Re: How To: Connect to SQL using C# and SELECT INSERT UPDATE ?</h2><div style="clear: both" />                     
+                        <table width="100%" class="ForumPostHeaderAction" cellpadding="5" cellspacing="0">
+                            <tr>
+                                <td width="20%" style="padding-left: 8px;" valign="top" nowrap="nowrap">
+                                    02-01-2010, 6:37 AM                                
+        						    
+                                    
+                                </td>
+                                
+                                <td width="80%" align="right" valign="middle">
+
+                                    
+                                    
+                                    
+                                    
+				                                                        
+                                
+				                    
+			                                <div style="float: right; height: 27px; padding-right:5px  ">        
+			                            <a class="CommonImageTextButton" onclick="return window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01_ClientPopulatedPopupMenu.LoadMenu(this,event,['818084','mbgreat','0','1','','','','/search/SearchResults.aspx?q=userid%3a818084&amp;o=DateDescending'],null);" href="#"><span class="CommonContactButton">Contact</span></a>
+                                            </div>				                            
+			                            
+                                                                
+                                    
+				                                                        
+			                        
+                                
+ 
+			                       
+
+				                    
+
+                                                                    
+                                    
+		                                    <div style="float: right; height: 27px;  padding-right:5px ">        
+		                                <a class="CommonImageTextButton" href="/AddPost.aspx?ReplyToPostID=3652687&amp;Quote=False">
+				                            <span class="CommonReplyButton">Reply</span>
+			                            </a>
+                                            </div>				                            
+		                                
+    
+    
+				                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>	
+                    
+				    <div class="ForumPostArea" style="margin-top: 0px; background-color: white">
+					    <table id="tbl10" cellspacing="0" cellpadding="0" border="0" width="100%">
+						    <tr valign=top>
+							    <td rowspan="2" class="ForumPostUserArea">
+								    <div class="ForumPostUserContent">
+								    <ul class="ForumPostUserPropertyList">
+									    <li class="ForumPostUserAvatar"><img src="http://i1.asp.net/avatar/mbgreat.jpg?forceidenticon=True&amp;dt=634041558000000000&amp;cdn_id=01112010_2" alt="" style="border-width:0px;" /></li>
+								        <li class="ForumPostUserAttribute">
+									        <div class="reputation-user-level"><img alt="Member" src="http://i3.asp.net/asp.net/images/rs/level-Member.gif?cdn_id=01112010_2"/></div>
+									        <div class="reputation-user-points">24 point <b>Member</b></div>
+        								</li>
+									    <li class="ForumPostUserName">
+									        
+									                
+									            
+									        <a href="/members/mbgreat.aspx">mbgreat</a>
+									    </li>
+									    
+								                <li class="ForumPostUserAttribute">Member since 08-06-2008, 4:59 PM</li>
+								                
+								                <li class="ForumPostUserAttribute">Posts <a href="/search/SearchResults.aspx?q=userid%3a818084&amp;o=DateDescending">12</a></li>
+								                
+                                                
+                                            
+								    </ul>
+								    </div>
+							    </td>
+							    <td class="ForumPostContentArea">
+    							    <table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" style="table-layout: fixed;">
+									    <tr>
+									        <td>
+									            <div class="ForumPostBodyArea">
+									                <div class="ForumPostContentText">
+										                <p>Dear Simon,</p><p><br /></p><p>If you can still remember, you really helped me with sql connectivity related issues sometimes in 2008..I&#39;m back to you again asking for something different this time around.</p><p>are you into vb.net client server source&nbsp; using TCP sockets? i will be grateful if you could help me with tutorials/sample program/ or any other related helpful material..below is a brief abstract of what i want to comeout with.</p><p>I want to have a server that stores file securely, and a client that can access the file server. then the file should be transmitted and stored from the client to the server securely. and the format of the stored file should be defined...authentication and encryption (Asymetric is possible) is needed..Thank for you help<br /></p><p><br /></p><p>Regards,</p><p>mbgreat.<br /></p><p><br /></p><p><br /></p><p></p>
+										                <span class="ForumPostContentScrollbarCorrector"></span>
+										                
+            									    </div>
+			            						    
+						        			    </div>
+									        </td>
+									    </tr>
+								    </table>
+							    </td>
+						    </tr>
+						    <tr valign="bottom">
+							    <td class="ForumPostFooterArea">	
+								    <div><span id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl12_ctl07_ctl01"></span><input type="hidden" name="ctl00$ctl00$bcr$bcr$ctl00$PostList$ctl12$ctl07$ctl01" id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl12_ctl07_ctl01_State" value="nochange" /></div>
+								    <ul class="ForumPostStatistics CommonPrintHidden" style="clear: both;">
+								        <li></li>
+								        
+									    
+									    
+									    
+								    </ul>
+							    </td>
+						    </tr>
+					    </table>
+				    </div>
+			    </li>
+            
+			    <li>
+			        <a name="3712685"></a>
+			        <div class="ForumPostHeader">
+                        <div class="ForumPostHeaderRight"></div>
+                        <h2> Re: How To: Connect to SQL using C# and SELECT INSERT UPDATE ?</h2><div style="clear: both" />                     
+                        <table width="100%" class="ForumPostHeaderAction" cellpadding="5" cellspacing="0">
+                            <tr>
+                                <td width="20%" style="padding-left: 8px;" valign="top" nowrap="nowrap">
+                                    03-04-2010, 1:09 AM                                
+        						    
+                                    
+                                </td>
+                                
+                                <td width="80%" align="right" valign="middle">
+
+                                    
+                                    
+                                    
+                                    
+				                                                        
+                                
+				                    
+			                                <div style="float: right; height: 27px; padding-right:5px  ">        
+			                            <a class="CommonImageTextButton" onclick="return window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01_ClientPopulatedPopupMenu.LoadMenu(this,event,['919599','yukiko','0','1','','','','/search/SearchResults.aspx?q=userid%3a919599&amp;o=DateDescending'],null);" href="#"><span class="CommonContactButton">Contact</span></a>
+                                            </div>				                            
+			                            
+                                                                
+                                    
+				                                                        
+			                        
+                                
+ 
+			                       
+
+				                    
+
+                                                                    
+                                    
+		                                    <div style="float: right; height: 27px;  padding-right:5px ">        
+		                                <a class="CommonImageTextButton" href="/AddPost.aspx?ReplyToPostID=3712685&amp;Quote=False">
+				                            <span class="CommonReplyButton">Reply</span>
+			                            </a>
+                                            </div>				                            
+		                                
+    
+    
+				                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>	
+                    
+				    <div class="ForumPostArea" style="margin-top: 0px; background-color: white">
+					    <table id="tbl11" cellspacing="0" cellpadding="0" border="0" width="100%">
+						    <tr valign=top>
+							    <td rowspan="2" class="ForumPostUserArea">
+								    <div class="ForumPostUserContent">
+								    <ul class="ForumPostUserPropertyList">
+									    <li class="ForumPostUserAvatar"><img src="http://i1.asp.net/avatar/yukiko.jpg?forceidenticon=True&amp;dt=634041558000000000&amp;cdn_id=01112010_2" alt="" style="border-width:0px;" /></li>
+								        <li class="ForumPostUserAttribute">
+									        <div class="reputation-user-level"><img alt="Member" src="http://i3.asp.net/asp.net/images/rs/level-Member.gif?cdn_id=01112010_2"/></div>
+									        <div class="reputation-user-points">2 point <b>Member</b></div>
+        								</li>
+									    <li class="ForumPostUserName">
+									        
+									                
+									            
+									        <a href="/members/yukiko.aspx">yukiko</a>
+									    </li>
+									    
+								                <li class="ForumPostUserAttribute">Member since 03-02-2010, 2:10 PM</li>
+								                
+								                <li class="ForumPostUserAttribute">Posts <a href="/search/SearchResults.aspx?q=userid%3a919599&amp;o=DateDescending">1</a></li>
+								                
+                                                
+                                            
+								    </ul>
+								    </div>
+							    </td>
+							    <td class="ForumPostContentArea">
+    							    <table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" style="table-layout: fixed;">
+									    <tr>
+									        <td>
+									            <div class="ForumPostBodyArea">
+									                <div class="ForumPostContentText">
+										                <p>hi, i&#39;m hust new to sql.</p><p>i just want to ask if there is a difference between mysql and sql?</p><p>or is it just&nbsp; a term to use</p><p>thank you forclearing it out!<br /></p>
+										                <span class="ForumPostContentScrollbarCorrector"></span>
+										                
+            									    </div>
+			            						    
+						        			    </div>
+									        </td>
+									    </tr>
+								    </table>
+							    </td>
+						    </tr>
+						    <tr valign="bottom">
+							    <td class="ForumPostFooterArea">	
+								    <div><span id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl13_ctl07_ctl01"></span><input type="hidden" name="ctl00$ctl00$bcr$bcr$ctl00$PostList$ctl13$ctl07$ctl01" id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl13_ctl07_ctl01_State" value="nochange" /></div>
+								    <ul class="ForumPostStatistics CommonPrintHidden" style="clear: both;">
+								        <li></li>
+								        
+									    
+									    
+									    
+								    </ul>
+							    </td>
+						    </tr>
+					    </table>
+				    </div>
+			    </li>
+            
+			    <li>
+			        <a name="3713618"></a>
+			        <div class="ForumPostHeader">
+                        <div class="ForumPostHeaderRight"></div>
+                        <h2> Re: How To: Connect to SQL using C# and SELECT INSERT UPDATE ?</h2><div style="clear: both" />                     
+                        <table width="100%" class="ForumPostHeaderAction" cellpadding="5" cellspacing="0">
+                            <tr>
+                                <td width="20%" style="padding-left: 8px;" valign="top" nowrap="nowrap">
+                                    03-04-2010, 9:55 AM                                
+        						    
+                                    
+                                </td>
+                                
+                                <td width="80%" align="right" valign="middle">
+
+                                    
+                                    
+                                    
+                                    
+				                                                        
+                                
+				                    
+			                                <div style="float: right; height: 27px; padding-right:5px  ">        
+			                            <a class="CommonImageTextButton" onclick="return window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01_ClientPopulatedPopupMenu.LoadMenu(this,event,['771696','Simon Deshaies','0','1','','http://weblog.simondeshaies.net','','/search/SearchResults.aspx?q=userid%3a771696&amp;o=DateDescending'],null);" href="#"><span class="CommonContactButton">Contact</span></a>
+                                            </div>				                            
+			                            
+                                                                
+                                    
+				                                                        
+			                        
+                                
+ 
+			                       
+
+				                    
+
+                                                                    
+                                    
+		                                    <div style="float: right; height: 27px;  padding-right:5px ">        
+		                                <a class="CommonImageTextButton" href="/AddPost.aspx?ReplyToPostID=3713618&amp;Quote=False">
+				                            <span class="CommonReplyButton">Reply</span>
+			                            </a>
+                                            </div>				                            
+		                                
+    
+    
+				                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>	
+                    
+				    <div class="ForumPostArea" style="margin-top: 0px; background-color: white">
+					    <table id="tbl12" cellspacing="0" cellpadding="0" border="0" width="100%">
+						    <tr valign=top>
+							    <td rowspan="2" class="ForumPostUserArea">
+								    <div class="ForumPostUserContent">
+								    <ul class="ForumPostUserPropertyList">
+									    <li class="ForumPostUserAvatar"><img src="http://i1.asp.net/avatar/Simon%20Deshaies.jpg?forceidenticon=False&amp;dt=634041558000000000&amp;cdn_id=01112010_2" alt="" style="border-width:0px;" /></li>
+								        <li class="ForumPostUserAttribute">
+									        <div class="reputation-user-level"><img alt="Member" src="http://i3.asp.net/asp.net/images/rs/level-Member.gif?cdn_id=01112010_2"/></div>
+									        <div class="reputation-user-points">144 point <b>Member</b></div>
+        								</li>
+									    <li class="ForumPostUserName">
+									        
+									                
+									            
+									        <a href="/members/Simon-Deshaies.aspx">Simon Deshaies</a>
+									    </li>
+									    
+								                <li class="ForumPostUserAttribute">Member since 11-17-2007, 10:59 AM</li>
+								                <li class="ForumPostUserAttribute">Montr&amp;#233;al, Canada</li>
+								                <li class="ForumPostUserAttribute">Posts <a href="/search/SearchResults.aspx?q=userid%3a771696&amp;o=DateDescending">71</a></li>
+								                
+                                                
+                                            
+								    </ul>
+								    </div>
+							    </td>
+							    <td class="ForumPostContentArea">
+    							    <table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" style="table-layout: fixed;">
+									    <tr>
+									        <td>
+									            <div class="ForumPostBodyArea">
+									                <div class="ForumPostContentText">
+										                <p>Hello Yukiko,</p><p>There are many&nbsp;differences&nbsp;between MySql and SQL.</p><p><b>SQL </b>is the database query language technology see : <a href="http://en.wikipedia.org/wiki/SQL">http://en.wikipedia.org/wiki/SQL</a></p><p><b>MySql </b>is one database engine see: <a href="http://en.wikipedia.org/wiki/My_sql">http://en.wikipedia.org/wiki/My_sql</a></p><p>But I&nbsp;think&nbsp;you&nbsp;meant&nbsp;to ask the&nbsp;difference&nbsp;between &quot;<b>Microsoft SQL Server</b>&quot; and &quot;<b>MySql</b>&quot;?</p><p>So,&nbsp;<b>Microsoft SQL Server</b> is a other database engine that is made by Microsoft see: <a href="http://en.wikipedia.org/wiki/Microsoft_SQL_Server">http://en.wikipedia.org/wiki/Microsoft_SQL_Server</a></p><p>You might also what to read up on : <a href="http://en.wikipedia.org/wiki/Database_server">http://en.wikipedia.org/wiki/Database_server</a></p><p><br /></p><p>Regards,</p><p><br /></p><p>Simon</p>
+										                <span class="ForumPostContentScrollbarCorrector"></span>
+										                
+            									    </div>
+			            						    <div class="ForumPostSignature">Simon Deshaies<br /><br />Support Specialist / Support C# Analyst at Nstein Technologies<br /><br /><a href="http://weblog.simondeshaies.net">weblog.simondeshaies.net</a><p>Please remember to click “Mark as Answer” on the post that helps you.</p><br /></div>
+						        			    </div>
+									        </td>
+									    </tr>
+								    </table>
+							    </td>
+						    </tr>
+						    <tr valign="bottom">
+							    <td class="ForumPostFooterArea">	
+								    <div><span id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl14_ctl07_ctl01"></span><input type="hidden" name="ctl00$ctl00$bcr$bcr$ctl00$PostList$ctl14$ctl07$ctl01" id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl14_ctl07_ctl01_State" value="nochange" /></div>
+								    <ul class="ForumPostStatistics CommonPrintHidden" style="clear: both;">
+								        <li></li>
+								        
+									    
+									    
+									    
+								    </ul>
+							    </td>
+						    </tr>
+					    </table>
+				    </div>
+			    </li>
+            
+		        </ul>
+		    
+        
+        <table cellpadding="0" cellspacing="0" width="100%" border="0">
+		    <tr>
+			    <td valign="top" align="left">
+			    </td>	
+			    <td valign="top">
+				    
+                     <div class="CommonPagingArea" align="right">Page 4 of 4 (58 items) <a href="/t/1193643.aspx?PageIndex=3">< Previous</a>&nbsp;<a href="/t/1193643.aspx?PageIndex=1">1</a> <a href="/t/1193643.aspx?PageIndex=2">2</a> <a href="/t/1193643.aspx?PageIndex=3">3</a> 4</div>
+			    </td> 
+		    </tr>
+	    </table>
+        
+               
+        
+                <div class="CommonFeedArea" align="right">
+            <a class="rssplain" href="/rss.aspx?ForumID=53&amp;PostID=2056772"><img src="/utility/images/feedicon.png" alt="" style="border-width:0px;" /> RSS Available</a>
+                </div>
+            						
+	
+	</div>
+
+</div>
+
+<link rel="stylesheet" href="http://i1.asp.net/common/forums-css/SyntaxHighlighter.css?cdn_id=01112010_2" media="all" type="text/css" />     
+<script language="javascript" src="/script.ashx?resource=js-shCombined"></script>
+
+
+
+
+
+                        </div>
+		            </div>
+		        </div>
+		        
+		        <div class="advertisement">
+		            
+
+
+
+
+    <div class="adRegionSelector" align="center" style="padding-top:5px;padding-bottom:5px;" adurl="http://forums.asp.net/a/CSFeaturedAd.ashx?ZoneID=388" adwidth="728" adheight="90">
+    </div>
+
+
+
+
+		        </div>
+
+		        <div style="clear:both;"><!-- clear --></div>
+		        <div style="clear:both;"><!-- clear --></div>
+                    
+                
+                <div class="footer_container">
+                    <div class="footer_content">
+                    <p class="footer_links">
+                        <a href="http://www.asp.net/feedback/">Contact</a> | 
+                        <a href="http://www.neudesicmediagroup.com/Advertising.aspx">Advertise</a> | 
+                        
+                        <a href="http://www.axosoft.com">Issue Management by Axosoft's OnTime</a> | 
+                        <a href="http://www.iis.net/">Running IIS7</a><br />
+                        All Rights Reserved. | 
+                        <a href="http://www.asp.net/Terms-Of-Use">Terms of Use</a> | 
+                        <a href="http://www.microsoft.com/library/toolbar/3.0/trademarks/en-us.mspx">Trademarks</a> | 
+                        <a href="http://www.asp.net/privacy/">Privacy Statement</a><br />
+                        &copy; 2010 Microsoft Corporation.
+                    </p>
+                    <ul class="footer_site_logos">
+                        <li class="footer_site_logos"><a href="http://www.asp.net/"  class="footer_site_logos logo-footer-asp" ></a></li>
+                        <li class="footer_site_logos"><a href="http://www.silverlight.net/"  class="footer_site_logos logo-footer-silverlight" ></a></li>
+                        <li class="footer_site_logos"><a href="http://channel9.msdn.com/"  class="footer_site_logos logo-footer-ch9" ></a></li>
+                        <li class="footer_site_logos"><a href="http://edge.technet.com/"  class="footer_site_logos logo-footer-technet" ></a></li>
+                        <li class="footer_site_logos"><a href="http://www.iis.net/"  class="footer_site_logos logo-footer-iis" ></a></li>
+                        <li class="footer_site_logos"><a href="http://visitmix.com/"  class="footer_site_logos logo-footer-mix" ></a></li>
+                        <li class="footer_site_logos"><a href="http://msdn.microsoft.com/"  class="footer_site_logos logo-footer-msdn" ></a></li>           
+                        <li class="footer_site_logos"><a href="http://windowsclient.net/"  class="footer_site_logos logo-footer-wc" ></a></li>                    
+                    </ul>
+                  </div>
+                </div>
+            </div>
+            
+            
+            <script type="text/javascript">try { $(document).ready(function() { ShowAds(); }); } catch (ex) { } </script>
+            
+            <script type="text/javascript" src="http://i1.asp.net/script/omniture/omniture_all.js?cdn_id=01112010_2"></script>
+            <noscript><a href="http://www.omniture.com" title="Web Analytics"><img
+            src="http://msstonojsaspnet.112.2O7.net/b/ss/msstonojsaspnet/1/H.20.2--NS/0"
+            height="1" width="1" border="0" alt="" /></a></noscript>
+            
+            
+		
+<script type="text/javascript">
+// <![CDATA[
+Telligent_Modal.Configure('/utility/loading.htm',['CommonModal','CommonModal1','CommonModal2','CommonModal3','CommonModal4','CommonModal5'],['CommonModalTitle'],['CommonModalClose'],['CommonModalContent'],['CommonModalFooter'],['CommonModalResize'],['CommonModalMask'],100);
+// ]]>
+</script><script type="text/javascript">
+<!--
+function KeyDownHandlerctl00_ctl00_bhcr_SearchForm1_ctl00_TitleBarSearchButton(event)
+{
+	if (event.keyCode == 13)
+	{
+		event.returnValue = false;
+		event.cancel = true;
+     __doPostBack('ctl00$ctl00$bhcr$SearchForm1$ctl00$TitleBarSearchButton','')
+   return false;
+	}
+}
+
+//-->
+</script>
+<script type="text/javascript">
+// <![CDATA[
+var ctl00_ctl00_bcr_bcr_ctl00_ctl02=new PostRating('ctl00_ctl00_bcr_bcr_ctl00_ctl02','ctl00_ctl00_bcr_bcr_ctl00_ctl02','ctl00_ctl00_bcr_bcr_ctl00_ctl02_Value', 5, 'http://i1.asp.net/common/forums-css/fan-theme/images/common/', false, 'ForumThreadRateControl','ForumThreadRateControlActive','ForumThreadRateControlReadOnly',['Terrible','Poor','Fair','Average','Good','Excellent'],true,true);
+// ]]>
+</script><script type="text/javascript">
+            // <![CDATA[
+            var ctl00_ctl00_bcr_bcr_ctl00_ctl02_ajax={"SaveRating":function(rating,successFunction,failureFunction){WebForm_DoCallback('ctl00$ctl00$bcr$bcr$ctl00$ctl02',rating,successFunction,rating,failureFunction,false)}};
+            // ]]>
+            </script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01_ClientPopulatedPopupMenu = new ClientPopulatedPopupMenu('ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01_ClientPopulatedPopupMenu','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01','CommonImageTextButton','CommonImageTextButtonHighlight',[[new Function('parms', 'return parms[4];'),'View {1}\'s home page','/Themes/fan/images/common/homepage.gif','{4}','_blank',null],[new Function('parms', 'return parms[5];'),'View {1}\'s weblog','/Themes/fan/images/common/weblog.gif','{5}','_blank',null],[new Function('parms', 'return parms[6];'),'View {1}\'s gallery','/Themes/fan/images/common/webgallery.gif','{6}','_blank',null],[new Function('parms', 'return true;'),'View {1}\'s profile','/Themes/fan/images/common/profile.gif','/user/Profile.aspx?UserID={0}',null,null],[new Function('parms', 'return true;'),'Find posts by {1}','/Themes/fan/images/common/search.gif','{7}',null,null]]);
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl01 = new Telligent_InlineEditorPanel('ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl01_State','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl00',false,null,null,null);
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl03_ctl07_ctl01 = new Telligent_InlineEditorPanel('ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl03_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl03_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl03_ctl07_ctl01_State','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl00',false,null,null,null);
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl04_ctl07_ctl01 = new Telligent_InlineEditorPanel('ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl04_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl04_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl04_ctl07_ctl01_State','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl00',false,null,null,null);
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl05_ctl07_ctl01 = new Telligent_InlineEditorPanel('ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl05_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl05_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl05_ctl07_ctl01_State','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl00',false,null,null,null);
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl06_ctl07_ctl01 = new Telligent_InlineEditorPanel('ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl06_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl06_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl06_ctl07_ctl01_State','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl00',false,null,null,null);
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl07_ctl07_ctl01 = new Telligent_InlineEditorPanel('ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl07_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl07_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl07_ctl07_ctl01_State','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl00',false,null,null,null);
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl08_ctl07_ctl01 = new Telligent_InlineEditorPanel('ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl08_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl08_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl08_ctl07_ctl01_State','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl00',false,null,null,null);
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl09_ctl07_ctl01 = new Telligent_InlineEditorPanel('ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl09_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl09_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl09_ctl07_ctl01_State','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl00',false,null,null,null);
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl10_ctl07_ctl01 = new Telligent_InlineEditorPanel('ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl10_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl10_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl10_ctl07_ctl01_State','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl00',false,null,null,null);
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl11_ctl07_ctl01 = new Telligent_InlineEditorPanel('ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl11_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl11_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl11_ctl07_ctl01_State','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl00',false,null,null,null);
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl12_ctl07_ctl01 = new Telligent_InlineEditorPanel('ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl12_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl12_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl12_ctl07_ctl01_State','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl00',false,null,null,null);
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl13_ctl07_ctl01 = new Telligent_InlineEditorPanel('ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl13_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl13_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl13_ctl07_ctl01_State','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl00',false,null,null,null);
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl14_ctl07_ctl01 = new Telligent_InlineEditorPanel('ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl14_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl14_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl14_ctl07_ctl01_State','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl00',false,null,null,null);
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01 = new Telligent_PopupMenu('ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01','CommonContextMenuGroup','CommonContextMenuItem','CommonContextMenuItemHover','CommonContextMenuItemExpanded','',0,0,20,14,'updown',0,null,null,null,[],false);
+// ]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+Sys.Application.initialize();
+//]]>
+</script>
+</form>
+		
+		
+	</body>
+</html>

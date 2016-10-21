@@ -1,0 +1,1148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+      "http://www.w3.org/TR/REC-html40/strict.dtd"> 
+
+<html>
+
+<head>
+
+<link rel="stylesheet" type="text/css" href="../Lessons.css">
+<title>ASP.NET With Visual C# - Lesson 08: Introduction to Classes</title>
+</head>
+
+<body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+
+<div align="center">
+  <center>
+
+<table border="0" width="900" cellspacing="1" cellpadding="0">
+  <tr>
+    <td width="738" align="center">
+    
+<!-- Casale Media: 728x90 (Banner) -->
+<script type="text/javascript">
+var CasaleArgs = new Object();
+CasaleArgs.version = 2;
+CasaleArgs.adUnits = "2";
+CasaleArgs.casaleID = 56757;
+</script>
+<script type="text/javascript" src="http://js.casalemedia.com/casaleJTag.js"></script>
+<!-- DO NOT MODIFY -->
+
+    </td>
+  </tr>
+</table>
+
+  </center>
+</div>
+
+&nbsp;
+<div align="center">
+  <center>
+  <table border="0" width="900">
+    <tr>
+      <td width="680" valign="top" rowspan="2">
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="10%" valign="middle" align="center"><a href="index.htm"><img border="0" src="../lessonno/L08.gif" alt="Home" width="60" height="63"></a></td>
+    <td width="90%">
+
+<Span name="KonaBody">
+
+      <p class="maintitle">Introduction to Classes</p></span></td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2" height="2" bgcolor="#CC3300"></td>
+  </tr>
+</table>
+
+
+
+&nbsp;
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%">
+      <p class="paratitle">
+
+
+
+Fundamentals of Classes</td>
+  </tr>
+  <tr>
+    <td width="100%" height="1" bgcolor="#FF0000"></td>
+  </tr>
+</table>
+
+&nbsp;
+
+<table border="0" width="100%">
+  <tr>
+    <td valign="top">
+          
+<script type="text/javascript"><!--
+google_ad_client = "pub-3968514660870014";
+google_ad_width = 160;
+google_ad_height = 90;
+google_ad_format = "160x90_0ads_al";
+google_ad_type = "text_image";
+google_ad_channel ="";
+google_color_border = "800000";
+google_color_bg = "FFFFFF";
+google_color_link = "0000FF";
+google_color_url = "0000ff";
+google_color_text = "000000";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+    </td>
+    <td>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%">
+      <p class="subtitle">Introduction</td>
+  </tr>
+  <tr>
+    <td width="100%" height="1" bgcolor="#0000FF"></td>
+  </tr>
+</table>
+
+<p class="parajust">A class is a technique of using one variable or combining some variables 
+to get a composite data type.&nbsp;</p>
+    </td>
+  </tr>
+</table>
+
+&nbsp;
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+	<tr>
+		<td width="100%">
+		<p class="subtitle">Creating a Class</p>
+		</td>
+	</tr>
+	<tr>
+		<td width="100%" height="1" bgcolor="#0000FF"></td>
+	</tr>
+</table>
+<p class="parajust"> To create a class, you 
+start with the <b>class</b> keyword followed by a name and its body delimited by 
+curly brackets. Here is an example of a class called House:</p>
+<pre>class House
+{
+}</pre>
+
+<p class="parajust">To create a class, if you are working on a text editor, you can
+include its code in the head section, using a <a href="fundamentals/scripts.htm">script</a>.
+Here is an example:</p>
+<pre>&lt;%@ Page Language=&quot;C#&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+
+<font color="#FF0000">&lt;script runat=&quot;server&quot;&gt;
+class House
+{
+}
+&lt;/script&gt;</font>
+
+&lt;title&gt;Exercise&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+<p class="parajust">In the same way, if you are working in Microsoft Visual
+Studio or Microsoft Visual Web Developer, you can create a script section in the
+head side of a page and create your class in it. Here is an example:</p>
+<pre>&lt;%@ Page Language=&quot;C#&quot;
+    AutoEventWireup=&quot;true&quot;
+    CodeFile=&quot;index.aspx.cs&quot;
+    Inherits=&quot;_Default&quot; %&gt;
+
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot;
+     &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+&lt;head runat=&quot;server&quot;&gt;
+
+<font color="#FF0000">&lt;script runat=&quot;server&quot;&gt;
+class House
+{
+
+}
+&lt;/script&gt;</font>
+
+&lt;title&gt;Exercise&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+<p class="parajust">If you are working in Microsoft Visual Studio or Microsoft
+Visual Web Developer, to visually create a class:</p>
+<ul>
+  <li>On the main menu, you can click Website -&gt; Add New Item...</li>
+  <li>In the Solution Explorer, right-click the name of the project and click
+    Add New Item...</li>
+</ul>
+<p class="parajust">In the Templates list, click Class. Accept the suggested
+name or specify your own. Then click Add. A message box will ask you to add the
+class to the App_Code folder:</p>
+<p class="pcenter"><img border="0" src="classes/msgboxes/class1.gif" alt="Message Box" width="417" height="165"></p>
+<p class="parajust">After reading the message box, click Yes. A folder named
+App_Code would be automatically created and the new class would be added to it.
+The file that contains the class would have the same name as the class and would
+have the .cs extension.</p>
+<p class="parajust">When a project is made of various files, each file is 
+represented by a tab in the top section of the Code Editor. To access a file, you can click its tab.</p>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+	<tr>
+		<td width="100%">
+		<p class="exotitle"><img border="0" src="../images/practical1.gif" alt="Home" width="19" height="18">Practical 
+		Learning: Introducing Classes</p>
+		</td>
+	</tr>
+	<tr>
+		<td bgcolor="#CC3300" height="1"></td>
+	</tr>
+</table>
+<ol>
+	<li>Start Microsoft Visual Studio or Microsoft Visual Web Developer</li>
+	<li>Create a Web Site named <b>DepartmentStore1</b></li>
+    <li>To create a new class, on the main menu, click Website -&gt; Add New
+      Item...</li>
+	<li>In the Add New Item dialog box, click Class</li>
+	<li>Change the name to <b>DepartmentStore</b> 
+    </li>
+	<li>Make sure the Language is set to Visual C# and click Add</li>
+	<li>Read the message box and click Yes</li>
+</ol>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+	<tr>
+		<td>
+		<p class="subtitle">Visually 
+		Managing Classes</p>
+		</td>
+	</tr>
+	<tr>
+		<td bgcolor="#0000FF" height="1"></td>
+	</tr>
+</table>
+<p class="parajust">If you are working in Microsoft Visual Studio or Microsoft
+Visual Web Developer, to assist you with managing the various classes of a web
+site, one of the 
+windows you can use is called the Class View. To display it, on the main menu, 
+you can click View -&gt; Class View:</p>
+<p class="pcenter">
+<img border="0" src="classes/windows/classview1.gif" alt="Class View" width="284" height="307"></p>
+<p class="parajust"> To see the members of a class, you 
+can click it in the top window:</p>
+<p class="pcenter">
+<img border="0" src="classes/windows/classview2.gif" alt="Class View" width="284" height="307"></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+	<tr>
+		<td>
+		<p class="subtitle"><a name="New"></a>Declaring a Variable of a Class 
+		Type</p>
+		</td>
+	</tr>
+	<tr>
+		<td bgcolor="#0000FF" height="1"></td>
+	</tr>
+</table>
+<p class="parajust">To use a class for a web page, 
+you can first declare a variable for it. If you are working in a text editor
+such as Notepad, to declare the variable, type the name of the class where you
+want to use the variable. This would be done as follows:</p>
+<pre>&lt;%@ Page Language=&quot;C#&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+
+&lt;script runat=&quot;server&quot;&gt;
+class House
+{
+}
+&lt;/script&gt;
+
+&lt;title&gt;Exercise&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;%
+    <font color="#FF0000">House property</font>;
+%&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+<p class="parajust"><a name="var"></a>If you are using Microsoft Visual Studio or Microsoft Visual
+Web Developer, you can use either the name of the class or the <b>var</b> 
+keyword. Here is an example:</p>
+<pre>&lt;%@ Page Language=&quot;C#&quot;
+    AutoEventWireup=&quot;true&quot;
+    CodeFile=&quot;index.aspx.cs&quot;
+    Inherits=&quot;_Default&quot; %&gt;
+
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot;
+     &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+&lt;head runat=&quot;server&quot;&gt;
+
+&lt;script runat=&quot;server&quot;&gt;
+class House
+{
+
+}
+&lt;/script&gt;
+
+&lt;title&gt;Exercise&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;%
+    <font color="#FF0000">var property</font> ...  
+%&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+<p class="parajust">Or the following:</p>
+<pre>&lt;%@ Page Language=&quot;C#&quot;
+    AutoEventWireup=&quot;true&quot;
+    CodeFile=&quot;index.aspx.cs&quot;
+    Inherits=&quot;_Default&quot; %&gt;
+
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot;
+     &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+&lt;head runat=&quot;server&quot;&gt;
+
+&lt;script runat=&quot;server&quot;&gt;
+class House
+{
+
+}
+&lt;/script&gt;
+
+&lt;title&gt;Exercise&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;%
+    <font color="#FF0000">House property;</font>  
+%&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+<p class="parajust">Before using a class, you must get a reference to it. To do
+this, you must initialize it using 
+an operator called <b>new</b>. Here is an example:</p>
+<pre>&lt;%@ Page Language=&quot;C#&quot;
+    AutoEventWireup=&quot;true&quot;
+    CodeFile=&quot;index.aspx.cs&quot;
+    Inherits=&quot;_Default&quot; %&gt;
+
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot;
+     &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+&lt;head runat=&quot;server&quot;&gt;
+
+&lt;script runat=&quot;server&quot;&gt;
+class House
+{
+}
+&lt;/script&gt;
+
+&lt;title&gt;Exercise&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;%
+    var property <font color="#FF0000">= new House(); </font> 
+%&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+<p class="parajust">If you are using the name of the class instead of <b> var</b> to 
+declare the variable, you can first declare it. Then, on another line, you can 
+allocate memory for it using the <b>new</b> operator. Here is an example:</p>
+<pre>&lt;%@ Page Language=&quot;C#&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+
+&lt;script runat=&quot;server&quot;&gt;
+class House
+{
+}
+&lt;/script&gt;
+
+&lt;title&gt;Exercise&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;%
+    House property;
+        
+    // You can do something here
+
+    <font color="#FF0000">property = new House();</font>
+%&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+<p class="parajust">If you create a class in any 
+of the files that belong to the same project, the class is made available to all 
+other files of the same project.</p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+	<tr>
+		<td>
+		<p class="subtitle">Sharing a Class</p>
+		</td>
+	</tr>
+	<tr>
+		<td bgcolor="#0000FF" height="1"></td>
+	</tr>
+</table>
+<p class="parajust">If you want your class to be accessible to code written in 
+other languages, precede the <b>class</b> keyword with <b>public</b> when 
+creating it. Here is an example:</p>
+<pre>&lt;%@ Page Language=&quot;C#&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+
+&lt;script runat=&quot;server&quot;&gt;
+<font color="#FF0000">public</font> class House
+{
+}
+&lt;/script&gt;
+
+&lt;title&gt;Exercise&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;%
+    House property = new House();
+%&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+	<tr>
+		<td>
+		<p class="subtitle">Garbage Collection</p>
+		</td>
+	</tr>
+	<tr>
+		<td bgcolor="#0000FF" height="1"></td>
+	</tr>
+</table>
+<p class="parajust">When you initialize a variable using the <b>new</b> 
+operator, you are in fact reserving some space in the heap memory. The memory is 
+&quot;allocated&quot; for the variable. When that variable is no longer needed, such as 
+when your program closes, it (the variable) must be removed from memory and the 
+space it was using can be made available to other variables or other programs. 
+This is referred to as garbage collection.</p>
+<p class="parajust">The .NET Framework solves the problem of garbage collection 
+by &quot;cleaning&quot; the memory after you. This is done automatically when necessary so 
+that the programmer doesn't need to worry about this issue.</p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+	<tr>
+		<td>
+		<p class="paratitle">Class' Fields</p>
+		</td>
+	</tr>
+	<tr>
+		<td bgcolor="#FF0000" height="1"></td>
+	</tr>
+</table>
+&nbsp;
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+	<tr>
+		<td>
+		<p class="subtitle">Introduction</p>
+		</td>
+	</tr>
+	<tr>
+		<td bgcolor="#0000FF" height="1"></td>
+	</tr>
+</table>
+<p class="parajust">In the code of a class, the section between the curly brackets, { and }, 
+is referred to as its body. In the body of a class, you can create the member variable(s)
+of the class. Each member has a name and a data type. Here is an example:</p>
+<pre>&lt;script runat=&quot;server&quot;&gt;
+class House
+{
+    <font color="#FF0000">string PropertyNumber;
+    char PropertyType;
+    byte Stories;
+    uint bedrooms;
+    decimal Value;</font>
+}
+&lt;/script&gt;</pre>
+<p class="parajust">Each member variable is referred to as a field. A field can be
+of any regular data type or another class.</p>
+&nbsp;
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+	<tr>
+		<td width="100%">
+		<p class="exotitle"><img border="0" src="../images/practical1.gif" alt="Home" width="19" height="18">Practical 
+		Learning: Introducing Class Members</p>
+		</td>
+	</tr>
+	<tr>
+		<td bgcolor="#CC3300" height="1"></td>
+	</tr>
+</table>
+<ol>
+	<li>Change the DepartmentStore class as follows:<br>
+	&nbsp;
+	<table border="0" width="560">
+		<tr>
+			<td width="100%">
+			<pre>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+/// &lt;summary&gt;
+/// Summary description for DepartmentStore
+/// &lt;/summary&gt;
+public class DepartmentStore
+{
+    <font color="#FF0000">long StockNumber;
+    char Category;
+    string ItemName;
+    decimal UnitPrice;</font>
+}</pre>
+			</td>
+		</tr>
+	</table>
+	</li>
+	<li>Save the file</li>
+</ol>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+	<tr>
+		<td>
+		<p class="paratitle">Accessing Class Members</p>
+		</td>
+	</tr>
+	<tr>
+		<td bgcolor="#FF0000" height="1"></td>
+	</tr>
+</table>
+
+&nbsp;
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+	<tr>
+		<td>
+		<p class="subtitle"><a name="private"></a>Private Members</p>
+		</td>
+	</tr>
+	<tr>
+		<td bgcolor="#0000FF" height="1"></td>
+	</tr>
+</table>
+<p class="parajust"> A class member can be hidden from other classes. Such a
+member is referred to as private. Such a member must be preceded by the <b>private</b> keyword. If you declare a member 
+variable and want to make it available to other classes, you must start its name 
+with the <b>public</b> keyword. The <b>public</b> and <b>private</b> keywords 
+are referred to as access level.</p>
+<p class="parajust">By default, if you declare a member variable (or anything 
+else) in a class but don't specify its access level, the member is considered 
+private and cannot be accessed from outside. Therefore, to make a member accessible by other classes, you must declare 
+it as public.</p>
+<p class="parajust">You can use a mix of public and private members in a class 
+and there is no rule on which access level should be listed first or last. Here 
+are examples:</p>
+<pre>&lt;script runat=&quot;server&quot;&gt;
+public class House
+{
+    string PropertyNumber;
+    <font color="#FF0000">public</font> char PropertyType;
+    byte Stories;
+    <font color="#FF0000">public</font> uint bedrooms;
+    <font color="#FF0000">private</font> decimal Value;
+}
+&lt;/script&gt;</pre>
+<p class="parajust">Just keep in mind that if you omit or forget the access 
+level of a member of a class, the member is automatically made private. To 
+reduce confusion as to what member is public or private, you should always 
+specify the access level of a member variable.</p>
+<pre>&lt;script runat=&quot;server&quot;&gt;
+public class House
+{
+    <font color="#FF0000">public</font> string PropertyNumber;
+    <font color="#FF0000">public</font> char PropertyType;
+    <font color="#FF0000">public</font> byte Stories;
+    <font color="#FF0000">public</font> uint Bedrooms;
+    <font color="#FF0000">public</font> decimal Value;
+}
+&lt;/script&gt;</pre>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+	<tr>
+		<td>
+        <p class="subtitle">Accessing a Class's Member</p>
+		</td>
+	</tr>
+	<tr>
+		<td bgcolor="#0000FF" height="1"></td>
+	</tr>
+</table>
+<p class="parajust">After creating a member of a class, to access it from 
+another class, first declare a variable from its class. To 
+actually access the member, use the period operator &quot;.&quot;. This would be
+done as follows:</p>
+<pre>&lt;%@ Page Language=&quot;C#&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+
+&lt;script runat=&quot;server&quot;&gt;
+public class House
+{
+    public string PropertyNumber;
+    public char PropertyType;
+    public byte Stories;
+    public uint Bedrooms;
+    public decimal Value;
+}
+&lt;/script&gt;
+
+&lt;title&gt;Exercise&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;%
+    House property = new House();
+
+    <font color="#FF0000">property.PropertyNumber</font>
+%&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+	<tr>
+		<td>
+		<p class="subtitle"><a name="internal"></a>Internal Members</p>
+		</td>
+	</tr>
+	<tr>
+		<td bgcolor="#0000FF" height="1"></td>
+	</tr>
+</table>
+<p class="parajust">We have seen that the <b>public</b> keyword is used to let
+objects of the same project and objects of other projects access the public
+member. The <b>private</b> keyword is used to let only members of a class access
+the (private) member of the class. If you want to create a member of a class so
+that only objects of the same program can access that member, you can mark it
+with the <b>internal</b> keyword. The differences between these keywords can be
+resumed as follows:</p>
+<div align="center">
+  <table border="1" width="451" bordercolor="#C0C0C0">
+    <tr>
+      <td width="228">&nbsp;</td>
+      <td align="center" colspan="3" width="207">If a class member is marked as</td>
+    </tr>
+    <tr>
+      <td width="228">&nbsp;</td>
+      <td align="center" width="69"><b>public</b></td>
+      <td align="center" width="61"><b>internal</b></td>
+      <td align="center" width="65"><b>private</b></td>
+    </tr>
+    <tr>
+      <td width="228">Members of its class can access this member</td>
+      <td align="center" width="69">Yes</td>
+      <td align="center" width="61">Yes</td>
+      <td align="center" width="65">Yes</td>
+    </tr>
+    <tr>
+      <td width="228">Members of this program, including outside of the class,
+        can access this member</td>
+      <td align="center" width="69">Yes</td>
+      <td align="center" width="61">Yes</td>
+      <td align="center" width="65">No</td>
+    </tr>
+    <tr>
+      <td width="228">Objects outside of this program can access this member</td>
+      <td align="center" width="69">Yes</td>
+      <td align="center" width="61">No</td>
+      <td align="center" width="65">No</td>
+    </tr>
+  </table>
+</div>
+      </td>
+      <td>
+   
+&nbsp;
+   
+<table border="0" width="100%">
+  <tr>
+    <td width="100%">
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-3968514660870014";
+google_ad_width = 300;
+google_ad_height = 250;
+google_ad_format = "300x250_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+    </td>
+  </tr>
+</table>
+
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+   
+&nbsp;
+        <table border="0" width="100%">
+          <tr>
+            <td width="100%">
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-3968514660870014";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_type = "text_image";
+google_ad_channel ="";
+google_color_border = "FFFFFF";
+google_color_link = "0000FF";
+google_color_bg = "FFFFFF";
+google_color_text = "000000";
+google_color_url = "008000";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+            </td>
+          </tr>
+        </table>
+        <table border="0" width="100%">
+          <tr>
+            <td width="100%"></td>
+          </tr>
+        </table>
+&nbsp;
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+&nbsp;
+
+<div align="center">
+  <center>
+<table border="0" width="900">
+  <tr>
+    <td width="680" rowspan="2">
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+	<tr>
+		<td>
+		<p class="paratitle">Initializing an Object</p>
+		</td>
+	</tr>
+	<tr>
+		<td bgcolor="#FF0000" height="1"></td>
+	</tr>
+</table>
+&nbsp;
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+	<tr>
+		<td>
+		<p class="subtitle">Introduction</p>
+		</td>
+	</tr>
+	<tr>
+		<td bgcolor="#0000FF" height="1"></td>
+	</tr>
+</table>
+<p class="parajust">&nbsp;After declaring an instance of a class, you can access each 
+of its members and assign it the desired value. Here is an example:</p>
+<pre>&lt;%@ Page Language=&quot;C#&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+
+&lt;script runat=&quot;server&quot;&gt;
+public class House
+{
+    public string PropertyNumber;
+    public char PropertyType;
+    public byte Stories;
+    public uint Bedrooms;
+    public decimal Value;
+}
+&lt;/script&gt;
+
+&lt;title&gt;Exercise&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;%
+    House property = new House();
+
+    <font color="#FF0000">property.PropertyNumber = 283795;
+    property.PropertyType = &quot;Single Family&quot;;
+    property.Bedrooms = 4;
+    property.Value = 652880;</font>
+%&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+<p class="parajust">Once a member variable has been initialized, you can use the 
+period operator to access it and retrieve its value:</p>
+<pre>&lt;%@ Page Language=&quot;C#&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+
+&lt;script runat=&quot;server&quot;&gt;
+public class House
+{
+    internal long PropertyNumber;
+    internal string PropertyType;
+    internal uint Bedrooms;
+    internal double Value;
+}
+&lt;/script&gt;
+
+&lt;title&gt;Exercise&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;%
+    House property = new House();
+
+    property.PropertyNumber = 283795;
+    property.PropertyType = &quot;Single Family&quot;;
+    property.Bedrooms = 4;
+    property.Value = 652880;
+%&gt;
+
+&lt;%
+    Response.Write(&quot;&lt;pre&gt;=//= Altair Realty =//=&lt;br /&gt;&quot;);
+    Response.Write(&quot;Properties Inventory&lt;br /&gt;&quot;); ;
+    Response.Write(&quot;Property #:     &quot; + <font color="#FF0000">property.PropertyNumber</font> + &quot;&lt;br /&gt;&quot;);
+    Response.Write(&quot;Property Type:  &quot; + <font color="#FF0000">property.PropertyType</font> + &quot;&lt;br /&gt;&quot;);
+    Response.Write(&quot;Bedrooms:       &quot; + <font color="#FF0000">property.Bedrooms</font> + &quot;&lt;br /&gt;&quot;);
+    Response.Write(&quot;Market Value:   &quot; + <font color="#FF0000">property.Value</font> + &quot;&lt;/pre&gt;&quot;);
+%&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+<p class="parajust">This would produce:</p>
+<p class="pcenter"><img border="0" src="classes/previews/house1.gif" alt="House" width="390" height="301"></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+	<tr>
+		<td>
+		<p class="exotitle"><img border="0" src="../images/practical1.gif" alt="Practical Learning" width="19" height="18">Practical Learning: Using a Class' Fields</p>
+		</td>
+	</tr>
+	<tr>
+		<td bgcolor="#CC3300" height="1"></td>
+	</tr>
+</table>
+<ol>
+	<li>To make public the members of the DepartmentStore class, type the <b>
+	public</b> keyword to their left:<br>
+	&nbsp;
+	<table border="0" width="560">
+		<tr>
+			<td width="100%">
+			<pre>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+/// &lt;summary&gt;
+/// Summary description for DepartmentStore
+/// &lt;/summary&gt;
+public class DepartmentStore
+{
+    <font color="#FF0000">public</font> long StockNumber;
+    <font color="#FF0000">public</font> char Category;
+    <font color="#FF0000">public</font> string ItemName;
+    <font color="#FF0000">public</font> decimal UnitPrice;
+}</pre>
+			</td>
+		</tr>
+	</table>
+	</li>
+	<li>In the Solution Explorer, right-click Default.aspx and click Rename </li>
+	<li>Type <font color="#FF0000">index.aspx</font> and press Enter </li>
+	<li>Double-click index.aspx and change the file as follows:<br>
+	&nbsp;
+	<table border="0" width="558">
+		<tr>
+			<td width="550">
+			<pre>&lt;%@ Page Language=&quot;C#&quot;
+         AutoEventWireup=&quot;true&quot;  
+         CodeFile=&quot;index.aspx.cs&quot; 
+         Inherits=&quot;_Default&quot; %&gt;
+
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; 
+&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+&lt;head runat=&quot;server&quot;&gt;
+&lt;title&gt;<font color="#FF0000">Department Store - Inventory</font>&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+<font color="#FF0000">&lt;%
+    DepartmentStore dptStore = new DepartmentStore();
+
+    dptStore.StockNumber = 437876;
+    dptStore.Category = 'W';
+    dptStore.ItemName = &quot;Scoop Neck Dress&quot;;
+    dptStore.UnitPrice = 148.00M;
+
+    Response.Write(&quot;&lt;pre&gt;Department Store&quot; + &quot;&lt;br /&gt;&quot;);
+    Response.Write(&quot;Item #:     &quot; + dptStore.StockNumber + &quot;&lt;br /&gt;&quot;);
+    Response.Write(&quot;Category:   &quot; + dptStore.Category + &quot;&lt;br /&gt;&quot;);
+    Response.Write(&quot;Name:       &quot; + dptStore.ItemName + &quot;&lt;br /&gt;&quot;);
+    Response.Write(&quot;Unit Price: &quot; + dptStore.UnitPrice + &quot;&lt;/pre&gt;&quot;);
+%&gt;</font>
+
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+			</td>
+		</tr>
+	</table>
+ </li>
+	<li>Press Ctrl + F5 to preview the page. This would produce:<br>
+      &nbsp;<br>
+      <img border="0" src="classes/previews/deptstore1.gif" alt="Department Store" width="480" height="279">
+	</li>
+	<li>Return to your programming environment</li>
+</ol>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+	<tr>
+		<td>
+		<p class="subtitle">Using an Anonymous Type</p>
+		</td>
+	</tr>
+	<tr>
+		<td bgcolor="#0000FF" height="1"></td>
+	</tr>
+</table>
+<p class="parajust"> You can declare a variable that resembles an instance of a
+class and initialize it as you see fit. This is referred to as an anonymous type. To use it,
+if you are working in Microsoft Visual Studio or Microsoft Visual Web Developer,
+declare the variable using the <b>
+var</b> keyword and use the <b>new</b> operator to allocate memory for it. 
+Instead of using the name of a class, type an opening and a closing curly 
+brackets after the <b>new</b> operator. In the curly brackets, state a name for
+each member as if it were the member of the class and initialize each 
+member variable with the desired value. After the closing curly 
+bracket, end the declaration with a semi-colon. Here is an example:</p>
+<pre>&lt;%@ Page Language=&quot;C#&quot;
+    AutoEventWireup=&quot;true&quot;
+    CodeFile=&quot;index.aspx.cs&quot;
+    Inherits=&quot;_Default&quot; %&gt;
+
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot;
+     &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+
+&lt;title&gt;Exercise&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;%
+    <font color="#FF0000">var BookInformation = new
+    {
+        Title = &quot;Calculus 6e Edition&quot;,
+        Pages = 1074,
+        Cover = &quot;Hard Back&quot;
+    };</font>
+%&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p class="parajust">After initializing the anonymous type, you can access each
+one of its members using the name of the variable followed by the period
+operator, and followed by the member variable. Here is an example:</p>
+<pre>&lt;%@ Page Language=&quot;C#&quot;
+    AutoEventWireup=&quot;true&quot;
+    CodeFile=&quot;index.aspx.cs&quot;
+    Inherits=&quot;_Default&quot; %&gt;
+
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot;
+     &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+
+&lt;title&gt;Exercise&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;%
+    var BookInformation = new
+    {
+        Title = &quot;Calculus 6e Edition&quot;,
+        Pages = 1074,
+        Cover = &quot;Hard Back&quot;
+    };
+
+    Response.Write(&quot;=//= BookInformation =//=&quot;);
+    Response.Write(&quot;&lt;br /&gt;Title:         &quot; + <font color="#FF0000">BookInformation.Title</font>);
+    Response.Write(&quot;&lt;br /&gt;Nbr of Pages:  &quot; + <font color="#FF0000">BookInformation.Pages</font>);
+    Response.Write(&quot;&lt;br /&gt;Type of Cover: &quot; + <font color="#FF0000">BookInformation.Cover</font>);
+%&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+<p class="parajust">This would produce:</p>
+<p class="pcenter"><img border="0" src="classes/previews/book1.gif" alt="Book Information" width="427" height="260"></p>
+<p class="parajust">Remember that spreading the declaration on many lines only 
+makes it easy to read. Otherwise, you can as well include everything on the same 
+line.</p>
+<pre>&lt;%@ Page Language=&quot;C#&quot;
+    AutoEventWireup=&quot;true&quot;
+    CodeFile=&quot;index.aspx.cs&quot;
+    Inherits=&quot;_Default&quot; %&gt;
+
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot;
+     &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+
+&lt;title&gt;Exercise&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;%
+ var BookInformation = new { Title = &quot;Picking Fights&quot;, Pages = 226, Cover = &quot;N/A&quot; };
+
+    Response.Write(&quot;=//= BookInformation =//=&quot;);
+    Response.Write(&quot;&lt;br /&gt;Title:         &quot; + BookInformation.Title);
+    Response.Write(&quot;&lt;br /&gt;Nbr of Pages:  &quot; + BookInformation.Pages);
+    Response.Write(&quot;&lt;br /&gt;Type of Cover: &quot; + BookInformation.Cover);
+%&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+    </td>
+    <td valign="top">
+      <table border="0" width="100%">
+        <tr>
+          <td width="100%"><!-- Casale Media: 336x280, 300x250 (Rectangle) -->
+            <script type="text/javascript">
+var CasaleArgs = new Object();
+CasaleArgs.version = 2;
+CasaleArgs.adUnits = "6,4";
+CasaleArgs.casaleID = 56757;
+</script>
+            <script type="text/javascript" src="http://js.casalemedia.com/casaleJTag.js"></script>
+            <!-- DO NOT MODIFY -->
+          </td>
+        </tr>
+      </table>&nbsp;
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      &nbsp;
+      <table border="0" width="100%">
+        <tr>
+          <td width="100%" align="center"><!-- Casale Media: 160x600, 120x600 (Tower) -->
+            <script type="text/javascript">
+var CasaleArgs = new Object();
+CasaleArgs.version = 2;
+CasaleArgs.adUnits = "5,3";
+CasaleArgs.casaleID = 56757;
+</script>
+            <script type="text/javascript" src="http://js.casalemedia.com/casaleJTag.js"></script>
+            <!-- DO NOT MODIFY -->
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+  </center>
+</div>
+
+&nbsp;
+
+&nbsp;
+
+<div align="center">
+  <center>
+<table border="0" width="900">
+  <tr>
+    <td width="100%" align="center">
+    
+<script type="text/javascript"><!--
+google_ad_client = "pub-3968514660870014";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_type = "image";
+google_ad_channel ="";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+    </td>
+  </tr>
+</table>
+
+  </center>
+</div>
+
+&nbsp;
+
+<div align="center">
+  <center>
+<table border="0" width="900">
+  <tr>
+    <td colspan="3">
+      <hr color="#FF0000">
+    </td>
+  </tr>
+  <tr>
+    <td align="center"><a href="Lesson07.htm">Previous</a></td>
+    <td align="center"><a href="index.htm">Copyright � 2009 FunctionX</a></td>
+    <td align="center"><a href="Lesson09.htm">Next</a></td>
+  </tr>
+  <tr>
+    <td colspan="3">
+      <hr color="#FF0000">
+    </td>
+  </tr>
+</table>
+  </center>
+</div>
+
+<!-- DynamiContext AdLinks  -->
+<SCRIPT LANGUAGE="JavaScript">
+var dc_UnitID = 14;
+var dc_PublisherID = 2409;
+var dc_AdLinkColor = 'blue';
+var  dc_adprod='ADL';
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" SRC="http://kona.kontera.com/javascript/lib/KonaLibInline.js"></SCRIPT>
+<!-- DynamiContext AdLinks  -->
+
+</body>
+
+</html>

@@ -1,0 +1,1197 @@
+<html lang="en-us"><head><link title="Microsoft Support Search" type="application/opensearchdescription+xml" rel="search" href="/common/opensearchdescriptor.aspx?ln=en-us" /><meta name="DCSext.sup_cid" content="306023" /><meta name="DCSext.sup_cln" content="en-us" /><meta name="DCSext.sup_ct" content="kb" /><meta name="DCSext.sup_ln" content="en-us" /><meta name="DCSext.sup_sd" content="gn" /><script type="text/javascript" src="/common/script/gsfx/jquery-1.2.6.js"></script><script type="text/javascript" src="/common/script/gsfx/default.js?29"></script><script type="text/javascript">setcookieval("gssSITE","gn",'',true);</script><script type="text/javascript">setcookieval("gssTHEME","gn",'',true);</script><script type="text/javascript">setcookieval("gssTOOLBAR","gn",'',true);</script><meta name="robots" content="" /><meta name="Search.Assets" content="1" /><meta name="Search.Description" content="Describes&#32;some&#32;sample&#32;steps&#32;for&#32;how&#32;to&#32;transfer&#32;data&#32;to&#32;an&#32;Excel&#32;workbook&#32;by&#32;using&#32;Visual&#32;C&#35;&#32;2005&#32;or&#32;Visual&#32;C&#35;&#32;.NET." /><meta name="Search.QueryWords" content="" /><meta name="Search.DateModified" content="2006-12-11T20&#58;14&#58;48" /><meta name="Search.scid" content="kb&#59;en-us&#59;306023" /><meta name="Search.Title" content="How&#32;to&#32;transfer&#32;data&#32;to&#32;an&#32;Excel&#32;workbook&#32;by&#32;using&#32;Visual&#32;C&#35;&#32;2005&#32;or&#32;Visual&#32;C&#35;&#32;.NET" /><meta name="Search.Products" content="35128&#32;375830&#32;36700&#32;185339" /><meta name="Search.KBParents" content="4032&#32;1743&#32;918&#32;10912&#32;7797&#32;1108&#32;5604&#32;2987&#32;6545&#32;6348&#32;6242" /><meta name="KBParents" content="4032&#32;1743&#32;918&#32;10912&#32;7797&#32;1108&#32;5604&#32;2987&#32;6545&#32;6348&#32;6242" /><meta name="Search.Audiences" content="kbAudDeveloper" /><meta name="Search.ContentType" content="kb" /><meta name="Search.Retire" content="0" /><meta name="Search.ContentID" content="306023" /><meta name="Search.KeyWords" content="kbautomation&#32;kbhowtomaster&#32;KB306023" /><meta name="Search.MT" content="0" /><meta name="Search.KB3" content="0" /><meta name="Keywords" content="kbautomation kbhowtomaster KB306023" /><meta name="Description" content="Describes&#32;some&#32;sample&#32;steps&#32;for&#32;how&#32;to&#32;transfer&#32;data&#32;to&#32;an&#32;Excel&#32;workbook&#32;by&#32;using&#32;Visual&#32;C&#35;&#32;2005&#32;or&#32;Visual&#32;C&#35;&#32;.NET." /><meta name="MS.LOCALE" content="en" /><meta http-equiv="content-type" content="text/html; charset=utf-8" /><script type="text/javascript" src="/common/script/gsfx/search.js?29"></script><script type="text/javascript" src="http://autocomplete.support.microsoft.com/script/ac.js?29"></script><script type="text/javascript">var gCookieDomain='';</script><title>How to transfer data to an Excel workbook by using Visual C&#35; 2005 or Visual C&#35; .NET</title><XMLREADER><link rel="stylesheet" type="text/css" href="/common/css/default/default.css?29" /><link rel="stylesheet" type="text/css" href="/common/css/default/XmlContent.css?29" /><script type="text/javascript" src="/common/script/gsfx/kb.js?29"></script><script type="text/javascript" src="/common/script/gsfx/stickypanel.js?29"></script><link rel="stylesheet" type="text/css" href="/common/css/default/stickypanel.css?29" /><link rel="stylesheet" type="text/css" href="/common/css/default/branding.css?29" /></XMLREADER>
+<!-- RESG: 3/14/2010 6:57:34 AM - RESX: 1/1/0001 12:00:00 AM -->
+<!-- (c) 2010 Microsoft Corporation. All Rights Reserved -->
+<style type="text/css">html body, html select, html input, html form, html textarea{font-family : Verdana, Arial, Helvetica, Sans-Serif;}</style><script type="text/javascript">var PersonalizationInfo='a2IzMDYwMjMIZW4tdXMISG93IHRvIHRyYW5zZmVyIGRhdGEgdG8gYW4_';</script></head><body onload="thisLoad();" onunload="thisUnload();">
+<style type="text/css">  
+    body 
+    {
+        
+            background:url('/library/images/support/cn/parent_bkgnd.png') repeat-x #FFFFFF;
+        
+    }
+
+    
+    #gsfx_brnd_PageHeaderImage 
+    {
+        background:url('/library/images/support/cn/mso_energy.jpg') no-repeat top center;
+    }
+    
+    
+    #gsfx_brnd_SiteHeaderImage
+    {
+        height:0px;
+    }
+    
+    
+    
+    .gsfx_brnd_NetworkLink, .gsfx_brnd_NetworkLink:visited, .gsfx_brnd_NetworkLink a, .gsfx_brnd_NetworkLink a:visited
+    {
+        color: #FFFFFF;
+    }
+    
+    .gsfx_brnd_NetworkLink:hover, .gsfx_brnd_NetworkLink:active, .gsfx_brnd_NetworkLink:focus, 
+    .gsfx_brnd_NetworkLink a:hover, .gsfx_brnd_NetworkLink a:active, .gsfx_brnd_NetworkLink a:focus
+    #gsfx_brnd_NetworkFooter .gsfx_brnd_NetworkLink:hover span, #gsfx_brnd_NetworkFooter .gsfx_brnd_NetworkLink:active span, #gsfx_brnd_NetworkFooter.gsfx_brnd_NetworkLink:focus span, 
+    #gsfx_brnd_NetworkFooter .gsfx_brnd_NetworkLink a:hover span, #gsfx_brnd_NetworkFooter .gsfx_brnd_NetworkLink a:active span, #gsfx_brnd_NetworkFooter .gsfx_brnd_NetworkLink a:focus span
+    {
+        color: #FE5815;
+        border-bottom-color: #FE5815;
+    }
+    
+    #gsfx_brnd_NetworkHeader, #gsfx_brnd_NetworkHeaderLinks
+    {
+        color: #ffffff;
+    }
+
+    #gsfx_brnd_SiteHeader, #gsfx_brnd_PageLogoWrapper, #gsfx_brnd_PageTitle, #gsfx_brnd_SearchWrapper a, #gsfx_bsrch_poweredbycell span
+    {
+        color: #ffffff;
+    }
+    
+    #gsfx_bsrch_catsel a, #gsfx_bsrch_catsel span
+    {
+        border-color: #ffffff;
+    }
+
+    #gsfx_brnd_SiteFooter, #gsfx_brnd_SiteFooterWrap
+    {
+        color: #398DCA;
+    }
+
+    #gsfx_brnd_NetworkFooter, #gsfx_brnd_FooterLinkContainer, #gsfx_brnd_FooterLinkContainer span, 
+    #gsfx_brnd_copyright_container, #gsfx_brnd_copyright_container span
+    {
+        color: #398DCA;
+    }
+        
+    
+    </style>
+<!--[if lte IE 6]>
+<style type="text/css">
+    #gsfx_brnd_PageHeaderImage {background:none; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/library/images/support/cn/mso_energy.jpg', sizingMethod='image');}
+    #gsfx_brnd_SiteImgWedge {background:none; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='', sizingMethod='scale');}    
+    #gsfx_brnd_PageLogo {visibility:hidden;}
+    #gsfx_brnd_legacy_PageLogo {filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='', sizingMethod='image');}
+    #gsfx_brnd_MSLogo {visibility:hidden;}
+    #gsfx_brnd_legacy_MSLogo {filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/library/images/support/cn/gsfx_brnd_ms_logo_sml_blk.png', sizingMethod='image');}
+</style>
+<![endif]-->
+
+
+<div id="gsfx_brnd_CenterContent">
+<div id="gsfx_brnd_PageWrapper">
+    <div id="gsfx_brnd_PageContainer">
+        <div id="gsfx_brnd_PageHeaderImage"></div>    
+        <div id="gsfx_brnd_HeaderContainer">
+            <div id="gsfx_brnd_NetworkHeader">
+                <div id="gsfx_brnd_CorpMarketingContainer" class="gsfx_brnd_NetworkLeft">
+                    <div id="gsfx_brnd_CorpMarketingSpace" class="gsfx_brnd_NetworkLeft">
+                        
+                        <div class="gsfx_brnd_NetworkLink">
+                        
+                          <img src="/library/images/support/en-us/gsfx_eie_icon_dkbg.png" />
+                        
+                        <span>
+                        <a href="http://clk.atdmt.com/MRT/go/163155872/direct/01/" id="L_191784">Upgrade your Internet Experience</a>
+                        </span>
+                        </div>
+                        <style type="text/css">
+                            #gsfx_brnd_CorpMarketingContainer
+                            {
+                                background : url('');
+                            }
+                            
+                            #gsfx_brnd_corpflyoutad_inner
+                            {
+                                width: 423;
+                                height: 133;
+                                background: url('/library/images/support/en-us/gsfx_corpflyoutad_background.png');
+                            }
+                            #gsfx_brnd_corpflyoutad_go
+                            {
+                                position: absolute;
+                                left: 313;
+                                top: 96;
+                            }
+                            
+                        </style>                                                
+                        <script type="text/javascript">
+                            var gsfx_brnd_ad_pushenddate;
+                            var gsfx_brnd_ad_pushstartdate;
+                            try
+                            {
+                                gsfx_brnd_ad_pushenddate = new Date('July 2, 2010');
+                                gsfx_brnd_ad_pushstartdate = new Date('August 3, 2009');
+                            }
+                            catch(e)
+                            {
+                                gsfx_brnd_ad_pushenddate = null;
+                                gsfx_brnd_ad_pushstartdate = null;
+                            }
+                        </script>
+                        <div id="gsfx_brnd_corpflyoutad">
+                            <div id="gsfx_brnd_corpflyoutad_inner">
+                                <a href="javascript:void(0);" id="gsfx_brnd_corpflyoutad_close">
+                                    <img src="/library/images/support/en-us/gsfx_corpflyoutad_btn_close.png" alt=""
+                                        onmouseover="this.src='/library/images/support/en-us/gsfx_corpflyoutad_btn_close_hover.png';" onmouseout="this.src='/library/images/support/en-us/gsfx_corpflyoutad_btn_close.png';"
+                                        onmousedown="this.src='/library/images/support/en-us/gsfx_corpflyoutad_btn_close_hover.png';" />
+                                </a><a href="http://clk.atdmt.com/MRT/go/163155872/direct/01/" id="gsfx_brnd_corpflyoutad_go">
+                                    <img src="/library/images/support/en-us/gsfx_corpflyoutad_go.png" alt=""
+                                        onmouseover="this.src='/library/images/support/en-us/gsfx_corpflyoutad_go_hover.png';" onmouseout="this.src='/library/images/support/en-us/gsfx_corpflyoutad_go.png';"
+                                        onmousedown="this.src='/library/images/support/en-us/gsfx_corpflyoutad_go_hover.png';" />
+                                </a><a href="javascript:void(0);" id="gsfx_brnd_corpflyoutad_dontshow">
+                                    
+                                    <span>
+                                        Don't show me this again
+                                    </span>
+                                    
+                                </a>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <!--Table is used here in order to properly order the links for LTR and RTL while maintaining the correct tab order-->
+                <table summary="Network Header Links" id="gsfx_brnd_NetworkHeaderLinks" class="gsfx_brnd_NetworkRight">
+                    <tr>
+                        <td class="gsfx_brnd_NetworkLinkContainer">
+                            <span id="gsfx_brnd_LocalName">
+                                United States
+                            </span>
+                        </td>
+                        <td class="gsfx_brnd_NetworkLinkContainer gsfx_brnd_NetworkLink">
+                            <a href="/common/international.aspx" id="L_153552">Change</a>
+                        </td>
+                        
+                        <td class="gsfx_brnd_NetworkLinkContainer gsfx_brnd_HeaderSeperator">|</td>
+                        
+                        <td class="gsfx_brnd_NetworkLinkContainer gsfx_brnd_NetworkLink">
+                            <a href="http://www.microsoft.com/en/us/sitemap.aspx" id="L_153551">All Microsoft Sites</a>
+                        </td>
+                        
+                        
+                    </tr>
+                </table>
+            </div>
+            <div id="gsfx_brnd_SiteHeader">            
+                <div id="gsfx_brnd_SiteHeaderImageContainer">
+                    <div id="gsfx_brnd_SiteHeaderImage">
+                    
+                    </div>
+                </div>
+                
+                <div id="gsfx_brnd_PageLogoWrapper" class="gsfx_brnd_NetworkLeft">
+                    <a id="gsfx_brnd_PageLogoLink" href="http://www.microsoft.com"></a>
+                    <span id="gsfx_brnd_PageTitle"><a href="/" style="color:white; text-decoration :none">Microsoft Support</a></span>
+                </div>
+                <div id="gsfx_brnd_SearchWrapper" class="gsfx_brnd_NetworkRight">
+                    
+<form id="frmsrch" action="/search/default.aspx" onsubmit="return SaveSimpleSearch();" method="get">
+    <style type="text/css">
+    #gsfx_cat_sel_ie6
+    {
+    	visibility:hidden;
+    }
+    </style>
+    <script type='text/javascript'>setACStartChars('4:');</script>    
+    <!--[if lte IE 6]>
+    <style type="text/css">
+    .gsfx_bsrch_container
+    {
+        background-image:none;
+    }
+    .gsfx_bsrch_container1
+    {
+        display:none;
+        position:absolute;
+        filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/library/images/support/cn/ss_live_glass_border.png');
+    }
+    #gsfx_cat_sel
+    {
+        background-image:none;
+    }
+    #gsfx_cat_sel_ie6
+    {
+        position:absolute;
+        filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/library/images/support/cn/ss_dd_select1.png');
+        visibility:visible;
+        width:12px;
+        height:24px;
+    }
+    </style>
+    <div id="gsfx_bsrch_bg_ie6" class="gsfx_bsrch_container gsfx_bsrch_container1" style="filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/library/images/support/cn/ss_live_glass_border.png');"></div>
+<![endif]-->
+    <div id="gsfx_bsrch_bg" class="gsfx_bsrch_container">
+    <div id="gsfx_bsrch_divQuery" style="width:304px">
+        <input type="text" id="gsfx_bsrch_query" style="width:272px" name="query" maxlength="200" value="" class="siteseltxt" autocomplete="off" />
+        <!--span class="gsfx_bsrch_buttonwrap" id="gsfx_bsrch_websrch"-->
+            <!--input type="image" id="gsfx_bsrch_btnimg" onclick="submitSimpleSearch('http://www.bing.com/search?mkt=en-us&q=', $('#gsfx_bsrch_query').get(0).value);" /-->
+            <input type="image" alt="" class="gsfx_img_png" style="width: 20;height: 20;" src="/library/images/support/CN/ss_live_button.png" onclick="SaveSimpleSearch();" id="gsfx_bsrch_btnimg" /><!--[if lte IE 6]><input type="image" src="/library/images/support/cn/onepix.gif" alt="" class="gsfx_div_png" style="width:20px;height:20px;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/library/images/support/CN/ss_live_button.png', sizingMethod='scale');" onclick="SaveSimpleSearch();" id="gsfx_bsrch_btnimg" /><![endif]-->
+            
+        <!--/span-->
+    </div>
+    
+    <div id="gsfx_cat_sel" onmouseover="ChangeBackground(this, true)" onmouseout="ChangeBackground(this, false)" onclick="ShowHideLangSel(event)" style="display:none">
+    <div id="gsfx_cat_sel_ie6" onmouseover="ChangeBackground(this, true)" onmouseout="ChangeBackground(this, false)" style="display:none"></div>
+    
+        
+                <input type="hidden" id="catalog" name="catalog" value="LCID=1033" />
+    
+
+    </div>
+    <div id="gsfx_bsrch_logo_div">
+    <img alt="" class="gsfx_img_png" style="width: 51;height: 17;" src="/library/images/support/CN/bing_logo_white.png" onclick="CallWebSearch('http\x3a\x2f\x2fwww.bing.com\x2fsearch\x3fmkt\x3den-us\x26q\x3d','http\x3a\x2f\x2fwww.bing.com\x2fsearch\x3fmkt\x3den-us\x26q\x3d');" id="gsfx_bsrch_logo" /><!--[if lte IE 6]><div alt="" class="gsfx_div_png" style="width:51px;height:17px;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/library/images/support/CN/bing_logo_white.png', sizingMethod='scale');" onclick="CallWebSearch('http\x3a\x2f\x2fwww.bing.com\x2fsearch\x3fmkt\x3den-us\x26q\x3d','http\x3a\x2f\x2fwww.bing.com\x2fsearch\x3fmkt\x3den-us\x26q\x3d');" id="gsfx_bsrch_logo"></div><![endif]-->
+    </div>
+    <br />
+    </div>
+    <script type="text/javascript">try{MS.Support.AC.MakeAutoComplete({id:'gsfx_bsrch_query', lcid:'1033', acURL:'http://autocomplete.support.microsoft.com', statsObj:StatsDotNet, startChar:'4', bubbleside:'left'});}catch(e){}</script><script type='text/javascript'>supportedSites.push(new Site('Search Microsoft Support', '\x2fsearch\x2fdefault.aspx', true));supportedSites.push(new Site('Search Microsoft.com', 'http\x3a\x2f\x2fsearch.microsoft.com\x2fsearch\x2fresults.aspx\x3fview\x3den-us\x26qu\x3d', false));supportedSites.push(new Site('Search the web', 'http\x3a\x2f\x2fwww.bing.com\x2fsearch\x3fmkt\x3den-us\x26q\x3d', false));</script>
+    
+        <!--div id="gsfx_bsrch_poweredbycell" class="gsfx_brnd_NetworkTextRight">
+            
+        </div-->
+    
+        
+    <div class="hiddenformels">
+        <input type="hidden" name="mode" value="r" />
+    </div>
+    <noscript>
+        <style type="text/css">
+            #gsfx_bsrch_catsel a {display:none;} 
+            #gsfx_bsrch_websrch {display:none;}
+            #gsfx_bsrch_query{font-style:normal;color:Black;}
+        </style>
+        <!--[if lte IE 6]>
+        <style>
+        #gsfx_bsrch_bg_ie6{display:block;right:1px}
+        </style><![endif]-->
+    </noscript>
+</form>
+                </div>
+            </div>
+        </div>
+        <div id="gsfx_brnd_TopCorners" class="gsfx_brnd_CornerContainer">
+            <div class="gsfx_brnd_TBBorders gsfx_brnd_TransBG" id="gsfx_brnd_TopBorder">
+            </div>
+            <div class="gsfx_brnd_Corner" id="gsfx_brnd_LUpperCorner">
+            </div>
+        </div>
+        <div id="gsfx_brnd_LocalToolBar" class="gsfx_brnd_TransBG gsfx_brnd_SideBorder"><ul id="gsfx_brnd_LocalLinks"><li class="gsfx_brnd_LocalLink"><a href="/" id="L_153581"><span>Support Home</span></a></li><li class="gsfx_brnd_LocalSeperator">&nbsp;</li><li class="gsfx_brnd_LocalLink"><a href="/select/?target=hub" id="L_153582"><span>Solution Centers</span></a></li><li class="gsfx_brnd_LocalSeperator">&nbsp;</li><li class="gsfx_brnd_LocalLink"><a href="/search/?adv=1" id="L_153583"><span>Advanced Search</span></a></li><li class="gsfx_brnd_LocalSeperator">&nbsp;</li><li class="gsfx_brnd_LocalLink"><a href="http://store.microsoft.com/home.aspx?WT.mc_id=SupportSiteUS_buyproducts" id="L_195944"><span>Buy products</span></a></li></ul></div>
+        
+        <div id="gsfx_brnd_ToolbarShadow" class="gsfx_brnd_TransBG gsfx_brnd_SideBorder"><div id="gsfx_brnd_shadow"></div></div>
+        
+        <div id="gsfx_brnd_ContentContainer" class="gsfx_brnd_TransBG gsfx_brnd_SideBorder">
+            <div id="contentArea">            
+
+<div id="mainRow"><div class="primaryTable"><table cellpadding="0" cellspacing="0" class="primaryTable"><tr><td class="primaryMainColumn"><div id="mainColumn"><div id="kb" class="kb"><div id="kb_default" class="kb_default ltr"><!-- - -KB 3 start- - --><a id="top"></a><div class="articleProperty">Article ID: 306023 - Last Review: December 11, 2006 - Revision: 7.5</div><h1 class="title">How to transfer data to an Excel workbook by using Visual C# 2005 or Visual C# .NET</h1><div class="appliesToLink"><a href="#appliesto">View products that this article applies to.</a></div><script type="text/javascript">if (!loadTOCNode) {var loadTOCNode = function(){}}</script><div class="notice">This article was previously published under Q306023</div><div class="notice"><div class="notice">
+
+For a Microsoft Visual Basic .NET version of this article, see <a class="KBlink" href="/kb/306022/">306022</a> 
+                            <span class="pLink">
+            (http://support.microsoft.com/kb/306022/
+                        )
+        </span>.
+
+</div><div class="notice">
+
+For a Microsoft Visual Basic 6.0 version of this article, see <a class="KBlink" href="/kb/247412/">247412</a> 
+                            <span class="pLink">
+            (http://support.microsoft.com/kb/247412/
+                        )
+        </span>.
+
+</div></div><div id="kb_section" class="section"><h2 class="subTitle" id="tocTitle"><span><a href="javascript:void(0);">On This Page</a></span><div class="sectionpreview_closed"></div></h2><div class="sbody" id="tocDiv"></div><script type="text/javascript">
+            var sectionFilter = "type != 'notice' && type != 'securedata' && type != 'querywords'";
+            var tocArrow = "/library/images/support/kbgraphics/public/en-us/downarrow.gif";
+            var depthLimit = 10;
+            var depth3Limit = 10;
+            var depth4Limit = 5;
+            var depth5Limit = 3;
+            var tocEntryMinimum = 1;
+        </script><noscript><style>#tocTitle, #tocDiv{display: none;}</style></noscript><div id="kb_expandcollapseall" class="expandcollapseall"><a href="javascript:void(0);" class="expandalltext">Expand all</a> | <a href="javascript:void(0);" class="collapsealltext">Collapse all</a><script type="text/javascript">
+                    if (kb_page_object)
+                    {
+                    kb_page_object.kb_imageExpandHoverText = 'Click to expand this image';
+                    }
+                </script></div><h2 class="subTitle" id="tocHeadRef"><span><a href="javascript:void(0);">SUMMARY</a></span><div class="sectionpreview_closed"></div></h2><script type="text/javascript">
+                            loadTOCNode(1, 'summary');
+                        </script><div class="sbody">
+This step-by-step article describes several methods for transferring data to Microsoft Excel 2002 from a Microsoft Visual C# 2005 or Microsoft Visual C# .NET program. This article also presents the advantages and disadvantages of each method so that you can select the solution that works best for your situation.<div class="topOfPage"><a href="#top"><img src="/library/images/support/kbgraphics/public/en-us/uparrow.gif" alt="">Back to the top</a></div><h3 id="tocHeadRef">Overview</h3><script type="text/javascript">
+                loadTOCNode(2, 'summary');
+            </script>
+The technique that is most frequently used to transfer data to an Excel workbook is <i>Automation</i>. With Automation, you can call methods and properties that are specific to Excel tasks. Automation gives you the greatest flexibility for specifying the location of your data in the workbook, formatting the workbook, and making various settings at run-time.<br><br>
+
+With Automation, you can use several techniques to transfer your data:
+
+<ul><li>Transfer data cell by cell.</li><li>Transfer data in an array to a range of cells.</li><li>Transfer data in an ADO recordset to a range of cells by using the <b>CopyFromRecordset</b> method.</li><li>Create a <b>QueryTable</b> object on an Excel worksheet that contains the result of a query on an ODBC or OLEDB data source.</li><li>Transfer data to the clipboard, and then paste the clipboard contents into an Excel worksheet.</li></ul>
+You can also use several methods that do not necessarily require Automation to transfer data to Excel. If you are running a server-side program, this can be a good approach for taking the bulk of data processing away from your clients.<br><br>
+To transfer your data without Automation, you can use the following approaches:
+<ul><li>Transfer your data to a tab-delimited or comma-delimited text file that Excel can later parse into cells on a worksheet.</li><li>Transfer your data to a worksheet by using ADO.NET.</li><li>Transfer XML data to Excel (version 2002 and 2003) to provide data that is formatted and arranged into rows and columns.</li></ul>
+This article provides a discussion and a code sample for each of these techniques. The <span><a href="#12">Create the Complete Sample Visual C# 2005 or Visual C# .NET Project</a></span> section, later in this article, demonstrates how to create a Visual C# .NET program that executes each technique.<div class="topOfPage"><a href="#top"><img src="/library/images/support/kbgraphics/public/en-us/uparrow.gif" alt="">Back to the top</a></div><h3 id="tocHeadRef">Techniques</h3><script type="text/javascript">
+                loadTOCNode(2, 'summary');
+            </script><h4 id="tocHeadRef">Use Automation to Transfer Data Cell by Cell</h4><script type="text/javascript">
+            loadTOCNode(3, 'summary');
+        </script>
+
+With Automation, you can transfer data to a worksheet one cell at a time: 
+
+<div class="kb_codebody"><div class="kb_codecontent"><code><pre class="code">
+// Start a new workbook in Excel.
+m_objExcel = new Excel.Application();
+m_objBooks = (Excel.Workbooks)m_objExcel.Workbooks;
+m_objBook = (Excel._Workbook)(m_objBooks.Add(m_objOpt));
+
+// Add data to cells in the first worksheet in the new workbook.
+m_objSheets = (Excel.Sheets)m_objBook.Worksheets;
+m_objSheet = (Excel._Worksheet)(m_objSheets.get_Item(1));
+m_objRange = m_objSheet.get_Range("A1", m_objOpt);
+m_objRange.Value = "Last Name";
+m_objRange = m_objSheet.get_Range("B1", m_objOpt);
+m_objRange.Value = "First Name";
+m_objRange = m_objSheet.get_Range("A2", m_objOpt);
+m_objRange.Value = "Doe";
+m_objRange = m_objSheet.get_Range("B2", m_objOpt);
+m_objRange.Value = "John";
+
+// Apply bold to cells A1:B1.
+m_objRange = m_objSheet.get_Range("A1", "B1");
+m_objFont = m_objRange.Font;
+m_objFont.Bold=true;
+
+// Save the Workbook and quit Excel.
+m_objBook.SaveAs(m_strSampleFolder + "Book1.xls", m_objOpt, m_objOpt, 
+	m_objOpt, m_objOpt, m_objOpt, Excel.XlSaveAsAccessMode.xlNoChange, 
+	m_objOpt, m_objOpt, m_objOpt, m_objOpt);
+m_objBook.Close(false, m_objOpt, m_objOpt);
+m_objExcel.Quit();
+				</pre></code></div></div>
+
+Transferring data cell by cell is an acceptable approach if you have a small quantity of data. You have the flexibility to put data anywhere in the workbook and you can format the cells conditionally at run-time. However, it is not a good idea to use this approach if you have a large quantity of data to transfer to an Excel workbook. Each <b>Range</b> object that you acquire at run-time results in an interface request that means data transfers more slowly. Additionally, Microsoft Windows 95, Microsoft Windows 98, and Microsoft Windows Millennium Edition (Me) have a 64 kilobyte (KB) limitation on interface requests. If you have more than 64 KB of interface requests, the Automation server (Excel) may stop responding, or you may receive error messages that indicate low memory. 
+For additional information, click the article number below 
+to view the article in the Microsoft Knowledge Base:
+
+<div class="indent"><a class="KBlink" href="/kb/216400/EN-US/">216400</a> 
+                            <span class="pLink">
+            (http://support.microsoft.com/kb/216400/EN-US/
+                        )
+        </span> PRB: Cross-Process COM Automation Can Hang Client Application on Win95/98
+</div>
+
+Again, transferring data cell by cell is acceptable only for small quantities of data. If you must transfer large data sets to Excel,  consider using one of the other approaches that are discussed in this article to transfer data in bulk.<br><br>For additional information, and for an example of Automating Excel with Visual C# .NET, click the article number below 
+to view the article in the Microsoft Knowledge Base:
+
+<div class="indent"><a class="KBlink" href="/kb/302084/EN-US/">302084</a> 
+                            <span class="pLink">
+            (http://support.microsoft.com/kb/302084/EN-US/
+                        )
+        </span> HOWTO: Automate Microsoft Excel from Microsoft Visual C# .NET
+</div><h4 id="tocHeadRef">Use Automation to Transfer an Array of Data to a Range on a Worksheet</h4><script type="text/javascript">
+            loadTOCNode(3, 'summary');
+        </script>
+
+You can transfer an array of data to a range of multiple cells at one time:
+
+<div class="kb_codebody"><div class="kb_codecontent"><code><pre class="code">
+// Start a new workbook in Excel.
+m_objExcel = new Excel.Application();
+m_objBooks = (Excel.Workbooks)m_objExcel.Workbooks;
+m_objBook = (Excel._Workbook)(m_objBooks.Add(m_objOpt));
+m_objSheets = (Excel.Sheets)m_objBook.Worksheets;
+m_objSheet = (Excel._Worksheet)(m_objSheets.get_Item(1));
+
+// Create an array for the headers and add it to cells A1:C1.
+object[] objHeaders = {"Order ID", "Amount", "Tax"};
+m_objRange = m_objSheet.get_Range("A1", "C1");
+m_objRange.Value = objHeaders;
+m_objFont = m_objRange.Font;
+m_objFont.Bold=true;
+
+// Create an array with 3 columns and 100 rows and add it to
+// the worksheet starting at cell A2.
+object[,] objData = new Object[100,3];
+Random rdm = new Random((int)DateTime.Now.Ticks);
+double nOrderAmt, nTax;
+for(int r=0;r&lt;100;r++)
+{
+	objData[r,0] = "ORD" + r.ToString("0000");
+	nOrderAmt = rdm.Next(1000);
+	objData[r,1] = nOrderAmt.ToString("c");
+	nTax = nOrderAmt*0.07;
+	objData[r,2] = nTax.ToString("c");
+}
+m_objRange = m_objSheet.get_Range("A2", m_objOpt);
+m_objRange = m_objRange.get_Resize(100,3);
+m_objRange.Value = objData;
+
+// Save the Workbook and quit Excel.
+m_objBook.SaveAs(m_strSampleFolder + "Book2.xls", m_objOpt, m_objOpt, 
+	m_objOpt, m_objOpt, m_objOpt, Excel.XlSaveAsAccessMode.xlNoChange, 
+	m_objOpt, m_objOpt, m_objOpt, m_objOpt);
+m_objBook.Close(false, m_objOpt, m_objOpt);
+m_objExcel.Quit();
+				</pre></code></div></div>
+
+If you transfer your data by using an array instead of cell by cell, you can realize an enormous performance gain with a large quantity of data. Consider the following lines from the aforementioned code that transfer data to 300 cells in the worksheet:
+
+<div class="kb_codebody"><div class="kb_codecontent"><code><pre class="code">
+objRange = objSheet.get_Range("A2", m_objOpt);
+objRange = objRange.get_Resize(100,3);
+objRange.Value = objData;
+				</pre></code></div></div>
+
+This code represents two interface requests: one for the <b>Range</b> object that the <b>Range</b> method returns, and another for the <b>Range</b> object that the <b>Resize</b> method returns. In contrast, transferring the data cell by cell requires requests for 300 interfaces to <b>Range</b> objects. Whenever possible, you can benefit from transferring your data in bulk and reducing the number of interface requests you make.
+<br><br>For additional information about using arrays to get and set values in ranges with Excel Automation, click the article number below 
+to view the article in the Microsoft Knowledge Base:
+
+<div class="indent"><a class="KBlink" href="/kb/302096/EN-US/">302096</a> 
+                            <span class="pLink">
+            (http://support.microsoft.com/kb/302096/EN-US/
+                        )
+        </span> HOWTO: Automate Excel With Visual C# .NET To Fill or Obtain Data In a Range Using Arrays
+</div><h4 id="tocHeadRef">Use Automation to Transfer an ADO Recordset to a Worksheet Range</h4><script type="text/javascript">
+            loadTOCNode(3, 'summary');
+        </script>
+
+The object models for Excel 2000, Excel 2002 and Excel 2003 provide the <b>CopyFromRecordset</b> method for transferring an ADO recordset to a range on a worksheet. The following code illustrates how to automate Excel to transfer the contents of the Orders table in the Northwind sample database by using the <b>CopyFromRecordset</b> method:
+
+<div class="kb_codebody"><div class="kb_codecontent"><code><pre class="code">
+// Create a Recordset from all the records in the Orders table.
+ADODB.Connection objConn = new ADODB.Connection();
+ADODB._Recordset objRS = null;
+objConn.Open("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" +
+	m_strNorthwind + ";", "", "", 0);
+objConn.CursorLocation = ADODB.CursorLocationEnum.adUseClient;
+object objRecAff;
+objRS = (ADODB._Recordset)objConn.Execute("Orders", out objRecAff, 
+	(int)ADODB.CommandTypeEnum.adCmdTable);
+
+// Start a new workbook in Excel.
+m_objExcel = new Excel.Application();
+m_objBooks = (Excel.Workbooks)m_objExcel.Workbooks;
+m_objBook = (Excel._Workbook)(m_objBooks.Add(m_objOpt));
+m_objSheets = (Excel.Sheets)m_objBook.Worksheets;
+m_objSheet = (Excel._Worksheet)(m_objSheets.get_Item(1));
+
+// Get the Fields collection from the recordset and determine
+// the number of fields (or columns).
+System.Collections.IEnumerator objFields = objRS.Fields.GetEnumerator();
+int nFields = objRS.Fields.Count;
+
+// Create an array for the headers and add it to the
+// worksheet starting at cell A1.
+object[] objHeaders = new object[nFields];
+ADODB.Field objField = null;
+for(int n=0;n&lt;nFields;n++)
+{
+	objFields.MoveNext();
+	objField = (ADODB.Field)objFields.Current;
+	objHeaders[n] = objField.Name;
+}
+m_objRange = m_objSheet.get_Range("A1", m_objOpt);
+m_objRange = m_objRange.get_Resize(1, nFields);
+m_objRange.Value = objHeaders;
+m_objFont = m_objRange.Font;
+m_objFont.Bold=true;
+
+// Transfer the recordset to the worksheet starting at cell A2.
+m_objRange = m_objSheet.get_Range("A2", m_objOpt);
+m_objRange.CopyFromRecordset(objRS, m_objOpt, m_objOpt);
+
+// Save the Workbook and quit Excel.
+m_objBook.SaveAs(m_strSampleFolder + "Book3.xls", m_objOpt, m_objOpt, 
+	m_objOpt, m_objOpt, m_objOpt, Excel.XlSaveAsAccessMode.xlNoChange, 
+	m_objOpt, m_objOpt, m_objOpt, m_objOpt);
+m_objBook.Close(false, m_objOpt, m_objOpt);
+m_objExcel.Quit();
+
+// Close the recordset and connection.
+objRS.Close();
+objConn.Close();
+				</pre></code></div></div><b>Note </b><b>CopyFromRecordset</b> works only with ADO <b>Recordset</b> objects. You cannot use the <b>DataSet</b> that you create by using ADO.NET  with the <b>CopyFromRecordset</b> method. Several examples in the sections that follow demonstrate how to transfer data to Excel with ADO.NET.
+<h4 id="tocHeadRef">Use Automation to Create a QueryTable Object on a Worksheet</h4><script type="text/javascript">
+            loadTOCNode(3, 'summary');
+        </script>
+
+A <b>QueryTable</b> object represents a table that is built from data that is returned from an external data source. When you automate Excel, you can create a <b>QueryTable</b> by providing a connection string to an OLE DB or an ODBC data source and a SQL string. Excel generates the recordset and inserts the recordset into the worksheet at the location that you specify. <b>QueryTable</b> objects offer the following advantages over the <b>CopyFromRecordset</b> method: 
+
+<ul><li>Excel handles the creation of the recordset and its placement on the worksheet.</li><li>You can save the query with the <b>QueryTable</b> object and refresh it later to obtain an updated recordset.</li><li>When a new <b>QueryTable</b> is added to your worksheet, you can specify that data that already exists in cells on the worksheet be shifted to handle the new data (for more information, see the <b>RefreshStyle</b> property).</li></ul>
+
+The following code demonstrates how to automate Excel 2000, Excel 2002, or Excel 2003 to create a new <b>QueryTable</b> in an Excel worksheet by using data from the Northwind sample database: 
+
+<div class="kb_codebody"><div class="kb_codecontent"><code><pre class="code">
+// Start a new workbook in Excel.
+m_objExcel = new Excel.Application();
+m_objBooks = (Excel.Workbooks)m_objExcel.Workbooks;
+m_objBook = (Excel._Workbook)(m_objBooks.Add(m_objOpt));
+
+// Create a QueryTable that starts at cell A1.
+m_objSheets = (Excel.Sheets)m_objBook.Worksheets;
+m_objSheet = (Excel._Worksheet)(m_objSheets.get_Item(1));
+m_objRange = m_objSheet.get_Range("A1", m_objOpt);
+m_objQryTables = m_objSheet.QueryTables;
+m_objQryTable = (Excel._QueryTable)m_objQryTables.Add(
+	"OLEDB;Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" +
+	m_strNorthwind + ";", m_objRange, "Select * From Orders");
+m_objQryTable.RefreshStyle = Excel.XlCellInsertionMode.xlInsertEntireRows;
+m_objQryTable.Refresh(false);
+
+// Save the workbook and quit Excel.
+m_objBook.SaveAs(m_strSampleFolder + "Book4.xls", m_objOpt, m_objOpt, 
+	m_objOpt, m_objOpt, m_objOpt, Excel.XlSaveAsAccessMode.xlNoChange, m_objOpt, m_objOpt,
+	m_objOpt, m_objOpt);
+m_objBook.Close(false, m_objOpt, m_objOpt);
+m_objExcel.Quit();
+				</pre></code></div></div><h4 id="tocHeadRef">Use the Windows Clipboard</h4><script type="text/javascript">
+            loadTOCNode(3, 'summary');
+        </script>
+
+You can use the Windows Clipboard to transfer data to a worksheet. To paste data into multiple cells on a worksheet, you can copy a string in which columns are delimited by TAB characters, and rows are delimited by carriage returns. The following code illustrates how Visual C# .NET can use the Windows Clipboard to transfer data to Excel:
+
+<div class="kb_codebody"><div class="kb_codecontent"><code><pre class="code">
+// Copy a string to the Windows clipboard.
+string sData = "FirstName\tLastName\tBirthdate\r\n"  +
+	"Bill\tBrown\t2/5/85\r\n"  +
+	"Joe\tThomas\t1/1/91";
+System.Windows.Forms.Clipboard.SetDataObject(sData);
+
+// Start a new workbook in Excel.
+m_objExcel = new Excel.Application();
+m_objBooks = (Excel.Workbooks)m_objExcel.Workbooks;
+m_objBook = (Excel._Workbook)(m_objBooks.Add(m_objOpt));
+
+// Paste the data starting at cell A1.
+m_objSheets = (Excel.Sheets)m_objBook.Worksheets;
+m_objSheet = (Excel._Worksheet)(m_objSheets.get_Item(1));
+m_objRange = m_objSheet.get_Range("A1", m_objOpt);
+m_objSheet.Paste(m_objRange, false);
+
+// Save the workbook and quit Excel.
+m_objBook.SaveAs(m_strSampleFolder + "Book5.xls", m_objOpt, m_objOpt, 
+	m_objOpt, m_objOpt, m_objOpt, Excel.XlSaveAsAccessMode.xlNoChange, m_objOpt, m_objOpt,
+	m_objOpt, m_objOpt);
+m_objBook.Close(false, m_objOpt, m_objOpt);
+m_objExcel.Quit();
+				</pre></code></div></div><h4 id="tocHeadRef">Create a Delimited Text File that Excel Can Parse into Rows and Columns</h4><script type="text/javascript">
+            loadTOCNode(3, 'summary');
+        </script>
+
+Excel can open tab- or comma-delimited files and correctly parse the data into cells. You can use this feature when you want to transfer a large quantity of data to a worksheet while using little, if any, Automation. This may be a good approach for a client-server program because the text file can be generated server-side. You can then open the text file at the client, using Automation where it is appropriate.<br><br>
+The following code illustrates how to generate a tab-delimited text file from data that is read with ADO.NET:
+<div class="kb_codebody"><div class="kb_codecontent"><code><pre class="code">
+// Connect to the data source.
+System.Data.OleDb.OleDbConnection objConn = new System.Data.OleDb.OleDbConnection( 
+	"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + m_strNorthwind + ";");
+objConn.Open();
+
+// Execute a command to retrieve all records from the Employees table.
+System.Data.OleDb.OleDbCommand objCmd = new System.Data.OleDb.OleDbCommand( 
+	"Select * From Employees", objConn);
+System.Data.OleDb.OleDbDataReader objReader;
+objReader = objCmd.ExecuteReader();
+
+// Create the FileStream and StreamWriter object to write 
+// the recordset contents to file.
+System.IO.FileStream fs = new System.IO.FileStream(
+	m_strSampleFolder + "Book6.txt", System.IO.FileMode.Create);
+System.IO.StreamWriter sw = new System.IO.StreamWriter(
+	fs, System.Text.Encoding.Unicode);
+
+// Write the field names (headers) as the first line in the text file.
+sw.WriteLine(objReader.GetName(0) +  "\t" + objReader.GetName(1) +
+	"\t" + objReader.GetName(2) + "\t" + objReader.GetName(3) +
+	"\t" + objReader.GetName(4) + "\t" + objReader.GetName(5));
+
+// Write the first six columns in the recordset to a text file as
+// tab-delimited.
+while(objReader.Read()) 
+{
+	for(int i=0;i&lt;=5;i++)
+	{
+		if(!objReader.IsDBNull(i))
+		{
+			string s;
+			s = objReader.GetDataTypeName(i);
+			if(objReader.GetDataTypeName(i)=="DBTYPE_I4")
+			{
+				sw.Write(objReader.GetInt32(i).ToString());
+			}
+			else if(objReader.GetDataTypeName(i)=="DBTYPE_DATE")
+			{
+				sw.Write(objReader.GetDateTime(i).ToString("d"));
+			}
+			else if (objReader.GetDataTypeName(i)=="DBTYPE_WVARCHAR")
+			{
+				sw.Write(objReader.GetString(i));
+			}
+		}
+		if(i&lt;5) sw.Write("\t");
+	}
+	sw.WriteLine(); 
+}
+sw.Flush();	// Write the buffered data to the filestream.
+
+// Close the FileStream.
+fs.Close();
+
+// Close the reader and the connection.
+objReader.Close();
+objConn.Close(); 
+				</pre></code></div></div>    
+
+The aforementioned code uses no Automation. However, if you want, you can use Automation to open the text file and save the file in the Excel workbook format, similar to this:
+
+<div class="kb_codebody"><div class="kb_codecontent"><code><pre class="code">
+// Open the text file in Excel.
+m_objExcel = new Excel.Application();
+m_objBooks = (Excel.Workbooks)m_objExcel.Workbooks;
+m_objBooks.OpenText(m_strSampleFolder + "Book6.txt", Excel.XlPlatform.xlWindows, 1, 
+	Excel.XlTextParsingType.xlDelimited, Excel.XlTextQualifier.xlTextQualifierDoubleQuote,
+	false, true, false, false, false, false, m_objOpt, m_objOpt, 
+	m_objOpt, m_objOpt, m_objOpt);
+
+m_objBook = m_objExcel.ActiveWorkbook;
+
+// Save the text file in the typical workbook format and quit Excel.
+m_objBook.SaveAs(m_strSampleFolder + "Book6.xls", Excel.XlFileFormat.xlWorkbookNormal, 
+	m_objOpt, m_objOpt, m_objOpt, m_objOpt, Excel.XlSaveAsAccessMode.xlNoChange, m_objOpt, m_objOpt,
+	m_objOpt, m_objOpt);
+m_objBook.Close(false, m_objOpt, m_objOpt);
+m_objExcel.Quit();
+				</pre></code></div></div><h4 id="tocHeadRef">Transfer Data to a Worksheet by Using ADO.NET</h4><script type="text/javascript">
+            loadTOCNode(3, 'summary');
+        </script>
+
+You can use the Microsoft Jet OLE DB provider to add records to a table in an existing Excel workbook. A <i>table</i> in Excel is merely a range of cells; the range may have a defined name. Typically, the first row of the range contains the headers (or field names), and all later rows in the range contain the records.<br><br>
+
+The following code adds two new records to a table in Book7.xls. The table in this case is Sheet1:
+<div class="kb_codebody"><div class="kb_codecontent"><code><pre class="code">
+// Establish a connection to the data source.
+System.Data.OleDb.OleDbConnection objConn = new System.Data.OleDb.OleDbConnection(
+	"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + m_strSampleFolder +
+	"Book7.xls;Extended Properties=Excel 8.0;");
+objConn.Open();
+
+// Add two records to the table named 'MyTable'.
+System.Data.OleDb.OleDbCommand objCmd = new System.Data.OleDb.OleDbCommand();
+objCmd.Connection = objConn;
+objCmd.CommandText = "Insert into MyTable (FirstName, LastName)" +
+	" values ('Bill', 'Brown')";
+objCmd.ExecuteNonQuery();
+objCmd.CommandText = "Insert into MyTable (FirstName, LastName)" +
+	" values ('Joe', 'Thomas')";
+objCmd.ExecuteNonQuery();
+
+// Close the connection.
+objConn.Close();
+				</pre></code></div></div>
+When you add records with ADO.NET as shown in this example, the formatting in the workbook is maintained. Each record that is added to a row borrows the format from the row before it. <br><br>For additional information about using ADO.NET, click the article numbers below 
+to view the articles in the Microsoft Knowledge Base:
+
+<div class="indent"><a class="KBlink" href="/kb/306636/EN-US/">306636</a> 
+                            <span class="pLink">
+            (http://support.microsoft.com/kb/306636/EN-US/
+                        )
+        </span> HOW TO: Connect to a Database and Run a Command by Using ADO.NET and Visual C# .NET
+</div><div class="indent"><a class="KBlink" href="/kb/314145/EN-US/">314145</a> 
+                            <span class="pLink">
+            (http://support.microsoft.com/kb/314145/EN-US/
+                        )
+        </span> HOW TO: Populate a DataSet Object from a Database by Using Visual C# .NET  
+</div><div class="indent"><a class="KBlink" href="/kb/307587/EN-US/">307587</a> 
+                            <span class="pLink">
+            (http://support.microsoft.com/kb/307587/EN-US/
+                        )
+        </span> HOW TO: Update a Database from a DataSet Object by Using Visual C# .NET
+</div>For additional information about using the Jet OLEDB provider with Excel data sources, click the article numbers below 
+to view the articles in the Microsoft Knowledge Base:
+
+<div class="indent"><a class="KBlink" href="/kb/316934/EN-US/">316934</a> 
+                            <span class="pLink">
+            (http://support.microsoft.com/kb/316934/EN-US/
+                        )
+        </span> HOW TO: Use ADO.NET to Retrieve and Modify Records in an Excel Workbook With Visual Basic .NET
+</div><div class="indent"><a class="KBlink" href="/kb/278973/EN-US/">278973</a> 
+                            <span class="pLink">
+            (http://support.microsoft.com/kb/278973/EN-US/
+                        )
+        </span> SAMPLE: ExcelADO Demonstrates How to Use ADO to Read and Write Data in Excel Workbooks
+</div><div class="indent"><a class="KBlink" href="/kb/257819/EN-US/">257819</a> 
+                            <span class="pLink">
+            (http://support.microsoft.com/kb/257819/EN-US/
+                        )
+        </span> HOWTO: Use ADO with Excel Data from Visual Basic or VBA
+</div><h4 id="tocHeadRef">Transfer XML Data (Excel 2002 and Excel 2003)</h4><script type="text/javascript">
+            loadTOCNode(3, 'summary');
+        </script>
+
+Excel 2002 and 2003 can open any XML file that is well-formed. You can open XML files  directly by using the <b>Open</b> command on the <b>File</b> menu, or programmatically by using either the <b>Open</b> or <b>OpenXML</b> methods of the <b>Workbooks</b> collection. If you create XML files for use in Excel, you can also create style sheets to format the data.<br><br>For additional information about using XML with Excel 2002, click the article numbers below 
+to view the articles in the Microsoft Knowledge Base:
+
+<div class="indent"><a class="KBlink" href="/kb/307029/EN-US/">307029</a> 
+                            <span class="pLink">
+            (http://support.microsoft.com/kb/307029/EN-US/
+                        )
+        </span> HOW TO: Transfer XML Data to Microsoft Excel 2002 by Using Visual C# .NET
+</div><div class="indent"><a class="KBlink" href="/kb/288215/EN-US/">288215</a> 
+                            <span class="pLink">
+            (http://support.microsoft.com/kb/288215/EN-US/
+                        )
+        </span> INFO: Microsoft Excel 2002 and XML
+</div><div class="topOfPage"><a href="#top"><img src="/library/images/support/kbgraphics/public/en-us/uparrow.gif" alt="">Back to the top</a></div><h3 id="tocHeadRef">Create the Complete Sample Visual C# .NET Project</h3><script type="text/javascript">
+                loadTOCNode(2, 'summary');
+            </script><ol><li>Create a new folder named C:\ExcelData. The sample program will store Excel workbooks in this folder.</li><li>Create a new workbook for the sample to write to:<ol><li type="a">Start a new workbook in Excel.</li><li type="a">On Sheet1 of the new workbook, type <span class="userInput">FirstName</span> in cell A1 and <span class="userInput">LastName</span> in cell B1.</li><li type="a">Select A1:B1.</li><li type="a">On the <b>Insert</b> menu, point to <b>Name</b>, and then click <b>Define</b>. Type the name <span class="userInput">MyTable</span> and then click <b>OK</b>.</li><li type="a">Save the workbook as <span class="userInput">C:\Exceldata\Book7.xls</span>.</li><li type="a">Quit Excel.</li></ol></li><li>Start Microsoft Visual Studio 2005 or Microsoft Visual Studio .NET. On the <b>File</b> menu, point to <b>New</b>, and then click <b>Project</b>. Under <b>Visual C# Projects</b> or <strong class="uiterm">Visual C#</strong>, select <b>Windows Application</b>. By default, Form1 is created.</li><li>Add a reference to the Excel object library and the ADODB primary interop assembly. To do this, follow these steps:<ol><li type="a">On the <b>Project</b> menu, click <b>Add Reference</b>.</li><li type="a">On the <b>NET</b> tab, locate <b>ADODB</b>, and then click <b>Select</b>.<br><br><b>Note</b> In Visual Studio 2005, you do not have to click <strong class="uiterm">Select</strong>.</li><li type="a">On the <b>COM</b> tab, locate <b>Microsoft Excel 10.0 Object Library or Microsoft Excel 11.0 Object Library</b>, and then click <b>Select</b>.<br><br><b>Note</b> In Visual Studio 2005, you do not have to click <strong class="uiterm">Select</strong>.<br><br><b>Note</b> If you are using Microsoft Excel 2002 and you have not already done so, Microsoft recommends that you download and then install the Microsoft Office XP Primary Interop 
+
+Assemblies (PIAs). 
+
+For more information about Office XP PIAs, click the following article number to view the article in the Microsoft Knowledge Base:
+
+<div class="indent"><a class="KBlink" href="/kb/328912/">328912</a> 
+                            <span class="pLink">
+            (http://support.microsoft.com/kb/328912/
+                        )
+        </span>
+
+ INFO: Microsoft Office XP PIAs Are Available for Download
+
+</div></li><li type="a">In the <b>Add References</b> dialog box, click <b>OK</b> to accept your selections.</li></ol></li><li>Add a <b>Combo Box</b> control and a <b>Button</b> control to Form1.</li><li>Add event handlers for the Form <b>Load</b> event and the 
+  <b>Click</b> events of the Button control: <ol><li type="a">
+In design view for Form1.cs, double-click <b>Form1</b>. <br><br>
+The handler for the Form's <b>Load</b> event is created and appears in Form1.cs.</li><li type="a">On the <b>View</b> menu, click <b>Designer</b> to switch to design view.</li><li type="a">Double-click <b>Button1</b>. <br><br>
+The handler for the button's <b>Click</b> event is created and appears in Form1.cs.</li></ol></li><li>In Form1.cs, replace the following code:<div class="kb_codebody"><div class="kb_codecontent"><code><pre class="code">
+private void Form1_Load(object sender, System.EventArgs e)
+{
+
+}
+
+private void button1_Click(object sender, System.EventArgs e)
+{
+
+}
+					</pre></code></div></div>
+with:
+<div class="kb_codebody"><div class="kb_codecontent"><code><pre class="code">
+        // Excel object references.
+        private Excel.Application m_objExcel =  null;
+        private Excel.Workbooks m_objBooks = null;
+        private Excel._Workbook m_objBook = null;
+        private Excel.Sheets m_objSheets = null;
+        private Excel._Worksheet m_objSheet = null;
+        private Excel.Range m_objRange =  null;
+        private Excel.Font m_objFont = null;
+        private Excel.QueryTables m_objQryTables = null;
+        private Excel._QueryTable m_objQryTable = null;
+
+        // Frequenty-used variable for optional arguments.
+        private object m_objOpt = System.Reflection.Missing.Value;
+
+        // Paths used by the sample code for accessing and storing data.
+        private object m_strSampleFolder = "C:\\ExcelData\\";
+        private string m_strNorthwind = "C:\\Program Files\\Microsoft Office\\Office10\\Samples\\Northwind.mdb";
+
+        private void Form1_Load(object sender, System.EventArgs e)
+        {			
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            comboBox1.Items.AddRange(new object[]{
+                                                     "Use Automation to Transfer Data Cell by Cell ", 
+                                                     "Use Automation to Transfer an Array of Data to a Range on a Worksheet ", 
+                                                     "Use Automation to Transfer an ADO Recordset to a Worksheet Range ", 
+                                                     "Use Automation to Create a QueryTable on a Worksheet", 
+                                                     "Use the Clipboard", 
+                                                     "Create a Delimited Text File that Excel Can Parse into Rows and Columns", 
+                                                     "Transfer Data to a Worksheet Using ADO.NET "});
+            comboBox1.SelectedIndex = 0;
+            button1.Text = "Go!";
+        }
+
+        private void button1_Click(object sender, System.EventArgs e)
+        {
+            switch (comboBox1.SelectedIndex)
+            {
+                case 0 : Automation_CellByCell(); break;
+                case 1 : Automation_UseArray(); break;
+                case 2 : Automation_ADORecordset(); break;
+                case 3 : Automation_QueryTable(); break;
+                case 4 : Use_Clipboard(); break;
+                case 5 : Create_TextFile(); break;
+                case 6 : Use_ADONET(); break;
+            }
+	
+            //Clean-up
+            m_objFont = null;
+            m_objRange = null;
+            m_objSheet = null;
+            m_objSheets = null;
+            m_objBooks = null;
+            m_objBook = null;
+            m_objExcel = null;
+            GC.Collect();
+
+        }
+
+        private void Automation_CellByCell()
+        {
+            // Start a new workbook in Excel.
+            m_objExcel = new Excel.Application();
+            m_objBooks = (Excel.Workbooks)m_objExcel.Workbooks;
+            m_objBook = (Excel._Workbook)(m_objBooks.Add(m_objOpt));
+
+            // Add data to cells of the first worksheet in the new workbook.
+            m_objSheets = (Excel.Sheets)m_objBook.Worksheets;
+            m_objSheet = (Excel._Worksheet)(m_objSheets.get_Item(1));
+            m_objRange = m_objSheet.get_Range("A1", m_objOpt);
+            m_objRange.set_Value(m_objOpt,"Last Name");
+            m_objRange = m_objSheet.get_Range("B1", m_objOpt);
+            m_objRange.set_Value(m_objOpt,"First Name");
+            m_objRange = m_objSheet.get_Range("A2", m_objOpt);
+            m_objRange.set_Value(m_objOpt,"Doe");
+            m_objRange = m_objSheet.get_Range("B2", m_objOpt);
+            m_objRange.set_Value(m_objOpt,"John");
+
+            // Apply bold to cells A1:B1.
+            m_objRange = m_objSheet.get_Range("A1", "B1");
+            m_objFont = m_objRange.Font;
+            m_objFont.Bold=true;
+
+            // Save the workbook and quit Excel.
+            m_objBook.SaveAs(m_strSampleFolder + "Book1.xls", m_objOpt, m_objOpt, 
+                m_objOpt, m_objOpt, m_objOpt, Excel.XlSaveAsAccessMode.xlNoChange, 
+                m_objOpt, m_objOpt, m_objOpt, m_objOpt, m_objOpt);
+            m_objBook.Close(false, m_objOpt, m_objOpt);
+            m_objExcel.Quit();
+
+        }
+
+        private void Automation_UseArray()
+        {
+            // Start a new workbook in Excel.
+            m_objExcel = new Excel.Application();
+            m_objBooks = (Excel.Workbooks)m_objExcel.Workbooks;
+            m_objBook = (Excel._Workbook)(m_objBooks.Add(m_objOpt));
+            m_objSheets = (Excel.Sheets)m_objBook.Worksheets;
+            m_objSheet = (Excel._Worksheet)(m_objSheets.get_Item(1));
+
+            // Create an array for the headers and add it to cells A1:C1.
+            object[] objHeaders = {"Order ID", "Amount", "Tax"};
+            m_objRange = m_objSheet.get_Range("A1", "C1");
+            m_objRange.set_Value(m_objOpt,objHeaders);
+            m_objFont = m_objRange.Font;
+            m_objFont.Bold=true;
+
+            // Create an array with 3 columns and 100 rows and add it to
+            // the worksheet starting at cell A2.
+            object[,] objData = new Object[100,3];
+            Random rdm = new Random((int)DateTime.Now.Ticks);
+            double nOrderAmt, nTax;
+            for(int r=0;r&lt;100;r++)
+            {
+                objData[r,0] = "ORD" + r.ToString("0000");
+                nOrderAmt = rdm.Next(1000);
+                objData[r,1] = nOrderAmt.ToString("c");
+                nTax = nOrderAmt*0.07;
+                objData[r,2] = nTax.ToString("c");
+            }
+            m_objRange = m_objSheet.get_Range("A2", m_objOpt);
+            m_objRange = m_objRange.get_Resize(100,3);
+            m_objRange.set_Value(m_objOpt,"objData");
+            
+            // Save the workbook and quit Excel.
+            m_objBook.SaveAs(m_strSampleFolder + "Book2.xls", m_objOpt, m_objOpt, 
+                m_objOpt, m_objOpt, m_objOpt, Excel.XlSaveAsAccessMode.xlNoChange, 
+                m_objOpt, m_objOpt, m_objOpt, m_objOpt, m_objOpt);
+            m_objBook.Close(false, m_objOpt, m_objOpt);
+            m_objExcel.Quit();
+
+        }
+
+        private void Automation_ADORecordset()
+        {
+            // Create a Recordset from all the records in the Orders table.
+            ADODB.Connection objConn = new ADODB.Connection();
+            ADODB._Recordset objRS = null;
+            objConn.Open("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" +
+                m_strNorthwind + ";", "", "", 0);
+            objConn.CursorLocation = ADODB.CursorLocationEnum.adUseClient;
+            object objRecAff;
+            objRS = (ADODB._Recordset)objConn.Execute("Orders", out objRecAff, 
+                (int)ADODB.CommandTypeEnum.adCmdTable);
+
+            // Start a new workbook in Excel.
+            m_objExcel = new Excel.Application();
+            m_objBooks = (Excel.Workbooks)m_objExcel.Workbooks;
+            m_objBook = (Excel._Workbook)(m_objBooks.Add(m_objOpt));
+            m_objSheets = (Excel.Sheets)m_objBook.Worksheets;
+            m_objSheet = (Excel._Worksheet)(m_objSheets.get_Item(1));
+
+            // Get the Fields collection from the recordset and determine
+            // the number of fields (or columns).
+            System.Collections.IEnumerator objFields = objRS.Fields.GetEnumerator();
+            int nFields = objRS.Fields.Count;
+
+            // Create an array for the headers and add it to the
+            // worksheet starting at cell A1.
+            object[] objHeaders = new object[nFields];
+            ADODB.Field objField = null;
+            for(int n=0;n&lt;nFields;n++)
+            {
+                objFields.MoveNext();
+                objField = (ADODB.Field)objFields.Current;
+                objHeaders[n] = objField.Name;
+            }
+            m_objRange = m_objSheet.get_Range("A1", m_objOpt);
+            m_objRange = m_objRange.get_Resize(1, nFields);
+            m_objRange.set_Value(m_objOpt,objHeaders);
+            m_objFont = m_objRange.Font;
+            m_objFont.Bold=true;
+
+            // Transfer the recordset to the worksheet starting at cell A2.
+            m_objRange = m_objSheet.get_Range("A2", m_objOpt);
+            m_objRange.CopyFromRecordset(objRS, m_objOpt, m_objOpt);
+
+            // Save the workbook and quit Excel.
+            m_objBook.SaveAs(m_strSampleFolder + "Book3.xls", m_objOpt, m_objOpt, 
+                m_objOpt, m_objOpt, m_objOpt, Excel.XlSaveAsAccessMode.xlNoChange, 
+                m_objOpt, m_objOpt, m_objOpt, m_objOpt, m_objOpt);
+            m_objBook.Close(false, m_objOpt, m_objOpt);
+            m_objExcel.Quit();
+
+            //Close the recordset and connection
+            objRS.Close();
+            objConn.Close();
+
+        }
+
+        private void Automation_QueryTable()
+        {
+            // Start a new workbook in Excel.
+            m_objExcel = new Excel.Application();
+            m_objBooks = (Excel.Workbooks)m_objExcel.Workbooks;
+            m_objBook = (Excel._Workbook)(m_objBooks.Add(m_objOpt));
+
+            // Create a QueryTable that starts at cell A1.
+            m_objSheets = (Excel.Sheets)m_objBook.Worksheets;
+            m_objSheet = (Excel._Worksheet)(m_objSheets.get_Item(1));
+            m_objRange = m_objSheet.get_Range("A1", m_objOpt);
+            m_objQryTables = m_objSheet.QueryTables;
+            m_objQryTable = (Excel._QueryTable)m_objQryTables.Add(
+                "OLEDB;Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" +
+                m_strNorthwind + ";", m_objRange, "Select * From Orders");
+            m_objQryTable.RefreshStyle = Excel.XlCellInsertionMode.xlInsertEntireRows;
+            m_objQryTable.Refresh(false);
+
+            // Save the workbook and quit Excel.
+            m_objBook.SaveAs(m_strSampleFolder + "Book4.xls", m_objOpt, m_objOpt, 
+                m_objOpt, m_objOpt, m_objOpt, Excel.XlSaveAsAccessMode.xlNoChange, m_objOpt, m_objOpt,
+                m_objOpt, m_objOpt, m_objOpt);
+            m_objBook.Close(false, m_objOpt, m_objOpt);
+            m_objExcel.Quit();
+
+        }
+
+        private void Use_Clipboard()
+        {
+            // Copy a string to the clipboard.
+            string sData = "FirstName\tLastName\tBirthdate\r\n"  +
+                "Bill\tBrown\t2/5/85\r\n"  +
+                "Joe\tThomas\t1/1/91";
+            System.Windows.Forms.Clipboard.SetDataObject(sData);
+
+            // Start a new workbook in Excel.
+            m_objExcel = new Excel.Application();
+            m_objBooks = (Excel.Workbooks)m_objExcel.Workbooks;
+            m_objBook = (Excel._Workbook)(m_objBooks.Add(m_objOpt));
+
+            // Paste the data starting at cell A1.
+            m_objSheets = (Excel.Sheets)m_objBook.Worksheets;
+            m_objSheet = (Excel._Worksheet)(m_objSheets.get_Item(1));
+            m_objRange = m_objSheet.get_Range("A1", m_objOpt);
+            m_objSheet.Paste(m_objRange, false);
+
+            // Save the workbook and quit Excel.
+            m_objBook.SaveAs(m_strSampleFolder + "Book5.xls", m_objOpt, m_objOpt, 
+                m_objOpt, m_objOpt, m_objOpt, Excel.XlSaveAsAccessMode.xlNoChange, m_objOpt, m_objOpt,
+                m_objOpt, m_objOpt, m_objOpt);
+            m_objBook.Close(false, m_objOpt, m_objOpt);
+            m_objExcel.Quit();
+
+        }
+
+        private void Create_TextFile()
+        {
+            // Connect to the data source.
+            System.Data.OleDb.OleDbConnection objConn = new System.Data.OleDb.OleDbConnection( 
+                "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + m_strNorthwind + ";");
+            objConn.Open();
+
+            // Execute a command to retrieve all records from the Employees  table.
+            System.Data.OleDb.OleDbCommand objCmd = new System.Data.OleDb.OleDbCommand( 
+                "Select * From Employees", objConn);
+            System.Data.OleDb.OleDbDataReader objReader;
+            objReader = objCmd.ExecuteReader();
+
+
+            // Create the FileStream and StreamWriter object to write 
+            // the recordset contents to file.
+            System.IO.FileStream fs = new System.IO.FileStream(
+                m_strSampleFolder + "Book6.txt", System.IO.FileMode.Create);
+            System.IO.StreamWriter sw = new System.IO.StreamWriter(
+                fs, System.Text.Encoding.Unicode);
+
+            // Write the field names (headers) as the first line in the text file.
+            sw.WriteLine(objReader.GetName(0) +  "\t" + objReader.GetName(1) +
+                "\t" + objReader.GetName(2) + "\t" + objReader.GetName(3) +
+                "\t" + objReader.GetName(4) + "\t" + objReader.GetName(5));
+
+            // Write the first six columns in the recordset to a text file as
+            // tab-delimited.
+            while(objReader.Read()) 
+            {
+                for(int i=0;i&lt;=5;i++)
+                {
+                    if(!objReader.IsDBNull(i))
+                    {
+                        string s;
+                        s = objReader.GetDataTypeName(i);
+                        if(objReader.GetDataTypeName(i)=="DBTYPE_I4")
+                        {
+                            sw.Write(objReader.GetInt32(i).ToString());
+                        }
+                        else if(objReader.GetDataTypeName(i)=="DBTYPE_DATE")
+                        {
+                            sw.Write(objReader.GetDateTime(i).ToString("d"));
+                        }
+                        else if (objReader.GetDataTypeName(i)=="DBTYPE_WVARCHAR")
+                        {
+                            sw.Write(objReader.GetString(i));
+                        }
+                    }
+                    if(i&lt;5) sw.Write("\t");
+                }
+                sw.WriteLine(); 
+            }
+            sw.Flush();	// Write the buffered data to the FileStream.
+
+            // Close the FileStream.
+            fs.Close();
+
+            // Close the reader and the connection.
+            objReader.Close();
+            objConn.Close(); 
+
+            // ==================================================================
+            // Optionally, automate Excel to open the text file and save it in the
+            // Excel workbook format.
+
+            // Open the text file in Excel.
+            m_objExcel = new Excel.Application();
+            m_objBooks = (Excel.Workbooks)m_objExcel.Workbooks;
+            m_objBooks.OpenText(m_strSampleFolder + "Book6.txt", Excel.XlPlatform.xlWindows, 1, 
+                Excel.XlTextParsingType.xlDelimited, Excel.XlTextQualifier.xlTextQualifierDoubleQuote,
+                false, true, false, false, false, false, m_objOpt, m_objOpt, 
+                m_objOpt, m_objOpt, m_objOpt, m_objOpt, m_objOpt);
+
+            m_objBook = m_objExcel.ActiveWorkbook;
+
+            // Save the text file in the typical workbook format and quit Excel.
+            m_objBook.SaveAs(m_strSampleFolder + "Book6.xls", Excel.XlFileFormat.xlWorkbookNormal, 
+                m_objOpt, m_objOpt, m_objOpt, m_objOpt, Excel.XlSaveAsAccessMode.xlNoChange, m_objOpt, m_objOpt,
+                m_objOpt, m_objOpt, m_objOpt);
+            m_objBook.Close(false, m_objOpt, m_objOpt);
+            m_objExcel.Quit();
+
+        }
+
+        private void Use_ADONET()
+        {
+            // Establish a connection to the data source.
+            System.Data.OleDb.OleDbConnection objConn = new System.Data.OleDb.OleDbConnection(
+                "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + m_strSampleFolder +
+                "Book7.xls;Extended Properties=Excel 8.0;");
+            objConn.Open();
+
+            // Add two records to the table named 'MyTable'.
+            System.Data.OleDb.OleDbCommand objCmd = new System.Data.OleDb.OleDbCommand();
+            objCmd.Connection = objConn;
+            objCmd.CommandText = "Insert into MyTable (FirstName, LastName)" +
+                " values ('Bill', 'Brown')";
+	
+            objCmd.ExecuteNonQuery();
+            objCmd.CommandText = "Insert into MyTable (FirstName, LastName)" +
+                " values ('Joe', 'Thomas')";
+            objCmd.ExecuteNonQuery();
+
+
+            // Close the connection.
+            objConn.Close(); 
+
+        } 
+
+	}  // End Class
+}// End namespace
+					</pre></code></div></div><b>Note</b> You must change the code in Visual Studio 2005. By default, Visual C# adds one form to the project when you create a Windows Forms project. The form is named Form1. The two files that represent the form are named Form1.cs and Form1.designer.cs. You write the code in Form1.cs. The Form1.designer.cs file is where the Windows Forms Designer writes the code that implements all the actions that you performed by dragging and dropping controls from the Toolbox.
+
+<br><br>For more information about the Windows Forms Designer in Visual C# 2005, visit the following Microsoft Developer Network (MSDN) Web site:
+
+<div class="indent"><a href="http://msdn2.microsoft.com/en-us/library/ms173077.aspx">http://msdn2.microsoft.com/en-us/library/ms173077.aspx</a><span class="pLink">
+            (http://msdn2.microsoft.com/en-us/library/ms173077.aspx)
+        </span><span class="kb_space"></span></div><b>Note</b> If you did not install Office to the default folder (C:\Program Files\Microsoft Office), modify the <b>m_strNorthwind</b> constant in the code sample to match your installation path for Northwind.mdb.</li><li>Add the following to the <b>Using</b> directives in Form1.cs:<div class="kb_codebody"><div class="kb_codecontent"><code><pre class="code">
+	using System.Reflection;
+	using System.Runtime.InteropServices;
+	using Excel = Microsoft.Office.Interop.Excel;
+					</pre></code></div></div></li><li>Press F5 to build and run the sample.</li></ol><div class="topOfPage"><a href="#top"><img src="/library/images/support/kbgraphics/public/en-us/uparrow.gif" alt="">Back to the top</a></div><h3 id="tocHeadRef">REFERENCES</h3><script type="text/javascript">
+                loadTOCNode(2, 'summary');
+            </script>
+For more information, visit the following Microsoft Web site:
+<div class="indent"><a href="http://msdn2.microsoft.com/en-us/library/aa188489.aspx">Microsoft Office Development with Visual Studio</a><span class="pLink">
+            (http://msdn2.microsoft.com/en-us/library/aa188489.aspx)
+        </span><span class="kb_space"></span></div><div class="topOfPage"><a href="#top"><img src="/library/images/support/kbgraphics/public/en-us/uparrow.gif" alt="">Back to the top</a></div></div></div><div class="sbody norollup"><div class="appliesTo"><hr><a id="appliesto"></a><h5>APPLIES TO</h5><ul><li>Microsoft Excel 2002 Standard Edition</li><li>Microsoft Visual C# 2005</li><li>Microsoft Visual C# .NET 2002 Standard Edition</li><li>Microsoft ADO.NET 1.0</li></ul></div><div class="topOfPage"><a href="#top"><img src="/library/images/support/kbgraphics/public/en-us/uparrow.gif" alt="">Back to the top</a></div><div class="keywords"><table><tr><td class="header"><h5>Keywords: 
+                            </h5></td><td class="text">kbautomation kbhowtomaster KB306023</td></tr></table></div><div class="topOfPage"><a href="#top"><img src="/library/images/support/kbgraphics/public/en-us/uparrow.gif" alt="">Back to the top</a></div></div><!-- - -KB 3 end- - --></div></div></div></td><td class="primaryThinColumn"><div id="thinColumn" style="float: none;"><div id="MiniRouter"><span class="Mtitle">Other Resources</span><h3><span class="subtit">Other Support  Sites</span><div class="MR_up"></div></h3><ul id="OSS_MR"><li><a href="/select/?target=hub" id="L_101" title="Solution Centers">Solution Centers</a></li><li><a href="/gp/mats" id="L_102" title="Microsoft Fix It Solutions">Microsoft Fix It Solutions</a></li><li><a href="http://windows.microsoft.com/en-us/windows/help" id="L_103" title="Windows Help and How-to">Windows Help and How-to</a></li><li><a href="http://office.microsoft.com" id="L_104" title="Office Online">Office Online</a></li><li><a href="https://partner.microsoft.com/" id="L_105" title="Microsoft Partner Network">Microsoft Partner Network</a></li></ul><h3><span class="subtit">Community</span><div class="MR_up"></div></h3><ul id="Community_MR"><li><a href="http://answers.microsoft.com/" id="L_106" title="Answers Forums">Answers Forums</a></li><li><a href="http://social.technet.microsoft.com/Forums" id="L_107" title="Technet Forums">Technet Forums</a></li><li><a href="http://social.msdn.microsoft.com/Forums" id="L_108" title="Microsoft Developer Network (MSDN)">Microsoft Developer Network (MSDN)</a></li></ul><h3><span class="subtit">Get Help Now</span><div class="MR_up"></div></h3><div class="gethelp" id="GetHelp_MR"><a href="/gethelp/default.aspx?content=kb;en-us;306023" title="Contact a Support Professional by Email, Online, or Phone" class="imglink"><img alt="Contact a Support Professional by Email, Online, or Phone" class="gsfx_img_png" src="/library/images/support/en-US/help_icon_48x48.png" /></a><a href="/gethelp/default.aspx?content=kb;en-us;306023" title="Contact a Support Professional by Email, Online, or Phone" class="txtlink">Contact a Support Professional by Email, Online, or Phone</a></div><div class="space"></div></div><div class="wp articleTrans"><h3><span class="linkCon">Article Translations</span><span class="linkConTop"></span></h3><form name="frmArticleTrans" action="/" onsubmit="return SwitchLanguage(29803);"><div><table cellpadding="0" cellspacing="0"><tr><td><select name="scid"><option value="kb;ar;306023">Arabic</option><option value="kb;cs;306023">Czech</option><option value="kb;fr;306023">French</option><option value="kb;de;306023">German</option><option value="kb;it;306023">Italian</option><option value="kb;ja;306023">Japanese</option><option value="kb;ko;306023">Korean</option><option value="kb;pt-br;306023">Portuguese (Brazil)</option><option value="kb;pt;306023">Portuguese (Portugal)</option><option value="kb;zh-cn;306023">Simplified Chinese</option><option value="kb;es;306023">Spanish</option><option value="kb;zh-tw;306023">Traditional Chinese</option></select></td><td class="spacer">&nbsp;</td><td><input type="image" alt="Translate the article" style="width: 24;height: 24;" onmouseover="this.src='/library/images/support/EN-US/go_right_02-over.gif';" onmouseout="this.src='/library/images/support/en-US/GSSSM_rltlngRelatedlanguages.gif';" src="/library/images/support/en-US/GSSSM_rltlngRelatedlanguages.gif" /><a id="KBLangListRedirect" href="" /></td></tr></table></div></form></div><div id="divRelContent" style="display:none"></div><div id="divRelTags" style="display:none"></div><div class="wp" id="RelatedSupportCenters"><table cellspacing="0" class="LCT"><tr><td class="textColumn"><h3><span class="linkCon">Related Support Centers</span><span class="linkConTop"></span></h3><ul><li><span><a href="/ph/1743/en-us">Excel 2002</a></span></li><li><span><a href="/ph/7797/en-us">Visual C# 2005</a></span></li></ul></td></tr></table></div><div class="wp" id="SupportTools"><table cellspacing="0" class="LCT"><tr><td class="textColumn"><h3><span class="linkCon">Page Tools</span><span class="linkConTop"></span></h3><ul><li id="PrintPage_tr"><span><a href="/gp/noscript" id="PrintPage" title="Print this page" onclick="return MS_HandleClick(this,'SupportTools', true);">Print this page</a></span></li><li id="EmailPage_tr"><span><a href="mailto:?subject=How%20to%20transfer%20data%20to%20an%20Excel%20workbook%20by%20using%20Visual%20C%23%202005%20or%20Visual%20C%23%20.NET&amp;body=http%3a%2f%2fsupport.microsoft.com%2fdefault.aspx%2fkb%2f306023%3fp%3d1" id="EmailPage" title="E-mail this page" onclick="return MS_HandleClick(this,'SupportTools', true);">E-mail this page</a></span></li></ul></td></tr></table></div></div></td></tr></table></div></div><div id="bottomRow"><div class="wp getHelp"><table align="center" cellpadding="0" cellspacing="0"><tr><td class="image"><a href="/gethelp/default.aspx?content=kb;en-us;306023" id="L_174092"><img alt="" class="gsfx_img_png" src="/library/images/support/en-US/help_icon_48x48.png" /></a></td><td class="text"><h3>Get Help Now</h3><a href="/gethelp/default.aspx?content=kb;en-us;306023" id="L_174092">Contact a support professional by E-mail, Online, or Phone</a></td></tr></table></div></div>
+                        
+            </div>
+        </div>
+        
+        <div id="gsfx_brnd_BottomCorners" class="gsfx_brnd_CornerContainer">
+            <div class="gsfx_brnd_TBBorders gsfx_brnd_TransBG" id="gsfx_brnd_BottomBorder"></div>
+            <div class="gsfx_brnd_Corner" id="gsfx_brnd_LLowerCorner"></div>
+        </div>
+        
+        <div id="gsfx_brnd_WidthFix"></div>
+        
+        <div id="gsfx_brnd_FooterContainer">
+            <div id="gsfx_brnd_SiteFooter" class="gsfx_brnd_NetworkLeft">
+                Microsoft Support
+            </div>
+
+            <table id="gsfx_brnd_NetworkFooter" class="gsfx_brnd_NetworkRight"><tr>
+                <td id="gsfx_brnd_FooterLinkContainer">
+                    <!--Table is wrapped in a div tag to facilitate proper alignment and stacking-->
+                    <div class="gsfx_brnd_FooterLinks" id="gsfx_brnd_SiteFooterLinks">
+                        <!--Table is used here in order to properly order the links for LTR and RTL while maintaining the correct tab order-->                        
+                        <table summary="Site Footer Links" class="gsfx_brnd_NetworkRight"><tr><td class="gsfx_brnd_NetworkLinkContainer gsfx_brnd_NetworkLink"><a href="javascript:window.open('http://mymfe.microsoft.com/support.microsoft.com/feedback.aspx?formid=24' + '&UrlReferrer='  +  escape(document.referrer.toString()), 'Feedback', 'scrollbars=yes,menubar=no,titlebar=no,location=no,width=500,height=600,resizable=yes');void(0);" id="L_184649"><span>Feedback</span></a></td><td class="gsfx_brnd_NetworkLinkContainer gsfx_brnd_FooterSeperator">|</td><td class="gsfx_brnd_NetworkLinkContainer gsfx_brnd_NetworkLink"><a href="/gp/csa" id="L_157327"><span>Services Agreement</span></a></td></tr></table>                        
+                    </div>
+                    
+
+                    <!--Table is wrapped in a div tag to facilitate proper alignment and stacking-->
+                    <div class="gsfx_brnd_FooterLinks" id="gsfx_brnd_NetworkFooterLinks">
+                        <!--Table is used here in order to properly order the links for LTR and RTL while maintaining the correct tab order-->
+                        <table summary="Network Footer Links" class="gsfx_brnd_NetworkRight"><tr><td class="gsfx_brnd_NetworkLinkContainer gsfx_brnd_NetworkLink"><a href="/contactus/?ws=support" id="L_153553"><span>Contact Us</span></a></td><td class="gsfx_brnd_NetworkLinkContainer gsfx_brnd_FooterSeperator">|</td><td class="gsfx_brnd_NetworkLinkContainer gsfx_brnd_NetworkLink"><a href="http://go.microsoft.com/?linkid=4412892" id="L_153554"><span>Terms of Use</span></a></td><td class="gsfx_brnd_NetworkLinkContainer gsfx_brnd_FooterSeperator">|</td><td class="gsfx_brnd_NetworkLinkContainer gsfx_brnd_NetworkLink"><a href="http://go.microsoft.com/?linkid=4412893" id="L_153555"><span>Trademarks</span></a></td><td class="gsfx_brnd_NetworkLinkContainer gsfx_brnd_FooterSeperator">|</td><td class="gsfx_brnd_NetworkLinkContainer gsfx_brnd_NetworkLink"><a href="http://go.microsoft.com/?linkid=4412894" id="L_153556"><span>Privacy Statement</span></a></td></tr></table>
+                    </div>
+                </td>
+                <td id="gsfx_brnd_copyright_container">
+                    <div id="gsfx_brnd_MSLogoContainer" >
+                        <!--[if lte IE 6]><div id="gsfx_brnd_legacy_MSLogo"></div><![endif]-->
+                        <img id="gsfx_brnd_MSLogo" alt="Microsoft" src="/library/images/support/cn/gsfx_brnd_ms_logo_sml_blk.png" />
+                        <img id="gsfx_brnd_MSLogoPrint" alt="Microsoft" src="/library/images/support/cn/gsfx_brnd_ms_logo_sml_blk.png" />
+                    </div>
+                    <span id="gsfx_brnd_copyright">&copy;2010 Microsoft</span>
+                </td>
+            </tr></table>
+        </div>
+    </div>
+</div>
+</div>
+<style type="text/css">   
+    #gsfx_brnd_CenterContent, #gsfx_brnd_PageWrapper
+    {
+        background: url('') repeat-x bottom;
+    }    
+</style>
+<script type="text/javascript" src="/common/script/gsfx/branding.js?29"></script><script type="text/javascript" src="/common/script/gsfx/wtInit.js?29"></script><script type="text/javascript" src="/common/script/gsfx/wtCore.js?29"></script><noscript><img alt="" id="DCSIMG" width="1" height="1" src="http://m.webtrends.com/dcsxia05c00000s926v0z4tru_3w4l/njs.gif?dcsuri=/nojavascript&WT.js=No" /></noscript><img id="webmetriximg" alt="" src="/library/images/support/cn/onepix.gif" /><noscript><img id="StatsDotNetImgNoScript" alt="" src="http://support.microsoft.com/LTS/default.aspx?SSID=1&#38;SiteLCID=1033&#38;SsVersion=GSS5.2&#38;SiteCulture=en-us&#38;ContentCulture=en-us&#38;In404Url=&#38;EventCollectionID=1&#38;URL=%2fdefault.aspx&#38;ContentType=kb&#38;ContentLCID=1033&#38;ContentID=306023&#38;Platform=&#38;BrandID=1&#38;ContentProperties=6%3d9%7c7%3d7.5%7c9%3dkbAudDeveloper%20%20%7c" /></noscript><img id="StatsDotNetImg" name="StatsDotNetImg" alt="" src="/library/images/support/cn/onepix.gif" /><script type="text/javascript">StatsDotNet.disabled=false;StatsDotNet.enableCollTierParams=true;StatsDotNet.host='http\x3a\x2f\x2fsupport.microsoft.com\x2fLTS\x2fdefault.aspx';StatsDotNet.ssId='1';StatsDotNet.siteLcId='1033';StatsDotNet.SiteCulture='en-us';StatsDotNet.SsVersion='GSS5.2';StatsDotNet.url='\x2fdefault.aspx';StatsDotNet.ContentCulture ='en-us';StatsDotNet.contentType='kb';StatsDotNet.contentLn='1033';StatsDotNet.contentId='306023';StatsDotNet.eventCollectionId=1;StatsDotNet.siteBrandId='1';StatsDotNet.onUnloadTimeout=300;StatsDotNet.ltsIdleTimeout=5000;StatsDotNet.userAgentString=' ';StatsDotNet.ContentProperties='6\x3d9\x7c7\x3d7.5\x7c9\x3dkbAudDeveloper  \x7c';</script><script type="text/javascript">var enableSiteSurvey = true;</script><script language="javascript">if(window.top == window && enableSiteSurvey) document.write('<script language="javascript" src="/library/svy/broker.js"></scr'+'ipt>');</script><script type="text/javascript">function thisLoad(){makeAjaxCall('LoadRelatedContent','306023\x3ben-us');makeAjaxCall('LoadRelatedTags','306023\x3ben-us');CreateSearchOptions('acListWrappergsfx_bsrch_query', 306);SetCatLangPos();InitSrch();InitAC('gsfx_bsrch_query');$(document).ready(function() {gsfx_bsrch_InitCatSelection('gsfx_bsrch_query', '4:');});MS_WebMetrix('http\x3a\x2f\x2fc.microsoft.com\x2ftrans_pixel.asp\x3fTYPE\x3dSSPV\x26SOURCE\x3dSUPPORT\x26GUID\x3d1F4FC18C-F71E-47fb-8FC9-612F8EE59C61\x26URI\x3d\x252fgn\x252fen-us\x252fkb_en-us_306023\x26R\x3d');StatsDotNet.LogPageOnLoad();}function thisUnload(){}</script></body></html>

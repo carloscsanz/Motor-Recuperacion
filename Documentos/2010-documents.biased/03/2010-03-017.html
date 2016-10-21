@@ -1,0 +1,593 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [epoz-checkins] r2901 - epoz/trunk/epoz/apache-lenya
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:guido%40codespeak.net">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <LINK REL="Previous"  HREF="000559.html">
+   <LINK REL="Next"  HREF="000561.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[epoz-checkins] r2901 - epoz/trunk/epoz/apache-lenya
+   </H1>
+    <B>guido@codespeak.net
+    </B> 
+    <A HREF="mailto:guido%40codespeak.net"
+       TITLE="[epoz-checkins] r2901 - epoz/trunk/epoz/apache-lenya">guido@codespeak.net
+       </A><BR>
+    <I>Tue, 27 Jan 2004 19:47:07 +0100 (MET)</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000559.html">[epoz-checkins] r2900 - in epoz/trunk/epoz/common: . epozimages
+</A></li>
+        <LI> Next message: <A HREF="000561.html">[epoz-checkins] r2902 - epoz/trunk/epoz/common
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#560">[ date ]</a>
+              <a href="thread.html#560">[ thread ]</a>
+              <a href="subject.html#560">[ subject ]</a>
+              <a href="author.html#560">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: guido
+Date: Tue Jan 27 19:47:06 2004
+New Revision: 2901
+
+Added:
+   epoz/trunk/epoz/apache-lenya/
+   epoz/trunk/epoz/apache-lenya/epozcontent-xhtml.xsl
+   epoz/trunk/epoz/apache-lenya/epozmacros-xhtml.xsl
+   epoz/trunk/epoz/apache-lenya/epozmacros.html
+   epoz/trunk/epoz/apache-lenya/epozsave-xhtml.xsl
+Log:
+Added some Lenya (CMS based on Apache's Cocoon) specific files.
+
+
+Added: epoz/trunk/epoz/apache-lenya/epozcontent-xhtml.xsl
+==============================================================================
+--- (empty file)
++++ epoz/trunk/epoz/apache-lenya/epozcontent-xhtml.xsl	Tue Jan 27 19:47:06 2004
+@@ -0,0 +1,41 @@
++&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
++
++&lt;!--
++    Document   : epozcontent.xsl
++    Created on : 2003/12/13
++    Author     : Rolf Kulemann
++    Description:
++        Transforms page to be edited by Epoz wysiwyg xhtml editor.
++		Here the link to css etc. is inserted and marked(see lenyacontent atrribute) to be remved when saved.
++--&gt;
++
++&lt;xsl:stylesheet version=&quot;1.0&quot;
++  xmlns:xsl=&quot;<A HREF="http://www.w3.org/1999/XSL/Transform"">http://www.w3.org/1999/XSL/Transform&quot;</A>
++  xmlns:lenya=&quot;<A HREF="http://apache.org/cocoon/lenya/page-envelope/1.0"">http://apache.org/cocoon/lenya/page-envelope/1.0&quot;</A>
++  xmlns:xhtml=&quot;<A HREF="http://www.w3.org/1999/xhtml"">http://www.w3.org/1999/xhtml&quot;</A>
++  xmlns=&quot;<A HREF="http://www.w3.org/1999/xhtml"">http://www.w3.org/1999/xhtml&quot;</A>
++ &gt;
++
++&lt;xsl:param name=&quot;css&quot;/&gt;
++
++
++&lt;xsl:template match=&quot;lenya:meta&quot;/&gt;
++
++
++&lt;xsl:template match=&quot;xhtml:head&quot;&gt;
++	&lt;head&gt;
++		&lt;xsl:copy-of select=&quot;*&quot;/&gt; 
++		&lt;link rel=&quot;stylesheet&quot; href=&quot;{$css}&quot; mime-type=&quot;text/css&quot;/&gt;
++	&lt;/head&gt;
++&lt;/xsl:template&gt;
++
++
++
++&lt;xsl:template match=&quot;@*|node()&quot;&gt;
++	&lt;xsl:copy&gt;
++		&lt;xsl:apply-templates select=&quot;@*|node()&quot;/&gt;
++	&lt;/xsl:copy&gt;
++&lt;/xsl:template&gt;  
++
++
++&lt;/xsl:stylesheet&gt;
+
+Added: epoz/trunk/epoz/apache-lenya/epozmacros-xhtml.xsl
+==============================================================================
+--- (empty file)
++++ epoz/trunk/epoz/apache-lenya/epozmacros-xhtml.xsl	Tue Jan 27 19:47:06 2004
+@@ -0,0 +1,33 @@
++&lt;?xml version=&quot;1.0&quot;?&gt;
++
++&lt;xsl:stylesheet version=&quot;1.0&quot;
++  xmlns:xsl=&quot;<A HREF="http://www.w3.org/1999/XSL/Transform"">http://www.w3.org/1999/XSL/Transform&quot;</A>
++  xmlns:xhtml=&quot;<A HREF="http://www.w3.org/1999/xhtml"">http://www.w3.org/1999/xhtml&quot;</A>
++&gt;
++
++&lt;xsl:param name=&quot;document-path&quot;/&gt;
++&lt;xsl:param name=&quot;contentfile&quot;/&gt;
++&lt;xsl:param name=&quot;save-destination&quot;/&gt;
++&lt;xsl:param name=&quot;reload-on-save&quot; value=&quot;1&quot;/&gt;
++&lt;xsl:param name=&quot;usecss&quot; value=&quot;1&quot;/&gt;
++
++
++&lt;xsl:template match=&quot;xhtml:body/xhtml:div/xhtml:div/xhtml:div/xhtml:iframe/@src&quot;&gt;
++	&lt;xsl:attribute name=&quot;src&quot;&gt;&lt;xsl:value-of select=&quot;$contentfile&quot;/&gt;&lt;/xsl:attribute&gt;
++	&lt;xsl:attribute name=&quot;dst&quot;&gt;&lt;xsl:value-of select=&quot;$save-destination&quot;/&gt;&lt;/xsl:attribute&gt;
++	&lt;xsl:attribute name=&quot;reloadsrc&quot;&gt;0&lt;/xsl:attribute&gt;
++	&lt;!--&lt;xsl:attribute name=&quot;reloadsrc&quot;&gt;&lt;xsl:value-of select=&quot;reload-on-save&quot;/&gt;&lt;/xsl:attribute&gt;--&gt;
++	&lt;xsl:attribute name=&quot;usecss&quot;&gt;&lt;xsl:value-of select=&quot;use-css&quot;/&gt;&lt;/xsl:attribute&gt;
++&lt;/xsl:template&gt;
++
++&lt;xsl:template match=&quot;xhtml:title&quot;&gt;
++	&lt;title&gt;Edit &lt;xsl:value-of select=&quot;$document-path&quot;/&gt; with Epoz - Apache Lenya&lt;/title&gt;
++&lt;/xsl:template&gt;
++
++&lt;xsl:template match=&quot;@*|node()&quot;&gt;
++	&lt;xsl:copy&gt;
++		&lt;xsl:apply-templates select=&quot;@*|node()&quot;/&gt;
++	&lt;/xsl:copy&gt;
++&lt;/xsl:template&gt;
++   
++&lt;/xsl:stylesheet&gt; 
+
+Added: epoz/trunk/epoz/apache-lenya/epozmacros.html
+==============================================================================
+--- (empty file)
++++ epoz/trunk/epoz/apache-lenya/epozmacros.html	Tue Jan 27 19:47:06 2004
+@@ -0,0 +1,386 @@
++&lt;?xml version=&quot;1.0&quot;?&gt;
++
++&lt;!--
++&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;<A HREF="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"">http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;</A>&gt;
++--&gt;
++
++&lt;html xmlns=&quot;<A HREF="http://www.w3.org/1999/xhtml"">http://www.w3.org/1999/xhtml&quot;</A>
++      xmlns:tal=&quot;<A HREF="http://xml.zope.org/namespaces/tal"">http://xml.zope.org/namespaces/tal&quot;</A>
++      xmlns:metal=&quot;<A HREF="http://xml.zope.org/namespaces/metal"">http://xml.zope.org/namespaces/metal&quot;</A>
++      xmlns:i18n=&quot;<A HREF="http://xml.zope.org/namespaces/i18n"">http://xml.zope.org/namespaces/i18n&quot;</A>
++      &gt;
++&lt;head&gt;
++  &lt;title&gt;Epoz Editor - Apache Lenya&lt;/title&gt;
++    &lt;link href=&quot;/epoz/common/epozstyles.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;
++    &lt;link href=&quot;/epoz/common/epozcustom.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;
++ 
++    &lt;!-- IMPORTANT NOTE: The generator is closing all tags, which seem to be self-closing tags, e.g. &lt;script src=&quot;...&quot;&gt;&lt;/script&gt;. Mozilla doesn't seem to like that, hence the whitespace --&gt;
++
++    &lt;script type=&quot;text/javascript&quot; src=&quot;/epoz/common/dom2_events.js&quot;&gt; &lt;/script&gt;
++    &lt;script type=&quot;text/javascript&quot; src=&quot;/epoz/common/sarissa.js&quot;&gt; &lt;/script&gt;
++    &lt;script type=&quot;text/javascript&quot; src=&quot;/epoz/common/epozeditor.js&quot;&gt; &lt;/script&gt;
++
++&lt;/head&gt;
++&lt;body onload=&quot;epoz = initEpoz(document.getElementById('epoz-editor')); epozui = epoz.getTool('ui');&quot;&gt;
++
++
++&lt;h1&gt;Epoz Editor - Apache Lenya&lt;/h1&gt;
++
++&lt;div class=&quot;epoz-fulleditor&quot;&gt;
++  &lt;div metal:define-macro=&quot;epoz_fulleditor&quot; xmlns:epoz=&quot;epoz:&quot;&gt;
++
++&lt;!-- Start toolbar --&gt;
++
++  &lt;div class=&quot;epoz-tb&quot; id=&quot;toolbar&quot; metal:define-macro=&quot;epoz_toolbar&quot;&gt;
++    &lt;span id=&quot;epoz-tb-buttons&quot;&gt;
++      &lt;span class=&quot;epoz-tb-buttongroup&quot; style=&quot;float: right&quot;&gt;
++        &lt;button class=&quot;epoz-logo&quot; title=&quot;Go to the Epoz website&quot;
++                i18n:attributes=&quot;title&quot;
++                onclick=&quot;window.open('<A HREF="http://sourceforge.net/projects/epoz'">http://sourceforge.net/projects/epoz'</A>);&quot;&gt;&amp;#160;&lt;/button&gt;
++      &lt;/span&gt;
++      &lt;select id=&quot;epoz-tb-styles&quot; onchange=&quot;epozui.setTextStyle(this.options[this.selectedIndex].value);&quot;&gt;
++        &lt;option value=&quot;P&quot; i18n:translate=&quot;paragraph-normal&quot;&gt;
++          Normal
++        &lt;/option&gt;
++        &lt;option value=&quot;H1&quot;&gt;
++          &lt;span tal:omit-tag=&quot;&quot; i18n:translate=&quot;heading&quot;&gt;Heading&lt;/span&gt; 1
++        &lt;/option&gt;
++        &lt;option value=&quot;H2&quot;&gt;
++          &lt;span tal:omit-tag=&quot;&quot; i18n:translate=&quot;heading&quot;&gt;Heading&lt;/span&gt; 2
++        &lt;/option&gt;
++        &lt;option value=&quot;H3&quot;&gt;
++          &lt;span tal:omit-tag=&quot;&quot; i18n:translate=&quot;heading&quot;&gt;Heading&lt;/span&gt; 3
++        &lt;/option&gt;
++        &lt;option value=&quot;H4&quot;&gt;
++          &lt;span tal:omit-tag=&quot;&quot; i18n:translate=&quot;heading&quot;&gt;Heading&lt;/span&gt; 4
++        &lt;/option&gt;
++        &lt;option value=&quot;H5&quot;&gt;
++          &lt;span tal:omit-tag=&quot;&quot; i18n:translate=&quot;heading&quot;&gt;Heading&lt;/span&gt; 5
++        &lt;/option&gt;
++        &lt;option value=&quot;H6&quot;&gt;
++          &lt;span tal:omit-tag=&quot;&quot; i18n:translate=&quot;heading&quot;&gt;Heading&lt;/span&gt; 6
++        &lt;/option&gt;
++        &lt;option value=&quot;PRE&quot; i18n:translate=&quot;paragraph-formatted&quot;&gt;
++          Formatted
++        &lt;/option&gt;
++      &lt;/select&gt;
++      &lt;span class=&quot;epoz-tb-buttongroup&quot;&gt;
++        &lt;button class=&quot;epoz-save&quot; title=&quot;Save&quot;
++                onclick=&quot;epozui.saveButtonHandler()&quot;&gt;&amp;#160;&lt;/button&gt;
++        &lt;button class=&quot;epoz-save&quot; title=&quot;Save&quot;
++                onclick=&quot;epozui.saveAndExitButtonHandler('<A HREF="http://www.oscom.org'">http://www.oscom.org'</A>)&quot;&gt;&amp;#160;&lt;/button&gt;
++      &lt;/span&gt;
++      &lt;span class=&quot;epoz-tb-buttongroup&quot;&gt;
++        &lt;button class=&quot;epoz-bold&quot; title=&quot;Bold&quot;
++                i18n:attributes=&quot;title&quot;
++                onclick=&quot;epozui.basicButtonHandler('bold');&quot;&gt;&amp;#160;&lt;/button&gt;
++        &lt;button class=&quot;epoz-italic&quot; title=&quot;Italic&quot;
++                i18n:attributes=&quot;title&quot;
++                onclick=&quot;epozui.basicButtonHandler('italic');&quot;&gt;&amp;#160;&lt;/button&gt;
++        &lt;button class=&quot;epoz-underline&quot; title=&quot;Underline&quot;
++                i18n:attributes=&quot;title&quot;
++                onclick=&quot;epozui.basicButtonHandler('underline');&quot;&gt;&amp;#160;&lt;/button&gt;
++      &lt;/span&gt;
++      &lt;span class=&quot;epoz-tb-buttongroup&quot;&gt;
++        &lt;button class=&quot;epoz-subscript&quot; title=&quot;Subscript&quot;
++                i18n:attributes=&quot;title&quot;
++                onclick=&quot;epozui.basicButtonHandler('subscript');&quot;&gt;&amp;#160;&lt;/button&gt;
++        &lt;button class=&quot;epoz-superscript&quot; title=&quot;Superscript&quot;
++                i18n:attributes=&quot;title&quot;
++                onclick=&quot;epozui.basicButtonHandler('superscript');&quot;&gt;&amp;#160;&lt;/button&gt;
++      &lt;/span&gt;
++      &lt;span class=&quot;epoz-tb-buttongroup&quot;&gt;
++        &lt;!-- Note: the event handlers are attached to these buttons dynamically, like for tools --&gt;
++        &lt;button class=&quot;epoz-forecolor&quot; id=&quot;epoz-forecolor&quot; title=&quot;Text Color&quot;
++                i18n:attributes=&quot;title&quot;&gt;&amp;#160;&lt;/button&gt;
++        &lt;button class=&quot;epoz-hilitecolor&quot; id=&quot;epoz-hilitecolor&quot; title=&quot;Background Color&quot;
++                i18n:attributes=&quot;title&quot;&gt;&amp;#160;&lt;/button&gt;
++      &lt;/span&gt;
++      &lt;span class=&quot;epoz-tb-buttongroup&quot;&gt;
++        &lt;button class=&quot;epoz-justifyleft&quot; title=&quot;Left Justify&quot;
++                i18n:attributes=&quot;title&quot;
++                onclick=&quot;epozui.basicButtonHandler('justifyleft');&quot;&gt;&amp;#160;&lt;/button&gt;
++        &lt;button class=&quot;epoz-justifycenter&quot; title=&quot;Center&quot;
++                i18n:attributes=&quot;title&quot;
++                onclick=&quot;epozui.basicButtonHandler('justifycenter');&quot;&gt;&amp;#160;&lt;/button&gt;
++        &lt;button class=&quot;epoz-justifyright&quot; title=&quot;Right Justify&quot;
++                i18n:attributes=&quot;title&quot;
++                onclick=&quot;epozui.basicButtonHandler('justifyright');&quot;&gt;&amp;#160;&lt;/button&gt;
++      &lt;/span&gt;
++      &lt;span class=&quot;epoz-tb-buttongroup&quot;&gt;
++        &lt;!-- list button events are set on the list tool --&gt;
++        &lt;button class=&quot;epoz-insertorderedlist&quot; title=&quot;Numbered List&quot;
++                id=&quot;epoz-list-ol-addbutton&quot; i18n:attributes=&quot;title&quot;&gt;&amp;#160;&lt;/button&gt;
++        &lt;button class=&quot;epoz-insertunorderedlist&quot; title=&quot;Unordered List&quot;
++                id=&quot;epoz-list-ul-addbutton&quot; i18n:attributes=&quot;title&quot;&gt;&amp;#160;&lt;/button&gt;
++        &lt;button class=&quot;epoz-outdent&quot; title=&quot;Outdent&quot;
++                i18n:attributes=&quot;title&quot;
++                onclick=&quot;epozui.basicButtonHandler('outdent');&quot;&gt;&amp;#160;&lt;/button&gt;
++        &lt;button class=&quot;epoz-indent&quot; title=&quot;Indent&quot;
++                i18n:attributes=&quot;title&quot;
++                onclick=&quot;epozui.basicButtonHandler('indent');&quot;&gt;&amp;#160;&lt;/button&gt;
++        &lt;button class=&quot;epoz-inserthorizontalrule&quot; title=&quot;Ruled Line&quot;
++                i18n:attributes=&quot;title&quot;
++                onclick=&quot;epozui.basicButtonHandler('inserthorizontalrule');&quot;&gt;&amp;#160;&lt;/button&gt;
++      &lt;/span&gt;
++      &lt;span class=&quot;epoz-tb-buttongroup&quot;&gt;
++        &lt;button class=&quot;epoz-undo&quot; title=&quot;Undo&quot;
++                i18n:attributes=&quot;title&quot;
++                onclick=&quot;epozui.basicButtonHandler('undo');&quot;&gt;&amp;#160;&lt;/button&gt;
++        &lt;button class=&quot;epoz-redo&quot; title=&quot;Redo&quot;
++                i18n:attributes=&quot;title&quot;
++                onclick=&quot;epozui.basicButtonHandler('redo');&quot;&gt;&amp;#160;&lt;/button&gt;
++      &lt;/span&gt;
++    &lt;/span&gt;
++	&lt;select id=&quot;epoz-ulstyles&quot;&gt;
++	  &lt;option value=&quot;disc&quot; i18n:translate=&quot;list-disc&quot;&gt;&amp;#9679;&lt;/option&gt;
++	  &lt;option value=&quot;square&quot; i18n:translate=&quot;list-square&quot;&gt;&amp;#9632;&lt;/option&gt;
++	  &lt;option value=&quot;circle&quot; i18n:translate=&quot;list-circle&quot;&gt;&amp;#9675;&lt;/option&gt;
++	  &lt;option value=&quot;none&quot; i18n:translate=&quot;list-nobullet&quot;&gt;no bullet&lt;/option&gt;
++	&lt;/select&gt;
++	&lt;select id=&quot;epoz-olstyles&quot;&gt;
++	  &lt;option value=&quot;decimal&quot; 
++		  i18n:translate=&quot;list-decimal&quot;&gt;1&lt;/option&gt;
++	  &lt;option value=&quot;upper-roman&quot; 
++		  i18n:translate=&quot;list-upperroman&quot;&gt;I&lt;/option&gt;
++	  &lt;option value=&quot;lower-roman&quot; 
++		  i18n:translate=&quot;list-lowerroman&quot;&gt;i&lt;/option&gt;
++	  &lt;option value=&quot;upper-alpha&quot; 
++		  i18n:translate=&quot;list-upperalpha&quot;&gt;A&lt;/option&gt;
++	  &lt;option value=&quot;lower-alpha&quot; 
++		  i18n:translate=&quot;list-loweralpha&quot;&gt;a&lt;/option&gt;
++	&lt;/select&gt;
++
++  &lt;/div&gt;
++  
++&lt;!-- end toolbar --&gt;
++
++  &lt;div class=&quot;epoz-toolboxes&quot; metal:define-macro=&quot;epoz_toolboxes&quot;&gt;
++
++    &lt;div class=&quot;epoz-toolbox&quot; id=&quot;epoz-toolbox-properties&quot; metal:define-slot=&quot;epoz_toolbox_properties&quot;&gt;
++      &lt;!-- start epoz toolbox properties --&gt;
++      
++      &lt;h1&gt;Properties&lt;/h1&gt;
++
++      &lt;table id=&quot;epoz-properties&quot;&gt;
++        &lt;tbody&gt;
++          &lt;tr&gt;
++            &lt;td&gt;Title&lt;/td&gt;
++            &lt;td&gt;&lt;input id=&quot;epoz-properties-title&quot; /&gt;
++	    &lt;/td&gt;
++          &lt;/tr&gt;
++          &lt;tr&gt;
++            &lt;td colspan=&quot;2&quot;&gt;Description&lt;/td&gt;
++          &lt;/tr&gt;
++          &lt;tr&gt;
++            &lt;td colspan=&quot;2&quot;&gt;
++	      &lt;textarea id=&quot;epoz-properties-description&quot;&gt; &lt;/textarea&gt;
++	    &lt;/td&gt;
++          &lt;/tr&gt;
++        &lt;/tbody&gt;
++      &lt;/table&gt;
++      
++      &lt;!-- end epoz toolbox properties --&gt;
++    &lt;/div&gt;
++
++    &lt;div class=&quot;epoz-toolbox&quot; id=&quot;epoz-toolbox-links&quot; metal:define-slot=&quot;epoz_toolbox_links&quot;&gt;
++      &lt;!-- start epoz toolbox links --&gt;
++    
++      &lt;h1 i18n:translate=&quot;links&quot;&gt;Links&lt;/h1&gt;
++
++      &lt;div id=&quot;epoz-toolbox-addlink&quot;&gt;
++	&lt;div class=&quot;epoz-toolbox-label&quot;&gt;
++	  &lt;!--           Link to items matching the keyword  --&gt;
++          &lt;span tal:omit-tag=&quot;&quot; i18n:translate=&quot;items-matching-keyword&quot;&gt;
++	    Link the highlighted text to this URL
++          &lt;/span&gt;:
++	&lt;/div&gt;
++
++	&lt;input id=&quot;epoz-link-input&quot;
++               class=&quot;epoz-toolbox-st&quot; 
++               type=&quot;text&quot; size=&quot;14&quot; /&gt;
++	&lt;button id=&quot;epoz-link-button&quot;
++		class=&quot;epoz-toolbox-action&quot;&gt;Make Link&lt;/button&gt;
++        &lt;div id=&quot;epoz-link-results&quot; class=&quot;epoz-toolbox-results&quot; 
++	     onclick=&quot;epozui.linkResource(event);&quot;&gt; &lt;/div&gt;
++
++      &lt;/div&gt;
++
++      &lt;div id=&quot;epoz-toolbox-editlink&quot;&gt;
++	&lt;div class=&quot;epoz-toolbox-label&quot;&gt;
++	  &lt;!--           Link to items matching the keyword  --&gt;
++          &lt;span tal:omit-tag=&quot;&quot; i18n:translate=&quot;items-matching-keyword&quot;&gt;
++	    Modify properties of current link
++          &lt;/span&gt;:
++	&lt;/div&gt;
++
++      &lt;table id=&quot;epoz-toolbox-linktable&quot;&gt;
++        &lt;tbody&gt;
++          &lt;tr&gt;
++            &lt;td&gt;Target&lt;/td&gt;
++            &lt;td&gt;&lt;input id=&quot;epoz-link-href&quot; size=&quot;18&quot; /&gt;&lt;/td&gt;
++          &lt;/tr&gt;
++          &lt;tr&gt;
++            &lt;td&gt;Title&lt;/td&gt;
++            &lt;td&gt;&lt;input id=&quot;epoz-link-title&quot; size=&quot;18&quot; /&gt;&lt;/td&gt;
++          &lt;/tr&gt;
++        &lt;/tbody&gt;
++      &lt;/table&gt;
++
++      &lt;/div&gt;
++
++      &lt;!-- end epoz toolbox links --&gt;
++    &lt;/div&gt;
++
++    &lt;div class=&quot;epoz-toolbox&quot; id=&quot;epoz-toolbox-images&quot; metal:define-slot=&quot;epoz_toolbox_images&quot;&gt;
++      &lt;!-- start epoz toolbox images --&gt;
++    
++      &lt;h1 i18n:translate=&quot;images&quot;&gt;Images&lt;/h1&gt;
++
++      &lt;div class=&quot;epoz-toolbox-label&quot;&gt;
++        &lt;span tal:omit-tag=&quot;&quot; i18n:translate=&quot;&quot;&gt;
++	  Insert image at the following URL
++        &lt;/span&gt;:
++      &lt;/div&gt;
++
++      &lt;input id=&quot;epoz-image-input&quot;
++	     value=&quot;boa.jpg&quot;
++             class=&quot;epoz-toolbox-st&quot; 
++             type=&quot;text&quot; size=&quot;14&quot; /&gt;
++      &lt;button id=&quot;epoz-image-addbutton&quot; class=&quot;epoz-toolbox-action&quot;&gt;Insert Image&lt;/button&gt;
++
++      &lt;!-- end epoz toolbox images --&gt;
++    &lt;/div&gt;
++
++    &lt;div class=&quot;epoz-toolbox&quot; id=&quot;epoz-toolbox-tables&quot; metal:define-slot=&quot;epoz_toolbox_tables&quot;&gt;
++      &lt;!-- start epoz toolbox tables --&gt;
++      
++      &lt;h1 i18n:translate=&quot;table-inspector&quot;&gt;Tables&lt;/h1&gt;
++
++      &lt;table width=&quot;100%&quot;&gt;
++        &lt;tbody&gt;
++          &lt;tr&gt;
++            &lt;td&gt;Table Class&lt;/td&gt;
++            &lt;td&gt;
++              &lt;select id=&quot;epoz-table-classchooser&quot;&gt;
++                &lt;option value=&quot;plain&quot;&gt;Plain&lt;/option&gt;
++                &lt;option value=&quot;listing&quot;&gt;Listing&lt;/option&gt;
++                &lt;option value=&quot;grid&quot;&gt;Grid&lt;/option&gt;
++                &lt;option value=&quot;data&quot;&gt;Data&lt;/option&gt;
++              &lt;/select&gt;
++            &lt;/td&gt;
++          &lt;/tr&gt;
++	  &lt;tr&gt;
++            &lt;td colspan=&quot;2&quot;&gt;
++              &lt;div id=&quot;epoz-toolbox-addtable&quot;&gt;
++                &lt;table width=&quot;100%&quot;&gt;
++                  &lt;tr&gt;
++                    &lt;td&gt;Rows&lt;/td&gt;
++                    &lt;td&gt;&lt;input id=&quot;epoz-table-newrows&quot;/&gt;&lt;/td&gt;
++                  &lt;/tr&gt;
++                  &lt;tr&gt;
++                    &lt;td&gt;Columns&lt;/td&gt;
++                    &lt;td&gt;&lt;input id=&quot;epoz-table-newcols&quot;/&gt;&lt;/td&gt;
++                  &lt;/tr&gt;
++                  &lt;tr&gt;
++                    &lt;td&gt;Headings&lt;/td&gt;
++                    &lt;td&gt;
++                      &lt;input id=&quot;epoz-table-makeheader&quot; type=&quot;checkbox&quot;/&gt; Create
++                    &lt;/td&gt;
++                  &lt;/tr&gt;
++                  &lt;tr&gt;
++                    &lt;td&gt; &lt;/td&gt;
++                    &lt;td&gt;&lt;button id=&quot;epoz-table-addtable-button&quot;&gt;Add&lt;/button&gt;&lt;/td&gt;
++                  &lt;/tr&gt;
++                &lt;/table&gt;
++              &lt;/div&gt;
++              &lt;div id=&quot;epoz-toolbox-edittable&quot;&gt;
++                &lt;table width=&quot;100%&quot;&gt;
++                  &lt;tr&gt;
++                    &lt;td&gt;Col Align&lt;/td&gt;
++                    &lt;td&gt;
++                      &lt;select id=&quot;epoz-table-alignchooser&quot;&gt;
++                        &lt;option value=&quot;left&quot;&gt;Left&lt;/option&gt;
++                        &lt;option value=&quot;center&quot;&gt;Center&lt;/option&gt;
++                        &lt;option value=&quot;right&quot;&gt;Right&lt;/option&gt;
++                        &lt;/select&gt;
++                    &lt;/td&gt;
++                  &lt;/tr&gt;
++                  &lt;tr&gt;
++                    &lt;td&gt;Column&lt;/td&gt;
++                    &lt;td&gt;
++                        &lt;button id=&quot;epoz-table-addcolumn-button&quot;&gt;Add&lt;/button&gt;
++                        &lt;button id=&quot;epoz-table-delcolumn-button&quot;&gt;Remove&lt;/button&gt;
++                    &lt;/td&gt;
++                  &lt;/tr&gt;
++                  &lt;tr&gt;
++                    &lt;td&gt;Row&lt;/td&gt;
++                    &lt;td&gt;
++                      &lt;button id=&quot;epoz-table-addrow-button&quot;&gt;Add&lt;/button&gt; 
++                      &lt;button id=&quot;epoz-table-delrow-button&quot;&gt;Remove&lt;/button&gt;&lt;/td&gt;
++                  &lt;/tr&gt;
++                &lt;/table&gt;
++              &lt;/div&gt;
++            &lt;/td&gt;
++          &lt;/tr&gt;
++        &lt;/tbody&gt;
++      &lt;/table&gt;
++
++      &lt;!-- end epoz toolbox tables --&gt;
++    &lt;/div&gt;
++    &lt;div class=&quot;epoz-toolbox&quot; id=&quot;epoz-toolbox-extra&quot;&gt;
++      &lt;!-- start epoz toolbox extra --&gt;
++
++
++      &lt;!-- end epoz toolbox extra --&gt;
++    &lt;/div&gt;
++
++    &lt;div class=&quot;epoz-toolbox&quot; id=&quot;epoz-toolbox-debug&quot; metal:define-slot=&quot;epoz_toolbox_debug&quot;&gt;
++      &lt;!-- start epoz toolbox debug --&gt;
++      
++      &lt;h1 i18n:translate=&quot;debug-log&quot;&gt;Debug Log&lt;/h1&gt;
++
++      &lt;div id=&quot;epoz-toolbox-debuglog&quot; style=&quot;height: 150px;&quot;&gt;
++      &lt;/div&gt;
++
++      &lt;!-- end epoz toolbox debug --&gt;
++    &lt;/div&gt;
++
++  &lt;/div&gt;
++
++  &lt;!-- End toolboxes  --&gt;
++
++  &lt;table id=&quot;epoz-colorchooser&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; style=&quot;position: fixed; border-style: solid; border-color: black; border-width: 1px;&quot;&gt; &lt;/table&gt;
++        
++  &lt;script type=&quot;text/javascript&quot;&gt;
++      function startEpoz() {
++          try {
++              epoz.initialize();
++          } catch(e) {
++              window.setTimeout(&quot;startEpoz()&quot;, 100);
++          }
++      };
++  &lt;/script&gt;
++  &lt;div class=&quot;epoz-editorframe&quot; metal:define-slot=&quot;epoz_editorframe&quot;&gt;
++    &lt;!-- FIXME: reloadsrc=&quot;1&quot; doesn't seem to be modified by the XSLT --&gt;
++    &lt;iframe id=&quot;epoz-editor&quot; frameborder=&quot;0&quot; src=&quot;/epoz/common/tutorial.html&quot;
++            reloadsrc=&quot;0&quot; usecss=&quot;1&quot;
++	    metal:define-macro=&quot;epoz_editorframe&quot;
++            tal:attributes=&quot;src nothing&quot;
++            onload=&quot;startEpoz()&quot;&gt; &lt;/iframe&gt;
++  &lt;/div&gt;
++&lt;/div&gt;
++
++&lt;script type=&quot;text/javascript&quot;&gt;
++  // Important!! IE can't do this in the onload handler, it leads 
++  // to double events everywhere
++  var d = document.getElementById(&quot;epoz-editor&quot;).contentWindow.document;
++  if (_SARISSA_IS_IE) {
++    d.designMode = &quot;On&quot;;
++  }
++&lt;/script&gt;
++
++&lt;/div&gt;
++
++&lt;/body&gt;
++&lt;/html&gt;
+
+Added: epoz/trunk/epoz/apache-lenya/epozsave-xhtml.xsl
+==============================================================================
+--- (empty file)
++++ epoz/trunk/epoz/apache-lenya/epozsave-xhtml.xsl	Tue Jan 27 19:47:06 2004
+@@ -0,0 +1,44 @@
++&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
++
++&lt;!--
++    Document   : epozsave-xhtml.xsl
++    Created on : 2003/12/12
++    Author     : Rolf Kulemann
++    Author     : Michael Wechner
++    Description:
++        Merges lenya:meta into xhtml send by epoz for save.
++        We also remove some &lt;link&gt;s here i.e. for css and rel.
++--&gt;
++
++&lt;xsl:stylesheet version=&quot;1.0&quot;
++  xmlns:xsl=&quot;<A HREF="http://www.w3.org/1999/XSL/Transform"">http://www.w3.org/1999/XSL/Transform&quot;</A>
++  xmlns:lenya=&quot;<A HREF="http://apache.org/cocoon/lenya/page-envelope/1.0"">http://apache.org/cocoon/lenya/page-envelope/1.0&quot;</A>
++  xmlns:dc=&quot;<A HREF="http://purl.org/dc/elements/1.1/"">http://purl.org/dc/elements/1.1/&quot;</A>
++  xmlns=&quot;<A HREF="http://www.w3.org/1999/xhtml"">http://www.w3.org/1999/xhtml&quot;</A>
++  xmlns:xhtml=&quot;<A HREF="http://www.w3.org/1999/xhtml"">http://www.w3.org/1999/xhtml&quot;</A>
++ &gt;
++
++&lt;!-- FIXME: Insert doctype declaration.  --&gt;
++&lt;!--
++&lt;xsl:output method=&quot;xml&quot; version=&quot;1.0&quot; indent=&quot;yes&quot; doctype-public=&quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot; doctype-system=&quot;<A HREF="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"/">http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;/</A>&gt;
++--&gt;
++
++&lt;xsl:template match=&quot;edit-envelope&quot;&gt;
++  &lt;html&gt;
++    &lt;xsl:copy-of select=&quot;original/xhtml:html/lenya:meta&quot;/&gt;
++    &lt;head&gt;
++      &lt;xsl:apply-templates select=&quot;edited/xhtml:html/xhtml:head/*&quot;/&gt;
++    &lt;/head&gt;
++    &lt;xsl:copy-of select=&quot;edited/xhtml:html/xhtml:body&quot;/&gt;
++  &lt;/html&gt;
++&lt;/xsl:template&gt;
++
++&lt;xsl:template match=&quot;xhtml:link&quot;/&gt;
++
++&lt;xsl:template match=&quot;@*|node()&quot;&gt;
++  &lt;xsl:copy&gt;
++    &lt;xsl:apply-templates select=&quot;@*|node()&quot;/&gt;
++  &lt;/xsl:copy&gt;
++&lt;/xsl:template&gt; 
++
++&lt;/xsl:stylesheet&gt;
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000559.html">[epoz-checkins] r2900 - in epoz/trunk/epoz/common: . epozimages
+</A></li>
+	<LI> Next message: <A HREF="000561.html">[epoz-checkins] r2902 - epoz/trunk/epoz/common
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#560">[ date ]</a>
+              <a href="thread.html#560">[ thread ]</a>
+              <a href="subject.html#560">[ subject ]</a>
+              <a href="author.html#560">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

@@ -1,0 +1,597 @@
+<HTML><HEAD>
+<title>
+how to change dpi? -- dotnet drawing api 
+</title>
+<link rel="stylesheet" type="text/css" media="screen" href="http://www.developmentnow.com/css/developmentnow.css"><link rel="stylesheet" type="text/css" media="screen" href="http://www.developmentnow.com/css/nntp.css"><script language="javascript" src="http://www.developmentnow.com/js/nntp.js"></script>
+<link type="text/css" rel="stylesheet" href="/css/style.css" /> 
+<link type="text/css" rel="stylesheet" href="/css/new.css" /> 
+ 
+<style>
+
+#groupsmain
+{
+  margin:10px auto;
+  background-color:#ffffff;
+  font-size:12px; 
+  width:100%; padding:0; 
+	-moz-box-shadow: 0 0 18px rgba(0, 20, 50, 0.9); 
+	-webkit-box-shadow: 0 0 18px rgba(0, 20, 50, 0.6); 
+	box-shadow: 0 0 18px rgba(0, 20, 50, 0.6); 
+	border:0;
+	width:940px;
+	padding:20px;
+}
+
+a, a:active, a:link, a:visited { color:#000; text-decoration:underline; }
+a:hover { color:#8bca04; text-decoration:none; background:none; }
+
+.headeraddiv 
+{
+  background:#3E5F8C url(/images/obblue.jpg) repeat-x scroll 0 -45px !important;
+  border:1px solid #333;
+  color:white;
+  margin-bottom:10px;
+}
+</style></HEAD>
+<body>
+<!-- google_ad_section_start(weight=ignore) -->
+ 
+<!-- new template --> 
+<div id="container"> 
+	<div id="topmenu"> 
+	
+	<div class="toplogo" > 
+        <a href="/"><img src="/images/logo.png" border="0" alt="developmentnow mobile web and social media" /></a> 
+    </div> 
+		<ul> 
+			<li><a  href="/">Home</a></li> 
+			<li><a  href="/about.aspx">About</a></li> 
+			<li><a  href="/services.aspx">Services</a></li> 
+			<li><a  href="/contact.aspx">Contact</a></li> 
+		</ul> 
+		<br clear="all" /> 
+	</div> 
+	
+	<div id="frame-header"> &nbsp; </div> 
+<!-- end new template --> 
+
+
+<div id="groupsmain" style="">
+<table width="100%" cellpadding="4" cellspacing="0" >
+
+<tr> <td colspan="3" align="center" >
+
+<div class="headeraddiv">
+
+Psst! Did you know
+DevelopmentNow is a <a href="http://www.developmentnow.com/mobile-website-design.aspx">mobile web site design agency</a>?
+
+<br /><br />
+<a href="/contact.aspx?m=1">Contact us</a> for help mobilizing your site, or to sign up for our beta Mobile Web SDK!
+
+</div>
+
+</td></tr>
+
+<!-- google_ad_section_end -->
+
+<tr>
+	<td colspan="2" bgcolor="#ffffff" valign="top"><!-- content -->
+
+	<span class="breadcrumb">
+<a href="/g/">all groups</a> &gt; <b><a href="/g/20_0_0_0_0_0/dotnet-framework-drawing.htm">dotnet drawing api</a></b> &gt; <a href="/g/20_2003_11_0_0_0/dotnet-framework-drawing.htm">november 2003</a> &gt; </span><br><br>
+
+	<h3> <a href="/g/20_0_0_0_0_0/dotnet-framework-drawing.htm">dotnet drawing api</a> : 
+		how to change dpi?</h3>
+	<br>
+
+	
+
+	<table cellspacing=0 cellpadding=0 border=0><tr>
+		<td valign="top" class="indexposts">
+	
+			
+				<div class="message">
+				<table class="messageheader">
+					<tr>
+						<td>
+						
+						</td>
+						<td align="right">
+						varun varun<br>
+						11/26/2003 2:56:26 AM
+						</td>
+					</tr>
+				</table>
+				
+									<script type="text/javascript"><!--
+					google_ad_client = "pub-3568481421644361";
+					google_alternate_ad_url = "http://www.developmentnow.com/google_adsense_script.html";
+					google_ad_width = 468;
+					google_ad_height = 60;
+					google_ad_format = "468x60_as";
+					google_ad_channel ="4151996268";
+					google_color_border = "FFFFFF";
+					google_color_bg = "FFFFFF";
+					google_color_link = "CC0000";
+					google_color_url = "008000";
+					google_color_text = "000000";
+					//--></script>
+					<script type="text/javascript"
+					src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+					</script>
+
+				<div class="messagebody" style="width:600px;line-height:1.2">
+					i have an image in jpg format.<br>	<br>	i want to chage its dpi.<br>	<br>	its current dpi is 72.<br>	<br>	i want to change is to 300 and save that<br>	image again.<br>	<br>	how can i do this in vb.net ?<br>	<br>	<br>	<br>	<br>	*** Sent via Developersdex <a href="/groups/redirect.aspx?r=http%3a%2f%2fwww.developersdex.com%3a80%2f">http://www.developersdex.com</a> ***<br>
+				
+				</div>
+				
+
+				
+
+				 
+
+				</div>
+				
+				<div class="message">
+				<table class="messageheader">
+					<tr>
+						<td>
+						
+						</td>
+						<td align="right">
+						Bob Powell [MVP]<br>
+						11/26/2003 1:53:31 PM
+						</td>
+					</tr>
+				</table>
+				
+				
+
+				<div class="messagebody" style="width:600px;line-height:1.2">
+					Load the file into a bitmap, use Bitmap.SetResolution and save the file<br>	again.<br>	<br>	Remember that images are kept open so if you want to save back to the same<br>	filename you'll need to open it from a stream and explicitly close the<br>	stream again. See the GDI+ FAQ for more details.<br>	<br>	In addition, opening and re-saving JPEG files cause compounded degradation<br>	of image quality due to the lossy compression algorithm used. You may wish<br>	to save the file at 100% quality so as not to degrade it too much but this<br>	will create a corresl=pondingly larger file. See the GDI+ FAQ for details on<br>	how to save a JPEG with a specific compression ratio.<br>	<br>	-- <br>	Bob Powell [MVP]<br>	C#, System.Drawing<br>	<br>	The November edition of Well Formed is now available.<br>	Learn how to create Shell Extensions in managed code.<br>	<a href="/groups/redirect.aspx?r=http%3a%2f%2fwww.bobpowell.net%3a80%2fcurrentissue.htm">http://www.bobpowell.net/currentissue.htm</a><br>	<br>	Answer those GDI+ questions with the GDI+ FAQ<br>	<a href="/groups/redirect.aspx?r=http%3a%2f%2fwww.bobpowell.net%3a80%2fgdiplus_faq.htm">http://www.bobpowell.net/gdiplus_faq.htm</a><br>	<br>	Read my Blog at <a href="/groups/redirect.aspx?r=http%3a%2f%2fbobpowelldotnet.blogspot.com%3a80%2f">http://bobpowelldotnet.blogspot.com</a><br>	<br>	<span class="quotelink">[quoted text, <a class="quotelink" href="javascript:void(0);" onclick="javascript:togglediv('text26');">click to view</a>]</span></font><br>	<div id="text26" name="text26" style="position:relative;display:none;" class="quoted">	&quot;varun varun&quot; &lt;varun_789@yahoo.com&gt; wrote in message<br>	news:uYaCxvAtDHA.1756@TK2MSFTNGP09.phx.gbl...<br>	&gt; i have an image in jpg format.<br>	&gt;<br>	&gt; i want to chage its dpi.<br>	&gt;<br>	&gt; its current dpi is 72.<br>	&gt;<br>	&gt; i want to change is to 300 and save that<br>	&gt; image again.<br>	&gt;<br>	&gt; how can i do this in vb.net ?<br>	&gt;<br>	&gt;<br>	&gt;<br>	&gt;<br>	&gt; *** Sent via Developersdex <a href="/groups/redirect.aspx?r=http%3a%2f%2fwww.developersdex.com%3a80%2f">http://www.developersdex.com</a> ***<br>	&gt; Don't just participate in USENET...get rewarded for it!<br></div>	<br>
+				
+				</div>
+				
+
+				
+
+				 
+
+				</div>
+				
+				<div class="message">
+				<table class="messageheader">
+					<tr>
+						<td>
+						
+						</td>
+						<td align="right">
+						Jason Dorie<br>
+						11/26/2003 7:53:55 PM
+						</td>
+					</tr>
+				</table>
+				
+				
+
+				<div class="messagebody" style="width:600px;line-height:1.2">
+					Images are kept open?  Why?<br>	<br>	Under what circumstances?<br>	<br>	Jason<br>	<br>	<br>	<span class="quotelink">[quoted text, <a class="quotelink" href="javascript:void(0);" onclick="javascript:togglediv('text7');">click to view</a>]</span></font><br>	<div id="text7" name="text7" style="position:relative;display:none;" class="quoted">	&quot;Bob Powell [MVP]&quot; &lt;bob@_spamkiller_bobpowell.net&gt; wrote in message<br>	news:u2dUZxBtDHA.1888@TK2MSFTNGP10.phx.gbl...<br>	&gt; Load the file into a bitmap, use Bitmap.SetResolution and save the file<br>	&gt; again.<br>	&gt;<br>	&gt; Remember that images are kept open so if you want to save back to the same<br>	&gt; filename you'll need to open it from a stream and explicitly close the<br>	&gt; stream again. See the GDI+ FAQ for more details.<br>	&gt;<br>	&gt; In addition, opening and re-saving JPEG files cause compounded degradation<br>	&gt; of image quality due to the lossy compression algorithm used. You may wish<br>	&gt; to save the file at 100% quality so as not to degrade it too much but this<br>	&gt; will create a corresl=pondingly larger file. See the GDI+ FAQ for details<br>	on<br>	&gt; how to save a JPEG with a specific compression ratio.<br>	&gt;<br>	&gt; -- <br>	&gt; Bob Powell [MVP]<br>	&gt; C#, System.Drawing<br></div>	<br>
+				
+				</div>
+				
+
+				
+
+				 
+
+				</div>
+				
+				<div class="message">
+				<table class="messageheader">
+					<tr>
+						<td>
+						
+						</td>
+						<td align="right">
+						Jason Dorie<br>
+						11/27/2003 4:19:17 AM
+						</td>
+					</tr>
+				</table>
+				
+				
+
+				<div class="messagebody" style="width:600px;line-height:1.2">
+					Bob,<br>	<br>	1st - Is there any way to get image information without causing a full load<br>	of an image?  (It'd be better if it could be done through a stream as well,<br>	but I realize that might not be feasible).  I have C++ code to extract<br>	header info from most of the formats I'm using, but it'd be nice if the GDI+<br>	stuff could do it.<br>	<br>	2nd - If I run this code:<br>	<br>	Image fileImg = Image.FromFile(&quot;C:\\MyImage.png&quot;);<br>	Image memImg = new Bitmap(fileImg);<br>	fileImg.Dispose();<br>	<br>	....will the source file still be open?  (I assume the Bitmap(source)<br>	constructor makes a copy?)<br>	<br>	I'm writing an app that makes very heavy use of images, thumbnails,<br>	previews, composites, and so on.  These kinds of things are important to me<br>	as the performance is decent, but could be much better.<br>	<br>	Thanks,<br>	Jason Dorie<br>	<br>	<br>	<br>	<br>	<span class="quotelink">[quoted text, <a class="quotelink" href="javascript:void(0);" onclick="javascript:togglediv('text27');">click to view</a>]</span></font><br>	<div id="text27" name="text27" style="position:relative;display:none;" class="quoted">	&quot;Bob Powell [MVP]&quot; &lt;bob@_spamkiller_bobpowell.net&gt; wrote in message<br>	news:u2UUouMtDHA.2224@TK2MSFTNGP09.phx.gbl...<br>	&gt; When an image is initially loaded from a file such as<br>	&gt; Image.FromFile(&lt;filename&gt;) the file is opened and the image size etc made<br>	&gt; available but the image bits may not be read until the picture is<br>	displayed.<br>	&gt; This keeps the file open and it remains so for the life of the object.<br>	&gt; Attempting to save a modified image back to the same filename throws an<br>	&gt; exception.<br>	&gt;<br>	&gt; To overcome this problem you can open the file using a stream, use<br>	&gt; Image.FromStream to load the file and explicitly close the stream to<br>	release<br>	&gt; the file lock.<br>	&gt;<br>	&gt; -- <br>	&gt; Bob Powell [MVP]<br>	&gt; C#, System.Drawing<br></div>	<br>
+				
+				</div>
+				
+
+				
+
+				 
+
+				</div>
+				
+				<div class="message">
+				<table class="messageheader">
+					<tr>
+						<td>
+						
+						</td>
+						<td align="right">
+						Bob Powell [MVP]<br>
+						11/27/2003 10:48:23 AM
+						</td>
+					</tr>
+				</table>
+				
+				
+
+				<div class="messagebody" style="width:600px;line-height:1.2">
+					When an image is initially loaded from a file such as<br>	Image.FromFile(&lt;filename&gt;) the file is opened and the image size etc made<br>	available but the image bits may not be read until the picture is displayed.<br>	This keeps the file open and it remains so for the life of the object.<br>	Attempting to save a modified image back to the same filename throws an<br>	exception.<br>	<br>	To overcome this problem you can open the file using a stream, use<br>	Image.FromStream to load the file and explicitly close the stream to release<br>	the file lock.<br>	<br>	-- <br>	Bob Powell [MVP]<br>	C#, System.Drawing<br>	<br>	The November edition of Well Formed is now available.<br>	Learn how to create Shell Extensions in managed code.<br>	<a href="/groups/redirect.aspx?r=http%3a%2f%2fwww.bobpowell.net%3a80%2fcurrentissue.htm">http://www.bobpowell.net/currentissue.htm</a><br>	<br>	Answer those GDI+ questions with the GDI+ FAQ<br>	<a href="/groups/redirect.aspx?r=http%3a%2f%2fwww.bobpowell.net%3a80%2fgdiplus_faq.htm">http://www.bobpowell.net/gdiplus_faq.htm</a><br>	<br>	Read my Blog at <a href="/groups/redirect.aspx?r=http%3a%2f%2fbobpowelldotnet.blogspot.com%3a80%2f">http://bobpowelldotnet.blogspot.com</a><br>	<br>	<span class="quotelink">[quoted text, <a class="quotelink" href="javascript:void(0);" onclick="javascript:togglediv('text24');">click to view</a>]</span></font><br>	<div id="text24" name="text24" style="position:relative;display:none;" class="quoted">	&quot;Jason Dorie&quot; &lt;jdorie@deathtospam.ea.com&gt; wrote in message<br>	news:eHkuVoJtDHA.2440@TK2MSFTNGP12.phx.gbl...<br>	&gt; Images are kept open?  Why?<br>	&gt;<br>	&gt; Under what circumstances?<br>	&gt;<br>	&gt; Jason<br>	&gt;<br>	&gt;<br>	&gt; &quot;Bob Powell [MVP]&quot; &lt;bob@_spamkiller_bobpowell.net&gt; wrote in message<br>	&gt; news:u2dUZxBtDHA.1888@TK2MSFTNGP10.phx.gbl...<br>	&gt; &gt; Load the file into a bitmap, use Bitmap.SetResolution and save the file<br>	&gt; &gt; again.<br>	&gt; &gt;<br>	&gt; &gt; Remember that images are kept open so if you want to save back to the<br>	same<br>	&gt; &gt; filename you'll need to open it from a stream and explicitly close the<br>	&gt; &gt; stream again. See the GDI+ FAQ for more details.<br>	&gt; &gt;<br>	&gt; &gt; In addition, opening and re-saving JPEG files cause compounded<br>	degradation<br>	&gt; &gt; of image quality due to the lossy compression algorithm used. You may<br>	wish<br>	&gt; &gt; to save the file at 100% quality so as not to degrade it too much but<br>	this<br>	&gt; &gt; will create a corresl=pondingly larger file. See the GDI+ FAQ for<br>	details<br>	&gt; on<br>	&gt; &gt; how to save a JPEG with a specific compression ratio.<br>	&gt; &gt;<br>	&gt; &gt; -- <br>	&gt; &gt; Bob Powell [MVP]<br>	&gt; &gt; C#, System.Drawing<br>	&gt;<br>	&gt;<br></div>	<br>
+				
+				</div>
+				
+
+				
+
+				 
+
+				</div>
+				
+				<div class="message">
+				<table class="messageheader">
+					<tr>
+						<td>
+						
+						</td>
+						<td align="right">
+						JHornick NO[at]SPAM online.microsoft.com<br>
+						12/2/2003 6:10:09 PM
+						</td>
+					</tr>
+				</table>
+				
+				
+
+				<div class="messagebody" style="width:600px;line-height:1.2">
+					Hi,<br>	<br>	We (finally) have a KB on this topic:<br>	<a href="/groups/redirect.aspx?r=http%3a%2f%2fsupport.microsoft.com%3a80%2f%3fid%3d814675">http://support.microsoft.com/?id=814675</a><br>	<br>	Thanks,<br>	- John<br>	Microsoft Developer Support<br>	This posting is provided &quot;AS IS&quot; with no warranties, and confers no rights.<br>	Visit <a href="/groups/redirect.aspx?r=http%3a%2f%2fwww.microsoft.com%3a80%2fsecurity">http://www.microsoft.com/security</a> for current information on security.<br>	<br>	<br>	<br>	<span class="quotelink">[quoted text, <a class="quotelink" href="javascript:void(0);" onclick="javascript:togglediv('text13');">click to view</a>]</span></font><br>	<div id="text13" name="text13" style="position:relative;display:none;" class="quoted">	&gt; 1st - Is there any way to get image information without causing a full <br>	load<br>	&gt; of an image?  (It'd be better if it could be done through a stream as <br>	well,<br>	&gt; but I realize that might not be feasible).  I have C++ code to extract<br>	&gt; header info from most of the formats I'm using, but it'd be nice if the <br>	GDI+<br>	&gt; stuff could do it.<br>	&gt; <br>	&gt; 2nd - If I run this code:<br>	&gt; <br>	&gt; Image fileImg = Image.FromFile(&quot;C:\\MyImage.png&quot;);<br>	&gt; Image memImg = new Bitmap(fileImg);<br>	&gt; fileImg.Dispose();<br>	&gt; <br>	&gt; ...will the source file still be open?  (I assume the Bitmap(source)<br>	&gt; constructor makes a copy?)<br>	&gt; <br>	&gt; I'm writing an app that makes very heavy use of images, thumbnails,<br>	&gt; previews, composites, and so on.  These kinds of things are important to <br>	me<br>	&gt; as the performance is decent, but could be much better.<br>	&gt; <br>	&gt; Thanks,<br>	&gt; Jason Dorie<br>	&gt; <br>	&gt; <br>	&gt; <br>	&gt; <br>	&gt; &quot;Bob Powell [MVP]&quot; &lt;bob@_spamkiller_bobpowell.net&gt; wrote in message<br>	&gt; news:u2UUouMtDHA.2224@TK2MSFTNGP09.phx.gbl...<br>	&gt; &gt; When an image is initially loaded from a file such as<br>	&gt; &gt; Image.FromFile(&lt;filename&gt;) the file is opened and the image size etc <br>	made<br>	&gt; &gt; available but the image bits may not be read until the picture is<br>	&gt; displayed.<br>	&gt; &gt; This keeps the file open and it remains so for the life of the object.<br>	&gt; &gt; Attempting to save a modified image back to the same filename throws an<br>	&gt; &gt; exception.<br>	&gt; &gt;<br>	&gt; &gt; To overcome this problem you can open the file using a stream, use<br>	&gt; &gt; Image.FromStream to load the file and explicitly close the stream to<br>	&gt; release<br>	&gt; &gt; the file lock.<br>	&gt; &gt;<br>	&gt; &gt; -- <br>	&gt; &gt; Bob Powell [MVP]<br>	&gt; &gt; C#, System.Drawing<br>
+				
+				</div>
+				
+
+				
+
+				 
+
+				</div>
+				
+				<div class="message">
+				<table class="messageheader">
+					<tr>
+						<td>
+						
+						</td>
+						<td align="right">
+						varun varun<br>
+						12/4/2003 6:40:18 AM
+						</td>
+					</tr>
+				</table>
+				
+				
+
+				<div class="messagebody" style="width:600px;line-height:1.2">
+					By means of setresolution property, i could alter the<br>	resolution of an image.<br>	<br>	but if we do the same in image editor software such as photoshop,<br>	the size of an image decreases upon increasing its<br>	resolution. however i did not find the same happening while<br>	increasing the resolution.<br>	<br>	also, by height and width property, we get the height and width<br>	of an image in pixels.<br>	i want to get it into inches. how can i have that ?<br>	<br>	also if i want to crop(cut) the image from its outer border,<br>	how can i do that ?<br>	<br>	regards-varun<br>	<br>	<br>	<br>	<br>	<br>	*** Sent via Developersdex <a href="/groups/redirect.aspx?r=http%3a%2f%2fwww.developersdex.com%3a80%2f">http://www.developersdex.com</a> ***<br>
+				
+				</div>
+				
+
+				
+
+				 
+
+				</div>
+				
+
+
+			<div class="threadreplylink">
+			<a class="threadreplylink" href="/groups/post.aspx?newsgroupid=20&threadid=101999">Got something to say? Click here to post a reply to this thread.</a>
+			</div>
+
+			
+			<center>
+			<div class="groupreplylink" style="width:600px;padding:8px;">
+			<span style="color:#00c;font-weight:bold">Don't see what you're looking for? Try a search.</span>
+			<br>
+			
+			
+			<!-- Google CSE Search Box Begins -->
+			<form id="searchbox_015258194770007199679:e2pdvdvh7_8" action="http://www.developmentnow.com/search.aspx">
+			  <input type="hidden" name="cx" value="015258194770007199679:e2pdvdvh7_8" />
+			  <input name="q" type="text" size="40" />
+			  <input type="submit" name="sa" value="Search Now!" style="font-weight:bold;" />
+			  <input type="hidden" name="cof" value="FORID:10" />
+			</form>
+			<script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=searchbox_015258194770007199679%3Ae2pdvdvh7_8"></script>
+			<!-- Google CSE Search Box Ends -->
+			
+			
+			
+			</div>
+			</center>
+			
+
+
+			<div class="threadreplylink">
+			<a class="threadreplylink" href="/g/20_0_0_0_0_0/dotnet-framework-drawing.htm">View other messages about dotnet drawing api</a>
+			
+
+			</div>
+
+<center>
+<!-- AddThis Bookmark Button BEGIN -->
+<a href="http://www.addthis.com/bookmark.php" onclick="window.open('http://www.addthis.com/bookmark.php?wt=nw&pub=Ben Strackany&url='+encodeURIComponent(location.href)+'&title='+encodeURIComponent(document.title), 'addthis', 'scrollbars=yes,menubar=no,width=620,height=520,resizable=yes,toolbar=no,location=no,status=no,screenX=200,screenY=100,left=200,top=100'); return false;" title="Bookmark using any bookmark manager!" target="_blank"><img src="http://s9.addthis.com/button1-bm.gif" width="125" height="16" border="0" alt="AddThis Social Bookmark Button" /></a>
+<!-- AddThis Bookmark Button END -->
+</center>
+
+		</td></tr></table>
+	</td>
+	<td width="160" align="right" valign="top" bgcolor="#ffffff">
+
+<div class="indexmonthlist" style="width:130px;text-align:left">
+		<nobr><span class="threadheading">View Other Months</span></nobr><br>
+		
+		<a href="/g/20_2003_6_0_0_0/dotnet-framework-drawing.htm">June 2003</a><br>
+	
+		<a href="/g/20_2003_7_0_0_0/dotnet-framework-drawing.htm">July 2003</a><br>
+	
+		<a href="/g/20_2003_8_0_0_0/dotnet-framework-drawing.htm">August 2003</a><br>
+	
+		<a href="/g/20_2003_9_0_0_0/dotnet-framework-drawing.htm">September 2003</a><br>
+	
+		<a href="/g/20_2003_10_0_0_0/dotnet-framework-drawing.htm">October 2003</a><br>
+	
+		<a href="/g/20_2003_11_0_0_0/dotnet-framework-drawing.htm">November 2003</a><br>
+	
+		<a href="/g/20_2003_12_0_0_0/dotnet-framework-drawing.htm">December 2003</a><br>
+	
+		<a href="/g/20_2004_1_0_0_0/dotnet-framework-drawing.htm">January 2004</a><br>
+	
+		<a href="/g/20_2004_2_0_0_0/dotnet-framework-drawing.htm">February 2004</a><br>
+	
+		<a href="/g/20_2004_3_0_0_0/dotnet-framework-drawing.htm">March 2004</a><br>
+	
+		<a href="/g/20_2004_4_0_0_0/dotnet-framework-drawing.htm">April 2004</a><br>
+	
+		<a href="/g/20_2004_5_0_0_0/dotnet-framework-drawing.htm">May 2004</a><br>
+	
+		<a href="/g/20_2004_6_0_0_0/dotnet-framework-drawing.htm">June 2004</a><br>
+	
+		<a href="/g/20_2004_7_0_0_0/dotnet-framework-drawing.htm">July 2004</a><br>
+	
+		<a href="/g/20_2004_8_0_0_0/dotnet-framework-drawing.htm">August 2004</a><br>
+	
+		<a href="/g/20_2004_9_0_0_0/dotnet-framework-drawing.htm">September 2004</a><br>
+	
+		<a href="/g/20_2004_10_0_0_0/dotnet-framework-drawing.htm">October 2004</a><br>
+	
+		<a href="/g/20_2004_11_0_0_0/dotnet-framework-drawing.htm">November 2004</a><br>
+	
+		<a href="/g/20_2004_12_0_0_0/dotnet-framework-drawing.htm">December 2004</a><br>
+	
+		<a href="/g/20_2005_1_0_0_0/dotnet-framework-drawing.htm">January 2005</a><br>
+	
+		<a href="/g/20_2005_2_0_0_0/dotnet-framework-drawing.htm">February 2005</a><br>
+	
+		<a href="/g/20_2005_3_0_0_0/dotnet-framework-drawing.htm">March 2005</a><br>
+	
+		<a href="/g/20_2005_4_0_0_0/dotnet-framework-drawing.htm">April 2005</a><br>
+	
+		<a href="/g/20_2005_5_0_0_0/dotnet-framework-drawing.htm">May 2005</a><br>
+	
+		<a href="/g/20_2005_6_0_0_0/dotnet-framework-drawing.htm">June 2005</a><br>
+	
+		<a href="/g/20_2005_7_0_0_0/dotnet-framework-drawing.htm">July 2005</a><br>
+	
+		<a href="/g/20_2005_8_0_0_0/dotnet-framework-drawing.htm">August 2005</a><br>
+	
+		<a href="/g/20_2005_9_0_0_0/dotnet-framework-drawing.htm">September 2005</a><br>
+	
+		<a href="/g/20_2005_10_0_0_0/dotnet-framework-drawing.htm">October 2005</a><br>
+	
+		<a href="/g/20_2005_11_0_0_0/dotnet-framework-drawing.htm">November 2005</a><br>
+	
+		<a href="/g/20_2005_12_0_0_0/dotnet-framework-drawing.htm">December 2005</a><br>
+	
+		<a href="/g/20_2006_1_0_0_0/dotnet-framework-drawing.htm">January 2006</a><br>
+	
+		<a href="/g/20_2006_2_0_0_0/dotnet-framework-drawing.htm">February 2006</a><br>
+	
+		<a href="/g/20_2006_3_0_0_0/dotnet-framework-drawing.htm">March 2006</a><br>
+	
+		<a href="/g/20_2006_4_0_0_0/dotnet-framework-drawing.htm">April 2006</a><br>
+	
+		<a href="/g/20_2006_5_0_0_0/dotnet-framework-drawing.htm">May 2006</a><br>
+	
+		<a href="/g/20_2006_6_0_0_0/dotnet-framework-drawing.htm">June 2006</a><br>
+	
+		<a href="/g/20_2006_7_0_0_0/dotnet-framework-drawing.htm">July 2006</a><br>
+	
+		<a href="/g/20_2006_8_0_0_0/dotnet-framework-drawing.htm">August 2006</a><br>
+	
+		<a href="/g/20_2006_9_0_0_0/dotnet-framework-drawing.htm">September 2006</a><br>
+	
+		<a href="/g/20_2006_10_0_0_0/dotnet-framework-drawing.htm">October 2006</a><br>
+	
+		<a href="/g/20_2006_11_0_0_0/dotnet-framework-drawing.htm">November 2006</a><br>
+	
+		<a href="/g/20_2006_12_0_0_0/dotnet-framework-drawing.htm">December 2006</a><br>
+	
+		<a href="/g/20_2007_1_0_0_0/dotnet-framework-drawing.htm">January 2007</a><br>
+	
+		<a href="/g/20_2007_2_0_0_0/dotnet-framework-drawing.htm">February 2007</a><br>
+	
+		<a href="/g/20_2007_3_0_0_0/dotnet-framework-drawing.htm">March 2007</a><br>
+	
+		<a href="/g/20_2007_4_0_0_0/dotnet-framework-drawing.htm">April 2007</a><br>
+	
+		<a href="/g/20_2007_5_0_0_0/dotnet-framework-drawing.htm">May 2007</a><br>
+	
+		<a href="/g/20_2007_6_0_0_0/dotnet-framework-drawing.htm">June 2007</a><br>
+	
+		<a href="/g/20_2007_7_0_0_0/dotnet-framework-drawing.htm">July 2007</a><br>
+	
+		<a href="/g/20_2007_8_0_0_0/dotnet-framework-drawing.htm">August 2007</a><br>
+	
+		<a href="/g/20_2007_9_0_0_0/dotnet-framework-drawing.htm">September 2007</a><br>
+	
+		<a href="/g/20_2007_10_0_0_0/dotnet-framework-drawing.htm">October 2007</a><br>
+	
+		<a href="/g/20_2007_11_0_0_0/dotnet-framework-drawing.htm">November 2007</a><br>
+	
+		<a href="/g/20_2007_12_0_0_0/dotnet-framework-drawing.htm">December 2007</a><br>
+	
+		<a href="/g/20_2008_1_0_0_0/dotnet-framework-drawing.htm">January 2008</a><br>
+	
+		<a href="/g/20_2008_2_0_0_0/dotnet-framework-drawing.htm">February 2008</a><br>
+	
+		<a href="/g/20_2008_3_0_0_0/dotnet-framework-drawing.htm">March 2008</a><br>
+	
+		<a href="/g/20_2008_4_0_0_0/dotnet-framework-drawing.htm">April 2008</a><br>
+	
+		<a href="/g/20_2008_5_0_0_0/dotnet-framework-drawing.htm">May 2008</a><br>
+	
+		<a href="/g/20_2008_6_0_0_0/dotnet-framework-drawing.htm">June 2008</a><br>
+	
+
+</div>
+
+
+<script>
+
+function googleSearchHighlight() {
+	if (!document.createElement) return;
+	ref = document.referrer;
+	if (ref.indexOf('?') == -1 || ref.indexOf('http://www.developmentnow.com/blog/') != -1)
+	{
+		if (document.location.href.indexOf('PermaLink') != -1) {
+			if (ref.indexOf('SearchView.aspx') == -1) return;
+		}
+		else {
+		//Added by Scott Hanselman
+		ref = document.location.href;
+		if (ref.indexOf('?') == -1) return;
+		}
+	}
+	qs = ref.substr(ref.indexOf('?')+1);
+	qsa = qs.split('&');
+	for (i=0;i<qsa.length;i++) {
+		qsip = qsa[i].split('=');
+	        if (qsip.length == 1) continue;
+        	if (qsip[0] == 'q' || qsip[0] == 'p') { // q= for Google, p= for Yahoo
+				words = unescape(qsip[1].replace(/\+/g,' '));
+
+				// put words in search box		
+				if (document.getElementById('q'))
+				{
+					document.getElementById('q').value = words;
+					document.getElementById('q').background = 'white';
+					if (document.getElementById('q').style)
+						document.getElementById('q').style.background = 'white';
+				}
+	        }
+	}
+}
+
+window.onload = googleSearchHighlight;
+</script>
+
+
+	</td>
+</tr>
+<tr>
+<td colspan="3"  >
+
+</td></tr>
+</table>
+</div>
+
+<script language="JavaScript">
+
+var iFr;
+
+//var px = new Image();
+//px.src = 'http://trk.developmentnow.com/track.htm?ref=' + document.referrer + '&title=' + window.location.pathname;
+
+function AdSenseLog()
+ { 
+    var theAd=""+ escape(window.status.substring(6)) ;
+    var format=queryString('format',iFr.src);
+    var channel=queryString('channel',iFr.src);
+    var bug = new Image();
+    var thetitle=window.location.pathname;
+    bug.src = '/adclick.htm?ref=' + document.referrer + '&url=' +theAd +'&title=' + thetitle+ '&format=' + format +'&channel='+channel ; 
+}  
+ 
+function queryString(item, source)
+{
+   var itemLoc=source.indexOf(item);
+   var newSrc=source.substring(itemLoc);
+   var endLoc=newSrc.indexOf("&");
+   var lstSrc=newSrc.substring(0,endLoc);
+   var itm=lstSrc.substring(item.length+1);
+   return itm;
+} 
+ 
+ var elements; 
+ elements = document.getElementsByTagName("iframe"); 
+
+ for (var i = 0; i < elements.length; i++) 
+ { 
+   if(elements[i].src.indexOf('googlesyndication.com') > -1) 
+   { 
+     elements[i].attachEvent("onfocus",AdSenseLog) 
+     iFr=elements[i];
+   } 
+ } 
+  
+</script>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-503343-2";
+_udn="developmentnow.com"; 
+urchinTracker();
+</script>
+
+
+
+<!-- google_ad_section_start(weight=ignore) -->
+ 
+<!-- new template --> 
+	<div id="frame-footer"> &nbsp;</div> 
+  <div id="footer"> 
+		<div id="copyright"> 
+			Copyright 2005-2008 DevelopmentNow Inc.
+		</div> 
+		
+		<div id="bottomlink"> 
+		<h4><a href="/about.aspx">About</a></h4> | 
+		<h4><a href="/services.aspx">Services</a></h4>  | 
+		<h4><a href="/portfolio.aspx">Portfolio</a></h4>  | 
+		<h4><a href="/blog/">Blog</a></h4>  | 
+		<h4><a href="/products.aspx">Products</a></h4>  | 
+		<h4><a href="/g/" id="lnkDiscussion">Discuss</a></h4>  | 
+		<!-- nofollow since contact page isn't very important --> 
+		<h4><a rel="nofollow" href="/contact.aspx">Contact</a></h4>  
+		</div> 
+	</div> 
+</div> 
+<!-- new template --> 
+<!-- google_ad_section_end -->
+
+	</body>
+</HTML>

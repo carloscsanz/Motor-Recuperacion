@@ -1,0 +1,744 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>	<link rel="stylesheet" type="text/css" href="http://securityvulns.ru/style/normal.css">
+	<link rel="shortcut icon" href="http://securityvulns.ru/favicon.ico" type="type=image/x-icon">
+	<link rel="alternate" type="application/rss+xml"  href="http://securityvulns.ru/informer/rss.asp?l=RU" title="Security Vulns: vulnerabilities, bugs and security news">
+
+        <title>
+����������� � ������������: Microsoft Security Bulletin MS09-073 - Important Vulnerability in WordPad and Office Text Converters Could Allow Remote Code Execution &#40;975539&#41; - ������ � ���������
+	</title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+	<meta name="keywords" content="hack, security, Microsoft Windows, Unix, FreeBSD, Linux, Solaris, patch, exploit, proxy, ������, ���, �����, �����, ����, ��������, ���� ������, ����������">
+	<meta name="Description" content="�������������� ������������ � ������ ����������, ������ � �������� ������� � Internet">
+
+<meta NAME="Author" content="3APA3A">
+</head>
+
+<BODY bgcolor="#0D0030">
+
+<table width="935" cellpadding="0" cellspacing="0" border="0" align="center">
+
+<tr valign="top">
+
+
+
+
+<td width="760">
+
+<table width="760" cellpadding="0" cellspacing="0" border="0" align="center">
+
+<tr><td width="760"><img src="/images/logo2w.gif" width=760 height=62 alt="�������������� ������������" border="0"></td></tr>
+
+<tr>
+	<td>
+	<table width="760" border="0" cellpadding="0" cellspacing="0" align="left">
+	<tr><td>
+			<table width="100%">
+			<tr valign="bottom">
+				<td width="20"></td>	
+			
+				
+
+				<td width="200">
+
+				<h3 class="menu">����������� � ������������: Microsoft Security Bulletin MS09-073 - Important Vulnerability in WordPad and Office Text Converters Could Allow Remote Code Execution &#40;975539&#41;</h3>
+
+				</td>
+				<td width="520" background="/images/bg1.gif">
+				<div align="right" class="menu">
+				<a href="javascript:history.back();"><img src="/images/back.gif" width=10 height=10 alt="back" border="0">&nbsp;</a>
+				<a class="menu" href="http://securityvulns.ru/">�������</a> / 
+				<a class="menu" href="http://securityvulns.ru/articles/">������</a> /
+				<a class="menu" href="http://securityvulns.ru/board/">�����</a> /
+				<a class="menu" href="http://securityvulns.ru/soft/">���������</a> /
+				<a class="menu" href="http://securityvulns.ru/advertising/">�������</a> /
+				<a class="menu" href="http://securityvulns.ru/search/">�����</a> /
+				<a class="menu" href="http://securityvulns.ru/exploits/">���������</a>
+
+				<a href="javascript:history.forward();">&nbsp;<img src="/images/forward.gif" width=10 height=10 alt="forward" border="0"></a>
+				</div>
+				</td>
+				<td width="20"></td>	
+			</tr>
+			</table>
+<!-- script type="text/javascript" --><!--
+google_ad_client = "pub-9080155680222782";
+google_ad_width = 468;
+google_ad_height = 15;
+google_ad_format = "468x15_0ads_al";
+//2007-01-19: Inside
+google_ad_channel = "6209105484";
+google_color_border = "333333";
+google_color_bg = "0D0030";
+google_color_link = "AAAAAA";
+google_color_text = "999999";
+google_color_url = "C0C0C0";
+//--><!-- /script -->
+<!-- script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js" -->
+<!-- /script -->
+	</td></tr>
+	</table>
+	</td>
+</tr>
+<tr>
+
+
+	<td align="center">
+
+	<table width="760" border="0" bgcolor="#DDDDDD" cellspacing="2" cellpadding="0"><tr>
+
+        <td>
+	<table width="100%" border="0" bgcolor="#0A0020" cellspacing="2" cellpadding="0"><tr><td>
+	<table width="100%" border="0" bgcolor="silver" cellspacing="2" cellpadding="5" align="left">
+	<tr height="640">
+	<td class="normal" valign="top" width="100%" bgcolor="#AAB0BB" align="left">
+
+
+
+<table border=0 width="220" align="left">
+
+<tr><td>
+<!-- google_ad_section_start(weight=ignore) -->
+
+
+
+
+<font color="white" class="tiny">
+[RU]<b> switch to <br><a class="tiny" href="http://securityvulns.com/Wdocument882.html"><font size="+1">English</font> Version</A></b>
+</font>
+
+<hr width="180">
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-9080155680222782";
+google_alternate_ad_url = "http://security.nnov.ru/include/ad.asp";
+google_ad_width = 200;
+google_ad_height = 200;
+google_ad_format = "200x200_as";
+
+
+google_color_bg = "AAB0BB";
+google_color_text = "444444";
+
+google_ad_channel ="3976166427";
+
+google_color_border = "BABAC4";
+//google_color_bg = "D0D0D8";
+google_color_link = "004040";
+google_color_url = "444444";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<!-- google_ad_section_end -->
+
+</td></tr>
+</table>
+<p>
+<br><br><span name="Document"><table width="140" celpadding="3" cellspacing="0" border="1" align="right"><tr><td bgcolor="#BABAC4" class="tiny"><font color="white">�������������� ����������</font></td></tr><tr><td bgcolor="#D0D0D8"><p><font color="tiny">&nbsp;&nbsp;<b><A CLASS="tiny" HREF="http://securityvulns.ru/news/Microsoft/Wordpad/0912.html">����������� ������ � Microsoft Wordpad / Office Text Converters</A></b></td></tr><tr><td  bgcolor="#D0D0D8"><p><font color="tiny">&nbsp;&nbsp;<A CLASS="tiny" HREF="http://securityvulns.ru/Wdocument916.html">iDefense Security Advisory 12.08.09: Microsoft WordPad Word97 Converter Integer Overflow Vulnerability</A></font></td></tr></table> <table cellspacing="2" cellpadding="2" border="0"><tr><td width="100" align="right" bgcolor="#BABAC4"><font color="black"><b>From:</b></color></td><td align="left" bgcolor="#BABAC4"><b><A href="http://securityvulns.ru/source/MICROSOFT.html" TITLE="Microsoft Corporation">MICROSOFT</A> &lt;<A  HREF="mailto:secure_(at)_microsoft.com">secure_(at)_microsoft.com</A>&gt; </b></td></tr><tr><td align="right" bgcolor="#D0D0D8"><font color="#444444"><b>Date:</b></font></td><td align="left" bgcolor="#D0D0D8"><b>9 ������� 2009 �.</b></td></tr><tr><td align="right" bgcolor="#BABAC4"><font color="black"><b>Subject:</b></td><td align="left" bgcolor="#BABAC4"><b>Microsoft Security Bulletin MS09-073 - Important Vulnerability in WordPad and Office Text Converters Could Allow Remote Code Execution &#40;975539&#41;</b></td></tr></table><br><span class="fixed">Microsoft Security Bulletin MS09-073 - Important
+<br>Vulnerability in WordPad and Office Text Converters Could Allow Remote Code Execution &#40;975539&#41;
+<br>Published: December 08, 2009
+<br>
+<br>Version: 1.0
+<br>General Information
+<br>Executive Summary
+<br>
+<br>This security update resolves a privately reported vulnerability in Microsoft WordPad and Microsoft Office text converters. The vulnerability could allow remote code execution if a specially crafted Word 97 file is opened in WordPad or Microsoft Office Word. An attacker who successfully exploited this vulnerability could gain the same privileges as the user. Users whose accounts are configured to have fewer privileges on the system could be less impacted than users who operate with administrative privileges.
+<br>
+<br>This security update is rated Important for WordPad on all supported editions of Microsoft Windows 2000, Windows XP, and Windows Server 2003. This security update is also rated Important for all supported editions of Microsoft Office Word 2002 and Microsoft Office Word 2003, Microsoft Office Converter Pack, and Microsoft Works 8.5. For more information, see the subsection, Affected and Non-Affected Software, in this section.
+<br>
+<br>The security update addresses the vulnerability by correcting the way WordPad and the Office Text Converters parse Word 97 documents. For more information about the vulnerability, see the Frequently Asked Questions &#40;FAQ&#41; subsection for the specific vulnerability entry under the next section, Vulnerability Information.
+<br>
+<br>Recommendation. Microsoft recommends that customers apply the update at the earliest opportunity.
+<br>
+<br>Known Issues. Microsoft Knowledge Base Article 975539 documents the currently known issues that customers may experience when installing this security update. The article also documents recommended solutions for these issues.
+<br>Top of sectionTop of section
+<br>Affected and Non-Affected Software
+<br>
+<br>The following software have been tested to determine which versions or editions are affected. Other versions or editions are either past their support life cycle or are not affected. To determine the support life cycle for your software version or edition, visit Microsoft Support Lifecycle.
+<br>
+<br>Affected Software 
+<br>
+<br>Windows Operating System and Components
+<br>Operating System	Maximum Security Impact	Aggregate Severity Rating	Bulletins Replaced by this Update
+<br>
+<br>Microsoft Windows 2000 Service Pack 4
+<br>&#40;KB973904&#41;
+<br>	
+<br>
+<br>Remote Code Execution
+<br>	
+<br>
+<br>Important
+<br>	
+<br>
+<br>None
+<br>
+<br>Windows XP Service Pack 2 and Windows XP Service Pack 3
+<br>&#40;KB973904&#41;
+<br>	
+<br>
+<br>Remote Code Execution
+<br>	
+<br>
+<br>Important
+<br>	
+<br>
+<br>None
+<br>
+<br>Windows XP Professional x64 Edition Service Pack 2
+<br>&#40;KB973904&#41;
+<br>	
+<br>
+<br>Remote Code Execution
+<br>	
+<br>
+<br>Important
+<br>	
+<br>
+<br>None
+<br>
+<br>Windows Server 2003 Service Pack 2
+<br>&#40;KB973904&#41;
+<br>	
+<br>
+<br>Remote Code Execution
+<br>	
+<br>
+<br>Important
+<br>	
+<br>
+<br>None
+<br>
+<br>Windows Server 2003 x64 Edition Service Pack 2
+<br>&#40;KB973904&#41;
+<br>	
+<br>
+<br>Remote Code Execution
+<br>	
+<br>
+<br>Important
+<br>	
+<br>
+<br>None
+<br>
+<br>Windows Server 2003 with SP2 for Itanium-based Systems
+<br>&#40;KB973904&#41;
+<br>	
+<br>
+<br>Remote Code Execution
+<br>	
+<br>
+<br>Important
+<br>	
+<br>
+<br>None
+<br>
+<br>Microsoft Office
+<br>Office Suite and Other Software	Component	Maximum Security Impact	Aggregate Severity Rating	Bulletins Replaced by this Update
+<br>Microsoft Office Suites and Components	 	 	 	 
+<br>
+<br>Microsoft Office XP Service Pack 3
+<br>	
+<br>
+<br>Microsoft Office Word 2002 Service Pack 3
+<br>&#40;KB975008&#41;
+<br>	
+<br>
+<br>Remote Code Execution
+<br>	
+<br>
+<br>Important
+<br>	
+<br>
+<br>MS09-010
+<br>
+<br>Microsoft Office 2003 Service Pack 3
+<br>	
+<br>
+<br>Microsoft Office Word 2003 Service Pack 3
+<br>&#40;KB975051&#41;
+<br>	
+<br>
+<br>Remote Code Execution
+<br>	
+<br>
+<br>Important
+<br>	
+<br>
+<br>None
+<br>Other Office Software	 	 	 	 
+<br>
+<br>Microsoft Works 8.5
+<br>&#40;KB977304&#41;
+<br>	
+<br>
+<br>Not applicable
+<br>	
+<br>
+<br>Remote Code Execution
+<br>	
+<br>
+<br>Important
+<br>	
+<br>
+<br>MS09-024
+<br>
+<br>Microsoft Office Converter Pack
+<br>&#40;KB974882&#41;
+<br>	
+<br>
+<br>Not applicable
+<br>	
+<br>
+<br>Remote Code Execution
+<br>	
+<br>
+<br>Important
+<br>	
+<br>
+<br>MS09-010
+<br>
+<br>Non-Affected Software
+<br>Windows Operating System
+<br>
+<br>Windows Vista, Windows Vista Service Pack 1, and Windows Vista Service Pack 2
+<br>
+<br>Windows Vista x64 Edition, Windows Vista x64 Edition Service Pack 1, and Windows Vista x64 Edition Service Pack 2
+<br>
+<br>Windows Server 2008 for 32-bit Systems and Windows Server 2008 for 32-bit Systems Service Pack 2
+<br>
+<br>Windows Server 2008 for x64-based Systems and Windows Server 2008 for x64-based Systems Service Pack 2
+<br>
+<br>Windows Server 2008 for Itanium-based Systems and Windows Server 2008 for Itanium-based Systems Service Pack 2
+<br>
+<br>Windows 7 for 32-bit Systems
+<br>
+<br>Windows 7 for x64-based Systems
+<br>
+<br>Windows Server 2008 R2 for x64-based Systems
+<br>
+<br>Windows Server 2008 R2 for Itanium-based Systems
+<br>Office and Other Software
+<br>
+<br>Microsoft Office Word 2007 Service Pack 1 and Microsoft Office Word 2007 Service Pack 2
+<br>
+<br>Microsoft Office Word Viewer 2003 Service Pack 3
+<br>
+<br>Microsoft Office Word Viewer
+<br>
+<br>Microsoft Office Compatibility Pack for Word, Excel, and PowerPoint 2007 File Formats Service Pack 1 and Microsoft Office Compatibility Pack for Word, Excel, and PowerPoint 2007 File Formats Service Pack 2
+<br>
+<br>Microsoft Office Compatibility Pack for Word, Excel, and PowerPoint 2007 File Formats Service Pack 1
+<br>
+<br>Microsoft Office 2004 for Mac
+<br>
+<br>Microsoft Office 2008 for Mac
+<br>
+<br>Open XML File Format Converter for Mac
+<br>
+<br>Microsoft Works 9
+<br>Top of sectionTop of section
+<br>	
+<br>Frequently Asked Questions &#40;FAQ&#41; Related to This Security Update
+<br>
+<br>Where are the file information details? 
+<br>Refer to the reference tables in the Security Update Deployment section for the location of the file information details.
+<br>
+<br>Does this update contain any security-related changes to functionality? 
+<br>Yes, in addition to addressing the security vulnerability, this security update also prevents Windows components and third-party applications on affected platforms from using the WordPad Word 6 text converter to open Word 6.0 and Write files. When WordPad attempts to open a Word 6.0 or Write file, the file will not open and a dialog box will be displayed. For more information, see Microsoft Knowledge Base Article 975539.
+<br>
+<br>What are the known issues that customers may experience when installing this security update? 
+<br>Microsoft Knowledge Base Article 975539 documents the currently known issues that customers may experience when they install this security update. The article also documents recommended solutions for these issues.
+<br>
+<br>The Office component discussed in this article is part of the Office suite that I have installed on my system; however, I did not choose to install this specific component. Will I be offered this update? 
+<br>Yes, if the version of the Office Suite installed on your system shipped with the component discussed in this bulletin, the system will be offered updates for it whether the component is installed or not. The detection logic used to scan for affected systems is designed to check for updates for all components that shipped with the particular Office Suite and offer the updates to a system. Users who choose not to apply an update for a component that is not installed, but is included in their version of the Office Suite, will not increase the security risk of that system. On the other hand, users who do choose to install the update will not have a negative impact on the security or performance of a system.
+<br>
+<br>Does the offer to update a non-vulnerable version of Microsoft Office constitute an issue in the Microsoft update mechanism? 
+<br>No, the update mechanism is functioning correctly in that it detects a lower version of the files on the system than in the update package and thus, offers the update.
+<br>
+<br>I am using an older release of the software discussed in this security bulletin. What should I do? 
+<br>The affected software listed in this bulletin have been tested to determine which releases are affected. Other releases are past their support life cycle. For more information about the product lifecycle, visit the Microsoft Support Lifecycle Web site.
+<br>
+<br>It should be a priority for customers who have older releases of the software to migrate to supported releases to prevent potential exposure to vulnerabilities. To determine the support lifecycle for your software release, see Select a Product for Lifecycle Information. For more information about service packs for these software releases, see Lifecycle Supported Service Packs.
+<br>
+<br>Customers who require custom support for older software must contact their Microsoft account team representative, their Technical Account Manager, or the appropriate Microsoft partner representative for custom support options. Customers without an Alliance, Premier, or Authorized Contract can contact their local Microsoft sales office. For contact information, visit the Microsoft Worldwide Information Web site, select the country in the Contact Information list, and then click Go to see a list of telephone numbers. When you call, ask to speak with the local Premier Support sales manager. For more information, see the Microsoft Support Lifecycle Policy FAQ.
+<br>Top of sectionTop of section
+<br>Vulnerability Information
+<br>	
+<br>Severity Ratings and Vulnerability Identifiers
+<br>
+<br>The following severity ratings assume the potential maximum impact of the vulnerability. For information regarding the likelihood, within 30 days of this security bulletin&#39;s release, of the exploitability of the vulnerability in relation to its severity rating and security impact, please see the Exploitability Index in the December bulletin summary. For more information, see Microsoft Exploitability Index.
+<br>Vulnerability Severity Rating and Maximum Security Impact by Affected Software
+<br>Affected Software	WordPad and Office Text converter Memory Corruption Vulnerability - <A HREF="http://securityvulns.ru/CVE-2009-2506.html">CVE-2009-2506</A> 	Aggregate Severity Rating
+<br>Operating System and Components	 	 
+<br>
+<br>Microsoft Windows 2000 Service Pack 4
+<br>	
+<br>
+<br>Important 
+<br>Remote Code Execution
+<br>	
+<br>
+<br>Important
+<br>
+<br>Windows XP Service Pack 2 and Windows XP Service Pack 3
+<br>	
+<br>
+<br>Important 
+<br>Remote Code Execution
+<br>	
+<br>
+<br>Important
+<br>
+<br>Windows XP Professional x64 Edition Service Pack 2
+<br>	
+<br>
+<br>Important 
+<br>Remote Code Execution
+<br>	
+<br>
+<br>Important
+<br>
+<br>Windows Server 2003 Service Pack 2
+<br>	
+<br>
+<br>Important 
+<br>Remote Code Execution
+<br>	
+<br>
+<br>Important
+<br>
+<br>Windows Server 2003 x64 Edition Service Pack 2
+<br>	
+<br>
+<br>Important 
+<br>Remote Code Execution
+<br>	
+<br>
+<br>Important
+<br>
+<br>Windows Server 2003 with SP2 for Itanium-based Systems
+<br>	
+<br>
+<br>Important 
+<br>Remote Code Execution
+<br>	
+<br>
+<br>Important
+<br>Office Software and Components	 	 
+<br>
+<br>Microsoft Office Word 2002 Service Pack 3
+<br>	
+<br>
+<br>Important 
+<br>Remote Code Execution
+<br>	
+<br>
+<br>Important
+<br>
+<br>Microsoft Office Word 2003 Service Pack 3
+<br>	
+<br>
+<br>Important 
+<br>Remote Code Execution
+<br>	
+<br>
+<br>Important
+<br>
+<br>Microsoft Works 8.5
+<br>	
+<br>
+<br>Important 
+<br>Remote Code Execution
+<br>	
+<br>
+<br>Important
+<br>
+<br>Microsoft Office Converter Pack
+<br>	
+<br>
+<br>Important 
+<br>Remote Code Execution
+<br>	
+<br>
+<br>Important
+<br>Top of sectionTop of section
+<br>	
+<br>WordPad and Office Text converter Memory Corruption Vulnerability - <A HREF="http://securityvulns.ru/CVE-2009-2506.html">CVE-2009-2506</A>
+<br>
+<br>A remote code execution vulnerability exists in the way that text converters in Microsoft WordPad and Microsoft Office Word process memory when a user opens a specially crafted Word 97 file.
+<br>
+<br>To view this vulnerability as a standard entry in the Common Vulnerabilities and Exposures list, see <A HREF="http://securityvulns.ru/CVE-2009-2506.html">CVE-2009-2506</A>.
+<br>	
+<br>Mitigating Factors for WordPad and Office Text converter Memory Corruption Vulnerability - <A HREF="http://securityvulns.ru/CVE-2009-2506.html">CVE-2009-2506</A>
+<br>
+<br>Mitigation refers to a setting, common configuration, or general best-practice, existing in a default state, that could reduce the severity of exploitation of a vulnerability. The following mitigating factors may be helpful in your situation:
+<br>�	
+<br>
+<br>An attacker who successfully exploited this vulnerability could gain the same privileges as the user. Users whose accounts are configured to have fewer privileges on the system could be less impacted than users who operate with administrative privileges.
+<br>�	
+<br>
+<br>In a Web-based attack scenario, an attacker could host a Web site that contains a Web page that is used to exploit this vulnerability. In addition, compromised Web sites and Web sites that accept or host user-provided content or advertisements could contain specially crafted content that could exploit this vulnerability. In all cases, however, an attacker would have no way to force users to visit these Web sites. Instead, an attacker would have to persuade users to visit the Web site, typically by getting them to click a link in an e-mail message or Instant Messenger message that takes users to the attacker&#39;s Web site.
+<br>�	
+<br>
+<br>The vulnerability could not be exploited automatically through e-mail. For an attack to be successful a user must open an attachment that is sent in an e-mail message.
+<br>�	
+<br>
+<br>A Web site that is being used to attempt to exploit the vulnerability would cause a dialog box to appear. The user would be prompted to open the file or not, unless the user had previously unchecked the option, &quot;Always ask before opening this type of file&quot;.
+<br>Top of sectionTop of section
+<br>	
+<br>Workarounds for WordPad and Office Text converter Memory Corruption Vulnerability - <A HREF="http://securityvulns.ru/CVE-2009-2506.html">CVE-2009-2506</A>
+<br>
+<br>Workaround refers to a setting or configuration change that does not correct the underlying vulnerability but would help block known attack vectors before you apply the update. Microsoft has tested the following workarounds and states in the discussion whether a workaround reduces functionality.
+<br>�	
+<br>
+<br>Disable the WordPad text converter for Word 97 by restricting access to the converter file
+<br>
+<br>Run the following commands from an administrator command prompt.
+<br>
+<br>Note You must undo this workaround prior to installing the security update.
+<br>
+<br>Depending on your operating system version and your history of operating system upgrades and service packs, some of the files referenced below may not exist.
+<br>
+<br>echo y| cacls &quot;&#37;ProgramFiles&#37;&#92;Common Files&#92;Microsoft 
+<br>Shared&#92;TextConv&#92;mswrd832.cnv&quot; /E /P everyone:N 
+<br>echo y| cacls &quot;&#37;ProgramFiles&#40;x86&#41;&#37;&#92;Common Files&#92;Microsoft 
+<br>Shared&#92;TextConv&#92;mswrd832.cnv&quot; /E /P everyone:N 
+<br>echo y| cacls &quot;&#37;ProgramFiles&#37;&#92;Windows NT&#92;Accessories&#92;mswrd8.wpc&quot; /E /P everyone:N 
+<br>echo y| cacls &quot;&#37;ProgramFiles&#37;&#92;Windows NT&#92;Accessories&#92;mswrd864.wpc&quot; /E /P everyone:N 
+<br>echo y| cacls &quot;&#37;ProgramFiles&#40;x86&#41;&#37;&#92;Windows NT&#92;Accessories&#92;mswrd8.wpc&quot; /E /P everyone:N
+<br>
+<br>Impact of workaround. When opening a Word 97 document in WordPad, it will show the binary data instead of the formatted text.
+<br>
+<br>How to undo the workaround. Run the following commands from an administrator command prompt.
+<br>
+<br>Depending on your operating system version and your history of operating system upgrades and service packs, some of the file referenced below may not exist.
+<br>
+<br>echo y| cacls &quot;&#37;ProgramFiles&#37;&#92;Common Files&#92;Microsoft Shared&#92;TextConv&#92;mswrd832.cnv&quot; /E /R everyone 
+<br>echo y| cacls &quot;&#37;ProgramFiles&#40;x86&#41;&#37;&#92;Common Files&#92;Microsoft Shared&#92;TextConv&#92;mswrd832.cnv&quot; /E /R everyone 
+<br>echo y| cacls &quot;&#37;ProgramFiles&#37;&#92;Windows NT&#92;Accessories&#92;mswrd8.wpc&quot; /E /R everyone 
+<br>echo y| cacls &quot;&#37;ProgramFiles&#37;&#92;Windows NT&#92;Accessories&#92;mswrd864.wpc&quot; /E /R everyone 
+<br>echo y| cacls &quot;&#37;ProgramFiles&#40;x86&#41;&#37;&#92;Windows NT&#92;Accessories&#92;mswrd8.wpc&quot; /E /R everyone
+<br>
+<br>Top of sectionTop of section
+<br>	
+<br>FAQ for WordPad and Office Text converter Memory Corruption Vulnerability - <A HREF="http://securityvulns.ru/CVE-2009-2506.html">CVE-2009-2506</A>
+<br>
+<br>What is the scope of the vulnerability? 
+<br>This is a remote code execution vulnerability. An attacker who successfully exploited this vulnerability could take complete control of an affected system remotely. An attacker could then install programs or view, change, or delete data; or create new accounts with full user rights.
+<br>
+<br>What causes the vulnerability? 
+<br>The vulnerability results from the way that the text converter for Word 97 &#40;included as part of WordPad and as part of the Office text converters&#41; parses a specially crafted Word 97 document.
+<br>
+<br>What are WordPad Text Converters and Office Text Converters? 
+<br>WordPad is a default component of Microsoft Windows operating systems. Text converters in WordPad allow users who do not have Microsoft Office Word installed to open documents in Microsoft Windows Write &#40;.wri&#41; and Microsoft Office Word 6.0, Microsoft Office Word 97, Microsoft Office Word 2000, and Microsoft Office Word 2002 &#40;.doc&#41; file formats. These text converters also allow users to save documents in the Word 6.0 file format.
+<br>
+<br>Text converters are also a default component of Microsoft Office that allow users to open and save as older Office file formats, including the Word 6.0 file format.
+<br>
+<br>What might an attacker use the vulnerability to do? 
+<br>An attacker who successfully exploited this vulnerability could run arbitrary code as the logged-on user. If a user is logged on with administrative user rights, an attacker could take complete control of the affected system. An attacker could then install programs; view, change, or delete data; or create new accounts with full user rights. Users whose accounts are configured to have fewer user rights on the system could be less impacted than users who operate with administrative user rights.
+<br>
+<br>How could an attacker exploit the vulnerability? 
+<br>This vulnerability requires that a user open a specially crafted document with an affected version of WordPad or Microsoft Office Word.
+<br>
+<br>In an e-mail attack scenario, an attacker could exploit the vulnerability by sending a specially crafted file to the user and by convincing the user to open the file using either WordPad or Microsoft Office.
+<br>
+<br>In a Web-based attack scenario, an attacker would have to host a Web site that contains a document that is used to attempt to exploit this vulnerability. In addition, compromised Web sites and Web sites that accept or host user-provided content could contain specially crafted content that could exploit this vulnerability. An attacker would have no way to force users to visit a specially crafted Web site. Instead, an attacker would have to convince them to visit the Web site, typically by getting them to click a link that takes them to the attacker&#39;s site.
+<br>
+<br>What systems are primarily at risk from the vulnerability? 
+<br>Systems, such as workstations and terminal servers, with WordPad or Microsoft Office Word installed where Word documents are opened from untrusted sources are primarily at risk. Servers could be at more risk if administrators allow users to log on to servers and to run programs. However, best practices strongly discourage allowing this.
+<br>
+<br>What does the update do? 
+<br>This update addresses the vulnerability by correcting the way that WordPad and the Office Text Converters parse Word 97 documents.
+<br>
+<br>When this security bulletin was issued, had this vulnerability been publicly disclosed? 
+<br>No. Microsoft received information about this vulnerability through responsible disclosure.
+<br>
+<br>When this security bulletin was issued, had Microsoft received any reports that this vulnerability was being exploited? 
+<br>No. Microsoft had not received any information to indicate that this vulnerability had been publicly used to attack customers and had not seen any examples of proof of concept code published when this security bulletin was originally issued.
+<br>
+<br>Other Information
+<br>Acknowledgments
+<br>
+<br>Microsoft thanks the following for working with us to help protect customers:
+<br>�	
+<br>
+<br>Sean Larsson and Jun Mao of VeriSign iDefense Labs for reporting WordPad and Office Text converter Memory Corruption Vulnerability &#40;<A HREF="http://securityvulns.ru/CVE-2009-2506.html">CVE-2009-2506</A>&#41;
+<br>Top of sectionTop of section
+<br>Microsoft Active Protections Program &#40;MAPP&#41;
+<br>
+<br>To improve security protections for customers, Microsoft provides vulnerability information to major security software providers in advance of each monthly security update release. Security software providers can then use this vulnerability information to provide updated protections to customers via their security software or devices, such as antivirus, network-based intrusion detection systems, or host-based intrusion prevention systems. To determine whether active protections are available from security software providers, please visit the active protections Web sites provided by program partners, listed in Microsoft Active Protections Program &#40;MAPP&#41; Partners.
+<br>
+<br>Support
+<br>�	
+<br>
+<br>Customers in the U.S. and Canada can receive technical support from Security Support or 1-866-PCSAFETY. There is no charge for support calls that are associated with security updates. For more information about available support options, see Microsoft Help and Support.
+<br>�	
+<br>
+<br>International customers can receive support from their local Microsoft subsidiaries. There is no charge for support that is associated with security updates. For more information about how to contact Microsoft for support issues, visit the International Support Web site.
+<br>
+<br>Disclaimer
+<br>
+<br>The information provided in the Microsoft Knowledge Base is provided &quot;as is&quot; without warranty of any kind. Microsoft disclaims all warranties, either express or implied, including the warranties of merchantability and fitness for a particular purpose. In no event shall Microsoft Corporation or its suppliers be liable for any damages whatsoever including direct, indirect, incidental, consequential, loss of business profits or special damages, even if Microsoft Corporation or its suppliers have been advised of the possibility of such damages. Some states do not allow the exclusion or limitation of liability for consequential or incidental damages so the foregoing limitation may not apply.
+<br>
+<br>Revisions
+<br>�	
+<br>
+<br>V1.0 &#40;December 8, 2009&#41;: Bulletin published.</span><p></span>
+
+	</td>
+	</tr></table>
+	</td></tr></table>
+	</td></tr>
+
+
+	</table>
+
+	</td></tr>
+<tr>
+	<td class="normal" align="center" >
+	<table width="100%" background="/images/bottomw.jpg" cellpadding="0" cellspacing="0">
+	<tr><td align="center">
+		<table width="720">
+		<tr>
+			<td width="50%" align="right" class="small">
+
+			<a class="small" href="http://securityvulns.ru/advertising/">� �����</a> |
+			<a class="small" href="http://securityvulns.ru/copyright.asp">������� �������������</a>
+			<br>&copy; <a class="small" href="http://securityvulns.ru">SecurityVulns</a>, <a class="small" href="http://securityvulns.ru/source/3APA3A.html">3APA3A</a>, �������� ��������
+			<br>������ ��������
+
+			</td>
+		</tr>
+		</table>
+	</td></tr>
+	</table>
+	</td>
+</tr>
+</table>
+</td>
+<td width="170">
+
+<!-- SiteSearch Google -->
+
+<form method="get" action="http://securityvulns.ru/search/google.asp" target="_top">
+
+<table border="0" width="100%">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+
+</td>
+<td nowrap="nowrap">
+
+<input type="hidden" name="domains" value="securitvulns.ru">
+
+<label for="sbi" style="display: none">Enter your search terms</label>
+<input type="text" name="q" size="21" maxlength="255" value="" id="sbi">
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td nowrap="nowrap">
+<table>
+<tr>
+<td>
+<input type="radio" name="sitesearch" value="" id="ss0">
+<label for="ss0" title="Search the Web"><font size="-1" color="silver">Web</font></label></td>
+<td>
+
+<input type="radio" name="sitesearch"  checked value="securityvulns.ru" id="ss1">
+<label for="ss1" title="Search securityvulns.ru"><font size="-1" color="silver">securityvulns.ru</font></label></td>
+
+</tr>
+</table>
+<label for="sbb" style="display: none">Submit search form</label>
+<input type="submit" name="sa" value="Google Search" id="sbb">
+<input type="hidden" name="client" value="pub-9080155680222782">
+<input type="hidden" name="forid" value="1">
+<input type="hidden" name="channel" value="7143967212">
+<input type="hidden" name="ie" value="windows-1251">
+<input type="hidden" name="oe" value="windows-1251">
+<input type="hidden" name="flav" value="0000">
+<input type="hidden" name="sig" value="WwIuaEb7Eo-L4RYW">
+<input type="hidden" name="cof" value="GALT:#008080;GL:1;DIV:#AAB0BB;VLC:008080;AH:center;BGC:AAB0BB;LBGC:AAB0BB;ALC:000000;LC:000000;T:000000;GFNT:FFFFFF;GIMP:FFFFFF;FORID:11">
+<input type="hidden" name="hl" value="en">
+</td></tr></table>
+</form>
+<!-- SiteSearch Google -->
+
+
+
+<p align="center">
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-9080155680222782";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_type = "text_image";
+
+//2007-08-28: Back-Rus
+google_ad_channel = "8043129221";
+
+google_color_border = "0D0030";
+google_color_bg = "0D0030";
+google_color_link = "AAAAAA";
+google_color_text = "999999";
+google_color_url = "C0C0C0";
+google_ui_features = "rc:6";
+google_alternate_color = "0D0030";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+<table width="95%" cellpadding="3" cellspacing="0" border="0"><tr>
+<!--260551884026--><td>
+</td>
+</tr></table>
+
+
+
+
+
+
+
+
+</td>
+</tr>
+</table>
+
+<p>
+<table border="0" align="right">
+<tr><td>
+
+<noindex>
+<hr>
+<!--LiveInternet counter--><script type="text/javascript" language="JavaScript"><!--
+document.write('<img src="http://counter.yadro.ru/hit?t14.5;r'+
+escape(document.referrer)+((typeof(screen)=='undefined')?'':
+';s'+screen.width+'*'+screen.height+'*'+(screen.colorDepth?
+screen.colorDepth:screen.pixelDepth))+';u'+escape(document.URL)+
+';'+Math.random()+
+'" alt="liveinternet.ru" '+
+'border=0 width=88 height=31>')//--></script><!--/LiveInternet-->
+<br>
+<!--Rating@Mail.ru COUNTER-->
+<img
+src="http://top.list.ru/counter?js=na;id=24939;t=83;0,5676037"
+border=0 height=18 width=88
+alt="Rating@Mail.ru">
+<!--/COUNTER-->
+
+</noindex>
+
+</td></tr>
+</table>
+
+
+
+</BODY>
+</HTML>

@@ -1,0 +1,4641 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<link rel="shortcut icon" href="favicon.ico" />
+<title>Battlefield 2142, CPU or GPU dependant? - NVIDIA Forums</title>
+ 
+<style type="text/css">
+	/*  
+ * Cascading Style Sheet(CSS 467), for Invision Power Board 2.2.0
+ * Author: James A. Mathias, admin@leihu.com, http://www.1lotus.com 
+ * Copyright: 2005 Invision Power Services, all rights reserved 
+ *
+ * All style attributes in alpha-numeric order starting from 0
+ *
+ */
+
+/* 
+ * ========================================
+ * global element styles 
+ * ========================================
+ */
+
+html{
+	overflow-x: auto; /* fixes MSIE scrollbar bug DO NOT REMOVE, has no effect in Mozilla, or Opera */
+}
+
+body{ 
+	background: #FFF;
+	color: #222;
+	font-family: Verdana, Tahoma, Arial, Trebuchet MS, Sans-Serif, Georgia, Courier, Times New Roman, Serif;
+	font-size: 11px;
+	line-height: 135%;
+	margin: 0px;
+	padding: 0px; /* required for Opera to have 0 margin */
+	text-align: center; /* centers board in MSIE */
+}
+
+/* 
+ * ========================================
+ * Set up IPB table
+ * ========================================
+ */
+ 
+.ipbtable { width:100% }
+
+table.ipbtable,
+tr.ipbtable,
+td.ipbtable
+{ /* required for text in tables, because tables do not inherit from body */
+	background: transparent;
+	color: #222;
+	font-size: 11px;
+	line-height: 135%;
+}
+
+.ipbtable td,
+.divpad{ /* gives all tables faux cellpadding of 5px */
+	padding: 5px;
+}
+
+td.nopad{ /* allows some tables to have no padding on the td */
+	padding: 0;
+}
+
+/* Safari... */
+th
+{
+	text-align: left;
+}
+
+
+form{
+	display: inline;
+	margin: 0; /* removes mystery form tag gapping */
+	padding: 0; /* removes mystery form tag gapping */
+}
+
+img{
+	border: 0; /* makes sure linked images do not have a border */
+	vertical-align: middle;
+}
+
+/* 
+ * ========================================
+ * global hyperlink styles 
+ * ========================================
+ */
+
+a:link,
+a:visited,
+a:active{
+	background: transparent;
+	color: #222;
+	text-decoration: underline;
+}
+
+a:hover{
+	background: transparent;
+	color: #34498B;
+}
+
+/* 
+ * ========================================
+ * Main wrapper, this controls the overall width of the board in you browser view window. 
+ * ========================================
+ */
+
+#ipbwrapper{ 
+	margin: 20px auto 20px auto; /* centers the box, no matter the overall width, also applies a 20px gap at the top and bottom of the board */
+	text-align: left; /* re_aligns text to left second part of two part MSIE centering workaround */
+	/* EDIT THIS TO CHANGE THE WIDTH OF THE BOARD -> 960px is a common fixed resolution size */
+	width: 98%;
+}
+
+/* 
+ * ========================================
+ * styles for pagination links 
+ * ========================================
+ */
+ 
+
+.pagelink,
+.pagelinklast,
+.pagecurrent,
+.minipagelink,
+.minipagelinklast{
+	background: #FBFBFB;
+	border: 1px solid #A2A2A2;
+	padding: 1px 3px 1px 3px;
+}
+
+.pagelinklast,
+.minipagelinklast{
+	background: #F7F7F7;
+}
+
+
+.pagecurrent{
+	background: #FFC9A5;
+}
+
+.minipagelink,
+.minipagelinklast{
+	border: 1px solid #DBDBDB;
+	font-size: 10px;
+	margin: 0 1px 0 0;
+}
+
+.pagelink a:active,
+.pagelink a:visited,
+.pagelink a:link,
+.pagelinklast a:active,
+.pagelinklast a:visited,
+.pagelinklast a:link,
+.pagecurrent a:active,
+.pagecurrent a:visited,
+.pagecurrent a:link,
+.minipagelink a:active,
+.minipagelink a:visited,
+.minipagelink a:link,
+.minipagelinklast a:active,
+.minipagelinklast a:visited,
+.minipagelinklast a:link{
+	text-decoration: none;
+}
+
+/* fake button effect for some links */
+.fauxbutton{
+	background: #BFCDE0;
+	border: 1px solid #b4b4b4;
+	font-size: 11px;
+	font-weight: bold;
+	padding: 4px;
+}
+
+.fauxbutton a:link,
+.fauxbutton a:visited,
+.fauxbutton a:active{
+	color: #222 !important;
+	text-decoration: none;
+}
+
+.forumdesc,
+.forumdesc a:link,
+.forumdesc a:visited,
+.forumdesc a:active{ 
+	background: transparent;
+	font-size: 10px; 
+	color: #666;
+	line-height: 135%;
+	margin: 2px 0 0 0;
+	padding: 0;
+}
+
+/* =================================================================================== */
+/* =================================================================================== */
+/* =================================================================================== */
+
+.searchlite {
+	background-color:yellow;
+	font-weight:bold;
+	color: red;
+}
+
+.activeusers{
+	background: #FFF;
+	border: 1px solid #B4B4B4;
+	color: #000;
+	margin: 0px;
+	padding: 1px;
+}
+
+.activeuserposting a:link,
+.activeuserposting a:visited,
+.activeuserposting a:active,
+.activeuserposting
+{
+	font-style:italic;
+	text-decoration: none;
+	border-bottom:1px dotted black;
+}
+
+fieldset.search{ 
+	line-height: 150%;
+	padding: 6px; 
+}
+
+label{ 
+	cursor: pointer; 
+}
+
+img.attach{ 
+	background: #808080 url(http://mssql.ipsinternal.com/mark/nfinal/nvidia_cache/style_images/nvgreen/click2enlarge.gif) no-repeat top right;
+	border: 1px solid #808080;
+	margin: 0 2px 0 0;
+	padding: 11px 2px 2px 2px;
+}
+
+.thumbwrap,
+.thumbwrapp,
+.fullimagewrap
+{
+	border: 1px solid #B4B4B4;
+	margin: 2px;
+}
+
+.thumbwrapp{
+	border: 2px solid #660707;
+}
+
+.fullimagewrap{
+	background: #F7F7F7;
+	text-align: center;
+	margin: 5px 0 5px 0;
+	padding: 5px;
+}
+
+.thumbwrap h4,
+.thumbwrapp h4{	
+	background: #DDE6F2;
+	border: 0 !important;
+	border-bottom: 1px solid #525252 !important;
+	color: #525252; 
+	font-size: 12px;
+	font-weight: bold; 
+	margin: 0;
+	padding: 5px;
+}
+
+.thumbwrap p,
+.thumbwrapp p{
+	background: #F6F8F6 !important;
+	border: 0 !important;
+	border-top: 1px solid #525252 !important;
+	margin: 0 !important;
+	padding: 5px !important;
+	text-align: left;
+}
+
+.thumbwrap p.alt,
+.thumbwrapp p.alt{
+	background: #F7F7F7 !important;
+	margin: 0 !important;
+	padding: 5px !important;
+	text-align: left;
+}
+
+.thumbwrapp p.pin{
+	background: #EFDFDF !important;
+	text-align: center !important;
+}
+	
+.thumbwrap img.galattach,
+.thumbwrapp img.galattach{
+	background: #FFF url(http://mssql.ipsinternal.com/mark/nfinal/nvidia_cache/style_images/nvgreen/img_larger.gif) no-repeat bottom right;
+	border: 1px solid #B4B4B4;
+	margin: 5px;
+	padding: 2px 2px 10px 2px;
+}
+
+li.helprow{ 
+	margin: 0 0 10px 0;
+	padding: 0; 
+}
+
+ul#help{ 
+	padding: 0 0 0 15px; 
+}
+
+.warngood,
+.warnbad{ 
+	color: #0B9500;
+	font-weight: bold;
+}
+
+.warnbad{ 
+	color: #DD0000;
+}
+
+#padandcenter{ 
+	margin: 0 auto 0 auto;
+	padding: 14px 0 14px 0;
+	text-align: center;
+}
+
+#profilename{ 
+	font-size: 28px; 
+	font-weight: bold; 
+}
+
+#photowrap{ 
+	padding: 6px; 
+}
+
+#phototitle{ 
+	border-bottom: 1px solid #000; 
+	font-size: 24px; 
+}
+
+#photoimg{ 
+	margin: 15px 0 0 0;
+	text-align: center; 
+} 
+
+#ucpmenu,
+#ucpcontent{ 
+	background: #F7F7F7;
+	border: 1px solid #345487;
+	line-height: 150%;
+}
+
+#ucpmenu p{ 
+	margin: 0; 
+	padding: 2px 5px 6px 9px;
+}
+
+#ucpmenu a:link, 
+#ucpmenu a:active, 
+#ucpmenu a:visited{ 
+	text-decoration: none; 
+}
+
+#ucpcontent{ 
+	width: auto;
+}
+
+#ucpcontent p{ 
+	margin: 0;
+	padding: 10px;
+}
+
+.activeuserstrip{ 
+	background: #E2E1E1;
+	padding: 6px;
+}
+
+/* Topic View elements */
+.signature{  
+	background: transparent;
+	color: #339; 
+	font-size: 10px;
+	line-height: 150%;
+}
+
+.postdetails{ 
+	font-size: 10px;
+	line-height:140%;
+}
+
+.postcolor{ 
+	font-size: 12px; 
+	line-height: 160%;
+}
+
+.normalname{ 
+	color: #003;
+	font-size: 12px; 
+	font-weight: bold; 
+}
+
+.normalname a:link, 
+.normalname a:visited, 
+.normalname a:active{ 
+	font-size: 12px;
+}
+
+.post1,
+.bg1{ 
+	background: #F7F7F7;
+}
+
+.post2,
+.bg3{ 
+	background: #F6F8F6;
+}
+
+.row2shaded,
+.post1shaded { background-color: #DEDBE4 }
+.row4shaded,
+.post2shaded { background-color: #E3DFE7 }
+
+.row1{ 
+	background: #F7F7F7; 
+}
+
+.row2{ 
+	background: #F7F7F7; 
+}
+
+.rowhighlight{
+	background-color: #FFF9BA;
+}
+
+.darkrow1{ 
+	background: #E2E1E1;
+	color: #666666; 
+}
+
+.darkrow3{ 
+	background: #e7e6e6; 
+	color: #666666; 
+}
+
+/* tableborders gives the white column / row lines effect */
+.plainborder,
+.tablefill,
+.tablepad{ 
+	background: #f7f7f7;
+	border: 1px solid #345487;
+}
+
+.tablefill,
+.tablepad{ 
+	padding: 6px;  
+}
+
+.tablepad{ 
+	border: 0 !important;
+}
+
+.wrapmini{ 
+	float: left;
+	line-height: 1.5em;
+	width: 25%;
+}
+
+.pagelinks{
+	float: left;
+	line-height: 1.2em;
+	width: 35%;
+}
+
+.desc{ 
+	font-size: 11px; 
+	color: #434951;
+}
+
+.lastaction
+{
+	font-size: 10px; 
+	color: #434951;
+}
+
+.edit{ 
+	font-size: 9px;
+}
+
+.thin{ 
+	border: 1px solid #FFF;
+	border-left: 0;
+	border-right: 0;
+	line-height: 150%;
+	margin: 2px 0 2px 0;
+	padding: 6px 0 6px 0;
+}
+
+/* =================================================================================== */
+/* =================================================================================== */
+/* =================================================================================== */
+
+/* 
+ * ========================================
+ * calendar styles 
+ * ========================================
+ */
+	
+.calmonths{ 
+	background: #FBFBFB;
+	border: 1px solid #DBDBDB;
+	font-size: 18px; 
+	font-weight: bold; 
+	margin: 5px 0 5px 0;
+	padding: 8px;
+	text-align: center;
+}
+
+.weekday{
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.calmonths a{
+	text-decoration: none;
+}
+
+.calday,
+.calweekday{ 
+	background: #F7F7F7;
+	color: #666;
+	font-size: 11px;
+	font-weight: bold;
+	margin: 0;
+	padding: 4px;
+	text-align: right;
+}
+
+.calweekday{
+	border-right: 1px solid #AAA;
+	color: #222;
+	font-size: 14px;
+	padding: 6px;
+	text-align: center;
+}
+
+.celltodayshaded,
+.celldateshaded,
+.cellblank,
+.celldate,
+.celltoday,
+.mcellblank,
+.mcelldate,
+.mcelltoday{
+	background: #F6F8F6; 
+	height: 100px;
+	margin: 0;
+	padding: 0;
+	vertical-align: top;
+}
+
+.celltodayshaded,
+.celldateshaded
+{
+	background: #E3DFE7;
+}
+
+.mcellblank,
+.mcelldate,
+.mcelltoday{
+	height: auto;
+}
+
+.cellblank,
+.mcellblank{
+	background: #DBDBDB;
+}
+
+.celltoday,
+.celltodayshaded,
+.mcelltoday{
+	border: 2px solid #8B0000;
+}
+
+.calranged
+{
+	border: 2px outset #DBDBDB;
+	background: #DBDBDB;
+	padding:4px;
+}
+
+.calitem
+{
+	border-bottom: 1px dotted #DBDBDB;
+	padding:4px;
+}
+
+/* 
+ * ========================================
+ * form styles 
+ * ========================================
+ */
+
+.input-warn,
+.input-green,
+.input-checkbox,
+input,
+textarea,
+select{
+	background: #FFF;
+	border: 1px solid #D1D1D1;
+	color: #000;
+	font-family: verdana, helvetica, sans-serif;
+	font-size: 11px;
+	margin: 5px;
+	padding: 2px;
+	vertical-align: middle;
+}
+
+select
+{
+	margin: 0px;
+}
+
+.input-checkbox
+{
+	border: none;
+}
+
+.input-warn,
+.input-warn-content
+{
+	border: 1px solid #C00;
+}
+
+.input-ok,
+.input-ok-content
+{
+	border: 1px solid #0C0;
+}
+
+.input-warn-content
+{
+	padding: 4px;
+	margin: 4px;
+	background-color: #FCC;
+}
+
+.input-ok-content
+{
+	padding: 4px;
+	margin: 4px;
+	background-color: #CFC;
+}
+
+
+.input-text
+{
+	color: #900;
+}
+
+input.button{
+	margin: 0;
+	width: auto;
+	cursor: hand;
+	cursor: pointer;
+}
+
+optgroup option{
+	font-family: verdana, helvetica, sans-serif;
+	font-size: 12px;
+}
+
+.codebuttons{ 
+	font-family: Verdana, Helvetica, Sans-Serif; 
+	font-size: 10px; 
+	vertical-align: middle;
+	margin:2px;
+}
+
+.textarea,
+.searchinput,
+.button,
+.gobutton{
+	background: #FFF;
+	border: 1px solid #4C77B6;
+	color: #000;
+	font-family: Verdana, Helvetica, Sans-Serif;
+	font-size: 11px;
+	padding: 2px;
+	vertical-align: middle;
+}
+	
+.button{
+	background: #F7F7F7;
+}
+
+.gobutton{
+	background: transparent;
+	border: 0;
+	color: #b4b4b4;
+	margin: 0;
+	vertical-align: middle;
+}
+
+.radiobutton,
+.checkbox,
+.helpbox { 
+	border: 0;
+	vertical-align: middle;
+	background: transparent;
+}
+
+/* 
+ * class.formtable 
+ *
+ * used for tabled forms 
+ * technically tables should not be used for form display 
+ * but, in the case of IPB a table is easier to work with
+ * for the average webmaster, who has little to no CSS knowledge.
+ *
+ */
+
+.formtable{
+	background: transparent;
+}
+
+.formtable td,
+.pformleft,
+.pformleftw,
+.pformright{
+	background:#F7F7F7;
+	border: 1px solid #DBDBDB;
+	border-bottom: 0;
+	border-left: 0;
+	font-weight: bold;
+	margin: 1px 0 0 0;
+	padding: 6px;
+	width: 25%;
+} 
+
+.formtable td.wider,
+.pformleftw,
+.pformright{
+	width: 40%;
+}
+
+.formtable td.formright,
+.pformright{
+	border-right: 0px;
+	font-weight: normal;
+	width: auto;
+} 
+
+.formtable td.formtitle,
+.formsubtitle{
+	background: #E7E6E6;
+	border: 1px solid #9FB9D4; 
+	border-bottom: 0;
+	border-left: 0;
+	border-right: 0;
+	font-weight: normal;
+}
+
+.formsubtitle{ 
+	border: 0;
+	color: #666666;
+	font-weight: bold;
+	padding: 5px;
+}
+
+.formtable td.formstrip{
+	background: #DDE8F2;
+	border: 1px solid #9FB9D4;
+	border-left: 0;
+	border-right: 0;
+	font-weight: normal;
+}
+
+/* 
+ * ========================================
+ * new style quote and code wrappers MATT's DESIGN 
+ * ========================================
+ */
+
+.quotetop{
+	background: #F7F7F7 url(http://mssql.ipsinternal.com/mark/nfinal/nvidia_cache/style_images/nvgreen/css_img_quote.gif) no-repeat right;
+	border: 1px dotted #000;
+	border-bottom: 0;
+	border-left: 4px solid #aeaeae;
+	color: #000;
+	font-weight: bold;
+	font-size: 10px;
+	margin: 2px auto 0 auto;
+	padding: 3px;
+}
+
+.quotemain{
+	background: #FAFCFE;
+	border: 1px dotted #000;
+	border-left: 4px solid #aeaeae;
+	border-top: 0;
+	color: #465584;
+	padding: 4px;
+	margin: 0 auto 0 auto;
+}
+
+.codetop,
+.sqltop,
+.htmltop{
+	background: #FDDBCC url(http://mssql.ipsinternal.com/mark/nfinal/nvidia_cache/style_images/nvgreen/css_img_code.gif) no-repeat right;
+	color: #000;
+	font-weight: bold;
+	margin: 0 auto 0 auto;
+	padding: 3px;
+}
+
+.codemain,
+.sqlmain,
+.htmlmain{
+	background: #FAFCFE;
+	border: 1px dotted #000;
+	color: #465584;
+	font-family: Courier, Courier New, Verdana, Arial;
+	margin: 0 auto 0 auto;
+	padding: 2px;
+}
+
+/* 
+ * ========================================
+ * old school quote and code styles - backwards compatibility 
+ * ========================================
+ */
+
+#QUOTE,
+#CODE{  
+	background: #FAFCFE; 
+	border: 1px solid #000; 
+	color: #465584; 
+	font-family: Verdana, Arial; 
+	font-size: 11px; 
+	padding: 2px; 
+	white-space: normal;
+}
+
+#CODE{ 
+	font-family: Courier, Courier New, Verdana, Arial;
+}
+
+/* 
+ * ========================================
+ * All New Styles 
+ * ========================================
+ */
+.cleared{
+	clear: both;
+}
+
+.borderwrap,
+.borderwrapm{ /* this will affect the outlining border of all the tables and boxes through-out the skin. */
+	background: #FFF;
+	border: 1px solid #b4b4b4;
+	padding: 0px; 
+	margin: 0px; 
+}
+
+.borderwrapm{
+	margin: 5px;
+}
+
+.borderwrap h3,
+.maintitle,
+.maintitlecollapse{
+	background: url(http://mssql.ipsinternal.com/mark/nfinal/nvidia_cache/style_images/nvgreen/tile_cat.jpg);
+	border: 1px solid #FFF;
+	border-bottom: 1px solid #525252;
+	color: #FFF; 
+	font-size: 12px;
+	font-weight: bold; 
+	margin: 0px;
+	padding: 8px;
+}
+
+.maintitle td {
+	color: #FFF; 
+	font-size: 12px;
+	font-weight: bold;
+}
+
+
+.maintitlecollapse{
+	border: 1px solid #FFF;
+}
+
+.maintitle p,
+.maintitlecollapse p,
+.formsubtitle p{
+	background: transparent !important;
+	border: 0 !important;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+.maintitle p.expand,
+.maintitle p.goto,
+.maintitlecollapse p.expand,
+.formsubtitle p.members{
+	float: right;
+	width: auto !important;
+}
+
+.maintitle a:link, 
+.maintitle a:visited,
+.maintitlecollapse a:link, 
+.maintitlecollapse a:visited{ 
+	background: transparent;
+	color: #FFF;
+	text-decoration: none; 
+}
+
+.maintitle a:hover, 
+.maintitle a:active,
+.maintitlecollapse a:hover, 
+.maintitlecollapse a:active{ 
+	background: transparent;
+	color: #F1F1F1;
+}
+
+table th,
+.borderwrap table th,
+.subtitle,
+.subtitlediv,
+.postlinksbar{ 
+	background: transparent url(http://mssql.ipsinternal.com/mark/nfinal/nvidia_cache/style_images/nvgreen/tile_sub.jpg);
+	border-bottom: 1px solid #525252;
+	color: #666666; 
+	font-size: 10px;
+	font-weight: bold; 
+	letter-spacing: 1px;
+	margin: 0; 
+	padding: 5px; 
+}
+
+.subtitlediv{
+	border: 1px solid #FFF;
+	border-bottom: 1px solid #525252;
+	text-align: right;
+}
+
+.borderwrap table th a:link,
+.subtitle a:link,
+.subtitlediv a:link,
+.borderwrap table th a:visited,
+.subtitle a:visited, 
+.subtitlediv a:visited, 
+.borderwrap table th a:active,
+.subtitle a:active,
+.subtitlediv a:active,
+.borderwrap table th a:hover,
+.subtitle a:hover,
+.subtitlediv a:hover{ 
+	background: transparent;
+	color: #666666;
+	text-decoration: none; 
+}
+
+.borderwrap h4{
+	background: #DDE6F2;
+	border: 1px solid #FFF;
+	border-bottom: 1px solid #525252;
+	border-top: 1px solid #525252;
+	color: #525252; 
+	font-size: 12px;
+	font-weight: bold; 
+	margin: 0;
+	padding: 5px;
+}
+
+.borderwrap p{
+	background: #F9F9F9;
+	border: 1px solid #CCC;
+	margin: 5px;
+	padding: 10px;
+	text-align: left;
+}
+
+
+td.formbuttonrow,
+.pformstrip,
+.borderwrap p.formbuttonrow,
+.borderwrap p.formbuttonrow1{
+	background: #E7E6E6 !important; 
+	border: 1px solid #FFF;
+	border-top: 1px solid #525252;
+	margin: 0px !important;
+	padding: 5px !important;
+	text-align: center;
+}
+
+td.formbuttonrow{
+	border-bottom: 0;
+	border-left: 0;
+	border-right: 0;
+}
+
+.borderwrap p.formbuttonrow1{
+	background: #F9F9F9 !important;
+	border: 0;
+	border-top: 1px solid #CCC;
+}
+
+.bar,
+.barb,
+.barc{
+	background: #F7F7F7;
+	border: 1px solid #FFF;
+}
+
+.barc{
+	border-bottom: 0;
+}
+
+.bar p,
+.barb p,
+.barc p{
+	background: transparent;
+	border: 0;
+	color: #222;
+	font-size: 11px;
+	margin: 0;
+	padding: 5px;
+	text-align: left;
+}
+
+.barb p{
+	text-align: right;
+}
+
+.bar p.over,
+.bar p.overs,
+.barc p.over,
+.barc p.overs{
+	float: right;
+}
+
+.barb p.over,
+.barb p.overs{
+	float: left;
+}
+
+.bar p.overs,
+.barb p.overs,
+.barc p.overs{
+	position: relative;
+	top: 5px;
+}
+
+.catend{
+	background: #aeaeae;
+	color: #000;
+	font-size: 1px;
+	height: 5px;
+}
+
+.newslink{
+	background: #FBFBFB;
+	border: 1px solid #DBDBDB;
+	margin: 0;
+	width: 100%;
+}
+
+.newslink td{
+	color: #222;
+	font-size: 10px;
+	padding: 5px 5px 5px 10px;
+}
+
+.newslink span{
+	background: transparent;
+	color: #505050;
+	font-style: italic;
+	font-weight: normal;
+}
+
+.newslink input{
+	background: #FFF;
+	border: 1px solid #999;
+	color: #505050;
+	font-size: 10px;
+	padding: 3px;
+	vertical-align: middle;
+	width: auto;
+}
+
+.newslink input.button{
+	background: transparent;
+	border: 0;
+	color: #b4b4b4;
+	vertical-align: middle;
+}
+
+.fieldwrap{
+	background: #F9F9F9;
+	border: 1px solid #CCC;
+	border-top: 0;
+	margin: 5px;
+	padding: 0;
+	text-align: left;
+}
+
+.fieldwrap h4{
+	background: #EEE;
+	border: 1px solid #CCC;
+	border-left: 0;
+	border-right: 0;
+	color: #444; 
+	font-size: 12px;
+	font-weight: bold; 
+	margin: 0;
+	padding: 5px;
+}
+
+.errorwrap {
+	background: #F2DDDD;
+	border: 1px solid #992A2A;
+	border-top: 0;
+	margin: 5px;
+	padding: 0;
+}
+
+
+.errorwrap h4 {
+	background: #E3C0C0;
+	border: 1px solid #992A2A;
+	border-left: 0;
+	border-right: 0;
+	color: #992A2A; 
+	font-size: 12px;
+	font-weight: bold; 
+	margin: 0;
+	padding: 5px;
+}
+
+.errorwrap p {
+	background: transparent;
+	border: 0;
+	color: #992A2A;
+	margin: 0;
+	padding: 8px;
+}
+
+
+.ruleswrap{
+	background: #F2DDDD;
+	border: 1px solid #992A2A;
+	color: #992A2A; 
+	margin: 5px 0 5px 0;
+	padding: 5px;
+}
+
+#redirectwrap{
+	background: #FBFBFB;
+	border: 1px solid #DBDBDB;
+	margin: 200px auto 0 auto;
+	text-align: left;
+	width: 500px;
+}
+
+#redirectwrap h4{
+	background: #d5d6d7;
+	border-bottom: 1px solid #DBDBDB;
+	color: #666666;
+	font-size: 14px;
+	margin: 0;
+	padding: 5px;
+}
+
+#redirectwrap p{
+	margin: 0;
+	padding: 5px;
+}
+
+#redirectwrap p.redirectfoot{
+	background: #d7d9da;
+	border-top: 1px solid #DBDBDB;
+	text-align: center;
+}
+
+
+#gfooter{
+	background: #a5a5a5;
+	margin: 5px 0 5px 0;
+	padding: 0;
+	width: 100%;
+}
+
+#gfooter td{
+	color: #FFF;
+	font-size: 10px;
+	padding: 4px;
+}
+
+#gfooter a:link,
+#gfooter a:visited{
+	color: #FFF;
+}
+
+#logostrip{ 
+	background: #F2F2F2 url(http://mssql.ipsinternal.com/mark/nfinal/nvidia_cache/style_images/nvgreen/tile_back.jpg);
+	border: 1px solid #FFF;
+	height: 100px;
+	margin: 0;
+	padding: 0;
+}
+
+#logographic{
+	background: transparent url(http://mssql.ipsinternal.com/mark/nfinal/nvidia_cache/style_images/nvgreen/logo4.jpg) no-repeat left;
+	height: 100px;
+	margin: 0;
+	padding: 0;
+}
+
+#submenu{ 
+	background: transparent url(http://mssql.ipsinternal.com/mark/nfinal/nvidia_cache/style_images/nvgreen/top_tile_sub.gif);
+	border: 1px solid #FFF;
+	border-top: 0;
+	color: #666666; 
+	margin: 0;
+	height: 29px;
+	text-align: right;
+}
+
+.ipb-top-left-link,
+.ipb-top-right-link
+{
+	background: transparent url(http://mssql.ipsinternal.com/mark/nfinal/nvidia_cache/style_images/nvgreen/tile_sub-lite.gif);
+	float: right;
+	font-size: 10px;
+	font-weight: bold; 
+	letter-spacing: 0.5px;
+	margin: 0px;
+	padding: 7px 0 7px 0;
+	width: auto;
+	border-left:  1px solid #EFEFEF;
+}
+
+.ipb-top-left-link
+{
+	float: left;
+	border-left: 0px;
+	border-right: 1px solid #EFEFEF;
+}
+
+.ipb-top-left-link a:link, 
+.ipb-top-left-link a:visited,
+.ipb-top-right-link a:link, 
+.ipb-top-right-link a:visited
+{ 
+	background: transparent; 
+	color: #353535;
+	padding: 0 6px 0 6px;
+	text-decoration: none;
+}
+
+.ipb-top-left-link a:hover, 
+.ipb-top-left-link a:active,
+.ipb-top-right-link a:hover, 
+.ipb-top-right-link a:active
+{
+	background: transparent; 
+	color: #525252; 
+}
+
+#userlinks,
+#userlinksguest{ 
+	background: #FBFBFB;
+	border: 1px solid #DBDBDB;
+	margin: 5px 0 5px 0;
+	padding: 0 5px 0 5px;
+}
+
+#userlinksguest{ 
+	background: #F4E7EA;
+	border: 1px solid #986265;
+}
+
+#userlinks p,
+#userlinksguest p{
+	background: transparent !important;
+	border: 0 !important;
+	font-size: 10px;
+	font-weight: bold; 
+	letter-spacing: 1px;
+	margin: 0 !important;
+	padding: 7px 0 7px 0; 
+	text-align: right;
+}
+
+#userlinks p,
+#userlinksguest p{
+	font-weight: normal;
+	letter-spacing: 0;
+}
+
+#userlinksguest p.pcen{
+	text-align: center;
+}
+
+#userlinks p.home,
+#userlinksguest p.home{
+	float: left;
+}
+
+#navstrip{ 
+	background: transparent;
+	color: #999;
+	font-size: 12px;
+	font-weight: bold;
+	margin: 0 0 5px 0;
+	padding: 14px 0px 8px 0px; 
+}
+
+#navstrip a:link, 
+#navstrip  a:visited{ 
+	background: transparent; 
+	color: #222; 
+	text-decoration: none;
+}
+
+#navstrip a:hover, 
+#navstrip a:active{
+	background: transparent; 
+	color: #666666; 
+}
+
+.toplinks{
+	background: transparent;
+	color: #000;
+	margin: 0;
+	padding: 0 0 5px 0;
+	text-align: right;
+}
+
+.toplinks span{
+	background: #FBFBFB;
+	border: 1px solid #DBDBDB;
+	border-bottom: 0;
+	color: #000;
+	font-size: 10px;
+	font-weight: bold;
+	margin: 0 10px 0 0;
+	padding: 5px;
+}
+
+.copyright{ 
+	background: #EEE;
+	font-size: 11px; 
+	margin: 0 0 5px 0;
+	padding: 8px;
+}
+
+/* 
+ * ========================================
+ * print page styles 
+ * ========================================
+ */
+
+#print{
+	margin: 20px auto 20px auto;
+	padding: 0;
+	text-align: left;
+	width: 85%;
+}
+
+#print h1,
+#print h2,
+#print h3,
+#print h4,
+#print p{
+	color: #036;
+	font-size: 18px;
+	font-weight: bold;
+	margin: 0;
+	padding: 8px;
+}
+
+#print h2,
+#print h3,
+#print p{
+	border-bottom: 1px solid #999;
+	font-size: 11px;
+	font-weight: normal;
+}
+
+#print h3{
+	background: #F5F5F5;
+	font-size: 12px;
+	font-weight: bold;
+	margin: 0 0 10px 0;
+}
+
+#print h4{
+	background: #F9F9F9;
+	font-size: 11px;
+}
+
+#print p{
+	margin: 0 0 5px 0;
+	padding: 10px;
+}
+
+#print p.printcopy{
+	border: 0;
+	color: #000;
+	text-align: center;
+}
+
+.dny-edit-title
+{
+	border:0px;
+	padding:3px;
+	margin:0px;
+	background: #E7E6E6; 
+	color: #666666; 
+}
+
+
+/* ======================================== */
+/* TABS
+/* ======================================== */
+
+.tabon
+{
+	border-top:1px solid #999;
+	border-left:1px solid #999;
+	border-right:1px solid #999;
+	background-color:#FFF;
+	padding:8px;
+	padding-bottom:9px;
+	font-size:10px;
+	float:left;
+	width:auto;
+	margin-top:3px;
+}
+
+.taboff
+{
+	border-top: 1px solid #777;
+	border-left: 1px solid #777;
+	border-right: 1px solid #777;
+	background-color: #B5C3D9;
+	color: #333;
+	padding: 8px;
+	font-size:10px;
+	float: left;
+	width: auto;
+	margin-top:3px;
+}
+
+.tabon a:link, 
+.tabon a:visited, 
+.tabon a:active
+{
+	text-decoration:none;
+	color: #000;
+}
+
+.taboff a:link, 
+.taboff a:visited, 
+.taboff a:active
+{
+	text-decoration:none;
+	color: #333;
+}
+
+.mya-back
+{
+	background: #b4b4b4;
+	margin:1px;
+	padding: 1px;
+}
+
+.mya-content
+{
+	background: #FFF;
+	padding:8px;
+	margin: 1px;
+	border: 1px solid #777;
+}
+
+.mya-content-tbl
+{
+   background: #FBFBFB;
+   border: 1px solid #777;
+   text-align:left;
+   font-size:10px;
+   white-space:nowrap;
+   margin:1px;
+}
+
+.mya-fieldwrap
+{
+	background: transparent;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	padding: 4px;
+	border: 1px solid #C5C7CD;
+	-moz-border-radius: 5px;
+	width: auto;
+	display: block;
+}
+
+/* -------------------------------- */
+/* Create PM box defaults           */
+/* -------------------------------- */
+
+.iframeshim
+{
+	position:absolute;
+	display:none;
+	background: #FFF;
+	filter:alpha(opacity=0);
+	border:0px;
+	width:auto;
+	height:auto;
+}
+
+
+
+/* -------------------------------- */
+/* Experimental                     */
+/* -------------------------------- */
+
+.popupmenu,
+.popupmenu-new
+{
+   background: #FBFBFB;
+   border: 1px solid #666666;
+   text-align:left;
+   font-size:10px;
+   white-space:nowrap;
+   /*padding:3px 5px 3px 3px;*/
+   /*width:300px;*/
+}
+
+.popupmenu-item
+{
+	padding: 5px;
+	/*margin-top:4px;*/
+	white-space: nowrap;
+	border-bottom: 1px solid #DBDBDB;
+	color:  #000000;
+	font-weight: normal;
+}
+
+.popupmenu-item-last
+{
+	padding: 5px;
+	/*margin-top:4px;*/
+	white-space: nowrap;
+	color:  #000000;
+	font-weight: normal;
+}
+
+.popmenubutton-new,
+.popmenubutton
+{
+	width:120px;
+	white-space:nowrap;
+	background-color: #DBDBDB;
+	border:1px solid #666666;
+	color: #666666;
+	font-weight:bold;
+	float:right;
+	height:18px;
+	text-align:center;
+	margin:0px;
+	font-size:11px;
+	padding:3px;
+}
+
+.popmenubutton-new
+{
+	float:none;
+	width:auto;
+	text-align:left;
+	height:auto;
+	padding:3px;
+	font-weight:normal;
+	background-color:#F6F8F6;
+	background-image: url(http://mssql.ipsinternal.com/mark/nfinal/nvidia_cache/style_images/nvgreen/menu_action_down-padded.gif);
+	background-repeat: no-repeat;
+	background-position: right;
+}
+
+.popmenubutton-new-out
+{
+	padding:4px;
+}
+
+.popupmenu-new
+{
+	background-color: #F7F7F7;
+}
+
+
+.popmenubutton a:link, 
+.popmenubutton a:visited,
+.popmenubutton-new a:link, 
+.popmenubutton-new a:visited,
+.popupmenu-item a:link, 
+.popupmenu-item a:visited,
+.popupmenu-item-last a:link, 
+.popupmenu-item-last a:visited
+{ 
+	color: #666666; 
+	text-decoration: none;
+}
+
+.popmenubutton a:hover,
+.popmenubutton-new a:hover,
+.popupmenu-item a:hover, 
+.popupmenu-item-last a:hover
+{ 
+	color: #525252; 
+	text-decoration: none;
+}
+
+.popupmenu-category
+{ 
+	background: transparent url(http://mssql.ipsinternal.com/mark/nfinal/nvidia_cache/style_images/nvgreen/tile_sub.jpg);
+	border-top: 1px solid #525252;
+	border-bottom: 1px solid #525252;
+	color: #666666; 
+	font-size: 10px;
+	font-weight: bold; 
+	letter-spacing: 1px;
+	margin: 0; 
+	padding: 5px; 
+}
+
+/* -------------------------------- */
+/* Loading box
+/* -------------------------------- */
+
+#loading-layer-inner
+{
+	width:220px;
+	height:28px;
+	padding:18px 10px 10px 10px;
+	text-align:center;
+	color: #000;
+	border: 1px solid;
+	border-color:#CCC #666 #666 #CCC;
+	background-color: #FCF8C7;
+}
+
+/* -------------------------------- */
+/* Message in a bo(x|ttle)
+/* -------------------------------- */
+
+#ipd-msg-wrapper
+{
+	display: none;
+	width: 220px;
+}
+
+#ipd-msg-inner
+{
+	width:100%;
+	height:45px;
+	padding: 6px 4px 4px 4px;
+	margin: 0px;
+	text-align:center;
+	color: #000;
+	border: 1px solid;
+	border-color:#ccc #666 #666 #ccc;
+	background-color: #FCF8C7;
+	filter:alpha(opacity=75);
+	opacity:.75
+}
+
+#ipd-msg-title
+{
+	width: 100%;
+	height:20px;
+	margin: 0px;
+	padding: 6px 4px 4px 4px;
+	background: transparent url(http://mssql.ipsinternal.com/mark/nfinal/nvidia_cache/style_images/nvgreen/css_pp_header.gif);
+	border: 1px solid #666666;
+	border-bottom: 0px;
+	color: #FFF;
+}
+
+.linked-image
+{
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+}
+
+.resized-linked-image
+{
+	margin: 1px 0px 0px 0px;
+	padding: 0px;
+	background-color: #000;
+	border: 0px;
+	color: #FFF;
+	font-size: 10px;
+	width: auto;
+	-moz-border-radius-topleft: 7px;
+	-moz-border-radius-topright: 7px;
+}
+
+.resized-linked-image-zoom
+{
+	width: 200px;
+	height: 30px;
+	filter:alpha(opacity=85);
+	opacity:.85;
+	background-color: #FFF;
+	padding-top: 6px;
+	padding-left: 5px;
+	top: 0px;
+	left: 0px;
+	position: absolute;
+	display: none;
+}
+
+/* -------------------------------- */
+/* Edit post reason
+/* -------------------------------- */
+
+.post-edit-reason
+{
+	background: #EFEFEF;
+	margin-top: 9px;
+	margin-bottom: 0px;
+	padding: 4px;
+	color: #333;
+	font-size: 10px;
+	border: 1px solid #C5C7CD;
+	-moz-border-radius: 5px;
+	width: auto;
+	display: block;
+}
+
+/* -------------------------------- */
+/* Personal Profile
+/* -------------------------------- */
+
+.pp-name
+{ 
+	background: #FBFBFB;
+	border: 1px solid #DBDBDB;
+	margin: 0px;
+	padding: 10px;
+}
+
+.pp-name h3
+{
+	margin:0px;
+	padding:0px 0px 5px 0px;
+	font-size:24px;
+}
+
+.pp-header
+{ 
+	background: transparent url(http://mssql.ipsinternal.com/mark/nfinal/nvidia_cache/style_images/nvgreen/tile_sub.jpg);
+	color: #666666; 
+	font-size: 10px;
+	font-weight: bold; 
+	margin: 0px 0px 1px 0px; 
+	padding: 5px; 
+}
+
+.pp-title
+{
+	background: url(http://mssql.ipsinternal.com/mark/nfinal/nvidia_cache/style_images/nvgreen/css_pp_header.gif);
+	border-bottom: 1px solid #525252;
+	color: #FFF; 
+	font-size: 12px;
+	font-weight: bold; 
+	margin: 0px;
+	padding: 8px;
+}
+
+.pp-datebox
+{
+	text-align: center;
+	background: #FFFFFF;
+	border: 1px solid #555555;
+	padding: 4px;
+	margin: 0px;
+	font-size:18px;
+	font-weight:bold;
+	line-height: 100%;
+	letter-spacing: -1px;
+	float:right;
+	width: auto;
+}
+
+.pp-datebox em
+{
+	color: #AAA;
+	font-weight: normal;
+	font-style: normal;
+}
+
+.pp-contentbox-back
+{
+	background-image: url(http://mssql.ipsinternal.com/mark/nfinal/nvidia_cache/style_images/nvgreen/folder_profile_portal/pp-css-contentblock.gif);
+	background-repeat: repeat-x;
+	background-color: #C2C2C2;
+	padding: 6px;
+}
+
+.pp-contentbox-entry,
+.pp-contentbox-entry-noheight,
+.pp-contentbox-entry-noheight-mod,
+.pp-contentbox-entry-noheight-sel
+{
+	background-color: #F6F8F6;
+	border: 1px solid #888888;
+	line-height: 140%;
+	padding: 8px;
+	margin-bottom: 6px;
+	height: 200px;
+	overflow: auto;
+	overflow-x: auto;
+}
+
+.pp-contentbox-entry-noheight-sel
+{
+	background-color:#FCECCD;
+}
+
+.pp-contentbox-entry-noheight-mod
+{
+	background-color:#FDF1DA;
+}
+
+.pp-contentbox-entry-noheight,
+.pp-contentbox-entry-noheight-mod,
+.pp-contentbox-entry-noheight-sel
+{
+	height: auto;
+	margin-bottom: 1px;
+}
+
+.pp-image-thumb-wrap,
+.pp-image-thumb-wrap-floatright,
+.pp-image-mini-wrap,
+.pp-image-mini-wrap-floatright
+{
+	width: 52px;
+	height: 52px;
+	text-align: center;
+	background: #FFFFFF;
+	border: 1px solid #555555;
+	padding: 4px;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+.pp-image-mini-wrap,
+.pp-image-mini-wrap-floatright
+{
+	width: 27px;
+	height: 27px;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+.pp-image-thumb-wrap-floatright,
+.pp-image-mini-wrap-floatright
+{
+	float:right;
+}
+
+.pp-tiny-text
+{
+	color: gray;
+	font-size: 10px;
+}
+
+.pp-mini-content-entry,
+.pp-mini-content-entry-noheight,
+.pp-mini-entry-noheight-shaded
+{
+	background-color: #F7F7F7;
+	padding: 6px;
+	border-bottom: 1px dotted #555555;
+	clear:both;
+	width: auto;
+	height: 60px;
+}
+
+.pp-mini-entry-noheight-shaded
+{
+	background-color: #F2F1F3;
+}
+
+.pp-mini-content-entry-noheight,
+.pp-mini-entry-noheight-shaded
+{
+	height: auto;
+}
+
+.pp-tabclear,
+.pp-maintitle
+{
+	background: url(http://mssql.ipsinternal.com/mark/nfinal/nvidia_cache/style_images/nvgreen/css_pp_header.gif);
+	border: 1px solid #FFF;
+	border-bottom: 1px solid #525252;
+	color: #FFF; 
+	font-size: 12px;
+	font-weight: bold; 
+	margin: 0px;
+	padding: 8px;
+}
+
+.pp-tabclear
+{
+	border:0px;
+	border-right: 1px solid #a2a2a2;
+	border-left: 1px solid #a2a2a2;
+}
+
+.pp-tabon
+{
+	border-top:1px solid #6A6A6A;
+	border-left:1px solid #a2a2a2;
+	border-right:1px solid #a2a2a2;
+	background-color:#9E9E9E;
+	color:#FFFFFF;
+	padding:8px;
+	float:left;
+	width:auto;
+	background-image: url(http://mssql.ipsinternal.com/mark/nfinal/nvidia_cache/style_images/nvgreen/css_pp_tab_on.gif);
+	background-repeat: repeat-x;
+	background-position: left bottom;
+	margin-top:3px;
+	font-size:10px;
+}
+
+.pp-taboff,
+.pp-tabshaded
+{
+	border-top: 1px solid #9E9E9E;
+	border-left: 1px solid #9E9E9E;
+	border-right: 1px solid #9E9E9E;
+	background-color: #6A6A6A;
+	color: #6A6A6A;
+	padding:8px;
+	float: left;
+	width: auto;
+	background-image: url(http://mssql.ipsinternal.com/mark/nfinal/nvidia_cache/style_images/nvgreen/css_pp_tab_off.gif);
+	background-repeat: repeat-x;
+	background-position: left bottom;
+	margin-top:3px;
+	font-size:10px;
+}
+
+.pp-tabshaded
+{
+	background-image: url(http://mssql.ipsinternal.com/mark/nfinal/nvidia_cache/style_images/nvgreen/css_pp_tab_shaded.gif);
+	background-repeat: repeat-x;
+	background-position: left bottom;
+	color: #516795;
+	border-top: 1px solid #AAAAAA;
+	border-left: 1px solid #AAAAAA;
+	border-right: 1px solid #AAAAAA;
+}
+
+.pp-tabon a:link, 
+.pp-tabon a:visited, 
+.pp-tabon a:active
+{
+	text-decoration:none;
+	color: #FFFFFF;
+}
+
+.pp-taboff a:link, 
+.pp-taboff a:visited, 
+.pp-taboff a:active,
+.pp-tabshaded a:link, 
+.pp-tabshaded a:visited, 
+.pp-tabshaded a:active
+{
+	text-decoration:none;
+	color: #6A6A6A;
+}
+
+.pp-tabwrap
+{
+	height: 34px;
+	margin:0px;
+	padding:0px;
+}
+</style> 
+<style type='text/css'>
+@import url( "http://forums.nvidia.com/style_images/nvgreen/folder_editor_images/css_rte.css" );
+</style> 
+</head> 
+<body>
+<div id="ipbwrapper">
+<!--ipb.javascript.start-->
+<script type="text/javascript">
+ //<![CDATA[
+ var ipb_var_st            = "0";
+ var ipb_lang_tpl_q1       = "Please enter a page number to jump to between 1 and";
+ var ipb_var_s             = "a1a10fd4eb0c2c0dac093c3b41dded97";
+ var ipb_var_phpext        = "php";
+ var ipb_var_base_url      = "http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&";
+ var ipb_var_image_url     = "style_images/nvgreen";
+ var ipb_input_f           = "18";
+ var ipb_input_t           = "20035";
+ var ipb_input_p           = "0";
+ var ipb_var_cookieid      = "";
+ var ipb_var_cookie_domain = "";
+ var ipb_var_cookie_path   = "/";
+ var ipb_md5_check         = "880ea6a14ea49e853634fbdc5015a024";
+ var ipb_new_msgs          = 0;
+ var use_enhanced_js       = 0;
+ var use_charset           = "UTF-8";
+ var ipb_myass_chars_lang  = "Not enough characters";
+ var ajax_load_msg		   = "Loading Content...";
+ //]]>
+</script>
+<script type="text/javascript" src='jscripts/ips_ipsclass.js'></script>
+<script type="text/javascript" src='jscripts/ipb_global.js'></script>
+<script type="text/javascript" src='jscripts/ips_menu.js'></script>
+<script type="text/javascript" src='style_images/nvgreen/folder_js_skin/ips_menu_html.js'></script>
+<script type="text/javascript" src='cache/lang_cache/en/lang_javascript.js'></script>
+<script type="text/javascript">
+//<![CDATA[
+var ipsclass = new ipsclass();
+ipsclass.init();
+ipsclass.settings['do_linked_resize'] = parseInt( "1" );
+ipsclass.settings['resize_percent']   = parseInt( "50" );
+//]]>
+</script>
+<!--ipb.javascript.end-->
+<div class="borderwrap">
+	<div id="logostrip"><a href='http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;'><!--ipb.logo.start--><img src='style_images/nvgreen/logo4.jpg' alt='IPB' style='vertical-align:top' border='0' /><!--ipb.logo.end--></a></div>
+	<div id="submenu">
+		<!--ipb.leftlinks.start-->
+		
+			<div class='ipb-top-left-link'><a href="http://www.nvidia.com">NVIDIA.COM</a></div>
+		
+				
+		
+	<div class='ipb-top-left-link'><a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;act=boardrules">Board Guidelines & Signature Rules</a></div>
+
+		<!--ipb.leftlinks.end-->
+		<!--ipb.rightlinks.start-->
+		<div class='ipb-top-right-link'><a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;act=Help">Help</a></div>
+		<div class='ipb-top-right-link' id="ipb-tl-search"><a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;act=Search&amp;f=18">Search</a></div>
+		<div class='ipb-top-right-link'><a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;act=Members">Members</a></div>
+		<div class='ipb-top-right-link'><a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;act=calendar">Calendar</a></div>
+		
+		<div class='popupmenu-new' id='ipb-tl-search_menu' style='display:none;width:210px'>
+			<form action="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;act=Search&amp;CODE=01" method="post">
+				<input type='hidden' name='forums' id='gbl-search-forums' value='all' /> 
+				<input type="text" size="20" name="keywords" id='ipb-tl-search-box' />
+				<input class="button" type="image" style='border:0px' src="style_images/nvgreen/login-button.gif" />
+				
+					<br /><input type='checkbox' id='gbl-search-checkbox' value='1' onclick='gbl_check_search_box()' checked='checked' /> Search this forum only?
+				
+			</form>
+			<div style='padding:4px'>
+				<a href='http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;act=Search'>More Search Options</a>
+			</div>
+		</div>
+		<script type="text/javascript">
+			ipsmenu.register( "ipb-tl-search", 'document.getElementById("ipb-tl-search-box").focus();' );
+			gbl_check_search_box();
+		</script>
+		<!--ipb.rightlinks.end-->
+	</div>
+</div>
+
+<!-- / End board header -->
+
+<div id="userlinksguest">
+	<p class="pcen"><b>Welcome Guest</b> ( <a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;act=Login&amp;CODE=00">Log In</a> | <a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;act=Reg&amp;CODE=00">Register</a> )
+
+
+
+
+
+
+
+	</p>
+</div>
+<div id="navstrip"><img src='style_images/nvgreen/nav.gif' border='0'  alt='&gt;' />&nbsp;<a href='http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;act=idx'>NVIDIA Forums</a>&nbsp;>&nbsp;<a href='http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showforum=32'>nZone</a>&nbsp;>&nbsp;<a href='http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showforum=16'>Games and Other Applications</a>&nbsp;>&nbsp;<a href='http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showforum=18'>Shooter Showdown</a></div>
+<!--IBF.NEWPMBOX-->
+<script type="text/javascript">
+<!--
+var ipb_lang_tt_prompt = "Manually copy the direct link to this post below to store the link in your computer's clipboard";
+var ipb_lang_js_del_1  = "Are you sure you want to delete this message?";
+var ipb_lang_js_del_2  = "Ok, no action has been taken";
+var addquotebutton     = "style_images/nvgreen/p_mq_add.gif";
+var removequotebutton  = "style_images/nvgreen/p_mq_remove.gif";
+var unselectedbutton = "style_images/nvgreen/topic_unselected.gif";
+var selectedbutton   = "style_images/nvgreen/topic_selected.gif";
+var lang_gobutton    = "With Selected";
+var lang_suredelete  = "Are you sure you wish to delete these posts?";
+var js_error_no_permission = "Sorry, you do not have permission to edit that post";
+var js_no_empty_post = "You cannot submit an empty post";
+//-->
+</script>
+<script type="text/javascript" src="jscripts/ipb_topic.js"></script>
+<script type="text/javascript" src="jscripts/ips_text_editor_lite.js"></script>
+<script type='text/javascript'>
+//<![CDATA[
+topic_rate = new topic_rate();
+//]]>
+</script>
+<a name="top"></a>
+
+
+<table class='ipbtable' cellspacing="0">
+	<tr>
+		<td style='padding-left:0px' width="40%" valign="middle" nowrap="nowrap"><div>
+	<span class="pagelink" id='page-jump'>2 Pages <img src='style_images/nvgreen/menu_action_down.gif' alt='V' title='Open Menu' border='0' /></span>&nbsp;
+&nbsp;<span class="pagecurrent">1</span>&nbsp;<span class="pagelink"><a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showtopic=20035&amp;st=20" title="2">2</a></span>&nbsp;<span class="pagelink"><a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showtopic=20035&amp;st=20" title="Next page">&gt;</a></span>
+
+	<script type="text/javascript">
+	//<![CDATA[
+	ipb_pages_shown++;
+	var pgjmp = document.getElementById( 'page-jump' );
+	pgjmp.id  = 'page-jump-'+ipb_pages_shown;
+	ipb_pages_array[ ipb_pages_shown ] = new Array( 'http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showtopic=20035', 20, 25 );
+	menu_build_menu(
+		pgjmp.id,
+		new Array(  "~~NODIV~~<div onmouseover='pages_st_focus("+ipb_pages_shown+")' class='popupmenu-category' align='center'>Jump to Page</div>",
+					"<input type='hidden' id='st-type-"+ipb_pages_shown+"' value='st' /><input type='text' size='5' name='st' id='st-"+ipb_pages_shown+"' onkeydown='check_enter("+ipb_pages_shown+", event);' /> <input type='button' class='button' onclick='do_multi_page_jump("+ipb_pages_shown+");' value='Go' />" ) );
+	//]]>
+	</script>
+&nbsp;<!--
+	( <a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;act=ST&amp;f=18&amp;t=20035&amp;view=getnewpost">Go to first unread post</a> )
+--></div></td>
+		<td class='nopad' style='padding:0px 0px 5px 0px' align="right" width="60%" valign="middle"><a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;act=post&amp;do=reply_post&amp;f=18&amp;t=20035"><img src='style_images/nvgreen/t_reply.gif' border='0'  alt='Reply to this topic' /></a><a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;act=post&amp;do=new_post&amp;f=18" title="Start a new topic"><img src='style_images/nvgreen/t_new.gif' border='0'  alt='Start new topic' /></a></td>
+	</tr>
+</table>
+
+<div class="borderwrap">
+	<div class="maintitle" style='padding:4px'>
+	<!-- TABLE FIX FOR MOZILLA WRAPPING-->
+	<table width='100%' style='padding:0px' cellspacing='0' cellpadding='0'>
+	<tr>
+	 <td width='99%' style='word-wrap:break-word;'><div><img src='style_images/nvgreen/nav_m.gif' border='0'  alt='&gt;' width='8' height='8' />&nbsp;<b>Battlefield 2142, CPU or GPU dependant?</b></div></td>
+	 
+	 <td width='1%' align='right' nowrap='nowrap'>
+		
+		
+			
+		
+		
+     </td>
+	 <td width='1%' align='right' nowrap='nowrap'>
+	    <div class='popmenubutton' id='topicmenu-options'><a href='#topicoptions'>Options</a> <img src='style_images/nvgreen/menu_action_down.gif' alt='V' title='Open Menu' border='0' /></div>
+	 </td>
+	</tr>
+  </table>
+	 
+ </div>
+ <!--{IBF.POLL}-->
+<script type="text/javascript">
+<!--
+menu_build_menu(
+"topicmenu-options",
+new Array(   img_item + " <a href='http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;act=usercp&amp;CODE=start_subs&amp;method=topic&amp;tid=20035'>Track this topic</a>",
+ 			 img_item + " <a href='http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;act=Forward&amp;f=18&amp;t=20035'>Email this topic</a>",
+ 			 img_item + " <a href='http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;act=Print&amp;client=printer&amp;f=18&amp;t=20035'>Print this topic</a>",
+             img_item + " <a href='http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;act=Print&amp;client=choose&amp;f=18&amp;t=20035'>Download this topic</a>",
+ 			 img_item + " <a href='http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;act=usercp&amp;CODE=start_subs&amp;method=forum&amp;fid=18'>Subscribe to this forum</a>",
+ 			 "~~NODIV~~<div class='popupmenu-category' align='center'>Display Modes</div>",
+ 			 img_item + " <a href='http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showtopic=20035&amp;mode=threaded'>Switch to: Outline</a>",
+ 			 img_item + " <strong><em><a href='http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showtopic=20035&amp;mode=linear'>Standard</a></em></strong>",
+ 			 img_item + " <a href='http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showtopic=20035&amp;mode=linearplus'>Switch to: Linear+</a>"
+	    ) );
+topic_rate.settings['allow_rating']       = parseInt("0");
+topic_rate.settings['default_rating']     = parseInt("0");
+topic_rate.settings['img_base_url']       = ipb_var_image_url + '/folder_topic_view';
+topic_rate.settings['div_rating_wrapper'] = 'topic-rating-wrapper';
+topic_rate.settings['text_rating_image']  = 'topic-rating-img-';
+topic_rate.languages['img_alt_rate']      = "Rate this topic, click on desired star to send rating";
+topic_rate.languages['rate_me']           = "Rate Topic:";
+topic_rate.init_rating_images();
+-->
+</script><!--Begin Msg Number 121160-->
+<table class='ipbtable' cellspacing="1">
+	<tr>
+		<td valign="middle" class="row2" width="1%">
+			<a name="entry121160"></a>
+			
+				<div id="post-member-121160" class='popmenubutton-new-out'>
+					<span class="normalname">
+	<img src='style_images/nvgreen/folder_profile_portal/user-offline.png' alt='' border='0' /><a href='http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=25922'>Alexraptor</a></span>
+				</div>
+				<!-- member menu -->
+				<div class='popupmenu-new' id='post-member-121160_menu' style='display:none;width:230px'>
+					<div class='popupmenu-item-last'>
+						
+						<div style='float:right'>
+							<div class='pp-image-thumb-wrap'>
+								<img src='style_images/nvgreen/folder_profile_portal/pp-blank-thumb.png' width='50' height='50' alt='' />
+							</div>
+							
+								<div style='margin-top:5px;margin-left:6px;'>
+									<img src="style_images/nvgreen/rating_0_mini.gif" alt='Rating: 0' style='vertical-align:middle' border='0' />
+								</div>
+							
+						</div>
+						<div class='popupmenu-item'>
+							
+	<img src='style_images/nvgreen/folder_profile_portal/gender_mystery.png' id='pp-entry-gender-img-25922' alt='' border='0' />
+ <a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=25922">View Member Profile</a>
+						</div>
+						
+						
+						
+					</div>
+				</div>
+				<!-- member menu -->
+				<script type="text/javascript">
+					ipsmenu.register( "post-member-121160", '', 'popmenubutton-new', 'popmenubutton-new-out' );
+				</script>
+			
+			
+		</td>
+		<td class="row2" valign="middle" width="99%">
+			<!-- POSTED DATE DIV -->
+			<div style="float: left;">
+				<span class="postdetails"> <img src='style_images/nvgreen/to_post_off.gif' alt='post' border='0' style='padding-bottom:2px' /> Oct 18 2006, 04:14 PM</span>
+			</div>
+			<!-- REPORT / DELETE / EDIT / QUOTE DIV -->
+			<div align="right">
+				<span class="postdetails"> Post
+					<a title="Show the link to this post" href="http://forums.nvidia.com/index.php?showtopic=20035&amp;view=findpost&amp;p=121160" onclick="link_to_post(121160); return false;">#1</a>
+					
+				</span>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top" class="post2">
+        	<span class="postdetails">
+				
+        			<br /><br />
+				
+        		<br />
+        		<img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><br /><br />
+        		Group: Members<br />
+        		Posts: 206<br />
+        		Joined: 10-September 06<br />
+        		
+        		Member No.: 25,922<br />
+				
+				<br />
+        		 
+        	</span><br />
+        	<img src="style_images/nvgreen/spacer.gif" alt="" width="160" height="1" /><br /> 
+       </td>
+       <td width="100%" valign="top" class="post2" id='post-main-121160'>
+			<!-- THE POST 121160 -->
+			<div class="postcolor" id='post-121160'>
+				Well i just downloaded and installed Battlefield 2152 demo, i managed to get ok playable performance with all settings maxed out at 1280x960, but with AA turned off.<br /><br />Of course it runs ok, but i want to get even more good performance and graphics, would an upgrade from 2.2ghz processors to 3ghz have any significant improvment on performance? or do i really need a better graphic card than XFX geForce 7800GS Extreme Edition Agp?
+				
+				
+				<!--IBF.ATTACHMENT_121160-->
+			</div>
+			
+			<br /><br />--------------------<br />
+<div class="signature">ASUS P5QL Pro<br />Intel Core 2 Duo E6700 2.66GHz<br />ASUS GeForce 9800GTX+ 512mb<br />Kingston HyperX 2x1gb PC2-6400 800MHz<br />Creative X-FI XtremeGamer</div>
+			<!-- THE POST -->		
+		</td>
+	</tr>
+	<tr>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<div style='text-align:left'><a href="javascript:scroll(0,0);"><img src='style_images/nvgreen/p_up.gif' border='0'  alt='Go to the top of the page' /></a></div>
+		</td>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<!-- PM / EMAIL / WWW / MSGR -->
+			<div style="float: left;">
+				&nbsp;
+			</div>
+			<!-- REPORT / UP -->
+         	<div align="right">
+         		<a href="#" onclick="multiquote_add(121160); return false;" title="Toggle multiquote addition"><img src="style_images/nvgreen/p_mq_add.gif" name="mad_121160" alt="+" /></a><a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;act=Post&amp;CODE=02&amp;f=18&amp;t=20035&amp;qpid=121160" title="Reply directly to this post"><img src='style_images/nvgreen/p_quote.gif' border='0'  alt='Quote Post' /></a>
+         	</div>
+         </td>
+	</tr><tr>
+	<td class="catend" colspan="2">
+	<!-- no content -->
+	</td>
+</tr>
+</table>
+<!--Begin Msg Number 121343-->
+<table class='ipbtable' cellspacing="1">
+	<tr>
+		<td valign="middle" class="row2" width="1%">
+			<a name="entry121343"></a>
+			
+				<div id="post-member-121343" class='popmenubutton-new-out'>
+					<span class="normalname">
+	<img src='style_images/nvgreen/folder_profile_portal/user-offline.png' alt='' border='0' /><a href='http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=12263'>magnum</a></span>
+				</div>
+				<!-- member menu -->
+				<div class='popupmenu-new' id='post-member-121343_menu' style='display:none;width:230px'>
+					<div class='popupmenu-item-last'>
+						
+						<div style='float:right'>
+							<div class='pp-image-thumb-wrap'>
+								<img src='style_images/nvgreen/folder_profile_portal/pp-blank-thumb.png' width='50' height='50' alt='' />
+							</div>
+							
+								<div style='margin-top:5px;margin-left:6px;'>
+									<img src="style_images/nvgreen/rating_0_mini.gif" alt='Rating: 0' style='vertical-align:middle' border='0' />
+								</div>
+							
+						</div>
+						<div class='popupmenu-item'>
+							
+	<img src='style_images/nvgreen/folder_profile_portal/gender_mystery.png' id='pp-entry-gender-img-12263' alt='' border='0' />
+ <a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=12263">View Member Profile</a>
+						</div>
+						
+						
+						
+					</div>
+				</div>
+				<!-- member menu -->
+				<script type="text/javascript">
+					ipsmenu.register( "post-member-121343", '', 'popmenubutton-new', 'popmenubutton-new-out' );
+				</script>
+			
+			
+		</td>
+		<td class="row2" valign="middle" width="99%">
+			<!-- POSTED DATE DIV -->
+			<div style="float: left;">
+				<span class="postdetails"> <img src='style_images/nvgreen/to_post_off.gif' alt='post' border='0' style='padding-bottom:2px' /> Oct 19 2006, 12:12 PM</span>
+			</div>
+			<!-- REPORT / DELETE / EDIT / QUOTE DIV -->
+			<div align="right">
+				<span class="postdetails"> Post
+					<a title="Show the link to this post" href="http://forums.nvidia.com/index.php?showtopic=20035&amp;view=findpost&amp;p=121343" onclick="link_to_post(121343); return false;">#2</a>
+					
+				</span>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top" class="post1">
+        	<span class="postdetails">
+				
+        			<br /><br />
+				
+        		<br />
+        		<img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><br /><br />
+        		Group: Members<br />
+        		Posts: 86<br />
+        		Joined: 23-October 05<br />
+        		From: BRISTOL,UK.<br />
+        		Member No.: 12,263<br />
+				
+				<br />
+        		 
+        	</span><br />
+        	<img src="style_images/nvgreen/spacer.gif" alt="" width="160" height="1" /><br /> 
+       </td>
+       <td width="100%" valign="top" class="post1" id='post-main-121343'>
+			<!-- THE POST 121343 -->
+			<div class="postcolor" id='post-121343'>
+				<!--QuoteBegin-Alexraptor+Oct 18 2006, 08:14 AM--><div class='quotetop'>QUOTE (Alexraptor &#064; Oct 18 2006, 08:14 AM)</div><div class='quotemain'><!--QuoteEBegin-->Well i just downloaded and installed Battlefield 2152 demo, i managed to get ok playable performance with all settings maxed out at 1280x960, but with AA turned off.<br /><br />Of course it runs ok, but i want to get even more good performance and graphics, would an upgrade from 2.2ghz processors to 3ghz have any significant improvment on performance? or do i really need a better graphic card than XFX geForce 7800GS Extreme Edition Agp?<br /><div align='right'><a href="index.php?act=findpost&amp;pid=121160"><img src='style_images/nvgreen/post_snapback.gif' alt='*' border='0' /></a></div><!--QuoteEnd--></div><!--QuoteEEnd--><br /><br />Hi there<br /><br />I have read lots of tweak guides for this game. The game is not very cpu heavy at all, more so in single player mode. The graphic card is stressed a little more but the game seems to be farly optimized. Try setting res to 1024x768 and enable 2xAA. This wil give you better fps and also set shadows and lighting to medium, also try turning post processing on and off to see the difference. What does make the game MUCH smoother is 2GIG of memort, this will get rid of the jittery load type stuttering. Also, if you have a on board soundcard make (ac97) set sound hardware to off snd medium, not high. Try this and let me know how you get on.
+				
+				
+				<!--IBF.ATTACHMENT_121343-->
+			</div>
+			
+			<br /><br />--------------------<br />
+<div class="signature">FX-60@2.8<br />2X7900GTX SLI<br />ASUS A8N-SLI SE<br />2 GIG CORSAIR 3200 MEMORY<br />AUDIGY 2 ZS SOUND CARD</div>
+			<!-- THE POST -->		
+		</td>
+	</tr>
+	<tr>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<div style='text-align:left'><a href="javascript:scroll(0,0);"><img src='style_images/nvgreen/p_up.gif' border='0'  alt='Go to the top of the page' /></a></div>
+		</td>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<!-- PM / EMAIL / WWW / MSGR -->
+			<div style="float: left;">
+				&nbsp;
+			</div>
+			<!-- REPORT / UP -->
+         	<div align="right">
+         		<a href="#" onclick="multiquote_add(121343); return false;" title="Toggle multiquote addition"><img src="style_images/nvgreen/p_mq_add.gif" name="mad_121343" alt="+" /></a><a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;act=Post&amp;CODE=02&amp;f=18&amp;t=20035&amp;qpid=121343" title="Reply directly to this post"><img src='style_images/nvgreen/p_quote.gif' border='0'  alt='Quote Post' /></a>
+         	</div>
+         </td>
+	</tr><tr>
+	<td class="catend" colspan="2">
+	<!-- no content -->
+	</td>
+</tr>
+</table>
+<!--Begin Msg Number 121349-->
+<table class='ipbtable' cellspacing="1">
+	<tr>
+		<td valign="middle" class="row2" width="1%">
+			<a name="entry121349"></a>
+			
+				<div id="post-member-121349" class='popmenubutton-new-out'>
+					<span class="normalname">
+	<img src='style_images/nvgreen/folder_profile_portal/user-offline.png' alt='' border='0' /><a href='http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=25922'>Alexraptor</a></span>
+				</div>
+				<!-- member menu -->
+				<div class='popupmenu-new' id='post-member-121349_menu' style='display:none;width:230px'>
+					<div class='popupmenu-item-last'>
+						
+						<div style='float:right'>
+							<div class='pp-image-thumb-wrap'>
+								<img src='style_images/nvgreen/folder_profile_portal/pp-blank-thumb.png' width='50' height='50' alt='' />
+							</div>
+							
+								<div style='margin-top:5px;margin-left:6px;'>
+									<img src="style_images/nvgreen/rating_0_mini.gif" alt='Rating: 0' style='vertical-align:middle' border='0' />
+								</div>
+							
+						</div>
+						<div class='popupmenu-item'>
+							
+	<img src='style_images/nvgreen/folder_profile_portal/gender_mystery.png' id='pp-entry-gender-img-25922' alt='' border='0' />
+ <a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=25922">View Member Profile</a>
+						</div>
+						
+						
+						
+					</div>
+				</div>
+				<!-- member menu -->
+				<script type="text/javascript">
+					ipsmenu.register( "post-member-121349", '', 'popmenubutton-new', 'popmenubutton-new-out' );
+				</script>
+			
+			
+		</td>
+		<td class="row2" valign="middle" width="99%">
+			<!-- POSTED DATE DIV -->
+			<div style="float: left;">
+				<span class="postdetails"> <img src='style_images/nvgreen/to_post_off.gif' alt='post' border='0' style='padding-bottom:2px' /> Oct 19 2006, 12:39 PM</span>
+			</div>
+			<!-- REPORT / DELETE / EDIT / QUOTE DIV -->
+			<div align="right">
+				<span class="postdetails"> Post
+					<a title="Show the link to this post" href="http://forums.nvidia.com/index.php?showtopic=20035&amp;view=findpost&amp;p=121349" onclick="link_to_post(121349); return false;">#3</a>
+					
+				</span>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top" class="post2">
+        	<span class="postdetails">
+				
+        			<br /><br />
+				
+        		<br />
+        		<img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><br /><br />
+        		Group: Members<br />
+        		Posts: 206<br />
+        		Joined: 10-September 06<br />
+        		
+        		Member No.: 25,922<br />
+				
+				<br />
+        		 
+        	</span><br />
+        	<img src="style_images/nvgreen/spacer.gif" alt="" width="160" height="1" /><br /> 
+       </td>
+       <td width="100%" valign="top" class="post2" id='post-main-121349'>
+			<!-- THE POST 121349 -->
+			<div class="postcolor" id='post-121349'>
+				well... i was kind of hoping to get my system to run the game at full quality <img src="http://forums.nvidia.com/style_emoticons/NVIDIA/wink.gif" style="vertical-align:middle" emoid=";)" border="0" alt="wink.gif" />
+				
+				
+				<!--IBF.ATTACHMENT_121349-->
+			</div>
+			
+			<br /><br />--------------------<br />
+<div class="signature">ASUS P5QL Pro<br />Intel Core 2 Duo E6700 2.66GHz<br />ASUS GeForce 9800GTX+ 512mb<br />Kingston HyperX 2x1gb PC2-6400 800MHz<br />Creative X-FI XtremeGamer</div>
+			<!-- THE POST -->		
+		</td>
+	</tr>
+	<tr>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<div style='text-align:left'><a href="javascript:scroll(0,0);"><img src='style_images/nvgreen/p_up.gif' border='0'  alt='Go to the top of the page' /></a></div>
+		</td>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<!-- PM / EMAIL / WWW / MSGR -->
+			<div style="float: left;">
+				&nbsp;
+			</div>
+			<!-- REPORT / UP -->
+         	<div align="right">
+         		<a href="#" onclick="multiquote_add(121349); return false;" title="Toggle multiquote addition"><img src="style_images/nvgreen/p_mq_add.gif" name="mad_121349" alt="+" /></a><a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;act=Post&amp;CODE=02&amp;f=18&amp;t=20035&amp;qpid=121349" title="Reply directly to this post"><img src='style_images/nvgreen/p_quote.gif' border='0'  alt='Quote Post' /></a>
+         	</div>
+         </td>
+	</tr><tr>
+	<td class="catend" colspan="2">
+	<!-- no content -->
+	</td>
+</tr>
+</table>
+<!--Begin Msg Number 121352-->
+<table class='ipbtable' cellspacing="1">
+	<tr>
+		<td valign="middle" class="row2" width="1%">
+			<a name="entry121352"></a>
+			
+				<div id="post-member-121352" class='popmenubutton-new-out'>
+					<span class="normalname">
+	<img src='style_images/nvgreen/folder_profile_portal/user-offline.png' alt='' border='0' /><a href='http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=1795'>Deeko</a></span>
+				</div>
+				<!-- member menu -->
+				<div class='popupmenu-new' id='post-member-121352_menu' style='display:none;width:230px'>
+					<div class='popupmenu-item-last'>
+						
+						<div style='float:right'>
+							<div class='pp-image-thumb-wrap'>
+								<img src='style_images/nvgreen/folder_profile_portal/pp-blank-thumb.png' width='50' height='50' alt='' />
+							</div>
+							
+								<div style='margin-top:5px;margin-left:6px;'>
+									<img src="style_images/nvgreen/rating_5_mini.gif" alt='Rating: 5' style='vertical-align:middle' border='0' />
+								</div>
+							
+						</div>
+						<div class='popupmenu-item'>
+							
+	
+		<img src='style_images/nvgreen/folder_profile_portal/gender_male.png' id='pp-entry-gender-img-1795' style='vertical-align:top' alt='' border='0' />
+	
+ <a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=1795">View Member Profile</a>
+						</div>
+						
+						
+						
+					</div>
+				</div>
+				<!-- member menu -->
+				<script type="text/javascript">
+					ipsmenu.register( "post-member-121352", '', 'popmenubutton-new', 'popmenubutton-new-out' );
+				</script>
+			
+			
+		</td>
+		<td class="row2" valign="middle" width="99%">
+			<!-- POSTED DATE DIV -->
+			<div style="float: left;">
+				<span class="postdetails"> <img src='style_images/nvgreen/to_post_off.gif' alt='post' border='0' style='padding-bottom:2px' /> Oct 19 2006, 12:56 PM</span>
+			</div>
+			<!-- REPORT / DELETE / EDIT / QUOTE DIV -->
+			<div align="right">
+				<span class="postdetails"> Post
+					<a title="Show the link to this post" href="http://forums.nvidia.com/index.php?showtopic=20035&amp;view=findpost&amp;p=121352" onclick="link_to_post(121352); return false;">#4</a>
+					
+				</span>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top" class="post1">
+        	<span class="postdetails">
+				
+					<a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=1795" title="View Member Profile"><img src='http://forums.merged.nvidia.com/uploads/av-1795.jpg' border='0' width='78' height='76' alt='' /></a><br /><br />
+				
+        		<br />
+        		<img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><br /><br />
+        		Group: Members<br />
+        		Posts: 3,044<br />
+        		Joined: 16-December 04<br />
+        		From: Glasgow<br />
+        		Member No.: 1,795<br />
+				
+					
+Club SLI Member: No<br />
+Org.: University of Lincoln<br />
+				
+				<br />
+        		 
+        	</span><br />
+        	<img src="style_images/nvgreen/spacer.gif" alt="" width="160" height="1" /><br /> 
+       </td>
+       <td width="100%" valign="top" class="post1" id='post-main-121352'>
+			<!-- THE POST 121352 -->
+			<div class="postcolor" id='post-121352'>
+				The 7800GS isnt a high end card, you probably wont be able to run it at high settings on Battlefield 2142 with maximum AA. The 7800GS Agp standard performs about 25% slower than the 7800GT PCI-express that was released nearly 18 months ago. Its a good card but it wont be able to play new games maxed out seeing as how its 25% slower than the older 7800GT. There is faster 7800GS+  cards out there with 24 pipes (7900 series core) and 512mb ram but not worth the  money to plough into an AGP system. A new Cpu will help but you will still be bottlenecked by your 7800GS.
+				<br /><br /><span class='edit'>This post has been edited by <b>Deeko</b>: Oct 19 2006, 12:59 PM</span>
+				
+				<!--IBF.ATTACHMENT_121352-->
+			</div>
+			
+			<br /><br />--------------------<br />
+<div class="signature"><!--sizeo:2--><span style="font-size:10pt;line-height:100%"><!--/sizeo--><a href="http://www.derekfoster.net/" target="_blank">Personal Site</a><!--sizec--></span><!--/sizec--><br /><b>Mac iPhone Development:</b>Mac Mini C2D 2Ghz/2GB  <b>SmartPhone:</b>HTC HD2 Snapdragon 1ghz  <b>Utramobile:</b>Acer 1810tz ULV1.3Ghz/3GB<br /><b>Main Rig</b>: Asus P5K Deluxe/Core Quad Q6600@3Ghz/4GB DDR800/9800GT/X-Fi/320 GB HD Raid0/OS-Win 7 Pro x64<br /><b>MediaCentre:</b> Asus P5WDH Deluxe/Core 2 6300@2.8Ghz/2Gb DDR800/Ati 4870[/color]/X-Fi/200GB HD/OS-Win 7 Pro x64<br /><b>Server:</b> Gigabyte P35-DSR3/Core 2 2.8Ghz/4GB DDR667/Ati 3450 HD/<b>4 x 1.5TB HD + 250GB</b> /OS-Server 2008 R2 x64</div>
+			<!-- THE POST -->		
+		</td>
+	</tr>
+	<tr>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<div style='text-align:left'><a href="javascript:scroll(0,0);"><img src='style_images/nvgreen/p_up.gif' border='0'  alt='Go to the top of the page' /></a></div>
+		</td>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<!-- PM / EMAIL / WWW / MSGR -->
+			<div style="float: left;">
+				&nbsp;
+			</div>
+			<!-- REPORT / UP -->
+         	<div align="right">
+         		<a href="#" onclick="multiquote_add(121352); return false;" title="Toggle multiquote addition"><img src="style_images/nvgreen/p_mq_add.gif" name="mad_121352" alt="+" /></a><a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;act=Post&amp;CODE=02&amp;f=18&amp;t=20035&amp;qpid=121352" title="Reply directly to this post"><img src='style_images/nvgreen/p_quote.gif' border='0'  alt='Quote Post' /></a>
+         	</div>
+         </td>
+	</tr><tr>
+	<td class="catend" colspan="2">
+	<!-- no content -->
+	</td>
+</tr>
+</table>
+<!--Begin Msg Number 121360-->
+<table class='ipbtable' cellspacing="1">
+	<tr>
+		<td valign="middle" class="row2" width="1%">
+			<a name="entry121360"></a>
+			
+				<div id="post-member-121360" class='popmenubutton-new-out'>
+					<span class="normalname">
+	<img src='style_images/nvgreen/folder_profile_portal/user-offline.png' alt='' border='0' /><a href='http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=25922'>Alexraptor</a></span>
+				</div>
+				<!-- member menu -->
+				<div class='popupmenu-new' id='post-member-121360_menu' style='display:none;width:230px'>
+					<div class='popupmenu-item-last'>
+						
+						<div style='float:right'>
+							<div class='pp-image-thumb-wrap'>
+								<img src='style_images/nvgreen/folder_profile_portal/pp-blank-thumb.png' width='50' height='50' alt='' />
+							</div>
+							
+								<div style='margin-top:5px;margin-left:6px;'>
+									<img src="style_images/nvgreen/rating_0_mini.gif" alt='Rating: 0' style='vertical-align:middle' border='0' />
+								</div>
+							
+						</div>
+						<div class='popupmenu-item'>
+							
+	<img src='style_images/nvgreen/folder_profile_portal/gender_mystery.png' id='pp-entry-gender-img-25922' alt='' border='0' />
+ <a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=25922">View Member Profile</a>
+						</div>
+						
+						
+						
+					</div>
+				</div>
+				<!-- member menu -->
+				<script type="text/javascript">
+					ipsmenu.register( "post-member-121360", '', 'popmenubutton-new', 'popmenubutton-new-out' );
+				</script>
+			
+			
+		</td>
+		<td class="row2" valign="middle" width="99%">
+			<!-- POSTED DATE DIV -->
+			<div style="float: left;">
+				<span class="postdetails"> <img src='style_images/nvgreen/to_post_off.gif' alt='post' border='0' style='padding-bottom:2px' /> Oct 19 2006, 01:32 PM</span>
+			</div>
+			<!-- REPORT / DELETE / EDIT / QUOTE DIV -->
+			<div align="right">
+				<span class="postdetails"> Post
+					<a title="Show the link to this post" href="http://forums.nvidia.com/index.php?showtopic=20035&amp;view=findpost&amp;p=121360" onclick="link_to_post(121360); return false;">#5</a>
+					
+				</span>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top" class="post2">
+        	<span class="postdetails">
+				
+        			<br /><br />
+				
+        		<br />
+        		<img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><br /><br />
+        		Group: Members<br />
+        		Posts: 206<br />
+        		Joined: 10-September 06<br />
+        		
+        		Member No.: 25,922<br />
+				
+				<br />
+        		 
+        	</span><br />
+        	<img src="style_images/nvgreen/spacer.gif" alt="" width="160" height="1" /><br /> 
+       </td>
+       <td width="100%" valign="top" class="post2" id='post-main-121360'>
+			<!-- THE POST 121360 -->
+			<div class="postcolor" id='post-121360'>
+				that really does suck, considering AGP hasent reached its full potential from the looks of it, i get the same benchmark results on this system comparble to ppl with similar setup but with a 8x slot, while i only have a 4x one.<br /><br />i suppose nobody knows of any motherboard that supports PCI-E 16x, AGP and RDRAM and 603 slot processors <img src="http://forums.nvidia.com/style_emoticons/NVIDIA/tongue.gif" style="vertical-align:middle" emoid=":P" border="0" alt="tongue.gif" />
+				
+				
+				<!--IBF.ATTACHMENT_121360-->
+			</div>
+			
+			<br /><br />--------------------<br />
+<div class="signature">ASUS P5QL Pro<br />Intel Core 2 Duo E6700 2.66GHz<br />ASUS GeForce 9800GTX+ 512mb<br />Kingston HyperX 2x1gb PC2-6400 800MHz<br />Creative X-FI XtremeGamer</div>
+			<!-- THE POST -->		
+		</td>
+	</tr>
+	<tr>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<div style='text-align:left'><a href="javascript:scroll(0,0);"><img src='style_images/nvgreen/p_up.gif' border='0'  alt='Go to the top of the page' /></a></div>
+		</td>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<!-- PM / EMAIL / WWW / MSGR -->
+			<div style="float: left;">
+				&nbsp;
+			</div>
+			<!-- REPORT / UP -->
+         	<div align="right">
+         		<a href="#" onclick="multiquote_add(121360); return false;" title="Toggle multiquote addition"><img src="style_images/nvgreen/p_mq_add.gif" name="mad_121360" alt="+" /></a><a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;act=Post&amp;CODE=02&amp;f=18&amp;t=20035&amp;qpid=121360" title="Reply directly to this post"><img src='style_images/nvgreen/p_quote.gif' border='0'  alt='Quote Post' /></a>
+         	</div>
+         </td>
+	</tr><tr>
+	<td class="catend" colspan="2">
+	<!-- no content -->
+	</td>
+</tr>
+</table>
+<!--Begin Msg Number 121367-->
+<table class='ipbtable' cellspacing="1">
+	<tr>
+		<td valign="middle" class="row2" width="1%">
+			<a name="entry121367"></a>
+			
+				<div id="post-member-121367" class='popmenubutton-new-out'>
+					<span class="normalname">
+	<img src='style_images/nvgreen/folder_profile_portal/user-offline.png' alt='' border='0' /><a href='http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=1795'>Deeko</a></span>
+				</div>
+				<!-- member menu -->
+				<div class='popupmenu-new' id='post-member-121367_menu' style='display:none;width:230px'>
+					<div class='popupmenu-item-last'>
+						
+						<div style='float:right'>
+							<div class='pp-image-thumb-wrap'>
+								<img src='style_images/nvgreen/folder_profile_portal/pp-blank-thumb.png' width='50' height='50' alt='' />
+							</div>
+							
+								<div style='margin-top:5px;margin-left:6px;'>
+									<img src="style_images/nvgreen/rating_5_mini.gif" alt='Rating: 5' style='vertical-align:middle' border='0' />
+								</div>
+							
+						</div>
+						<div class='popupmenu-item'>
+							
+	
+		<img src='style_images/nvgreen/folder_profile_portal/gender_male.png' id='pp-entry-gender-img-1795' style='vertical-align:top' alt='' border='0' />
+	
+ <a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=1795">View Member Profile</a>
+						</div>
+						
+						
+						
+					</div>
+				</div>
+				<!-- member menu -->
+				<script type="text/javascript">
+					ipsmenu.register( "post-member-121367", '', 'popmenubutton-new', 'popmenubutton-new-out' );
+				</script>
+			
+			
+		</td>
+		<td class="row2" valign="middle" width="99%">
+			<!-- POSTED DATE DIV -->
+			<div style="float: left;">
+				<span class="postdetails"> <img src='style_images/nvgreen/to_post_off.gif' alt='post' border='0' style='padding-bottom:2px' /> Oct 19 2006, 01:47 PM</span>
+			</div>
+			<!-- REPORT / DELETE / EDIT / QUOTE DIV -->
+			<div align="right">
+				<span class="postdetails"> Post
+					<a title="Show the link to this post" href="http://forums.nvidia.com/index.php?showtopic=20035&amp;view=findpost&amp;p=121367" onclick="link_to_post(121367); return false;">#6</a>
+					
+				</span>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top" class="post1">
+        	<span class="postdetails">
+				
+					<a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=1795" title="View Member Profile"><img src='http://forums.merged.nvidia.com/uploads/av-1795.jpg' border='0' width='78' height='76' alt='' /></a><br /><br />
+				
+        		<br />
+        		<img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><br /><br />
+        		Group: Members<br />
+        		Posts: 3,044<br />
+        		Joined: 16-December 04<br />
+        		From: Glasgow<br />
+        		Member No.: 1,795<br />
+				
+					
+Club SLI Member: No<br />
+Org.: University of Lincoln<br />
+				
+				<br />
+        		 
+        	</span><br />
+        	<img src="style_images/nvgreen/spacer.gif" alt="" width="160" height="1" /><br /> 
+       </td>
+       <td width="100%" valign="top" class="post1" id='post-main-121367'>
+			<!-- THE POST 121367 -->
+			<div class="postcolor" id='post-121367'>
+				Using a 7800GS in either a x4 or x8 Agp slot wont affect performance at all. The 7800GS bandwidth requirements dont exceed what a x4 Agp slot can deliver , in short there will be no difference in performance between both as the 7800GS doesnt saturate a x4 Agp bus. PCI-E cards have been making headway for 2 years now, thats a long time and cards like the 7800GS Agp are extremley overpriced considering the performance they give out compared to PCI-E gfx cards. I guess they knew people would still buy them despite the PCIE offering much more performance for a lesser amount of money. I believe its far cheaper in the long run to upgrade to the pcie platform rather than throw money at legacy AGP platforms were you get far far less performance for the price you pay.<br /><br />Heres a quick example, a 7800GS standard 256mb AGP costs around �190, you can buy a 7950GT 512mb PCIE 24 pipe card for the same price. You are looking at a seriously massive perf lead the 7950GT has and all for approx same price. Even cards like the 7900GS 256mb PCI-E will outperform the 7800GS Agp significantly and for around �80 less. They arent worth the cash but of course some people dont want to upgrade their platform but it costs more in the long run with far less perf.
+				<br /><br /><span class='edit'>This post has been edited by <b>Deeko</b>: Oct 19 2006, 03:42 PM</span>
+				
+				<!--IBF.ATTACHMENT_121367-->
+			</div>
+			
+			<br /><br />--------------------<br />
+<div class="signature"><!--sizeo:2--><span style="font-size:10pt;line-height:100%"><!--/sizeo--><a href="http://www.derekfoster.net/" target="_blank">Personal Site</a><!--sizec--></span><!--/sizec--><br /><b>Mac iPhone Development:</b>Mac Mini C2D 2Ghz/2GB  <b>SmartPhone:</b>HTC HD2 Snapdragon 1ghz  <b>Utramobile:</b>Acer 1810tz ULV1.3Ghz/3GB<br /><b>Main Rig</b>: Asus P5K Deluxe/Core Quad Q6600@3Ghz/4GB DDR800/9800GT/X-Fi/320 GB HD Raid0/OS-Win 7 Pro x64<br /><b>MediaCentre:</b> Asus P5WDH Deluxe/Core 2 6300@2.8Ghz/2Gb DDR800/Ati 4870[/color]/X-Fi/200GB HD/OS-Win 7 Pro x64<br /><b>Server:</b> Gigabyte P35-DSR3/Core 2 2.8Ghz/4GB DDR667/Ati 3450 HD/<b>4 x 1.5TB HD + 250GB</b> /OS-Server 2008 R2 x64</div>
+			<!-- THE POST -->		
+		</td>
+	</tr>
+	<tr>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<div style='text-align:left'><a href="javascript:scroll(0,0);"><img src='style_images/nvgreen/p_up.gif' border='0'  alt='Go to the top of the page' /></a></div>
+		</td>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<!-- PM / EMAIL / WWW / MSGR -->
+			<div style="float: left;">
+				&nbsp;
+			</div>
+			<!-- REPORT / UP -->
+         	<div align="right">
+         		<a href="#" onclick="multiquote_add(121367); return false;" title="Toggle multiquote addition"><img src="style_images/nvgreen/p_mq_add.gif" name="mad_121367" alt="+" /></a><a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;act=Post&amp;CODE=02&amp;f=18&amp;t=20035&amp;qpid=121367" title="Reply directly to this post"><img src='style_images/nvgreen/p_quote.gif' border='0'  alt='Quote Post' /></a>
+         	</div>
+         </td>
+	</tr><tr>
+	<td class="catend" colspan="2">
+	<!-- no content -->
+	</td>
+</tr>
+</table>
+<!--Begin Msg Number 121383-->
+<table class='ipbtable' cellspacing="1">
+	<tr>
+		<td valign="middle" class="row2" width="1%">
+			<a name="entry121383"></a>
+			
+				<div id="post-member-121383" class='popmenubutton-new-out'>
+					<span class="normalname">
+	<img src='style_images/nvgreen/folder_profile_portal/user-offline.png' alt='' border='0' /><a href='http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=25922'>Alexraptor</a></span>
+				</div>
+				<!-- member menu -->
+				<div class='popupmenu-new' id='post-member-121383_menu' style='display:none;width:230px'>
+					<div class='popupmenu-item-last'>
+						
+						<div style='float:right'>
+							<div class='pp-image-thumb-wrap'>
+								<img src='style_images/nvgreen/folder_profile_portal/pp-blank-thumb.png' width='50' height='50' alt='' />
+							</div>
+							
+								<div style='margin-top:5px;margin-left:6px;'>
+									<img src="style_images/nvgreen/rating_0_mini.gif" alt='Rating: 0' style='vertical-align:middle' border='0' />
+								</div>
+							
+						</div>
+						<div class='popupmenu-item'>
+							
+	<img src='style_images/nvgreen/folder_profile_portal/gender_mystery.png' id='pp-entry-gender-img-25922' alt='' border='0' />
+ <a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=25922">View Member Profile</a>
+						</div>
+						
+						
+						
+					</div>
+				</div>
+				<!-- member menu -->
+				<script type="text/javascript">
+					ipsmenu.register( "post-member-121383", '', 'popmenubutton-new', 'popmenubutton-new-out' );
+				</script>
+			
+			
+		</td>
+		<td class="row2" valign="middle" width="99%">
+			<!-- POSTED DATE DIV -->
+			<div style="float: left;">
+				<span class="postdetails"> <img src='style_images/nvgreen/to_post_off.gif' alt='post' border='0' style='padding-bottom:2px' /> Oct 19 2006, 02:44 PM</span>
+			</div>
+			<!-- REPORT / DELETE / EDIT / QUOTE DIV -->
+			<div align="right">
+				<span class="postdetails"> Post
+					<a title="Show the link to this post" href="http://forums.nvidia.com/index.php?showtopic=20035&amp;view=findpost&amp;p=121383" onclick="link_to_post(121383); return false;">#7</a>
+					
+				</span>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top" class="post2">
+        	<span class="postdetails">
+				
+        			<br /><br />
+				
+        		<br />
+        		<img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><br /><br />
+        		Group: Members<br />
+        		Posts: 206<br />
+        		Joined: 10-September 06<br />
+        		
+        		Member No.: 25,922<br />
+				
+				<br />
+        		 
+        	</span><br />
+        	<img src="style_images/nvgreen/spacer.gif" alt="" width="160" height="1" /><br /> 
+       </td>
+       <td width="100%" valign="top" class="post2" id='post-main-121383'>
+			<!-- THE POST 121383 -->
+			<div class="postcolor" id='post-121383'>
+				actually what i was referring to, is that they dont seem to make AGP cards that take full advantage of an AGP8x bus, its faster, yet the graphic cards that take advantage of it havent been made <img src="http://forums.nvidia.com/style_emoticons/NVIDIA/sad.gif" style="vertical-align:middle" emoid=":(" border="0" alt="sad.gif" />
+				
+				
+				<!--IBF.ATTACHMENT_121383-->
+			</div>
+			
+			<br /><br />--------------------<br />
+<div class="signature">ASUS P5QL Pro<br />Intel Core 2 Duo E6700 2.66GHz<br />ASUS GeForce 9800GTX+ 512mb<br />Kingston HyperX 2x1gb PC2-6400 800MHz<br />Creative X-FI XtremeGamer</div>
+			<!-- THE POST -->		
+		</td>
+	</tr>
+	<tr>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<div style='text-align:left'><a href="javascript:scroll(0,0);"><img src='style_images/nvgreen/p_up.gif' border='0'  alt='Go to the top of the page' /></a></div>
+		</td>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<!-- PM / EMAIL / WWW / MSGR -->
+			<div style="float: left;">
+				&nbsp;
+			</div>
+			<!-- REPORT / UP -->
+         	<div align="right">
+         		<a href="#" onclick="multiquote_add(121383); return false;" title="Toggle multiquote addition"><img src="style_images/nvgreen/p_mq_add.gif" name="mad_121383" alt="+" /></a><a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;act=Post&amp;CODE=02&amp;f=18&amp;t=20035&amp;qpid=121383" title="Reply directly to this post"><img src='style_images/nvgreen/p_quote.gif' border='0'  alt='Quote Post' /></a>
+         	</div>
+         </td>
+	</tr><tr>
+	<td class="catend" colspan="2">
+	<!-- no content -->
+	</td>
+</tr>
+</table>
+<!--Begin Msg Number 121390-->
+<table class='ipbtable' cellspacing="1">
+	<tr>
+		<td valign="middle" class="row2" width="1%">
+			<a name="entry121390"></a>
+			
+				<div id="post-member-121390" class='popmenubutton-new-out'>
+					<span class="normalname">
+	<img src='style_images/nvgreen/folder_profile_portal/user-offline.png' alt='' border='0' /><a href='http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=25922'>Alexraptor</a></span>
+				</div>
+				<!-- member menu -->
+				<div class='popupmenu-new' id='post-member-121390_menu' style='display:none;width:230px'>
+					<div class='popupmenu-item-last'>
+						
+						<div style='float:right'>
+							<div class='pp-image-thumb-wrap'>
+								<img src='style_images/nvgreen/folder_profile_portal/pp-blank-thumb.png' width='50' height='50' alt='' />
+							</div>
+							
+								<div style='margin-top:5px;margin-left:6px;'>
+									<img src="style_images/nvgreen/rating_0_mini.gif" alt='Rating: 0' style='vertical-align:middle' border='0' />
+								</div>
+							
+						</div>
+						<div class='popupmenu-item'>
+							
+	<img src='style_images/nvgreen/folder_profile_portal/gender_mystery.png' id='pp-entry-gender-img-25922' alt='' border='0' />
+ <a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=25922">View Member Profile</a>
+						</div>
+						
+						
+						
+					</div>
+				</div>
+				<!-- member menu -->
+				<script type="text/javascript">
+					ipsmenu.register( "post-member-121390", '', 'popmenubutton-new', 'popmenubutton-new-out' );
+				</script>
+			
+			
+		</td>
+		<td class="row2" valign="middle" width="99%">
+			<!-- POSTED DATE DIV -->
+			<div style="float: left;">
+				<span class="postdetails"> <img src='style_images/nvgreen/to_post_off.gif' alt='post' border='0' style='padding-bottom:2px' /> Oct 19 2006, 03:25 PM</span>
+			</div>
+			<!-- REPORT / DELETE / EDIT / QUOTE DIV -->
+			<div align="right">
+				<span class="postdetails"> Post
+					<a title="Show the link to this post" href="http://forums.nvidia.com/index.php?showtopic=20035&amp;view=findpost&amp;p=121390" onclick="link_to_post(121390); return false;">#8</a>
+					
+				</span>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top" class="post1">
+        	<span class="postdetails">
+				
+        			<br /><br />
+				
+        		<br />
+        		<img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><br /><br />
+        		Group: Members<br />
+        		Posts: 206<br />
+        		Joined: 10-September 06<br />
+        		
+        		Member No.: 25,922<br />
+				
+				<br />
+        		 
+        	</span><br />
+        	<img src="style_images/nvgreen/spacer.gif" alt="" width="160" height="1" /><br /> 
+       </td>
+       <td width="100%" valign="top" class="post1" id='post-main-121390'>
+			<!-- THE POST 121390 -->
+			<div class="postcolor" id='post-121390'>
+				hmmm actually, after another go at it, i actually get pretty decent playable framerate at 1600x1200 screen resolution, all sliders and AA to max. but then again im not using a simple 7800GS im using a 7800GS extreme edition <img src="http://forums.nvidia.com/style_emoticons/NVIDIA/wink.gif" style="vertical-align:middle" emoid=";)" border="0" alt="wink.gif" /><br />Its not the very best framerate but its still playable  <img src="http://forums.nvidia.com/style_emoticons/NVIDIA/smile.gif" style="vertical-align:middle" emoid=":)" border="0" alt="smile.gif" />
+				<br /><br /><span class='edit'>This post has been edited by <b>Alexraptor</b>: Oct 19 2006, 03:26 PM</span>
+				
+				<!--IBF.ATTACHMENT_121390-->
+			</div>
+			
+			<br /><br />--------------------<br />
+<div class="signature">ASUS P5QL Pro<br />Intel Core 2 Duo E6700 2.66GHz<br />ASUS GeForce 9800GTX+ 512mb<br />Kingston HyperX 2x1gb PC2-6400 800MHz<br />Creative X-FI XtremeGamer</div>
+			<!-- THE POST -->		
+		</td>
+	</tr>
+	<tr>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<div style='text-align:left'><a href="javascript:scroll(0,0);"><img src='style_images/nvgreen/p_up.gif' border='0'  alt='Go to the top of the page' /></a></div>
+		</td>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<!-- PM / EMAIL / WWW / MSGR -->
+			<div style="float: left;">
+				&nbsp;
+			</div>
+			<!-- REPORT / UP -->
+         	<div align="right">
+         		<a href="#" onclick="multiquote_add(121390); return false;" title="Toggle multiquote addition"><img src="style_images/nvgreen/p_mq_add.gif" name="mad_121390" alt="+" /></a><a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;act=Post&amp;CODE=02&amp;f=18&amp;t=20035&amp;qpid=121390" title="Reply directly to this post"><img src='style_images/nvgreen/p_quote.gif' border='0'  alt='Quote Post' /></a>
+         	</div>
+         </td>
+	</tr><tr>
+	<td class="catend" colspan="2">
+	<!-- no content -->
+	</td>
+</tr>
+</table>
+<!--Begin Msg Number 121395-->
+<table class='ipbtable' cellspacing="1">
+	<tr>
+		<td valign="middle" class="row2" width="1%">
+			<a name="entry121395"></a>
+			
+				<div id="post-member-121395" class='popmenubutton-new-out'>
+					<span class="normalname">
+	<img src='style_images/nvgreen/folder_profile_portal/user-offline.png' alt='' border='0' /><a href='http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=1795'>Deeko</a></span>
+				</div>
+				<!-- member menu -->
+				<div class='popupmenu-new' id='post-member-121395_menu' style='display:none;width:230px'>
+					<div class='popupmenu-item-last'>
+						
+						<div style='float:right'>
+							<div class='pp-image-thumb-wrap'>
+								<img src='style_images/nvgreen/folder_profile_portal/pp-blank-thumb.png' width='50' height='50' alt='' />
+							</div>
+							
+								<div style='margin-top:5px;margin-left:6px;'>
+									<img src="style_images/nvgreen/rating_5_mini.gif" alt='Rating: 5' style='vertical-align:middle' border='0' />
+								</div>
+							
+						</div>
+						<div class='popupmenu-item'>
+							
+	
+		<img src='style_images/nvgreen/folder_profile_portal/gender_male.png' id='pp-entry-gender-img-1795' style='vertical-align:top' alt='' border='0' />
+	
+ <a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=1795">View Member Profile</a>
+						</div>
+						
+						
+						
+					</div>
+				</div>
+				<!-- member menu -->
+				<script type="text/javascript">
+					ipsmenu.register( "post-member-121395", '', 'popmenubutton-new', 'popmenubutton-new-out' );
+				</script>
+			
+			
+		</td>
+		<td class="row2" valign="middle" width="99%">
+			<!-- POSTED DATE DIV -->
+			<div style="float: left;">
+				<span class="postdetails"> <img src='style_images/nvgreen/to_post_off.gif' alt='post' border='0' style='padding-bottom:2px' /> Oct 19 2006, 03:46 PM</span>
+			</div>
+			<!-- REPORT / DELETE / EDIT / QUOTE DIV -->
+			<div align="right">
+				<span class="postdetails"> Post
+					<a title="Show the link to this post" href="http://forums.nvidia.com/index.php?showtopic=20035&amp;view=findpost&amp;p=121395" onclick="link_to_post(121395); return false;">#9</a>
+					
+				</span>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top" class="post2">
+        	<span class="postdetails">
+				
+					<a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=1795" title="View Member Profile"><img src='http://forums.merged.nvidia.com/uploads/av-1795.jpg' border='0' width='78' height='76' alt='' /></a><br /><br />
+				
+        		<br />
+        		<img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><br /><br />
+        		Group: Members<br />
+        		Posts: 3,044<br />
+        		Joined: 16-December 04<br />
+        		From: Glasgow<br />
+        		Member No.: 1,795<br />
+				
+					
+Club SLI Member: No<br />
+Org.: University of Lincoln<br />
+				
+				<br />
+        		 
+        	</span><br />
+        	<img src="style_images/nvgreen/spacer.gif" alt="" width="160" height="1" /><br /> 
+       </td>
+       <td width="100%" valign="top" class="post2" id='post-main-121395'>
+			<!-- THE POST 121395 -->
+			<div class="postcolor" id='post-121395'>
+				The extreme versions only have faster clock speeds, it still doesnt make up for the 7800GS+ cards having better cores, the 7800GS extreme edition only has 16 pipes with faster clocks than the normal 7800GS. The 7800GS+ models have 20 pipes and the top of the line 7800GS+ has the 7900 core fully enabled, 24 pipes.<br /><br />How did you manage to go from posting your &#39;ok&#39; playable performance at 1280x960 with no AA to 1600x1200 max settings with 4xAA? Seems like an impossible jump in perf, maybe you should post your screenshots of 3dmark05 and 06 with the default settings showing and we can see how the card performs <img src="http://forums.nvidia.com/style_emoticons/NVIDIA/smile.gif" style="vertical-align:middle" emoid=":)" border="0" alt="smile.gif" />
+				
+				
+				<!--IBF.ATTACHMENT_121395-->
+			</div>
+			
+			<br /><br />--------------------<br />
+<div class="signature"><!--sizeo:2--><span style="font-size:10pt;line-height:100%"><!--/sizeo--><a href="http://www.derekfoster.net/" target="_blank">Personal Site</a><!--sizec--></span><!--/sizec--><br /><b>Mac iPhone Development:</b>Mac Mini C2D 2Ghz/2GB  <b>SmartPhone:</b>HTC HD2 Snapdragon 1ghz  <b>Utramobile:</b>Acer 1810tz ULV1.3Ghz/3GB<br /><b>Main Rig</b>: Asus P5K Deluxe/Core Quad Q6600@3Ghz/4GB DDR800/9800GT/X-Fi/320 GB HD Raid0/OS-Win 7 Pro x64<br /><b>MediaCentre:</b> Asus P5WDH Deluxe/Core 2 6300@2.8Ghz/2Gb DDR800/Ati 4870[/color]/X-Fi/200GB HD/OS-Win 7 Pro x64<br /><b>Server:</b> Gigabyte P35-DSR3/Core 2 2.8Ghz/4GB DDR667/Ati 3450 HD/<b>4 x 1.5TB HD + 250GB</b> /OS-Server 2008 R2 x64</div>
+			<!-- THE POST -->		
+		</td>
+	</tr>
+	<tr>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<div style='text-align:left'><a href="javascript:scroll(0,0);"><img src='style_images/nvgreen/p_up.gif' border='0'  alt='Go to the top of the page' /></a></div>
+		</td>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<!-- PM / EMAIL / WWW / MSGR -->
+			<div style="float: left;">
+				&nbsp;
+			</div>
+			<!-- REPORT / UP -->
+         	<div align="right">
+         		<a href="#" onclick="multiquote_add(121395); return false;" title="Toggle multiquote addition"><img src="style_images/nvgreen/p_mq_add.gif" name="mad_121395" alt="+" /></a><a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;act=Post&amp;CODE=02&amp;f=18&amp;t=20035&amp;qpid=121395" title="Reply directly to this post"><img src='style_images/nvgreen/p_quote.gif' border='0'  alt='Quote Post' /></a>
+         	</div>
+         </td>
+	</tr><tr>
+	<td class="catend" colspan="2">
+	<!-- no content -->
+	</td>
+</tr>
+</table>
+<!--Begin Msg Number 121411-->
+<table class='ipbtable' cellspacing="1">
+	<tr>
+		<td valign="middle" class="row2" width="1%">
+			<a name="entry121411"></a>
+			
+				<div id="post-member-121411" class='popmenubutton-new-out'>
+					<span class="normalname">
+	<img src='style_images/nvgreen/folder_profile_portal/user-offline.png' alt='' border='0' /><a href='http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=25922'>Alexraptor</a></span>
+				</div>
+				<!-- member menu -->
+				<div class='popupmenu-new' id='post-member-121411_menu' style='display:none;width:230px'>
+					<div class='popupmenu-item-last'>
+						
+						<div style='float:right'>
+							<div class='pp-image-thumb-wrap'>
+								<img src='style_images/nvgreen/folder_profile_portal/pp-blank-thumb.png' width='50' height='50' alt='' />
+							</div>
+							
+								<div style='margin-top:5px;margin-left:6px;'>
+									<img src="style_images/nvgreen/rating_0_mini.gif" alt='Rating: 0' style='vertical-align:middle' border='0' />
+								</div>
+							
+						</div>
+						<div class='popupmenu-item'>
+							
+	<img src='style_images/nvgreen/folder_profile_portal/gender_mystery.png' id='pp-entry-gender-img-25922' alt='' border='0' />
+ <a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=25922">View Member Profile</a>
+						</div>
+						
+						
+						
+					</div>
+				</div>
+				<!-- member menu -->
+				<script type="text/javascript">
+					ipsmenu.register( "post-member-121411", '', 'popmenubutton-new', 'popmenubutton-new-out' );
+				</script>
+			
+			
+		</td>
+		<td class="row2" valign="middle" width="99%">
+			<!-- POSTED DATE DIV -->
+			<div style="float: left;">
+				<span class="postdetails"> <img src='style_images/nvgreen/to_post_off.gif' alt='post' border='0' style='padding-bottom:2px' /> Oct 19 2006, 04:31 PM</span>
+			</div>
+			<!-- REPORT / DELETE / EDIT / QUOTE DIV -->
+			<div align="right">
+				<span class="postdetails"> Post
+					<a title="Show the link to this post" href="http://forums.nvidia.com/index.php?showtopic=20035&amp;view=findpost&amp;p=121411" onclick="link_to_post(121411); return false;">#10</a>
+					
+				</span>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top" class="post1">
+        	<span class="postdetails">
+				
+        			<br /><br />
+				
+        		<br />
+        		<img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><br /><br />
+        		Group: Members<br />
+        		Posts: 206<br />
+        		Joined: 10-September 06<br />
+        		
+        		Member No.: 25,922<br />
+				
+				<br />
+        		 
+        	</span><br />
+        	<img src="style_images/nvgreen/spacer.gif" alt="" width="160" height="1" /><br /> 
+       </td>
+       <td width="100%" valign="top" class="post1" id='post-main-121411'>
+			<!-- THE POST 121411 -->
+			<div class="postcolor" id='post-121411'>
+				Well i forgot to screenshot my 3dmark05 benchmark, but it was at around 4700.<br /><br />but i do have a screenshot of my 3dmark06 results.<br /><img src="http://alexraptor.com/images/3dmarkresult2.jpg" border="0" class="linked-image" /><br /><br />My system is a Dell Precision 530 MT with dual 2.2ghz Xeon&#39;s. 2gb RDRAM and the 7800GS extreme edition.
+				<br /><br /><span class='edit'>This post has been edited by <b>Alexraptor</b>: Oct 19 2006, 04:33 PM</span>
+				
+				<!--IBF.ATTACHMENT_121411-->
+			</div>
+			
+			<br /><br />--------------------<br />
+<div class="signature">ASUS P5QL Pro<br />Intel Core 2 Duo E6700 2.66GHz<br />ASUS GeForce 9800GTX+ 512mb<br />Kingston HyperX 2x1gb PC2-6400 800MHz<br />Creative X-FI XtremeGamer</div>
+			<!-- THE POST -->		
+		</td>
+	</tr>
+	<tr>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<div style='text-align:left'><a href="javascript:scroll(0,0);"><img src='style_images/nvgreen/p_up.gif' border='0'  alt='Go to the top of the page' /></a></div>
+		</td>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<!-- PM / EMAIL / WWW / MSGR -->
+			<div style="float: left;">
+				&nbsp;
+			</div>
+			<!-- REPORT / UP -->
+         	<div align="right">
+         		<a href="#" onclick="multiquote_add(121411); return false;" title="Toggle multiquote addition"><img src="style_images/nvgreen/p_mq_add.gif" name="mad_121411" alt="+" /></a><a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;act=Post&amp;CODE=02&amp;f=18&amp;t=20035&amp;qpid=121411" title="Reply directly to this post"><img src='style_images/nvgreen/p_quote.gif' border='0'  alt='Quote Post' /></a>
+         	</div>
+         </td>
+	</tr><tr>
+	<td class="catend" colspan="2">
+	<!-- no content -->
+	</td>
+</tr>
+</table>
+<!--Begin Msg Number 121681-->
+<table class='ipbtable' cellspacing="1">
+	<tr>
+		<td valign="middle" class="row2" width="1%">
+			<a name="entry121681"></a>
+			
+				<div id="post-member-121681" class='popmenubutton-new-out'>
+					<span class="normalname">
+	<img src='style_images/nvgreen/folder_profile_portal/user-offline.png' alt='' border='0' /><a href='http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=25922'>Alexraptor</a></span>
+				</div>
+				<!-- member menu -->
+				<div class='popupmenu-new' id='post-member-121681_menu' style='display:none;width:230px'>
+					<div class='popupmenu-item-last'>
+						
+						<div style='float:right'>
+							<div class='pp-image-thumb-wrap'>
+								<img src='style_images/nvgreen/folder_profile_portal/pp-blank-thumb.png' width='50' height='50' alt='' />
+							</div>
+							
+								<div style='margin-top:5px;margin-left:6px;'>
+									<img src="style_images/nvgreen/rating_0_mini.gif" alt='Rating: 0' style='vertical-align:middle' border='0' />
+								</div>
+							
+						</div>
+						<div class='popupmenu-item'>
+							
+	<img src='style_images/nvgreen/folder_profile_portal/gender_mystery.png' id='pp-entry-gender-img-25922' alt='' border='0' />
+ <a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=25922">View Member Profile</a>
+						</div>
+						
+						
+						
+					</div>
+				</div>
+				<!-- member menu -->
+				<script type="text/javascript">
+					ipsmenu.register( "post-member-121681", '', 'popmenubutton-new', 'popmenubutton-new-out' );
+				</script>
+			
+			
+		</td>
+		<td class="row2" valign="middle" width="99%">
+			<!-- POSTED DATE DIV -->
+			<div style="float: left;">
+				<span class="postdetails"> <img src='style_images/nvgreen/to_post_off.gif' alt='post' border='0' style='padding-bottom:2px' /> Oct 20 2006, 05:53 PM</span>
+			</div>
+			<!-- REPORT / DELETE / EDIT / QUOTE DIV -->
+			<div align="right">
+				<span class="postdetails"> Post
+					<a title="Show the link to this post" href="http://forums.nvidia.com/index.php?showtopic=20035&amp;view=findpost&amp;p=121681" onclick="link_to_post(121681); return false;">#11</a>
+					
+				</span>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top" class="post2">
+        	<span class="postdetails">
+				
+        			<br /><br />
+				
+        		<br />
+        		<img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><br /><br />
+        		Group: Members<br />
+        		Posts: 206<br />
+        		Joined: 10-September 06<br />
+        		
+        		Member No.: 25,922<br />
+				
+				<br />
+        		 
+        	</span><br />
+        	<img src="style_images/nvgreen/spacer.gif" alt="" width="160" height="1" /><br /> 
+       </td>
+       <td width="100%" valign="top" class="post2" id='post-main-121681'>
+			<!-- THE POST 121681 -->
+			<div class="postcolor" id='post-121681'>
+				im also having some strange problems as well.<br /><br />in new games the image dosent fill the screen compleatly at 1280x960(works fine on games that supports 1280x1024) and also now on BF2142 Demo, the image dosent fill the screen at 1600x1200, wich is wierd because it works normally on other games at 1600x1200, monitor incompatability?
+				
+				
+				<!--IBF.ATTACHMENT_121681-->
+			</div>
+			
+			<br /><br />--------------------<br />
+<div class="signature">ASUS P5QL Pro<br />Intel Core 2 Duo E6700 2.66GHz<br />ASUS GeForce 9800GTX+ 512mb<br />Kingston HyperX 2x1gb PC2-6400 800MHz<br />Creative X-FI XtremeGamer</div>
+			<!-- THE POST -->		
+		</td>
+	</tr>
+	<tr>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<div style='text-align:left'><a href="javascript:scroll(0,0);"><img src='style_images/nvgreen/p_up.gif' border='0'  alt='Go to the top of the page' /></a></div>
+		</td>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<!-- PM / EMAIL / WWW / MSGR -->
+			<div style="float: left;">
+				&nbsp;
+			</div>
+			<!-- REPORT / UP -->
+         	<div align="right">
+         		<a href="#" onclick="multiquote_add(121681); return false;" title="Toggle multiquote addition"><img src="style_images/nvgreen/p_mq_add.gif" name="mad_121681" alt="+" /></a><a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;act=Post&amp;CODE=02&amp;f=18&amp;t=20035&amp;qpid=121681" title="Reply directly to this post"><img src='style_images/nvgreen/p_quote.gif' border='0'  alt='Quote Post' /></a>
+         	</div>
+         </td>
+	</tr><tr>
+	<td class="catend" colspan="2">
+	<!-- no content -->
+	</td>
+</tr>
+</table>
+<!--Begin Msg Number 121706-->
+<table class='ipbtable' cellspacing="1">
+	<tr>
+		<td valign="middle" class="row2" width="1%">
+			<a name="entry121706"></a>
+			
+				<div id="post-member-121706" class='popmenubutton-new-out'>
+					<span class="normalname">
+	<img src='style_images/nvgreen/folder_profile_portal/user-offline.png' alt='' border='0' /><a href='http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=3722'>F@32</a></span>
+				</div>
+				<!-- member menu -->
+				<div class='popupmenu-new' id='post-member-121706_menu' style='display:none;width:230px'>
+					<div class='popupmenu-item-last'>
+						
+						<div style='float:right'>
+							<div class='pp-image-thumb-wrap'>
+								<img src='style_images/nvgreen/folder_profile_portal/pp-blank-thumb.png' width='50' height='50' alt='' />
+							</div>
+							
+								<div style='margin-top:5px;margin-left:6px;'>
+									<img src="style_images/nvgreen/rating_0_mini.gif" alt='Rating: 0' style='vertical-align:middle' border='0' />
+								</div>
+							
+						</div>
+						<div class='popupmenu-item'>
+							
+	<img src='style_images/nvgreen/folder_profile_portal/gender_mystery.png' id='pp-entry-gender-img-3722' alt='' border='0' />
+ <a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=3722">View Member Profile</a>
+						</div>
+						
+						
+						
+					</div>
+				</div>
+				<!-- member menu -->
+				<script type="text/javascript">
+					ipsmenu.register( "post-member-121706", '', 'popmenubutton-new', 'popmenubutton-new-out' );
+				</script>
+			
+			
+		</td>
+		<td class="row2" valign="middle" width="99%">
+			<!-- POSTED DATE DIV -->
+			<div style="float: left;">
+				<span class="postdetails"> <img src='style_images/nvgreen/to_post_off.gif' alt='post' border='0' style='padding-bottom:2px' /> Oct 20 2006, 09:00 PM</span>
+			</div>
+			<!-- REPORT / DELETE / EDIT / QUOTE DIV -->
+			<div align="right">
+				<span class="postdetails"> Post
+					<a title="Show the link to this post" href="http://forums.nvidia.com/index.php?showtopic=20035&amp;view=findpost&amp;p=121706" onclick="link_to_post(121706); return false;">#12</a>
+					
+				</span>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top" class="post1">
+        	<span class="postdetails">
+				
+					<a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=3722" title="View Member Profile"><img src='http://forums.merged.nvidia.com/uploads/av-3722.jpg' border='0' width='96' height='87' alt='' /></a><br /><br />
+				
+        		<br />
+        		<img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><br /><br />
+        		Group: Members<br />
+        		Posts: 1,458<br />
+        		Joined: 9-February 05<br />
+        		From: Kirghudu, Cowjackingstan<br />
+        		Member No.: 3,722<br />
+				
+					
+Org.: Sheriff of Naughtyham<br />
+				
+				<br />
+        		 
+        	</span><br />
+        	<img src="style_images/nvgreen/spacer.gif" alt="" width="160" height="1" /><br /> 
+       </td>
+       <td width="100%" valign="top" class="post1" id='post-main-121706'>
+			<!-- THE POST 121706 -->
+			<div class="postcolor" id='post-121706'>
+				<!--QuoteBegin-Alexraptor+Oct 19 2006, 11:31 AM--><div class='quotetop'>QUOTE (Alexraptor &#064; Oct 19 2006, 11:31 AM)</div><div class='quotemain'><!--QuoteEBegin-->Well i forgot to screenshot my 3dmark05 benchmark, but it was at around 4700.<br /><div align='right'><a href="index.php?act=findpost&amp;pid=121411"><img src='style_images/nvgreen/post_snapback.gif' alt='*' border='0' /></a></div><!--QuoteEnd--></div><!--QuoteEEnd--><br /><br />Did you run 3DMark05 at default settings w/o AA? 4700 is a bit too low. Should be roughly 2x3DMark06. You get about what the most 7800GS show in 3DMark06. I doubt you get smooth BF2142 performance at max settings with that set-up.
+				
+				
+				<!--IBF.ATTACHMENT_121706-->
+			</div>
+			
+			<br /><br />--------------------<br />
+<div class="signature"><img src='http://i15.photobucket.com/albums/a397/reieev/the-fatrix.jpg' border='0' alt='user posted image' /><br /><a href='http://www.nliteos.com' target='_blank'>nLite.</a> <a href='http://windowsupdate.62nds.com/' target='_blank'>WindizUpdate.</a> <a href='http://www.kessels.com/JkDefrag/' target='_blank'>JkDefrag.</a> <a href='http://www.thefreecountry.com/utilities/index.shtml' target='_blank'>The Free Country.</a><br /> <a href='http://www.microsoft.com/technet/sysinternals/default.mspx' target='_blank'>Sysinternals.</a> <a href='http://www.sysinfo.org/startuplist.php' target='_blank'>Clean Startup.</a><br /><span style='font-size:11pt;line-height:100%'><b><i>&quot;GeForce is strong with this one...&quot;</b></i>&#153;</span></div>
+			<!-- THE POST -->		
+		</td>
+	</tr>
+	<tr>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<div style='text-align:left'><a href="javascript:scroll(0,0);"><img src='style_images/nvgreen/p_up.gif' border='0'  alt='Go to the top of the page' /></a></div>
+		</td>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<!-- PM / EMAIL / WWW / MSGR -->
+			<div style="float: left;">
+				&nbsp;
+			</div>
+			<!-- REPORT / UP -->
+         	<div align="right">
+         		<a href="#" onclick="multiquote_add(121706); return false;" title="Toggle multiquote addition"><img src="style_images/nvgreen/p_mq_add.gif" name="mad_121706" alt="+" /></a><a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;act=Post&amp;CODE=02&amp;f=18&amp;t=20035&amp;qpid=121706" title="Reply directly to this post"><img src='style_images/nvgreen/p_quote.gif' border='0'  alt='Quote Post' /></a>
+         	</div>
+         </td>
+	</tr><tr>
+	<td class="catend" colspan="2">
+	<!-- no content -->
+	</td>
+</tr>
+</table>
+<!--Begin Msg Number 121708-->
+<table class='ipbtable' cellspacing="1">
+	<tr>
+		<td valign="middle" class="row2" width="1%">
+			<a name="entry121708"></a>
+			
+				<div id="post-member-121708" class='popmenubutton-new-out'>
+					<span class="normalname">
+	<img src='style_images/nvgreen/folder_profile_portal/user-offline.png' alt='' border='0' /><a href='http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=25922'>Alexraptor</a></span>
+				</div>
+				<!-- member menu -->
+				<div class='popupmenu-new' id='post-member-121708_menu' style='display:none;width:230px'>
+					<div class='popupmenu-item-last'>
+						
+						<div style='float:right'>
+							<div class='pp-image-thumb-wrap'>
+								<img src='style_images/nvgreen/folder_profile_portal/pp-blank-thumb.png' width='50' height='50' alt='' />
+							</div>
+							
+								<div style='margin-top:5px;margin-left:6px;'>
+									<img src="style_images/nvgreen/rating_0_mini.gif" alt='Rating: 0' style='vertical-align:middle' border='0' />
+								</div>
+							
+						</div>
+						<div class='popupmenu-item'>
+							
+	<img src='style_images/nvgreen/folder_profile_portal/gender_mystery.png' id='pp-entry-gender-img-25922' alt='' border='0' />
+ <a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=25922">View Member Profile</a>
+						</div>
+						
+						
+						
+					</div>
+				</div>
+				<!-- member menu -->
+				<script type="text/javascript">
+					ipsmenu.register( "post-member-121708", '', 'popmenubutton-new', 'popmenubutton-new-out' );
+				</script>
+			
+			
+		</td>
+		<td class="row2" valign="middle" width="99%">
+			<!-- POSTED DATE DIV -->
+			<div style="float: left;">
+				<span class="postdetails"> <img src='style_images/nvgreen/to_post_off.gif' alt='post' border='0' style='padding-bottom:2px' /> Oct 20 2006, 09:09 PM</span>
+			</div>
+			<!-- REPORT / DELETE / EDIT / QUOTE DIV -->
+			<div align="right">
+				<span class="postdetails"> Post
+					<a title="Show the link to this post" href="http://forums.nvidia.com/index.php?showtopic=20035&amp;view=findpost&amp;p=121708" onclick="link_to_post(121708); return false;">#13</a>
+					
+				</span>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top" class="post2">
+        	<span class="postdetails">
+				
+        			<br /><br />
+				
+        		<br />
+        		<img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><br /><br />
+        		Group: Members<br />
+        		Posts: 206<br />
+        		Joined: 10-September 06<br />
+        		
+        		Member No.: 25,922<br />
+				
+				<br />
+        		 
+        	</span><br />
+        	<img src="style_images/nvgreen/spacer.gif" alt="" width="160" height="1" /><br /> 
+       </td>
+       <td width="100%" valign="top" class="post2" id='post-main-121708'>
+			<!-- THE POST 121708 -->
+			<div class="postcolor" id='post-121708'>
+				actually, i have every single slider on max, including AA, and 1600x1200 screen resolution.<br /><br />I get max 50fps.<br />average lies at 30fps<br />20-25fps if there is alot of vehicles and fighting going on in an area.
+				
+				
+				<!--IBF.ATTACHMENT_121708-->
+			</div>
+			
+			<br /><br />--------------------<br />
+<div class="signature">ASUS P5QL Pro<br />Intel Core 2 Duo E6700 2.66GHz<br />ASUS GeForce 9800GTX+ 512mb<br />Kingston HyperX 2x1gb PC2-6400 800MHz<br />Creative X-FI XtremeGamer</div>
+			<!-- THE POST -->		
+		</td>
+	</tr>
+	<tr>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<div style='text-align:left'><a href="javascript:scroll(0,0);"><img src='style_images/nvgreen/p_up.gif' border='0'  alt='Go to the top of the page' /></a></div>
+		</td>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<!-- PM / EMAIL / WWW / MSGR -->
+			<div style="float: left;">
+				&nbsp;
+			</div>
+			<!-- REPORT / UP -->
+         	<div align="right">
+         		<a href="#" onclick="multiquote_add(121708); return false;" title="Toggle multiquote addition"><img src="style_images/nvgreen/p_mq_add.gif" name="mad_121708" alt="+" /></a><a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;act=Post&amp;CODE=02&amp;f=18&amp;t=20035&amp;qpid=121708" title="Reply directly to this post"><img src='style_images/nvgreen/p_quote.gif' border='0'  alt='Quote Post' /></a>
+         	</div>
+         </td>
+	</tr><tr>
+	<td class="catend" colspan="2">
+	<!-- no content -->
+	</td>
+</tr>
+</table>
+<!--Begin Msg Number 121807-->
+<table class='ipbtable' cellspacing="1">
+	<tr>
+		<td valign="middle" class="row2" width="1%">
+			<a name="entry121807"></a>
+			
+				<div id="post-member-121807" class='popmenubutton-new-out'>
+					<span class="normalname">
+	<img src='style_images/nvgreen/folder_profile_portal/user-offline.png' alt='' border='0' /><a href='http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=1795'>Deeko</a></span>
+				</div>
+				<!-- member menu -->
+				<div class='popupmenu-new' id='post-member-121807_menu' style='display:none;width:230px'>
+					<div class='popupmenu-item-last'>
+						
+						<div style='float:right'>
+							<div class='pp-image-thumb-wrap'>
+								<img src='style_images/nvgreen/folder_profile_portal/pp-blank-thumb.png' width='50' height='50' alt='' />
+							</div>
+							
+								<div style='margin-top:5px;margin-left:6px;'>
+									<img src="style_images/nvgreen/rating_5_mini.gif" alt='Rating: 5' style='vertical-align:middle' border='0' />
+								</div>
+							
+						</div>
+						<div class='popupmenu-item'>
+							
+	
+		<img src='style_images/nvgreen/folder_profile_portal/gender_male.png' id='pp-entry-gender-img-1795' style='vertical-align:top' alt='' border='0' />
+	
+ <a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=1795">View Member Profile</a>
+						</div>
+						
+						
+						
+					</div>
+				</div>
+				<!-- member menu -->
+				<script type="text/javascript">
+					ipsmenu.register( "post-member-121807", '', 'popmenubutton-new', 'popmenubutton-new-out' );
+				</script>
+			
+			
+		</td>
+		<td class="row2" valign="middle" width="99%">
+			<!-- POSTED DATE DIV -->
+			<div style="float: left;">
+				<span class="postdetails"> <img src='style_images/nvgreen/to_post_off.gif' alt='post' border='0' style='padding-bottom:2px' /> Oct 21 2006, 08:38 AM</span>
+			</div>
+			<!-- REPORT / DELETE / EDIT / QUOTE DIV -->
+			<div align="right">
+				<span class="postdetails"> Post
+					<a title="Show the link to this post" href="http://forums.nvidia.com/index.php?showtopic=20035&amp;view=findpost&amp;p=121807" onclick="link_to_post(121807); return false;">#14</a>
+					
+				</span>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top" class="post1">
+        	<span class="postdetails">
+				
+					<a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=1795" title="View Member Profile"><img src='http://forums.merged.nvidia.com/uploads/av-1795.jpg' border='0' width='78' height='76' alt='' /></a><br /><br />
+				
+        		<br />
+        		<img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><br /><br />
+        		Group: Members<br />
+        		Posts: 3,044<br />
+        		Joined: 16-December 04<br />
+        		From: Glasgow<br />
+        		Member No.: 1,795<br />
+				
+					
+Club SLI Member: No<br />
+Org.: University of Lincoln<br />
+				
+				<br />
+        		 
+        	</span><br />
+        	<img src="style_images/nvgreen/spacer.gif" alt="" width="160" height="1" /><br /> 
+       </td>
+       <td width="100%" valign="top" class="post1" id='post-main-121807'>
+			<!-- THE POST 121807 -->
+			<div class="postcolor" id='post-121807'>
+				30fps average isnt playable for a fast fps like B2142, you need at least 45fps+ to play it properly for a decent experience, 50fps+ for some ownage. 30fps is awful for a twitcher like B2142, be surprised if you manage to pop anyone with those fps <img src="http://forums.nvidia.com/style_emoticons/NVIDIA/smile.gif" style="vertical-align:middle" emoid=":)" border="0" alt="smile.gif" /> At 20-25fps like you say you experience a lot the game isnt worth even beginning to play. Only games that you can play properly at those kind of fps are slow paced games like Oblivian.
+				<br /><br /><span class='edit'>This post has been edited by <b>Deeko</b>: Oct 21 2006, 08:41 AM</span>
+				
+				<!--IBF.ATTACHMENT_121807-->
+			</div>
+			
+			<br /><br />--------------------<br />
+<div class="signature"><!--sizeo:2--><span style="font-size:10pt;line-height:100%"><!--/sizeo--><a href="http://www.derekfoster.net/" target="_blank">Personal Site</a><!--sizec--></span><!--/sizec--><br /><b>Mac iPhone Development:</b>Mac Mini C2D 2Ghz/2GB  <b>SmartPhone:</b>HTC HD2 Snapdragon 1ghz  <b>Utramobile:</b>Acer 1810tz ULV1.3Ghz/3GB<br /><b>Main Rig</b>: Asus P5K Deluxe/Core Quad Q6600@3Ghz/4GB DDR800/9800GT/X-Fi/320 GB HD Raid0/OS-Win 7 Pro x64<br /><b>MediaCentre:</b> Asus P5WDH Deluxe/Core 2 6300@2.8Ghz/2Gb DDR800/Ati 4870[/color]/X-Fi/200GB HD/OS-Win 7 Pro x64<br /><b>Server:</b> Gigabyte P35-DSR3/Core 2 2.8Ghz/4GB DDR667/Ati 3450 HD/<b>4 x 1.5TB HD + 250GB</b> /OS-Server 2008 R2 x64</div>
+			<!-- THE POST -->		
+		</td>
+	</tr>
+	<tr>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<div style='text-align:left'><a href="javascript:scroll(0,0);"><img src='style_images/nvgreen/p_up.gif' border='0'  alt='Go to the top of the page' /></a></div>
+		</td>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<!-- PM / EMAIL / WWW / MSGR -->
+			<div style="float: left;">
+				&nbsp;
+			</div>
+			<!-- REPORT / UP -->
+         	<div align="right">
+         		<a href="#" onclick="multiquote_add(121807); return false;" title="Toggle multiquote addition"><img src="style_images/nvgreen/p_mq_add.gif" name="mad_121807" alt="+" /></a><a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;act=Post&amp;CODE=02&amp;f=18&amp;t=20035&amp;qpid=121807" title="Reply directly to this post"><img src='style_images/nvgreen/p_quote.gif' border='0'  alt='Quote Post' /></a>
+         	</div>
+         </td>
+	</tr><tr>
+	<td class="catend" colspan="2">
+	<!-- no content -->
+	</td>
+</tr>
+</table>
+<!--Begin Msg Number 121827-->
+<table class='ipbtable' cellspacing="1">
+	<tr>
+		<td valign="middle" class="row2" width="1%">
+			<a name="entry121827"></a>
+			
+				<div id="post-member-121827" class='popmenubutton-new-out'>
+					<span class="normalname">
+	<img src='style_images/nvgreen/folder_profile_portal/user-offline.png' alt='' border='0' /><a href='http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=25922'>Alexraptor</a></span>
+				</div>
+				<!-- member menu -->
+				<div class='popupmenu-new' id='post-member-121827_menu' style='display:none;width:230px'>
+					<div class='popupmenu-item-last'>
+						
+						<div style='float:right'>
+							<div class='pp-image-thumb-wrap'>
+								<img src='style_images/nvgreen/folder_profile_portal/pp-blank-thumb.png' width='50' height='50' alt='' />
+							</div>
+							
+								<div style='margin-top:5px;margin-left:6px;'>
+									<img src="style_images/nvgreen/rating_0_mini.gif" alt='Rating: 0' style='vertical-align:middle' border='0' />
+								</div>
+							
+						</div>
+						<div class='popupmenu-item'>
+							
+	<img src='style_images/nvgreen/folder_profile_portal/gender_mystery.png' id='pp-entry-gender-img-25922' alt='' border='0' />
+ <a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=25922">View Member Profile</a>
+						</div>
+						
+						
+						
+					</div>
+				</div>
+				<!-- member menu -->
+				<script type="text/javascript">
+					ipsmenu.register( "post-member-121827", '', 'popmenubutton-new', 'popmenubutton-new-out' );
+				</script>
+			
+			
+		</td>
+		<td class="row2" valign="middle" width="99%">
+			<!-- POSTED DATE DIV -->
+			<div style="float: left;">
+				<span class="postdetails"> <img src='style_images/nvgreen/to_post_off.gif' alt='post' border='0' style='padding-bottom:2px' /> Oct 21 2006, 11:46 AM</span>
+			</div>
+			<!-- REPORT / DELETE / EDIT / QUOTE DIV -->
+			<div align="right">
+				<span class="postdetails"> Post
+					<a title="Show the link to this post" href="http://forums.nvidia.com/index.php?showtopic=20035&amp;view=findpost&amp;p=121827" onclick="link_to_post(121827); return false;">#15</a>
+					
+				</span>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top" class="post2">
+        	<span class="postdetails">
+				
+        			<br /><br />
+				
+        		<br />
+        		<img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><br /><br />
+        		Group: Members<br />
+        		Posts: 206<br />
+        		Joined: 10-September 06<br />
+        		
+        		Member No.: 25,922<br />
+				
+				<br />
+        		 
+        	</span><br />
+        	<img src="style_images/nvgreen/spacer.gif" alt="" width="160" height="1" /><br /> 
+       </td>
+       <td width="100%" valign="top" class="post2" id='post-main-121827'>
+			<!-- THE POST 121827 -->
+			<div class="postcolor" id='post-121827'>
+				where in the world did you get that idea? 20 fps or 50 fps, i always seem to manage to kick ass. comming out on top score quite often. heck, when i was testing graphic settings i was totally kicking major ass on F.E.A.R Combat at like only 13-15 fps  <img src="http://forums.nvidia.com/style_emoticons/NVIDIA/haha.gif" style="vertical-align:middle" emoid=":haha:" border="0" alt="haha.gif" />
+				
+				
+				<!--IBF.ATTACHMENT_121827-->
+			</div>
+			
+			<br /><br />--------------------<br />
+<div class="signature">ASUS P5QL Pro<br />Intel Core 2 Duo E6700 2.66GHz<br />ASUS GeForce 9800GTX+ 512mb<br />Kingston HyperX 2x1gb PC2-6400 800MHz<br />Creative X-FI XtremeGamer</div>
+			<!-- THE POST -->		
+		</td>
+	</tr>
+	<tr>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<div style='text-align:left'><a href="javascript:scroll(0,0);"><img src='style_images/nvgreen/p_up.gif' border='0'  alt='Go to the top of the page' /></a></div>
+		</td>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<!-- PM / EMAIL / WWW / MSGR -->
+			<div style="float: left;">
+				&nbsp;
+			</div>
+			<!-- REPORT / UP -->
+         	<div align="right">
+         		<a href="#" onclick="multiquote_add(121827); return false;" title="Toggle multiquote addition"><img src="style_images/nvgreen/p_mq_add.gif" name="mad_121827" alt="+" /></a><a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;act=Post&amp;CODE=02&amp;f=18&amp;t=20035&amp;qpid=121827" title="Reply directly to this post"><img src='style_images/nvgreen/p_quote.gif' border='0'  alt='Quote Post' /></a>
+         	</div>
+         </td>
+	</tr><tr>
+	<td class="catend" colspan="2">
+	<!-- no content -->
+	</td>
+</tr>
+</table>
+<!--Begin Msg Number 121833-->
+<table class='ipbtable' cellspacing="1">
+	<tr>
+		<td valign="middle" class="row2" width="1%">
+			<a name="entry121833"></a>
+			
+				<div id="post-member-121833" class='popmenubutton-new-out'>
+					<span class="normalname">
+	<img src='style_images/nvgreen/folder_profile_portal/user-offline.png' alt='' border='0' /><a href='http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=1795'>Deeko</a></span>
+				</div>
+				<!-- member menu -->
+				<div class='popupmenu-new' id='post-member-121833_menu' style='display:none;width:230px'>
+					<div class='popupmenu-item-last'>
+						
+						<div style='float:right'>
+							<div class='pp-image-thumb-wrap'>
+								<img src='style_images/nvgreen/folder_profile_portal/pp-blank-thumb.png' width='50' height='50' alt='' />
+							</div>
+							
+								<div style='margin-top:5px;margin-left:6px;'>
+									<img src="style_images/nvgreen/rating_5_mini.gif" alt='Rating: 5' style='vertical-align:middle' border='0' />
+								</div>
+							
+						</div>
+						<div class='popupmenu-item'>
+							
+	
+		<img src='style_images/nvgreen/folder_profile_portal/gender_male.png' id='pp-entry-gender-img-1795' style='vertical-align:top' alt='' border='0' />
+	
+ <a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=1795">View Member Profile</a>
+						</div>
+						
+						
+						
+					</div>
+				</div>
+				<!-- member menu -->
+				<script type="text/javascript">
+					ipsmenu.register( "post-member-121833", '', 'popmenubutton-new', 'popmenubutton-new-out' );
+				</script>
+			
+			
+		</td>
+		<td class="row2" valign="middle" width="99%">
+			<!-- POSTED DATE DIV -->
+			<div style="float: left;">
+				<span class="postdetails"> <img src='style_images/nvgreen/to_post_off.gif' alt='post' border='0' style='padding-bottom:2px' /> Oct 21 2006, 12:18 PM</span>
+			</div>
+			<!-- REPORT / DELETE / EDIT / QUOTE DIV -->
+			<div align="right">
+				<span class="postdetails"> Post
+					<a title="Show the link to this post" href="http://forums.nvidia.com/index.php?showtopic=20035&amp;view=findpost&amp;p=121833" onclick="link_to_post(121833); return false;">#16</a>
+					
+				</span>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top" class="post1">
+        	<span class="postdetails">
+				
+					<a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=1795" title="View Member Profile"><img src='http://forums.merged.nvidia.com/uploads/av-1795.jpg' border='0' width='78' height='76' alt='' /></a><br /><br />
+				
+        		<br />
+        		<img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><br /><br />
+        		Group: Members<br />
+        		Posts: 3,044<br />
+        		Joined: 16-December 04<br />
+        		From: Glasgow<br />
+        		Member No.: 1,795<br />
+				
+					
+Club SLI Member: No<br />
+Org.: University of Lincoln<br />
+				
+				<br />
+        		 
+        	</span><br />
+        	<img src="style_images/nvgreen/spacer.gif" alt="" width="160" height="1" /><br /> 
+       </td>
+       <td width="100%" valign="top" class="post1" id='post-main-121833'>
+			<!-- THE POST 121833 -->
+			<div class="postcolor" id='post-121833'>
+				15fps for ownage on Fear??  <img src="http://forums.nvidia.com/style_emoticons/NVIDIA/haha.gif" style="vertical-align:middle" emoid=":haha:" border="0" alt="haha.gif" />  <img src="http://forums.nvidia.com/style_emoticons/NVIDIA/haha.gif" style="vertical-align:middle" emoid=":haha:" border="0" alt="haha.gif" />  Your idea of playing games smoothly is very different from mines  <img src="http://forums.nvidia.com/style_emoticons/NVIDIA/smile.gif" style="vertical-align:middle" emoid=":)" border="0" alt="smile.gif" />
+				
+				
+				<!--IBF.ATTACHMENT_121833-->
+			</div>
+			
+			<br /><br />--------------------<br />
+<div class="signature"><!--sizeo:2--><span style="font-size:10pt;line-height:100%"><!--/sizeo--><a href="http://www.derekfoster.net/" target="_blank">Personal Site</a><!--sizec--></span><!--/sizec--><br /><b>Mac iPhone Development:</b>Mac Mini C2D 2Ghz/2GB  <b>SmartPhone:</b>HTC HD2 Snapdragon 1ghz  <b>Utramobile:</b>Acer 1810tz ULV1.3Ghz/3GB<br /><b>Main Rig</b>: Asus P5K Deluxe/Core Quad Q6600@3Ghz/4GB DDR800/9800GT/X-Fi/320 GB HD Raid0/OS-Win 7 Pro x64<br /><b>MediaCentre:</b> Asus P5WDH Deluxe/Core 2 6300@2.8Ghz/2Gb DDR800/Ati 4870[/color]/X-Fi/200GB HD/OS-Win 7 Pro x64<br /><b>Server:</b> Gigabyte P35-DSR3/Core 2 2.8Ghz/4GB DDR667/Ati 3450 HD/<b>4 x 1.5TB HD + 250GB</b> /OS-Server 2008 R2 x64</div>
+			<!-- THE POST -->		
+		</td>
+	</tr>
+	<tr>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<div style='text-align:left'><a href="javascript:scroll(0,0);"><img src='style_images/nvgreen/p_up.gif' border='0'  alt='Go to the top of the page' /></a></div>
+		</td>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<!-- PM / EMAIL / WWW / MSGR -->
+			<div style="float: left;">
+				&nbsp;
+			</div>
+			<!-- REPORT / UP -->
+         	<div align="right">
+         		<a href="#" onclick="multiquote_add(121833); return false;" title="Toggle multiquote addition"><img src="style_images/nvgreen/p_mq_add.gif" name="mad_121833" alt="+" /></a><a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;act=Post&amp;CODE=02&amp;f=18&amp;t=20035&amp;qpid=121833" title="Reply directly to this post"><img src='style_images/nvgreen/p_quote.gif' border='0'  alt='Quote Post' /></a>
+         	</div>
+         </td>
+	</tr><tr>
+	<td class="catend" colspan="2">
+	<!-- no content -->
+	</td>
+</tr>
+</table>
+<!--Begin Msg Number 121845-->
+<table class='ipbtable' cellspacing="1">
+	<tr>
+		<td valign="middle" class="row2" width="1%">
+			<a name="entry121845"></a>
+			
+				<div id="post-member-121845" class='popmenubutton-new-out'>
+					<span class="normalname">
+	<img src='style_images/nvgreen/folder_profile_portal/user-offline.png' alt='' border='0' /><a href='http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=25922'>Alexraptor</a></span>
+				</div>
+				<!-- member menu -->
+				<div class='popupmenu-new' id='post-member-121845_menu' style='display:none;width:230px'>
+					<div class='popupmenu-item-last'>
+						
+						<div style='float:right'>
+							<div class='pp-image-thumb-wrap'>
+								<img src='style_images/nvgreen/folder_profile_portal/pp-blank-thumb.png' width='50' height='50' alt='' />
+							</div>
+							
+								<div style='margin-top:5px;margin-left:6px;'>
+									<img src="style_images/nvgreen/rating_0_mini.gif" alt='Rating: 0' style='vertical-align:middle' border='0' />
+								</div>
+							
+						</div>
+						<div class='popupmenu-item'>
+							
+	<img src='style_images/nvgreen/folder_profile_portal/gender_mystery.png' id='pp-entry-gender-img-25922' alt='' border='0' />
+ <a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=25922">View Member Profile</a>
+						</div>
+						
+						
+						
+					</div>
+				</div>
+				<!-- member menu -->
+				<script type="text/javascript">
+					ipsmenu.register( "post-member-121845", '', 'popmenubutton-new', 'popmenubutton-new-out' );
+				</script>
+			
+			
+		</td>
+		<td class="row2" valign="middle" width="99%">
+			<!-- POSTED DATE DIV -->
+			<div style="float: left;">
+				<span class="postdetails"> <img src='style_images/nvgreen/to_post_off.gif' alt='post' border='0' style='padding-bottom:2px' /> Oct 21 2006, 01:59 PM</span>
+			</div>
+			<!-- REPORT / DELETE / EDIT / QUOTE DIV -->
+			<div align="right">
+				<span class="postdetails"> Post
+					<a title="Show the link to this post" href="http://forums.nvidia.com/index.php?showtopic=20035&amp;view=findpost&amp;p=121845" onclick="link_to_post(121845); return false;">#17</a>
+					
+				</span>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top" class="post2">
+        	<span class="postdetails">
+				
+        			<br /><br />
+				
+        		<br />
+        		<img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><br /><br />
+        		Group: Members<br />
+        		Posts: 206<br />
+        		Joined: 10-September 06<br />
+        		
+        		Member No.: 25,922<br />
+				
+				<br />
+        		 
+        	</span><br />
+        	<img src="style_images/nvgreen/spacer.gif" alt="" width="160" height="1" /><br /> 
+       </td>
+       <td width="100%" valign="top" class="post2" id='post-main-121845'>
+			<!-- THE POST 121845 -->
+			<div class="postcolor" id='post-121845'>
+				naturally, you have a comp that scores over 10k on 3dmark06 while mine just barley makes it over 3k <br /><br />however, i naturally strive for the best performance possible. actually i generally play FEAR on all settings maxed, 1280x960 screen resolution, FSAA turned off and soft shadows off. the 12-15 fps was when i had everything blown up to max  <img src="http://forums.nvidia.com/style_emoticons/NVIDIA/haha.gif" style="vertical-align:middle" emoid=":haha:" border="0" alt="haha.gif" />
+				
+				
+				<!--IBF.ATTACHMENT_121845-->
+			</div>
+			
+			<br /><br />--------------------<br />
+<div class="signature">ASUS P5QL Pro<br />Intel Core 2 Duo E6700 2.66GHz<br />ASUS GeForce 9800GTX+ 512mb<br />Kingston HyperX 2x1gb PC2-6400 800MHz<br />Creative X-FI XtremeGamer</div>
+			<!-- THE POST -->		
+		</td>
+	</tr>
+	<tr>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<div style='text-align:left'><a href="javascript:scroll(0,0);"><img src='style_images/nvgreen/p_up.gif' border='0'  alt='Go to the top of the page' /></a></div>
+		</td>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<!-- PM / EMAIL / WWW / MSGR -->
+			<div style="float: left;">
+				&nbsp;
+			</div>
+			<!-- REPORT / UP -->
+         	<div align="right">
+         		<a href="#" onclick="multiquote_add(121845); return false;" title="Toggle multiquote addition"><img src="style_images/nvgreen/p_mq_add.gif" name="mad_121845" alt="+" /></a><a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;act=Post&amp;CODE=02&amp;f=18&amp;t=20035&amp;qpid=121845" title="Reply directly to this post"><img src='style_images/nvgreen/p_quote.gif' border='0'  alt='Quote Post' /></a>
+         	</div>
+         </td>
+	</tr><tr>
+	<td class="catend" colspan="2">
+	<!-- no content -->
+	</td>
+</tr>
+</table>
+<!--Begin Msg Number 121896-->
+<table class='ipbtable' cellspacing="1">
+	<tr>
+		<td valign="middle" class="row2" width="1%">
+			<a name="entry121896"></a>
+			
+				<div id="post-member-121896" class='popmenubutton-new-out'>
+					<span class="normalname">
+	<img src='style_images/nvgreen/folder_profile_portal/user-offline.png' alt='' border='0' /><a href='http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=25922'>Alexraptor</a></span>
+				</div>
+				<!-- member menu -->
+				<div class='popupmenu-new' id='post-member-121896_menu' style='display:none;width:230px'>
+					<div class='popupmenu-item-last'>
+						
+						<div style='float:right'>
+							<div class='pp-image-thumb-wrap'>
+								<img src='style_images/nvgreen/folder_profile_portal/pp-blank-thumb.png' width='50' height='50' alt='' />
+							</div>
+							
+								<div style='margin-top:5px;margin-left:6px;'>
+									<img src="style_images/nvgreen/rating_0_mini.gif" alt='Rating: 0' style='vertical-align:middle' border='0' />
+								</div>
+							
+						</div>
+						<div class='popupmenu-item'>
+							
+	<img src='style_images/nvgreen/folder_profile_portal/gender_mystery.png' id='pp-entry-gender-img-25922' alt='' border='0' />
+ <a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=25922">View Member Profile</a>
+						</div>
+						
+						
+						
+					</div>
+				</div>
+				<!-- member menu -->
+				<script type="text/javascript">
+					ipsmenu.register( "post-member-121896", '', 'popmenubutton-new', 'popmenubutton-new-out' );
+				</script>
+			
+			
+		</td>
+		<td class="row2" valign="middle" width="99%">
+			<!-- POSTED DATE DIV -->
+			<div style="float: left;">
+				<span class="postdetails"> <img src='style_images/nvgreen/to_post_off.gif' alt='post' border='0' style='padding-bottom:2px' /> Oct 21 2006, 05:59 PM</span>
+			</div>
+			<!-- REPORT / DELETE / EDIT / QUOTE DIV -->
+			<div align="right">
+				<span class="postdetails"> Post
+					<a title="Show the link to this post" href="http://forums.nvidia.com/index.php?showtopic=20035&amp;view=findpost&amp;p=121896" onclick="link_to_post(121896); return false;">#18</a>
+					
+				</span>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top" class="post1">
+        	<span class="postdetails">
+				
+        			<br /><br />
+				
+        		<br />
+        		<img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><br /><br />
+        		Group: Members<br />
+        		Posts: 206<br />
+        		Joined: 10-September 06<br />
+        		
+        		Member No.: 25,922<br />
+				
+				<br />
+        		 
+        	</span><br />
+        	<img src="style_images/nvgreen/spacer.gif" alt="" width="160" height="1" /><br /> 
+       </td>
+       <td width="100%" valign="top" class="post1" id='post-main-121896'>
+			<!-- THE POST 121896 -->
+			<div class="postcolor" id='post-121896'>
+				hmmm, i managed to improve performance by turning off my Hyper Threading  <img src="http://forums.nvidia.com/style_emoticons/NVIDIA/biggrin.gif" style="vertical-align:middle" emoid=":D" border="0" alt="biggrin.gif" /> <br /><img src="http://alexraptor.com/images/3dmarkHToff.JPG" border="0" class="linked-image" />
+				
+				
+				<!--IBF.ATTACHMENT_121896-->
+			</div>
+			
+			<br /><br />--------------------<br />
+<div class="signature">ASUS P5QL Pro<br />Intel Core 2 Duo E6700 2.66GHz<br />ASUS GeForce 9800GTX+ 512mb<br />Kingston HyperX 2x1gb PC2-6400 800MHz<br />Creative X-FI XtremeGamer</div>
+			<!-- THE POST -->		
+		</td>
+	</tr>
+	<tr>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<div style='text-align:left'><a href="javascript:scroll(0,0);"><img src='style_images/nvgreen/p_up.gif' border='0'  alt='Go to the top of the page' /></a></div>
+		</td>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<!-- PM / EMAIL / WWW / MSGR -->
+			<div style="float: left;">
+				&nbsp;
+			</div>
+			<!-- REPORT / UP -->
+         	<div align="right">
+         		<a href="#" onclick="multiquote_add(121896); return false;" title="Toggle multiquote addition"><img src="style_images/nvgreen/p_mq_add.gif" name="mad_121896" alt="+" /></a><a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;act=Post&amp;CODE=02&amp;f=18&amp;t=20035&amp;qpid=121896" title="Reply directly to this post"><img src='style_images/nvgreen/p_quote.gif' border='0'  alt='Quote Post' /></a>
+         	</div>
+         </td>
+	</tr><tr>
+	<td class="catend" colspan="2">
+	<!-- no content -->
+	</td>
+</tr>
+</table>
+<!--Begin Msg Number 125456-->
+<table class='ipbtable' cellspacing="1">
+	<tr>
+		<td valign="middle" class="row2" width="1%">
+			<a name="entry125456"></a>
+			
+				<div id="post-member-125456" class='popmenubutton-new-out'>
+					<span class="normalname">
+	<img src='style_images/nvgreen/folder_profile_portal/user-offline.png' alt='' border='0' /><a href='http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=14377'>compstomper</a></span>
+				</div>
+				<!-- member menu -->
+				<div class='popupmenu-new' id='post-member-125456_menu' style='display:none;width:230px'>
+					<div class='popupmenu-item-last'>
+						
+						<div style='float:right'>
+							<div class='pp-image-thumb-wrap'>
+								<img src='style_images/nvgreen/folder_profile_portal/pp-blank-thumb.png' width='50' height='50' alt='' />
+							</div>
+							
+								<div style='margin-top:5px;margin-left:6px;'>
+									<img src="style_images/nvgreen/rating_0_mini.gif" alt='Rating: 0' style='vertical-align:middle' border='0' />
+								</div>
+							
+						</div>
+						<div class='popupmenu-item'>
+							
+	<img src='style_images/nvgreen/folder_profile_portal/gender_mystery.png' id='pp-entry-gender-img-14377' alt='' border='0' />
+ <a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=14377">View Member Profile</a>
+						</div>
+						
+						
+						
+					</div>
+				</div>
+				<!-- member menu -->
+				<script type="text/javascript">
+					ipsmenu.register( "post-member-125456", '', 'popmenubutton-new', 'popmenubutton-new-out' );
+				</script>
+			
+			
+		</td>
+		<td class="row2" valign="middle" width="99%">
+			<!-- POSTED DATE DIV -->
+			<div style="float: left;">
+				<span class="postdetails"> <img src='style_images/nvgreen/to_post_off.gif' alt='post' border='0' style='padding-bottom:2px' /> Nov 6 2006, 06:47 PM</span>
+			</div>
+			<!-- REPORT / DELETE / EDIT / QUOTE DIV -->
+			<div align="right">
+				<span class="postdetails"> Post
+					<a title="Show the link to this post" href="http://forums.nvidia.com/index.php?showtopic=20035&amp;view=findpost&amp;p=125456" onclick="link_to_post(125456); return false;">#19</a>
+					
+				</span>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top" class="post2">
+        	<span class="postdetails">
+				
+					<a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=14377" title="View Member Profile"><img src='http://forums.merged.nvidia.com/uploads/av-14377.gif' border='0' width='80' height='80' alt='' /></a><br /><br />
+				
+        		<br />
+        		<img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><br /><br />
+        		Group: Members<br />
+        		Posts: 275<br />
+        		Joined: 23-December 05<br />
+        		
+        		Member No.: 14,377<br />
+				
+				<br />
+        		 
+        	</span><br />
+        	<img src="style_images/nvgreen/spacer.gif" alt="" width="160" height="1" /><br /> 
+       </td>
+       <td width="100%" valign="top" class="post2" id='post-main-125456'>
+			<!-- THE POST 125456 -->
+			<div class="postcolor" id='post-125456'>
+				<!--QuoteBegin-Deeko+Oct 19 2006, 10:46 AM--><div class='quotetop'>QUOTE (Deeko &#064; Oct 19 2006, 10:46 AM)</div><div class='quotemain'><!--QuoteEBegin-->The extreme versions only have faster clock speeds, it still doesnt make up for the 7800GS+ cards having better cores, the 7800GS extreme edition only has 16 pipes with faster clocks than the normal 7800GS. The 7800GS+ models have 20 pipes and the top of the line 7800GS+ has the 7900 core fully enabled, 24 pipes.<br /><br />How did you manage to go from posting your &#39;ok&#39; playable performance at 1280x960 with no AA to 1600x1200 max settings with 4xAA? Seems like an impossible jump in perf, maybe you should post your screenshots of 3dmark05 and 06 with the default settings showing and we can see how the card performs <img src="http://forums.nvidia.com/style_emoticons/NVIDIA/smile.gif" style="vertical-align:middle" emoid=":)" border="0" alt="smile.gif" /><br /><div align='right'><a href="index.php?act=findpost&amp;pid=121395"><img src='style_images/nvgreen/post_snapback.gif' alt='*' border='0' /></a></div><!--QuoteEnd--></div><!--QuoteEEnd-->  I&#39;ve never seen 2x1900xtx&#39;s score that high one 3dmark 06 before.  Must be the duo core 2 you have.
+				
+				
+				<!--IBF.ATTACHMENT_125456-->
+			</div>
+			
+			<br /><br />--------------------<br />
+<div class="signature">Desktop:<br />Pentium D 940 @ 3.6 Ghz<br />7800GT  486--1230 (Soon to be 8800GT)<br />2GIG DDR2 Ram<br />500Watt Antec PSU<br />All Temps Fine.<br /><br />Laptop:<br />Turion 2.4Ghz<br />2x7900GS 512mb running in SLI @ 650--1400<br />2GIG DDR Ram<br />Dual 7200 RPM HD&#39;s</div>
+			<!-- THE POST -->		
+		</td>
+	</tr>
+	<tr>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<div style='text-align:left'><a href="javascript:scroll(0,0);"><img src='style_images/nvgreen/p_up.gif' border='0'  alt='Go to the top of the page' /></a></div>
+		</td>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<!-- PM / EMAIL / WWW / MSGR -->
+			<div style="float: left;">
+				&nbsp;
+			</div>
+			<!-- REPORT / UP -->
+         	<div align="right">
+         		<a href="#" onclick="multiquote_add(125456); return false;" title="Toggle multiquote addition"><img src="style_images/nvgreen/p_mq_add.gif" name="mad_125456" alt="+" /></a><a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;act=Post&amp;CODE=02&amp;f=18&amp;t=20035&amp;qpid=125456" title="Reply directly to this post"><img src='style_images/nvgreen/p_quote.gif' border='0'  alt='Quote Post' /></a>
+         	</div>
+         </td>
+	</tr><tr>
+	<td class="catend" colspan="2">
+	<!-- no content -->
+	</td>
+</tr>
+</table>
+<!--Begin Msg Number 125460-->
+<table class='ipbtable' cellspacing="1">
+	<tr>
+		<td valign="middle" class="row2" width="1%">
+			<a name="entry125460"></a>
+			
+				<div id="post-member-125460" class='popmenubutton-new-out'>
+					<span class="normalname">
+	<img src='style_images/nvgreen/folder_profile_portal/user-offline.png' alt='' border='0' /><a href='http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=1795'>Deeko</a></span>
+				</div>
+				<!-- member menu -->
+				<div class='popupmenu-new' id='post-member-125460_menu' style='display:none;width:230px'>
+					<div class='popupmenu-item-last'>
+						
+						<div style='float:right'>
+							<div class='pp-image-thumb-wrap'>
+								<img src='style_images/nvgreen/folder_profile_portal/pp-blank-thumb.png' width='50' height='50' alt='' />
+							</div>
+							
+								<div style='margin-top:5px;margin-left:6px;'>
+									<img src="style_images/nvgreen/rating_5_mini.gif" alt='Rating: 5' style='vertical-align:middle' border='0' />
+								</div>
+							
+						</div>
+						<div class='popupmenu-item'>
+							
+	
+		<img src='style_images/nvgreen/folder_profile_portal/gender_male.png' id='pp-entry-gender-img-1795' style='vertical-align:top' alt='' border='0' />
+	
+ <a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=1795">View Member Profile</a>
+						</div>
+						
+						
+						
+					</div>
+				</div>
+				<!-- member menu -->
+				<script type="text/javascript">
+					ipsmenu.register( "post-member-125460", '', 'popmenubutton-new', 'popmenubutton-new-out' );
+				</script>
+			
+			
+		</td>
+		<td class="row2" valign="middle" width="99%">
+			<!-- POSTED DATE DIV -->
+			<div style="float: left;">
+				<span class="postdetails"> <img src='style_images/nvgreen/to_post_off.gif' alt='post' border='0' style='padding-bottom:2px' /> Nov 6 2006, 07:00 PM</span>
+			</div>
+			<!-- REPORT / DELETE / EDIT / QUOTE DIV -->
+			<div align="right">
+				<span class="postdetails"> Post
+					<a title="Show the link to this post" href="http://forums.nvidia.com/index.php?showtopic=20035&amp;view=findpost&amp;p=125460" onclick="link_to_post(125460); return false;">#20</a>
+					
+				</span>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top" class="post1">
+        	<span class="postdetails">
+				
+					<a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showuser=1795" title="View Member Profile"><img src='http://forums.merged.nvidia.com/uploads/av-1795.jpg' border='0' width='78' height='76' alt='' /></a><br /><br />
+				
+        		<br />
+        		<img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><img src='style_images/nvgreen/pip.gif' border='0'  alt='*' /><br /><br />
+        		Group: Members<br />
+        		Posts: 3,044<br />
+        		Joined: 16-December 04<br />
+        		From: Glasgow<br />
+        		Member No.: 1,795<br />
+				
+					
+Club SLI Member: No<br />
+Org.: University of Lincoln<br />
+				
+				<br />
+        		 
+        	</span><br />
+        	<img src="style_images/nvgreen/spacer.gif" alt="" width="160" height="1" /><br /> 
+       </td>
+       <td width="100%" valign="top" class="post1" id='post-main-125460'>
+			<!-- THE POST 125460 -->
+			<div class="postcolor" id='post-125460'>
+				The 2x x1900&#39;s I have where bottlenecked by the Amd 3700 at 2.8ghz I had before. It was holding the cards back from giving more performance, now that I have a Core Duo the cards are getting fed data via the device driver faster meaning more fps. This is only the case if you have high-end cards as with lower-end cards the graphics card will bottleneck the cpu first. <img src="http://forums.nvidia.com/style_emoticons/NVIDIA/smile.gif" style="vertical-align:middle" emoid=":)" border="0" alt="smile.gif" />
+				
+				
+				<!--IBF.ATTACHMENT_125460-->
+			</div>
+			
+			<br /><br />--------------------<br />
+<div class="signature"><!--sizeo:2--><span style="font-size:10pt;line-height:100%"><!--/sizeo--><a href="http://www.derekfoster.net/" target="_blank">Personal Site</a><!--sizec--></span><!--/sizec--><br /><b>Mac iPhone Development:</b>Mac Mini C2D 2Ghz/2GB  <b>SmartPhone:</b>HTC HD2 Snapdragon 1ghz  <b>Utramobile:</b>Acer 1810tz ULV1.3Ghz/3GB<br /><b>Main Rig</b>: Asus P5K Deluxe/Core Quad Q6600@3Ghz/4GB DDR800/9800GT/X-Fi/320 GB HD Raid0/OS-Win 7 Pro x64<br /><b>MediaCentre:</b> Asus P5WDH Deluxe/Core 2 6300@2.8Ghz/2Gb DDR800/Ati 4870[/color]/X-Fi/200GB HD/OS-Win 7 Pro x64<br /><b>Server:</b> Gigabyte P35-DSR3/Core 2 2.8Ghz/4GB DDR667/Ati 3450 HD/<b>4 x 1.5TB HD + 250GB</b> /OS-Server 2008 R2 x64</div>
+			<!-- THE POST -->		
+		</td>
+	</tr>
+	<tr>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<div style='text-align:left'><a href="javascript:scroll(0,0);"><img src='style_images/nvgreen/p_up.gif' border='0'  alt='Go to the top of the page' /></a></div>
+		</td>
+		<td class="formbuttonrow" nowrap="nowrap">
+			<!-- PM / EMAIL / WWW / MSGR -->
+			<div style="float: left;">
+				&nbsp;
+			</div>
+			<!-- REPORT / UP -->
+         	<div align="right">
+         		<a href="#" onclick="multiquote_add(125460); return false;" title="Toggle multiquote addition"><img src="style_images/nvgreen/p_mq_add.gif" name="mad_125460" alt="+" /></a><a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;act=Post&amp;CODE=02&amp;f=18&amp;t=20035&amp;qpid=125460" title="Reply directly to this post"><img src='style_images/nvgreen/p_quote.gif' border='0'  alt='Quote Post' /></a>
+         	</div>
+         </td>
+	</tr><tr>
+	<td class="catend" colspan="2">
+	<!-- no content -->
+	</td>
+</tr>
+</table>
+<!-- END TABLE -->
+
+<!-- TABLE FOOTER -->
+<div class="barc">
+	<div style="float: right; padding: 5px 5px 0 0;"><a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showtopic=20035&amp;view=old" style='text-decoration:none'>&laquo; Next Oldest</a>
+	&middot; <a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showforum=18" style='font-weight: bold;text-decoration:none'>Shooter Showdown</a>
+	&middot; <a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showtopic=20035&amp;view=new" style='text-decoration:none'>Next Newest &raquo;</a></div>
+	<div>
+		<form action="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;" method="post" name="search">
+			<input type="hidden" name="forums" value="18" />
+			<input type="hidden" name="topic" value="20035" />
+			<input type="hidden" name="act" value="Search" />
+			<input type="hidden" name="CODE" value="searchtopic" />
+			<input type="text" size="25" name="keywords" class="searchinput" value="Enter Keywords" onfocus="this.value = '';" />&nbsp;
+			<input type="submit" value="Search Topic" class="button" />
+		</form>
+	</div>
+</div>
+</div>
+<br />
+<!--IBF.MOD_FULL_WRAPPER-->
+
+<table class='ipbtable' cellspacing="0">
+	<tr>
+		<td style='padding-left:0px' width="30%" nowrap="nowrap" valign="middle"><div>
+	<span class="pagelink" id='page-jump'>2 Pages <img src='style_images/nvgreen/menu_action_down.gif' alt='V' title='Open Menu' border='0' /></span>&nbsp;
+&nbsp;<span class="pagecurrent">1</span>&nbsp;<span class="pagelink"><a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showtopic=20035&amp;st=20" title="2">2</a></span>&nbsp;<span class="pagelink"><a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showtopic=20035&amp;st=20" title="Next page">&gt;</a></span>
+
+	<script type="text/javascript">
+	//<![CDATA[
+	ipb_pages_shown++;
+	var pgjmp = document.getElementById( 'page-jump' );
+	pgjmp.id  = 'page-jump-'+ipb_pages_shown;
+	ipb_pages_array[ ipb_pages_shown ] = new Array( 'http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showtopic=20035', 20, 25 );
+	menu_build_menu(
+		pgjmp.id,
+		new Array(  "~~NODIV~~<div onmouseover='pages_st_focus("+ipb_pages_shown+")' class='popupmenu-category' align='center'>Jump to Page</div>",
+					"<input type='hidden' id='st-type-"+ipb_pages_shown+"' value='st' /><input type='text' size='5' name='st' id='st-"+ipb_pages_shown+"' onkeydown='check_enter("+ipb_pages_shown+", event);' /> <input type='button' class='button' onclick='do_multi_page_jump("+ipb_pages_shown+");' value='Go' />" ) );
+	//]]>
+	</script>
+</div></td>
+		<td class='nopad' style='padding:5px 0px 5px 0px' align="right" width="70%"><!--IBF.QUICK_REPLY_CLOSED--><a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;act=post&amp;do=reply_post&amp;f=18&amp;t=20035"><img src='style_images/nvgreen/t_reply.gif' border='0'  alt='Reply to this topic' /></a><a href="http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;act=post&amp;do=new_post&amp;f=18" title="Start a new topic"><img src='style_images/nvgreen/t_new.gif' border='0'  alt='Start new topic' /></a></td>
+	</tr>
+</table>
+<!--IBF.TOPIC_ACTIVE-->
+<!--IBF.QUICK_REPLY_OPEN-->
+<br />
+<div class="borderwrap">
+	<div class="row2" style="padding: 5px;">
+		
+		<div align="right"><form onsubmit="if(document.jumpmenu.f.value == -1){return false;}" action='http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;act=SF' method='get' name='jumpmenu'>
+			             <input type='hidden' name='act' value='SF' />
+<input type='hidden' name='s' value='a1a10fd4eb0c2c0dac093c3b41dded97' />
+			             <select name='f' onchange="if(this.options[this.selectedIndex].value != -1){ document.jumpmenu.submit() }" class='dropdown'>
+			             <optgroup label="Site Jump">
+			              <option value='sj_home'>Forum Home</option>
+			              <option value='sj_search'>Search</option>
+			              <option value='sj_help'>Help</option>
+			             </optgroup>
+			             <optgroup label="Forum Jump"><option value="6">NVIDIA</option>
+<option value="7">&nbsp;&nbsp;&#0124;-- Announcements and News</option>
+<option value="35">&nbsp;&nbsp;&#0124;-- NVIDIA Forums and Websites</option>
+<option value="32">nZone</option>
+<option value="16">&nbsp;&nbsp;&#0124;-- Games and Other Applications</option>
+<option value="17">&nbsp;&nbsp;&#0124;---- General Game Discussion</option>
+<option value="18" selected="selected">&nbsp;&nbsp;&#0124;---- Shooter Showdown</option>
+<option value="19">&nbsp;&nbsp;&#0124;---- Alphabet Soup -- MMORPG, MMOG, RPG</option>
+<option value="20">&nbsp;&nbsp;&#0124;---- Strategy</option>
+<option value="21">&nbsp;&nbsp;&#0124;---- Sports</option>
+<option value="22">&nbsp;&nbsp;&#0124;---- Simulations</option>
+<option value="23">&nbsp;&nbsp;&#0124;---- ...and more</option>
+<option value="24">&nbsp;&nbsp;&#0124;-- Hardware</option>
+<option value="25">&nbsp;&nbsp;&#0124;---- General Hardware Discussion</option>
+<option value="33">&nbsp;&nbsp;&#0124;---- GeForce Drivers</option>
+<option value="26">&nbsp;&nbsp;&#0124;---- GeForce Graphics Cards</option>
+<option value="40">&nbsp;&nbsp;&#0124;---- GeForce 3D Vision</option>
+<option value="34">&nbsp;&nbsp;&#0124;---- nForce Mobos</option>
+<option value="27">&nbsp;&nbsp;&#0124;---- Pimp My Rig</option>
+<option value="28">&nbsp;&nbsp;&#0124;---- Peripherals</option>
+<option value="190">&nbsp;&nbsp;&#0124;---- NVIDIA GeForce PC Kit</option>
+<option value="29">&nbsp;&nbsp;&#0124;-- Community</option>
+<option value="30">&nbsp;&nbsp;&#0124;---- Events</option>
+<option value="31">&nbsp;&nbsp;&#0124;---- Off Topic</option>
+<option value="140">SLIzone</option>
+<option value="147">&nbsp;&nbsp;&#0124;-- Need Help</option>
+<option value="148">&nbsp;&nbsp;&#0124;---- SLI for Beginners</option>
+<option value="149">&nbsp;&nbsp;&#0124;---- Installation Help</option>
+<option value="150">&nbsp;&nbsp;&#0124;---- Ongoing SLI support</option>
+<option value="151">&nbsp;&nbsp;&#0124;---- For Sale/Trade</option>
+<option value="169">&nbsp;&nbsp;&#0124;---- SLI Marketplace: www.slizone.com/marketplace</option>
+<option value="179">&nbsp;&nbsp;&#0124;---- Forum Feedback</option>
+<option value="187">&nbsp;&nbsp;&#0124;-- SLI Gaming</option>
+<option value="145">&nbsp;&nbsp;&#0124;---- SLI Game Profiles &amp; Settings</option>
+<option value="146">&nbsp;&nbsp;&#0124;---- Widescreen Gaming</option>
+<option value="170">&nbsp;&nbsp;&#0124;---- Favorite Games</option>
+<option value="180">&nbsp;&nbsp;&#0124;---- Club SLI Exclusive Beta Games</option>
+<option value="188">&nbsp;&nbsp;&#0124;-- Hybrid SLI</option>
+<option value="182">&nbsp;&nbsp;&#0124;---- Using HybridPower</option>
+<option value="183">&nbsp;&nbsp;&#0124;---- Using GeForce Boost</option>
+<option value="184">&nbsp;&nbsp;&#0124;---- Need Help</option>
+<option value="152">&nbsp;&nbsp;&#0124;-- SLI Hardware Discussion</option>
+<option value="153">&nbsp;&nbsp;&#0124;---- SLI-Ready Motherboards</option>
+<option value="154">&nbsp;&nbsp;&#0124;---- SLI-Ready System Memory</option>
+<option value="155">&nbsp;&nbsp;&#0124;---- SLI-Ready Power Supplies</option>
+<option value="156">&nbsp;&nbsp;&#0124;---- SLI-Ready Displays</option>
+<option value="157">&nbsp;&nbsp;&#0124;---- RAID Corner</option>
+<option value="158">&nbsp;&nbsp;&#0124;---- Hot Deals</option>
+<option value="165">&nbsp;&nbsp;&#0124;---- SLI-Ready Graphics Cards</option>
+<option value="178">&nbsp;&nbsp;&#0124;---- Other PC Hardware</option>
+<option value="185">&nbsp;&nbsp;&#0124;---- PhysX</option>
+<option value="159">&nbsp;&nbsp;&#0124;-- Extreme SLI PCs</option>
+<option value="160">&nbsp;&nbsp;&#0124;---- Share your Benchmarks</option>
+<option value="161">&nbsp;&nbsp;&#0124;---- Case Modding</option>
+<option value="162">&nbsp;&nbsp;&#0124;---- Overclocking</option>
+<option value="163">&nbsp;&nbsp;&#0124;---- Watercooling</option>
+<option value="164">&nbsp;&nbsp;&#0124;---- Extreme cooling</option>
+<option value="189">&nbsp;&nbsp;&#0124;---- Club SLI Rig of the Month</option>
+<option value="171">&nbsp;&nbsp;&#0124;-- Off Topic</option>
+<option value="172">&nbsp;&nbsp;&#0124;---- Industry News</option>
+<option value="173">&nbsp;&nbsp;&#0124;---- Movies, TV, Music, etc.</option>
+<option value="174">&nbsp;&nbsp;&#0124;---- School</option>
+<option value="175">&nbsp;&nbsp;&#0124;---- Job Networking</option>
+<option value="176">&nbsp;&nbsp;&#0124;---- Got Art?</option>
+<option value="177">&nbsp;&nbsp;&#0124;---- Technology Dreams</option>
+<option value="62">CUDA GPU Computing</option>
+<option value="63">&nbsp;&nbsp;&#0124;-- CUDA Announcements and News</option>
+<option value="64">&nbsp;&nbsp;&#0124;-- General CUDA GPU Computing Discussion</option>
+<option value="68">&nbsp;&nbsp;&#0124;-- CUDA on Linux</option>
+<option value="70">&nbsp;&nbsp;&#0124;-- CUDA on Windows XP</option>
+<option value="75">&nbsp;&nbsp;&#0124;-- CUDA on Mac OS X</option>
+<option value="71">&nbsp;&nbsp;&#0124;-- CUDA Programming and Development</option>
+<option value="72">&nbsp;&nbsp;&#0124;-- CUDA Employment Postings</option>
+<option value="124">&nbsp;&nbsp;&#0124;-- CUDA on Vista</option>
+<option value="127">&nbsp;&nbsp;&#0124;-- CUDA Contests</option>
+<option value="134">&nbsp;&nbsp;&#0124;-- OpenCL</option>
+<option value="135">&nbsp;&nbsp;&#0124;-- DirectX Compute</option>
+<option value="191">&nbsp;&nbsp;&#0124;-- Parallel Nsight</option>
+<option value="5">Gelato</option>
+<option value="4">&nbsp;&nbsp;&#0124;-- Gelato Announcements and News</option>
+<option value="3">&nbsp;&nbsp;&#0124;-- Gelato General Discussion</option>
+<option value="36">NVSG (NVIDIA Scene Graph)</option>
+<option value="37">&nbsp;&nbsp;&#0124;-- NVSG Announcements &amp; News</option>
+<option value="38">&nbsp;&nbsp;&#0124;-- NVSG General Discussion</option>
+<option value="132">&nbsp;&nbsp;&#0124;-- NVSG 5 Beta Discussions</option>
+<option value="109">NVISION Forums</option>
+<option value="110">&nbsp;&nbsp;&#0124;-- GeForce LAN</option>
+<option value="112">&nbsp;&nbsp;&#0124;---- News &amp; Announcements</option>
+<option value="113">&nbsp;&nbsp;&#0124;---- BYOC</option>
+<option value="114">&nbsp;&nbsp;&#0124;---- Tournaments</option>
+<option value="115">&nbsp;&nbsp;&#0124;---- CLUB SLI</option>
+<option value="116">&nbsp;&nbsp;&#0124;---- Travel &amp; Ride Sharing</option>
+<option value="117">&nbsp;&nbsp;&#0124;---- Miscellaneous Topics</option>
+<option value="111">&nbsp;&nbsp;&#0124;-- NVScene</option>
+<option value="118">&nbsp;&nbsp;&#0124;---- News &amp; Announcements</option>
+<option value="119">&nbsp;&nbsp;&#0124;---- Demoscene</option>
+<option value="120">&nbsp;&nbsp;&#0124;---- Game Modding</option>
+<option value="121">&nbsp;&nbsp;&#0124;---- Machinima</option>
+<option value="122">&nbsp;&nbsp;&#0124;---- Travel &amp; Ride Sharing</option>
+<option value="123">&nbsp;&nbsp;&#0124;---- Miscellaneous Topics</option>
+<option value="81">CUDA GPU 컴퓨팅 - 한국</option>
+<option value="82">&nbsp;&nbsp;&#0124;-- CUDA &#45684;&#49828; &#48143; &#44277;&#51648;</option>
+<option value="83">&nbsp;&nbsp;&#0124;-- CUDA GPU &#52980;&#54504;&#54021; &#44288;&#47144; &#51068;&#48152;&#53664;&#47200;</option>
+<option value="84">&nbsp;&nbsp;&#0124;-- &#47532;&#45573;&#49828;&#50857; CUDA</option>
+<option value="85">&nbsp;&nbsp;&#0124;-- &#50952;&#46020;&#50864;&#51592; XP&#50857; CUDA</option>
+<option value="86">&nbsp;&nbsp;&#0124;-- CUDA &#54532;&#47196;&#44536;&#47000;&#48141; &#48143; &#44060;&#48156;</option>
+<option value="87">&nbsp;&nbsp;&#0124;-- CUDA &#52292;&#50857; &#44277;&#44256;</option>
+<option value="106">&nbsp;&nbsp;&#0124;-- &#47589; OS X&#50640;&#49436;&#51032; CUDA</option>
+<option value="137">CUDA GPU運算技術 - 台灣</option>
+<option value="89">&nbsp;&nbsp;&#0124;-- CUDA相關發佈與新聞</option>
+<option value="93">&nbsp;&nbsp;&#0124;-- CUDA程式設計討論區</option>
+<option value="92">&nbsp;&nbsp;&#0124;-- CUDA 應用軟體</option>
+<option value="94">&nbsp;&nbsp;&#0124;-- CUDA與作業系統</option>
+<option value="107">&nbsp;&nbsp;&#0124;-- CUDA 程式設計比賽</option>
+<option value="133">&nbsp;&nbsp;&#0124;-- CUDA 相關職缺</option>
+<option value="136">&nbsp;&nbsp;&#0124;-- 貼文測試區</option>
+</optgroup>
+</select>&nbsp;<input type='submit' value='Go' class='button' /></form></div>
+	</div>
+</div>
+<br />
+<!-- NON JS STUFF -->
+<div id='topicoptionsjs'>
+ <a name='topicdisplay'></a>
+ <div class='borderwrap'>
+  <div class="bar" style="padding: 5px;text-align:center">
+  <strong>Display Mode:</strong> <strong><em><a href='http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showtopic=20035&amp;mode=linear'>Standard</a></em></strong> &middot;
+  <a href='http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showtopic=20035&amp;mode=linearplus'>Switch to: Linear+</a> &middot;
+  <a href='http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;showtopic=20035&amp;mode=threaded'>Switch to: Outline</a>
+  </div>
+ </div>
+ <br />
+ <a name='topicoptions'></a>
+ <div class='borderwrap'>
+  <div class="bar" style="padding: 5px;text-align:center">
+  <a href='http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;act=usercp&amp;CODE=start_subs&amp;method=topic&amp;tid=20035'>Track this topic</a> &middot;
+  <a href='http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;act=Forward&amp;f=18&amp;t=20035'>Email this topic</a> &middot;
+  <a href='http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;act=Print&amp;client=printer&amp;f=18&amp;t=20035'>Print this topic</a> &middot;
+  <a href='http://forums.nvidia.com/index.php?s=a1a10fd4eb0c2c0dac093c3b41dded97&amp;act=usercp&amp;CODE=start_subs&amp;method=forum&amp;fid=18'>Subscribe to this forum</a>
+  </div>
+ </div>
+ <br />
+
+</div>
+<script type='text/javascript'>
+//<![CDATA[
+document.getElementById('topicoptionsjs').style.display = 'none';
+ 
+// Scroll to PID?
+topic_scroll_to_post( parseInt("0") );
+//]]>
+</script>
+<table cellspacing="0" id="gfooter">
+	<tr>
+		<td width="45%"> </td>
+		<td width="10%" align="center" nowrap="nowrap">
+			Copyright � 2008 NVIDIA� Corporation. &nbsp;<A href="/index.php?act=boardrules">Terms of Use</A> | 
+			<A href="http://www.nvidia.com/object/legal_info.html">Legal Info</A> | 
+			<A href="http://www.nvidia.com/object/privacy_policy.html">Privacy Policy</A>
+                  </td>
+		<td width="45%" align="right" nowrap="nowrap">Time is now: 14th March 2010 - 12:55 PM</td>
+	</tr>
+</table>
+<script type='text/javascript'>
+//<![CDATA[
+menu_do_global_init();
+show_inline_messages();
+// Uncomment this to fix IE png images
+// causes page slowdown, and some missing images occasionally
+// if ( is_ie )
+// {
+//	 ie_fix_png();
+// }
+
+//]]>
+</script>
+ 
+
+</div>
+<a href="http://www.nvidia.com" target="_blank"><img src="http://www.nvidia.com/content/includes/masthead/flag_usa.gif" alt="Unites States" width="19" height="13" border="0"></a> <a href="http://arg.nvidia.com" target="_blank"><img src="http://www.nvidia.com/content/includes/masthead/flag_arg.gif" alt="Argentina" width="19" height="13" border="0"></a> <a href="http://www.nvidia.com.br" target="_blank"><img src="http://www.nvidia.com/content/includes/masthead/flag_bra.gif" alt="Brazil" width="19" height="13" border="0"></a> <a href="http://chl.nvidia.com" target="_blank"><img src="http://www.nvidia.com/content/includes/masthead/flag_chl.gif" alt="Chile" width="19" height="13" border="0"></a> <a href="http://www.nvidia.cn" target="_blank"><img src="http://www.nvidia.com/content/includes/masthead/flag_chn.gif" alt="China" width="19" height="13" border="0"></a> <a href="http://clm.nvidia.com" target="_blank"><img src="http://www.nvidia.com/content/includes/masthead/flag_clm.gif" alt="Colombia" width="19" height="13" border="0"></a> <a href="http://www.nvidia.fr" target="_blank"><img src="http://www.nvidia.com/content/includes/masthead/flag_fra.gif" alt="France" width="19" height="13" border="0"></a> <a href="http://www.nvidia.de" target="_blank"><img src="http://www.nvidia.com/content/includes/masthead/flag_deu.gif" alt="Germany" width="19" height="13" border="0"></a> <a href="http://www.nvidia.co.in" target="_blank"><img src="http://www.nvidia.com/content/includes/masthead/flag_ind.gif" alt="India" width="19" height="13" border="0"></a> <a href="http://www.nvidia.it" target="_blank"><img src="http://www.nvidia.com/content/includes/masthead/flag_ita.gif" alt="Italy" width="19" height="13" border="0"></a> <a href="http://www.nvidia.co.jp" target="_blank"><img src="http://www.nvidia.com/content/includes/masthead/flag_jpn.gif" alt="Japan" width="19" height="13" border="0"></a> <a href="http://kr.nvidia.com" target="_blank"><img src="http://www.nvidia.com/content/includes/masthead/flag_kor.gif" alt="Korea" width="19" height="13" border="0"></a> <a href="http://www.nvidia.com.mx" target="_blank"><img src="http://www.nvidia.com/content/includes/masthead/flag_mex.gif" alt="Mexico" width="19" height="13" border="0"></a> <a href="http://www.nvidia.pl" target="_blank"><img src="http://www.nvidia.com/content/includes/masthead/flag_pol.gif" alt="Poland" width="19" height="13" border="0"></a> <a href="http://www.nvidia.ru" target="_blank"><img src="http://www.nvidia.com/content/includes/masthead/flag_rus.gif" alt="Russia" width="19" height="13" border="0"></a> <a href="http://www.nvidia.es" target="_blank"><img src="http://www.nvidia.com/content/includes/masthead/flag_esp.gif" alt="Spain" width="19" height="13" border="0"></a> <a href="http://www.nvidia.com.tw" target="_blank"><img src="http://www.nvidia.com/content/includes/masthead/flag_twn.gif" alt="Taiwan" width="19" height="13" border="0"></a> <a href="http://www.nvidia.co.uk" target="_blank"><img src="http://www.nvidia.com/content/includes/masthead/flag_gbr.gif" alt="United Kingdom" width="19" height="13" border="0"></a> <a href="http://ven.nvidia.com" target="_blank"><img src="http://www.nvidia.com/content/includes/masthead/flag_ven.gif" alt="Venezuela" width="19" height="13" border="0"></a><br />&nbsp;
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-10775135-2");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body> 
+</html>

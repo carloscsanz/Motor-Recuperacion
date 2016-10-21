@@ -1,0 +1,400 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
+<head profile="http://gmpg.org/xfn/11">
+	<title>How Google designs data centers &#8211; The Storage Effect</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" href="http://storageeffect.media.seagate.com/wp-content/themes/seagate-storageeffect/style.css" />
+
+
+	<!--[if lte IE 6]> <link rel="stylesheet" href="http://storageeffect.media.seagate.com/wp-content/themes/seagate-media/css/ie6.css" type="text/css" />
+	<![endif]-->
+	<!--[if lte IE 7 ]> <link rel="stylesheet" href="http://storageeffect.media.seagate.com/wp-content/themes/seagate-media/css/ie7.css" type="text/css" /> <![endif]-->
+	<!--[if gte IE 8 ]> <link rel="stylesheet" href="http://storageeffect.media.seagate.com/wp-content/themes/seagate-media/css/ie8.css" type="text/css" /> <![endif]-->
+	<!--[if IE]> <link rel="stylesheet" href="http://storageeffect.media.seagate.com/wp-content/themes/seagate-media/css/ie.css" type="text/css" /> <![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="The Storage Effect &raquo; How Google designs data centers Comments Feed" href="http://storageeffect.media.seagate.com/2008/10/storage-effect/googles-data-center-architecture/feed/" />
+<script type='text/javascript' src='http://storageeffect.media.seagate.com/wp-includes/js/jquery/jquery.js?ver=1.3.2'></script>
+<script type='text/javascript' src='http://storageeffect.media.seagate.com/wp-includes/js/comment-reply.js?ver=20090102'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://storageeffect.media.seagate.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://storageeffect.media.seagate.com/wp-includes/wlwmanifest.xml" /> 
+<link rel='index' title='The Storage Effect' href='http://storageeffect.media.seagate.com' />
+<link rel='start' title='My drive is full' href='http://storageeffect.media.seagate.com/2007/10/storage-effect/hello-world/' />
+<link rel='prev' title='The Cloud is purifying storage' href='http://storageeffect.media.seagate.com/2008/10/storage-effect/the-cloud-is-purifying-storage/' />
+<link rel='next' title='Amazon S3 moves to volume pricing model' href='http://storageeffect.media.seagate.com/2008/10/storage-effect/amazon-s3-goes-to-volume-pricing-model/' />
+<meta name="generator" content="WordPress 2.8.6" />
+<link rel="stylesheet" type="text/css" href="http://storageeffect.media.seagate.com/wp-content/plugins/friendfeed-activity-widget/widget.css" />
+	<link rel="alternate" type="application/rss+xml" href="http://storageeffect.media.seagate.com/feed/" title="The Storage Effect latest posts" />
+	<link rel="alternate" type="application/rss+xml" href="http://storageeffect.media.seagate.com/comments/feed/" title="The Storage Effect latest comments" />
+	<link rel="pingback" href="http://storageeffect.media.seagate.com/xmlrpc.php" />
+</head>
+<body class="single postid-1538 unknown">
+
+<div class="clearfix" id="omni-header">
+
+	<div class="clearfix" id="Toolbar">
+	
+
+		<ul class="nav">
+			<li class="first"><a href="http://www.seagate.com/www/en-us/Home/">Home</a></li>
+			
+			<li class="menu">
+			
+			
+			<a href="http://www.seagate.com/www/en-us/about/">About Seagate</a>
+			<ul> <li><a href="http://www.seagate.com/www/en-us/about/corporate_information/">Corporate Information </a></li> <li><a href="http://media.seagate.com/">News</a></li> <li><a href="http://www.seagate.com/www/en-us/about/events/">Events</a></li> <li><a href="http://www.seagate.com/www/en-us/about/investor_relations/">Investor Relations</a></li> <li><a href="http://www.seagate.com/www/en-us/about/global_citizenship/">Global Citizenship</a></li> <li><a href="http://www.seagate.com/www/en-us/about/jobs_at_seagate/">Jobs at Seagate</a></li> </ul>
+			</li>
+			<li><a href="http://www.seagate.com/www/en-us/partners/">Partner Center</a>
+			</li>
+			
+			<li class="menu last">
+			
+			<!-- edit_Shop -->
+			
+			<!-- edit_Shop -->
+			
+			
+			<a href="#">Shop</a>
+			<ul> <li><a href="http://shop.seagate.com/store/sgateus/Content/pbPage.OnSalePage">Outlet Center</a></li> <li><a href="http://shop.seagate.com/store/sgateus/Content/pbPage.special-offers">Special Offers</a></li> <li><a href="http://www.seagate.com/www/en-us/products/where_to_buy/">Where to buy</a></li> <li><a href="http://shop.seagate.com/store/sgateus/DisplayHelpPage">Shopping Help</a></li> </ul>
+			</li>
+		</ul>
+		
+		<ul class="tool">
+			
+				
+				
+			
+			
+			<li class="last">
+				<form method="post" action="http://search.seagate.com/wwwsearch/www3search.jsp">
+					<div class="search">
+						<input type="text" id="search" value="Search" name="qt" class="text"/>
+						<input type="image" src="http://storageeffect.media.seagate.com/wp-content/themes/seagate-media/images/header/search.png" class="submit"/>
+						<input type="hidden" value="en" name="la"/>
+						<input type="hidden" value="wwwenus" name="style"/>
+						<input type="hidden" value="en-USall" name="col"/>
+					</div>
+				</form>
+			</li>
+		</ul>
+	</div>
+	
+	
+	<div class="content clearfix">
+		<div id="SiteId">
+			<a href="http://www.seagate.com/www/en-us"><img alt="Seagate" src="http://storageeffect.media.seagate.com/wp-content/themes/seagate-media/images/header/logo.png"/></a>
+		</div>
+		
+
+
+			
+						
+			
+		
+	</div>
+
+
+	<ul class="clearfix" id="NavigationPrimary">
+				
+				
+				<li class=""><a href="http://www.seagate.com/www/en-us/products/" id="ProductsServices">Products &amp; Services</a>
+					<div class="channel">
+						<div class="content clearfix">
+							<ul class="sections"> <li id="ForHome"> <h3>For Home</h3> <ul> <li><a href="http://www.seagate.com/www/en-us/products/external/">External Storage</a></li> <li><a href="http://www.seagate.com/www/en-us/products/desktops/">Desktop Storage</a></li> <li><a href="http://www.seagate.com/www/en-us/products/home_entertainment/">Home Entertainment</a></li> <li><a href="http://www.seagate.com/www/en-us/products/network_storage/">Network Storage</a></li> <li><a href="http://www.i365.com">Services</a></li> </ul> </li> <li id="ForBusiness"> <h3>For Business</h3> <ul> <li><a href="http://www.seagate.com/www/en-us/products/laptops/">Laptop Storage</a></li> <li><a href="http://www.seagate.com/www/en-us/products/desktops/">Desktop Storage</a></li> <li><a href="http://www.seagate.com/www/en-us/products/consumer_electronics/">Consumer Electronics Storage</a></li> <li><a href="http://www.i365.com">Services</a></li> </ul> </li> <li id="ForDataCenter"> <h3>For Enterprise</h3> <ul> <li><a href="http://www.seagate.com/www/en-us/products/servers/">Server &amp; Enterprise Storage</a></li> <li><a href="http://www.i365.com">Services</a></li> </ul> </li> </ul> <ul class="quickLinks"> <li><a href="http://shop.seagate.com/store/sgateus/Content/pbPage.special-offers">Special Offers</a></li> <li><a href="http://shop.seagate.com/store/sgateus/Content/pbPage.OnSalePage">Outlet Center</a></li> <li><a href="http://www.seagate.com/www/en-us/products/where_to_buy/">Where to Buy</a></li> <li><a href="https://shop.seagate.com/servlet/ControllerServlet?Action=DisplayHelpPage&amp;Locale=en_US&amp;SiteID=sgateus">Shopping Help</a></li> <li><a href="http://www.seagate.com/www/en-us/about/contact_us/">Contact Us</a></li> </ul>
+							
+								<ul class="buttons">
+									<li><a class="productFinder" href="http://www.seagate.com/www/en-us/tools/productfinder"><span>Product Finder</span></a></li>
+									<li><a class="helpMePick" href="http://www.seagate.com/www/en-us/tools/helpmepick"><span>Help Me Pick</span></a></li>
+								</ul>
+								
+							
+						</div>
+					</div>
+				</li>
+				
+				
+				<li class=""><a href="http://www.seagate.com/www/en-us/digital_needs/" id="SolutionCenter">Solution Center</a>
+				<div class="channel">
+						<div class="content clearfix">
+						<ul class="sections"> <li id="ForHome"> <h3>For Home</h3> <ul> <li><a href="/ww/v/index.jsp?locale=en-US&amp;name=how-to-reformat-your-drive-dn&amp;vgnextoid=da3bd85104b51210VgnVCM1000001a48090aRCRD">How to Reformat Your Drive</a></li> <li><a href="/ww/v/index.jsp?locale=en-US&amp;name=hard-drive-basics-dn&amp;vgnextoid=2df42bb581b51210VgnVCM1000001a48090aRCRD">Hard Drive Basics/Hard Drive 101</a></li> <li><a href="/ww/v/index.jsp?locale=en-US&amp;name=importance-of-backup-dn&amp;vgnextoid=011ad85104b51210VgnVCM1000001a48090aRCRD">The Importance of Back-up</a></li> <li><a href="/ww/v/index.jsp?locale=en-US&amp;name=Want_to_secure_your_memories&amp;vgnextoid=7163465bb304c010VgnVCM100000dd04090aRCRD">Secure your Memories</a></li> <li><a href="/ww/v/index.jsp?locale=en-US&amp;name=share-content&amp;vgnextoid=58bce6f068d2d010VgnVCM100000dd04090aRCRD">Share your Content</a></li> <li><a href="http://www.seagate.com/www/en-us/digital_needs/">More</a></li> </ul> </li> <li id="ForBusiness"> <h3>For Business</h3> <ul> <li><a href="/ww/v/index.jsp?locale=en-US&amp;name=backup-planning&amp;vgnextoid=2dd5aa206906c010VgnVCM100000dd04090aRCRD">Backup Planning</a></li> <li><a href="/ww/v/index.jsp?locale=en-US&amp;name=protect-your-assets&amp;vgnextoid=2e0be6f068d2d010VgnVCM100000dd04090aRCRD">Protect your Assets</a></li> <li><a href="/ww/v/index.jsp?locale=en-US&amp;name=remote-access&amp;vgnextoid=7e07aa206906c010VgnVCM100000dd04090aRCRD">Remote Access</a></li></ul> </li> <li id="ForDataCenter"> <h3>For Enterprise</h3> <ul> <li><a href="/ww/v/index.jsp?locale=en-US&amp;name=Data_Center_Consolidation&amp;vgnextoid=523b781e73d5d010VgnVCM100000dd04090aRCRD">Data Center Consolidation</a></li> <li><a href="http://www.seagate.com/www/en-us/products/servers/savvio/">Reduce your Energy Costs</a></li> <li><a href="/ww/v/index.jsp?locale=en-US&amp;name=Ruggedized&amp;vgnextoid=a35518b67d762110VgnVCM100000f5ee0a0aRCRD">Ruggedized Applications</a></li></ul> </li> </ul> <ul class="quickLinks"> <li><a href="http://shop.seagate.com/store/sgateus/Content/pbPage.special-offers">Special Offers</a></li> <li><a href="http://shop.seagate.com/store/sgateus/Content/pbPage.OnSalePage">Outlet Center</a></li> <li><a href="http://www.seagate.com/www/en-us/products/where_to_buy/">Where to Buy</a></li> <li><a href="https://shop.seagate.com/servlet/ControllerServlet?Action=DisplayHelpPage&amp;Locale=en_US&amp;SiteID=sgateus">Shopping Help</a></li> <li><a href="http://www.seagate.com/www/en-us/about/contact_us/">Contact Us</a></li> </ul>
+						
+							<ul class="buttons">
+								<li><a class="productFinder" href="http://www.seagate.com/www/en-us/tools/productfinder"><span>Product Finder</span></a></li>
+								<li><a class="helpMePick" href="http://www.seagate.com/www/en-us/tools/helpmepick"><span>Help Me Pick</span></a></li>
+							</ul>
+							
+							
+						</div>
+				</div>
+				</li>
+				
+				
+				<li class="">
+				<a href="http://www.seagate.com/www/en-us/support/" id="SupportDownloads">Support</a>
+				<div class="channel">
+						<div class="content clearfix">
+							<ul class="sections"> <li id="ForHome"> <h3>Downloads</h3> <ul> <li><a href="/ww/v/index.jsp?locale=en-US&amp;name=SeaTools&amp;vgnextoid=720bd20cacdec010VgnVCM100000dd04090aRCRD">SeaTools</a></li> <li><a href="/ww/v/index.jsp?locale=en-US&amp;name=DiscWizard&amp;vgnextoid=d9fd4a3cdde5c010VgnVCM100000dd04090aRCRD">DiscWizard</a></li> <li><a href="/ww/v/index.jsp?locale=en-US&amp;name=freeagent-downloads&amp;vgnextoid=3723b5b59b7d5110VgnVCM100000f5ee0a0aRCRD">FreeAgent Software</a></li> <li><a href="http://www.seagate.com/www/en-us/support/downloads/">All Downloads</a></li> </ul> </li> <li id="ForBusiness"> <h3>Installation</h3> <ul> <li><a href="http://www.seagate.com/www/en-us/support/document_library/">Document Library</a></li> <li><a href="http://www.seagate.com/www/en-us/support/installation_assistance/">Installation Assistance</a></li> <li><a href="http://www.seagate.com/www/en-us/support/installation_assistance/tutorials/">Installation Tutorials</a></li> <li><a href="https://www.onlineregister.com/seagate/">Product Registration</a></li> </ul> </li> <li id="ForDataCenter"> <h3>Troubleshooting and Returns</h3> <ul> <li><a href="http://www.seagate.com/www/en-us/support/troubleshooting_assistance">Troubleshooting Assistance</a></li> <li><a href="http://seagate.custkb.com/seagate/crm/selfservice/news.jsp?NewLang=en">Knowledge Base</a></li> <li><a href="http://www.seagate.com/www/en-us/support/warranty_%26_returns_assistance">Warranty and Returns</a></li> <li><a href="http://seagate.custkb.com/seagate/crm/selfservice/search.jsp?DocId=202271">Return and Warranty FAQs</a></li> </ul> </li> </ul> <ul class="quickLinks"> <li><a href="http://shop.seagate.com/store/sgateus/Content/pbPage.special-offers">Special Offers</a></li> <li><a href="http://shop.seagate.com/store/sgateus/Content/pbPage.OnSalePage">Outlet Center</a></li> <li><a href="http://www.seagate.com/www/en-us/products/where_to_buy/">Where to Buy</a></li> <li><a href="https://shop.seagate.com/servlet/ControllerServlet?Action=DisplayHelpPage&amp;Locale=en_US&amp;SiteID=sgateus">Shopping Help</a></li> <li><a href="http://www.seagate.com/www/en-us/about/contact_us/">Contact Us</a></li> </ul>
+						
+							<ul class="buttons">
+								<li><a class="productFinder" href="http://www.seagate.com/www/en-us/tools/productfinder"><span>Product Finder</span></a></li>
+								<li><a class="helpMePick" href="http://www.seagate.com/www/en-us/tools/helpmepick"><span>Help Me Pick</span></a></li>
+							</ul>
+							
+						
+						</div>
+				</div>
+				
+				</li>
+			</ul>
+		</div><div id="latest-tweet"> Storage Means Business [blog]: Constellation ES gives you the power to choose <a href="http://ow.ly/1iBV3" rel="nofollow">http://ow.ly/1iBV3</a> </div>
+
+<div id="wrapper" class="hfeed">
+
+	<div id="header">
+		<div id="main-title">
+			<h1 id="blog-title"><span><a href="http://storageeffect.media.seagate.com/" title="The Storage Effect" rel="home">The Storage Effect</a></span></h1>
+			<div id="blog-description">Seagate Technology</div>
+		</div>
+				
+		<div id="menu">
+
+			<ul id='nav' class='menu'><li class=" nav-0 nav-seagate-blogs"><a class=" nav-0 nav-seagate-blogs" href="http://media.seagate.com/seagate-blogs/">Seagate Blogs</a></li><li class=" nav-1 nav-press-releases"><a class=" nav-1 nav-press-releases" href="http://media.seagate.com/center/news-center/">Press Releases</a></li><li class=" nav-2 nav-media-coverage"><a class=" nav-2 nav-media-coverage" href="http://media.seagate.com/center/media-coverage/">Media Coverage</a></li><li class=" nav-3 nav-photos"><a class=" nav-3 nav-photos" href="http://media.seagate.com/seagate-photos/">Photos</a></li><li class=" nav-4 nav-media-kits"><a class=" nav-4 nav-media-kits" href="http://media.seagate.com/seagate-media-kits/">Media Kits</a></li><li class=" nav-5 nav-videos"><a class=" nav-5 nav-videos" href="http://media.seagate.com/center/videos/">Videos</a></li><li class="subscribe nav-6 nav-feed"><a class="subscribe nav-6 nav-feed" href="http://storageeffect.media.seagate.com/feed">Subscribe</a></li></ul>
+			<span class="print"><a href="javascript:print();">Print this page</a></span>
+		</div>
+		
+		
+	</div><!--  #header -->
+
+
+	<div id="container" class="clearfix">
+		<div id="content" class="clearfix">
+
+
+			<div id="post-1538" class="post-1538 post hentry category-data-center-2 tag-data-center tag-google tag-green tag-sustainable-energy">
+				<h2 class="entry-title">How Google designs data centers</h2>
+				<div class="entry-content">
+<p><strong>The Frank Lloyd Wright of the Storageplex</strong></p>
+<p><a href="http://storageeffect.media.seagate.com/files/2008/10/google-datacenter.jpg"><img class="alignnone size-full wp-image-856" src="http://storageeffect.media.seagate.com/files/2008/10/google-datacenter.jpg" alt="" width="353" height="300" /></a></p>
+<p>Frank Lloyd Wright didn&#8217;t see his structures as empty buildings, but as holistic environments.  That&#8217;s why his designs often included not only the roof and walls but the chairs and tables as well.</p>
+<p>Google is the Frank Lloyd Wright of data centers: they design their own storage systems that function as an integral part of the whole.</p>
+<p>You can see the power of this philosophy in their brutal efficiency.  <a href="http://www.byteandswitch.com/document.asp?doc_id=165118">Information Week </a>points out that Google-designed data centers use nearly five times less energy than conventional data centers.  That correlates with the 4-to-1 ratio in cost per capacity that <a href="http://storageeffect.media.seagate.com/2008/10/storage-effect/the-cloud-is-purifying-storage/" target="_self">IDC found </a>in comparing conventional data centers to Google-style &#8220;content depots&#8221;.</p>
+<p>Google has uncharacteristically given us <a href="http://www.google.com/corporate/datacenters/">a peek behind the curtain </a>to encourage sustainable energy practices. Sure, being eco-friendlier is good.  All the more so when it aligns with Capitalism.</p>
+<p>How can conventional data centers compete without this approach?</p>
+
+				</div>
+				<div class="entry-meta">
+					<span class="entry-date"><abbr class="published" title="2008-10-07T11:44:31-07:00">October 7, 2008 - 11:44 am</abbr></span>
+					<span class="meta-sep">|</span>
+					<span class="author vcard">By <a class="url fn n" href="http://storageeffect.media.seagate.com/author/petesteege/" title="View all posts by Pete Steege">Pete Steege</a></span>
+					<span class="meta-sep">|</span>
+					<span class="cat-links">Posted in <a href="http://storageeffect.media.seagate.com/category/data-center-2/" title="View all posts in Data Center" rel="category tag">Data Center</a></span>
+					<span class="meta-sep">|</span>
+					<span class="tag-links">Tagged <a href="http://storageeffect.media.seagate.com/tag/data-center/" rel="tag">data center</a>, <a href="http://storageeffect.media.seagate.com/tag/google/" rel="tag">google</a>, <a href="http://storageeffect.media.seagate.com/tag/green/" rel="tag">Green</a>, <a href="http://storageeffect.media.seagate.com/tag/sustainable-energy/" rel="tag">sustainable energy</a></span>
+					<span class="meta-sep">|</span>
+					<span class="comments-link"><a href="http://storageeffect.media.seagate.com/2008/10/storage-effect/googles-data-center-architecture/#comments" title="Comment on How Google designs data centers">Comments (2)</a></span>
+				</div>
+			</div><!-- .post -->
+
+			<div id="nav-below" class="navigation">
+				<div class="nav-previous"><a href="http://storageeffect.media.seagate.com/2008/10/storage-effect/the-cloud-is-purifying-storage/"><span class="meta-nav">&larr;</span> Previous Post</a></div>
+				<div class="nav-next"><a href="http://storageeffect.media.seagate.com/2008/10/storage-effect/amazon-s3-goes-to-volume-pricing-model/">Next Post <span class="meta-nav">&rarr;</span></a></div>
+			</div>
+
+			<div id="comments">
+	<h4>2 Comments</h4>
+
+
+	<ul class="commentlist" id="singlecomments">
+	<li class="pingback even thread-even depth-1" id="li-comment-689">
+	<div id="comment-689">
+		<div class="comment-meta-wrap">
+			<div class="comment-author vcard">
+						<cite class="fn"><a href='http://storageeffect.com/2008/10/22/16-reasons-digital-content-will-grow-through-the-great-recession/' rel='external nofollow' class='url'>16 reasons digital content will grow through the Great Recession &laquo; Storage Effect</a></cite> <span class="says">wrote:</span>			</div>
+						<div class="comment-meta commentmetadata"><a href="http://storageeffect.media.seagate.com/2008/10/storage-effect/googles-data-center-architecture/comment-page-1/#comment-689">Oct 22, 2008 at 8:44 am</a></div>
+		</div>
+		<p>[...] Shift from data centers to the storage cloud.  More efficient business storage models drive an increase in business [...]</p>
+	<div class="reply">
+		</div>
+	</div>
+</li>
+<li class="pingback odd alt thread-odd thread-alt depth-1" id="li-comment-1404">
+	<div id="comment-1404">
+		<div class="comment-meta-wrap">
+			<div class="comment-author vcard">
+						<cite class="fn"><a href='http://storageeffect.media.seagate.com/2008/10/storage-effect/16-reasons-digital-content-will-grow-through-the-great-recession/' rel='external nofollow' class='url'>The Storage Effect &raquo; 16 reasons digital content will grow through the Great Recession</a></cite> <span class="says">wrote:</span>			</div>
+						<div class="comment-meta commentmetadata"><a href="http://storageeffect.media.seagate.com/2008/10/storage-effect/googles-data-center-architecture/comment-page-1/#comment-1404">Aug 27, 2009 at 9:27 am</a></div>
+		</div>
+		<p>[...] Shift from data centers to the storage cloud. More efficient business storage models drive an increase in business [...]</p>
+	<div class="reply">
+		</div>
+	</div>
+</li>
+	</ul>
+	<div class="navigation">
+		<div class="alignleft"></div>
+		<div class="alignright"></div>
+	</div>
+
+
+				<div id="respond">
+					<h3>Post a Comment</h3>
+					
+					<div id="cancel-comment-reply"><a rel="nofollow" id="cancel-comment-reply-link" href="/2008/10/storage-effect/googles-data-center-architecture/#respond" style="display:none;">Cancel this response</a></div>
+
+					<div class="formcontainer">	
+						<form id="commentform" action="http://storageeffect.media.seagate.com/wp-comments-post.php" method="post">
+<input type='hidden' name='comment_post_ID' value='1538' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+
+
+							<p id="comment-notes">Your email is <em>never</em> shared. Required fields are marked <span class="required">*</span></p>
+
+							<div class="user-info">
+								<div class="form-label"><label for="author">Name</label> <span class="required">*</span></div>
+								<div class="form-input"><input id="author" name="author" class="text required" type="text" value="" size="30" maxlength="50" tabindex="3" /></div>
+
+								<div class="form-label"><label for="email">Email</label> <span class="required">*</span></div>
+								<div class="form-input"><input id="email" name="email" class="text required" type="text" value="" size="30" maxlength="50" tabindex="4" /></div>
+
+								<div class="form-label"><label for="url">Website</label></div>
+								<div class="form-input"><input id="url" name="url" class="text" type="text" value="" size="30" maxlength="50" tabindex="5" /></div>
+							</div>
+
+
+							<div class="user-comment">
+								<div class="form-label"><label for="comment">Comment</label></div>
+								<div class="form-textarea"><textarea id="comment" name="comment" class="text required" cols="45" rows="8" tabindex="6"></textarea></div>
+
+								<div class="form-submit"><input id="submit" name="submit" class="button" type="submit" value="Post Comment" tabindex="7" /><input type="hidden" name="comment_post_ID" value="1538" /></div>
+
+								<div class="form-option"></div>
+							</div>
+
+						</form><!-- #commentform -->
+					</div><!-- .formcontainer -->
+
+				</div><!-- #respond -->
+		<div id="legalese">
+			* Seagate will review all blog submissions and determine, in its sole discretion, whether such submissions will be posted for broader viewing. No blog comment will be considered for posting if deemed potentially damaging to Seagate's reputation or insufficiently aligned with the relevant blog topic. Without in any way limiting the foregoing, no submissions will be posted that contain: confidential company information; profanity; racial slurs; gratuitous references to sex, substance use, or violence; or statements that are in any way contrary to the letter or spirit of Seagate's Code of Business Conduct and Ethics.
+		</div>
+			</div><!-- #comments -->
+
+		</div><!-- #content -->
+		<div id="sidebar" class="sidebar">
+			<ul class="xoxo">
+			
+			<li id="ffactivity" class="widget widget_ffactivity">
+				<h3 class="widget-title">Seagate Friendfeed</h3>
+<!-- Updated on Sun, 14 Mar 2010 06:40:31 -0700 -->
+<div id="ff-activity">
+<div class="ff-event ff-digg ff-event-odd" style="background-image: url('http://friendfeed.com/static/images/icons/digg.png?v=a7190ae91cb7d1e3b541ed8ab07fa02c');">
+	<p class="title">Dugg a story: <a href="http://smb.media.seagate.com/2010/03/storage-means-business/constellation-es-gives-you-the-power-to-choose/" class="external">Constellation ES gives you the power to choose</a></p>
+	<p class="ff-meta"><small><a href="http://www.digg.com/users/seagatetech" class="external">Friday 16:00</a></small></p>
+</div>
+<div class="ff-event ff-twitter ff-event-even" style="background-image: url('http://friendfeed.com/static/images/icons/twitter.png?v=df0a0affa8100c494df42159627a38b0');">
+	<p class="title">Storage Means Business [blog]: Constellation ES gives you the power to choose <a href="http://ow.ly/1iBV3" class="external">http://ow.ly/1iBV3</a></p>
+	<p class="ff-meta"><small><a href="http://twitter.com/Seagate/statuses/10396590466" class="external">Friday 15:59</a></small></p>
+</div>
+<div class="ff-event ff-delicious ff-event-odd" style="background-image: url('http://friendfeed.com/static/images/icons/delicious.png?v=508c8593b0466b5ed38cce51e4d606de');">
+	<p class="title">Bookmarked a link: <a href="http://smb.media.seagate.com/2010/03/storage-means-business/constellation-es-gives-you-the-power-to-choose/" class="external">Constellation ES gives you the power to choose &ndash; Storage Means Business</a></p>
+	<p class="ff-meta"><small><a href="http://delicious.com/seagatetechnology" class="external">Friday 15:58</a></small></p>
+</div>
+<div class="ff-event ff-twitter ff-event-even" style="background-image: url('http://friendfeed.com/static/images/icons/twitter.png?v=df0a0affa8100c494df42159627a38b0');">
+	<p class="title">RT @<a href="http://twitter.com/roogie" class="external">roogie</a>: @<a href="http://twitter.com/Seagate" class="external">Seagate</a> Can&#039;t wait to get home and hook up the 2TB FreeAgent Extreme! She&#039;s arrived! -- Awesome. Enjoy!</p>
+	<p class="ff-meta"><small><a href="http://twitter.com/Seagate/statuses/10393737793" class="external">Friday 14:45</a></small></p>
+</div>
+<div class="ff-event ff-twitter ff-event-odd" style="background-image: url('http://friendfeed.com/static/images/icons/twitter.png?v=df0a0affa8100c494df42159627a38b0');">
+	<p class="title">Amp up your Barracuda XT: Faster than a 10K RPM drive at 6X the capacity... [YouTube video] <a href="http://ow.ly/1ixl0" class="external">http://ow.ly/1ixl0</a></p>
+	<p class="ff-meta"><small><a href="http://twitter.com/Seagate_Con/statuses/10392749248" class="external">Friday 14:19</a></small></p>
+</div>
+<p class="ff-account"><a href="http://friendfeed.com/seagate" rel="me" class="external">My FriendFeed profile &#8230;</a></p>
+</div>
+
+
+			</li>
+
+			<li id="seagate-social-3" class="widget seagate-social">
+				<h3 class="widget-title">Seagate Social</h3>
+<ul>
+			<li><a href="http://seagate.com/facebook" class="facebook">Facebook</a></li>
+			<li><a href="http://seagate.com/twitter" class="twitter">Twitter</a></li>
+			<li><a href="http://seagate.com/digg" class="digg">Digg</a></li>
+			<li><a href="http://seagate.com/flickr" class="flickr">Flickr</a></li>
+			<li><a href="http://seagate.com/youtube" class="youtube">YouTube</a></li>
+			<li><a href="http://seagate.com/delicious" class="delicious">Delicious</a></li>
+			<li><a href="http://seagate.com/friendfeed" class="friendfeed">Friendfeed</a></li>
+			<li><a href="http://seagate.com/linkedin" class="linkedin">LinkedIn</a></li>
+		</ul>
+			</li>
+			</ul>
+		</div><!-- #sidebar .sidebar -->	</div><!-- #container -->
+
+
+<!--[if IE]><div class="bottom-round"></div><![endif]-->
+</div><!-- #wrapper .hfeed -->
+
+<div id="footer" class="clearfix">
+	<p class="copyright">&copy; Seagate Technology LLC</p>
+	<ul class="siteLinks">
+			<li class="first"><a href="http://www.seagate.com/www/en-us/about/site_index/">Site Index</a></li>
+			<li><a href="http://www.seagate.com/www/en-us/about/">About Seagate</a></li>
+			<li><a href="http://www.seagate.com/www/en-us/partners/">Partner Center</a></li>
+			<li><a href="http://www.seagate.com/www/en-us/about/contact_us/">Contact Us</a></li>
+			<li><a href="http://www.seagate.com/www/en-us/about/corporate_information/legal/privacy_statement/">Privacy Policy</a></li>
+			<li class="last"><a href="http://www.seagate.com/www/en-us/about/corporate_information/legal/">Legal</a></li>
+		</ul>
+</div><!-- #footer -->
+
+<script type='text/javascript' src='http://storageeffect.media.seagate.com/wp-content/themes/seagate-media/js/jquery.cycle.min.js?ver=2.7.1'></script>
+<script type='text/javascript' src='http://storageeffect.media.seagate.com/wp-content/themes/seagate-media/js/common.js?ver=1.0'></script>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5599956-1");
+pageTracker._trackPageview();
+</script>
+
+
+<!-- start copy -->
+
+<!-- SiteCatalyst code version: H.19.3.
+Copyright 1997-2009 Omniture, Inc. More info available at
+http://www.omniture.com -->
+<script language="JavaScript" type="text/javascript">var s_account="seagateglobal,seagatecom,seagateamer";</script>
+<script language="JavaScript" type="text/javascript" src="/s_code.js"></script>
+<script language="JavaScript" type="text/javascript"><!--
+/* You may give each page an identifying name, server, and channel on
+the next lines. */
+
+/* Set default siteID */
+s.siteID="stx:en-us:media:main";
+
+/* Set appropriate siteID for blogs */
+var wurl = window.location.href; 
+if (wurl.match("smb.media.seagate.com")){
+	s.siteID = "stx:en-us:media:smb";
+} else if (wurl.match("enterprise.media.seagate.com")){
+	s.siteID = "stx:en-us:media:enterprise";
+} else if (wurl.match("consumer.media.seagate.com")){
+	s.siteID = "stx:en-us:media:consumer";
+} else if (wurl.match("storageeffect.media.seagate.com")){
+	s.siteID = "stx:en-us:media:storageeffect";
+}
+
+s.defaultPage="index.html";
+s.prop22="media";
+ 
+/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+var s_code=s.t();if(s_code)document.write(s_code);//--></script>
+
+<!-- End SiteCatalyst code version: H.19.3. -->
+
+<!-- end copy -->
+
+
+</body>
+</html>

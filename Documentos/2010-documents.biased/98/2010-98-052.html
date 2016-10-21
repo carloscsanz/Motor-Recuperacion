@@ -1,0 +1,243 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+	<title>HTML/XHTML Fundamentals - Session 3</title>
+	<style>
+	<!--
+	td {font:12px Verdana;}
+	th {font:bold 12pt Georgia; color:#663333}
+	h1 {font:bold 14pt Georgia; color:#663333}
+	a {color: #990000; text-decoration:none;}
+	a:hover {color:#993366 ;text-decoration:underline;}
+	li {line-height: 12pt;}
+	kbd {color:#666699; font-size:14px;}
+	li {line-height:18px;}
+	BODY {SCROLLBAR-FACE-COLOR: #fee384; SCROLLBAR-TRACK-COLOR: #ff850d; SCROLLBAR-BASE-COLOR: #fee384; scrollbar-Highlight-Color:#fee384;}
+	-->
+	</style>
+</head>
+<body bgcolor="#ff850d" alink="#FFB407" leftmargin="0" topmargin="0" marginheight="0" marginwidth="0">		
+<!-- Main table starts -->		
+<table bgcolor="#FEE384"  width="680" cellpadding="4" cellspacing="1" align="center" border="0">
+<tr>
+	<th><p><h1><a href="index_xhtml1.html">HTML/XHTML Fundamentals</a></h1></p></th>
+</tr>
+<tr>
+	<td valign="top">
+		<!--start nested menu table-->
+		<table width="100%" align="center" cellpadding="2" cellspacing="4">
+			<tr bgcolor="#FFB407" align="center">
+				<th><a href="xhtml1_ses1.html">Session 1</a></th>
+				<th><a href="xhtml1_ses2.html">Session 2</a></th>
+				<th><a href="#">Session 3</a></th>
+			</tr>
+		</table>
+		<!--end nested menu table-->
+	</td>
+</tr>
+<tr>
+	<td><p>&nbsp;</p>
+		<strong>Session Three</strong>
+		<ul>
+		<li>Page Layout
+			<ul>
+			<li><a href="#btag">Body tag attributes</a></li>
+			<li><a href="#lists">Creating Lists</a></li>
+			</ul>
+		</li>
+		<li>Basic Tables
+			<ul>
+			<li><a href="#tabs">Table Structure</a></li>
+			<li><a href="#cust">Customizing Tables</a></li>
+			</ul>
+		</li>
+		</ul>
+<p>
+<a name="btag"></a><strong>Body tag attributes</strong><br>
+HTML has accumulated a large number of presentational attributes over the year. These have for the most part been deprecated in favour of style sheets. 
+The BODY element can take several attributes that will style your page. Here is the list of them:
+&lt;body background="tile.gif" bgcolor="#ffffff" text="#000000" link="#0000cc" vlink="#660000" alink="#cc0000"&gt;  &nbsp;   &lt;/body&gt;
+<ol>
+<li>background - page's background image (will be tiled)</li>
+<li>bgcolor - page's background color</li>
+<li>text - assigns a colour to the text</li>
+<li>link - link color</li>
+<li>vlink - visited link color</li>
+<li>alink - active link color</li>
+</ol>
+You can download some free background images from <a href="http://www.backgroundsarchive.com/" target="_blank">http://www.backgroundsarchive.com/</a> 
+<p></p>
+<strong>How do you specify the colour you want? </strong><br>
+The simplest is to use a standard colour name, but there are only 16 of them (which correspond to the basic VGA set on PCs): <em>aqua, black, blue, fuchsia, gray, green, lime, maroon, navy, olive, purple, red, silver, teal, white, and yellow</em>. <p>
+
+More specific colours can be set by using <em>hexadecimal</em> (0...9A...F) values, that represent colours as three groups of two hexadecimal numbers for the Red, Green and Blue elements (<strong>RGB</strong>).<br>
+Another way to specify the colour is using the <em>decimal</em> system of colour values, each of the red, green and blue components are specified as three groups of numbers, from 0 to 255, separated by a comma. <br>
+Here are some examples:
+<blockquote>
+<pre>
+<strong>Colour			Decimal			Hexadecimal</strong>
+Black			0,0,0			#000000
+White			255,255,255		#FFFFFF
+<strong>Red 			255,0,0			#FF0000
+Green			0,255,0			#00FF00
+Blue			0,0,255			#0000FF</strong>
+Aqua			0,255,255		#00FFFF
+Yellow			255,255,0		#FFFF00
+Fuchsia			255,0,255		#FF00FF
+</pre>
+</blockquote>
+
+NS and IE implement a palette of 216 browser-safe colours, which will always display properly whatever the platform and whatever the colour depth on the screen. The palette is constructed from colours where red, green and blue are each restricted to the following hexadecimal values: 00, 33, 66, 99, CC, FF.
+<p align="right"><a href="#">&nbsp; top &nbsp; </a></p>
+
+<a name="lists"></a><strong>Creating Lists</strong><br>
+One useful feature of HTML/XHTML is the ability to create lists. Lists are useful in most any circumstance where you want to itemize or categorize things. 
+To create an Unordered (bulleted) List you need to add a &lt;ul&gt; and a &lt;/ul&gt; tag at the beginning and the end of the list. Ordered (numbered) Lists have &lt;ol&gt; tags instead of &lt;ul&gt; tags. To separate single List Items use &lt;li&gt;...&lt;/li&gt; tags. There are special settings that you can use to customize the lists on your page.
+<p>
+A single list item can be a single word, or it can be many paragraphs long, complete with supporting multimedia elements.
+</p>
+If you do not like the default bullet for the Unordered List, HTML provides the type attribute, which allows you to choose between whether you want the bullet to be a:
+<ul>
+<li type="circle">circle</li>
+<li type="disc">disc</li>
+<li type="square">square</li>
+</ul>
+The type attribute has been replaced by style sheets, but it can still be used to be compatible with older browsers. The type attribute can either go in the list tag to change the bullet for the entire list or in the list item tag to change the bullet for a single item. The use of style sheets allows for even more options, such as using graphics instead of bullets, or using no bullets at all.
+<p>
+An Ordered List is a list where the items have a specific order or sequence that needs to be noted, for instance a sequence of steps that need to be followed to successfully complete a task, or a list of rankings in a contest. The numbers in an ordered list start at one (1) and proceed upwards for each list item unless the browser is told otherwise.
+<p>
+The &lt;ol&gt; tag is used to delimit a set of list items. It has various attributes you can set to make ordered lists more flexible. One (deprecated) attribute is start, which allows you to define a starting number other than one (1). This is useful if the list is broken up by other content, since it allows you to pick up where you left off.
+<p>
+Another related attribute is type, which works in more or less the same was as it does for unordered list. Here you give it a numbering system to count with. The valid values for type are:
+<hr noshade color="#990000" width="500" align="left" />
+<pre>
+   <strong>Type Value		Style Used			Sample</strong>
+	A		capital letters			A, B, C, D
+	a		lowercase letters		a, b, c, d
+	I		capital Roman numerals		I, II, III, IV
+	i		lowercase Roman numerals	i, ii, iii, iv
+	1		Arabic numerals (default)	1, 2, 3, 4
+</pre>
+<hr noshade color="#990000" width="500" align="left" /><br>
+
+You can nest lists, something particularly useful if the list is an outline of some sort.
+<p>
+Nested unordered lists may rotate through the three bullet types as you move through nesting levels, depending on your browser.
+</p>
+Ordered lists, by default begin with Arabic numbers regardless of the level of nesting. However, you can use the type attribute or style sheets to override both of those and define the different levels to be whatever you want. 
+<p>
+Note that properly nested lists means that everything within a list exists between an &lt;li&gt; tag and it corresponding end tag (&lt;/li&gt;). This means that a nested list should be contained within a list item, not occur between list items. Most browsers will let you get away with nesting a list within a list without enclosing the nested list in a list item of the parent list, but it is not a well-formed coding statement.
+</p>
+<table width="80%" align="center">
+	<tr>
+		<td>
+		<strong>Right:</strong>
+<pre>
+&lt;ul&gt;
+  &lt;li&gt;Item 1&lt;/li&gt;
+  <strong>&lt;li&gt;</strong>Item 2
+    &lt;ul&gt;
+     &lt;li&gt;Sub-item 1&lt;/li&gt;
+     &lt;li&gt;Sub-item 2&lt;/li&gt;
+    &lt;/ul&gt;
+  <strong>&lt;/li&gt;</strong>
+  &lt;li&gt;Item 3&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+		</td>
+		<td>
+		<strong>Wrong:</strong>
+<pre>
+&lt;ul&gt;
+  &lt;li&gt;Item 1&lt;/li&gt;
+  <strong>&lt;li&gt;</strong>Item 2<strong>&lt;/li&gt;</strong>
+  &lt;ul&gt;
+   &lt;li&gt;Sub-item 1&lt;/li&gt;
+   &lt;li&gt;Sub-item 2&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;li&gt;Item 3&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+</td>
+	</tr>
+</table>
+<p align="right"><a href="#">&nbsp; top &nbsp; </a></p>
+<a name="tabs"></a><strong>Table Structure</strong><br>
+Using tables, it is possible to display tabular data, create columns of text, precisely position various elements of your design, and solve many HTML design problems.
+<p>
+The TABLE element is a container, so it requires both the start tag and the end tag. Everything between is part of the table. The TR tag (also a container) designates the beginning of a row (horizontal) and each of the TD tags (also containers) marks the beginning of a column (vertical).
+</p>
+Let's start by defining the structure elements of an XHTML table.
+<ul>
+<li><strong>table:</strong>  this element makes up the entire table structure. </li>
+<li><strong>caption:</strong>  this element is optional, but if it is included it must be the first element in the table.</li>
+<li><strong>thead, tfoot, and tbody: </strong> if these elements are used (they are also optional) they must be used in the order shown here.</li>
+<li><strong>tr:</strong>  this element makes up the row structure of the table.</li>
+<li><strong>th and td:</strong>  table header and table detail.  They are always used in conjunction with the &lt;tr&amp; element.  These two elements make up the cells of the table. TH element is like TD, only it bolds and centers the text
+</ul>
+<strong><em>Grouping Tags</em></strong><br>
+The grouping tags are new to HTML. They are recommended for use in XHTML, but are not fully supported in all browser. The grouping tags are:
+<ul>
+<li>&lt;thead&gt;</li>
+<li>&lt;tfoot&gt;</li>
+<li>&lt;tbody&gt;</li>
+</ul>
+
+The grouping tags allow you to organize and format tables by section. The &lt;thead&gt; specifies a header for the table. For a browser that recognizes this tag, it would allow the browser to do things like print up the header information at the top of each page if the table runs beyond one page. There can be only one &lt;thead&gt; grouping in a table and it should occur at the top of the table, before any other content.
+<p>
+The &lt;tfoot&gt; allows you to define a footer for a table in the same manner as a header. Once again there can be only one. The footer should appear in the code after the header and before the body. The problem is that older browsers do not know to move it to the bottom. Therefore, to be backward compatible, it should appear at the bottom of the table, after any other content.
+</p>
+The &lt;tbody&gt; tag is the last of this set and allows you to specify body sections in a table. There can be more than one body section in a table, allowing you to do sectional formatting. You can consider this tag to be the equivalent of a &lt;div&gt; tag for use in tables.
+
+<p align="right"><a href="#">&nbsp; top &nbsp; </a></p>
+<a name="cust"></a><strong>Customizing Tables</strong>
+The table itself becomes the size of all the elements it contains. If the elements within the table are not a fixed size, the table gravitates to the size of the window in which it is displayed, and gives equal space to each of the elements in the table.
+<p>
+The following attributes can be used with Table tags <em style="color:#990000;">(Please note, that all these attributes will give us backward compatibility, they all can be set using CSS, that gives greater flexibility)</em>:
+</p>
+<ul>
+<li><strong>border</strong> - sets the thickness of the border surrounding the whole table (accepts integers, when set to 0 - there are no borders)</li>
+<li><strong>frame</strong> - used in conjunction with the border attribute, it lets us to decide where to put frame:
+	<ul>
+	<li><em>void</em> - will draw no frame at all</li>
+	<li><em>above / below</em> - will produce just a top / lower border</li>
+	<li><em>lhs / rhs</em> - will give a left-hand / right-hand border only</li>
+	<li><em>hsides / vsides</em> - will produce top & bottom / left & right borders</li>
+	<li><em>box / border</em> - will give a full  border</li>
+	</ul>
+</li>
+<li><strong>rules</strong> - allows us to decide how to draw dividing lines between various groups of cells:
+	<ul>
+	<li><em>none</em> - will draw no borders around the cells</li>
+	<li><em>all</em> - will draw a border around every cell</li>
+	<li><em>groups</em> - will draw a border around tbody, thead, tfoot</li>
+	<li><em>rows</em> - will draw a border between rows</li>
+	<li><em>cols</em> - will draw a border between individual columns</li>
+	</ul>
+	<p></p>
+</li>
+<li><strong>bgcolor / background</strong> - to set a background colour / image (tiled), can be used with table, tr, td, th, thead, tfoot, tbody elements</li>
+<li><strong>width / height</strong> - to set the width /height of both the table and the individual cells. It can take a relative value (%), or an absolute value (px)</li>
+<li><strong>align</strong> - the default alignment is "left", but can be changed to "center" or "right"; can be used with table, caption, tr, td, th, thead, tfoot, tbody elements. When used within the &lt;table&gt; tag, the text will flow around the table (similar to alignment with the &lt;img&gt; tags). When used within caption, tr, td, th, thead, tfoot, tbody elements, controls the horizontal alignment of the text within the cell, can take an additional value of "justify" </li>
+<li><strong>valign</strong> - sets the vertical alignment of the text within the cell; also can be used within caption, tr, td, th, thead, tfoot, tbody elements. The possible values are: "middle" (default), "top", "bottom", "baseline". (with the &lt;caption&gt; valign can be set only to either "top" (default) or "bottom")</li>
+<li><strong>cellspacing</strong> - Determines the amount of space (an integer value, in px) to put between cells. This amount will be put inside the border.</li>
+<li><strong>cellpadding</strong> - Determines the amount of space (an integer value, in px) to put between the edge of a cell and its contents.</li>
+</ul>
+<hr noshade color="#990000" width="90%">
+<p align="center" style="color:#330099;">
+More about Tables will be covered in the Advanced HTML/XHTML course.
+</p>
+<p align="right"><a href="#">&nbsp; top &nbsp; </a></p>
+	</td>
+</tr>
+<tr align="center">
+	<td style="font:11px Verdana;">
+	<hr align="center" color="#FFB407" width="60%" />
+	Vivien Anayian<br>
+	<a href="mailto:vivien@vguniverse.com">vivien@vguniverse.com</a></td>
+</tr>
+</table>
+<!-- Main table ends-->		
+</body>
+</html>

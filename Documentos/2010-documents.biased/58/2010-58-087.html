@@ -1,0 +1,731 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+        <title>Information Retrieval</title>
+	<meta http-equiv="Page-Enter" content="progid:DXImageTransform.Microsoft.Fade(duration=0.7)" />
+	<meta http-equiv="Page-Exit" content="progid:DXImageTransform.Microsoft.Fade(duration=0.7)" />
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+        <META NAME="title" CONTENT="Information Retrieval">
+        <meta name="keywords" content="Information Retrieval">
+        <meta name="description" content="Automated IR systems are used to reduce Information Overload . Many universities and Public Libraries use IR systems to provide access to books, journals, and other documents. IR systems are often related to object and query. Queries are formal statements of information needs that are put to an IR system by the user. An object is an entity which keeps or stores information in a database. User queries are matched to objects stored in the database. A document is, therefore, a data object. Often the documents themselves are not kept or stored directly in the IR system, but are instead represented in the system by document surrogates. ">
+        <META name="DISTRIBUTION" content="global">
+        <meta name="robots" content="index,follow">
+        <meta name="rating" content="Safe For Kids">
+	<meta name="googlebot" content="index, follow">
+        	<link href="http://www.informationdelight.info/css/css_common.php?pagetype=info" rel="stylesheet" type="text/css">
+                 
+	<script language="javascript" type="text/javascript" src="/tools/js/general/all_pages.js"></script>
+		<script language="javascript" type="text/javascript" src="/tools/js/general/hide_show_slider.js"></script>
+		 
+</head>
+<body background="/imgs/backgrounds/background_blue.png" >
+<!-- this menu (shopping primarily)  -->
+<!--  (Search Form at Top)  -->
+<div id="TopSearch" style="position:absolute; left:133px; top:0px; width:800px; height:150px; z-index:1">
+<table valign="middle" width="100%" border="0" cellspacing="10" cellpadding="0">
+<tr>
+<td>
+    <center><!-- SiteSearch Google -->
+<form method="get" action="http://www.informationdelight.info/search_site" target="_top">
+<table border="0" class="orange" cellpadding="0" bgcolor="#ffffff" width="800">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+<a href="http://www.google.com/">
+<img src="http://www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></img></a>
+</td>
+<td nowrap="nowrap">
+<input type="hidden" name="domains" value="www.seattleluxury.com;www.shopper-delight.com;www.destination-luxury.com"></input>
+<label for="sbi" style="display: none">Enter your search terms</label>
+<input type="text" name="q" size="64" maxlength="255" value="" id="sbi"></input>
+<label for="sbb" style="display: none">Submit search form</label>
+<input type="submit" name="sa" value="Search" id="sbb"></input>
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td nowrap="nowrap">
+<table>
+<tr>
+<td>
+<input type="radio" name="sitesearch" value="" id="ss0"></input>
+<label for="ss0" title="Search the Web"><font size="-1" color="#000000">Search the Web</font></label></td>
+<td>
+<input type="radio" name="sitesearch" value="www.seattleluxury.com/encyclopedia" checked id="ss1"></input>
+<label for="ss1" title="Search the Encyclopedia"><font size="-1" color="#000000">Search the Encyclopedia</font></label></td>
+</tr>
+<tr>
+<td>
+<input type="radio" name="sitesearch" value="www.seattleluxury.com/shopping" id="ss2"></input>
+<label for="ss2" title="Search the Shopping Network"><font size="-1" color="#000000">Search the Shopping Network</font></label></td>
+<td>
+<input type="radio" name="sitesearch" value="www.destination-luxury.com" id="ss3"></input>
+<label for="ss3" title="Search the Travel Site"><font size="-1" color="#000000">Search the Travel Site</font></label></td>
+</tr>
+</table>
+<input type="hidden" name="client" value="pub-4110591766251874"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="safe" value="active"></input>
+<input type="hidden" name="cof" value="GALT:#;GL:1;DIV:#0000FF;VLC:#;AH:center;BGC:ffffff;LBGC:ffffff;ALC:#ff0000;LC:0000FF;T:333333;GFNT:0000FF;GIMP:0000FF;LH:50;LW:780;L:http://www.seattleluxury.com/imgs/banner_horiz_google.jpg;S:http://www.shopper-delight.com;FORID:11"></input>
+<input type="hidden" name="hl" value="en"></input>
+</td></tr></table>
+</form>
+<!-- SiteSearch Google --></center></td>
+</tr>
+</table>
+</div>
+<!-- first statement -->
+<!--
+<div id="FirstStatement" style="position:absolute; left:0px; top:35px; width:135px; height:100px; z-index:1">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="135"><center><h1 class="pagetitle"> <a href="http://www.informationdelight.info/sitemap/index.php" class="h1">Site Map</a></h1></center></td>
+</tr>
+</table>
+</div>
+-->
+<!-- setup tabs -->
+
+<div id="TabsMenu" style="position:absolute; left:135px; top:108px; width:800px; height:19px; z-index:3">
+<table border="0" cellspacing="0" cellpadding="0">
+<tr align="center" valign="middle" class="tab">
+	<td class="tabprespace">
+		<span class="copyitalic">&nbsp;</span>
+	</td>
+	<td class="tabselected">
+		<span class="copyitalic"><b>Information Retrieval</b></span>
+	</td>
+	<td class="tabnotselected" bgcolor="#ddeeff">
+		<a href="http://www.informationdelight.info/information/entry/information_index" class="copyitalic">Article Index for<br><b>Information</b></a>
+	</td>
+	<td class="tabnotselected" bgcolor="#ddeeff">
+		<a href="http://www.informationdelight.info/shopping/store/books/15991611/browse/1" class="copyitalic"><font color="FF0000">Shopping<br><b>Retrieval</b></font></a>
+	</td>
+	<td class="tabnotselected" bgcolor="#ddeeff">
+		<a href="http://www.informationdelight.info/encyclopedia/entry/information_retrieval_index" class="copyitalic">Articles about<br><b>Information Retrieval</b></a>
+	</td>
+	<td class="tabnotselected" bgcolor="#ddeeff">
+		<a href="/directory/directory/information_retrieval_index" class="copyitalic">Website Links For<br><b>Information Retrieval</b></a>
+	</td>
+	<td class="tabprespace" width="15%">
+		<span class="copyitalic">&nbsp;</span>
+	</td>
+</tr>
+</table>
+</div>
+
+<!-- main heading -->
+<div id="MainHeading" style="position:absolute; left:135px; top:183px; width:800px; height:200px; z-index:3">
+<table width="800px" border="0" cellpadding="0" cellspacing="0" class="pagesubtitle">
+<tr><td>
+<center>
+        <h2 class="maintitle">Information About                        </h2>
+        <h1>Information Retrieval</h1>
+</center>
+</td>
+</tr>
+</table>
+</div>
+<!-- side menu  -->
+<div id="SideMenu" style="position:absolute; left:0px; top:155px; width:300px; height:19px; z-index:1">
+<table width="134" border="0" cellspacing="0" cellpadding="0" class="sidebar">
+
+        <tr>
+                <td height="10" width="10">&nbsp;</td>
+                <td height="10" class="brightnav">CATEGORIES ABOUT INFORMATION RETRIEVAL</td>
+
+        </tr>
+	<tr><td height="15">&nbsp;</td> <td height="15">&nbsp;</td></tr>
+			<tr>
+			<td width="10" height="30"></td>
+			<td height="15" ><a href="http://www.informationdelight.info/information/entry/information_retrievalinformation_retrieval_category" class="copyitalic">information retrievalinformation retrieval</a></td>
+		</tr>
+		<tr><td height="15">&nbsp;</td> <td height="15">&nbsp;</td></tr>
+			<tr>
+			<td width="10" height="30"></td>
+			<td height="15" ><a href="http://www.informationdelight.info/information/entry/information_science_category" class="copyitalic">information science</a></td>
+		</tr>
+		<tr><td height="15">&nbsp;</td> <td height="15">&nbsp;</td></tr>
+			<tr>
+			<td width="10" height="30"></td>
+			<td height="15" ><a href="http://www.informationdelight.info/information/entry/digital_libraries_category" class="copyitalic">digital libraries</a></td>
+		</tr>
+		<tr><td height="15">&nbsp;</td> <td height="15">&nbsp;</td></tr>
+	<div id="SideMenu" style="position:absolute; left:0px; top:108px; width:300px; height:19px; z-index:1">
+<table width="134" border="0" cellspacing="0" cellpadding="0" class="sidebar" >
+
+		<tr>
+			<td width="10" height="35"></td>
+                
+		<td height="35" ><a href="http://www.informationdelight.info/shopping/store/apparel/1036682/browse/1" class="nav">APPAREL</a></td>
+        	</tr>
+		<tr>
+			<td width="10" height="35"></td>
+                
+		<td height="35" ><a href="http://www.informationdelight.info/shopping/store/baby/166674011/browse/1" class="nav">BABY</a></td>
+        	</tr>
+		<tr>
+			<td width="10" height="35"></td>
+                
+		<td height="35" ><a href="http://www.informationdelight.info/shopping/store/beauty/11055981/browse/1" class="nav">BEAUTY</a></td>
+        	</tr>
+		<tr>
+			<td width="10" height="35"></td>
+                
+		<td height="35" ><a href="http://www.informationdelight.info/shopping/store/books/1000/browse/1" class="nav">BOOKS</a></td>
+        	</tr>
+		<tr>
+			<td width="10" height="35"></td>
+                
+		<td height="35" ><a href="http://www.informationdelight.info/shopping/store/car_toys/10963071/browse/1" class="nav">CAR TOYS</a></td>
+        	</tr>
+		<tr>
+			<td width="10" height="35"></td>
+                
+		<td height="35" ><a href="http://www.informationdelight.info/shopping/store/cell_phones/301185/browse/1" class="nav">CELL PHONES</a></td>
+        	</tr>
+		<tr>
+			<td width="10" height="35"></td>
+                
+		<td height="35" ><a href="http://www.informationdelight.info/shopping/store/dvd_and_video_tapes/404276/browse/1" class="nav">DVD'S</a></td>
+        	</tr>
+		<tr>
+			<td width="10" height="35"></td>
+                
+		<td height="35" ><a href="http://www.informationdelight.info/shopping/store/electronics/493964/browse/1" class="nav">ELECTRONICS</a></td>
+        	</tr>
+		<tr>
+			<td width="10" height="35"></td>
+                
+		<td height="35" ><a href="http://www.informationdelight.info/shopping/store/gourmet_food/16310211/browse/1" class="nav">GOURMET FOOD</a></td>
+        	</tr>
+		<tr>
+			<td width="10" height="35"></td>
+                
+		<td height="35" ><a href="http://www.informationdelight.info/shopping/store/groceries/16310211/browse/1" class="nav">GROCERIES</a></td>
+        	</tr>
+		<tr>
+			<td width="10" height="35"></td>
+                
+		<td height="35" ><a href="http://www.informationdelight.info/shopping/store/health_and_personal_care/3760931/browse/1" class="nav">HEALTH & PERSONAL</a></td>
+        	</tr>
+		<tr>
+			<td width="10" height="35"></td>
+                
+		<td height="35" ><a href="http://www.informationdelight.info/shopping/store/home_and_garden/1063498/browse/1" class="nav">HOME & GARDEN</a></td>
+        	</tr>
+		<tr>
+			<td width="10" height="35"></td>
+                
+		<td height="35" ><a href="http://www.informationdelight.info/shopping/store/jewelry/3880591/browse/1" class="nav">JEWELRY</a></td>
+        	</tr>
+		<tr>
+			<td width="10" height="35"></td>
+                
+		<td height="35" ><a href="http://www.informationdelight.info/shopping/store/music/301668/browse/1" class="nav">MUSIC</a></td>
+        	</tr>
+		<tr>
+			<td width="10" height="35"></td>
+                
+		<td height="35" ><a href="http://www.informationdelight.info/shopping/store/musical_instruments/11965861/browse/1" class="nav">MUSIC INSTRUMENTS</a></td>
+        	</tr>
+		<tr>
+			<td width="10" height="35"></td>
+                
+		<td height="35" ><a href="http://www.informationdelight.info/shopping/store/office_products/1084128/browse/1" class="nav">OFFICE PRODUCTS</a></td>
+        	</tr>
+		<tr>
+			<td width="10" height="35"></td>
+                
+		<td height="35" ><a href="http://www.informationdelight.info/shopping/store/software/491286/browse/1" class="nav">SOFTWARE</a></td>
+        	</tr>
+		<tr>
+			<td width="10" height="35"></td>
+                
+		<td height="35" ><a href="http://www.informationdelight.info/shopping/store/sporting_goods/3375301/browse/1" class="nav">SPORTING GOODS</a></td>
+        	</tr>
+		<tr>
+			<td width="10" height="35"></td>
+                
+		<td height="35" ><a href="http://www.informationdelight.info/shopping/store/tools_and_hardware/119541011/browse/1" class="nav">TOOLS & HARDWARE</a></td>
+        	</tr>
+		<tr>
+			<td width="10" height="35"></td>
+                
+		<td height="35" ><a href="http://www.informationdelight.info/shopping/store/toys/165795011/browse/1" class="nav">TOYS</a></td>
+        	</tr>
+		<tr>
+			<td width="10" height="35"></td>
+                
+		<td height="35" ><a href="http://www.informationdelight.info/shopping/store/computer_video_games/471306/browse/1" class="nav">VIDEO GAMES</a></td>
+        	</tr>
+<tr>
+        <td width="10" height="35"></td>
+        <td height="35"><a href="http://www.informationdelight.info/store" class="brightnav">SHOPPING HOME</a></td>
+</tr>
+<tr>
+        <td width="10" height="35"></td>
+        <td height="35"><hr></td>
+</tr>
+<tr>
+        <td width="10" height="35"></td>
+        <td height="35"><a href="http://www.informationdelight.info/directory/directory/Shopping/Shopping.php" class="nav">MORE SHOPPING...</a></td>
+</tr>
+
+
+</table>
+</div>
+
+</table>
+</div>
+
+<!-- top logo -->
+<div id="Logo" style="position:absolute; left:0px; top:0px; width:300px; height:19px; z-index:15">
+<a href="/index.php"><img src="/imgs/logos/information-delight2.png" alt="Information Retrieval" width="135" height="108" border="0"></a>
+</div>
+<!-- top banner -->
+<!--
+<div id="Banner" style="position:absolute; left:135px; top:0px; width:693px; height:19px; z-index:3">
+<img src="/imgs/banners/banner-information1.png" alt="Automated IR systems are used to reduce Information Overload . Many universities and Public Libraries use IR systems to provide access to books, journals, and other documents. IR systems are often related to object and query. Queries are formal statements of information needs that are put to an IR system by the user. An object is an entity which keeps or stores information in a database. User queries are matched to objects stored in the database. A document is, therefore, a data object. Often the documents themselves are not kept or stored directly in the IR system, but are instead represented in the system by document surrogates. " width="800" height="108" border="0">
+</div>
+-->
+<!-- banner statement -->
+<!--
+<div id="BanerStatement" style="position:absolute; left:150px; top:22px; width:500px; height:19px; z-index:25">
+<table width="500px">
+<tr>
+<td height="25">
+     <span class="banner">Information Delight</span>
+</td>
+</tr>
+<tr>
+<td height="25">
+     <span class="banner"><i>Information Retrieval</i></span>
+</td>
+</tr>
+</table>
+</div>
+-->
+<!-- top menu -->
+
+<!-- **************************************  main content  ************************************** -->
+<!-- main image  -->
+<div id="contents" style="position:absolute; left:135px; top:223px; width:800px; z-index:3">
+<!-- main statement -->
+<br>
+<br>
+<div align="center">
+<script type="text/javascript"><!--
+google_ad_client = "pub-4110591766251874";
+google_alternate_ad_url = "http://www.informationdelight.info/misc/google_adsense_script.html";
+google_alternate_color = "FFFFFF";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_type = "text";
+google_ad_channel ="";
+google_color_border = "FFFFFF";
+google_color_link = "0000FF";
+google_color_bg = "FFFFFF";
+google_color_text = "333333";
+google_color_url = "0000FF";
+google_ui_features = "rc:6"
+google_ad_channel = "4529586799";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+<table width="750px" align="center" class="copygrey">
+<tr>
+<td class="copygrey">
+<!-- other content -->
+<br>
+Automated IR systems are used to reduce  <a href="http://www.informationdelight.info/information/entry/information_overload" class="copylinks">Information Overload</a> . Many universities and  <a href="http://www.informationdelight.info/information/entry/public_library" class="copylinks">Public Libraries</a>  use IR systems to provide access to books, journals, and other documents. IR systems are often related to object and query. Queries are formal statements of information needs that are put to an IR system by the user. An object is an entity which keeps or stores information in a database. User queries are matched to objects stored in the database. A document is, therefore, a data object. Often the documents themselves are not kept or stored directly in the IR system, but are instead represented in the system by document surrogates. <br>
+<br>
+In 1992 the US Department of Defense, along with the  <a href="http://www.informationdelight.info/information/entry/National_Institute_of_Standards_and_Technology" class="copylinks">National Institute Of Standards And Technology</a>  (NIST), cosponsored the  <a href="http://www.informationdelight.info/information/entry/Text_Retrieval_Conference" class="copylinks">Text Retrieval Conference</a>  (TREC) as part of the TIPSTER text program. The aim of this was to look into the information retrieval community by supplying the infrastructure that was needed for such a huge evaluation of text retrieval methodologies. <br>
+<br>
+Web  <a href="http://www.informationdelight.info/information/entry/search_engine" class="copylinks">Search Engine</a> s such as  <a href="http://www.informationdelight.info/information/entry/Google" class="copylinks">Google</a> ,  <a href="http://www.informationdelight.info/information/entry/Yahoo_search" class="copylinks">Yahoo Search</a>  or  <a href="http://www.informationdelight.info/information/entry/Live.com" class="copylinks">Live.com</a>  are the most visible IR applications.<br>
+<br>
+<br>
+<span class="wiki_header"> PERFORMANCE MEASURES </span><br>
+<br>
+<br>
+There are several measures on the performance of an information retrieval system. The measures rely on a collection of documents and a query for which the relevancy of the documents is known. All common measures described here assume a ground truth notion of relevancy: every document is known to be either relevant or non-relevant to a particular query. In practice queries may be  <a href="http://www.informationdelight.info/information/entry/ill-posed" class="copylinks">Ill-posed</a>  and there may be different shades of relevancy.<br>
+<br>
+<br>
+<span class="wiki_subheader"> Precision </span><br>
+<br>
+<br>
+The proportion of retrieved ''and''  <a href="http://www.informationdelight.info/information/entry/Relevance_(information_retrieval)" class="copylinks">Relevant</a>  documents to all the documents retrieved:<br>
+<br>
+
+			</table>
+			</td>
+</tr>
+</table><br><br>
+			</table>
+			</td>
+</tr>
+</table><br><br>
+			</table>
+			</td>
+</tr>
+</table><br><br><br>
+where ''r'' is the rank, ''N'' the number retrieved, ''rel()'' a binary function on the relevance of a given rank, and ''P()'' precision at a given cut-off rank.<br>
+<br>
+If there are several queries with known relevancies available, the ''mean average precision'' is the mean value of the average precisions computed for each of the queries separately.<br>
+<br>
+<br>
+<span class="wiki_header"> MODEL TYPES </span><br>
+<br>
+<br><center> <a href="http://en.wikipedia.org/wiki/Image:Information-Retrieval-Models.png" class="copyitalic" target="_blank">Image of categorization of IR-models (translated from  <a href="http://de.wikipedia.org/wiki/Informationsrückgewinnung#Klassifikation_von_Modellen_zur_Repr.C3.A4sentation_nat.C3.BCrlichsprachlicher_Dokumente" class="copylinks" target="_blank">German entry</a> , original source  <a href="http://www.logos-verlag.de/cgi-bin/engbuchmid?isbn=0514&lng=eng&id=" class="copylinks" target="_blank">Dominik Kuropka</a> )</a></center><br><br>
+For successful IR, it is necessary to represent the documents in some way.  There are a number of models for this purpose. They can be categorized according to two dimensions like those shown in the figure on the right: the mathematical basis and the properties of the model. (translated from  <a href="http://de.wikipedia.org/wiki/Informationsr%C3%BCckgewinnung#Klassifikation_von_Modellen_zur_Repr.C3.A4sentation_nat.C3.BCrlichsprachlicher_Dokumente" class="copylinks" target="_blank">German entry</a> , original source  <a href="http://www.logos-verlag.de/cgi-bin/engbuchmid?isbn=0514&lng=eng&id=" class="copylinks" target="_blank">Dominik Kuropka</a> )<br>
+<br>
+<br>
+<span class="wiki_subheader"> First dimension: mathematical basis </span><br>
+<br>
+<ul>
+<li class="none"> ''Set-theoretic Models'' represent documents by sets. Similarities are usually derived from set-theoretic operations on those sets. Common models are:</li><br>
+<li class="none">---  <a href="http://www.informationdelight.info/information/entry/Standard_Boolean_model" class="copylinks">Standard Boolean Model</a> </li><br>
+<li class="none">---  <a href="http://www.informationdelight.info/information/entry/Extended_Boolean_model" class="copylinks">Extended Boolean Model</a> </li><br>
+<li class="none">---  <a href="http://www.informationdelight.info/information/entry/fuzzy_retrieval" class="copylinks">Fuzzy Retrieval</a> </li><br>
+
+</ul>
+<br>
+<ul>
+<li class="none"> ''Algebraic Models'' represent documents and queries usually as vectors, matrices or tuples. Those vectors, matrices or tuples are transformed by the use of a finite number of algebraic operations to a one-dimensional similarity measurement.</li><br>
+<li class="none">---  <a href="http://www.informationdelight.info/information/entry/Vector_space_model" class="copylinks">Vector Space Model</a> </li><br>
+<li class="none">---  <a href="http://www.informationdelight.info/information/entry/Generalized_vector_space_model" class="copylinks">Generalized Vector Space Model</a> </li><br>
+<li class="none">--- Topic-based vector space model (literature:  <a href="http://www.kuropka.net/files/TVSM.pdf]," class="copylinks" target="_blank">[http://www.logos-verlag.de/cgi-bin/engbuchmid?isbn=0514&lng=eng&id=</a> ) </li><br>
+<li class="none">---  <a href="http://www.informationdelight.info/information/entry/Extended_Boolean_model" class="copylinks">Extended Boolean Model</a> </li><br>
+<li class="none">--- Enhanced topic-based vector space model (literature:  <a href="http://www.kuropka.net/files/Topic-Sims.pdf]," class="copylinks" target="_blank">[http://www.logos-verlag.de/cgi-bin/engbuchmid?isbn=0514&lng=eng&id=</a> )</li><br>
+<li class="none">--- Latent semantic indexing aka  <a href="http://www.informationdelight.info/information/entry/latent_semantic_analysis" class="copylinks">Latent Semantic Analysis</a> </li><br>
+
+</ul>
+<br>
+<ul>
+<li class="none"> ''Probabilistic Models'' treat the process of document retrieval as a multistage random experiment. Similarities are thus represented as probabilities. Probabilistic theorems like the  <a href="http://www.informationdelight.info/information/entry/Bayes'_theorem" class="copylinks">Bayes' Theorem</a>  are often used in these models.</li><br>
+<li class="none">---  <a href="http://www.informationdelight.info/information/entry/Binary_independence_retrieval" class="copylinks">Binary Independence Retrieval</a> </li><br>
+<li class="none">---  <a href="http://www.informationdelight.info/information/entry/Probabilistic_relevance_model_(BM25)" class="copylinks">Probabilistic Relevance Model (BM25)</a> </li><br>
+<li class="none">--- Uncertain inference</li><br>
+<li class="none">---  <a href="http://www.informationdelight.info/information/entry/Language_model" class="copylinks">Language Model</a> s</li><br>
+<li class="none">---  <a href="http://www.informationdelight.info/information/entry/Divergence_from_randomness_models" class="copylinks">Divergence From Randomness Models</a> </li><br>
+<li class="none">---  <a href="http://www.informationdelight.info/information/entry/Latent_Dirichlet_Allocation" class="copylinks">Latent Dirichlet Allocation</a> </li><br>
+
+</ul>
+<br>
+<br>
+<span class="wiki_subheader"> Second dimension: properties of the model </span><br>
+<br>
+<ul>
+<li class="none"> ''Models without term-interdependencies'' treat different terms/words as not interdependent. This fact is usually represented in vector space models by the  <a href="http://www.informationdelight.info/information/entry/orthogonality" class="copylinks">Orthogonality</a>  assumption of term vectors or in  <a href="http://www.informationdelight.info/information/entry/probabilistic_model" class="copylinks">Probabilistic Model</a> s by an  <a href="http://www.informationdelight.info/information/entry/independency" class="copylinks">Independency</a>  assumption for term variables.</li><br>
+
+</ul>
+<br>
+<ul>
+<li class="none"> ''Models with immanent term interdependencies'' allow a representation of interdependencies between terms. However the degree of the interdependency between two terms is defined by the model itself. It is usually directly or indirectly derived (e.g. by  <a href="http://www.informationdelight.info/information/entry/dimension_reduction" class="copylinks">Dimensional Reduction</a> ) from the  <a href="http://www.informationdelight.info/information/entry/co-occurrence" class="copylinks">Co-occurrence</a>  of those terms in the whole set of documents.</li><br>
+
+</ul>
+<br>
+<ul>
+<li class="none"> ''Models with transcendent term interdependencies'' allow a representation of interdependencies between terms, but they do not allege how the interdependency between two terms is defined. They relay an external source for the degree of interdependency between two terms. (For example a human or sophisticated algorithms.)</li><br>
+
+</ul>
+<br>
+<br>
+<span class="wiki_header"> TIMELINE  </span><br>
+<br>
+<ul>
+<li class="none"> 1890: Hollerith tabulating machines were used to analyze the US census. ( <a href="http://www.informationdelight.info/information/entry/Herman_Hollerith" class="copylinks">Herman Hollerith</a> ).</li><br>
+<li class="none"> 1945:  <a href="http://www.informationdelight.info/information/entry/Vannevar_Bush" class="copylinks">Vannevar Bush</a> 's '' <a href="http://www.informationdelight.info/information/entry/As_We_May_Think" class="copylinks">As We May Think</a> '' appeared in '' <a href="http://www.informationdelight.info/information/entry/Atlantic_Monthly" class="copylinks">Atlantic Monthly</a> '' </li><br>
+<li class="none"> Late 1940s: The US military confronted problems of indexing and retrieval of wartime scientific research documents captured from Germans.</li><br>
+<li class="none"> 1947:  <a href="http://www.informationdelight.info/information/entry/Hans_Peter_Luhn" class="copylinks">Hans Peter Luhn</a>  (research engineer at IBM since 1941) began work on a mechanized, punch card based system for searching chemical compounds.</li><br>
+<li class="none"> 1950: The term "information retrieval" may have been coined by  <a href="http://www.informationdelight.info/information/entry/Calvin_Mooers" class="copylinks">Calvin Mooers</a> .</li><br>
+<li class="none"> 1950s: Growing concern in the US for a "science gap" with the SSSR motivated, encouraged funding, and provided a backdrop for mechanized literature searching systems ( <a href="http://www.informationdelight.info/information/entry/Allen_Kent" class="copylinks">Allen Kent</a>  et al) and the invention of citation indexing ( <a href="http://www.informationdelight.info/information/entry/Eugene_Garfield" class="copylinks">Eugene Garfield</a> ).  </li><br>
+<li class="none"> 1955: Allen Kent joined  <a href="http://www.informationdelight.info/information/entry/Case_Western_Reserve_University" class="copylinks">Case Western Reserve University</a> , and eventually becomes associate director of the Center for Documentation and Communications Research. </li><br>
+<li class="none"> 1958: International Conference on Scientific Information Washington DC included consideration of IR systems as a solution to problems identified. See: Proceedings of the International Conference on Scientific Information, 1958 (National Academy of Sciences, Washington, DC, 1959)</li><br>
+<li class="none"> 1959: Hans Peter Luhn published "Auto-encoding of documents for information retrieval." </li><br>
+<li class="none"> 1960: Melvin Earl (Bill) Maron and J. L. Kuhns published "On relevance, probabilistic indexing, and information retrieval" in Journal of the ACM 7(3):216-244, July 1960. </li><br>
+<li class="none"> Early 1960s:  <a href="http://www.informationdelight.info/information/entry/Gerard_Salton" class="copylinks">Gerard Salton</a>  began work on IR at Harvard, later moved to Cornell. </li><br>
+<li class="none"> 1962:  <a href="http://www.informationdelight.info/information/entry/Cyril_W._Cleverdon" class="copylinks">Cyril W. Cleverdon</a>  published early findings of the Cranfield studies, developing a model for IR system evaluation. See: Cyril W. Cleverdon, "Report on the Testing and Analysis of an Investigation into the Comparative Efficiency of Indexing Systems". Cranfield Coll. of Aeronautics, Cranfield, England, 1962. </li><br>
+<li class="none"> 1962: Kent published Information Analysis and Retrieval</li><br>
+<li class="none"> 1963: Weinberg report "Science, Government and Information" gave a full articulation of the idea of a "crisis of scientific information."  The report was named after Dr.  <a href="http://www.informationdelight.info/information/entry/Alvin_Weinberg" class="copylinks">Alvin Weinberg</a> . </li><br>
+<li class="none"> 1963:  <a href="http://www.informationdelight.info/information/entry/Joseph_Becker" class="copylinks">Joseph Becker</a>  and  <a href="http://www.informationdelight.info/information/entry/Robert_Hayes" class="copylinks">Robert Hayes</a>  published text on information retrieval. Becker, Joseph; Hayes, Robert Mayo. Information storage and retrieval: tools, elements, theories. New York, Wiley (1963). </li><br>
+<li class="none"> 1964:  <a href="http://www.informationdelight.info/information/entry/Karen_Sp&auml;rck_Jones" class="copylinks">Karen Sp&auml;rck Jones</a>  finished her thesis at Cambridge, ''Synonymy and Semantic Classification'', and continued work on  <a href="http://www.informationdelight.info/information/entry/computational_linguistics" class="copylinks">Computational Linguistics</a>  as it applies to IR </li><br>
+<li class="none"> 1964: The  <a href="http://www.informationdelight.info/information/entry/National_Bureau_of_Standards" class="copylinks">National Bureau Of Standards</a>  sponsored a symposium titled "Statistical Association Methods for Mechanized Documentation." Several highly significant papers, including G. Salton's first published reference (we believe) to the SMART system. </li><br>
+<li class="none"> Mid-1960s: National Library of Medicine developed  <a href="http://www.informationdelight.info/information/entry/MEDLARS" class="copylinks">MEDLARS</a>  Medical Literature Analysis and Retrieval System, the first major machine-readable database and batch retrieval system </li><br>
+<li class="none"> Mid-1960s: Project Intrex at MIT </li><br>
+<li class="none"> 1965:  <a href="http://www.informationdelight.info/information/entry/J._C._R._Licklider" class="copylinks">J. C. R. Licklider</a>  published ''Libraries of the Future'' </li><br>
+<li class="none"> 1966:  <a href="http://www.informationdelight.info/information/entry/Don_Swanson" class="copylinks">Don Swanson</a>  was involved in studies at University of Chicago on Requirements for Future Catalogs </li><br>
+<li class="none"> 1968: Gerard Salton published ''Automatic Information Organization and Retrieval''. </li><br>
+<li class="none"> 1968:  <a href="http://www.informationdelight.info/information/entry/J._W._Sammon" class="copylinks">J. W. Sammon</a> 's RADC Tech report "Some Mathematics of Information Storage and Retrieval..." outlined the vector model. </li><br>
+<li class="none"> 1969: Sammon's "A nonlinear mapping for data structure analysis" (IEEE Transactions on Computers) was the first proposal for visualization interface to an IR system. </li><br>
+<li class="none"> Late 1960s:  <a href="http://www.informationdelight.info/information/entry/F._W._Lancaster" class="copylinks">F. W. Lancaster</a>  completed evaluation studies of the MEDLARS system and published the first edition of his text on information retrieval </li><br>
+<li class="none"> Early 1970s: first online systems--NLM's AIM-TWX, MEDLINE; Lockheed's Dialog; SDC's ORBIT </li><br>
+<li class="none"> Early 1970s:  <a href="http://www.informationdelight.info/information/entry/Theodor_Nelson" class="copylinks">Theodor Nelson</a>  promoting concept of  <a href="http://www.informationdelight.info/information/entry/hypertext" class="copylinks">Hypertext</a> , published Computer Lib/Dream Machines </li><br>
+<li class="none"> 1971:  <a href="http://www.informationdelight.info/information/entry/N._Jardine" class="copylinks">N. Jardine</a>  and  <a href="http://www.informationdelight.info/information/entry/C._J._Van_Rijsbergen" class="copylinks">C. J. Van Rijsbergen</a>  published "The use of hierarchic clustering in information retrieval", which articulated the "cluster hypothesis." (Information Storage and Retrieval, 7(5), pp. 217-240, Dec 1971)</li><br>
+<li class="none">1975: Three highly influential publications by Salton fully articulated his <strong>vector processing framework</strong> and <strong>term discrimination model</strong>: </li><br>
+<li class="none">--- A Theory of Indexing  (Society for Industrial and Applied Mathematics) </li><br>
+<li class="none">--- "A theory of term importance in automatic text analysis", (JASIS v. 26) </li><br>
+<li class="none">--- "A vector space model for automatic indexing", (CACM 18:11) </li><br>
+<li class="none"> 1978: The First  <a href="http://www.informationdelight.info/information/entry/ACM" class="copylinks">ACM</a>   <a href="http://www.informationdelight.info/information/entry/SIGIR" class="copylinks">SIGIR</a>  conference. </li><br>
+<li class="none"> 1979: C. J. Van Rijsbergen published ''Information Retrieval'' (Butterworths). Heavy emphasis on probabilistic models. </li><br>
+<li class="none"> 1980: First international ACM SIGIR conference, joint with British Computer Society IR group in Cambridge </li><br>
+<li class="none"> 1982:  <a href="http://www.informationdelight.info/information/entry/Nicholas_J._Belkin" class="copylinks">Belkin</a> , Oddy, and Brooks proposed the ASK (Anomalous State of Knowledge) viewpoint for information retrieval. This was an important concept, though their automated analysis tool proved ultimately disappointing. </li><br>
+<li class="none"> 1983: Salton (and M. McGill) published Introduction to Modern Information Retrieval (McGraw-Hill), with heavy emphasis on vector models. </li><br>
+<li class="none"> Mid-1980s: Efforts to develop end user versions of commercial IR systems. </li><br>
+<li class="none"> 1985-1993: Key papers on and experimental systems for visualization interfaces. </li><br>
+<li class="none"> Work by  <a href="http://www.informationdelight.info/information/entry/D._B._Crouch" class="copylinks">D. B. Crouch</a> ,  <a href="http://www.informationdelight.info/information/entry/Robert_R._Korfhage" class="copylinks">Robert R. Korfhage</a> ,  <a href="http://www.informationdelight.info/information/entry/M._Chalmers" class="copylinks">M. Chalmers</a> ,  <a href="http://www.informationdelight.info/information/entry/A._Spoerri" class="copylinks">A. Spoerri</a>  and others. </li><br>
+<li class="none"> 1989: First  <a href="http://www.informationdelight.info/information/entry/World_Wide_Web" class="copylinks">World Wide Web</a>  proposals by  <a href="http://www.informationdelight.info/information/entry/Tim_Berners-Lee" class="copylinks">Tim Berners-Lee</a>  at  <a href="http://www.informationdelight.info/information/entry/CERN" class="copylinks">CERN</a> . </li><br>
+<li class="none"> 1992: First TREC conference. </li><br>
+<li class="none"> 1997: Publication of Korfhage's ''Information Retrieval'' with emphasis on visualization and multi-reference point systems. </li><br>
+<li class="none"> Late 1990s: Web  <a href="http://www.informationdelight.info/information/entry/search_engine" class="copylinks">Search Engine</a>  implementation of many features formerly found only in experimental IR systems</li><br>
+
+</ul>
+<br>
+<br>
+<span class="wiki_header"> OPEN SOURCE SYSTEMS </span><br>
+<br>
+<br>
+<ul>
+<li class="none">  <a href="http://www.informationdelight.info/information/entry/DataparkSearch" class="copylinks">DataparkSearch</a> ,  <a href="http://www.informationdelight.info/information/entry/search_engine" class="copylinks">Search Engine</a>  written in  <a href="http://www.informationdelight.info/information/entry/C_(programming_language)" class="copylinks">C</a> ,  <a href="http://www.informationdelight.info/information/entry/GPL" class="copylinks">GPL</a> </li><br>
+<li class="none">  <a href="http://www.egothor.org/" class="copylinks" target="_blank">Egothor</a>  high-performance, full-featured text search engine written entirely in Java</li><br>
+<li class="none">  <a href="http://webglimpse.net/subfeatures/features.html" class="copylinks" target="_blank">Glimpse and Webglimpse</a>  advanced site search software</li><br>
+<li class="none">  <a href="http://www.htdig.org/" class="copylinks" target="_blank">ht://dig</a>  Open source web crawling software</li><br>
+<li class="none">  <a href="http://www.lemurproject.org/" class="copylinks" target="_blank">Lemur</a>  Language Modelling IR Toolkit</li><br>
+<li class="none">  <a href="http://www.informationdelight.info/information/entry/Lucene" class="copylinks">Lucene</a>   <a href="http://lucene.apache.org/java/docs/" class="copylinks" target="_blank"><i>{Link without Title}</i></a>  Apache Jakarta project</li><br>
+<li class="none">  <a href="http://www.nzdl.org/html/mg.html" class="copylinks" target="_blank">MG full-text retrieval system</a>  Now maintained by the  <a href="http://www.informationdelight.info/information/entry/Greenstone_Digital_Library_Software" class="copylinks">Greenstone Digital Library Software</a>  Project</li><br>
+<li class="none">  <a href="ftp://ftp.cs.cornell.edu/pub/smart/" class="copylinks" target="_blank">Smart</a>  Early IR engine from Cornell University</li><br>
+<li class="none">  <a href="http://www.informationdelight.info/information/entry/Sphinx_(search_engine)" class="copylinks">Sphinx</a>   <a href="http://www.sphinxsearch.com/" class="copylinks" target="_blank"><i>{Link without Title}</i></a>  Open-source (GPL) SQL full-text search engine</li><br>
+<li class="none">  <a href="http://ir.dcs.gla.ac.uk/terrier" class="copylinks" target="_blank">Terrier</a>  TERabyte RetrIEveR, Information Retrieval Platform, written in Java</li><br>
+<li class="none">  <a href="http://www.wumpus-search.org/" class="copylinks" target="_blank">Wumpus</a>  multi-user information retrieval system</li><br>
+<li class="none">  <a href="http://www.xapian.org/" class="copylinks" target="_blank">Xapian</a>  Open source IR platform based on Muscat</li><br>
+<li class="none">  <a href="http://www.indexdata.dk/zebra/" class="copylinks" target="_blank">Zebra</a>  GPL structured text/XML/MARC boolean search IR engine supporting Z39.50 and Web Services</li><br>
+<li class="none">  <a href="http://www.informationdelight.info/information/entry/Zettair" class="copylinks">Zettair</a> , compact and fast search engine written in  <a href="http://www.informationdelight.info/information/entry/C_(programming_language)" class="copylinks">C</a> , able to handle large amounts of text</li><br>
+
+</ul>
+<br>
+<br>
+<span class="wiki_header"> OTHER RETRIEVAL TOOLS </span><br>
+<br>
+<ul>
+<li class="none">  <a href="http://aspseek.org/" class="copylinks" target="_blank">ASPseek</a> </li><br>
+<li class="none">  <a href="http://www.ihop-net.org/UniPub/iHOP/" class="copylinks" target="_blank">iHOP</a>  Information retrieval system for the biomedical domain</li><br>
+<li class="none">  <a href="http://www-tsujii.is.s.u-tokyo.ac.jp/medie/" class="copylinks" target="_blank">MEDIE</a>  An intelligent search engine, retrieving biomedical events from Medline.</li><br>
+<li class="none">  <a href="http://www.ebi.ac.uk/Rebholz-srv/ebimed/" class="copylinks" target="_blank">EBIMed</a>  Information retrieval (and extraction) system over Medline</li><br>
+<li class="none">  <a href="https://www-tsujii.is.s.u-tokyo.ac.jp/info-pubmed/" class="copylinks" target="_blank">Info-PubMed</a>  Protein interaction database with 200,000 gene/protein names mined from Medline.</li><br>
+<li class="none">  <a href="http://xav.com/" class="copylinks" target="_blank">Fluid Dynamics Search Engine (FDSE)</a>  A search engine written in Perl, freeware and shareware versions are available</li><br>
+<li class="none">  <a href="http://www.galaxquery.com/galatex/" class="copylinks" target="_blank">GalaTex</a>  XQuery Full-Text Search (XML query text search)</li><br>
+<li class="none"> [http://www.cs.uni.edu/~okane/source/ISR/isr.html  Information Storage and Retrieval Using Mumps] (Online GPL Text)</li><br>
+<li class="none">  <a href="http://mnogosearch.org/" class="copylinks" target="_blank">mnoGoSearch</a>  written in  <a href="http://www.informationdelight.info/information/entry/C_(programming_language)" class="copylinks">C</a> , it can index web multilingual sites and many databases types.</li><br>
+<li class="none">  <a href="http://www.sphinxsearch.com/" class="copylinks" target="_blank">Sphinx</a>  Free SQL full-text search engine</li><br>
+<li class="none">  <a href="http://www.biospider.ca" class="copylinks" target="_blank">BioSpider</a>  Free metabolite/drug/protein information retrieval system (used in the annotation of DrugBank and the Human Metabolome Database)</li><br>
+
+</ul>
+<br>
+<br>
+<span class="wiki_header"> RESEARCH GROUPS (IN NO PARTICULAR ORDER) </span><br>
+<br>
+<ul>
+<li class="none">  <a href="http://ciir.cs.umass.edu/" class="copylinks" target="_blank">Center for Intelligent Information Retrieval at UMASS</a> </li><br>
+<li class="none">  <a href="http://www.lti.cs.cmu.edu/Research/projects.html#ir" class="copylinks" target="_blank">Information Retrieval at the Language Technologies Institute, Carnegie Mellon University</a> </li><br>
+<li class="none"> [http://research.microsoft.com/ir/  Information Retrieval at Microsoft Research Cambridge]</li><br>
+<li class="none">  <a href="http://ir.dcs.gla.ac.uk" class="copylinks" target="_blank">Glasgow Information Retrieval Group</a> </li><br>
+<li class="none">  <a href="http://www.dcs.vein.hu/CIR/" class="copylinks" target="_blank">CIR Centre for Information Retrieval</a> </li><br>
+<li class="none">  <a href="http://www.soi.city.ac.uk/organisation/is/research/cisr/" class="copylinks" target="_blank">Centre for Interactive Systems Research at City University, London</a> </li><br>
+<li class="none">  <a href="http://www.ir.iit.edu/" class="copylinks" target="_blank">IIT Information Retrieval Lab</a> </li><br>
+<li class="none">  <a href="http://www2.unine.ch/iiun/page4246.html" class="copylinks" target="_blank">Information Retrieval Group at Université de Neuchâtel</a> </li><br>
+<li class="none">  <a href="http://iis.ist.psu.edu/" class="copylinks" target="_blank">PSU Intelligent Systems Research Laboratory</a> </li><br>
+<li class="none">  <a href="http://ilps.science.uva.nl" class="copylinks" target="_blank">Information and Language Processing Systems at the University of Amsterdam</a> </li><br>
+<li class="none">  <a href="http://ir.hit.edu.cn/" class="copylinks" target="_blank">Information Retrieval Laboratory, Harbin Institute of Technology</a>  (mainly in Chinese)</li><br>
+<li class="none">  <a href="http://www.ir.uwaterloo.ca/" class="copylinks" target="_blank">Information Retrieval Group at the University of Waterloo, Canada</a> </li><br>
+<li class="none">  <a href="http://www.dcs.qmul.ac.uk/researchgp/ir/" class="copylinks" target="_blank">Information Retrieval Group at the Queen Mary University of London</a> </li><br>
+<li class="none">  <a href="http://www.dc.fi.udc.es/ir/" class="copylinks" target="_blank">Information Retrieval Lab at the University of A Coruña</a> </li><br>
+
+</ul>
+<br>
+<br>
+<span class="wiki_header"> MAJOR FIGURES </span><br>
+<br>
+<br>
+<ul>
+<li class="none">  <a href="http://www.informationdelight.info/information/entry/Gerard_Salton" class="copylinks">Gerard Salton</a> </li><br>
+<li class="none">  <a href="http://www.informationdelight.info/information/entry/Hans_Peter_Luhn" class="copylinks">Hans Peter Luhn</a> </li><br>
+<li class="none">  <a href="http://www.informationdelight.info/information/entry/W._Bruce_Croft" class="copylinks">W. Bruce Croft</a> </li><br>
+<li class="none">  <a href="http://www.informationdelight.info/information/entry/Karen_Spärck_Jones" class="copylinks">Karen Spärck Jones</a> </li><br>
+<li class="none">  <a href="http://www.informationdelight.info/information/entry/C._J._van_Rijsbergen" class="copylinks">C. J. Van Rijsbergen</a> </li><br>
+<li class="none">  <a href="http://www.informationdelight.info/information/entry/Donald_Kraft" class="copylinks">Donald Kraft</a> </li><br>
+<li class="none">  <a href="http://www.soi.city.ac.uk/~ser/homepage.html" class="copylinks" target="_blank">Stephen E. Robertson</a> </li><br>
+<li class="none">  <a href="http://www.informationdelight.info/information/entry/Abraham_Bookstein" class="copylinks">Abraham Bookstein</a> </li><br>
+<li class="none">  <a href="http://www.informationdelight.info/information/entry/Stephen_P_Harter" class="copylinks">Stephen P Harter</a> </li><br>
+<li class="none">  <a href="http://www.informationdelight.info/information/entry/David_Blair" class="copylinks">David Blair</a> </li><br>
+
+</ul>
+<br>
+<br>
+<span class="wiki_header"> OTHER FIGURES ASSOCIATED WITH INFORMATION RETRIEVAL </span><br>
+<br>
+<ul>
+<li class="none">  <a href="http://www.informationdelight.info/information/entry/Vannevar_Bush" class="copylinks">Vannevar Bush</a> </li><br>
+<li class="none">  <a href="http://www.informationdelight.info/information/entry/Paul_DeMaine" class="copylinks">Paul DeMaine</a> </li><br>
+<li class="none">  <a href="http://www.informationdelight.info/information/entry/Douglas_Engelbart" class="copylinks">Douglas Engelbart</a> </li><br>
+<li class="none">  <a href="http://www.informationdelight.info/information/entry/Eugene_Garfield" class="copylinks">Eugene Garfield</a> </li><br>
+<li class="none">  <a href="http://www.informationdelight.info/information/entry/Robert_R._Korfhage" class="copylinks">Robert R. Korfhage</a> </li><br>
+<li class="none">  <a href="http://www.informationdelight.info/information/entry/Calvin_Mooers" class="copylinks">Calvin Mooers</a> </li><br>
+<li class="none">  <a href="http://www.informationdelight.info/information/entry/Ted_Nelson" class="copylinks">Ted Nelson</a> </li><br>
+<li class="none">  <a href="http://www.informationdelight.info/information/entry/Don_Swanson" class="copylinks">Don Swanson</a> </li><br>
+
+</ul>
+<br>
+Awards in this field:  <a href="http://www.informationdelight.info/information/entry/Tony_Kent_Strix_award" class="copylinks">Tony Kent Strix Award</a> .<br>
+<br>
+<br>
+<span class="wiki_header"> ACM SIGIR GERARD SALTON AWARD</span><br>
+<br>
+; 1983 -  <a href="http://www.informationdelight.info/information/entry/Gerard_Salton" class="copylinks">Gerard Salton</a> ,  <a href="http://www.informationdelight.info/information/entry/Cornell_University" class="copylinks">Cornell University</a>  : "About the future of automatic information retrieval"<br>
+; 1988 -  <a href="http://www.informationdelight.info/information/entry/Karen_Spärck_Jones" class="copylinks">Karen Spärck Jones</a> ,  <a href="http://www.informationdelight.info/information/entry/University_of_Cambridge" class="copylinks">University Of Cambridge</a>  : "A look back and a look forward"<br>
+; 1991 -  <a href="http://www.informationdelight.info/information/entry/Cyril_Cleverdon" class="copylinks">Cyril Cleverdon</a> ,  <a href="http://www.informationdelight.info/information/entry/Cranfield_Institute_of_Technology" class="copylinks">Cranfield Institute Of Technology</a>  : "The significance of the Cranfield tests on index languages"<br>
+; 1994 -  <a href="http://www.informationdelight.info/information/entry/William_S._Cooper" class="copylinks">William S. Cooper</a> ,  <a href="http://www.informationdelight.info/information/entry/University_of_California,_Berkeley" class="copylinks">University Of California, Berkeley</a>  : "The formalism of probability theory in IR: a foundation or an encumbrance?"<br>
+; 1997 -  <a href="http://www.informationdelight.info/information/entry/Tefko_Saracevic" class="copylinks">Tefko Saracevic</a> ,  <a href="http://www.informationdelight.info/information/entry/Rutgers_University" class="copylinks">Rutgers University</a>  : "Users lost: reflections on the past, future, and limits of information science" <br>
+; 2000 -  <a href="http://www.soi.city.ac.uk/~ser/homepage.html" class="copylinks" target="_blank">Stephen E. Robertson</a> ,  <a href="http://www.informationdelight.info/information/entry/City_University,_London" class="copylinks">City University, London</a>  : "On theoretical argument in information retrieval"<br>
+; 2003 -  <a href="http://www.informationdelight.info/information/entry/W._Bruce_Croft" class="copylinks">W. Bruce Croft</a> ,  <a href="http://www.informationdelight.info/information/entry/University_of_Massachusetts,_Amherst" class="copylinks">University Of Massachusetts, Amherst</a>  : "Information retrieval and computer science: an evolving relationship"<br>
+; 2006 -  <a href="http://www.informationdelight.info/information/entry/C._J._van_Rijsbergen" class="copylinks">C. J. Van Rijsbergen</a> ,  <a href="http://www.informationdelight.info/information/entry/University_of_Glasgow" class="copylinks">University Of Glasgow</a> , UK : "Quantum haystacks"<br>
+<br>
+<br>
+<span class="wiki_header"> SEE ALSO </span><br>
+<br>
+<ul>
+<li class="none">  <a href="http://www.informationdelight.info/information/entry/Adversarial_information_retrieval" class="copylinks">Adversarial Information Retrieval</a> </li><br>
+<li class="none">  <a href="http://www.informationdelight.info/information/entry/Controlled_vocabulary" class="copylinks">Controlled Vocabulary</a> </li><br>
+<li class="none">  <a href="http://www.informationdelight.info/information/entry/Cross_Language_Evaluation_Forum" class="copylinks">Cross Language Evaluation Forum</a> </li><br>
+<li class="none">  <a href="http://www.informationdelight.info/information/entry/Cross-language_information_retrieval" class="copylinks">Cross-language Information Retrieval</a> </li><br>
+<li class="none">  <a href="http://www.informationdelight.info/information/entry/Digital_libraries" class="copylinks">Digital Libraries</a> </li><br>
+<li class="none">  <a href="http://www.informationdelight.info/information/entry/Document_classification" class="copylinks">Document Classification</a> </li><br>
+<li class="none">  <a href="http://www.informationdelight.info/information/entry/Educational_psychology" class="copylinks">Educational Psychology</a> </li><br>
+<li class="none">  <a href="http://www.informationdelight.info/information/entry/Free_text_search" class="copylinks">Free Text Search</a> </li><br>
+<li class="none">  <a href="http://www.informationdelight.info/information/entry/Geographic_information_system" class="copylinks">Geographic Information System</a> </li><br>
+<li class="none">  <a href="http://www.informationdelight.info/information/entry/Information_extraction" class="copylinks">Information Extraction</a> </li><br>
+<li class="none">  <a href="http://www.informationdelight.info/information/entry/Information_science" class="copylinks">Information Science</a> </li><br>
+<li class="none">  <a href="http://www.informationdelight.info/information/entry/Knowledge_visualization" class="copylinks">Knowledge Visualization</a> </li><br>
+<li class="none">  <a href="http://www.informationdelight.info/information/entry/Question_answering" class="copylinks">Question Answering</a> </li><br>
+<li class="none">  <a href="http://www.informationdelight.info/information/entry/Relevance_feedback" class="copylinks">Relevance Feedback</a> </li><br>
+<li class="none">  <a href="http://www.informationdelight.info/information/entry/Search_engines" class="copylinks">Search Engines</a> </li><br>
+<li class="none">  <a href="http://www.informationdelight.info/information/entry/Index_(search_engine)" class="copylinks">Search Index</a> </li><br>
+<li class="none">  <a href="http://www.informationdelight.info/information/entry/Spoken_document_retrieval" class="copylinks">Spoken Document Retrieval</a> </li><br>
+<li class="none">  <a href="http://www.informationdelight.info/information/entry/tf-idf" class="copylinks">Tf-idf</a> </li><br>
+<li class="none">  <a href="http://www.informationdelight.info/information/entry/SP_theory" class="copylinks">SP Theory</a> </li><br>
+
+</ul>
+<br>
+<br>
+<span class="wiki_header"> EXTERNAL LINKS </span><br>
+<br>
+<ul>
+<li class="none">  <a href="http://www.acm.org/sigir/" class="copylinks" target="_blank">ACM SIGIR: Information Retrieval Special Interest Group</a> </li><br>
+<li class="none">  <a href="http://irsg.bcs.org/" class="copylinks" target="_blank">BCS IRSG: British Computer Society - Information Retrieval Specialist Group</a>  </li><br>
+<li class="none">  <a href="http://trec.nist.gov" class="copylinks" target="_blank">Text Retrieval Conference (TREC)</a> </li><br>
+<li class="none">  <a href="http://www.cwirf.org/" class="copylinks" target="_blank">Chinese Web Information Retrieval Forum (CWIRF)</a> </li><br>
+<li class="none">  <a href="http://www.dcs.gla.ac.uk/Keith/Preface.html" class="copylinks" target="_blank">Information Retrieval</a>  (online book) by  <a href="http://www.informationdelight.info/information/entry/C._J._van_Rijsbergen" class="copylinks">C. J. Van Rijsbergen</a> </li><br>
+<li class="none">  <a href="http://ir.dcs.gla.ac.uk/wiki/" class="copylinks" target="_blank">Information Retrieval Wiki</a> </li><br>
+<li class="none">  <a href="http://www.google.com/search?hl=en&q=information+retrieval+resources" class="copylinks" target="_blank">Information Retrieval resources</a>  (Google search)</li><br>
+
+</ul>
+<br>
+<br>
+</text><br>
+<br>
+</td>
+</tr>
+<!-- other content -->
+</table>
+<!-- footer  -->
+<div id="footer" align="center">
+<div align="center">
+<script type="text/javascript"><!--
+google_ad_client = "pub-4110591766251874";
+google_alternate_ad_url = "http://www.informationdelight.info/misc/google_adsense_script.html";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_type = "text";
+google_ad_channel ="";
+google_color_border = "FFFFFF";
+google_color_link = "0000FF";
+google_color_bg = "FFFFFF";
+google_color_text = "333333";
+google_color_url = "0000FF";
+google_ui_features = "rc:6";
+google_ad_channel = "4529586799";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+<br>
+<table class="tostable" width="800" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td align="center" class="copygrey">
+<br>
+<br>
+<span class="tos">This article is licensed under the <a href="http://www.gnu.org/copyleft/fdl.html" target="_blank">GNU Free Documentation License</a>
+ and its copyright <br>supersedes any copyright notice in Information About's Terms of Service below.<br>
+  It uses material from the <a href="http://en.wikipedia.org/wiki/Information Retrieval" target="_blank">Wikipedia article "Information Retrieval"</a></span>
+<br>
+<br>
+</td
+</tr>
+<tr>
+<td height="50" align="center" valign="middle" class="privacy"><a href="/policy/tos.php" class="privacy" target="_blank">Review our Terms of Service. </a><br> &copy; Copyright 2003-2010. Information About, Where you can have ALL your shopping needs met without unwanted poppups and clutter.<br>  If you have any comments, please write to <a href="mailto:info@informationdelight.info" class="privacy">info@informationdelight.info</a>.</td>
+
+</tr>
+<!-- <tr>  -->
+<!--
+<table border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td width="135" valign="bottom"><img src="/imgs/logos/small_logo.gif" width="135" height="42"></td>
+			<td width="590" align="center" valign="bottom">
+				<table width="590" height="42" border="0" cellpadding="0" cellspacing="0">
+					<tr>
+						<td align="center" valign="middle" bgcolor="F0EADE"><font color="7A163C" size="1" face="Arial, Helvetica, sans-serif" onclick="MM_openBrWindow('/disclaimer.html','','width=600,height=390')"><a href="http://www.seattleluxury.com/realestate/index.php" class="copylinks">Consistently delivering timely and professional services</a></font></td>
+					</tr>
+				</table>
+			</td>
+			<td><img src="/imgs/prudential_small.gif" width="63" height="80" hspace="5"></td>
+		</tr>
+</table>
+-->
+
+</table>
+</div>
+</div>
+<!-- **************************************  end of main content  ************************************** -->
+<!-- left column -->
+<!-- check for  vertical image  -->
+<!-- right column  -->
+<div id="RightColumn" align="center" style="position:absolute; left:955px; top:115px; width:129; height:19px; z-index:3">
+<table width="135px">
+<tr>
+<td width="135">
+<table border="1" bordercolor="#ffbb00" style="border:solid">
+<tr>
+<td>
+<script type="text/javascript"><!--
+google_ad_client = "pub-4110591766251874";
+/* 120x90, created 12/3/08 */
+google_ad_slot = "7747838061";
+google_ad_width = 120;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table></div>
+</body>
+</html>

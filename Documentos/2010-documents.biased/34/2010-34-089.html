@@ -1,0 +1,507 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+   <meta name="Author" content="Ian Stuart" />
+   <meta name="GENERATOR" content="Various" />
+   <meta name="verify-v1" content="lZAcN49Zf94po3p26ab+KXzfkPXuzEAcY0SrH9VQR84=" />
+   <link rel="StyleSheet" href="/Template/style.css" type="text/css" />
+   <link rel="icon" href="favicon.ico" type="image/x-icon" />
+   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+   <title>Ian Stuart's personal web site - XML and Namespaces, a brief introduction</title>
+
+    <META name="keywords" content="namespaces introduction tutorial brief XML">
+    <META name="Description" content="A brief introduction (or tutorial) to Namespaces in XML.">
+</head>
+<body class="clean_page_background">
+<div class="translucent_title">
+<h1>
+XML and Namespaces, a brief introduction
+</h1>
+</div>
+<br />
+<table>
+<tr><td width="100" valign="top">
+<a href="/" title="The start of the web site" class="menu_item"><img src="/images/home.gif" alt="[home]"  class="menu_item"/></a><br />
+
+<a href="/about/" title="Who is Ian?" class="menu_item"><img src="/images/about.gif" alt="[About]"  class="menu_item"/></a><br />
+
+<a href="http://wee0ne.livejournal.com/" title="Anything that seems relevant and/or newsie" class="menu_item"><img src="/images/news.gif" alt="[News]" class="menu_item"/></a><br />
+
+<a href="/contact/" title="How to contact me" class="menu_item"><img src="/images/contact.gif" alt="[Contact]"  class="menu_item"/></a><br />
+
+<a href="/Begging/" title="My personal collection of '4-1-9 Scam' letters"  class="menu_item"><img src="/images/scam.gif" alt="[419 Scam]" class="menu_item" /></a><br />
+
+<a href="http://wee0ne.livejournal.com/" title="Sometimes I have thoughts. Sometimes I put these thoughts into form, and record them."   class="menu_item"><img src="/images/musings3.gif" alt="[Musings]"  class="menu_item"/></a><br />
+
+<a href="/work/" title="Ian at work"  class="menu_item"><img src="/images/work.gif" alt="[At Work]" class="menu_item" /></a><br />
+
+<a href="/play/" title="Ian at play"  class="menu_item"><img src="/images/play.gif" alt="[At Play]" class="menu_item" /></a><br />
+
+<a href="/tutorials/" title="Some tutorials/introductions I have written"  class="menu_item"><img src="/images/tutorials.gif" alt="[Tutorials]" class="menu_item" /></a><br />
+
+<a href="/sillies/" title="Some silly things that I like to keep around"  class="menu_item" ><img src="/images/silly.gif" alt="[Silly things]" class="menu_item" /></a><br />
+
+<!-- <a href="http://dlucas.ucs.ed.ac.uk/gallery2/main.php" title="Various pictures, somewhat categorised"  class="menu_item"><img src="/images/pictures.gif" alt="[Pictures]" class="menu_item" /></a><br /> -->
+<a href="http://picasaweb.google.com/perllaghu" title="Various pictures, somewhat categorised"  class="menu_item"><img src="/images/pictures.gif" alt="[Pictures]" class="menu_item" /></a><br />
+
+<a href="/musings/" title="The most recent updates to this site"  class="menu_item"><img src="/images/updates.gif" alt="[recent updates]" class="menu_item" /></a><br />
+
+<!-- <a href="" title=""></a>
+<a href="" title=""></a>
+<a href="" title=""></a>
+<a href="" title=""></a>
+<a href="" title=""></a>
+<a href="" title=""></a>
+<a href="" title=""></a> -->
+</td><td style="vertical-align:top">
+
+
+  <!-- The main body -->
+
+<dl>
+<dt>Index of parts:</dt>
+<dd><a href="#why">WHY do we need namespaces?</a></dd>
+<dd><a href="#explain1">What?</a> (the heck do you mean)
+ <ul>
+  <li><a href="#disamb">To disambiguate between elements</a></li>
+  <li><a href="#group">To group elements</a></li>
+ </ul></dd>
+<dd><a href="#syntax">What is a namespace?</a>
+<dd><a href="#using">How do I use a namespace?</a>
+ <ul>
+  <li><a href="#eg">Here is an example</a></li>
+  <li><a href="#diff">Different prefix, same namespace</a></li>
+  <li><a href="#same">Same prefix, different namespaces</a></li>
+ </ul>
+  </dd>
+<dd><a href="#multi">Multiple Namespaces</a></dd>
+<dd><a href="#default">The Default namespace</a></dd>
+<dd><a href="#attribs">Attributes and Namespace</a></dd>
+<dd><a href="#rddl">What do I put at the end a namespace URI?</a></dd>
+</dl>
+<hr />
+
+<h2><a name="why">WHY do we need namespaces?</a></h2>
+<dL>
+<dt>There are really two fundamental needs for namespaces:</dt>
+<dd>To disambiguate between two elements that happen to share the name name</dd>
+<dd>To group elements relating to a common idea together</dd>
+</dl>
+<h2><a name="explain1">What?</a></h2>
+<p>OK, so these statements are a bit vague - lets give some examples here:</p>
+
+<h4><a name="disamb">To disambiguate between elements that happen
+				to share the same name:</a></h4>
+
+<ul>
+<li>In <span class="code">(x)html</span> there is a
+			 <span class="code">table</span> element. There is also an
+			 element of the same name in
+			 <span class="code">XSL-FO</span>.</li>
+
+<li><span class="code">a</span>, <span class="code">title</span> and
+			 <span class="code">style</span> are all elements in both
+			 <span class="code">(x)html</span> and
+			 <span class="code">SVG</span>.</li>
+
+</ul>
+<p>So: how do you tell an <span class="code">SVG</span>
+		  <span class="code">title</span> from an
+		  <span class="code">(x)html</span> one?</p>
+
+
+<h4><a name="group">To group elements relating to a common idea together:</a></h4>
+<ul>
+<li>In <span class="code">(x)html</span>, the
+			 <span class="code">table</span>,
+			 <span class="code">style</span> and
+			 <span class="code">a</span> elements have specific rules on
+			 what is required, and what may (&amp; may not) be
+			 included. This should all be done in the same place.</li>
+</ul>
+<p>My own XML-based data may have validating rules, and I will want to
+			 define those rules in the same place, and differentiate
+			 these particular rules from any other rule-set I (or someone
+			 else) define.</p>
+</dl>
+
+
+<h2><a name="syntax">What is a namespace?</a></h2>
+<p>A namespace is a unique URI (<strong>U</strong>niform
+			 <strong>R</strong>esource <strong>L</strong>ocator)</p>
+<p>The advantage of this format is that anyone who is transmitting XML
+		  can be assumed to have access to a domain name (the bit after
+		  the <span class="code">http://</span>, but before the next
+		  <span class="code">/</span>.</p>
+<p>It is bad form to piggy-back on someone elses domain (especially is
+		  they don't know you're doing it!)</p>
+<dl>
+<dt>In an XML document, the URI is assocciated with a prefix, and this
+		  prefix is used with each element to indicate which namespace
+		  the element belongs to. eg:</dt>
+<dd><span class="code">rdf:description</span></dd>
+<dd><span class="code">xsl:template</span></dd>
+<dd><span class="code">zblsa:data</span></dd>
+<dt>The terms are:</dt>
+<dd>The part before the colon is the <em>prefix</em></dd>
+<dd>The part after the colon is the <em>Local part</em></dd>
+<dd>The a prefixed element is a <em>qualified name</em>
+<dd>The an un-prefixed element is an <em>unqualified name</em>
+</dl>
+
+<h2><a name="using">How do I use a namespace?</a></h2>
+<dl>
+<dt>To use a namespace, you first assocciate the URI with a
+			 namespace:</dt>
+<dd><span class="code"><strong>&lt;foo:tag xmlns:foo="http://me.com/namespaces/foofoo"&gt;</strong></span>.</dd>
+</dl>
+<p>This defines <span class="code">foo</span> as the prefix for the
+		  namespace for the element <span class="code">tag</span>.</p>
+
+<p>The attribute prefixed with <span class="code">xmlns</span> is like
+		  a command to say link the following letters to a URI. As no
+		  well-formed document can contain two identical attributes, the
+		  bit after the colon stops the same prefix being defined twice
+		  at the same time.</p>
+
+<h4><a name="eg">Here is an example:</a></h4>
+
+<table class="xml-example-table">
+<tr><td class="xml-example-cell">
+<span class="xml-example-title">Defining one prefix for a
+				  namespace:</span></br>
+<pre class="xml-example-cell-pre">
+
+&lt;foo:tag xmlns:foo="http://me.com/namespaces/foofoo"&gt;
+
+  &lt;foo:head&gt;
+    &lt;foo:title&gt;An example document&lt;/foo:title&gt;
+  &lt;/foo:head&gt;
+
+  &lt;foo:body&gt;
+    &lt;foo:e1&gt;a simple document&lt;/foo:e1&gt;
+    &lt;foo:e2&gt;
+      Another element
+    &lt;/foo:e2&gt;
+  &lt;/foo:body&gt;
+&lt;/foo:tag&gt;
+
+</pre>
+</td>
+</tr>
+</table>
+
+<p>For all elements within <span class="code">&lt;foo:tag&gt;</span>,
+		  the namespace prefix <span class="code">foo</span> is
+		  assocciated with the namespace URI
+		  <span class="code">http://me.com/namespaces/foofoo</span>.</p>
+
+<h4><a name="diff">Different prefix, same namespace:</a></h4>
+
+<p>It is, therefor, possible for different prefixes to actually refer
+		  to the name namespace:</p>
+<table class="xml-example-table">
+<tr><td class="xml-example-cell">
+<span class="xml-example-title">Defineing more than one prefix of the
+				  same namespace :</span></br>
+<pre class="xml-example-cell-pre">
+
+&lt;tag&gt;
+
+  &lt;foo:head xmlns:foo="http://me.com/namespaces/foofoo"&gt;
+    &lt;foo:title&gt;An example document&lt;/foo:title&gt;
+  &lt;/foo:head&gt;
+
+  &lt;bar:body xmlns:bar="http://me.com/namespaces/foofoo"&gt;
+    &lt;bar:e1&gt;a simple document&lt;/bar:e1&gt;
+    &lt;bar:e2&gt;
+      Another element
+    &lt;/bar:e2&gt;
+  &lt;/bar:body&gt;
+&lt;tag&gt;
+
+</pre>
+</td>
+</tr>
+</table>
+
+<p>This 
+
+<h4><a name="same">Same prefix, different namespaces:</a></h4>
+
+<p>It is also possible for the same prefix
+		  refer to different namespaces <em>depending on the
+			 context</em>
+<table class="xml-example-table">
+<tr><td class="xml-example-cell">
+<span class="xml-example-title">The same prefix, different
+					 namespace:</span></br>
+<pre class="xml-example-cell-pre">
+
+&lt;myns:html xmlns:myns="http://www.w3c.org/1999/xhtml"&gt;
+
+&lt;myns:head&gt;
+	&lt;myns:title&gt;A really bad idea&lt;/myns:title&gt;
+&lt;/myns:head&gt;
+
+&lt;myns:body&gt;
+  &lt;myns:h1&gt;A really bad idea&lt;/myns:h1&gt;
+    &lt;myns:pre&gt;
+      &lt;myns:pre xmlns:myns="http://my.com/namespaces/test-data"&gt;
+        &lt;myns:table&gt;
+          &lt;myns:data&gt;
+            Hello World
+          &lt;/myns:data&gt;
+        &lt;/myns:table&gt;
+      &lt;/myns:pre&gt;
+   &lt;/myns:pre&gt;
+&lt;/myns:body&gt;
+</pre>
+</td>
+</tr>
+<tr><td style="align: center"><span class="inform"><strong>NOTE: THIS IS NOT A GOOD IDEA!</strong></span>
+</td></tr>
+</table>
+
+<h2><a name="multi">Multiple Namespaces</a></h2>
+<p>If you are using namespaces, you will almost certainly need to use
+			 several namespaces at once, so how do you declare more than
+			 one namespace at a time?</p>
+<p>What you do is use more than one xmlns declaration:</p>
+
+<table class="xml-example-table">
+<tr><td class="xml-example-cell">
+<span class="xml-example-title">Defining more than one namespace:</span></br>
+<pre class="xml-example-cell-pre">
+
+&lt;foo:tag xmlns:foo="http://me.com/namespaces/foofoo"
+         xmlns:bar="http://me.com/namespaces/foobar"
+         &gt;
+
+  &lt;foo:head&gt;
+    &lt;foo:title&gt;An example document&lt;/foo:title&gt;
+  &lt;/foo:head&gt;
+
+  &lt;bar:body&gt;
+    &lt;bar:e1&gt;a simple document&lt;/bar:e1&gt;
+    &lt;bar:e2&gt;
+      Another element
+    &lt;/bar:e2&gt;
+  &lt;/bar:body&gt;
+&lt;/foo:tag&gt;
+
+</pre>
+</td>
+</tr>
+</table>
+
+<h2><a name="default">The Default namespace</a></h2>
+<h4>Question: If you use any namespaces, do all elements have to exist
+			 in a namespace?</h4>
+<p>Answer: Yes, but this may not be a problem:</p>
+<p>It is permissable to define a namespace that is associated with no
+			 prefix, ie <em>with unqualified names</em>.
+<dl>
+<dt>This is of particular importance for
+				  <span class="code">xhtml</span>, as one of the
+				  requirements is that xhtml does not break HTML, and HTML
+				  does not understand prefixes!</dt>
+<dt>To define the default namespace, simply allocate an
+				  <span class="code">xmlns</span> with no prefix:
+<dd><span class="code">
+		&lt;xhtml xmlns="http://www.w3c.org/1999/xhtml"&gt;</span></dd>
+
+</dl>
+<table class="xml-example-table">
+<tr><td class="xml-example-cell">
+<span class="xml-example-title">Defining a default namespace:</span></br>
+<pre class="xml-example-cell-pre">
+
+&lt;html xmlns="http://www.w3c.org/1999/xhtml"
+      xmlns:bar="http://me.com/namespaces/foobar"
+      &gt;
+
+  &lt;head&gt;
+    &lt;title&gt;An example document&lt;/title&gt;
+  &lt;/head&gt;
+
+  &lt;body&gt;
+    &lt;bar:e1&gt;a simple document&lt;/bar:e1&gt;
+    &lt;bar:e2&gt;
+      Another element
+    &lt;/bar:e2&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+
+</pre>
+</td>
+</tr>
+</table>
+
+<h2><a name="attribs">Attributes and Namespace</a></h2>
+<p>For any specific element, an attribute may only exist once. This
+				makes attributes slightly different to elements.</p>
+<p>Attributes may be placed in a specific namespace (
+				<span class="code">&lt.... myns:myattib="foo"
+				  ...&gt;</span>), or the may be left
+				<em>unqualified</em>.
+<p>The normal "rule" for Attributes is to put them in a namespace only
+				  if they are defined in a particular namespace (such as
+				  xlink or rdf attributes).</p>
+<p>Attributes that have no namespace prefix are not in any
+				  namespace. Note: this is not the same as being the in
+				  the default namespace.</p>
+<p>Attributes in namespaces only becomes important if you require the
+				  document to conform to a DTD or Schema - and the
+				  schemata defines the attribute as being
+				  <em>qualified</em>.</p>
+
+<h2><a name="rddl">What do I put at the end a namespace URI?</a></h2>
+<p>Nothing</p>
+
+<P>Ok, so this isn't really helpful. The problem here is that humans
+					 see a URL, so they want to point their web-browser at
+					 it and see what they get. This is purely a human
+					 thing, and is a consiquence of the choice of
+					 standardising on URIs for namespaces.</p>
+<dl>
+<dt>To quote Claude L. Bullard (from the XML-Dev email list):</dt>
+<dd class="xml-pre">The flaw is the conflation of name, location and
+						identity but that flaw is the basic feature by which
+						the WWW runs so we are stuck there. All the
+						handwaving about URN/URI/URL doesn't avoid the
+						simple fact that if one puts http:// anywhere in
+						browser display space, the system colors it blue and
+						puts up a finger.</dd>
+<dd class="xml-pre">The monkey expects a resource and when it doesn't
+						get one, it shocks the monkey. Monkeys don't read
+						specs to find out why they should be shocked. They
+						turn red and put up a finger.</dd>
+<dt>(Thanks to Elliotte Rusty Harold for finding it)</dt>
+</dl>
+<p>What many people do is place an document there, describing the
+					 namespace</p>
+<p>A new idea emerging from XML-dev is
+					 <a href="http://www.openhealth.org/RDDL/">RDDL</a>
+					 (the Resource Directory Description Language).</p>
+
+<hr />
+<h4>XML &quot;portals&quot;</h4>
+<dl>
+<dt>Main XML portal places</dt>
+<dd><a href="http://www.xml.com/">www.xml.com</a></dd>
+<dd><a href="http://www.xml.org/">www.xml.org</a></dd>
+<dd><a href="http://www.xml.net/">www.xml.net</a> (in the future)</dd>
+<dt>Portals that have information on XML</dt>
+<dd><a href="http://www.w3c.org/">www.w3c.org</a></dd>
+<dd><a href="http://www.oasis-open.org/cover/sgml-xml.html">www.oasis-open.org</a></dd>
+<dd><a href="http://xml.apache.org/">xml.apache.org</a></dd>
+</dl>
+<h4>Various intro's written by me</h4>
+<ul>
+<li><a href="/tutorials/namespaces/">XML namespaces</a></li>
+<li><a href="/tutorials/xml-schema/">XML Schema</a></li>
+</ul>
+
+
+</td></tr>
+</table>
+<table width="100%">
+ <tr>
+  <td>
+   <div class="notice">
+    <table width="100%">
+     <tr>
+      <td>
+       <span style="float: left">
+        <small>Last Edited: Thursday, 15-Sep-2005 20:54:40 BST</small>
+       </span>
+       <span style="float: right">
+        Edited by 
+        <em>
+         <a href="mailto:Ian.Stuart@ed.ac.uk">Ian.Stuart@ed.ac.uk</a>
+        </em>
+       <br />
+       <!-- AddThis Bookmark Button BEGIN -->
+<script type="text/javascript">
+  addthis_url    = location.href;   
+  addthis_title  = document.title;  
+  addthis_pub    = 'kiz';     
+</script><script type="text/javascript" src="http://s7.addthis.com/js/addthis_widget.php?v=12" ></script>
+<!-- AddThis Bookmark Button END -->
+       </span>
+      </td>
+     </tr>
+     <tr>
+     <td>
+
+<!-- Creative Commons License -->
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/1.0/"><img alt="Creative Commons License" src="http://creativecommons.org/images/public/somerights.gif" class="noborder"/></a><br />
+This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/1.0/">Creative Commons License</a>.
+<!-- end Creative Commons License -->
+
+
+<!--
+
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="">
+   <dc:type rdf:resource="http://purl.org/dc/dcmitype/Text" />
+   <license rdf:resource="http://creativecommons.org/licenses/by-sa/1.0/" />
+</Work>
+
+<License rdf:about="http://creativecommons.org/licenses/by-sa/1.0/">
+   <permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+   <permits rdf:resource="http://web.resource.org/cc/Distribution" />
+   <requires rdf:resource="http://web.resource.org/cc/Notice" />
+   <requires rdf:resource="http://web.resource.org/cc/Attribution" />
+   <permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+   <requires rdf:resource="http://web.resource.org/cc/ShareAlike" />
+</License>
+
+</rdf:RDF>
+
+-->
+     </td>
+    </tr>
+   </table>
+  </div>
+  <div id="footer_search">
+<!-- SiteSearch Google -->
+<form method="get" action="http://www.google.com/search">
+<table><tr><td>
+<a href="http://www.google.com/">
+<img src="http://www.google.com/logos/Logo_40wht.gif" 
+class="noborder" alt="Google" /></a>
+</td>
+<td>
+<label for="search_input"></label><input type="text" name="q" size="31" maxlength="255" value="" id="search_input"/>
+<input type="submit" name="btnG" value="Google Search" />
+<input type="hidden" name="domains" value="lucas.ucs.ed.ac.uk" /><br />
+<input type="radio" name="sitesearch" value="" id="search_web_scope" /> <label for="search_web_scope">WWW</label>
+<input type="radio" name="sitesearch" value="lucas.ucs.ed.ac.uk" checked="checked" id="search_lucas_scope" /> <label for="search_lucas_scope">Focus on this server</label><br />
+</td></tr></table>
+</form>
+<!-- SiteSearch Google -->
+     </div>
+     <div id="credit_graphics" >
+      <a href="http://lucas.ucs.ed.ac.uk/" title="Edited by Kiz"><img src="/images/kiz_logo.jpg" alt="Edited by Kiz" class="noborder"/></a><!--
+--><a href="http://web.archive.org/web/*/http://lucas.ucs.ed.ac.uk" title="Archived by the WayBack Machine since July 2000" target="_blank"><img src="/images/wayback_logo_sm.gif" alt="Archived by the WayBack Machine since July 2000" class="noborder"/></a><!--
+     - - ><a href="http://www.apache.org/"><img src="/icons/apache_pb2.png" alt="Powered by Apache" title="Powered by Apache 2.0.x web server. (c) Apache Foundation" class="left" border="0"/></a> -->
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-2894953-1";
+urchinTracker();
+</script>
+      </div>
+  </td>
+ </tr>
+</table>
+</body>
+</html>
+

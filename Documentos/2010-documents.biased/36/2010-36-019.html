@@ -1,0 +1,1345 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<head><title>
+	HttpWebRequest and the Expect: 100-continue Header Problem
+</title><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta content="Phil Haack attempts to infuse technology and software development with humor and a pragmatic eye... Attempts." name="Description" />
+<meta content="ASP.NET, ASP.NET MVC, Software, Development, Technology" name="KeyWords" />
+<meta content="IE=EmulateIE7" http-equiv="X-UA-Compatible" />
+<meta name="author" content="Haacked" />
+<meta name="Generator" content="Subtext Version 2.2.0.0" />
+<link id="RSSLink" title="RSS" type="application/rss+xml" rel="alternate" href="http://feeds.haacked.com/haacked" />
+<link type="text/css" rel="stylesheet" href="/css/lightbox.css" />
+<link type="text/css" rel="stylesheet" href="/skins/_System/csharp.css" />
+<link type="text/css" rel="stylesheet" href="/skins/_System/commonstyle.css" />
+<link type="text/css" rel="stylesheet" href="/skins/_System/commonlayout.css" />
+<link type="text/css" rel="stylesheet" href="/scripts/XFNHighlighter.css" />
+<!--[if IE]>
+<link type="text/css" rel="stylesheet" href="/Skins/Haacked-3.0/IEPatches.css" />
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="/Skins/Haacked-3.0/style.css" />
+<link id="CustomCss" type="text/css" rel="stylesheet" href="/customcss.aspx" /><link id="Rsd" rel="EditURI" type="application/rsd+xml" title="RSD" href="http://haacked.com/rsd.xml.ashx" /><link id="wlwmanifest" rel="wlwmanifest" type="application/wlwmanifest+xml" href="/wlwmanifest.xml.ashx" /><link id="opensearch" rel="search" type="application/opensearchdescription+xml" href="/opensearchdesc.xml.ashx" Title="you've been HAACKED" />
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+		<script type="text/javascript" src="/Scripts/common.js"></script>
+		<script type="text/javascript">
+			var subtextAllowedHtmlTags = ['a', 'b', 'strong', 'blockquote', 'p', 'i', 'em', 'u', 'strike', 'super', 'sub', 'code'];
+		</script>
+		<script type="text/javascript" src="/scripts/lightbox.js"></script>
+<script type="text/javascript" src="/scripts/XFNHighlighter.js"></script>
+<link rel="pingback" href="/default.aspxServices/Pingback.aspx"></link></head>
+	<body>
+		<form name="Form1" method="post" action="http-web-request-expect-100-continue.aspx" id="Form1">
+<input type="hidden" name="ctl10_ctl00_answer" id="ctl10_ctl00_answer" value="" />
+<input type="hidden" name="ctl10_ctl00_encrypted" id="ctl10_ctl00_encrypted" value="vRkuy6OoMQMSNC9pBHzTNnlI5hchRLiLvGP7EiIRUwI=" />
+<input type="hidden" name="__VIEWSTATE" id="
+__VIEWSTATE" value="" />
+
+
+<script src="/WebResource.axd?d=fE6HsTK_e6pgQO_JR3FLJJDl55hkPwcIBKM0BUVPAOBLGzc_2Bnj82aNqsNawfPdb9jqg-waev2HMFZ6-CGE7Q2&amp;t=633995432940000000" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=dDID6GrLA6DQFVtsj_TSDgKI0AJiWiln-LEcstrnzHIESFJuH5bnrl48DbOt3lG0LSb1He1CMRpplK6rVO9wsFZmyRKgU0646xj0BBAU2uU1&amp;t=102b3247" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side framework failed to load.');
+//]]>
+</script>
+
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWCQL+raDpAgKMp4eQDQLhw+zNBAKv+emwCALzrLLZDgK3xbi6CAL+8smPBwLIxJekBAKh2JmhBW9PjzIB/RLtpHQnrnoYsTBRuOwB" />
+            
+			
+
+<div id="container">
+	<div id="header">
+		
+		
+<div id="logo"><h1><a href="/" title="Home">You&#8217;ve Been Haacked</a></h1></div>
+<div id="navigation">
+	<div id="buttons">
+		<a href="http://feeds.haacked.com/haacked" title="Subscribe"><img src="/skins/haacked-3.0/images/icons/rss.gif" alt="Subscribe" /></a>
+		<a href="http://feeds.haacked.com/haacked" title="Reader Count"><img id="feedburner-count" src="http://feedproxy.google.com/~fc/haacked?bg=FF6600&amp;fg=292929&amp;anim=0" height="26" width="88" alt="Reader count" /></a>
+	</div><!-- /buttons -->
+	<div id="pages">
+		
+<ul>
+	<li class="pagehome">
+		<span><a id="header_MyLinks_HomeLink" title="Link to the home page." href="/default.aspx">Home</a></span>
+	</li>
+	<li class="pagearchives">
+		<span><a id="header_MyLinks_Archives" title="View Archives." href="/archives.aspx">Archives</a></span>
+	</li>
+	<li class="pagecontact">
+		<span><a id="header_MyLinks_ContactLink" title="Contact form." href="/contact.aspx">Contact</a></span>
+	</li>
+	<li class="pageresume">
+		<span><a href="/Docs/PhillipHaack_Resume.html" title="My Resume">Resume</a></span>
+	</li>
+	<li class="pageprivacy">
+		<span><a href="/articles/PrivacyPolicy.aspx">Privacy</a></span>
+	</li>
+	<li class="pagejobs">
+		<span></span>
+	</li>
+</ul>
+<!-- Not Visible -->
+
+
+
+	</div><!-- /pages -->
+</div><!-- /navigation -->
+
+
+
+
+	</div><!-- /header -->
+	<div id="body-wrap">
+	<div id="body">
+		<div id="wrapper">
+			<div id="left">
+				
+					
+<div class="previous-next">
+	<a id="ctl07_PreviousNext_PrevLink" title="previous post" href="/archive/2004/05/14/447.aspx">&lt;&lt; You've been hacked: now what?</a>
+	<span id="ctl07_PreviousNext_LeftPipe" class="prevNextSeparator"> | </span>
+	<a id="ctl07_PreviousNext_MainLink" href="/default.aspx">Home</a>
+	<span id="ctl07_PreviousNext_RightPipe" class="prevNextSeparator"> | </span>
+	<a id="ctl07_PreviousNext_NextLink" title="next post" href="/archive/2004/05/18/454.aspx">E3 Photos &gt;&gt;</a>
+</div>
+
+	<div class="entry">
+		<h1><a id="ctl07_TitleUrl" title="Title of this entry." href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx">HttpWebRequest and the Expect: 100-continue Header Problem</a></h1>
+		<ul class="entry-links">
+			<li class="permalink"><span id="ctl07_date"><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx" title="Permanent link to this post">May 15, 2004</a></span></li>
+			<li class="commentCount"><span id="ctl07_commentCount"><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#feedback" title="View and Add Comments">48 Comments</a></span></li>
+			<li class="printIcon"><span><a href="javascript:window.print();">Print</a></span></li>
+		</ul>
+
+		<p>Apparently I’m not the only one to run into this annoying problem. When using the HttpWebRequest to POST form data using HTTP 1.1, it ALWAYS adds the following HTTP header "Expect: 100-Continue". Fixing the problem has proved to be quite elusive.</p>
+<p>According to the HTTP 1.1 protocol, when this header is sent, the form data is not sent with the initial request. Instead, this header is sent to the web server which responds with 100 (Continue) if implemented correctly. However, not all web servers handle this correctly, including the server to which I am attempting to post data. I sniffed the headers that Internet Explorer sends and noticed that it does not send this header, but my code does. </p>
+<p>Looking through the newsgroups, several people have had problems with this, but nobody with a solution (apart from going back to HTTP 1.0 which doesn’t work for me). </p>
+<p>At this point, I thought I would fire up <a href="http://www.aisto.com/roeder/dotnet/">Lutz Roeder’s</a> Reflector 4.0 and look through the source code for the System.Net.HttpWebRequest class. Aha! There it is. Within a private method named "MakeRequest()" are the following lines of code: </p>
+<code>if (this._ExpectContinue &amp;&amp; ((this._HttpWriteMode == HttpWriteMode.Chunked) || (this._ContentLength &gt; ((long) 0))))<br />
+{<br />
+    this._HttpRequestHeaders.AddInternal("Expect", "100-continue");<br />
+}<br />
+</code>
+<p>So even if you try to remove the Expect header from the _HttpRequestHeaders collection, the header will get added back when the request is actually made. </p>
+<p>Unfortunately, fixing this is not easy since MakeRequest is a private method. Walking up the callee graph, I found that the method I would have to override is BeginGetRequestStream (there are other ancestors aside from this one). Unfortunately this method relies on several internal and private objects to which I do not have access. I hoped to re-use the existing code base and only make a slight tweak. </p>
+<p>I even started down the path of building my own HttpWebRequest class using the Rotor source code but ran into several problems there as well.</p>
+<p>In any case, I think the easiest way to get this fixed is to find the right person at Microsoft and ask them very nicely to try to get this in SP2. Pretty Please? </p>
+<p style="color: red;">UPDATE: <a href="http://blogs.msdn.com/lanceo/">Lance Olson</a> points me to the solution in my comments section. The <code>System.Net.ServicePointManager</code> class has a static property named <code><a href="http://msdn2.microsoft.com/en-us/library/system.net.servicepoint.expect100continue.aspx">Expect100Continue</a></code>.  Setting this to false will stop the header "Expect: 100-Continue" from being sent.  Thanks Lance!!!</p>
+	
+		<!--
+   <rdf:RDF 
+      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+      xmlns:dc="http://purl.org/dc/elements/1.1/"
+      xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+
+      <rdf:Description
+         rdf:about="http://haacked.com/archive/2004/05/15/http-web-request-expect-100-continue.aspx"
+         dc:identifier="http://haacked.com/archive/2004/05/15/http-web-request-expect-100-continue.aspx"
+         dc:title="HttpWebRequest and the Expect: 100-continue Header Problem"
+         trackback:ping="/default.aspxservices/trackbacks/449.aspx" 
+      />
+   </rdf:RDF>
+-->
+		
+		
+	<div id="commentsUpdatePanelWrapper">
+	
+<a name="feedback"></a>
+<h1>What others have said</h1>
+<p>
+
+</p>
+
+		<a name="98"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl00_GravatarImg" class="gravatar" src="/images/IdenticonHandler.ashx?code=649439909" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl00_NameLink" title="PingBack/TrackBack" class="comment-author">dk</a>
+						<span class="comment-date">May 15, 2004 3:45 PM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#98" title="permalink">#</a><a id="ctl09_CommentList_ctl00_EditCommentImgLink"></a> re: HttpWebRequest and the Expect: 100-continue Header Problem</strong>
+					</div><!-- /info -->
+					dude that happens to me all.....the time.
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+		<a name="99"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl01_GravatarImg" class="gravatar" src="/images/IdenticonHandler.ashx?code=1298721947" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl01_NameLink" title="http://haack.org/" class="comment-author" href="http://haack.org/">nospamplease75@yahoo.com (Haacked)</a>
+						<span class="comment-date">May 15, 2004 4:20 PM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#99" title="permalink">#</a><a id="ctl09_CommentList_ctl01_EditCommentImgLink"></a> RE: HttpWebRequest and the Expect: 100-continue Header Problem</strong>
+					</div><!-- /info -->
+					DK, this post wasn't for you. ;)  I need some real answers!
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+		<a name="100"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl02_GravatarImg" class="gravatar" src="/images/IdenticonHandler.ashx?code=-1353070950" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl02_NameLink" title="http://koba.europe.webmatrixhosting.net/" class="comment-author" href="http://koba.europe.webmatrixhosting.net/">Koba</a>
+						<span class="comment-date">May 15, 2004 6:01 PM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#100" title="permalink">#</a><a id="ctl09_CommentList_ctl02_EditCommentImgLink"></a> re: HttpWebRequest and the Expect: 100-continue Header Problem</strong>
+					</div><!-- /info -->
+					Happiness is not getting what you want, it's wanting what you have.
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+		<a name="133"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl03_GravatarImg" class="gravatar" src="/images/IdenticonHandler.ashx?code=412507696" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl03_NameLink" title="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfsystemnetservicepointmanagerclassexpect100continuetopic.asp" class="comment-author" href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfsystemnetservicepointmanagerclassexpect100continuetopic.asp">Lance Olson</a>
+						<span class="comment-date">Jun 02, 2004 10:57 AM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#133" title="permalink">#</a><a id="ctl09_CommentList_ctl03_EditCommentImgLink"></a> re: HttpWebRequest and the Expect: 100-continue Header Problem</strong>
+					</div><!-- /info -->
+					You can turn off the HttpWebRequest 100 continue behavior using the System.Net.ServicePointManager.Expect100Continue property.<br><br>-Lance
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+		<a name="228"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl04_GravatarImg" class="gravatar" src="/images/IdenticonHandler.ashx?code=-1435754115" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl04_NameLink" title="PingBack/TrackBack" class="comment-author">S</a>
+						<span class="comment-date">Jun 28, 2004 5:01 AM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#228" title="permalink">#</a><a id="ctl09_CommentList_ctl04_EditCommentImgLink"></a> re: HttpWebRequest and the Expect: 100-continue Header Problem</strong>
+					</div><!-- /info -->
+					Lance, after struggling with .NET SOAP POST'ing through an ISA proxy (which seems to be blocking the 100 Continue response, possibly that's configurable somewhere, but I haven't got access), this was exactly what I needed. Thanks!
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+		<a name="1079"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl05_GravatarImg" class="gravatar" src="/images/IdenticonHandler.ashx?code=-936723811" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl05_NameLink" title="PingBack/TrackBack" class="comment-author">Michael</a>
+						<span class="comment-date">Jan 20, 2005 9:15 AM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#1079" title="permalink">#</a><a id="ctl09_CommentList_ctl05_EditCommentImgLink"></a> re: HttpWebRequest and the Expect: 100-continue Header Problem</strong>
+					</div><!-- /info -->
+					This worked well for me. Thanks for the help.
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+		<a name="1208"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl06_GravatarImg" class="gravatar" src="/images/IdenticonHandler.ashx?code=-1752595538" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl06_NameLink" title="PingBack/TrackBack" class="comment-author">tonyg</a>
+						<span class="comment-date">Feb 23, 2005 1:14 PM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#1208" title="permalink">#</a><a id="ctl09_CommentList_ctl06_EditCommentImgLink"></a> re: HttpWebRequest and the Expect: 100-continue Header Problem</strong>
+					</div><!-- /info -->
+					Sadly, setting a global variable is a real non-solution if you're writing library code. What if the library's client application needs to use 100-continue for something? They're basically completely out of luck. (The situation gets worse if the client is multithreaded.)<br><br>So of the two possible options, (1) set a global variable and (2) downgrade to HTTP/1.0, neither are really very clever ways of doing things.<br><br>Clearly the correct thing is for the .NET libraries to allow setting Expect100Continue for *each* *request* in a thread-safe and library-writer-friendly manner, not using a global variable.
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+		<a name="1209"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl07_GravatarImg" class="gravatar" src="/images/IdenticonHandler.ashx?code=-110603090" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl07_NameLink" title="http://haacked.com/" class="comment-author" href="http://haacked.com/">Haacked</a>
+						<span class="comment-date">Feb 23, 2005 5:37 PM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#1209" title="permalink">#</a><a id="ctl09_CommentList_ctl07_EditCommentImgLink"></a> re: HttpWebRequest and the Expect: 100-continue Header Problem</strong>
+					</div><!-- /info -->
+					That's a very good point TonyG.
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+		<a name="1319"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl08_GravatarImg" class="gravatar" src="/images/IdenticonHandler.ashx?code=1298721947" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl08_NameLink" title="http://josh.glmotorsports.net/blog/archive/2005/03/18/590.aspx" class="comment-author" href="http://josh.glmotorsports.net/blog/archive/2005/03/18/590.aspx">Josh Pollard</a>
+						<span class="comment-date">Mar 18, 2005 11:10 AM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#1319" title="permalink">#</a><a id="ctl09_CommentList_ctl08_EditCommentImgLink"></a> Yellow Rate Quote Web Service Changed</strong>
+					</div><!-- /info -->
+					
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+		<a name="1382"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl09_GravatarImg" class="gravatar" src="/images/IdenticonHandler.ashx?code=-277784749" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl09_NameLink" title="PingBack/TrackBack" class="comment-author">Miracle</a>
+						<span class="comment-date">Mar 31, 2005 9:58 AM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#1382" title="permalink">#</a><a id="ctl09_CommentList_ctl09_EditCommentImgLink"></a> re: HttpWebRequest and the Expect: 100-continue Header Problem</strong>
+					</div><!-- /info -->
+					We have the same issue also, glad to see this thread... however we don't know where should we place the code (ServicePointManager.Expect100Continue = false;) in our ASP.NET application. <br><br>Can someone help? Thanks.
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+		<a name="1383"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl10_GravatarImg" class="gravatar" src="/images/IdenticonHandler.ashx?code=-1348795810" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl10_NameLink" title="http://haacked.com/" class="comment-author" href="http://haacked.com/">Haacked</a>
+						<span class="comment-date">Mar 31, 2005 10:10 AM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#1383" title="permalink">#</a><a id="ctl09_CommentList_ctl10_EditCommentImgLink"></a> re: HttpWebRequest and the Expect: 100-continue Header Problem</strong>
+					</div><!-- /info -->
+					That's a static property, so place the call somewhere that you know will execute before your http request code does.  For example you could set it just before your http request.  Or you could put it in a static constructor.
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+		<a name="1516"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl11_GravatarImg" class="gravatar" src="/images/IdenticonHandler.ashx?code=329066151" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl11_NameLink" title="PingBack/TrackBack" class="comment-author">ben</a>
+						<span class="comment-date">Apr 20, 2005 3:07 AM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#1516" title="permalink">#</a><a id="ctl09_CommentList_ctl11_EditCommentImgLink"></a> re: HttpWebRequest and the Expect: 100-continue Header Problem</strong>
+					</div><!-- /info -->
+					thanks mate, exactly our problem too and worked perfectly for us
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+		<a name="1908"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl12_GravatarImg" class="gravatar" src="/images/IdenticonHandler.ashx?code=601359004" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl12_NameLink" title="PingBack/TrackBack" class="comment-author">Mirronelli</a>
+						<span class="comment-date">Jun 02, 2005 6:22 AM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#1908" title="permalink">#</a><a id="ctl09_CommentList_ctl12_EditCommentImgLink"></a> re: HttpWebRequest and the Expect: 100-continue Header Problem</strong>
+					</div><!-- /info -->
+					Hi,<br><br>I think I found a bit better solution. Thanks to this thread I started reading all around the internet and have found out this:<br><br>The servicepointmanager is something like a http connection pool. It creates new servicepoints whenever needed and sets their Expect100Continue property based on its own static Expect100Continue value.<br><br>This means if a servicepoint was created before changing servicepointmanagers Expect100Continue property it preserves its original value.<br><br>The point is you can always change the servicepoints Expect100Continue instance property, thus changing the behaviour of each individual request.<br><br>The WebRequest class provides its underlying servicepoint so you can change it right before the request is being made.<br><br>Example:<br>// create web request<br>HttpWebRequest webRequest = (HttpWebRequest) WebRequest.Create(&quot;<a rel="nofollow" target="_new" href="http://something&quot;">http://something&quot;</a>);<br>webRequest.Method = &quot;POST&quot;;<br>webRequest.ServicePoint.Expect100Continue = false;<br><br>// post data<br>requestStream = webRequest.GetRequestStream();<br>StreamWriter requestWriter = new StreamWriter(requestStream);<br>requestWriter.Write(dataToPost);<br>requestWriter.Close();<br><br>//wait for server response<br>HttpWebResponse response = (HttpWebResponse) webRequest.GetResponse();
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+		<a name="3115"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl13_GravatarImg" class="gravatar" src="/images/IdenticonHandler.ashx?code=132699226" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl13_NameLink" title="http://www.ivanx.com/mtr" class="comment-author" href="http://www.ivanx.com/mtr">IvanX</a>
+						<span class="comment-date">Apr 02, 2006 9:10 PM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#3115" title="permalink">#</a><a id="ctl09_CommentList_ctl13_EditCommentImgLink"></a> re: HttpWebRequest and the Expect: 100-continue Header Problem</strong>
+					</div><!-- /info -->
+					Thanks for writing this. I thought it was just me! I was excited to see there was an easy solution. Frustratingly, however, the Expect100Continue property of WebRequest.ServicePoint is absent in .NET Compact Framework, which is what I am working with. I might just have to go with raw sockets for posting if I can't figure something else out...
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+		<a name="3402"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl14_GravatarImg" class="gravatar" src="/images/IdenticonHandler.ashx?code=-310988594" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl14_NameLink" title="REvol" class="comment-author">REvol</a>
+						<span class="comment-date">May 18, 2006 8:27 AM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#3402" title="permalink">#</a><a id="ctl09_CommentList_ctl14_EditCommentImgLink"></a> re: HttpWebRequest and the Expect: 100-continue Header Problem</strong>
+					</div><!-- /info -->
+					This thread is a great help! I encountered the 417: Expectation Failed problem too, and the description from the message is just that much. There was no way for me to derive the actual solution without the help from this thread.<br /><br />Can't they provide a more descriptive message to help pin point the issue?<br /><br />Anyway, thanks.
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+		<a name="3864"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl15_GravatarImg" class="gravatar" src="/images/IdenticonHandler.ashx?code=1744277036" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl15_NameLink" title="aaron" class="comment-author">aaron</a>
+						<span class="comment-date">Jul 25, 2006 1:23 PM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#3864" title="permalink">#</a><a id="ctl09_CommentList_ctl15_EditCommentImgLink"></a> re: HttpWebRequest and the Expect: 100-continue Header Problem</strong>
+					</div><!-- /info -->
+					didnt help YET but its getting me somewhere, thanks for the post
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+		<a name="4364"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl16_GravatarImg" class="gravatar" src="http://www.gravatar.com/avatar.php?gravatar_id=6f69fd1094e32ee2c6042c8611166dcc&amp;size=50&amp;default=identicon" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl16_NameLink" title="http://geekswithblogs.net/mnf/archive/2006/09/13/91012.aspx" class="comment-author" href="http://geekswithblogs.net/mnf/archive/2006/09/13/91012.aspx">Michael Freidgeim</a>
+						<span class="comment-date">Sep 13, 2006 1:22 AM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#4364" title="permalink">#</a><a id="ctl09_CommentList_ctl16_EditCommentImgLink"></a> re: HttpWebRequest and the Expect: 100-continue Header Problem</strong>
+					</div><!-- /info -->
+					Thanks for the post. It helped me to fight with Squid proxy server(see my post http://geekswithblogs.net/mnf/archive/2006/09/13/91012.aspx).<br />Also could you change your link  Expect100Continue to point to MSDN2(http://msdn2.microsoft.com/en-us/library/system.net.servicepoint.expect100continue.aspx).<br />MSDN Link Expect100Continue has notice "supported only in version 1.1", which can be interpreted as obsolete.
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+		<a name="4697"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl17_GravatarImg" class="gravatar" src="http://www.gravatar.com/avatar.php?gravatar_id=2e8006b207b416805b3337e8527bd899&amp;size=50&amp;default=identicon" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl17_NameLink" title="XCRYX" class="comment-author">XCRYX</a>
+						<span class="comment-date">Oct 03, 2006 2:45 AM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#4697" title="permalink">#</a><a id="ctl09_CommentList_ctl17_EditCommentImgLink"></a> re: HttpWebRequest and the Expect: 100-continue Header Problem</strong>
+					</div><!-- /info -->
+					Hello guys. I have a site that drives me crazy. I want to make a post in there from a WinApp in C# but everytime I tried, had no luck. <br />The website is:  http://patrick.net/housing/news.php but you can see that it redirects you at http://patrick.net/housing/login.php which requires an email and a password first. <br />When you try a request with ie browser is something like this:  email=xcrysoft@hotmail.com&amp;pw=xxxxx&amp;submit=Log+In  Everytime I post with my app I receive as response the same login.php and no news.php that I want. This are the header from the request from my app: <br /><br />Content-Type: application/x-www-form-urlencoded<br />User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.1.4322; .NET CLR 2.0.50727)<br />Cache-Control: no-cache<br />Accept-Encoding: gzip, deflate<br />Content-Length: 59<br />Connection: Keep-Alive<br />Host: patrick.net<br /><br />So, I managed to get rid of the 100-continue thing thanks to this thread... but still have this problem. Can anybody help me? PLEASE!!! I can tell you in details if someone wants to help me
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+		<a name="7393"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl18_GravatarImg" class="gravatar" src="http://www.gravatar.com/avatar.php?gravatar_id=1178ce359c9998c82ed59ce141d0f708&amp;size=50&amp;default=identicon" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl18_NameLink" title="eeichinger" class="comment-author">eeichinger</a>
+						<span class="comment-date">Oct 16, 2006 2:57 PM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#7393" title="permalink">#</a><a id="ctl09_CommentList_ctl18_EditCommentImgLink"></a> re: HttpWebRequest and the Expect: 100-continue Header Problem</strong>
+					</div><!-- /info -->
+					Hi,<br /><br />There's also an undocumented configuration setting for this:<br /><code><br />&lt;configuration&gt;<br />&lt;system.net&gt;<br />  &lt;settings&gt;<br />    &lt;servicePointManager<br />        checkCertificateName="true"<br />        checkCertificateRevocationList="false"<br />        useNagleAlgorithm="true"<br />        expect100Continue="false" <br />     /&gt;<br />    <br />    &lt;httpWebRequest<br />      maximumResponseHeadersLength="64"<br />      useUnsafeHeaderParsing="false" <br />    /&gt;<br />  &lt;/settings&gt;<br />&lt;/system.net&gt;<br />&lt;/configuration&gt;<br /></code><br />
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+		<a name="25817"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl19_GravatarImg" class="gravatar" src="http://www.gravatar.com/avatar.php?gravatar_id=e4cb857b184894dd00db9eb02c400790&amp;size=50&amp;default=identicon" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl19_NameLink" title="http://www.belizehomepage.com/" class="comment-author" href="http://www.belizehomepage.com/">John Mencias</a>
+						<span class="comment-date">Nov 22, 2006 8:00 AM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#25817" title="permalink">#</a><a id="ctl09_CommentList_ctl19_EditCommentImgLink"></a> re: HttpWebRequest and the Expect: 100-continue Header Problem</strong>
+					</div><!-- /info -->
+					You helped me too! Thanks.
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+		<a name="26233"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl20_GravatarImg" class="gravatar" src="http://www.gravatar.com/avatar.php?gravatar_id=e379a49b7b1c0b85048a94f128f33330&amp;size=50&amp;default=identicon" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl20_NameLink" title="Pavel" class="comment-author">Pavel</a>
+						<span class="comment-date">Nov 23, 2006 12:55 PM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#26233" title="permalink">#</a><a id="ctl09_CommentList_ctl20_EditCommentImgLink"></a> re: HttpWebRequest and the Expect: 100-continue Header Problem</strong>
+					</div><!-- /info -->
+					Very nice describtion, anyways, I've set the property (Expect100Continue) to false and I'm still getting the time out exception...<br />Could this be just because of the connection? I mean, that a simple time out occures due to the slow connection?<br />Increasing the time out property seems to help...<br /><br />Any ideas?
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+		<a name="35832"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl21_GravatarImg" class="gravatar" src="http://www.gravatar.com/avatar.php?gravatar_id=2d8945dbf1f3fd88cdfebb6d3e110e7e&amp;size=50&amp;default=identicon" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl21_NameLink" title="Kin" class="comment-author">Kin</a>
+						<span class="comment-date">Mar 08, 2007 2:40 AM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#35832" title="permalink">#</a><a id="ctl09_CommentList_ctl21_EditCommentImgLink"></a> re: HttpWebRequest and the Expect: 100-continue Header Problem</strong>
+					</div><!-- /info -->
+					Whoah...<br />thanks alot for writing this topic...<br />its problem nearly make me hang my self... :))<br />now my uploader work fine...<br /><br />Thanks again!<br /><br />Regards <br />Kin
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+		<a name="37166"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl22_GravatarImg" class="gravatar" src="/images/IdenticonHandler.ashx?code=-1769265491" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl22_NameLink" title="Chris Martin" class="comment-author">Chris Martin</a>
+						<span class="comment-date">Mar 16, 2007 9:40 PM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#37166" title="permalink">#</a><a id="ctl09_CommentList_ctl22_EditCommentImgLink"></a> re: HttpWebRequest and the Expect: 100-continue Header Problem</strong>
+					</div><!-- /info -->
+					Holy shit!<br /><br />I found this post whilst searching for POST timeout and thought it was a long shot for my problem. Well, it worked for me!<br /><br />Thank you so much!!!
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+		<a name="41221"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl23_GravatarImg" class="gravatar" src="/images/IdenticonHandler.ashx?code=1406486146" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl23_NameLink" title="http://powershelllive.com/blogs/latestnewgroupposts/archive/2007/05/09/re-http-request-problem.aspx" class="comment-author" href="http://powershelllive.com/blogs/latestnewgroupposts/archive/2007/05/09/re-http-request-problem.aspx">Latest Newsgroup Posts</a>
+						<span class="comment-date">May 09, 2007 4:14 AM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#41221" title="permalink">#</a><a id="ctl09_CommentList_ctl23_EditCommentImgLink"></a> Re: Http request problem</strong>
+					</div><!-- /info -->
+					At [link] , the suggested fix is: [System.Net.ServicePointManage r]::Expect100Continue = $false
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+		<a name="41829"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl24_GravatarImg" class="gravatar" src="http://www.gravatar.com/avatar.php?gravatar_id=ad590fc4aed56c9fdf725ed00cf43fc4&amp;size=50&amp;default=identicon" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl24_NameLink" title="AJB" class="comment-author">AJB</a>
+						<span class="comment-date">May 16, 2007 6:43 AM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#41829" title="permalink">#</a><a id="ctl09_CommentList_ctl24_EditCommentImgLink"></a> re: HttpWebRequest and the Expect: 100-continue Header Problem</strong>
+					</div><!-- /info -->
+					Has anyone been able to resolve this issue using this fix? I have the exact same problem and it appears as though the fix did nothing.<br /><br />Before initializing my httpwebrequest objects, I did:<br />ServicePointManager.Expect100Continue = False;<br /><br />Then, after my variable declaration, I did:<br /><br />myRequest.ServicePoint.Expect100Continue = false;<br /><br />Still, it times out on getresponse(). <br /><br />Ideas?
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+		<a name="41899"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl25_GravatarImg" class="gravatar" src="/images/IdenticonHandler.ashx?code=2129397860" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl25_NameLink" title="coollil7" class="comment-author">coollil7</a>
+						<span class="comment-date">May 17, 2007 6:44 AM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#41899" title="permalink">#</a><a id="ctl09_CommentList_ctl25_EditCommentImgLink"></a> re: HttpWebRequest and the Expect: 100-continue Header Problem</strong>
+					</div><!-- /info -->
+					Hi all, <br />Thanks for this helpful forum. I've been facing the problem of POST for a long time. Now i have tried disabling the Expect100Continue.  But I'm having another error now. It says :<br />Server error in '/melatWSite' application: the state information is invalid for this page and might be corrupted.<br /><br />melatWSite is my ASP.NET Web application.<br /><br />I have a Proxy build in C# and i'm trying to access my own created web application from this developed proxy. When it receives GET messages it works but with POST it does.<br />Can anyone help me in this please, cause i'm really stuck.<br /><br />Tnks in advance
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+		<a name="43259"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl26_GravatarImg" class="gravatar" src="http://www.gravatar.com/avatar.php?gravatar_id=147114d2cb04990606489a4bf759ed58&amp;size=50&amp;default=identicon" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl26_NameLink" title="Sunil Rashinkar" class="comment-author">Sunil Rashinkar</a>
+						<span class="comment-date">Jun 01, 2007 2:38 AM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#43259" title="permalink">#</a><a id="ctl09_CommentList_ctl26_EditCommentImgLink"></a> re: HttpWebRequest and the Expect: 100-continue Header Problem</strong>
+					</div><!-- /info -->
+					I have done the following....but i havent tested it yet...cause i was not sure if this is the right place to do the change...<br /><br />A Snip of my exisiting entries in "web.config" file in <br />directory "C:\WINNT\Microsoft.NET\Framework\v2.0.50727\CONFIG" for &lt;system.net&gt;<br />&lt;system.net&gt;<br />        &lt;defaultProxy&gt;<br />            &lt;proxy usesystemdefault="true" /&gt;<br />        &lt;/defaultProxy&gt;<br />&lt;/system.net&gt;<br /><br />I updated it with the following in the "web.config" file and it looks like below:<br />&lt;system.net&gt;<br />        &lt;defaultProxy&gt;<br />            &lt;proxy usesystemdefault="true" /&gt;<br />        &lt;/defaultProxy&gt;<br />        &lt;settings&gt;<br />	&lt;servicePointManager checkCertificateName="true" checkCertificateRevocationList="false" useNagleAlgorithm="true" expect100Continue="false"/&gt;<br />	&lt;httpWebRequest maximumResponseHeadersLength="64" useUnsafeHeaderParsing="false"/&gt;<br />	&lt;/settings&gt;<br />&lt;/system.net&gt;<br /><br />Is this correct?<br /><br />Sunil Rashinkar
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+		<a name="43260"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl27_GravatarImg" class="gravatar" src="http://www.gravatar.com/avatar.php?gravatar_id=147114d2cb04990606489a4bf759ed58&amp;size=50&amp;default=identicon" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl27_NameLink" title="Sunil Rashinkar" class="comment-author">Sunil Rashinkar</a>
+						<span class="comment-date">Jun 01, 2007 2:38 AM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#43260" title="permalink">#</a><a id="ctl09_CommentList_ctl27_EditCommentImgLink"></a> re: HttpWebRequest and the Expect: 100-continue Header Problem</strong>
+					</div><!-- /info -->
+					I have done the following....but i havent tested it yet...cause i was not sure if this is the right place to do the change...<br /><br />A Snip of my exisiting entries in "web.config" file in <br />directory "C:\WINNT\Microsoft.NET\Framework\v2.0.50727\CONFIG" for &lt;system.net&gt;<br />&lt;system.net&gt;<br />        &lt;defaultProxy&gt;<br />            &lt;proxy usesystemdefault="true" /&gt;<br />        &lt;/defaultProxy&gt;<br />&lt;/system.net&gt;<br /><br />I updated it with the following in the "web.config" file and it looks like below:<br />&lt;system.net&gt;<br />        &lt;defaultProxy&gt;<br />            &lt;proxy usesystemdefault="true" /&gt;<br />        &lt;/defaultProxy&gt;<br />        &lt;settings&gt;<br />	&lt;servicePointManager checkCertificateName="true" checkCertificateRevocationList="false" useNagleAlgorithm="true" expect100Continue="false"/&gt;<br />	&lt;httpWebRequest maximumResponseHeadersLength="64" useUnsafeHeaderParsing="false"/&gt;<br />	&lt;/settings&gt;<br />&lt;/system.net&gt;<br /><br />Is this correct?<br /><br />Sunil Rashinkar
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+		<a name="43952"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl28_GravatarImg" class="gravatar" src="http://www.gravatar.com/avatar.php?gravatar_id=0e9459b42af2fdf661d3384c052fbba4&amp;size=50&amp;default=identicon" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl28_NameLink" title="http://seizethedave.com/" class="comment-author" href="http://seizethedave.com/">David Grant</a>
+						<span class="comment-date">Jun 08, 2007 11:51 AM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#43952" title="permalink">#</a><a id="ctl09_CommentList_ctl28_EditCommentImgLink"></a> re: HttpWebRequest and the Expect: 100-continue Header Problem</strong>
+					</div><!-- /info -->
+					Jesus Christ, thanks for the solution.<br />
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+		<a name="48231"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl29_GravatarImg" class="gravatar" src="http://www.gravatar.com/avatar.php?gravatar_id=d8c2d053cc20f6e3890bd237ca90d160&amp;size=50&amp;default=identicon" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl29_NameLink" title="henk de bakker" class="comment-author">henk de bakker</a>
+						<span class="comment-date">Aug 22, 2007 5:54 AM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#48231" title="permalink">#</a><a id="ctl09_CommentList_ctl29_EditCommentImgLink"></a> re: HttpWebRequest and the Expect: 100-continue Header Problem</strong>
+					</div><!-- /info -->
+					Thanks, saved me a lot of time.
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+		<a name="48262"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl30_GravatarImg" class="gravatar" src="/images/IdenticonHandler.ashx?code=-1629569910" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl30_NameLink" title="http://test/" class="comment-author" href="http://test/">sg</a>
+						<span class="comment-date">Aug 22, 2007 3:43 PM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#48262" title="permalink">#</a><a id="ctl09_CommentList_ctl30_EditCommentImgLink"></a> re: HttpWebRequest and the Expect: 100-continue Header Problem</strong>
+					</div><!-- /info -->
+					System.Net.ServicePointManager.Expect100Continue<br /><br />Worked for us too!
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+		<a name="50647"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl31_GravatarImg" class="gravatar" src="/images/IdenticonHandler.ashx?code=-309260323" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl31_NameLink" title="IBR" class="comment-author">IBR</a>
+						<span class="comment-date">Sep 15, 2007 12:57 PM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#50647" title="permalink">#</a><a id="ctl09_CommentList_ctl31_EditCommentImgLink"></a> re: HttpWebRequest and the Expect: 100-continue Header Problem</strong>
+					</div><!-- /info -->
+					Thanks man the error 417 error no longer appear, but when i post the login data to the form the form didn't login?????<br />HELP PLEASE
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+		<a name="62853"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl32_GravatarImg" class="gravatar" src="http://www.gravatar.com/avatar.php?gravatar_id=e5e652ce8fe7ebb94c0c8e2e689e0701&amp;size=50&amp;default=identicon" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl32_NameLink" title="SC" class="comment-author">SC</a>
+						<span class="comment-date">Jan 23, 2008 11:02 PM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#62853" title="permalink">#</a><a id="ctl09_CommentList_ctl32_EditCommentImgLink"></a> re: HttpWebRequest and the Expect: 100-continue Header Problem</strong>
+					</div><!-- /info -->
+					According to the HTTP 1.1. RFC...<br />   http://www.w3.org/Protocols/rfc2616/rfc2616-sec8.html<br />... it is not recommended the client wait long before sending the the request body if it does not receive a suitable response (eg. if the server is HTTP 1.0). <br /><br />---------<br />Because of the presence of older implementations, the protocol allows ambiguous situations in which a client may send "Expect: 100- continue" without receiving either a 417 (Expectation Failed) status or a 100 (Continue) status. Therefore, when a client sends this header field to an origin server (possibly via a proxy) from which it has never seen a 100 (Continue) status, the client SHOULD NOT wait for an indefinite period before sending the request body. 
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+		<a name="68134"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl33_GravatarImg" class="gravatar" src="/images/IdenticonHandler.ashx?code=991195703" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl33_NameLink" title="kotopyos" class="comment-author">kotopyos</a>
+						<span class="comment-date">Jul 02, 2008 7:14 AM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#68134" title="permalink">#</a><a id="ctl09_CommentList_ctl33_EditCommentImgLink"></a> re: HttpWebRequest and the Expect: 100-continue Header Problem</strong>
+					</div><!-- /info -->
+					Thank U very much! Very useful article
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+		<a name="68996"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl34_GravatarImg" class="gravatar" src="http://www.gravatar.com/avatar.php?gravatar_id=99ecffddbe87be013a47a57017952c90&amp;size=50&amp;default=identicon" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl34_NameLink" title="a5med" class="comment-author">a5med</a>
+						<span class="comment-date">Sep 07, 2008 10:48 AM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#68996" title="permalink">#</a><a id="ctl09_CommentList_ctl34_EditCommentImgLink"></a> re: HttpWebRequest and the Expect: 100-continue Header Problem</strong>
+					</div><!-- /info -->
+					Thank you all! I had such a problem but now I've coped with it! =)
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+		<a name="69628"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl35_GravatarImg" class="gravatar" src="http://www.gravatar.com/avatar.php?gravatar_id=d9978d66e58be5f21c62a5e13c59e0e2&amp;size=50&amp;default=identicon" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl35_NameLink" title="http://www.last.fm/user/amrhassan" class="comment-author" href="http://www.last.fm/user/amrhassan">Amr Hassan</a>
+						<span class="comment-date">Nov 10, 2008 9:47 AM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#69628" title="permalink">#</a><a id="ctl09_CommentList_ctl35_EditCommentImgLink"></a> re: HttpWebRequest and the Expect: 100-continue Header Problem</strong>
+					</div><!-- /info -->
+					i just spent a whole day trying to figure out the problem with my code. after firing up wireshark and sniffing the calls, comparing them with the same requests made in python successfully, i found out about this stupid expect header value. after googling the words "httpwebrequest expect continue", i found this blog post. thank you for sharing your rant, you saved my work.
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+		<a name="70286"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl36_GravatarImg" class="gravatar" src="http://www.gravatar.com/avatar.php?gravatar_id=1035c8beadaca16a670315fb83a6d90b&amp;size=50&amp;default=identicon" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl36_NameLink" title="http://stagionedelpane.wordpress.com/" class="comment-author" href="http://stagionedelpane.wordpress.com/">stagionedelpane</a>
+						<span class="comment-date">Jan 02, 2009 8:29 AM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#70286" title="permalink">#</a><a id="ctl09_CommentList_ctl36_EditCommentImgLink"></a> re: HttpWebRequest and the Expect: 100-continue Header Problem</strong>
+					</div><!-- /info -->
+					Thankyou Phil and Lance!<br />Your solution solved my problem too! 
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+		<a name="70391"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl37_GravatarImg" class="gravatar" src="/images/IdenticonHandler.ashx?code=-1538812685" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl37_NameLink" title="dan" class="comment-author">dan</a>
+						<span class="comment-date">Jan 08, 2009 7:04 PM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#70391" title="permalink">#</a><a id="ctl09_CommentList_ctl37_EditCommentImgLink"></a> re: HttpWebRequest and the Expect: 100-continue Header Problem</strong>
+					</div><!-- /info -->
+					Wow this post saved me a lot of time, I'm sure.  This was one of the first hits I got on Google - sometimes it is your lucky day and sometimes you burn hours.  Sorry you had to go through the pain though.  I ran into this issue hacking together an automated login for a website where they are using ssl for the auth page.
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+		<a name="70450"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl38_GravatarImg" class="gravatar" src="http://www.gravatar.com/avatar.php?gravatar_id=67498fd0e17d27cb9be0c107f306e378&amp;size=50&amp;default=identicon" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl38_NameLink" title="http://geekswithblogs.net/mnf/archive/2009/01/13/specify-expect100continuefalse-in-web-service-client.aspx" class="comment-author" href="http://geekswithblogs.net/mnf/archive/2009/01/13/specify-expect100continuefalse-in-web-service-client.aspx">Michael Freidgeim</a>
+						<span class="comment-date">Jan 14, 2009 4:54 AM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#70450" title="permalink">#</a><a id="ctl09_CommentList_ctl38_EditCommentImgLink"></a> re: HttpWebRequest and the Expect: 100-continue Header Problem</strong>
+					</div><!-- /info -->
+					Thanks to Mirronelli I was able to Specify Expect100Continue=false in Web Service client. See my post <a rel="nofollow external" href="http://geekswithblogs.net/mnf/archive/2009/01/13/specify-expect100continuefalse-in-web-service-client.aspx" title="http://geekswithblogs.net/mnf/archive/2009/01/13/specify-expect100continuefalse-in-web-service-client.aspx">geekswithblogs.net/.../...-web-service-client.aspx</a> 
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+		<a name="70512"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl39_GravatarImg" class="gravatar" src="http://www.gravatar.com/avatar.php?gravatar_id=50d614516043733d3b5927e295b0fb6e&amp;size=50&amp;default=identicon" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl39_NameLink" title="Andreas" class="comment-author">Andreas</a>
+						<span class="comment-date">Jan 19, 2009 10:18 AM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#70512" title="permalink">#</a><a id="ctl09_CommentList_ctl39_EditCommentImgLink"></a> re: HttpWebRequest and the Expect: 100-continue Header Problem</strong>
+					</div><!-- /info -->
+					Thank you all for the solution and diffent ways how to fix. This problem really made me nervous :-)
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+		<a name="70537"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl40_GravatarImg" class="gravatar" src="/images/IdenticonHandler.ashx?code=-1323436098" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl40_NameLink" title="MT from SD" class="comment-author">MT from SD</a>
+						<span class="comment-date">Jan 22, 2009 9:27 PM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#70537" title="permalink">#</a><a id="ctl09_CommentList_ctl40_EditCommentImgLink"></a> re: HttpWebRequest and the Expect: 100-continue Header Problem</strong>
+					</div><!-- /info -->
+					I just spent 8 hours on this error.  After comparing the Fiddler2 sniffer requests of the headers when accessing the site using I.E. vs. those headers when accessing the site via my code, I saw that &quot;Expect: 100-continue&quot; header.  After doing a Google search, I stumbled accross your blog, implemented &quot;myHttpWebRequest.ServicePoint.Expect100Continue = false;&quot; in my code, and bingo... it now works!  Thanks for saving me from another 8 hours of frustration!!!
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+		<a name="70555"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl41_GravatarImg" class="gravatar" src="http://www.gravatar.com/avatar.php?gravatar_id=789cd58ed707beed3f17aa8fb32ca4aa&amp;size=50&amp;default=identicon" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl41_NameLink" title="Biju Alapatt" class="comment-author">Biju Alapatt</a>
+						<span class="comment-date">Jan 26, 2009 11:06 AM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#70555" title="permalink">#</a><a id="ctl09_CommentList_ctl41_EditCommentImgLink"></a> re: HttpWebRequest and the Expect: 100-continue Header Problem</strong>
+					</div><!-- /info -->
+					The problem solved by adding &quot;ignore_expect_100 on&quot; at the end of squid.conf file.
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+		<a name="75765"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl42_GravatarImg" class="gravatar" src="http://www.gravatar.com/avatar.php?gravatar_id=6f73aab94cdf9a1a79d58419e17d2061&amp;size=50&amp;default=identicon" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl42_NameLink" title="Chris Parsons" class="comment-author">Chris Parsons</a>
+						<span class="comment-date">Jan 11, 2010 9:18 AM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#75765" title="permalink">#</a><a id="ctl09_CommentList_ctl42_EditCommentImgLink"></a> re: HttpWebRequest and the Expect: 100-continue Header Problem</strong>
+					</div><!-- /info -->
+					Reverse proxying via Apache and a client installation (that is proprietary) to an IIS 6.0 server that is also managed and am  getting this problem - I have tried to strip the 'Expect' header with Apache config (using 'RequestHeader unset Expect' to no avail and even tried the IIS config changes but still can't get any joy.<br /><br />This was caused by an upgrade to the latest version of Apache, but I don't really want to roll it back... 
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+		<a name="75840"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl43_GravatarImg" class="gravatar" src="http://www.gravatar.com/avatar.php?gravatar_id=f45d88af46e129ae41e2671e70c505fd&amp;size=50&amp;default=identicon" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl43_NameLink" title="Sridhar" class="comment-author">Sridhar</a>
+						<span class="comment-date">Jan 14, 2010 8:23 AM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#75840" title="permalink">#</a><a id="ctl09_CommentList_ctl43_EditCommentImgLink"></a> re: HttpWebRequest and the Expect: 100-continue Header Problem</strong>
+					</div><!-- /info -->
+					I am having an annoying problem, I am making a https request to <a rel="nofollow external" href="https://www2.swift.com/bicdownload/bicdownloader?action=getfile&amp;productline=bicdir&amp;product=bicdb&amp;content=delta&amp;format=txt" title="https://www2.swift.com/bicdownload/bicdownloader?action=getfile&amp;productline=bicdir&amp;product=bicdb&amp;content=delta&amp;format=txt">www2.swift.com/.../bicdownloader</a> it returns a 401 unauthorized error. I have tried setting setting the authorization header and also set PreAuthenticate to true. I have set most of the settings specified in this site and still not able to solve this problem. The service uses a basic authentication.<br /><br />Uri uri = new Uri(&quot;<a rel="nofollow external" href="https://www2.swift.com/bicdownload/bicdownloader?action=getfile&amp;productline=bicdir&amp;product=bicdb&amp;content=delta&amp;format=txt&quot;" title="https://www2.swift.com/bicdownload/bicdownloader?action=getfile&amp;productline=bicdir&amp;product=bicdb&amp;content=delta&amp;format=txt&quot;">www2.swift.com/.../bicdownloader</a>);<br /><br />HttpWebRequest myReq = (HttpWebRequest)WebRequest.Create(uri);<br />try<br />{<br />	System.Net.ServicePointManager.CertificatePolicy = new  TrustAllCertificatePolicy(); <br /><br />	CredentialCache cache = new CredentialCache();<br />	cache.Add(uri, &quot;Basic&quot;, new NetworkCredential(&quot;me@example.com&quot;, &quot;Password1$&quot;,&quot;www2.swift.com&quot;));<br />	myReq.Credentials = cache;<br />	myReq.UnsafeAuthenticatedConnectionSharing = true;<br />	myReq.PreAuthenticate = true;<br />	myReq.ServicePoint.Expect100Continue = false;<br />	myReq.MaximumAutomaticRedirections = 10;<br />	myReq.Method = &quot;Post&quot;;<br />	myReq.ContentType = &quot;application/x-www-form-urlencoded&quot;;<br />	myReq.KeepAlive = true;<br />	myReq.Pipelined = true;<br />	string usernamePassword = &quot;me@example.com&quot; + &quot;:&quot; + &quot;Password1$&quot;;<br />	byte[] authBytes = Encoding.UTF8.GetBytes(usernamePassword.ToCharArray()); <br />	myReq.Headers[&quot;Authorization&quot;]  = &quot;Basic &quot; + Convert.ToBase64String(authBytes);<br />		<br />	HttpWebResponse wr = (HttpWebResponse)myReq.GetResponse();<br />}<br /><br />Please help I have already wasted 2 days on this.<br /><br />Kind Regards,<br />Sridhar 
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+		<a name="75853"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl44_GravatarImg" class="gravatar" src="/images/IdenticonHandler.ashx?code=-1205960488" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl44_NameLink" title="Guissepp88" class="comment-author">Guissepp88</a>
+						<span class="comment-date">Jan 15, 2010 12:57 AM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#75853" title="permalink">#</a><a id="ctl09_CommentList_ctl44_EditCommentImgLink"></a> re: HttpWebRequest and the Expect: 100-continue Header Problem</strong>
+					</div><!-- /info -->
+					Wasted more than 2 days on this...Thanks dude!!! 
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+		<a name="75912"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl45_GravatarImg" class="gravatar" src="http://www.gravatar.com/avatar.php?gravatar_id=e7b427295339240fd84fb6f1df5c0d0f&amp;size=50&amp;default=identicon" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl45_NameLink" title="hobbes" class="comment-author">hobbes</a>
+						<span class="comment-date">Jan 18, 2010 7:41 PM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#75912" title="permalink">#</a><a id="ctl09_CommentList_ctl45_EditCommentImgLink"></a> re: HttpWebRequest and the Expect: 100-continue Header Problem</strong>
+					</div><!-- /info -->
+					看得不是很清楚：）
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+		<a name="76128"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl46_GravatarImg" class="gravatar" src="/images/IdenticonHandler.ashx?code=1265192961" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl46_NameLink" title="Gang" class="comment-author">Gang</a>
+						<span class="comment-date">Feb 03, 2010 9:14 PM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#76128" title="permalink">#</a><a id="ctl09_CommentList_ctl46_EditCommentImgLink"></a> re: HttpWebRequest and the Expect: 100-continue Header Problem</strong>
+					</div><!-- /info -->
+					good discussion. I met the same question when our SOAP calling program meets Squid proxy. <br />I think the solution of disabling ServicePoint.Expect100Continue would done well.<br />Besides, I noticed that set  ServicePoint.Expect100Continue to false still affects following calls in .net programs, even if I restart debugging another inststance. Who has idea ? 
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+		<a name="76552"></a>
+		<div class="target wrapper">
+			<div class="section">
+				<div class="comment">
+					<div class="avatar">
+						<img id="ctl09_CommentList_ctl47_GravatarImg" class="gravatar" src="/images/IdenticonHandler.ashx?code=1393004627" alt="Requesting Gravatar..." border="0" />
+						<a id="ctl09_CommentList_ctl47_NameLink" title="Vaibhav" class="comment-author">Vaibhav</a>
+						<span class="comment-date">Mar 02, 2010 4:51 AM</span>
+					</div><!-- /avatar -->
+					<div class="info">
+						<strong><a href="/archive/2004/05/15/http-web-request-expect-100-continue.aspx#76552" title="permalink">#</a><a id="ctl09_CommentList_ctl47_EditCommentImgLink"></a> re: HttpWebRequest and the Expect: 100-continue Header Problem</strong>
+					</div><!-- /info -->
+					Great help thanks
+					<div class="clear"></div>
+					
+				</div><!-- /comment -->
+			</div><!-- /section -->
+		</div><!-- /wrapper -->
+	
+
+	<div id="post-comments">
+		<h1>What do you have to say?</h1>
+		<div class="form">
+			<fieldset>
+				<dl>
+					<dd>
+						<label for="PostComment_ascx_tbTitle">Title: </label>
+						<input name="ctl10$tbTitle" type="text" value="re: HttpWebRequest and the Expect: 100-continue Header Problem" maxlength="128" id="ctl10_tbTitle" class="field" />
+					</dd>
+					<dd>
+						<label for="PostComment_ascx_tbName">Name: </label>
+						<input name="ctl10$tbName" type="text" maxlength="32" id="ctl10_tbName" class="field" />
+					</dd>
+					<dd>
+						<label for="PostComment_ascx_tbEmail">Email: (never displayed)</label>
+						<input name="ctl10$tbEmail" type="text" maxlength="128" id="ctl10_tbEmail" class="fixed email" /> <span class="small">(will show your <a href="http://gravatar.com/" title="gravatar">gravatar</a>)</span>
+					</dd>
+					<dd>
+						<label for="PostComment_ascx_tbUrl">Website:</label>
+						<input name="ctl10$tbUrl" type="text" maxlength="256" id="ctl10_tbUrl" class="field" />
+					</dd>
+					<dd>
+						<label for="PostComment_ascx_tbComment">Comment: <span class="small">Allowed tags: blockquote, a, strong, em, p, u, strike, super, sub, code</span></label>
+						<textarea name="ctl10$tbComment" rows="10" cols="40" id="ctl10_tbComment"></textarea>
+					</dd>
+					<dd class="buttons">
+						<span id="ctl10_ctl00_subtext_captcha">Please add 6 and 6 and type the answer here: <input type="text" name="ctl10_ctl00_visibleanswer" value="" /></span><input type="submit" name="ctl10$btnCompliantSubmit" value="Leave Your Mark" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl10$btnCompliantSubmit&quot;, &quot;&quot;, true, &quot;SubtextComment&quot;, &quot;&quot;, false, false))" id="ctl10_btnCompliantSubmit" /> 
+						<a name="message"></a>
+						<span id="ctl10_Message"><font color="Red"></font></span>
+					</dd>
+				</dl>
+			</fieldset>
+		</div><!-- /form -->
+	</div><!-- /post-comments -->
+</div> <!-- /entry -->
+</div>
+				
+			</div><!-- /left -->
+			<div id="right">
+				<div class="wrapper">
+					<div class="section" id="about">
+						<h4>About Haacked</h4>
+						<p>
+							<img src="http://haacked.com/images/phil_haack-64x80.jpg" align="left" width="64" height="80" alt="Phil Haack" />
+							<a href="/articles/AboutHaacked.aspx" title="About Me">Phil Haack</a> attempts to infuse technology and 
+							software development with humor and a pragmatic eye... Attempts.
+						</p>
+						<p>For recent posts and more about me, <a href="#foot" title="Jump to the bottom">scroll to the bottom</a>.</p>
+					</div><!-- /about -->
+				</div><!-- /wrapper -->
+
+				<div id="adzerk" class="section">
+				    <div id="adzerk_ad_div">
+				        <script type="text/javascript" src="http://theloungenet.com/Server/DOTNET/HAACK/NOCSS"></script>
+				    </div>	
+				    <p id="adzerk_by">
+				        <a href='http://theloungenet.com'>Ads by The Lounge</a>
+				    </p>
+				</div>
+				
+				<div class="section">
+					
+<div id="search">
+	<div id="search-box">
+		<input name="search$txtSearch" type="text" id="search_txtSearch" class="searchterm" /> <input type="submit" name="search$btnSearch" value="Search" id="search_btnSearch" class="searchButton" />
+	</div>
+</div>
+				</div>
+				
+				
+		<div class="section">
+			<h4>Tag Cloud</h4>
+			<ul id="cloud">
+	
+				<li>
+					<span class="nobr"><a id="_ctrl_0_Tags_ctl01_TagUrl" title="ASP.NET (63)" class="tag-style-3 tag-item" href="/tags/ASP.NET/default.aspx">ASP.NET</a></span>
+				</li>
+	
+				<li>
+					<span class="nobr"><a id="_ctrl_0_Tags_ctl02_TagUrl" title="aspnet (8)" class="tag-style-2 tag-item" href="/tags/aspnet/default.aspx">aspnet</a></span>
+				</li>
+	
+				<li>
+					<span class="nobr"><a id="_ctrl_0_Tags_ctl03_TagUrl" title="aspnetmvc (105)" class="tag-style-3 tag-item" href="/tags/aspnetmvc/default.aspx">aspnetmvc</a></span>
+				</li>
+	
+				<li>
+					<span class="nobr"><a id="_ctrl_0_Tags_ctl04_TagUrl" title="C# (8)" class="tag-style-2 tag-item" href="/tags/C%23/default.aspx">C#</a></span>
+				</li>
+	
+				<li>
+					<span class="nobr"><a id="_ctrl_0_Tags_ctl05_TagUrl" title="Humor (12)" class="tag-style-2 tag-item" href="/tags/Humor/default.aspx">Humor</a></span>
+				</li>
+	
+				<li>
+					<span class="nobr"><a id="_ctrl_0_Tags_ctl06_TagUrl" title="japan (11)" class="tag-style-2 tag-item" href="/tags/japan/default.aspx">japan</a></span>
+				</li>
+	
+				<li>
+					<span class="nobr"><a id="_ctrl_0_Tags_ctl07_TagUrl" title="Microsoft (21)" class="tag-style-2 tag-item" href="/tags/Microsoft/default.aspx">Microsoft</a></span>
+				</li>
+	
+				<li>
+					<span class="nobr"><a id="_ctrl_0_Tags_ctl08_TagUrl" title="Music (14)" class="tag-style-2 tag-item" href="/tags/Music/default.aspx">Music</a></span>
+				</li>
+	
+				<li>
+					<span class="nobr"><a id="_ctrl_0_Tags_ctl09_TagUrl" title="Open Source (30)" class="tag-style-3 tag-item" href="/tags/Open%20Source/default.aspx">Open Source</a></span>
+				</li>
+	
+				<li>
+					<span class="nobr"><a id="_ctrl_0_Tags_ctl10_TagUrl" title="Routing (13)" class="tag-style-2 tag-item" href="/tags/Routing/default.aspx">Routing</a></span>
+				</li>
+	
+				<li>
+					<span class="nobr"><a id="_ctrl_0_Tags_ctl11_TagUrl" title="Security (15)" class="tag-style-2 tag-item" href="/tags/Security/default.aspx">Security</a></span>
+				</li>
+	
+				<li>
+					<span class="nobr"><a id="_ctrl_0_Tags_ctl12_TagUrl" title="Software (10)" class="tag-style-2 tag-item" href="/tags/Software/default.aspx">Software</a></span>
+				</li>
+	
+				<li>
+					<span class="nobr"><a id="_ctrl_0_Tags_ctl13_TagUrl" title="Software Development (16)" class="tag-style-2 tag-item" href="/tags/Software%20Development/default.aspx">Software Development</a></span>
+				</li>
+	
+				<li>
+					<span class="nobr"><a id="_ctrl_0_Tags_ctl14_TagUrl" title="SQL (17)" class="tag-style-2 tag-item" href="/tags/SQL/default.aspx">SQL</a></span>
+				</li>
+	
+				<li>
+					<span class="nobr"><a id="_ctrl_0_Tags_ctl15_TagUrl" title="Subtext (48)" class="tag-style-3 tag-item" href="/tags/Subtext/default.aspx">Subtext</a></span>
+				</li>
+	
+				<li>
+					<span class="nobr"><a id="_ctrl_0_Tags_ctl16_TagUrl" title="TDD (43)" class="tag-style-3 tag-item" href="/tags/TDD/default.aspx">TDD</a></span>
+				</li>
+	
+				<li>
+					<span class="nobr"><a id="_ctrl_0_Tags_ctl17_TagUrl" title="Threading (19)" class="tag-style-2 tag-item" href="/tags/Threading/default.aspx">Threading</a></span>
+				</li>
+	
+				<li>
+					<span class="nobr"><a id="_ctrl_0_Tags_ctl18_TagUrl" title="Tips (44)" class="tag-style-3 tag-item" href="/tags/Tips/default.aspx">Tips</a></span>
+				</li>
+	
+				<li>
+					<span class="nobr"><a id="_ctrl_0_Tags_ctl19_TagUrl" title="tokyo (10)" class="tag-style-2 tag-item" href="/tags/tokyo/default.aspx">tokyo</a></span>
+				</li>
+	
+				<li>
+					<span class="nobr"><a id="_ctrl_0_Tags_ctl20_TagUrl" title="Unit Testing (10)" class="tag-style-2 tag-item" href="/tags/Unit%20Testing/default.aspx">Unit Testing</a></span>
+				</li>
+	
+			</ul>
+			<div class="clear"></div>
+			<strong><a href="/Tags/default.aspx" id="view-all-tags" title="All Tags">[View All Tags]</a></strong>
+		</div><!-- /section -->
+	
+
+				
+				<div class="section">
+					<h4>Badges</h4>
+<p>
+<a href="http://crystaltech.com/dedicated-windows.aspx?uid=100" title="CrystalTech"><img src="/skins/Haacked-3.0/images/ctbadge3.gif" width="115" height="60" alt="CrystalTech Logo" /></a>
+</p>				
+<p>
+					<a href="http://subtextproject.com/" title="Powered By Subtext"><img src="http://haacked.com/images/PoweredBySubtext85x33.png" width="85" height="33" alt="Powered By Subtext" /></a>
+					</p>
+					<p>
+					<a href="http://scott.carnett.name/" title="Scott Carnett"><img src="http://haacked.com/Skins/Haacked-3.0/images/scott.carnett.badge.gif" alt="Scott Carnett - Designer" width="117" height="37" /></a>
+					</p>
+				</div><!-- /section -->
+			</div><!-- /right -->
+			<div class="clear"></div>
+		</div><!-- /wrapper -->
+		<div class="clear"></div>
+	</div><!-- /body -->
+	</div>
+</div><!-- /container -->
+<div id="footer">
+	<a name="foot"></a>
+	<div class="content">
+		<div class="section">
+			<h4>Recent Posts</h4>
+			
+			<ul>
+	
+				<li><a href="/archive/2010/03/12/ms-pl-source-release-for-system-web-mvc-2.aspx" title="Recent post">Ms-PL Source Release for System.Web.Mvc 2</a></li>
+	
+				<li><a href="/archive/2010/03/11/aspnet-mvc2-released.aspx" title="Recent post">ASP.NET MVC 2 Released!</a></li>
+	
+				<li><a href="/archive/2010/02/28/austin-texas-great-for-geeks.aspx" title="Recent post">Austin Texas The Techie Town</a></li>
+	
+				<li><a href="/archive/2010/02/21/manipulating-action-method-parameters.aspx" title="Recent post">Manipulating Action Method Parameters</a></li>
+	
+				<li><a href="/archive/2010/02/12/asp-net-mvc-2-optional-url-parameters.aspx" title="Recent post">ASP.NET MVC 2 Optional URL Parameters</a></li>
+	
+			</ul>
+	
+
+
+			
+		</div><!-- /section -->
+		<div class="section">
+			<h4>Recent Comments</h4>
+			
+              <ul>
+       
+              <li><a id="_ctrl_1_feedList_ctl01_Link" title="Reader Comment." href="/archive/2010/03/11/aspnet-mvc2-released.aspx#76725">@Chris we already have some crazy dynamic tricks we'll be showing soon. What els...</a></li>
+       
+              <li><a id="_ctrl_1_feedList_ctl02_Link" title="Reader Comment." href="/archive/2010/03/12/ms-pl-source-release-for-system-web-mvc-2.aspx#76724">@Paul Alexander It's licensed differently than the source in CodePlex.</a></li>
+       
+              <li><a id="_ctrl_1_feedList_ctl03_Link" title="Reader Comment." href="/archive/2010/02/12/asp-net-mvc-2-optional-url-parameters.aspx#76723">  Instead of &amp;quot;Id&amp;quot;, I have a field in my View called email. If ...</a></li>
+       
+              <li><a id="_ctrl_1_feedList_ctl04_Link" title="Reader Comment." href="/archive/2009/04/22/scripted-db-views.aspx#76722">Phil , could you re upload that project ?:) please :):)</a></li>
+       
+              <li><a id="_ctrl_1_feedList_ctl05_Link" title="Reader Comment." href="/archive/2010/03/12/ms-pl-source-release-for-system-web-mvc-2.aspx#76721">Fantastic news Phil! Thanks to you and your whole team for jumping through the n...</a></li>
+       
+              </ul>
+       
+		</div><!-- /section -->
+		<div class="section" id="about-me">
+			
+<h4>About Me</h4>
+<p>
+The author of this blog is a megalomaniacal software developer with delusions of... well, uh, just delusions.
+</p>
+<p>By day, I am a Senior Program Manager at Microsoft. By night I lead the <a href="http://subtextproject.com/" title="Subtext Project Website">Subtext Project</a>, an Open Source blog engine.</p>
+<p><a href="http://www.flickr.com/photos/haacked/720440046/" title="Photo Sharing"><img src="http://farm2.static.flickr.com/1166/720440046_7bec55b6f0_m.jpg" width="240" height="180" alt="Me and Cody" /></a>
+</p>
+<p>
+To learn more, <a href="/articles/AboutHaacked.aspx" title="About me">keep reading</a>...
+</p>
+		</div><!-- /about-me -->
+	</div><!-- /content -->
+	<div class="clear"></div>
+</div><!-- /footer -->
+<div id="copyright">
+	Copyright &copy; 2007 Phil Haack. This work is licensed under the 
+	<a href="http://creativecommons.org/licenses/by/2.5/" rel="external license" title="Creative Commons Attribution License">Creative Commons License</a>. 
+	Hosting generously provided by <a href="http://crystaltech.com/dedicated-windows.aspx?uid=100" title="CrystalTech">CrystalTech</a>. 	
+	<strong>Website Design by <a href="http://scott.carnett.name/" title="Scott Carnett">Scott Carnett</a></strong>
+</div><!-- /copyright -->
+
+<script type="text/javascript" src="/Skins/Haacked-3.0/scripts/tableEffects.js" defer="defer"></script>
+<script type="text/javascript" src="/scripts/lightbox.js" defer="defer"></script>
+<script type="text/javascript" src="/scripts/XFNHighlighter.js" defer="defer"></script>
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-177588-1";
+urchinTracker();
+</script>
+		
+
+<script type="text/javascript">
+//<![CDATA[
+document.getElementById('Form1').action = window.location.href;
+//]]>
+</script>
+<script type="text/javascript">
+subtext_invisible_captcha_hideFromJavascriptEnabledBrowsers('ctl10_ctl00_subtext_captcha');
+</script><script type="text/javascript">
+subtext_invisible_captcha_setAnswer(6, 6, 'ctl10_ctl00_answer');
+</script>
+<script type="text/javascript">
+//<![CDATA[
+Sys.Application.initialize();
+//]]>
+</script>
+</form>
+	    
+	    <div id="stylesheetTest"></div>
+	</body>
+</html>

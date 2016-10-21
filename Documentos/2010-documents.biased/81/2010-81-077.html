@@ -1,0 +1,557 @@
+<html>
+
+<head>
+
+<meta name="Keywords" content="Web, Site, creation, domain, name, Internet, ICANN.">
+<meta name="Description" content="This site offers tutorials and links on web site creation.">
+
+<link rel="stylesheet" type="text/css" href="../../Lessons.css">
+
+<title>ASP.NET Topics: Using a Database on Your Web Site</title>
+</head>
+
+<body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+
+<table border="0" width="660" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="10%" valign="middle" align="center">
+    <a href="../index.htm"><img border="0" src="../../design/csharpkey2.gif" alt="Home" width="50" height="47"></a></td>
+    <td width="90%">
+      <p class="maintitle">ASP.NET Topics:<br>
+      Simple Data Entry</p></td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2" height="2" bgcolor="#CC3300"></td>
+  </tr>
+</table>
+
+&nbsp;
+
+
+
+<table border="0" width="660" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%">
+      <p class="subtitle">Introduction</td>
+  </tr>
+  <tr>
+    <td width="100%" height="1" bgcolor="#0000FF"></td>
+  </tr>
+</table>
+
+<table border="0" width="660">
+  <tr>
+    <td>
+
+<p class="parajust">One of the most regular operations you will perform on a web
+application is to allow visitors to create and submit records to you. On the
+server side, you can use a database that stores the records. On the browser
+side, you can create a web page that the visitors will use. Web applications are
+not exclusively used for the Internet anymore. You can create an application for
+a company but instead of making it a traditional Windows program, you can create
+a web-based application but only for internal (intranet) use. In this case also,
+the employees will use a web page to create and submit records that would be
+stored on the server.</p>
+<p class="parajust">In this introduction, we will see a simple (probably the
+simplest) way to create a record, using a simple SQL statement.</p>
+
+    </td>
+    <td>
+    
+<script type="text/javascript"><!--
+google_ad_client = "pub-3968514660870014";
+google_ad_width = 300;
+google_ad_height = 250;
+google_ad_format = "300x250_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+    </td>
+  </tr>
+</table>
+
+&nbsp;
+
+<table border="0" width="840">
+  <tr>
+    <td width="660">
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%">
+      <p class="exotitle"><img border="0" src="../../images/practical1.gif" alt="Practical Learning" width="21" height="20">Practical Learning: Introducing&nbsp;Data Entry</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%" bgcolor="#CC3300" height="1"></td>
+  </tr>
+</table>
+<ol>
+  <li>Microsoft SQL Server (Start -&gt; (All) Programs -&gt; Microsoft SQL
+    Server 2005 -&gt; SQL Server Management Studio and click Connect to connect
+    to the database)</li>
+  <li>On the main menu, click File -&gt; New -&gt;Query With Current Connection</li>
+  <li>To create a database and a table, type the following statement:<br>
+    &nbsp;
+    <table border="0" width="560">
+      <tr>
+        <td width="100%">
+          <pre>IF DB_ID (N'people1') IS NOT NULL
+DROP DATABASE people1;
+GO
+CREATE DATABASE people1;
+GO
+Use People1;
+GO
+CREATE Table Persons(
+PersonID INT IDENTITY(1,1) PRIMARY KEY,
+FirstName varchar(20),
+LastName varchar(20) NOT NULL);
+GO</pre>
+        </td>
+      </tr>
+    </table>
+  </li>
+  <li>To execute the statement, press F5</li>
+  <li>Start Microsoft Visual Studio or Microsoft Visual C#</li>
+  <li>To create a web site, on the main menu, click File -&gt; New -&gt; Web
+    Site...</li>
+  <li>Change the name of the web site to <b> persons1</b> and set the language to Visual
+    C#</li>
+  <li>Click OK</li>
+
+
+
+<li>In the Solution Explorer, right-click Default.aspx and click Rename</li>
+<li>Change the name to <b>index.aspx</b> and press Enter</li>
+
+</Span>
+
+  <li>To create a new web page, on the main menu, click Website -&gt; Add New
+    Item...</li>
+  <li>In the Templates, make sure Web Form is selected. Change the name to <b>persons</b>.<br>
+    Make sure the language is set to Visual C# and click Add</li>
+  <li>In the bottom section of the code editor, click Design</li>
+  <li>From the Data section of the Toolbox, drag SqlDataSource and drop it on
+    the form</li>
+  <li>Click Configure Data Source</li>
+  <li>In the Configure Data Source wizard, click New Connection</li>
+  <li>Select the name of the server in the Server Name combo box</li>
+  <li>In the Select Or Enter A Database Name combo box, select people1</li>
+  <li>Click Test Connection<br>
+    &nbsp;<br>
+    <img border="0" src="dlgboxes/addconn1.gif" alt="Add Connection" width="382" height="567"></li>
+  <li>Click OK and OK</li>
+
+
+
+<li>In the first page of the Configure Data Source wizard, click Next</li>
+<li>In the second page of the wizard, change the name of the connection string
+  to <b>cstPeople</b> and click Next</li>
+<li>Make sure the Specify Columns From A Table Or View radio button is selected.<br>
+  Make sure Persons is selected in the Name combo box box.<br>
+  In the Columns list box, click the * check box<br>
+  &nbsp;<br>
+  <img border="0" src="dlgboxes/confds1.gif" alt="Configure Data Source" width="580" height="450"></li>
+
+</Span>
+
+  <li>Click Next and click Finish</li>
+  <li>In the form, click below the data source and type <b>List of People</b></li>
+  <li>From the Data section of the Toolbox, drag GridView and drop it on the
+    form below the List of People title</li>
+  <li>While the data grid is still selected on the form, in the Properties
+    window, set its DataSourceID to SqlDataSource1</li>
+  <li>Click Source and change the file as follows:<br>
+    &nbsp;
+    <table border="0" width="560">
+      <tr>
+        <td width="100%">
+          <pre>&lt;%@ Page Language=&quot;C#&quot; 
+         AutoEventWireup=&quot;true&quot; 
+         CodeFile=&quot;persons.aspx.cs&quot; 
+         Inherits=&quot;persons&quot; %&gt;
+
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; 
+     &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; &gt;
+&lt;head runat=&quot;server&quot;&gt;
+    &lt;title&gt;<font color="#FF0000">People</font>&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;form id=&quot;<font color="#FF0000">frmPersons</font>&quot; runat=&quot;server&quot;&gt;
+    &lt;div&gt;
+        &lt;asp:SqlDataSource ID=&quot;SqlDataSource1&quot; 
+                           runat=&quot;server&quot; 
+                    ConnectionString=&quot;&lt;%$ ConnectionStrings:cstPeople %&gt;&quot;
+                           SelectCommand=&quot;SELECT * FROM [Persons]&quot;&gt;
+                           &lt;/asp:SqlDataSource&gt;
+        &lt;/div&gt;
+        <font color="#FF0000">&lt;h1&gt;List of People&lt;/h1&gt;</font>
+        &lt;asp:GridView ID=&quot;GridView1&quot;
+                      runat=&quot;server&quot; 
+                      AutoGenerateColumns=&quot;False&quot; 
+                      DataKeyNames=&quot;PersonID&quot;
+            DataSourceID=&quot;SqlDataSource1&quot;&gt;
+            &lt;Columns&gt;
+                &lt;asp:BoundField DataField=&quot;PersonID&quot; 
+                                HeaderText=&quot;PersonID&quot; 
+                                InsertVisible=&quot;False&quot;
+                                ReadOnly=&quot;True&quot; 
+                                SortExpression=&quot;PersonID&quot; /&gt;
+                &lt;asp:BoundField DataField=&quot;FirstName&quot; 
+                                HeaderText=&quot;FirstName&quot; 
+                                SortExpression=&quot;FirstName&quot; /&gt;
+                &lt;asp:BoundField DataField=&quot;LastName&quot; 
+                                HeaderText=&quot;LastName&quot; 
+                                SortExpression=&quot;LastName&quot; /&gt;
+            &lt;/Columns&gt;
+        &lt;/asp:GridView&gt;
+    &lt;/form&gt;
+    <font color="#FF0000">&lt;p&gt;
+        &lt;a href=&quot;index.aspx&quot;&gt;Home&lt;/a&gt;
+    &lt;/p&gt;</font>
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+        </td>
+      </tr>
+    </table>
+  </li>
+  <li>Save the file</li>
+</ol>
+
+
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%">
+      <p class="subtitle">Preparing the Application</td>
+  </tr>
+  <tr>
+    <td width="100%" height="1" bgcolor="#0000FF"></td>
+  </tr>
+</table>
+
+</Span>
+
+      <p class="parajust">Before performing data entry, you must get a
+      connection to the database server, which you can do by creating or using a
+      SqlConnection object.
+      <p class="parajust">Probably the simplest way to perform data entry in
+      ADO.NET is by using the INSERT INTO TABLE statement. After creating the
+      statement, you can pass it to a command. Once the command is ready, you
+      can execute it.</p>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%">
+      <p class="exotitle"><img border="0" src="../../images/practical1.gif" alt="Practical Learning" width="21" height="20">
+      Practical Learning: Performng Data Entry</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%" bgcolor="#CC3300" height="1"></td>
+  </tr>
+</table>
+
+</Span>
+
+<ol>
+
+
+
+<li>To create a new web page, on the main menu, click Website -&gt; Add New
+  Item...</li>
+<li>In the Templates, make sure Web Form is selected. Change the name to <b>newperson</b>.<br>
+  Make sure the language is set to Visual C# and click Add</li>
+<li>In the bottom section of the code editor, click Design</li>
+<li>Design the form as follows:<br>
+  &nbsp;
+  <table border="0" width="100">
+    <tr>
+      <td width="100%"><img border="0" src="webforms/persons1.gif" width="347" height="148" alt="Web Form Design"></td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <table border="1" width="100%" bordercolor="#C0C0C0">
+          <tr>
+            <td width="33%">Control</td>
+            <td width="33%">Text</td>
+            <td width="34%">(ID)</td>
+          </tr>
+          <tr>
+            <td width="33%">Label</td>
+            <td width="33%">First Name:</td>
+            <td width="34%">&nbsp;</td>
+          </tr>
+          <tr>
+            <td width="33%">TextBox</td>
+            <td width="33%">&nbsp;</td>
+            <td width="34%">txtFirstName</td>
+          </tr>
+          <tr>
+            <td width="33%">Label</td>
+            <td width="33%">Last Name:</td>
+            <td width="34%">&nbsp;</td>
+          </tr>
+          <tr>
+            <td width="33%">TextBox</td>
+            <td width="33%">&nbsp;</td>
+            <td width="34%">txtLastName</td>
+          </tr>
+          <tr>
+            <td width="33%">Button</td>
+            <td width="33%">Create</td>
+            <td width="34%">btnNewPerson</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</li>
+<li>In the bottom section, click Source and change the file as follows (you
+  don't have to do any of these things, it would not affect your exercise, it
+  will only make the form look good):<br>
+  &nbsp;
+  <table border="0" width="560">
+    <tr>
+      <td width="100%">
+        <pre>&lt;%@ Page Language=&quot;C#&quot;
+         AutoEventWireup=&quot;true&quot; 
+         CodeFile=&quot;newperson.aspx.cs&quot; 
+         Inherits=&quot;newperson&quot; %&gt;
+
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; 
+     &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; &gt;
+&lt;head runat=&quot;server&quot;&gt;
+    &lt;title&gt;People - New Person&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;form id=&quot;frmNewPerson&quot; runat=&quot;server&quot; method=&quot;get&quot;&gt;
+    &lt;div&gt;
+        &lt;h1&gt;People - New Person&lt;/h1&gt;
+        &lt;table&gt;
+            &lt;tr&gt;
+                &lt;td style=&quot;width: 100px&quot;&gt;
+                    &lt;asp:Label ID=&quot;Label1&quot; 
+                               runat=&quot;server&quot; 
+                               Text=&quot;First Name:&quot; 
+                               Width=&quot;94px&quot;&gt;
+                    &lt;/asp:Label&gt;&lt;/td&gt;
+                &lt;td style=&quot;width: 84px&quot;&gt;
+                    &lt;asp:TextBox ID=&quot;txtFirstName&quot; 
+                                 runat=&quot;server&quot;&gt;
+                    &lt;/asp:TextBox&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td style=&quot;width: 100px&quot;&gt;
+                    &lt;asp:Label ID=&quot;Label2&quot; 
+                               runat=&quot;server&quot; 
+                               Text=&quot;Last Name:&quot;&gt;
+                    &lt;/asp:Label&gt;&lt;/td&gt;
+                &lt;td style=&quot;width: 84px&quot;&gt;
+                    &lt;asp:TextBox ID=&quot;txtLastName&quot; 
+                                 runat=&quot;server&quot;&gt;
+                    &lt;/asp:TextBox&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td style=&quot;width: 100px&quot;&gt;
+                &lt;/td&gt;
+                &lt;td style=&quot;width: 84px&quot;&gt;
+                    &lt;asp:Button ID=&quot;btnCreate&quot;
+                                runat=&quot;server&quot; 
+                                Text=&quot;Create Person&quot; /&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
+    
+    &lt;/div&gt;
+    &lt;/form&gt;
+    &lt;p&gt;
+        &lt;a href=&quot;index.aspx&quot;&gt;Home&lt;/a&gt;
+    &lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+      </td>
+    </tr>
+  </table>
+</li>
+<li>In the bottom section of the code editor, click Design</li>
+<li>On the form, double-click Create and implement its event as follows:<br>
+  &nbsp;
+  <table border="0" width="560">
+    <tr>
+      <td width="100%">
+        <pre>using System;
+using System.Data;
+<font color="#FF0000">using System.Data.OleDb;</font>
+using System.Configuration;
+using System.Collections;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+
+public partial class newperson : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+    }
+    protected void btnNewPerson_Click(object sender,
+                                      EventArgs e)
+    {
+        <font color="#FF0000">OleDbConnection cnnPerson = 
+            new OleDbConnection(
+                  &quot;Provider=Microsoft.Jet.OLEDB.4.0;data source=&quot; +
+                        Server.MapPath(&quot;~/CGI-BIN/people.mdb&quot;));
+
+        try
+        {
+            cnnPerson.Open();
+
+            string strStatement = &quot;INSERT INTO Persons(FirstName, &quot; +
+                                                 &quot;LastName) VALUES('&quot; +
+                                                  txtFirstName.Text +
+                                                 &quot;', '&quot; +
+                                                  txtLastName.Text + &quot;');&quot;;
+            OleDbCommand cmdPerson = 
+			new OleDbCommand(strStatement, cnnPerson);
+
+            cmdPerson.ExecuteNonQuery();
+
+            txtFirstName.Text = &quot;&quot;;
+            txtLastName.Text = &quot;&quot;;
+            txtFirstName.Focus();
+        }
+        finally
+        {
+            cnnPerson.Close();
+        }</font>
+    }
+}</pre>
+      </td>
+    </tr>
+  </table>
+</li>
+<li>Click the index.aspx tab to access its file</li>
+<li>In the bottom section of the code editor, click Source is necessary and
+  change the file as follows:<br>
+  &nbsp;
+  <table border="0" width="560">
+    <tr>
+      <td width="100%">
+        <pre>&lt;%@ Page Language=&quot;C#&quot; 
+         AutoEventWireup=&quot;true&quot;  
+         CodeFile=&quot;index.aspx.cs&quot; 
+         Inherits=&quot;_Default&quot; %&gt;
+
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot;
+     &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; &gt;
+&lt;head runat=&quot;server&quot;&gt;
+    &lt;title&gt;<font color="#FF0000">People</font>&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+<font color="#FF0000">&lt;h1&gt;People&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;persons.aspx&quot;&gt;List of People&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;newperson.aspx&quot;&gt;New Person&lt;/a&gt;&lt;/p&gt;</font>
+
+    &lt;form id=&quot;form1&quot; runat=&quot;server&quot;&gt;
+    &lt;div&gt;
+    
+    &lt;/div&gt;
+    &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+      </td>
+    </tr>
+  </table>
+</li>
+<li>To execute the application, on the main menu, click Debug -&gt; Start
+  Without Debugging</li>
+<li>Click New Person and create a new people before returning to the home page,
+  then click the List of People link<br>
+  &nbsp;<br>
+  <img border="0" src="browser/people1.gif" width="429" height="372" alt="Browser Preview"></li>
+<li>Close the browser and the application</li>
+
+</ol>
+
+</Span>
+
+    </td>
+    <td>
+   
+<script type="text/javascript"><!--
+google_ad_client = "pub-3968514660870014";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_type = "text_image";
+google_ad_channel ="";
+google_color_border = "FFFFFF";
+google_color_link = "0000FF";
+google_color_bg = "FFFFFF";
+google_color_text = "000000";
+google_color_url = "008000";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+    </td>
+  </tr>
+</table>
+
+&nbsp;
+<table border="0" width="730">
+  <tr>
+    <td width="100%" align="center">
+    
+<script type="text/javascript"><!--
+google_ad_client = "pub-3968514660870014";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_type = "image";
+google_ad_channel ="";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+    </td>
+  </tr>
+</table>
+
+<table border="0" width="660">
+  <tr>
+    <td colspan="3">
+      <hr color="#FF0000">
+    </td>
+  </tr>
+  <tr>
+    <td align="center"><a href="../index.htm">Home</a></td>
+    <td align="center"><a href="../index.htm">Copyright © 2009 C# Key</a></td>
+    <td align="center"></td>
+  </tr>
+  <tr>
+    <td colspan="3">
+      <hr color="#FF0000">
+    </td>
+  </tr>
+</table>
+
+</body>
+
+</html>

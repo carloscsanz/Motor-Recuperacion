@@ -1,0 +1,579 @@
+<?xml version = "1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" 
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us">
+<head> 
+<meta name="Editor" content="EditPlus" />
+<link rel="stylesheet" type="text/css" href="../Common/default.css" />
+<script type="text/javascript" src="../Common/common.js"></script>
+<!-- XHTML not supported, server variable value is 'undefined' -->
+
+<title>XHTML Tutorial - Quotations and Tables</title>
+
+<script type="text/javascript">
+<!--
+//put your JavaScript statements below 
+-->
+</script> 
+
+<style type="text/css">
+/* Put your page-specific styles here */
+
+table#sample    {
+                 background: black;
+                 padding: 0;
+                }
+table#sample th, 
+table#sample td {
+                 font-family: serif;
+                 border: solid black 1px;
+                 padding: 4px;
+                 text-align: left;
+                 vertical-align: top;
+                }
+table#sample th {
+                 background: #CCC;
+                 width: 25%;
+                }
+table#sample td {
+                 background: white;
+                }
+</style>
+</head>
+<body>
+<div id="container">
+<div id="banner">
+  <img src="../images/bannerLogoClip.gif" alt="Synergy Consulting Logo" />
+  <p id="bannerText">XHTML - Quotations and Tables</p>
+</div>
+<div id="divMenuBar">
+<p class="menuBarItem" id="sideNavHome">
+<a class="sideBar" onmouseover="swapcolor('sideNavHome','orange')
+                " onmouseout="swapcolor('sideNavHome','#003333')
+                " href="http://www.synergycons.com/">
+Home
+</a>
+</p>
+<p class="menuBarItem" id="sideNavTuts">
+<a class="sideBar" onmouseover="swapcolor('sideNavTuts','orange')
+                " onmouseout="swapcolor('sideNavTuts','#003333')
+                " href="http://www.synergycons.com/Tutorials/tutorials.asp">
+Tutorials
+</a>
+</p>
+<p class="menuBarItem" id="sideNavLinks">
+<a class="sideBar" onmouseover="swapcolor('sideNavLinks','orange')
+                " onmouseout="swapcolor('sideNavLinks','#003333')
+                " href="http://www.synergycons.com/links.asp">
+Links
+</a>
+</p>
+<p class="menuBarItem" id="sideNavContact">
+<a class="sideBar" onmouseover="swapcolor('sideNavContact','orange')
+                " onmouseout="swapcolor('sideNavContact','#003333')
+                " href="mailto:keithbrown@synergycons.com">
+Contact Us
+</a>
+</p>
+<p class="menuBarItem" id="sideNavPeps">
+<a class="sideBar" onmouseover="swapcolor('sideNavPeps','orange')
+                " onmouseout="swapcolor('sideNavPeps','#003333')
+                " href="http://www.chem.unt.edu/~marshall/">
+Dr. Marshall
+</a>
+</p>
+</div>
+
+<div id="mainContent">
+<div style="background-color: orange;"><div class="divMenuBar">
+<span style="padding:1em" id="tdMenuXHTML">
+<a class="clsMenuBarItem" href="xhtml.asp">
+XHTML</a>
+</span>
+|<span style="padding:1em" id="tdMenuHTMLtoXHTML">
+<a class="clsMenuBarItem" href="htmlxhtml.asp">
+HTML to XHTML</a>
+</span>
+</div>
+</div>
+
+<h1>Quotations and Tables</h1>
+
+<p>Before continuing on with updating the content of the solar system page, 
+there are a couple of attributes that should be added to the <code>html</code>
+tag.  Neither of these attributes are required for valid XHTML, but should be
+specified for good practice:</p>
+
+<pre><code>&lt;html  xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us"&gt;</code></pre>
+
+<p>An XHTML attribute is specified by <code><var>attribute
+name</var>="<var>attribute value</var>"</code>.</p>
+
+<p class="rule">XHTML Rule: Attribute values must be quoted.</p>
+
+<p>In HTML, attribute values could be specified such as
+<code>xml:lang=en-us</code>.  In XHTML, attribute values, even numeric ones,
+must be quoted.  In the <code>html</code> tag shown above, the two attributes
+are <code>xmlns</code> (value: <code>http://www.w3.org/1999/xhtml</code>) and
+<code>xml:lang</code> (value: <code>en-us</code>).</p>
+
+<p>The <code>xmlns</code> attribute is good practice due to the the XML nature
+of XHTML.  It essentially signifies that the tagnames that you are using in 
+your document should be associated with the W3C's XHTML namespace.  Specifying
+the XML namespace will keep the tags defined in the document type definintion 
+(DTD) given in the <code>DOCTYPE</code> declaration from "colliding" with
+identical tagnames specified in another DTD.  While this is usually not a
+problem with XHTML in a browser, it is still good practice to include this
+attribute for the <code>html</code> tag.</p>
+
+<p>The <code>xml:lang</code> attribute is pretty straightforward.  It specifies
+the language used in the body of the XHTML source file.  The value 
+<code>en</code> specifies English as the content <a href=
+"http://www.w3.org/WAI/ER/IG/ert/iso639.htm">language</a>, and a <a href=
+"http://www.portaljuice.com/iso_3166_1_alpha_2.html">country code</a> 
+<code>us</code> which specifies the United States.  The country code does not
+have to be specified as part of the <code>xml:lang</code> value.  Specifying
+<code>xml:lang="en"</code> would be valid as well.</p>
+
+<h2 id="quotations">Quotations</h2>
+
+<p>The powers that be decided to beef up the content to be marked up for
+display on the Internet, and have provided a <a href="solarsys3.txt">new text
+file</a>.  Besides replacing the list with a
+table containing more data, the revised content includes additional paragraphs
+and adds a couple of quotations.</p>
+
+<p>Just a reminder, the tag for marking up paragraphs is the <code>p</code>
+tag.</p>
+
+<p>Quotations in XHTML come in two flavours: inline quotations and block
+quotations.  An inline quote (the <code>q</code> tag) is generally shorter and
+one that should be contained within a block-level element (such as a
+<code>p</code> element).  The browser should put quotation marks around the
+content of the <code>q</code> tag, and so these should not be specified within
+the content, or else you will get two pairs of quotes.</p>
+
+<p>For example,</p>
+
+<pre><code>&lt;p&gt;Gene Kranz said, &lt;q&gt;"Failure is not an option."&lt;/q&gt;&lt;/p&gt;</code></pre>
+
+<p>will render like this:</p>
+
+<div style="border: solid black 1px; background: white; font-family: serif;">
+<div style="margin: 1em;">
+<p>Gene Kranz said, <q>"Failure is not an option."</q></p>
+</div>
+</div>
+
+<p>Remove the quotation marks from the content of the <code>q</code> tag, and
+it renders fine.</p>
+
+<div style="border: solid black 1px; background: white; font-family: serif;">
+<div style="margin: 1em;">
+<p>Gene Kranz said, <q>Failure is not an option.</q></p>
+</div>
+</div>
+
+<p>A block quotation is for larger quotations or smaller ones that are meant to
+stand alone as a block of text.  A block quotation cannot be contained within a
+paragraph.  Instead, the quotation must be contained within another block level
+element (such as <code>p</code>), which is then wrapped within 
+<code>blockquote</code> beginning and ending tags.</p>
+
+<p>For the content of the solar system page, the <code>blockquote</code> tag
+suits our purposes, since the quotations given are separate paragraphs.</p>
+
+<pre><code>&lt;blockquote&gt;&lt;p&gt;"Lie on your back and look at the stars." - H.
+Jackson Brown, Jr. (from Life's Little Instruction Book&lt;/p&gt;
+&lt;/blockquote&gt;</code></pre>
+
+<p>and:</p>
+
+<pre><code>&lt;blockquote&gt;&lt;p&gt;"Willingly would I burn to death like Phaeton, were
+this the price for reaching the Sun and learning its shape, its
+size, and its distance." - Eudoxus&lt;/p&gt;&lt;/blockquote&gt;</code></pre>
+
+<p>For a block quotation, you must supply the quotation marks.  The block
+quotation is usually rendered by browsers with indented margins.</p>
+
+<div style="border: solid black 1px; background: white; font-family: serif;">
+<div style="margin: 1em;">
+<blockquote><p>"Willingly would I burn to death like Phaeton, were this the
+price for reaching the Sun and learning its shape, its size, and its distance." 
+- Eudoxus</p></blockquote>
+</div>
+</div>
+
+<p>If you are quoting from a web site, you can use the <code>cite</code>
+attribute to give the URI (uniform resource locator).  The URI will usually in this
+case be the full address, such as <code>http://www.google.com</code>.  So if you
+were supplying a quote from the Google page, you could include a 
+<code>cite="http://www.google.com"</code> attribute for the <code>q</code> or
+<code>blockquote</code> element, whichever one you were using.</p>
+
+<h2 id="tables">Tables</h2>
+
+<p>Tables are a useful means to present information.  For our planets, we
+wish to include additional information -- gravity ratio to earth, diameter,
+and average temperature -- that is better presented in a table rather than
+a list.</p>
+
+<p>A table's contents is presented in rows containing cells.
+Columns are implicitly created by the relative position of the
+cells within the rows.</p>
+
+<h3>The <code>table</code> and <code>caption</code> Tags</h3>
+
+<p>The main <code>table</code> tag is a container for the table elements.  So 
+to begin our table, we just need:</p>
+
+<pre><code>&lt;table&gt;
+&lt;/table&gt;
+</code></pre>
+
+<p>The <code>caption</code> tag can be used to specify a caption for the 
+table, and must be coded immediately after the beginning <code>table</code>
+tag. The table of planet info has the caption "Planets of Our Solar System",
+so we add it thus:</p>
+
+<pre><code>&lt;table&gt;
+  &lt;caption&gt;Planets of Our Solar System&lt;/caption&gt;
+&lt;/table&gt;
+</code></pre>
+
+<p>The caption text is usually rendered above the table.  The caption is not
+required for a table.</p>
+
+<h3>The <code>thead</code>, <code>tbody</code> and <code>tr</code> Tags</h3>
+
+<p>Our planet table has a distinct structure of one header row and nine 
+data rows.  The header row would be considered the table header
+(<code>thead</code>), while the data rows would be considered the table
+body (<code>tbody</code>).</p>
+
+<p>Table rows are defined by the <code>tr</code> tag.  We have a total of ten
+rows in our table of planets, one row for the column headers, and the other 
+nine for the planets.</p>  
+
+<p>So far we have this markup for the table.</p>
+
+<pre><code>&lt;table&gt;
+  &lt;caption&gt;Planets of Our Solar System&lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;&lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;/tr&gt;
+  &lt;tbody&gt;
+&lt;/table&gt;
+</code></pre>
+
+<p>A <code>table</code> element may contain only one <code>thead</code>
+element, but can contain multiple <code>tbody</code> elements.  This
+can be useful when formatting presentation for the table, by visually
+grouping together data rows with a specialized border, for example. The
+<code>thead</code> and <code>tbody</code> elements are not strictly
+required to be used in marking up a table.  Many tables are just marked
+up as a series of rows and table cells, which will still be valid
+XHTML.  However, if <code>thead</code> and <code>tbody</code> are used,
+the <code>thead</code> element must precede the <code>tbody</code>
+element.</p>
+
+<p>A <code>table</code> element may also contain a <code>tfoot</code>
+element, which like <code>thead</code>, can only occur once within a
+table, and must occur after the <code>tbody</code> element.  Although
+our table of planets does not have a footer, <code>tfoot</code> can be
+useful in tables that have a row or set of rows that summarize the 
+tables' data.</p>
+
+<h3>The <code>th</code> and <code>td</code> Tags</h3>
+
+<p>The column headers are marked up using the table header (<code>th</code>)
+tag.  Browsers usually render the contents of a table header cell differently
+(usally in bold) from the other table cells.</p>
+
+<p>"Normal" table cells are marked up using the table data cell
+(<code>td</code>) tag.</p>
+
+<p>The content of the rows of column headers and the row of Mercury data
+should be marked up like this:</p>
+
+<pre><code>&lt;thead&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Name&lt;/th&gt;
+    &lt;th&gt;Average Dist. From Sun&lt;/th&gt;
+    &lt;th&gt;Diameter&lt;/th&gt;
+    &lt;th&gt;Average Temp.&lt;/th&gt;
+    &lt;th&gt;Gravity&lt;/th&gt;
+    &lt;th&gt;Moons&lt;/th&gt;
+  &lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Mercury&lt;/td&gt;    
+    &lt;td&gt;57,909,175 km&lt;/td&gt;
+    &lt;td&gt;4,879.4 km&lt;/td&gt;
+    &lt;td&gt;452 K&lt;/td&gt;
+    &lt;td&gt;0.376&lt;/td&gt;
+    &lt;td&gt;No moons&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+</code></pre>
+
+<p>Notice that I did not include line break <code>&lt;br /&gt;</code> tags
+for the "Average Dist. From Sun" and "Average Temp." headers as shown in the
+<a href="solarsys3.txt">text file</a>.  By default, the contents of a table
+cell will be "word wrapped" if necessary within the bounds of the cell.</p>
+
+<p>The table rendered with these two rows would look something like this:</p>
+
+<div style="border: solid black 1px; background: white; font-family: serif;">
+<div style="margin: 1em;">
+  <table>
+    <caption>Planets of Our Solar System</caption>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Average Dist. From Sun</th>
+        <th>Diameter</th>
+        <th>Average Temp.</th>
+        <th>Gravity</th>
+        <th>Moons</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Mercury</td>    
+        <td>57,909,175 km</td>
+        <td>4,879.4 km</td>
+        <td>452 K</td>
+        <td>0.376</td>
+        <td>No moons</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+
+<p>The default rendering of a table by most browsers is not very pretty.
+There are attributes for the table-related tags in XHTML that can be used
+to format the table, but those will not be covered here.  In the CSS
+tutorial, you will see how a table like this can be presented in a more
+visually pleasing manner.</p>
+
+<h3>The <code>colgroup</code> and <code>col</code> Tags</h3>
+
+<p>The <code>colgroup</code> and <code>col</code> tags are useful to  
+specify a column or group of columns in order to be able to format them
+for presentation.  Our planet table has a combination of table data
+cells containing text data and numerical data and <code>colgroup</code> and
+<code>col</code> tags could be useful to group the data cells of a column 
+together for formatting.</p> 
+
+<p>However, browser implementions for <code>colgroup</code> and 
+<code>col</code> are inconsistent.  Internet Explorer 6.02, for example, 
+will apply the <code>font-family</code> style rules at the column level,
+but Mozilla 1.7 does not.  Both will apply a cell <code>background</code>
+style to a column.  So if using these tags, I would not rely on
+them to apply CSS style rules.  However, it won't hurt to add them, for if
+nothing else, when browsers do become more consistent in applying CSS styles
+based on these tags, the marked-up columns would be ready for use.</p>
+
+<p>These tags must immediately follow the <code>caption</code>
+tag if specified, and precede any other elements within a table's
+markup structure.</p>
+
+<p>As mentioned, for our planet table, we have a mix of data types, numerical
+data and text data.  Also, for the planet names, it might be useful to assign
+a unique <code>id</code> attribute to that column, in case we want to perform
+special formatting for that column (such as some shading), that we don't want
+to apply to the column on the moons.  These tags can be marked up for this
+table like this:</p>
+
+<pre><code>&lt;caption&gt;Planets of Our Solar System&lt;/caption&gt;
+  &lt;col id="planetNames" class="text" /&gt;
+  &lt;col class="numeric" span="4"/&gt;
+  &lt;col class="text" /&gt;
+</code></pre>
+
+<p>Notice that the <code>col</code> tag, like the <code>br</code> tag is an
+empty tag, so I used the <code>/&gt;</code> method to properly close the
+tag. The <code>colgroup</code> tag was not used since we didn't really have
+multiple groups of columns to group together.</p>
+
+<p>The <code>id</code> and <code>class</code> attributes are among the 
+<em>common</em> attributes of XHTML elements.  The <code>id</code> attribute
+value must be unique for the element from all other <code>id</code> attribute
+values specified in the XHTML source.  The <code>class</code> attribute is 
+useful for grouping elements, especially for later formatting with CSS.</p>
+
+<p>Since <code>col</code> and <code>colgroup</code> elements
+are not completely reliable for applying CSS rules, we will want to assign
+the data cells that contain text elements and the data cells that contain
+numeric elements a <code>class</code> attribute.  This will allow us to specify
+a proportional font for the text elements and a fixed-width font for the
+numeric elements as appropriate by using the <code>class</code> attribute
+values assigned to the cells.</p>
+
+<p>The values for the <code>class</code> attribute are not predefined, but it
+is a good idea to give a value that conveys meaning.  In this case, I will
+assign a value of <code>text</code> for the data cells containing text, and
+<code>numeric</code> for the data cells containing numerical data.</p>
+
+<p>So for the cells containing the planet names and the moons, we should code
+the beginning <code>td</code> tag with a <code>class</code> attribute like
+this:</p>
+
+<pre><code>&lt;td class="text"&gt;Mercury&lt;/td&gt;</code></pre>
+
+<p>and for the numeric data cells like this:</p>
+
+<pre><code>&lt;td class="numeric"&gt;57,909,175 km&lt;/td&gt;</code></pre>
+
+<h3>Table Structure attributes</h3>
+
+<p>There are many attributes for table-related tags that can be used to format
+a table's appearance, which this tutorial does not cover, since formatting
+will be covered in CSS.  However, there are other attributes for these tags
+that are often needed to define the structure of a table.  For example, let's
+say we had a table for just Mercury data that was laid out in a text document
+like this: </p>
+
+<div style="border: solid black 1px; background: white; font-family: serif;">
+<div style="margin: 1em;">
+<pre style="font-weight: normal">Name    Average Distance From Sun   Diameter    Average Temperature 
+------- -------------------------   ----------  -------------------
+Mercury    57,909,175 km            4,879.4 km          452 K    
+        -------------------------   -------------------------------
+                Gravity             Moons
+        -------------------------   -------------------------------
+                 0.376              No moons</pre>
+</div>
+</div>
+
+<p>For this table, we have the following structure: </p>
+
+<div style="border: solid black 1px; background: white; font-family: serif;">
+<div style="margin: 1em;">
+<table id="sample">
+  <tr>
+    <th>Column Header</th>
+    <th>Column Header</th>
+    <th>Column Header</th>
+    <th>Column Header</th>
+  </tr>
+  <tr>
+    <td rowspan="3">Table data cell spanning 3 rows</td>
+    <td>Table data cell</td>
+    <td>Table data cell</td>
+    <td>Table data cell</td>
+  </tr>
+  <tr>
+    <th>Column Header</th>
+    <th colspan="2">Column Header spanning 2 columns</th>
+  </tr>
+  <tr>
+    <td>Table data cell</td>
+    <td colspan="2">Table data cell spanning 2 columns</td>
+  </tr>
+</table>
+</div>
+</div>
+
+<p>Here is the markup for the table in the example above:</p>
+<pre><code>
+&lt;table id="sample"&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Column Header&lt;/th&gt;
+    &lt;th&gt;Column Header&lt;/th&gt;
+    &lt;th&gt;Column Header&lt;/th&gt;
+    &lt;th&gt;Column Header&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td rowspan="3"&gt;Table data cell spanning 3 rows&lt;/td&gt;
+    &lt;td&gt;Table data cell&lt;/td&gt;
+    &lt;td&gt;Table data cell&lt;/td&gt;
+    &lt;td&gt;Table data cell&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Column Header&lt;/th&gt;
+    &lt;th colspan="2"&gt;Column Header spanning 2 columns&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Table data cell&lt;/td&gt;
+    &lt;td colspan="2"&gt;Table data cell spanning 2 columns&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+
+<p>I specified the <code>id</code> attribute for the <code>table</code> tag so
+that I could apply CSS styles to this particular table.  This technique will be
+covered in the CSS tutorial.</p>
+
+<p>In this tutorial, however, I would like to point out the following two
+attributes, which are necessary to properly reflect the table's structure:</p>
+
+<ul>
+  <li><code>rowspan="3"</code></li>
+  <li><code>colspan="2"</code></li>
+</ul>
+
+<p>The <code>rowspan</code> attribute is used to indicate if a table cell is
+to span more than one row, which in this case is 3 rows.</p>
+
+<p>The <code>colspan</code> attribute is used to indicate if a table cell is
+to span more than one column, which in this case is 2 columns.</p>
+
+<p>The <code>colspan</code> and <code>rowspan</code> are not mutually 
+exclusive, so you can apply both attributes to a table cell if needed.</p>
+
+<p>This wraps up the coverage on tables in this tutorial.  Once you have
+finished marking up the new version of the page, it might be a good time
+to save and see how it <a href="solarsys3.html">looks</a>.</p>
+
+<p class="next"><a href="xhtml5.asp">Next Chapter - Links and Images</a></p>
+
+<p id="xhtmlTutTab">
+  <a href="xhtml.asp#introduction">Introduction</a>
+  |
+  <a href="xhtml.asp#getStarted">Getting Started</a>
+  |
+  <a href="xhtml2.asp">A Basic XHTML Page</a>
+  |
+  <a href="xhtml3.asp">Basic Tags</a>
+  |
+  <a href="xhtml4.asp#quotations">Quotations</a>
+  |
+  <a href="xhtml4.asp#tables">Tables</a>
+  |
+  <a href="xhtml5.asp#textlinks">Text Links</a>
+  |
+  <a href="xhtml5.asp#images">Images</a>
+  |
+  <a href="xhtml5.asp#imagelinks">Image Links</a>
+  |
+  <a href="xhtml6.asp">Image Maps</a>
+  |
+  <a href="xhtml7.asp">Finishing Touches</a>
+  |
+  <a href="xhtml8.asp">Additional Tags</a>
+  |
+  <a href="xhtml9.asp">Conclusion</a>
+  |
+  <a href="xhtml11.asp">XHTML 1.1</a>
+</p></div> <!-- div mainContent -->
+<div id="footer">
+<p class="fnote" style="text-align: center; border-top: solid black 1px;
+ color: black;">Site last updated July 2004</p>
+</div>
+</div> <!-- div container -->
+</body>
+</html>

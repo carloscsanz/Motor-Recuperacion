@@ -1,0 +1,3326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+
+<title>
+Photoshop Benchmark at X-bit lab - CPUs - CPU-Components</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+<meta name="Robots" content="noindex, follow" />
+
+<meta name="Description" content="http://www.xbitlabs.com/cpu/photoshop-platform/T-bird seen too have reach is limit in most of  the benchmark.Pal will surly do better with SSE.P4 in the others hand seen do increase very fast the " />
+
+<link href="http://m.bestofmedia.com/s/36889/tomshardware/css/main-v2.css" rel="stylesheet" type="text/css" media="all" />
+<link href="http://m.bestofmedia.com/s/36889/tomshardware/css/uk-v2.css" rel="stylesheet" type="text/css" media="all" />
+
+<!--[if lt IE 7]>
+    <link href="http://m.bestofmedia.com/s/36889/tomshardware/css/ie6.css" rel="stylesheet" type="text/css" media="all" />
+<![endif]-->
+
+<link href="http://m.bestofmedia.com/s/36889/commun/css/forum/common.css" rel="stylesheet" type="text/css" media="all" />
+<link href="http://m.bestofmedia.com/s/36889/commun/css/forum/tomshardware.css" rel="stylesheet" type="text/css" media="all" />
+<link href="http://m.bestofmedia.com/s/36889/commun/css/forum/14.css" rel="stylesheet" type="text/css" media="all" />
+
+<script type="text/javascript" src="http://m.bestofmedia.com/s/36889/commun/js/framework/framework-3.2_th.js" charset="utf-8"></script>
+
+<link rel="icon" type="image/png" href="http://m.bestofmedia.com/i/tomshardware/favicon.png" />
+<link rel="search" type="application/opensearchdescription+xml" title="Tom's Hardware UK" href="http://www.tomshardware.co.uk/opensearch.xml" />
+</head>
+
+<body>
+
+<div id="container">
+	<div id="containerR">
+		<div id="header">
+			<div id="header-top" class="clearfix">
+				<fieldset id="changeLanguage">
+
+<script type="text/javascript">
+//<![CDATA[
+var membreIdentifie = 0;
+
+function toggleVersions() {
+	if($('lang-other').style.display == 'none')
+	{
+		$('lang-current').hide();
+		$('arrow-toggle').addClassName('arrow-right');
+		Effect.toggle('lang-other', 'appear');
+	}
+	else
+	{
+		$('arrow-toggle').removeClassName('arrow-right');
+		Effect.toggle('lang-other', 'appear', { afterFinish: function() { $('lang-current').show(); }});
+	}
+	return false;
+}
+//]]>
+</script>
+
+					<span class="clearfix" id="lang-sites">
+						<span id="lang-current">
+							<a href="http://www.tomshardware.com" onclick="return toggleVersions()">Tom's Hardware Worldwide</a>
+							<a href="http://www.tomshardware.co.uk" id="lang-site" style="background-position:-225px top" onclick="return toggleVersions()" title="UK"></a>
+							<a href="http://www.tomshardware.co.uk" id="lang-site" style="background-position:-250px top" onclick="return toggleVersions()" title="Ireland"></a>
+						</span>
+
+						<span style="display: none" class="langs clearfix" id="lang-other">
+							<a href="http://www.presence-pc.com/" class="lang-22" title="France"><span>Tom's Hardware France</span></a>
+							<a href="http://www.tomshw.it/" class="lang-15" title="Italy"><span>Tom's Hardware Italy</span></a>
+							<a href="http://www.tomshardware.com/cn/" class="lang-16" title="Chinese simplified"><span>Tom's Hardware China</span></a>
+							<a href="http://www.tomshardware.tw/" class="lang-17" title="Chinese traditional"><span>Tom's Hardware Taiwan</span></a>
+							<a href="http://www.tomshardware.pl/" class="lang-pl" title="Poland"><span>Tom's Hardware Poland</span></a>
+							<a href="http://www.thg.ru/" class="lang-ru" title="Russia"><span>Tom's Hardware Russia</span></a>
+							<a href="http://www.tomshardware.se/" class="lang-sw" title="Sweden"><span>Tom's Hardware Sweden</span></a>
+							<a href="http://www.tomshardware.com.tr/" class="lang-tu" title="Turkey"><span>Tom's Hardware Turkey</span></a>
+							<a href="http://www.tomshardware.de" class="lang-14" title="Germany"><span>Tom's Hardware Germany</span></a>
+							<a href="http://www.tomshardware.hu/" class="lang-hu" title="Hungary"><span>Tom's Hardware Hungary</span></a>
+							<a href="http://www.tomshardware.com" class="lang-18" title="North America"><span>Tom's Hardware US</span></a>
+						</span>
+					</span>
+
+					<a href="http://www.tomshardware.com" onclick="return toggleVersions()" class="arrow-toggle" id="arrow-toggle">&nbsp;</a>
+			</fieldset>
+        </div>
+
+        <div id="header-banner">
+			<div class="h1"><a href="http://www.tomshardware.co.uk/">TOM'S HARDWARE</a></div>
+			<div id="header-menuSearch" class="clearfix">
+				<div class="clearfix">
+					<form id="header-search" class="clearfix" name="searchMain" action="http://www.tomshardware.co.uk/search.php" method="get">
+						<fieldset class="clearfix">
+							<label for="searchField">SEARCH</label>
+							<input type="text" id="searchField" name="s" maxlength="64" value="" />
+							<button class="searchBtn" type="submit">
+								<em>OK</em>
+							</button>
+						</fieldset>
+					</form>
+
+					<div id="header-tools" class="clearfix">
+						<ul id="header-media">
+							<li>
+								<a href="http://m.tomshardware.co.uk" id="header-media-mobile" title="Mobile" rel="nofollow">Mobile</a>
+								<span class="header-pipe">|</span>
+							</li>
+							<li>
+								<a class="follow-link" href="http://www.tomshardware.co.uk/rss.html" id="header-media-rss" title="RSS">RSS</a>
+							</li>
+						</ul>
+
+						<br style="clear: both;" />
+
+<script type="text/javascript">
+	//<![CDATA[
+
+
+	function noteThisAfterLogin(elm) {
+		if(document.member == undefined || document.member == 0) {
+			viewModal('http://www.tomshardware.co.uk/membres/?action=modalRegister', false);
+
+			document.observe('modal:fire', function() {
+				noteThis(elm);
+				document.member = 1;
+			});
+
+			return;
+		}
+
+		noteThis(elm);
+	}
+
+
+		function noteThis(elm) {
+			new commentsNotation({
+				id: elm.idComment,
+				note: elm.note,
+				request: 'http://www.tomshardware.co.uk/comments/?action=set_note&idSiteOrigine=13&idCategorie=10&idContent=67013&idComment=' + elm.idComment + '&note=' + elm.note,
+				error: 'An error has occured',
+				done: 'You have already voted'
+			});
+		}
+
+
+	//]]>
+</script>
+
+						<ul class="espace-membre">
+
+		
+							<li class="membre">
+								<a href="http://www.tomshardware.co.uk/membres/">Join</a>
+								<span class="separation">|</span>
+							</li>
+
+							<li class="connexion">
+								<a href="#" onclick="viewModal('http://www.tomshardware.co.uk/membres/?action=modalLogin'); return false;">Sign In</a>
+							</li>
+
+					
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div id="header-menu" class="menuDown">
+				<ul id="header-sections2" class="clearfix">
+					<li class="first"><a href="http://www.tomshardware.co.uk/">Home</a></li>
+					<li><a href="http://www.tomshardware.co.uk/review/">Articles &amp; Reviews</a></li>
+					<li><a href="http://www.tomshardware.co.uk/news/">News</a></li>
+					<li><a href="http://www.tomshardware.co.uk/charts/">Charts</a></li>
+					<li class="active"><a href="http://www.tomshardware.co.uk/forum/">Forums</a></li>
+					<li><a href="http://video.tomshardware.co.uk">Videos</a></li>
+					<li class="corporate"><a href="http://www.tomshardware.co.uk/theme-business,60.html">Business</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="header-advert">
+			
+			<div style="float: left;">
+				<div class="smart_ads_bom_title">Ads</div> 			 <script type="text/javascript" src="http://ww57.smartadserver.com/call/pubj/3793/24968/417/M/1590168250/toms_uk%3Bcpu_amp_components%3Bcpus?"></script>			</div>
+
+		</div>
+	</div>
+
+    <div id="contentGeneric">
+        <div id="contentInside" class="clearfix">
+			<div id="breadcrumbs">&nbsp;</div>
+
+            <div id="forumContent">
+
+			<style type="text/css" media="screen">
+			    #contentGeneric { background: #fff; }
+			    #internalMain { width: 100%; }
+			</style>
+
+
+<script type="text/javascript">
+//<![CDATA[
+
+function displaySidebar(value) {
+    new Ajax.Request('/membres/', {
+        method: 'post',
+        encoding : 'UTF-8',
+        parameters : 'action=display_sidebar&has_sidebar='+value,
+
+		onComplete: function(transport){
+            if (value == 0) {
+                $('internalSidebar').style.display = "none";
+                $('deleteSidebar').innerHTML = '<a href="#" onclick="displaySidebar(1);return false;" title="Show the Right Column">&lt;&lt; Show the Right Column</a>';
+
+                $A(document.getElementsByClassName('container')).each(function(e) {
+					if(e.tagName.toUpperCase() == 'DIV') {
+						e.style.marginRight = 0 + 'px';
+					}
+				});
+            }
+			else
+			{
+                window.location.reload();
+            }
+        }
+    });
+}
+
+if(membreIdentifie == 1) {
+	document.observe("dom:loaded", function() {
+	    var enCours = 'Loading... <img src="http://m.bestofmedia.com/i/tomsguide/design/ajax-loaderLittle.gif" id="categoriesLoader" alt="" />';
+	    $('blockInfoMembre').innerHTML = enCours;
+
+	    var options = {
+			method: 'post',
+			asynchronous: false,
+			encoding: 'utf-8',
+
+			onComplete: function(obj) {
+			   $('blockInfoMembre').innerHTML = obj.responseText;
+			}
+		};
+
+	    var url = 'http://www.tomshardware.co.uk/membres/?ctrlr=Info&action=getLoginInfos';
+
+	    new Ajax.Request(url, options);
+	});
+
+    function contextePanel(idContexte) {
+        var enCours = 'Loading... <img src="http://m.bestofmedia.com/i/tomsguide/design/ajax-loaderLittle.gif" id="categoriesLoader" alt="" />';
+        $('MemberModuleContent').innerHTML = enCours;
+
+        var options = {
+			method: 'post',
+			asynchronous: false,
+			encoding: 'utf-8',
+
+			onComplete: function(obj) {
+			   $('blockInfoMembre').innerHTML = obj.responseText;
+			}
+		};
+
+        var url = 'http://www.tomshardware.co.uk/membres/?ctrlr=Info&action=setContexteInfos&context=' + idContexte;
+
+        new Ajax.Request(url, options);
+
+        return false;
+    }
+}
+//]]>
+</script>
+
+
+                <div id="internalMain">
+
+<div class="container">
+    <div class="mesdiscussions topicAnon" id="mesdiscussions">
+
+
+        <div class="arbo">
+			<a href="http://www.tomshardware.co.uk">Tom's Hardware</a> &gt; <a href="http://www.tomshardware.co.uk/forum/">Forum</a> &gt; <a href="/forum/forum-10.html">CPU &amp; Components</a> &gt; <a href="/forum/forum-10-174.html">CPUs</a> &gt; Photoshop Benchmark at X-bit lab        </div>
+
+        <div class="s1Ext">
+
+    <div style="text-align: left;">
+	<div class="clearfix">
+		<div class="mainTitle">
+		            <h1 class="topicTitle">
+                Photoshop Benchmark at X-bit lab            </h1>
+            <h2 class="topicSubtitle">
+                Forum
+                <a href="/forum/forum-10.html" title="CPU &amp; Components Discussions">CPU &amp; Components</a> :
+                <a href="/forum/forum-10-174.html" title="CPUs Discussions">CPUs</a> - 
+                                    Photoshop Benchmark at X-bit lab                            </h2>
+ 	                   </div>
+
+
+	</div>
+
+
+	<div id="adsenseTop" class="clearfix">
+
+
+	</div>
+
+
+
+	<div class="monoBox" style="margin: 5px 0 0 10px;">
+            <div class="monoBox-top">
+                <div class="in2"></div>
+            </div>
+
+            <div class="monoBox-content">
+		Tom's Hardware: Over 1.4 million members in 6 different countries available to answer all your <a href="http://www.tomshardware.co.uk/forum/">high-tech</a> questions.
+		<a onclick="BOM.Utils.go('aHR0cDovL3d3dy50b21zaGFyZHdhcmUuY28udWsvbWVtYnJlcy8='); return false;">Sign up now</a>! Its free!
+            </div>
+
+            <div class="monoBox-bottom">
+                <div class="in2"></div>
+            </div>
+	</div>
+
+	
+	
+
+                <div id="forumLandingPage" class="BOM-multitabs">
+                <div class="clearfix BOM-multitabs-headerWrapper">
+                    <div class="BOM-multitabs-header">
+                        <ul>
+
+                                                <li><a onclick="return false;" title="Contenus relatifs" class="BOM-multitabs-selectTab">Related content</a></li>
+                    
+                    
+                                                <li><a onclick="return false;" title="News" id="onglet_news">News</a></li>
+                    
+                    
+                    
+                    
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="BOM-multitabs-content clearfix">
+
+                    
+                    <div class="BOM-multitabs-tab BOM-multitabs-selectTab">
+                        <ul>
+
+                                    
+                            <li><span class="picto-article"></span><a href="http://www.tomshardware.co.uk/cool-n-quiet-power-management,review-31746-9.html" title="Benchmark Results: Photoshop CS4" onclick="xt_med('C', 9, 'forum_relative_content_all', 'S');">Benchmark Results: Photoshop CS4</a></li>
+
+                                                        
+                            <li><span class="picto-article"></span><a href="http://www.tomshardware.co.uk/cool-n-quiet-power-management,review-31733-9.html" title="Benchmark Results: Photoshop CS4" onclick="xt_med('C', 9, 'forum_relative_content_all', 'S');">Benchmark Results: Photoshop CS4</a></li>
+
+                                                        
+                            <li><span class="picto-article"></span><a href="http://www.tomshardware.co.uk/cool-n-quiet-power-management,review-31746-2.html" title=" Test System And Benchmarks" onclick="xt_med('C', 9, 'forum_relative_content_all', 'S');"> Test System And Benchmarks</a></li>
+
+                                                        
+                            <li><span class="picto-article"></span><a href="http://www.tomshardware.co.uk/cool-n-quiet-power-management,review-31733-2.html" title=" Test System And Benchmarks" onclick="xt_med('C', 9, 'forum_relative_content_all', 'S');"> Test System And Benchmarks</a></li>
+
+                                                        
+                            <li><span class="picto-article"></span><a href="http://www.tomshardware.co.uk/mobile-core-i5-arrandale,review-31775-10.html" title="Benchmark Results: Productivity" onclick="xt_med('C', 9, 'forum_relative_content_all', 'S');">Benchmark Results: Productivity</a></li>
+
+                                                                                                                                                                                                                        
+                        </ul>
+
+                        <div class="clearfix" style="padding-top : 10px; float : right;">
+                            <a href="http://www.tomshardware.co.uk/s/photoshop-benchmark" onclick="xt_med('C', 9, 'forum_relative_content_all', 'S');">See all topics related to <span class="stronger">&quot;photoshop benchmark&quot;</span></a>
+                        </div>
+                    </div>
+
+                    
+        
+        
+                    <div class="BOM-multitabs-tab">
+                        <ul id="tab_news">
+
+                                                
+                            <li><span class="picto-news"></span><a href="http://www.tomshardware.co.uk/intel-kentsfield-benchmarks-floodthenet,news-22611.html" title="Intel 'Kentsfield' quad-core benchmarks to flood the Net" onclick="xt_med('C', 9, 'forum_relative_content_news', 'S');">Intel 'Kentsfield' quad-core benchmarks to flood the Net</a></li>
+
+                                                        
+                            <li><span class="picto-news"></span><a href="http://www.tomshardware.co.uk/first-core-2-duo-benchmarks,news-21373.html" title="UPDATE: First Core 2 Duo T7600 performance and battery benchmarks" onclick="xt_med('C', 9, 'forum_relative_content_news', 'S');">UPDATE: First Core 2 Duo T7600 performance and battery benchmarks</a></li>
+
+                                                        
+                            <li><span class="picto-news"></span><a href="http://www.tomshardware.co.uk/bapco-releases-sysmark-2004,news-10132.html" title="Bapco releases Sysmark 2004" onclick="xt_med('C', 9, 'forum_relative_content_news', 'S');">Bapco releases Sysmark 2004</a></li>
+
+                                                        
+                            <li><span class="picto-news"></span><a href="http://www.tomshardware.co.uk/64,news-9290.html" title="64-bit Apple G5s trounced by Athlon 64s, Opterons " onclick="xt_med('C', 9, 'forum_relative_content_news', 'S');">64-bit Apple G5s trounced by Athlon 64s, Opterons </a></li>
+
+                                                                        </ul>
+
+			
+                    </div>
+
+        
+        
+        
+        
+                </div>
+             </div>
+
+    
+        </div>
+
+				
+    
+		<div class="clearfix">
+
+        
+			<a href="/forum/CPU-Components/new-subject.htm" accesskey="r" class="myButtons default" rel="nofollow" title="Ask the community" style="float: left;">
+				<span class="in2">Ask the community</span>
+			</a>
+
+        
+            <a href="/forum/message.php?config=tomshardwareuk.inc&cat=10&post=67013&page=1&p=1&subcat=174&sondage=0&owntopic=0&new=0" accesskey="r" class="myButtons reply" rel="nofollow" title="Add a reply" style="float: right;">
+				<span class="in2">Add a reply</span>
+			</a>
+		</div>
+
+    
+<script type="text/javascript" src="http://m.bestofmedia.com/s/commun/js/framework/comments/default.js" charset="utf-8"></script>
+
+<script type="text/javascript">
+//<![CDATA[
+	document.observe("dom:loaded", function() {
+		commentsSortableObj = new commentsSortable({
+			masquer: 'Hide',
+			afficher: 'Show message'
+		});
+	});
+
+	function updateStatus(elm, messageId) {
+		commentsSortableObj.status({
+			elm: elm,
+			id: messageId
+		});
+
+		var showMessage = $(messageId).getElementsByClassName('showMessage')[0];
+
+		showMessage.style.display = 'none';
+		$(messageId).getElementsByClassName('header')[0].removeClassName('miniHeader');
+	}
+//]]>
+</script>
+
+
+            
+    
+	
+		<div id="haut" class="paginations clearfix">
+
+	
+	
+			<a href="#bas" class="bottom" title="Bottom" style="float: left; margin-left: 50%;">
+
+	
+				Bottom			</a>
+
+			<a href="#" onclick="topicSearch(this); return false;" style="float: right;">Search this thread</a>
+		</div>
+
+
+
+		<div class="topicOptions clearfix">
+			<form action="/forum/transsearch.php" method="post">
+				<input type="hidden" name="post" value="67013" />
+				<input type="hidden" name="cat"	value="10" />
+				<input type="hidden" name="config"	value="tomshardwareuk.inc" />
+				<input type="hidden" name="p" value="1" />
+				<input type="hidden" name="sondage"	value="0" />
+				<input type="hidden" name="owntopic" value="0" />
+
+				<div>
+					Word :					<input type="text" name="word" value="" size="10" />
+
+	
+					&nbsp;&nbsp;
+					Username :					<input type="text" name="spseudo" value="" size="10" />
+
+	
+					&nbsp;&nbsp;
+					<input class="checkbox" type="checkbox" name="filter" id="filter" value="1"  />
+					<label for="filter" title="Display only messages of your search">Filter :</label>&nbsp;
+
+					&nbsp;&nbsp;
+					<input type="submit" onclick="document.getElementById('currentnum').value = '';" value="Search" class="button" />
+
+	
+					&nbsp;&nbsp;
+					<input type="hidden" name="dep" value="0" />
+					<input type="hidden" value="255444" name="firstnum" />
+
+	
+				</div>
+			</form>
+
+        
+			<div class="right" style="margin-top: 2px;">
+				<a href="javascript: void(0);" onclick="vider_liste('quotestomshardwareus-28-67013');" class="cHeader"><img style="display : none;" id="viderliste" src="http://img.tomshardware.com/forum/uk/themes_static/images_forum/14/viderliste.gif" alt="Empty the list of messages to quote" title="Empty the list of messages to quote" /></a>
+				&nbsp;
+			</div>
+		</div>
+
+<script type="text/javascript">
+	function topicSearch(elm) {
+		var div = $('haut').next('div', 0);
+
+		if(div.hasClassName('optionsOn')) {
+			div.removeClassName('optionsOn');
+			$('haut').removeClassName('paginationsOff');
+			elm.innerHTML = 'Search this thread';
+		}
+		else {
+			div.addClassName('optionsOn');
+			$('haut').addClassName('paginationsOff');
+			elm.innerHTML = 'Hide';
+		}
+	}
+</script>
+
+
+		<div class="messagesContainer">
+
+            
+			<div class="messagetable" id="theMessage255444">
+				<div id="t255444" class="message
+
+				default				">
+
+            					<div class="header  clearfix">
+						<div class="left">
+
+				
+							<strong class="s2">
+                                
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                                                <a href="/forum/profile-4558.htm" target="_blank" class="Topic noVisited" title="Display profile (juin)">
+                                    juin                                </a>
+                                							</strong>
+
+				
+							&nbsp;
+							<a href="#t255444" class="postDate">07-09-2001 at 07:25:47 AM</a>
+						</div>
+
+						<div class="right">
+
+                
+							<div class="commentStatus" >
+
+                            		                							</div>
+						</div>
+					</div>
+
+            
+					<div id="para255444" class="messageIsHere commentStatus" >
+						<div class="KonaBody clearfix">
+            
+							<div class="messageContainer">
+                                            <p>
+									<a rel="nofollow" href="http://www.xbitlabs.com/cpu/photoshop-platform/" target="_blank" class="cLink">http://www.xbitlabs.com/cpu/photoshop-platform/</a><br /><br /><br />T-bird seen too have reach is limit in most of  the benchmark.Pal will surly do better with SSE.<br />P4 in the others hand seen do increase very fast the P1.8 surly is the fastest in photoshop.<br />Fpu is suppost to be very strong in t-bird most of the part that haxve FPU come in play he lose to P4.<br />The conclusion of X-bit is lab totaly for AMD.P4 have win more that 51% of the benchmark.Strange he denied his own benchamrk or he found that the part that AMD win was more important for him, there more that 1 typical useur in photoshop he can use Convert to Other Color Systems and others not.So i am again the conclusion for his ethic in work.I use a gpu that dont know how is work on P4 maybe a geforce 3 (i dont like Nvisia but) are better for this test with equal driver 12.xxx and we know pretty well Geforce3. <br /><br /> P4 1.8 will surly get near 75% of the benchmark until Pal is out.<br /><br />pal = palamino
+            
+								</p>
+
+            
+							</div>
+
+            
+												
+							<div class="clearfix">
+								<a href="/forum/message.php?config=tomshardwareuk.inc&cat=10&post=67013&page=1&p=1&subcat=174&sondage=0&owntopic=0&new=0" accesskey="r" class="myButtons reply" rel="nofollow" title="Add a reply" style="float: right;">
+									<span class="in2">Add a reply</span>
+								</a>
+							</div>
+
+												
+						</div>
+					</div>
+				</div>
+			</div>
+
+                    
+            
+			<div class="messagetable">
+				<div class="message default">
+					<!--<div class="header headerPub">Sponsored Links</div>-->
+					<div style="padding-top: 10px;" id="adInBetweenPosts" class="clearfix"><script type="text/javascript" src="http://m.bestofmedia.com/s/commun/js/adsense.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+google_ad_client = "pub-8792502999873740";
+google_ad_channel = "6116329794";
+google_language = "en";
+google_bom_title = "1";
+google_bom_locale = "en_GB";google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "1B6CD3";
+google_color_text = "000000";
+google_color_url = "FF0000";
+google_ad_output = "js";
+google_feedback = "on";
+google_ad_type = "text";
+google_max_num_ads = "2";
+//]]>
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+
+	<div style="padding-top: 5px; text-align: right;">
+		<a href="http://www.tomshardware.co.uk/membres/">Register</a> or
+		<a href="#" onclick="viewModal('http://www.tomshardware.co.uk/membres/?action=modalLogin'); return false;">log in</a> to remove.
+	</div>
+</div>
+				</div>
+			</div>
+
+                    
+			<div class="messagetable" id="theMessage255448">
+				<div id="t255448" class="message
+
+				highlighted				">
+
+            					<div class="header  clearfix">
+						<div class="left">
+
+				
+							<strong class="s2">
+                                
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                                                <a href="/forum/profile-891.htm" target="_blank" class="Topic noVisited" title="Display profile (AmdMELTDOWN)">
+                                    AmdMELTDOWN                                </a>
+                                							</strong>
+
+				
+							&nbsp;
+							<a href="#t255448" class="postDate">07-09-2001 at 08:03:29 AM</a>
+						</div>
+
+						<div class="right">
+
+                
+							<div class="showMessage" onclick="updateStatus(this, 'theMessage255448')"  style="display: none;" >
+								<span>Show message</span>
+							</div>
+
+                
+							<div class="commentStatus" >
+
+                            		
+								<a title="Useless message" href="javascript: noteThisAfterLogin({note: -1, idComment: 255448});" class="bt-toolbar bt-minus">-</a>
+
+        				
+								<span class="noteComment">0</span>
+
+        				
+								<a title="Useful message" href="javascript: noteThisAfterLogin({note: 1, idComment: 255448});" class="bt-toolbar bt-plus">+</a>
+
+            		                							</div>
+						</div>
+					</div>
+
+            
+					<div id="para255448" class="messageIsHere commentStatus" >
+						<div class="KonaBody clearfix">
+            
+							<div class="messageContainer">
+                                            <p>
+									the only reason AMD won ANY benchmarks against a P4 in ps  is because they used a tiny file(600x600) <br /><br />the best platform for image editing is the P4 w/rdram.<br /><br />&#034;AMD/VIA...you &lt;i&gt;still&lt;/i&gt; are the weakest link, good bye!&#034;
+            
+								</p>
+
+            
+							</div>
+
+            
+												
+							<span class="replyToAnon">
+								<a rel="nofollow" href="/forum/message.php?config=tomshardwareuk.inc&cat=10&post=67013&numrep=255448&ref=2&page=1&p=1&subcat=174&sondage=0&owntopic=0&new=0#formulaire">
+									Reply to AmdMELTDOWN								</a>
+							</span>
+
+												
+						</div>
+					</div>
+				</div>
+			</div>
+
+                    
+			<div class="messagetable" id="theMessage255450">
+				<div id="t255450" class="message
+
+				default				">
+
+            					<div class="header  clearfix">
+						<div class="left">
+
+				
+							<strong class="s2">
+                                
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                                                <a href="/forum/profile-7682.htm" target="_blank" class="Topic noVisited" title="Display profile (dhlucke)">
+                                    dhlucke                                </a>
+                                							</strong>
+
+				
+							&nbsp;
+							<a href="#t255450" class="postDate">07-09-2001 at 08:23:48 AM</a>
+						</div>
+
+						<div class="right">
+
+                
+							<div class="showMessage" onclick="updateStatus(this, 'theMessage255450')"  style="display: none;" >
+								<span>Show message</span>
+							</div>
+
+                
+							<div class="commentStatus" >
+
+                            		
+								<a title="Useless message" href="javascript: noteThisAfterLogin({note: -1, idComment: 255450});" class="bt-toolbar bt-minus">-</a>
+
+        				
+								<span class="noteComment">0</span>
+
+        				
+								<a title="Useful message" href="javascript: noteThisAfterLogin({note: 1, idComment: 255450});" class="bt-toolbar bt-plus">+</a>
+
+            		                							</div>
+						</div>
+					</div>
+
+            
+					<div id="para255450" class="messageIsHere commentStatus" >
+						<div class="KonaBody clearfix">
+            
+							<div class="messageContainer">
+                                            <p>
+									Hey, that's interesting.  Where did you read that?  Is there benchmarks based on all different file sizes/resolutions/formats that you can link to?<br /><br />&lt;font color=red&gt;Yeah, I took a crap on your lawn.  Whatcha gonna do about it?&lt;/font color=red&gt;
+            
+								</p>
+
+            
+							</div>
+
+            
+												
+							<span class="replyToAnon">
+								<a rel="nofollow" href="/forum/message.php?config=tomshardwareuk.inc&cat=10&post=67013&numrep=255450&ref=3&page=1&p=1&subcat=174&sondage=0&owntopic=0&new=0#formulaire">
+									Reply to dhlucke								</a>
+							</span>
+
+												
+						</div>
+					</div>
+				</div>
+			</div>
+
+                    
+			<div class="messagetable" id="theMessage255451">
+				<div id="t255451" class="message
+
+				highlighted				">
+
+            					<div class="header  clearfix">
+						<div class="left">
+
+				
+							<strong class="s2">
+                                
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                                                <a href="/forum/profile-7682.htm" target="_blank" class="Topic noVisited" title="Display profile (dhlucke)">
+                                    dhlucke                                </a>
+                                							</strong>
+
+				
+							&nbsp;
+							<a href="#t255451" class="postDate">07-09-2001 at 08:27:36 AM</a>
+						</div>
+
+						<div class="right">
+
+                
+							<div class="showMessage" onclick="updateStatus(this, 'theMessage255451')"  style="display: none;" >
+								<span>Show message</span>
+							</div>
+
+                
+							<div class="commentStatus" >
+
+                            		
+								<a title="Useless message" href="javascript: noteThisAfterLogin({note: -1, idComment: 255451});" class="bt-toolbar bt-minus">-</a>
+
+        				
+								<span class="noteComment">0</span>
+
+        				
+								<a title="Useful message" href="javascript: noteThisAfterLogin({note: 1, idComment: 255451});" class="bt-toolbar bt-plus">+</a>
+
+            		                							</div>
+						</div>
+					</div>
+
+            
+					<div id="para255451" class="messageIsHere commentStatus" >
+						<div class="KonaBody clearfix">
+            
+							<div class="messageContainer">
+                                            <p>
+									Oh, you obviously didn't read this article.  You're full of sh.it... You can't keep saying that everything is unfair.  Look at the benchmarks.<br /><br /></p><div class="container"><table class="quote"><tr class="none"><td><b class="s1">Quote :</b><br /><br /><p>As we can see from the benchmarks results, AMD based platforms are undoubtedly preferable for work in Photoshop application. In some filters Pentium 4 managed to beat Athlon, however, in most cases the situation is still not in its favor. Moreover, in most frequently used filters, such as &#034;Convert to Other Color Systems&#034; and &#034;Rotate Canvas&#034;, Athlon based systems are simply unreachable. Also we found out that the memory bus bandwidth is not a serious bottleneck for Photoshop since the results shown by the Athlon 1.33GHz based system with SDR and DDR memory hardly ever differed by something over 3-5%. It seems to be one of the reasons why Pentium 4 turns out so slow here. As you remember, in another professional graphics application, 3ds max, Pentium 4 based platform with its huge memory bus bandwidth was far ahead of all the other testing participants during viewports rendering (see our article called Choosing Optimal Platform Configuration for 3D Studio MAX). This example once again proves that you should never draw any conclusions judging only by the results obtained in one single application, especially as far as the overall platform performance goes.<br /></p></td></tr></table></div><p><br />&lt;font color=red&gt;Yeah, I took a crap on your lawn.  Whatcha gonna do about it?&lt;/font color=red&gt;&lt;P ID=&#034;edit&#034;&gt;&lt;FONT SIZE=-1&gt;&lt;EM&gt;Edited by dhlucke on 07/08/01 11:30 PM.&lt;/EM&gt;&lt;/FONT&gt;&lt;/P&gt;
+            
+								</p>
+
+            
+							</div>
+
+            
+												
+							<span class="replyToAnon">
+								<a rel="nofollow" href="/forum/message.php?config=tomshardwareuk.inc&cat=10&post=67013&numrep=255451&ref=4&page=1&p=1&subcat=174&sondage=0&owntopic=0&new=0#formulaire">
+									Reply to dhlucke								</a>
+							</span>
+
+												
+						</div>
+					</div>
+				</div>
+			</div>
+
+                    
+			<div class="messagetable" id="theMessage255491">
+				<div id="t255491" class="message
+
+				default				">
+
+            					<div class="header  clearfix">
+						<div class="left">
+
+				
+							<strong class="s2">
+                                
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                                                <a href="/forum/profile-4841.htm" target="_blank" class="Topic noVisited" title="Display profile (FatBurger)">
+                                    FatBurger                                </a>
+                                							</strong>
+
+				
+							&nbsp;
+							<a href="#t255491" class="postDate">07-09-2001 at 05:07:44 PM</a>
+						</div>
+
+						<div class="right">
+
+                
+							<div class="showMessage" onclick="updateStatus(this, 'theMessage255491')"  style="display: none;" >
+								<span>Show message</span>
+							</div>
+
+                
+							<div class="commentStatus" >
+
+                            		
+								<a title="Useless message" href="javascript: noteThisAfterLogin({note: -1, idComment: 255491});" class="bt-toolbar bt-minus">-</a>
+
+        				
+								<span class="noteComment">0</span>
+
+        				
+								<a title="Useful message" href="javascript: noteThisAfterLogin({note: 1, idComment: 255491});" class="bt-toolbar bt-plus">+</a>
+
+            		                							</div>
+						</div>
+					</div>
+
+            
+					<div id="para255491" class="messageIsHere commentStatus" >
+						<div class="KonaBody clearfix">
+            
+							<div class="messageContainer">
+                                            <p>
+									</p><div class="container"><table class="quote"><tr class="none"><td><b class="s1">Quote :</b><br /><br /><p>the best platform for image editing is the P4 w/rdram.<br /></p></td></tr></table></div><p><br /><br />What about Mac? Even though I hate them.<br /><br />------------------------------<br />My Athlon can beat your Ferrari off the line.
+            
+								</p>
+
+            
+							</div>
+
+            
+												
+							<span class="replyToAnon">
+								<a rel="nofollow" href="/forum/message.php?config=tomshardwareuk.inc&cat=10&post=67013&numrep=255491&ref=5&page=1&p=1&subcat=174&sondage=0&owntopic=0&new=0#formulaire">
+									Reply to FatBurger								</a>
+							</span>
+
+												
+						</div>
+					</div>
+				</div>
+			</div>
+
+                    
+			<div class="messagetable" id="theMessage255518">
+				<div id="t255518" class="message
+
+				highlighted				">
+
+            					<div class="header  clearfix">
+						<div class="left">
+
+				
+							<strong class="s2">
+                                
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                                                <a href="/forum/profile-866.htm" target="_blank" class="Topic noVisited" title="Display profile (FUGGER)">
+                                    FUGGER                                </a>
+                                							</strong>
+
+				
+							&nbsp;
+							<a href="#t255518" class="postDate">07-09-2001 at 07:15:01 PM</a>
+						</div>
+
+						<div class="right">
+
+                
+							<div class="showMessage" onclick="updateStatus(this, 'theMessage255518')"  style="display: none;" >
+								<span>Show message</span>
+							</div>
+
+                
+							<div class="commentStatus" >
+
+                            		
+								<a title="Useless message" href="javascript: noteThisAfterLogin({note: -1, idComment: 255518});" class="bt-toolbar bt-minus">-</a>
+
+        				
+								<span class="noteComment">0</span>
+
+        				
+								<a title="Useful message" href="javascript: noteThisAfterLogin({note: 1, idComment: 255518});" class="bt-toolbar bt-plus">+</a>
+
+            		                							</div>
+						</div>
+					</div>
+
+            
+					<div id="para255518" class="messageIsHere commentStatus" >
+						<div class="KonaBody clearfix">
+            
+							<div class="messageContainer">
+                                            <p>
+									HAHAHAHA, &#034;The initial size of this pic is 600x600 pixels and it is saved in RGB format. Since the time spent on each benchmark working on a 1MB file is two short (about 1sec), we increased the file size up to 3000x3000 pixels and hence up to 17MB. &#034;<br /><br />Real genious at work, two vs too? thats a tough one.<br /><br />Try working with a real file. like a few hundred megabytes or a few gigs and watch P4 whoop its ass badly. =P <br /><br />I looked at his lame benchmarks, I see P4 winning most by wide margin. not that 2.1 vs 2.2 sec crap.
+            
+								</p>
+
+            
+							</div>
+
+            
+												
+							<span class="replyToAnon">
+								<a rel="nofollow" href="/forum/message.php?config=tomshardwareuk.inc&cat=10&post=67013&numrep=255518&ref=6&page=1&p=1&subcat=174&sondage=0&owntopic=0&new=0#formulaire">
+									Reply to FUGGER								</a>
+							</span>
+
+												
+						</div>
+					</div>
+				</div>
+			</div>
+
+                    
+			<div class="messagetable" id="theMessage255519">
+				<div id="t255519" class="message
+
+				default				">
+
+            					<div class="header  clearfix">
+						<div class="left">
+
+				
+							<strong class="s2">
+                                
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                                                <a href="/forum/profile-866.htm" target="_blank" class="Topic noVisited" title="Display profile (FUGGER)">
+                                    FUGGER                                </a>
+                                							</strong>
+
+				
+							&nbsp;
+							<a href="#t255519" class="postDate">07-09-2001 at 07:17:16 PM</a>
+						</div>
+
+						<div class="right">
+
+                
+							<div class="showMessage" onclick="updateStatus(this, 'theMessage255519')"  style="display: none;" >
+								<span>Show message</span>
+							</div>
+
+                
+							<div class="commentStatus" >
+
+                            		
+								<a title="Useless message" href="javascript: noteThisAfterLogin({note: -1, idComment: 255519});" class="bt-toolbar bt-minus">-</a>
+
+        				
+								<span class="noteComment">0</span>
+
+        				
+								<a title="Useful message" href="javascript: noteThisAfterLogin({note: 1, idComment: 255519});" class="bt-toolbar bt-plus">+</a>
+
+            		                							</div>
+						</div>
+					</div>
+
+            
+					<div id="para255519" class="messageIsHere commentStatus" >
+						<div class="KonaBody clearfix">
+            
+							<div class="messageContainer">
+                                            <p>
+									Of the hundreds of graphic firms I have been too, none are using AMD based systems. go figure =)<br /><br />Now reread what you just quoted. it doesnt make any sense except to a lemming who will believe anything posted.
+            
+								</p>
+
+            
+							</div>
+
+            
+												
+							<span class="replyToAnon">
+								<a rel="nofollow" href="/forum/message.php?config=tomshardwareuk.inc&cat=10&post=67013&numrep=255519&ref=7&page=1&p=1&subcat=174&sondage=0&owntopic=0&new=0#formulaire">
+									Reply to FUGGER								</a>
+							</span>
+
+												
+						</div>
+					</div>
+				</div>
+			</div>
+
+                    
+			<div class="messagetable" id="theMessage255528">
+				<div id="t255528" class="message
+
+				highlighted				">
+
+            					<div class="header  clearfix">
+						<div class="left">
+
+				
+							<strong class="s2">
+                                
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                                                <a href="/forum/profile-891.htm" target="_blank" class="Topic noVisited" title="Display profile (AmdMELTDOWN)">
+                                    AmdMELTDOWN                                </a>
+                                							</strong>
+
+				
+							&nbsp;
+							<a href="#t255528" class="postDate">07-09-2001 at 08:22:17 PM</a>
+						</div>
+
+						<div class="right">
+
+                
+							<div class="showMessage" onclick="updateStatus(this, 'theMessage255528')"  style="display: none;" >
+								<span>Show message</span>
+							</div>
+
+                
+							<div class="commentStatus" >
+
+                            		
+								<a title="Useless message" href="javascript: noteThisAfterLogin({note: -1, idComment: 255528});" class="bt-toolbar bt-minus">-</a>
+
+        				
+								<span class="noteComment">0</span>
+
+        				
+								<a title="Useful message" href="javascript: noteThisAfterLogin({note: 1, idComment: 255528});" class="bt-toolbar bt-plus">+</a>
+
+            		                							</div>
+						</div>
+					</div>
+
+            
+					<div id="para255528" class="messageIsHere commentStatus" >
+						<div class="KonaBody clearfix">
+            
+							<div class="messageContainer">
+                                            <p>
+									&gt;What about Mac? Even though I hate them.<br /><br />woops, meant to say the pc platform, and you got a point there, the mac is the best overall, see that? who said I was biased?<br /><br />&#034;AMD/VIA...you &lt;i&gt;still&lt;/i&gt; are the weakest link, good bye!&#034;
+            
+								</p>
+
+            
+							</div>
+
+            
+												
+							<span class="replyToAnon">
+								<a rel="nofollow" href="/forum/message.php?config=tomshardwareuk.inc&cat=10&post=67013&numrep=255528&ref=8&page=1&p=1&subcat=174&sondage=0&owntopic=0&new=0#formulaire">
+									Reply to AmdMELTDOWN								</a>
+							</span>
+
+												
+						</div>
+					</div>
+				</div>
+			</div>
+
+                    
+			<div class="messagetable" id="theMessage255533">
+				<div id="t255533" class="message
+
+				default				">
+
+            					<div class="header  clearfix">
+						<div class="left">
+
+				
+							<strong class="s2">
+                                
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                                                <a href="/forum/profile-7682.htm" target="_blank" class="Topic noVisited" title="Display profile (dhlucke)">
+                                    dhlucke                                </a>
+                                							</strong>
+
+				
+							&nbsp;
+							<a href="#t255533" class="postDate">07-09-2001 at 09:29:53 PM</a>
+						</div>
+
+						<div class="right">
+
+                
+							<div class="showMessage" onclick="updateStatus(this, 'theMessage255533')"  style="display: none;" >
+								<span>Show message</span>
+							</div>
+
+                
+							<div class="commentStatus" >
+
+                            		
+								<a title="Useless message" href="javascript: noteThisAfterLogin({note: -1, idComment: 255533});" class="bt-toolbar bt-minus">-</a>
+
+        				
+								<span class="noteComment">0</span>
+
+        				
+								<a title="Useful message" href="javascript: noteThisAfterLogin({note: 1, idComment: 255533});" class="bt-toolbar bt-plus">+</a>
+
+            		                							</div>
+						</div>
+					</div>
+
+            
+					<div id="para255533" class="messageIsHere commentStatus" >
+						<div class="KonaBody clearfix">
+            
+							<div class="messageContainer">
+                                            <p>
+									I'm not a lemming, I just never get any links from you guys.  You want to talk and yapp yapp yapp, but you won't post a real link to your claims.  Post me a link to a benchmark where they have higher resolutions and larger file sizes.  I'm open to any suggestions, but you never prove them.  Your credibility stinks.  We'll chat again when you prove your claims.....<br /><br />&lt;font color=red&gt;Yeah, I took a crap on your lawn.  Whatcha gonna do about it?&lt;/font color=red&gt;
+            
+								</p>
+
+            
+							</div>
+
+            
+												
+							<span class="replyToAnon">
+								<a rel="nofollow" href="/forum/message.php?config=tomshardwareuk.inc&cat=10&post=67013&numrep=255533&ref=9&page=1&p=1&subcat=174&sondage=0&owntopic=0&new=0#formulaire">
+									Reply to dhlucke								</a>
+							</span>
+
+												
+						</div>
+					</div>
+				</div>
+			</div>
+
+                    
+			<div class="messagetable" id="theMessage255541">
+				<div id="t255541" class="message
+
+				highlighted				">
+
+            					<div class="header  clearfix">
+						<div class="left">
+
+				
+							<strong class="s2">
+                                
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                                                <a href="/forum/profile-4841.htm" target="_blank" class="Topic noVisited" title="Display profile (FatBurger)">
+                                    FatBurger                                </a>
+                                							</strong>
+
+				
+							&nbsp;
+							<a href="#t255541" class="postDate">07-09-2001 at 10:08:27 PM</a>
+						</div>
+
+						<div class="right">
+
+                
+							<div class="showMessage" onclick="updateStatus(this, 'theMessage255541')"  style="display: none;" >
+								<span>Show message</span>
+							</div>
+
+                
+							<div class="commentStatus" >
+
+                            		
+								<a title="Useless message" href="javascript: noteThisAfterLogin({note: -1, idComment: 255541});" class="bt-toolbar bt-minus">-</a>
+
+        				
+								<span class="noteComment">0</span>
+
+        				
+								<a title="Useful message" href="javascript: noteThisAfterLogin({note: 1, idComment: 255541});" class="bt-toolbar bt-plus">+</a>
+
+            		                							</div>
+						</div>
+					</div>
+
+            
+					<div id="para255541" class="messageIsHere commentStatus" >
+						<div class="KonaBody clearfix">
+            
+							<div class="messageContainer">
+                                            <p>
+									I'd have to agree that nobody hardly ever posts a solid link (Intel trolls or AMD lemmings).<br /><br />------------------------------<br />My Athlon can beat your Ferrari off the line.
+            
+								</p>
+
+            
+							</div>
+
+            
+												
+							<span class="replyToAnon">
+								<a rel="nofollow" href="/forum/message.php?config=tomshardwareuk.inc&cat=10&post=67013&numrep=255541&ref=10&page=1&p=1&subcat=174&sondage=0&owntopic=0&new=0#formulaire">
+									Reply to FatBurger								</a>
+							</span>
+
+												
+						</div>
+					</div>
+				</div>
+			</div>
+
+                    
+			<div class="messagetable" id="theMessage255545">
+				<div id="t255545" class="message
+
+				default				">
+
+            					<div class="header  clearfix">
+						<div class="left">
+
+				
+							<strong class="s2">
+                                
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                                                <a href="/forum/profile-4558.htm" target="_blank" class="Topic noVisited" title="Display profile (juin)">
+                                    juin                                </a>
+                                							</strong>
+
+				
+							&nbsp;
+							<a href="#t255545" class="postDate">07-09-2001 at 10:15:46 PM</a>
+						</div>
+
+						<div class="right">
+
+                
+							<div class="showMessage" onclick="updateStatus(this, 'theMessage255545')"  style="display: none;" >
+								<span>Show message</span>
+							</div>
+
+                
+							<div class="commentStatus" >
+
+                            		
+								<a title="Useless message" href="javascript: noteThisAfterLogin({note: -1, idComment: 255545});" class="bt-toolbar bt-minus">-</a>
+
+        				
+								<span class="noteComment">0</span>
+
+        				
+								<a title="Useful message" href="javascript: noteThisAfterLogin({note: 1, idComment: 255545});" class="bt-toolbar bt-plus">+</a>
+
+            		                							</div>
+						</div>
+					</div>
+
+            
+					<div id="para255545" class="messageIsHere commentStatus" >
+						<div class="KonaBody clearfix">
+            
+							<div class="messageContainer">
+                                            <p>
+									You know that P4 with need new driver.How can we know if Maxtor have one and Xbit lab use it.
+            
+								</p>
+
+            
+							</div>
+
+            
+												
+							<span class="replyToAnon">
+								<a rel="nofollow" href="/forum/message.php?config=tomshardwareuk.inc&cat=10&post=67013&numrep=255545&ref=11&page=1&p=1&subcat=174&sondage=0&owntopic=0&new=0#formulaire">
+									Reply to juin								</a>
+							</span>
+
+												
+						</div>
+					</div>
+				</div>
+			</div>
+
+                    
+			<div class="messagetable" id="theMessage255546">
+				<div id="t255546" class="message
+
+				highlighted				">
+
+            					<div class="header  clearfix">
+						<div class="left">
+
+				
+							<strong class="s2">
+                                
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                                                <a href="/forum/profile-4558.htm" target="_blank" class="Topic noVisited" title="Display profile (juin)">
+                                    juin                                </a>
+                                							</strong>
+
+				
+							&nbsp;
+							<a href="#t255546" class="postDate">07-09-2001 at 10:18:13 PM</a>
+						</div>
+
+						<div class="right">
+
+                
+							<div class="showMessage" onclick="updateStatus(this, 'theMessage255546')"  style="display: none;" >
+								<span>Show message</span>
+							</div>
+
+                
+							<div class="commentStatus" >
+
+                            		
+								<a title="Useless message" href="javascript: noteThisAfterLogin({note: -1, idComment: 255546});" class="bt-toolbar bt-minus">-</a>
+
+        				
+								<span class="noteComment">0</span>
+
+        				
+								<a title="Useful message" href="javascript: noteThisAfterLogin({note: 1, idComment: 255546});" class="bt-toolbar bt-plus">+</a>
+
+            		                							</div>
+						</div>
+					</div>
+
+            
+					<div id="para255546" class="messageIsHere commentStatus" >
+						<div class="KonaBody clearfix">
+            
+							<div class="messageContainer">
+                                            <p>
+									In some filters Pentium 4 managed to beat Athlon, however, in most cases the situation is still not in its favor. <br />X-bit lab <br /><br />Most of the case ????<br /><br />Most of the case was win be P4 be a good marge.
+            
+								</p>
+
+            
+							</div>
+
+            
+												
+							<span class="replyToAnon">
+								<a rel="nofollow" href="/forum/message.php?config=tomshardwareuk.inc&cat=10&post=67013&numrep=255546&ref=12&page=1&p=1&subcat=174&sondage=0&owntopic=0&new=0#formulaire">
+									Reply to juin								</a>
+							</span>
+
+												
+						</div>
+					</div>
+				</div>
+			</div>
+
+                    
+			<div class="messagetable" id="theMessage255557">
+				<div id="t255557" class="message
+
+				default				">
+
+            					<div class="header  clearfix">
+						<div class="left">
+
+				
+							<strong class="s2">
+                                
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                                                <a href="/forum/profile-420.htm" target="_blank" class="Topic noVisited" title="Display profile (Makaveli)">
+                                    Makaveli                                </a>
+                                							</strong>
+
+				
+							&nbsp;
+							<a href="#t255557" class="postDate">07-09-2001 at 11:04:16 PM</a>
+						</div>
+
+						<div class="right">
+
+                
+							<div class="showMessage" onclick="updateStatus(this, 'theMessage255557')"  style="display: none;" >
+								<span>Show message</span>
+							</div>
+
+                
+							<div class="commentStatus" >
+
+                            		
+								<a title="Useless message" href="javascript: noteThisAfterLogin({note: -1, idComment: 255557});" class="bt-toolbar bt-minus">-</a>
+
+        				
+								<span class="noteComment">0</span>
+
+        				
+								<a title="Useful message" href="javascript: noteThisAfterLogin({note: 1, idComment: 255557});" class="bt-toolbar bt-plus">+</a>
+
+            		                							</div>
+						</div>
+					</div>
+
+            
+					<div id="para255557" class="messageIsHere commentStatus" >
+						<div class="KonaBody clearfix">
+            
+							<div class="messageContainer">
+                                            <p>
+									FuGGer shut your hole you flaming HOAR, show us your benchmarks. All you do it talk where is your proof?<br />And juin GET SOMEBODY to RE READ your POST, who can speak english and write proper grammer before posting! Half the time I miss your point cause I don't understand what the hell your saying!
+            
+								</p>
+
+            
+							</div>
+
+            
+												
+							<span class="replyToAnon">
+								<a rel="nofollow" href="/forum/message.php?config=tomshardwareuk.inc&cat=10&post=67013&numrep=255557&ref=13&page=1&p=1&subcat=174&sondage=0&owntopic=0&new=0#formulaire">
+									Reply to Makaveli								</a>
+							</span>
+
+												
+						</div>
+					</div>
+				</div>
+			</div>
+
+                    
+			<div class="messagetable" id="theMessage255600">
+				<div id="t255600" class="message
+
+				highlighted				">
+
+            					<div class="header  clearfix">
+						<div class="left">
+
+				
+							<strong class="s2">
+                                
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                                                <a href="/forum/profile-4841.htm" target="_blank" class="Topic noVisited" title="Display profile (FatBurger)">
+                                    FatBurger                                </a>
+                                							</strong>
+
+				
+							&nbsp;
+							<a href="#t255600" class="postDate">07-10-2001 at 12:34:40 AM</a>
+						</div>
+
+						<div class="right">
+
+                
+							<div class="showMessage" onclick="updateStatus(this, 'theMessage255600')"  style="display: none;" >
+								<span>Show message</span>
+							</div>
+
+                
+							<div class="commentStatus" >
+
+                            		
+								<a title="Useless message" href="javascript: noteThisAfterLogin({note: -1, idComment: 255600});" class="bt-toolbar bt-minus">-</a>
+
+        				
+								<span class="noteComment">0</span>
+
+        				
+								<a title="Useful message" href="javascript: noteThisAfterLogin({note: 1, idComment: 255600});" class="bt-toolbar bt-plus">+</a>
+
+            		                							</div>
+						</div>
+					</div>
+
+            
+					<div id="para255600" class="messageIsHere commentStatus" >
+						<div class="KonaBody clearfix">
+            
+							<div class="messageContainer">
+                                            <p>
+									Hehehe. Harshly said to the French Canadian, but totally true.<br />I wonder how accurately our thoughts translate to French? Maybe he has no clue what we're saying half the time.<br /><br />------------------------------<br />My Athlon can beat your Ferrari off the line.
+            
+								</p>
+
+            
+							</div>
+
+            
+												
+							<span class="replyToAnon">
+								<a rel="nofollow" href="/forum/message.php?config=tomshardwareuk.inc&cat=10&post=67013&numrep=255600&ref=14&page=1&p=1&subcat=174&sondage=0&owntopic=0&new=0#formulaire">
+									Reply to FatBurger								</a>
+							</span>
+
+												
+						</div>
+					</div>
+				</div>
+			</div>
+
+                    
+			<div class="messagetable" id="theMessage255611">
+				<div id="t255611" class="message
+
+				default				">
+
+            					<div class="header  clearfix">
+						<div class="left">
+
+				
+							<strong class="s2">
+                                
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                                                <a href="/forum/profile-866.htm" target="_blank" class="Topic noVisited" title="Display profile (FUGGER)">
+                                    FUGGER                                </a>
+                                							</strong>
+
+				
+							&nbsp;
+							<a href="#t255611" class="postDate">07-10-2001 at 01:38:56 AM</a>
+						</div>
+
+						<div class="right">
+
+                
+							<div class="showMessage" onclick="updateStatus(this, 'theMessage255611')"  style="display: none;" >
+								<span>Show message</span>
+							</div>
+
+                
+							<div class="commentStatus" >
+
+                            		
+								<a title="Useless message" href="javascript: noteThisAfterLogin({note: -1, idComment: 255611});" class="bt-toolbar bt-minus">-</a>
+
+        				
+								<span class="noteComment">0</span>
+
+        				
+								<a title="Useful message" href="javascript: noteThisAfterLogin({note: 1, idComment: 255611});" class="bt-toolbar bt-plus">+</a>
+
+            		                							</div>
+						</div>
+					</div>
+
+            
+					<div id="para255611" class="messageIsHere commentStatus" >
+						<div class="KonaBody clearfix">
+            
+							<div class="messageContainer">
+                                            <p>
+									HAHAHA, what a dork, Im sure you can understand every word I post. If not go back to school loser.
+            
+								</p>
+
+            
+							</div>
+
+            
+												
+							<span class="replyToAnon">
+								<a rel="nofollow" href="/forum/message.php?config=tomshardwareuk.inc&cat=10&post=67013&numrep=255611&ref=15&page=1&p=1&subcat=174&sondage=0&owntopic=0&new=0#formulaire">
+									Reply to FUGGER								</a>
+							</span>
+
+												
+						</div>
+					</div>
+				</div>
+			</div>
+
+                    
+			<div class="messagetable" id="theMessage255626">
+				<div id="t255626" class="message
+
+				highlighted				">
+
+            					<div class="header  clearfix">
+						<div class="left">
+
+				
+							<strong class="s2">
+                                
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                                                <a href="/forum/profile-4558.htm" target="_blank" class="Topic noVisited" title="Display profile (juin)">
+                                    juin                                </a>
+                                							</strong>
+
+				
+							&nbsp;
+							<a href="#t255626" class="postDate">07-10-2001 at 03:07:43 AM</a>
+						</div>
+
+						<div class="right">
+
+                
+							<div class="showMessage" onclick="updateStatus(this, 'theMessage255626')"  style="display: none;" >
+								<span>Show message</span>
+							</div>
+
+                
+							<div class="commentStatus" >
+
+                            		
+								<a title="Useless message" href="javascript: noteThisAfterLogin({note: -1, idComment: 255626});" class="bt-toolbar bt-minus">-</a>
+
+        				
+								<span class="noteComment">0</span>
+
+        				
+								<a title="Useful message" href="javascript: noteThisAfterLogin({note: 1, idComment: 255626});" class="bt-toolbar bt-plus">+</a>
+
+            		                							</div>
+						</div>
+					</div>
+
+            
+					<div id="para255626" class="messageIsHere commentStatus" >
+						<div class="KonaBody clearfix">
+            
+							<div class="messageContainer">
+                                            <p>
+									Does me post was so hard too read or that him.<br /><br />That a question.
+            
+								</p>
+
+            
+							</div>
+
+            
+												
+							<span class="replyToAnon">
+								<a rel="nofollow" href="/forum/message.php?config=tomshardwareuk.inc&cat=10&post=67013&numrep=255626&ref=16&page=1&p=1&subcat=174&sondage=0&owntopic=0&new=0#formulaire">
+									Reply to juin								</a>
+							</span>
+
+												
+						</div>
+					</div>
+				</div>
+			</div>
+
+                    
+			<div class="messagetable" id="theMessage255629">
+				<div id="t255629" class="message
+
+				default				">
+
+            					<div class="header  clearfix">
+						<div class="left">
+
+				
+							<strong class="s2">
+                                                                <a href="/forum/profile-40955.htm" target="_blank" class="Topic noVisited" title="Display profile (Anonymous)">
+                                    Anonymous                                </a>
+                                							</strong>
+
+				
+							&nbsp;
+							<a href="#t255629" class="postDate">07-10-2001 at 03:26:23 AM</a>
+						</div>
+
+						<div class="right">
+
+                
+							<div class="showMessage" onclick="updateStatus(this, 'theMessage255629')"  style="display: none;" >
+								<span>Show message</span>
+							</div>
+
+                
+							<div class="commentStatus" >
+
+                            		
+								<a title="Useless message" href="javascript: noteThisAfterLogin({note: -1, idComment: 255629});" class="bt-toolbar bt-minus">-</a>
+
+        				
+								<span class="noteComment">0</span>
+
+        				
+								<a title="Useful message" href="javascript: noteThisAfterLogin({note: 1, idComment: 255629});" class="bt-toolbar bt-plus">+</a>
+
+            		                							</div>
+						</div>
+					</div>
+
+            
+					<div id="para255629" class="messageIsHere commentStatus" >
+						<div class="KonaBody clearfix">
+            
+							<div class="messageContainer">
+                                            <p>
+									&gt;HAHAHA, what a dork, Im sure you can understand every word I post.<br /><br />LoL<br />Fugger, you're the one who needs some remedial help in reading comprehension.  He was refering to juin's posts.  Maybe this &lt;A HREF=&#034;http://www.hop.com&#034; target=&#034;_new&#034;&gt;site can help&lt;/A&gt;  <img src="http://img.tomshardware.com/forum/uk/icones/smilies/smile.gif" alt=":smile:" title=":smile:" /> <br /><br />And about those &#034;hundreds&#034; of graphics shops you claim to have visited...<br /><br />Is that &lt;i&gt;hundreds&lt;/i&gt; in the same sense as the &#034;hundreds of AMD incompatibilities&#034; you claim but can't back up?<br /><br /><br />&lt;i&gt;Cognite Tute&lt;/i&gt;<br />(Think for Yourself)
+            
+								</p>
+
+            
+							</div>
+
+            
+												
+							<span class="replyToAnon">
+								<a rel="nofollow" href="/forum/message.php?config=tomshardwareuk.inc&cat=10&post=67013&numrep=255629&ref=17&page=1&p=1&subcat=174&sondage=0&owntopic=0&new=0#formulaire">
+									Reply to Anonymous								</a>
+							</span>
+
+												
+						</div>
+					</div>
+				</div>
+			</div>
+
+                    
+			<div class="messagetable" id="theMessage255630">
+				<div id="t255630" class="message
+
+				highlighted				">
+
+            					<div class="header  clearfix">
+						<div class="left">
+
+				
+							<strong class="s2">
+                                
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                                                <a href="/forum/profile-2821.htm" target="_blank" class="Topic noVisited" title="Display profile (noko)">
+                                    noko                                </a>
+                                							</strong>
+
+				
+							&nbsp;
+							<a href="#t255630" class="postDate">07-10-2001 at 03:29:33 AM</a>
+						</div>
+
+						<div class="right">
+
+                
+							<div class="showMessage" onclick="updateStatus(this, 'theMessage255630')"  style="display: none;" >
+								<span>Show message</span>
+							</div>
+
+                
+							<div class="commentStatus" >
+
+                            		
+								<a title="Useless message" href="javascript: noteThisAfterLogin({note: -1, idComment: 255630});" class="bt-toolbar bt-minus">-</a>
+
+        				
+								<span class="noteComment">0</span>
+
+        				
+								<a title="Useful message" href="javascript: noteThisAfterLogin({note: 1, idComment: 255630});" class="bt-toolbar bt-plus">+</a>
+
+            		                							</div>
+						</div>
+					</div>
+
+            
+					<div id="para255630" class="messageIsHere commentStatus" >
+						<div class="KonaBody clearfix">
+            
+							<div class="messageContainer">
+                                            <p>
+									LOL  <img src="http://img.tomshardware.com/forum/uk/icones/smilies/smile.gif" alt=":smile:" title=":smile:" /> .
+            
+								</p>
+
+            
+							</div>
+
+            
+												
+							<span class="replyToAnon">
+								<a rel="nofollow" href="/forum/message.php?config=tomshardwareuk.inc&cat=10&post=67013&numrep=255630&ref=18&page=1&p=1&subcat=174&sondage=0&owntopic=0&new=0#formulaire">
+									Reply to noko								</a>
+							</span>
+
+												
+						</div>
+					</div>
+				</div>
+			</div>
+
+                    
+			<div class="messagetable" id="theMessage255644">
+				<div id="t255644" class="message
+
+				default				">
+
+            					<div class="header  clearfix">
+						<div class="left">
+
+				
+							<strong class="s2">
+                                
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                                                <a href="/forum/profile-420.htm" target="_blank" class="Topic noVisited" title="Display profile (Makaveli)">
+                                    Makaveli                                </a>
+                                							</strong>
+
+				
+							&nbsp;
+							<a href="#t255644" class="postDate">07-10-2001 at 04:36:17 AM</a>
+						</div>
+
+						<div class="right">
+
+                
+							<div class="showMessage" onclick="updateStatus(this, 'theMessage255644')"  style="display: none;" >
+								<span>Show message</span>
+							</div>
+
+                
+							<div class="commentStatus" >
+
+                            		
+								<a title="Useless message" href="javascript: noteThisAfterLogin({note: -1, idComment: 255644});" class="bt-toolbar bt-minus">-</a>
+
+        				
+								<span class="noteComment">0</span>
+
+        				
+								<a title="Useful message" href="javascript: noteThisAfterLogin({note: 1, idComment: 255644});" class="bt-toolbar bt-plus">+</a>
+
+            		                							</div>
+						</div>
+					</div>
+
+            
+					<div id="para255644" class="messageIsHere commentStatus" >
+						<div class="KonaBody clearfix">
+            
+							<div class="messageContainer">
+                                            <p>
+									lol who uses the word dork anymore. <br />Don't even try to flame me your probably some 30 something year old Nerd! I won't even waste my time saying anymore your a joke! <br />And if you can read, not understanding the post was meant for juin cause obviously you can write and speak proper english!<br />You should stop being such a jerk to people and be more open minded! <br />&#034;I don't have time for bitches gotta keep my mind on my mother [-peep-] riches!&#034;
+            
+								</p>
+
+            
+							</div>
+
+            
+												
+							<span class="replyToAnon">
+								<a rel="nofollow" href="/forum/message.php?config=tomshardwareuk.inc&cat=10&post=67013&numrep=255644&ref=19&page=1&p=1&subcat=174&sondage=0&owntopic=0&new=0#formulaire">
+									Reply to Makaveli								</a>
+							</span>
+
+												
+						</div>
+					</div>
+				</div>
+			</div>
+
+                    
+			<div class="messagetable" id="theMessage255648">
+				<div id="t255648" class="message
+
+				highlighted				">
+
+            					<div class="header  clearfix">
+						<div class="left">
+
+				
+							<strong class="s2">
+                                
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                                                <a href="/forum/profile-420.htm" target="_blank" class="Topic noVisited" title="Display profile (Makaveli)">
+                                    Makaveli                                </a>
+                                							</strong>
+
+				
+							&nbsp;
+							<a href="#t255648" class="postDate">07-10-2001 at 04:44:45 AM</a>
+						</div>
+
+						<div class="right">
+
+                
+							<div class="showMessage" onclick="updateStatus(this, 'theMessage255648')"  style="display: none;" >
+								<span>Show message</span>
+							</div>
+
+                
+							<div class="commentStatus" >
+
+                            		
+								<a title="Useless message" href="javascript: noteThisAfterLogin({note: -1, idComment: 255648});" class="bt-toolbar bt-minus">-</a>
+
+        				
+								<span class="noteComment">0</span>
+
+        				
+								<a title="Useful message" href="javascript: noteThisAfterLogin({note: 1, idComment: 255648});" class="bt-toolbar bt-plus">+</a>
+
+            		                							</div>
+						</div>
+					</div>
+
+            
+					<div id="para255648" class="messageIsHere commentStatus" >
+						<div class="KonaBody clearfix">
+            
+							<div class="messageContainer">
+                                            <p>
+									sorry for being so harsh juin, but that Fugger guy really bakes my cookies. I'm not like some of the other people on here I won't take his focken trash and bias opinons. <br /><br />I am also Canadian!
+            
+								</p>
+
+            
+							</div>
+
+            
+												
+							<span class="replyToAnon">
+								<a rel="nofollow" href="/forum/message.php?config=tomshardwareuk.inc&cat=10&post=67013&numrep=255648&ref=20&page=1&p=1&subcat=174&sondage=0&owntopic=0&new=0#formulaire">
+									Reply to Makaveli								</a>
+							</span>
+
+												
+						</div>
+					</div>
+				</div>
+			</div>
+
+                    
+			<div class="messagetable" id="theMessage255652">
+				<div id="t255652" class="message
+
+				default				">
+
+            					<div class="header  clearfix">
+						<div class="left">
+
+				
+							<strong class="s2">
+                                
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                                                <a href="/forum/profile-7589.htm" target="_blank" class="Topic noVisited" title="Display profile (Kelledin)">
+                                    Kelledin                                </a>
+                                							</strong>
+
+				
+							&nbsp;
+							<a href="#t255652" class="postDate">07-10-2001 at 05:32:58 AM</a>
+						</div>
+
+						<div class="right">
+
+                
+							<div class="showMessage" onclick="updateStatus(this, 'theMessage255652')"  style="display: none;" >
+								<span>Show message</span>
+							</div>
+
+                
+							<div class="commentStatus" >
+
+                            		
+								<a title="Useless message" href="javascript: noteThisAfterLogin({note: -1, idComment: 255652});" class="bt-toolbar bt-minus">-</a>
+
+        				
+								<span class="noteComment">0</span>
+
+        				
+								<a title="Useful message" href="javascript: noteThisAfterLogin({note: 1, idComment: 255652});" class="bt-toolbar bt-plus">+</a>
+
+            		                							</div>
+						</div>
+					</div>
+
+            
+					<div id="para255652" class="messageIsHere commentStatus" >
+						<div class="KonaBody clearfix">
+            
+							<div class="messageContainer">
+                                            <p>
+									</p><div class="container"><table class="quote"><tr class="none"><td><b class="s1">Quote :</b><br /><br /><p>I looked at his lame benchmarks, I see P4 winning most by wide margin. not that 2.1 vs 2.2 sec crap.<br /></p></td></tr></table></div><p><br />When the P4 won a benchmark, its margin of victory was not really all that special.  When the P4 lost a benchmark, it tended to lose donwright miserably, even compared to a P3.<br /><br />A few gigs for a gfx file?  BS.  I would have to crank my scanner up to a fairly stupid DPI (say 1600x1600 or greater) at A4 size or greater (and save as an uncompressed TGA) to break the 1GB mark.  That even assumes I'm including a per-pixel alpha channel (why would I do this, in a flattened image file?).  And by the time a file gets that large, an artist will cut out sections to work on it, instead of working on it all at once.<br /><br />Kelledin<br /><br />&#034;/join #hackerz.  See the Web.  DoS interesting people.&#034;
+            
+								</p>
+
+            
+							</div>
+
+            
+												
+							<span class="replyToAnon">
+								<a rel="nofollow" href="/forum/message.php?config=tomshardwareuk.inc&cat=10&post=67013&numrep=255652&ref=21&page=1&p=1&subcat=174&sondage=0&owntopic=0&new=0#formulaire">
+									Reply to Kelledin								</a>
+							</span>
+
+												
+						</div>
+					</div>
+				</div>
+			</div>
+
+                    
+			<div class="messagetable" id="theMessage255656">
+				<div id="t255656" class="message
+
+				highlighted				">
+
+            					<div class="header  clearfix">
+						<div class="left">
+
+				
+							<strong class="s2">
+                                
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                                                <a href="/forum/profile-7682.htm" target="_blank" class="Topic noVisited" title="Display profile (dhlucke)">
+                                    dhlucke                                </a>
+                                							</strong>
+
+				
+							&nbsp;
+							<a href="#t255656" class="postDate">07-10-2001 at 06:37:26 AM</a>
+						</div>
+
+						<div class="right">
+
+                
+							<div class="showMessage" onclick="updateStatus(this, 'theMessage255656')"  style="display: none;" >
+								<span>Show message</span>
+							</div>
+
+                
+							<div class="commentStatus" >
+
+                            		
+								<a title="Useless message" href="javascript: noteThisAfterLogin({note: -1, idComment: 255656});" class="bt-toolbar bt-minus">-</a>
+
+        				
+								<span class="noteComment">0</span>
+
+        				
+								<a title="Useful message" href="javascript: noteThisAfterLogin({note: 1, idComment: 255656});" class="bt-toolbar bt-plus">+</a>
+
+            		                							</div>
+						</div>
+					</div>
+
+            
+					<div id="para255656" class="messageIsHere commentStatus" >
+						<div class="KonaBody clearfix">
+            
+							<div class="messageContainer">
+                                            <p>
+									Where are the links?<br /><br />&lt;font color=red&gt;Yeah, I took a crap on your lawn.  Whatcha gonna do about it?&lt;/font color=red&gt;
+            
+								</p>
+
+            
+							</div>
+
+            
+												
+							<span class="replyToAnon">
+								<a rel="nofollow" href="/forum/message.php?config=tomshardwareuk.inc&cat=10&post=67013&numrep=255656&ref=22&page=1&p=1&subcat=174&sondage=0&owntopic=0&new=0#formulaire">
+									Reply to dhlucke								</a>
+							</span>
+
+												
+						</div>
+					</div>
+				</div>
+			</div>
+
+                    
+			<div class="messagetable" id="theMessage255702">
+				<div id="t255702" class="message
+
+				default				">
+
+            					<div class="header  clearfix">
+						<div class="left">
+
+				
+							<strong class="s2">
+                                
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                                                <a href="/forum/profile-4841.htm" target="_blank" class="Topic noVisited" title="Display profile (FatBurger)">
+                                    FatBurger                                </a>
+                                							</strong>
+
+				
+							&nbsp;
+							<a href="#t255702" class="postDate">07-10-2001 at 05:30:45 PM</a>
+						</div>
+
+						<div class="right">
+
+                
+							<div class="showMessage" onclick="updateStatus(this, 'theMessage255702')"  style="display: none;" >
+								<span>Show message</span>
+							</div>
+
+                
+							<div class="commentStatus" >
+
+                            		
+								<a title="Useless message" href="javascript: noteThisAfterLogin({note: -1, idComment: 255702});" class="bt-toolbar bt-minus">-</a>
+
+        				
+								<span class="noteComment">0</span>
+
+        				
+								<a title="Useful message" href="javascript: noteThisAfterLogin({note: 1, idComment: 255702});" class="bt-toolbar bt-plus">+</a>
+
+            		                							</div>
+						</div>
+					</div>
+
+            
+					<div id="para255702" class="messageIsHere commentStatus" >
+						<div class="KonaBody clearfix">
+            
+							<div class="messageContainer">
+                                            <p>
+									The only one I've seen is one that wouldn't load on my T1. Probably just a crappy server.<br /><br />------------------------------<br />My Athlon can beat your Ferrari off the line.
+            
+								</p>
+
+            
+							</div>
+
+            
+												
+							<span class="replyToAnon">
+								<a rel="nofollow" href="/forum/message.php?config=tomshardwareuk.inc&cat=10&post=67013&numrep=255702&ref=23&page=1&p=1&subcat=174&sondage=0&owntopic=0&new=0#formulaire">
+									Reply to FatBurger								</a>
+							</span>
+
+												
+						</div>
+					</div>
+				</div>
+			</div>
+
+            		</div>
+
+	
+		<a name="bas"></a>
+
+	
+<script type="text/javascript">
+	var listenumreponse = new Array("255444","255448","255450","255451","255491","255518","255519","255528","255533","255541","255545","255546","255557","255600","255611","255626","255629","255630","255644","255648","255652","255656","255702");
+</script>
+
+
+    
+		<div class="clearfix">
+        
+			<a href="/forum/CPU-Components/new-subject.htm" accesskey="r" class="myButtons default" rel="nofollow" title="Ask the community" style="float: left;">
+				<span class="in2">Ask the community</span>
+			</a>
+
+        
+        
+			<a href="/forum/message.php?config=tomshardwareuk.inc&cat=10&post=67013&page=1&p=1&subcat=174&sondage=0&owntopic=0&new=0" accesskey="r" class="myButtons reply" rel="nofollow" title="Add a reply" style="float: right;">
+				<span class="in2">Add a reply</span>
+			</a>
+
+        
+		</div>
+
+    
+		<div class="footerOptions">
+			<a href="http://www.tomshardware.co.uk">Tom's Hardware</a> &gt; <a href="http://www.tomshardware.co.uk/forum/">Forum</a> &gt; <a href="/forum/forum-10.html">CPU &amp; Components</a> &gt; <a href="/forum/forum-10-174.html">CPUs</a> &gt; Photoshop Benchmark at X-bit lab
+			<div class="goTo clearfix">
+				<form action="/forum/forum1.php" method="get">
+					<div>
+						<b>Go to: </b>
+						<input type="hidden" name="config" value="tomshardwareuk.inc" />
+
+						<select name="cat" onchange="this.up('form', 0).submit()">
+
+                                        
+							<optgroup label="Hardware">
+
+                            
+								<option value="10" >CPU &amp; Components</option>
+                                
+								<option value="11" >Overclocking</option>
+                                
+								<option value="12" >Motherboards &amp; Memory</option>
+                                
+								<option value="13" >Homebuilt Systems</option>
+                                
+								<option value="14" >Storage</option>
+                                
+								<option value="15" >Graphic &amp; Displays</option>
+                                                
+							</optgroup>
+
+                
+							<optgroup label="Network">
+
+                            
+								<option value="17" >General Networking</option>
+                                
+								<option value="18" >Wireless Networking</option>
+                                                
+							</optgroup>
+
+                
+							<optgroup label="Mobile">
+
+                            
+								<option value="19" >Mobile Computing</option>
+                                
+								<option value="20" >Laptops &amp; Notebooks</option>
+                                
+								<option value="21" >Smartphones & PDAs</option>
+                                
+								<option value="22" >Mobility Brands</option>
+                                
+								<option value="23" >Mobility Technologies</option>
+                                
+								<option value="24" >General</option>
+                                                
+							</optgroup>
+
+                
+							<optgroup label="Consumer Electronics">
+
+                            
+								<option value="28" selected="selected">Systems</option>
+                                
+								<option value="29" >Computer Peripherals</option>
+                                
+								<option value="30" >Home Theatre</option>
+                                
+								<option value="31" >Digital Camera</option>
+                                
+								<option value="27" >Home Cinema Equipment</option>
+                                
+								<option value="32" >Audio</option>
+                                
+								<option value="33" >Other Consumer Electronics</option>
+                                                
+							</optgroup>
+
+                
+							<optgroup label="Software">
+
+                            
+								<option value="47" >Windows 7</option>
+                                
+								<option value="34" >Windows Vista</option>
+                                
+								<option value="35" >Windows XP</option>
+                                
+								<option value="36" >Windows 2000/NT</option>
+                                
+								<option value="37" >Windows 95/98/ME</option>
+                                
+								<option value="53" >Mac OS X</option>
+                                
+								<option value="38" >Linux/Free BSD</option>
+                                
+								<option value="25" >Games General</option>
+                                
+								<option value="39" >Applications</option>
+                                                
+							</optgroup>
+
+                
+							<optgroup label="Beyond the Keyboard">
+
+                            
+								<option value="48" >Cars</option>
+                                
+								<option value="49" >News &amp; Leisure</option>
+                                
+								<option value="50" >Work &amp; Education</option>
+                                
+								<option value="51" >Sports &amp; Wellness</option>
+                                
+								<option value="26" >Entertainment</option>
+                                                
+							</optgroup>
+
+                
+							<optgroup label="Community">
+
+                            
+								<option value="40" >General UK &amp; Ireland Discussions</option>
+                                
+								<option value="41" >Deals</option>
+                                                                    
+								<option value="42" >Opinions and Experiences</option>
+                                
+								<option value="44" >Tom's Hardware Sites' Feedback</option>
+                                
+								<option value="45" >Forum related</option>
+                                
+								<option value="52" >International Forum</option>
+            
+    
+							</optgroup>
+
+    
+    
+								<option value="prive">Private messages</option>
+
+    
+						</select>
+
+						<input type="submit" class="submit" />
+					</div>
+				</form>
+
+				<ul class="links">
+
+	
+	
+				</ul>
+			</div>
+
+	
+			<p>
+				There are 652 identified and unidentified users. To see the list of identified users, 				<a href="/forum/online.htm">Click here</a>.
+			</p>
+
+	
+		</div>
+
+    
+            <div id="forumLandingPageBottom" class="BOM-multitabs">
+                <div class="clearfix BOM-multitabs-headerWrapper">
+                    <div class="BOM-multitabs-header" id="onglets2">
+                        <ul>
+
+                                                <li><a onclick="return false;" title="Related content" class="BOM-multitabs-selectTab">Related content</a></li>
+                    
+                    
+                    
+                    
+                    
+                    
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="BOM-multitabs-content clearfix">
+
+                    
+                    <div class="BOM-multitabs-tab BOM-multitabs-selectTab">
+                        <ul>
+
+                                                                                                                                                                                                                        
+                            <li><span class="picto-article"></span><a href="http://www.tomshardware.co.uk/mobile-core-i5-arrandale,review-31771-10.html" title="Benchmark Results: Productivity" onclick="xt_med('C', 9, 'forum_relative_content_all', 'S');">Benchmark Results: Productivity</a></li>
+
+                                                        
+                            <li><span class="picto-article"></span><a href="http://www.tomshardware.co.uk/amd-enthusiast-crossfire,review-31689-9.html" title="Application Benchmarks: 2D And 3D Graphics" onclick="xt_med('C', 9, 'forum_relative_content_all', 'S');">Application Benchmarks: 2D And 3D Graphics</a></li>
+
+                                                        
+                            <li><span class="picto-article"></span><a href="http://www.tomshardware.co.uk/phenom-x4-965,review-31655-7.html" title="Benchmark Results: Productivity" onclick="xt_med('C', 9, 'forum_relative_content_all', 'S');">Benchmark Results: Productivity</a></li>
+
+                                                        
+                            <li><span class="picto-article"></span><a href="http://www.tomshardware.co.uk/cpu-cores-performance,review-31646-7.html" title="Application Benchmarks: Video Encoding And Image Rendering" onclick="xt_med('C', 9, 'forum_relative_content_all', 'S');">Application Benchmarks: Video Encoding And Image Rendering</a></li>
+
+                                                        
+                            <li><span class="picto-article"></span><a href="http://www.tomshardware.co.uk/system-builder-marathon,review-31040-12.html" title="Application Benchmarks &ndash; 2d and 3d Rendering" onclick="xt_med('C', 9, 'forum_relative_content_all', 'S');">Application Benchmarks &ndash; 2d and 3d Rendering</a></li>
+
+                                    
+                        </ul>
+
+                        <div class="clearfix" style="padding-top : 10px; float : right;">
+                            <a href="http://www.tomshardware.co.uk/s/photoshop-benchmark" onclick="xt_med('C', 9, 'forum_relative_content_all', 'S');">See all topics related to <span class="stronger">&quot;photoshop benchmark&quot;</span></a>
+                        </div>
+                    </div>
+
+                    
+        
+        
+        
+        
+        
+                </div>
+             </div>
+
+    
+		<div class="copyright">
+			
+<a href="/forum/forum-sitemap.htm" class="copyright" title="sitemap">Forum map</a><br />
+Bestofmedia Forum &copy;<br />2000-2009 Bestofmedia Group
+			<div class="gene">
+				Page generated in  0.432 seconds			</div>
+		</div>
+
+
+		</div>
+	</div>
+
+<div id="alertMsg6Months">
+	<div id="alertMsg6Months-subDiv" class="clearfix">
+        <h5>Please mind</h5>
+		<p>You are about to answer a thread that has been inactive for more than 6 months.<br /><strong>If you still wish to proceed, please ensure that your posting is original and does not duplicate or overlap any prior responses to this thread.</strong></p>
+		<a href="/forum/message.php?config=tomshardwareuk.inc&cat=10&post=67013&page=1&p=1&subcat=174&sondage=0&owntopic=0&new=0" accesskey="r" class="myButtons reply" rel="nofollow" title="Add a reply">
+			<span class="in2">Add a reply</span>
+		</a>
+		<a href="javascript:void(0);" accesskey="r" class="myButtons cancel" rel="nofollow" title="Add a reply" onclick="modal.prototype.hideModal();">
+			<span class="in2">Cancel</span>
+		</a>
+	</div>
+</div>
+
+<script type="text/javascript" src="http://m.bestofmedia.com/s/36889/commun/js/BOM_C/bom_multitabs.js" charset="utf-8"></script>
+
+
+<script type="text/javascript">
+	//<![CDATA[
+
+	function montrer_spoiler(value) {
+		$(value).style.visibility = ($(value).style.visibility == 'visible') ? 'hidden' : 'visible';
+	}
+
+    if($('forumLandingPageBottom')) {
+        new BOM_Multitabs('forumLandingPageBottom');
+    }
+
+    if($('forumLandingPage')) {
+        new BOM_Multitabs('forumLandingPage');
+    }
+
+	document.observe('dom:loaded', function(){
+		var link_array = $A($$('.myButtons.reply')).concat($A($$('.replyToAnon a')));
+		var href_array = new Array();
+		var onclick_array = new Array();
+		link_array.each(function(elm, index){
+			href_array.push(elm.href);
+			onclick_array.push(elm.onclick);
+			elm.href = 'javascript:void(0)';
+			elm.onclick = null;
+			Event.observe(elm, 'click', function(){
+				$$('#alertMsg6Months .reply')[0].href = href_array[index];
+				$$('#alertMsg6Months .reply')[0].onclick = onclick_array[index];
+				viewModal("alertMsg6Months");
+			});
+		});
+	});
+
+	//]]>
+</script>
+
+    	<div class="basicCentral">
+			<div class="basicCentral-elm container">
+
+<script type="text/javascript">
+//<![CDATA[
+google_ad_client = "pub-8792502999873740";
+google_ad_channel = "4277258490";
+google_language = "en";
+google_bom_title = "1";
+google_bom_locale = "en_GB";google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "1B6CD3";
+google_color_text = "000000";
+google_color_url = "FF0000";
+google_ad_output = "js";
+google_feedback = "on";
+google_ad_type = "text";
+google_max_num_ads = "2";
+google_skip = 2;
+//]]>
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+                <div id="internalSidebar">
+
+	
+                    <div class="basicRight" style="margin-bottom: 0; padding: 0 0 5px 0; background: none;">
+                        <div class="pyjama">
+
+<link href="http://m.bestofmedia.com/s/36889/commun/css/spellchecker.css" rel="stylesheet" type="text/css" media="all" />
+<form action="http://www.tomshardware.co.uk/forum//bddpost.php?config=tomshardwareuk.inc" method="post" id="forumForm" onsubmit="verif_quickform(); return false;">
+	<input type="hidden" name="anonyme" id="anonymeForm" value="0" />
+	<input type="hidden" name="pseudo" id="pseudoForm" value="" />
+	<input type="hidden" name="emailAnonyme" id="emailAnonymeForm" value="" />
+	<input type="hidden" name="cat" id="catid" value="" />
+	<input type="hidden" name="subcat" id="subcatid" value="" />
+	<input type="hidden" name="parents" value="" />
+	<input type="hidden" name="post" value="" />
+	<input type="hidden" name="stickold" value="" />
+	<input type="hidden" name="new" value="0" />
+	<input type="hidden" name="numreponse" value="" />
+	<input type="hidden" name="numrep" value="" />
+	<input type="hidden" name="page" value="1" />
+	<input type="hidden" name="verifrequet" value="1100" />
+	<input type="hidden" name="p" value="1" />
+	<input type="hidden" name="sondage" value="0" />
+	<input type="hidden" name="sond" value="0" />
+	<input type="hidden" name="cache" value="cache" />
+	<input type="hidden" name="owntopic" value="0" />
+	<input type="hidden" name="quickform" value="1" />
+	<input type="hidden" name="config" id="configid" value="tomshardwareuk.inc" />
+
+	<ul>
+		<li class="forumFormTitle">
+			<span>Ask the community now</span>
+		</li>
+    </ul>
+
+    <ul class="forumFormContent">
+		<li>
+			<label for="sujet">Message title:</label>
+            <input type="text" id="sujet" name="sujet" value="" />
+
+			<div id="forumFormTooltip" style="display: none;">
+				<span>Before asking a question, you can search for existing answers using the search field located at the top section of this site page. When writing your question, please be as detailed as possible for the best results.</span>
+			</div>
+		</li>
+
+		<li>
+			<label for="contenu">Ask your question:</label>
+			<textarea id="contenu" name="contenu" cols="10" rows="10">Hello,
+</textarea>
+		</li>
+
+		<li class="clearfix">
+			<div id="catListing">
+				<label for="selectCat">Category:</label>
+				<select name="category" id="selectCat">
+					<option value="">&nbsp;</option>
+				</select>
+			</div>
+
+			<div id="subCatListing">
+				<label for="selectSubCat">Sub-category:</label>
+				<select name="subCategory" id="selectSubCat">
+					<option value="">&nbsp;</option>
+				</select>
+			</div>
+		</li>
+
+		<li class="clearfix">
+			<img src="http://m.bestofmedia.com/i/tomsguide/design/ajax-loaderLittle2.gif" id="categoriesLoader" style="display: none; float: left;" alt="AJAX Loader" />
+
+			<a id="forumFormSubmit" class="withArrows">
+				<span style="background-color: #fff;">Publish</span>
+			</a>
+		</li>
+	</ul>
+</form>
+
+<script type="text/javascript">
+//<![CDATA[
+var currentType = null; // ie
+
+var jsonPadding = {
+    callback : function(content){
+        if(content.length < 1 || content == undefined || content == null)
+        {
+            if(currentType != null && $(currentType) != undefined)
+            {
+                $('subcatid').value = '';
+                $(currentType).style.display = 'none';
+            }
+
+            return null;
+        }
+
+        switch(currentType)
+        {
+            case 'catListing' :
+                $('catListing').style.display = 'block';
+
+                var listing = $('selectCat');
+                var input = $('catid');
+
+                var select = '<option value="" selected="selected">Select a category<\/option>';
+
+				$H(content).each(function(hash) {
+					select +=  '<optgroup label="' + hash.key + '">';
+
+					hash.value.each(function(i) {
+						select += '<option value="' + i['idCategorie'] + '-' + i['idSite'] + '-' + i['config'] + '-' + i['idCategorieLocale'] + '-' + i['anonyme'] + '">' + i['categorie'] + '<\/option>';
+					});
+
+					select += '<\/optgroup>';
+				});
+
+				break;
+			case 'subCatListing' :
+			    var tabCategorie = jsonPadding.split($F('selectCat'), '-', 'g');
+			    $('catid').value = tabCategorie[3] ? tabCategorie[3] : tabCategorie[0];
+
+			    $('subCatListing').style.display = 'block';
+
+                var listing = $('selectSubCat');
+                var input = $('subcatid');
+
+                var select = '<option value="" selected="selected">Select a sub-category<\/option>';
+
+                for(i = 0; i < content.length; i++)
+                {
+                    select +=  '<option value="' + content[i]['idSousCategorie'] + '">' + content[i]['sousCategorie'] + '<\/option>';
+                }
+
+                break;
+            default :
+                return null;
+                break;
+        }
+
+        listing.innerHTML = '';
+
+        if(Object.values(content).length > 0)
+        {
+            listing.update(select);
+        }
+
+		$('forumFormSubmit').addClassName('showWithArrows');
+
+		Event.observe($('forumFormSubmit'), 'click', function() {
+			verif_quickform();
+			return false;
+		});
+
+		/* AJOUT SPELLCHECKER */
+		if($('forumFormSubmit2')){
+			$('forumFormSubmit2').addClassName('showWithArrows');
+		}
+
+		Event.observe($('forumFormSubmit'), 'jsp:fire', function() {
+			$('forumFormSubmit').show();
+			verif_quickform();
+			return false;
+		});
+
+        input.value = jsonPadding.split(listing.firstChild.value, '-', 'g')[0];
+
+        Event.observe(listing, 'change', function(){
+            input.value = jsonPadding.split(this.options[this.selectedIndex].value, '-', 'g')[0];
+        });
+    },
+
+    categories : function(){
+        if($('categoriesJSON') == undefined)
+        {
+            script = document.createElement('script');
+            script.id = 'categoriesJSON';
+            script.type = 'text/javascript';
+            script.src = 'http://www.tomshardware.co.uk/forum//controller/?config=tomshardwareuk&action=getForumAllCategories&idSite=14&callType=js';
+
+            document.getElementsByTagName('head')[0].appendChild(script);
+
+            $('categoriesLoader').style.display = '';
+
+            jsonPadding.loader($('selectCat'));
+            currentType = 'catListing';
+
+            Event.observe($('selectCat'), 'change', function(){
+                var explode = jsonPadding.split($('selectCat').options[$('selectCat').selectedIndex].value, '-', 'g');
+                $('anonymeForm').value = explode[4];
+
+                jsonPadding.loader(this);
+            });
+        }
+    },
+
+    subCategories : function(elm){
+        if($('subCategoriesJSON') != undefined)
+        {
+            $('subCategoriesJSON').remove();
+        }
+
+        if($('subCategoriesJSON') == undefined && elm.selectedIndex != 0)
+        {
+            var explode = jsonPadding.split(elm.options[elm.selectedIndex].value, '-', 'g');
+            var idSite = explode[1];
+            var config = explode[2];
+            var idCategorie = explode[0];
+
+            script = document.createElement('script');
+            script.id = 'subCategoriesJSON';
+            script.type = 'text/javascript';
+            script.src = 'http://www.tomshardware.co.uk/forum//controller/?config=' + config + '&action=getForumSubCategories&callType=js&idCategorie=' + idCategorie + '&idSite=' + idSite;
+
+            document.getElementsByTagName('head')[0].appendChild(script);
+
+            currentType = 'subCatListing';
+        }
+    },
+
+    loader : function(id){
+        if(id != undefined && $(id) != undefined)
+        {
+            $('categoriesLoader').style.display = '';
+
+            new PeriodicalExecuter(function(pe){
+                if($('categoriesJSON') != undefined)
+                {
+                    jsonPadding.subCategories($(id));
+                    $('categoriesLoader').style.display = 'none';
+                    pe.stop();
+                }
+            }, 1);
+        }
+    },
+
+    split : function(string, separator, type){
+        var regex = new RegExp(separator, type);
+
+        return string.split(regex);
+    }
+};
+
+var forumFormTooltip = {
+	position: function() {
+		if($('forumFormTooltip').style.display == 'none') {
+			var formPosition = forumFormTooltip.elmPosition($('forumForm'))[0];
+			var formWidth = $('forumForm').getWidth() + 5;
+			var pageWidth = Utils.getPageSize()[0];
+			var tooltipWidth = $('forumFormTooltip').getWidth();
+
+			if(pageWidth - (formPosition + formWidth) >= tooltipWidth) {
+				$('forumFormTooltip').style.left = formWidth + 'px';
+				$('forumFormTooltip').style.right = 'auto';
+			}
+			else {
+				$('forumFormTooltip').style.left = 'auto';
+				$('forumFormTooltip').style.right = formWidth + 'px';
+			}
+		}
+	},
+
+	elmPosition: function(elm) {
+		var curLeft = curTop = 0;
+
+		if(elm.offsetParent) {
+			do {
+				curLeft += elm.offsetLeft;
+				curTop += elm.offsetTop;
+			} while (elm = elm.offsetParent);
+		}
+
+		return [curLeft, curTop];
+	},
+
+	show: function() {
+		forumFormTooltip.position();
+		$('forumFormTooltip').style.display = 'block';
+	},
+
+	hide: function() {
+		$('forumFormTooltip').style.display = 'none';
+	}
+};
+
+/**
+ * Events / Others
+ */
+['contenu', 'sujet'].each(function(id) {
+	Event.observe($(id), 'focus', function() {
+		jsonPadding.categories();
+		forumFormTooltip.show();
+	});
+
+	Event.observe($(id), 'blur', forumFormTooltip.hide);
+});
+
+/*Event.observe($('emailNotify'), 'focus', function(){
+    this.value = (this.value == 0) ? 1 : 0;
+});*/
+
+function verif_quickform(){
+    if(
+        $('sujet') && $('sujet').value == '' ||
+        $('contenu') && $('contenu').value == '' ||
+        $('catid').value == '' ||
+        $('subCatListing').style.display != 'none' &&
+        $('subcatid').value == ''
+    )
+    {
+        alert('Please fill all required fields');
+
+        return false;
+    }
+
+    if(membreIdentifie == undefined || membreIdentifie == 0)
+    {
+        document.observe('modal:fire', function(){
+            var cookie = Utils.getCookie('tagsso');
+
+            div = document.createElement('div');
+            div.innerHTML = cookie.replace(/\+/g, ' ');
+
+            new PeriodicalExecuter(function(pe){
+                if(
+                    Utils.getCookie('tagsso') != null ||
+                    Utils.getCookie('tagsso') != '' // ie
+                )
+                {
+                    $('forumForm').submit();
+                    pe.stop();
+                }
+            }, 1);
+
+            document.body.appendChild(div);
+        });
+
+        if(1 == $('anonymeForm').value)
+        {
+            viewModal('http://www.tomshardware.co.uk/membres/?action=modalAnon', false);
+        }
+        else
+        {
+            var path = 'http://www.tomshardware.co.uk/membres/?action=modalRegister';
+
+            /**
+             * Registration Path
+             * BI Metrics
+             *
+             * Source $registrationPathSource :
+             * 2 -> Right Column Post Anti Rebound (user from ggl)
+             * 3 -> Right Column Post
+             */
+            path+= '&registrationPathSource=3';
+            path+= '&registrationPathCategory=28';
+
+            viewModal(path, false);
+        }
+
+        return false;
+    }
+
+    $('forumForm').submit();
+}
+
+var spellchecker_tooltip = "Please correct your spelling errors.";
+var spellchecker_doneText = "Done";
+document.observe('dom:loaded', function(){
+	spellChecker.initialize('forumFormSubmit', 'contenu', '20', 'getSCText', '10', '14');
+});
+//]]>
+</script>
+<script src="http://m.bestofmedia.com/s/36889/commun/js/spellchecker.js" type="text/javascript"></script>
+
+						</div>
+					</div>
+
+	
+                    <div id="advertRight">
+                        <div class="advertRight">Ad</div>
+
+				<div class="smart_ads_bom_title">Ads</div> 			 <script type="text/javascript" src="http://ww57.smartadserver.com/call/pubj/3793/24968/415/S/1590168250/toms_uk%3Bcpu_amp_components%3Bcpus?"></script>
+                    </div>
+
+                <div class="basicRight clearfix" id="latestBestAnswer">
+                    <div class="title2Bis"><span>Latest best answer</span></div>
+                    <a href="/forum/54123-10-square-trade-warranty-worth-ebay-auction-items" title="Is the square trade warranty worth it ? (ebay auction items)" class="h3">Is the square trade warranty worth it ? (ebay auction items)</a>
+                    <div class="clearfix lba-content">
+                            <img src="http://img.tomshardware.com/forum/uk/images/mesdiscussions-339803.gif" class="lastBestAnswerAvatar" />
+                            <strong class="stronger">
+                        By itadakimasu, 31 days ago:                        </strong>
+                                                <p>i dont think it's worth it for such a cheap system.<br /><br /></p>
+                    </div>
+                </div>
+
+	
+    
+    
+    
+    
+    
+                <div class="basicRight" style="margin-top: 10px;">
+                    <div class="title2Bis">
+                        <span>They won a badge</span>
+                    </div>
+
+                    <strong class="stronger">Join us in greeting them</strong>
+
+                    <ul class="clearfix">
+
+        
+        
+                        <li>
+                            <span class="dateElm">12:03</span>
+                            <a href="/forum/profile-354202.htm">smnoamls</a> won the <a href="http://www.tomshardware.co.uk/membres/?action=displayBadges" title="Freshman">Freshman</a> badge
+                        </li>
+
+                    
+                        <li>
+                            <span class="dateElm">04:01</span>
+                            <a href="/forum/profile-592750.htm">jpsil</a> won the <a href="http://www.tomshardware.co.uk/membres/?action=displayBadges" title="Uniformed">Uniformed</a> badge
+                        </li>
+
+                    
+                        <li>
+                            <span class="dateElm">03:07</span>
+                            <a href="/forum/profile-317450.htm">strachair</a> won the <a href="http://www.tomshardware.co.uk/membres/?action=displayBadges" title="Captain">Captain</a> badge
+                        </li>
+
+                    
+                        <li>
+                            <span class="dateElm">03:07</span>
+                            <a href="/forum/profile-317471.htm">coco savege</a> won the <a href="http://www.tomshardware.co.uk/membres/?action=displayBadges" title="Captain">Captain</a> badge
+                        </li>
+
+                    
+                        <li>
+                            <span class="dateElm">03:07</span>
+                            <a href="/forum/profile-317472.htm">Mishko</a> won the <a href="http://www.tomshardware.co.uk/membres/?action=displayBadges" title="Captain">Captain</a> badge
+                        </li>
+
+                    
+                        <li>
+                            <span class="dateElm">03:07</span>
+                            <a href="/forum/profile-317497.htm">lhearne</a> won the <a href="http://www.tomshardware.co.uk/membres/?action=displayBadges" title="Captain">Captain</a> badge
+                        </li>
+
+                    
+                        <li>
+                            <span class="dateElm">03:07</span>
+                            <a href="/forum/profile-317473.htm">etherealx51</a> won the <a href="http://www.tomshardware.co.uk/membres/?action=displayBadges" title="Captain">Captain</a> badge
+                        </li>
+
+                    
+                        <li>
+                            <span class="dateElm">03:07</span>
+                            <a href="/forum/profile-317476.htm">neihrick</a> won the <a href="http://www.tomshardware.co.uk/membres/?action=displayBadges" title="Captain">Captain</a> badge
+                        </li>
+
+                    
+                        <li>
+                            <span class="dateElm">03:07</span>
+                            <a href="/forum/profile-317477.htm">ssalib</a> won the <a href="http://www.tomshardware.co.uk/membres/?action=displayBadges" title="Captain">Captain</a> badge
+                        </li>
+
+                    
+                        <li>
+                            <span class="dateElm">03:07</span>
+                            <a href="/forum/profile-317478.htm">zr1001</a> won the <a href="http://www.tomshardware.co.uk/membres/?action=displayBadges" title="Captain">Captain</a> badge
+                        </li>
+
+                    
+                    </ul>
+
+                    <div class="clearfix pyjama">
+                        <a href="http://www.tomshardware.co.uk/membres/?action=displayBadges" class="seeAll">How do I win badges?</a>
+                    </div>
+                </div>
+
+    
+	
+				<div class="basicRight" style="margin-top: 10px">
+
+<script type="text/javascript">
+//<![CDATA[
+google_ad_client = "pub-8792502999873740";
+google_ad_channel = "3249939460";
+google_language = "en";
+google_bom_title = "1";
+google_bom_locale = "en_GB";google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "1B6CD3";
+google_color_text = "000000";
+google_color_url = "FF0000";
+google_ad_output = "js";
+google_feedback = "on";
+google_ad_type = "text";
+google_max_num_ads = "2";
+google_skip = 4;
+//]]>
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+				</div>
+
+
+				<div class="basicRight">
+					<div class="title2Bis"><span>Partners</span></div>
+					<div class="pyjama">
+					<ul >
+						<li>
+							<a href="http://www.uberscore.com/games/reviews.htm" title="Review Games" target="_blank">Reviews games</a>
+						</li>
+						<li>
+							<a href="http://www.tomsgames.com/action/" title="Play action games" target="_blank">Play action games</a>
+						</li>
+
+					</ul>
+					</div>
+				</div>
+			</div>
+
+
+</div>
+
+		</div>
+	</div>
+
+	<div id="footer" class="clearfix">
+		<a href="http://www.bestofmedia.com/?langue=en" target="_blank">
+			<img id="logoFooter" src="http://m.bestofmedia.com/i/commun/bom-logo.png" alt="Bestofmedia" />
+		</a>
+
+        <fieldset>
+			
+            <span class="strong">Other countries:</span>
+            <a href="http://www.presence-pc.com" target="_blank">France</a> |
+            <a href="http://www.tomshardware.de" target="_blank">Germany</a> |
+            <a href="http://www.tomshardware.com" target="_blank">USA</a> |
+            <a href="http://www.thg.ru/" target="_blank">Russia</a> |
+            
+            <a href="http://www.tomshw.it/" target="_blank">Italy</a> |
+            
+            <a href="http://www.tomshardware.hu/" target="_blank">Hungary</a> |
+            <a href="http://www.tomshardware.com.tr/" target="_blank">Turkey</a> |
+            <a href="http://www.tomshardware.com/cn" target="_blank">China</a> |
+            <a href="http://www.tomshardware.tw" target="_blank">Taiwan</a>
+			<br />
+
+            <span class="strong">In the Bestofmedia Network:</span>
+			<a href="http://www.bestofmedia.com/audience.php?langue=en" target="_blank">Advertising</a> |
+			<a href="http://www.bestofmedia.com/qui.php?langue=en" target="_blank">About Us</a> |
+			<a href="http://www.bestofmedia.com/press.php?langue=en" target="_blank">Press Release</a> |
+			<a href="http://www.bestofmedia.com/contacts.php?langue=en" target="_blank">Contact</a> |
+			<a href="http://www.tomshardware.co.uk/rss.html">RSS</a> |
+			<a href="http://www.tomshardware.co.uk/sitemap.php">Sitemap</a>
+			<br />
+
+			<div class="footer-links">
+				
+<ol>
+</ol>			</div>
+
+			<span class="strong">Tom's Hardware is part of Bestofmedia Network &#8211; Copyright &copy; Bestofmedia. All Rights Reserved. &#8211; <a href="http://www.tomshardware.com/index.html" title="All Tom's Hardware sites">All Tom's Hardware sites</a></span>
+		</fieldset>
+	</div>
+</div>
+</div>
+
+<div id="footerBgEnd">
+	<div id="footerBgEndR">
+	</div>
+</div>
+
+
+<script type="text/javascript">
+	
+		document.observe("dom:loaded", function(){
+			new modal.prototype.initialize();
+			CookieParam = new RegExp("#redir");
+
+			if(CookieParam.exec(window.document.URL)) {
+				viewModal('http://www.tomshardware.co.uk/membres/?action=modalLanguageSelection&amp;lsSite=TomsHardware');
+			}
+
+			menuHeader({ idMenu: 'header-sections2', className: 'topmenu2' });
+		});
+		function toggleVersions() {
+			if($('lang-other').style.display == 'none') {
+				$('lang-current').hide();
+				$('arrow-toggle').addClassName('arrow-right');
+				Effect.toggle('lang-other', 'appear');
+			}
+			else {
+				$('arrow-toggle').removeClassName('arrow-right');
+				Effect.toggle('lang-other', 'appear', {
+					afterFinish: function() {
+						$('lang-current').show();
+					}
+				});
+			}
+
+			return false;
+		}
+	
+</script>
+
+
+	  	  	  	  
+
+<script type="text/javascript">
+//<![CDATA[
+xtnv = document;
+
+xtsd = 'http://logc35';
+
+xtsite = '309014';
+
+xtn2 = '9';
+
+xtpage = "Non_Member::CPU__amp__Components::CPUs::photoshop-benchmark-67013";
+
+xtdmc = '';
+
+xtprm = '';
+
+var xt1="tomshardware.co.uk";
+//]]>
+</script>
+
+<script type="text/javascript" src="http://m.bestofmedia.com/s/commun/js/xtcore.js"></script>
+
+<noscript>
+    <img width="1" alt="" height="1" src="http://logc35.xiti.com/hit.xiti?s=309014&amp;s2=9&amp;p=Non_Member::CPU__amp__Components::CPUs::photoshop-benchmark-67013" />
+</noscript>
+
+<script>
+    document.write(unescape("%3Cscript src='" + (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js' %3E%3C/script%3E"));
+</script>
+
+<script>
+
+  COMSCORE.beacon({
+    c1:2,
+    c2:6257622,
+    c3:"",
+    c4:"",
+    c5:"",
+    c6:"",
+    c15:""
+  });
+
+</script>
+<noscript>
+  <img src="http://b.scorecardresearch.com/b?c1=2&c2=6257622&c3=&c4=&c5=&c6=&c15=&cv=1.3&cj=1" style="display:none" width="0" height="0" alt="" />
+</noscript>
+
+ 
+<!--Cached at 2010-03-14 13:52:20  -->
+
+<div id="bg-advert1"></div>
+
+</body>
+</html>
+
+<script type="text/javascript" src="http://tomshardware.uk.intellitxt.com/intellitxt/front.asp?ipid=11653"></script>
+

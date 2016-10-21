@@ -1,0 +1,255 @@
+<html>
+<head>
+
+<title>XHTML Elements and Rules</title>
+
+</head>
+
+<body bgcolor="#f5f5dc" link="#0000ff" vlink="#0000ff">
+
+
+<h2  align="center">XHTML Elements and Rules</h2>
+<b>
+
+
+<p>At the very beginning of an XHTML document, you should place the following:<br><br>
+
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;<br>
+
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"<br>
+     &nbsp;&nbsp;"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;<br><br>
+  
+
+The first line is an XML declaration that indicates to the browser the version of XML used for the document's code; that is, it is an XML document that uses custom tags as defined by the W3C's XHTML specification along with the 8-bit Unicode character set, the one most commonly used today. If a browser is going to be able to recognize and correctly display the tags contained in the document, it needs to  know about the XHTML specification. The second and third lines in the code above give this information to the browser. These lines (which may be written all on one line) make up what is called a Document Type Definition (DTD). As the name implies, the DTD specifies what type of document this is (in this case an XHTML document). The DOCTYPE declaration lets designers specify the DTD file that has the definitions of all the tags and attributes used within the XHTML document.<br><br>
+
+The next line in the code involves the &lt;html&gt; tag. It becomes:<br><br>
+
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;<br><br>
+
+The xmlns stands for XML namespace, which helps the browser keep track of what all the custom XML tags mean, especially if the same name is used for different tags. A namespace lessens the confusion by providing the browser with information on the meaning of the tags in the document. By adding the above xmlns information to the &lt;html&gt; tag, we are telling the browser that all tags contained within the &lt;html&gt; element belong to the XHTML namespace, as defined by the W3C and located at the given URL. It should be noted that our textbook gives the namespace as:<br><br>
+
+&lt;html xmlns="http://www.w3.org/TR/xhtml1"&gt;<br><br>
+
+
+
+The validation services do not currently accept this as a valid namespace.<br><br>
+
+For those using a Mac, you should also include within the head section, the following:<br><br>
+
+&lt;meta http-equiv="content-type" content="text/html; charset=macintosh" /&gt;<br><br>
+
+The validation service will declare your XHTML file as invalid, without this meta tag.
+</p>
+
+<p>At this point, you might ask the question: "What about the millions of existing web pages that follow the old rules? Will they suddenly cease to work?" Because there is such a large installed base of web pages created under the old rules of HTML version 4 and before, it is likely that the major PC browsers will continue to recognize old HTML code and display it properly. But as browsers are designed for other new devices, it's likely that only XHTML-based web pages will work on them. Many web designers are already using XHTML rules for their new web pages and rewriting their previous web pages to be compatible with XHTML. Fortunately the gap between XHTML and HTML is not that great. I must confess though that because of time constraints, many of the web pages and examples given in the course content modules are in done HTML4, NOT in XHTML.</p>
+
+For the remainder of your XHTML document, as long as you adhere to the following rules, you'll be writing proper XHTML:<br><br>
+ 	
+<ul>
+
+<li>XHTML documents must be well-formed</li>
+<li>XHTML documents must have a &lt;title&gt; element within the header section</li>
+<li>Elements must nest and not overlap</li>
+<li>All element and attribute names must be in lowercase</li>
+<li>All tags must close</li>
+<li>All attributes must have values enclosed within quotes</li>
+</ul>
+
+<hr width="50%">
+
+<h3>XHTML documents must be well-formed:</h3>
+
+<p>With the exception of a frameset page, a well-formed XHTML document has an &lt;html&gt; root element that contains two embedded, non-overlapping sections, namely "head" and "body". So, the shell of an XHTML document would look like this (with .... referring to the content of each section):<br><br>
+
+
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;<br>
+
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"<br>
+     &nbsp;&nbsp;"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;<br>
+  
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;<br>
+
+&lt;head&gt;<br>
+....<br>
+....<br>
+&lt;/head&gt;<br>
+&lt;body&gt;<br>
+....<br>
+....<br>
+&lt;/body&gt;<br>
+&lt;/html&gt;
+</p>
+
+
+<hr width="50%">
+
+<h3>XHTML documents must have a &lt;title&gt; element within the header section:</h3>
+
+<p>The &lt;title&gt; element has been around since HTML 2.0, and although recommended for any web page, it is not required by the browser. If omitted, the viewer will see 'untitled' in the browser's title bar. In XHTML, the &lt;title&gt; element is required. For example:<br><br>
+
+&lt;head&gt;<br>
+&lt;title&gt;Steve Rubin's Homepage&lt;/title&gt;<br>
+&lt;/head&gt;<br>
+
+
+</p>
+
+<hr width="50%">
+
+
+<h3>Elements must nest and not overlap:</h3>
+
+<p>Most web browsers don't care if you overlap elements by writing code such as the following, in which the &lt;i&gt; tag starts within a paragraph element and ends outside it:<br><br>
+
+&lt;p&gt;The following word is written in italics: &lt;i&gt;italics&lt;/p&gt;&lt;/i&gt;<br><br>
+
+Technically, overlapping tags are illegal (albeit widely tolerated by web browsers) in HTML as well. However, as mentioned previously, XHTML documents must be well-formed. One day soon Web browsers will enforce the XHTML standard and will not "guess" what is meant when the XHTML statement syntax is wrong. If you always write your closing element (and section) tags in reverse of the order in which you wrote the opening tags, your elements (and sections) will not overlap. The following is correct:<br><br>
+
+  
+&lt;p&gt;The following word is written in italics: &lt;i&gt;italics&lt;/i&gt;&lt;/p&gt;</p>
+
+<hr width="50%">
+
+<h3>All element and attribute names must be in lowercase:</h3>
+
+HTML, unlike XHTML, is case insensitive. For example &lt;BODY&gt; is the same as &lt;body&gt; within an HTML document. As a result, many authors try to make the code within their web page files more readable by writing element names in all capital letters to set HTML tags off from text content and attributes (written in lowercase). For example, the following would be correct using HTML:<br><br>
+
+&lt;BODY BGCOLOR="yellow"&gt;<br>
+&lt;P&gt;This is a paragraph&lt;/P&gt;<br><br>
+
+Although easy to pick out, none of the above tags are valid in XHTML. Because XHTML is case-sensitive and the XHTML DTD contains elements in lowercase, you must write XHTML tags in lowercase. Otherwise, the browser will ignore the undefined tag. The following would be correct using XHTML:<br><br>
+
+
+&lt;body bgcolor="yellow"&gt;<br>
+&lt;p&gt;This is a paragraph&lt;/p&gt;<br><br>
+
+In XHTML, although you must write attribute names in lowercase, you can write attribute values in either upper or lowercase. For example, the following is valid in XHTML, even though I don't recommend it.<br><br>
+
+
+&lt;body bgcolor="YELLOW"&gt;</p>
+ 
+
+
+<hr width="50%">
+
+
+<h3>All tags must close:</h3>
+
+<p>Many authors have used the &lt;p&gt; tag to separate paragraphs when using HTML. The &lt;p&gt; tag essentially inserts a blank line and moves to the left margin. For example:<br><br>
+
+This is the first paragraph&lt;p&gt;<br>
+This is the second paragraph&lt;p&gt;<br>
+This is the third paragraph<br><br>
+
+This practice is NOT valid in XHTML. You must close each paragraph container that you open with a &lt;p&gt; tag. The following would be correct in XHTML.<br><br>
+
+&lt;p&gt;This is the first paragraph&lt;/p&gt;<br>
+&lt;p&gt;This is the second paragraph&lt;/p&gt;<br>
+&lt;p&gt;This is the third paragraph&lt;/p&gt;<br><br>
+
+In fact all container tags, such as the &lt;p&gt; tag must have a corresponding closing tag, such as &lt;/p&gt;. This is true for all container tags, such as list (&lt;ul&gt;&lt;/ul&gt;),
+list item (&lt;li&gt;&lt;/li&gt;), table (&lt;table&gt;&lt;/table&gt;), etc.
+<br><br>
+
+
+In HTML, it is possible and more syntactically correct to replace the 
+&lt;p&gt; tag with the &lt;br&gt; tag. For example:<br><br>
+
+
+This is the first paragraph&lt;br&gt;&lt;br&gt;<br>
+This is the second paragraph&lt;br&gt;&lt;br&gt;<br>
+This is the third paragraph<br><br>
+
+
+In XHTML, you must terminate empty tags such as the &lt;br&gt; tag with a space followed by a forward slash ("/"). For Example:
+ &lt;br /&gt;<br><br>
+
+This requirement to close empty tags also extends to all other tags, which would not normally close in HTML. For example:<br><br>
+
+&lt;img src="xyz.gif" /&gt;<br>
+&lt;meta name="keywords" content="Steve Rubin, web design, critical thinking" /&gt;<br>
+&lt;bgsound="xyz.wav" /&gt;</p>
+
+
+<hr width="50%">
+
+
+<h3>All attributes must have values enclosed within quotes:</h3>
+
+
+
+<p>You will find plenty of tags within HTML documents where the author assigned numeric (and sometimes single-word text) values to attributes without enclosing the value in quotes. For example:<br><br>
+
+&lt;body bgcolor=blue&gt;<br>
+
+&lt;img src=xyz.gif width=200 height=300&gt;<br>
+
+&lt;font size=5&gt;HELLO&lt;/font&gt;<br>
+
+&lt;map name=europe&gt;<br><br>
+
+All of the above would be incorrect in XHTML. XHTML requires that all attribute values (both numeric and text) be enclosed within quotes. For Example:<br><br>
+
+
+&lt;body bgcolor="blue"&gt;<br>
+
+&lt;img src="xyz.gif" width="200" height="300"&gt;<br>
+
+&lt;font size="5"&gt;HELLO&lt;/font&gt;<br>
+
+&lt;map name="europe"&gt;<br><br>
+
+
+In addition, XHTML requires that all attributes have a value. HTML lets you use a shortcut called <i>attribute minimization</i> when using an attribute that can have only one possible value. When allowed, attribute minimization lets you omit the attribute's value and specify only its name within the HTML tag. For example, the following are correct in HTML:<br><br>
+
+&lt;input type="checkbox" name="choice" value="europe" checked&gt;<br>
+
+&lt;frame name="fra1" src="fra1.htm" scrolling="no" noresize&gt;<br><br>
+
+The above examples are incorrect in XHTML. In XHTML, they would be correctly coded as follows:<br><br>
+
+
+&lt;input type="checkbox" name="choice" value="europe" checked="checked"&gt;<br>
+
+&lt;frame name="fra1" src="fra1.htm" scrolling="no" noresize="noresize"&gt;<br><br>
+
+Thus, in XHTML, we are required to state each attribute's value explicitly (and within quotes), even when only one value is possible.</p>
+
+
+
+<p><hr></p>
+
+<h3>Summary:</h3>
+
+<p>
+To repeat, when I talk about HTML in this course, I mean HTML version 4, which is the current version of the HTML language. XHTML is the newest version of HTML, essentially, HTML version 5. XHTML stands for Extensible Hypertext Markup Language.  XHTML has much stricter syntax than HTML4, but is otherwise virtually identical.</p>
+
+
+
+
+<p>NOTE:  Feel free to use either HTML or XHTML in your Homework Assignment Web Pages. I encourage you to use XHTML in at least a few of your Homework  Assignment Web Pages, if not in all of them.<br><br>
+
+A full discussion of XHTML is given in our textbook in Chapter 16.<br><br>
+
+View an <a href="http://www.w3schools.com/xhtml/xhtml_intro.asp">excellent tutorial on XHTML</a>.<br><br>
+
+Take a <a href="http://www.w3schools.com/xhtml/xhtml_quiz.asp">review quiz on XHTML</a>.<br><br>
+
+You can convert your HTML code to XHTML or correct your XHTML code, using this <a href="http://cgi.w3.org/cgi-bin/tidy">W3C service</a>,  called <b>tidy</b>.    You can use also validate your XHTML code at <a href="http://validator.w3.org/">http://validator.w3.org/</a>.<br><br>
+
+
+Note: before using tidy, I suggest inserting at the top of your HTML file the following:<br><br>
+
+&lt;?xml version="1.0" encoding="UTF-8"?><br>
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"<br>
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;<br>
+&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"&gt;
+
+</p>
+
+
+</b>
+
+
+</body>
+</html>

@@ -1,0 +1,486 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+ <head>
+  <link rel="stylesheet" href="http://st.pimg.net/tucs/style.css" type="text/css" />
+<link rel="stylesheet" href="http://st.pimg.net/tucs/print.css" type="text/css" media="print" />
+  <link rel="alternate" type="application/rss+xml" title="RSS 1.0" href="http://search.cpan.org/uploads.rdf" />
+  <link rel="search" href="http://st.pimg.net/tucs/opensearch.xml" type="application/opensearchdescription+xml" title="SearchCPAN" />
+  <title>HTML::EasyTags - search.cpan.org</title>
+ </head>
+ <body id="cpansearch">
+<center><div class="logo"><a href="/"><img src="http://st.pimg.net/tucs/img/cpan_banner.png" alt="CPAN"></a></div></center>
+<div class="menubar">
+ <a href="/">Home</a>
+&middot; <a href="/author/">Authors</a>
+&middot; <a href="/recent">Recent</a>
+&middot; <a href="http://log.perl.org/cpansearch/">News</a>
+&middot; <a href="/mirror">Mirrors</a>
+&middot; <a href="/faq.html">FAQ</a>
+&middot; <a href="/feedback">Feedback</a>
+</div>
+<form method="get" action="/search" name="f" class="searchbox">
+<input type="text" name="query" value="" size="35">
+<br>in <select name="mode">
+ <option value="all">All</option>
+ <option value="module" >Modules</option>
+ <option value="dist" >Distributions</option>
+ <option value="author" >Authors</option>
+</select>&nbsp;<input type="submit" value="CPAN Search">
+</form>
+
+
+ <a name="_top"></a>
+  <div class=path>
+<div id=permalink class="noprint"><a href="/perldoc?HTML::EasyTags">permalink</a></div>
+  <a href="/~duncand/">Darren Duncan</a> &gt;
+  <a href="/~duncand/HTML-EasyTags-1.071/">HTML-EasyTags-1.071</a> &gt;
+  HTML::EasyTags
+ </div>
+
+<div class="noprint" style="float:right;align:left;width:19ex">
+<a href="http://hexten.net/cpan-faces/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=4a77891e5a996e7c4c165af874e6ad2e&rating=G&size=80&default=http%3A%2F%2Fst.pimg.net%2Ftucs%2Fimg%2Fwho.png" width=80 height=80 
+style="float:right"
+/></a>
+<br style="clear:both"/>
+<p style="text-align:right">Download:<br/> <a href="/CPAN/authors/id/D/DU/DUNCAND/HTML-EasyTags-1.071.tar.gz">HTML-EasyTags-1.071.tar.gz</a></p>
+<p style="text-align:right"><a href="http://deps.cpantesters.org/?module=HTML::EasyTags;perl=latest">Dependencies</a></p>
+<p style="text-align:right"><a href="http://www.annocpan.org/~DUNCAND/HTML-EasyTags-1.071/lib/HTML/EasyTags.pm">Annotate this POD
+</a></p>
+<div class=box style='width:150px; float: right'>
+<h1 class=t5>Related Modules</h1>
+<div style="margin:2px">
+<a href="/perldoc?CGI::Lite">CGI::Lite</a><br>
+<a href="/perldoc?Text::Balanced">Text::Balanced</a><br>
+<a href="/perldoc?Apache::Request">Apache::Request</a><br>
+<a href="/perldoc?CGI::Application">CGI::Application</a><br>
+<a href="/perldoc?HTML::Stream">HTML::Stream</a><br>
+<a href="/perldoc?HTML::LoL">HTML::LoL</a><br>
+<a href="/perldoc?HTML::TagUtil">HTML::TagUtil</a><br>
+<a href="/perldoc?HTML::Lint">HTML::Lint</a><br>
+<a href="/perldoc?Text::Textile">Text::Textile</a><br>
+<a href="/perldoc?HTML::Table">HTML::Table</a><br>
+<small>
+<a href="http://perlmonks.org/?node=cpan+module+search&pivot=1&module=HTML::EasyTags">more...</a><br>
+By <a href="http://perlmonks.org/">perlmonks.org</a></small>
+</div>
+</div>
+
+<div style="float:right">
+<div class=box style='width:150px'>
+<h1 class=t5>CPAN RT</h1>
+<div style="margin:2px">
+<table style="margin-left:auto;margin-right:auto">
+<tr><td>Open&nbsp;</td><td style="text-align:right"> 0</td></tr>
+</table>
+<a href="https://rt.cpan.org/Public/Bug/Report.html?Queue=HTML-EasyTags">Report a bug</a>
+</div>
+</div>
+
+</div>
+</div>
+  Module Version:  1.071 &nbsp;
+<span class="noprint">
+  <a href="/src/DUNCAND/HTML-EasyTags-1.071/lib/HTML/EasyTags.pm">Source</a> &nbsp;
+</span>
+<a name="___top"></a>
+<div class=pod>
+<div class=toc>
+<div class='indexgroup'>
+<ul   class='indexList indexList1'>
+  <li class='indexItem indexItem1'><a href='#NAME'>NAME</a>
+  <li class='indexItem indexItem1'><a href='#DEPENDENCIES'>DEPENDENCIES</a>
+  <ul   class='indexList indexList2'>
+    <li class='indexItem indexItem2'><a href='#Perl_Version'>Perl Version</a>
+    <li class='indexItem indexItem2'><a href='#Standard_Modules'>Standard Modules</a>
+    <li class='indexItem indexItem2'><a href='#Nonstandard_Modules'>Nonstandard Modules</a>
+  </ul>
+  <li class='indexItem indexItem1'><a href='#SYNOPSIS'>SYNOPSIS</a>
+  <li class='indexItem indexItem1'><a href='#DESCRIPTION'>DESCRIPTION</a>
+  <li class='indexItem indexItem1'><a href='#HTML_CODE_FROM_SYNOPSIS_PROGRAM'>HTML CODE FROM SYNOPSIS PROGRAM</a>
+  <li class='indexItem indexItem1'><a href='#SYNTAX'>SYNTAX</a>
+  <li class='indexItem indexItem1'><a href='#FUNCTIONS_AND_METHODS'>FUNCTIONS AND METHODS</a>
+  <ul   class='indexList indexList2'>
+    <li class='indexItem indexItem2'><a href='#new()'>new()</a>
+    <li class='indexItem indexItem2'><a href='#initialize()'>initialize()</a>
+    <li class='indexItem indexItem2'><a href='#clone([_CLONE_])'>clone([ CLONE ])</a>
+    <li class='indexItem indexItem2'><a href='#groups_by_default([_VALUE_])'>groups_by_default([ VALUE ])</a>
+    <li class='indexItem indexItem2'><a href='#prologue_tag([_VALUE_])'>prologue_tag([ VALUE ])</a>
+    <li class='indexItem indexItem2'><a href='#comment_tag(_TEXT_)'>comment_tag( TEXT )</a>
+    <li class='indexItem indexItem2'><a href='#make_html_tag(_NAME[,_PARAMS[,_TEXT[,_PART]]]_)'>make_html_tag( NAME[, PARAMS[, TEXT[, PART]]] )</a>
+    <li class='indexItem indexItem2'><a href='#make_html_tag_group(_NAME[,_PARAMS[,_TEXT[,_LIST]]]_)'>make_html_tag_group( NAME[, PARAMS[, TEXT[, LIST]]] )</a>
+    <li class='indexItem indexItem2'><a href='#start_html([_TITLE[,_HEAD[,_BODY[,_FRAMESET]]]_])'>start_html([ TITLE[, HEAD[, BODY[, FRAMESET]]] ])</a>
+    <li class='indexItem indexItem2'><a href='#end_html([_FRAMESET_])'>end_html([ FRAMESET ])</a>
+  </ul>
+  <li class='indexItem indexItem1'><a href='#COMPARISONS_WITH_CGI.PM'>COMPARISONS WITH CGI.PM</a>
+  <li class='indexItem indexItem1'><a href='#AUTHOR'>AUTHOR</a>
+  <li class='indexItem indexItem1'><a href='#CREDITS'>CREDITS</a>
+  <li class='indexItem indexItem1'><a href='#SEE_ALSO'>SEE ALSO</a>
+</ul>
+</div>
+</div>
+
+<h1><a class='u' href='#___top' title='click to go to top of document'
+name="NAME"
+>NAME <img alt='^' src='http://st.pimg.net/tucs/img/up.gif'></a></h1>
+
+<p>HTML::EasyTags - Make well-formed XHTML or HTML 4 tags,
+lists</p>
+
+<h1><a class='u' href='#___top' title='click to go to top of document'
+name="DEPENDENCIES"
+>DEPENDENCIES <img alt='^' src='http://st.pimg.net/tucs/img/up.gif'></a></h1>
+
+<h2><a class='u' href='#___top' title='click to go to top of document'
+name="Perl_Version"
+>Perl Version</a></h2>
+
+<pre>        5.004</pre>
+
+<h2><a class='u' href='#___top' title='click to go to top of document'
+name="Standard_Modules"
+>Standard Modules</a></h2>
+
+<pre>        I&#60;none&#62;</pre>
+
+<h2><a class='u' href='#___top' title='click to go to top of document'
+name="Nonstandard_Modules"
+>Nonstandard Modules</a></h2>
+
+<pre>        I&#60;none&#62;</pre>
+
+<h1><a class='u' href='#___top' title='click to go to top of document'
+name="SYNOPSIS"
+>SYNOPSIS <img alt='^' src='http://st.pimg.net/tucs/img/up.gif'></a></h1>
+
+<pre>        use HTML::EasyTags;
+
+        my $html = HTML::EasyTags-&#62;new();
+        $html-&#62;groups_by_default( 1 );
+
+        print
+                $html-&#62;start_html( 
+                        &#39;This Is My Page&#39;,
+                        $html-&#62;style( { type =&#62; &#39;text/css&#39; }, 
+                                $html-&#62;comment_tag( &#60;&#60;__endquote ) ),
+        \nbody {
+                background-color: #ffffff; 
+                background-image: none;
+        }
+        __endquote
+                ),
+                $html-&#62;h1( &#39;A Simple Example&#39; ),
+                $html-&#62;p( 
+                        &#34;Click &#34; . 
+                        $html-&#62;a( href =&#62; &#39;<a href="http://search.cpan.org" class="podlinkurl"
+>http://search.cpan.org</a>&#39;, text =&#62; &#39;here&#39; ) . 
+                        &#34; for more.&#34;
+                ),
+                $html-&#62;hr,
+                $html-&#62;table(
+                        $html-&#62;tr( [
+                                $html-&#62;th( [ &#39;Name&#39;, &#39;Count&#39;, &#39;URL&#39;, &#39;First Access&#39; ] ), 
+                                $html-&#62;td( [ &#39;Old Page&#39;, 33, &#39;<a href="http://www.domain.com" class="podlinkurl"
+>http://www.domain.com</a>&#39;, 
+                                        &#39;1999/04/23 13:55:02&#39; ] )
+                        ] )
+                ),
+                $html-&#62;hr,
+                $html-&#62;form_start( method =&#62; &#39;post&#39;, action =&#62; &#39;<a href="http://localhost" class="podlinkurl"
+>http://localhost</a>&#39; ),
+                $html-&#62;p( 
+                        &#34;What&#39;s your name? &#34; . 
+                        $html-&#62;input( type =&#62; &#39;text&#39;, name =&#62; &#39;name&#39; ) 
+                ),
+                $html-&#62;p( 
+                        &#34;What&#39;s the combination?&#34; .
+                        $html-&#62;input_group( 
+                                -type =&#62; &#39;checkbox&#39;, 
+                                -name =&#62; &#39;words&#39;,
+                                -value =&#62; [&#39;eenie&#39;, &#39;meenie&#39;, &#39;minie&#39;, &#39;moe&#39;],
+                                -checked =&#62; [1, 0, 1, 0],
+                                -text =&#62; [&#39;Eenie&#39;, &#39;Meenie&#39;, &#39;Minie&#39;, &#39;Moe&#39;] ),
+                ),
+                $html-&#62;p( 
+                        &#34;What&#39;s your favorite colour? &#34; .
+                        $html-&#62;select_start( -size =&#62; 1, -name =&#62; &#39;color&#39; ) .
+                        $html-&#62;option_group(
+                                -value =&#62; [&#39;red&#39;, &#39;green&#39;, &#39;blue&#39;, &#39;chartreuse&#39;], 
+                                -text =&#62; [&#39;Red&#39;, &#39;Green&#39;, &#39;Blue&#39;, &#39;Chartreuse&#39;] ) .
+                        $html-&#62;select_end
+                ),
+                $html-&#62;input( type =&#62; &#39;submit&#39; ),
+                $html-&#62;form_end,
+                $html-&#62;end_html;</pre>
+
+<h1><a class='u' href='#___top' title='click to go to top of document'
+name="DESCRIPTION"
+>DESCRIPTION <img alt='^' src='http://st.pimg.net/tucs/img/up.gif'></a></h1>
+
+<p>This Perl 5 object class can be used to generate any well-formed XHTML or HTML tags in a format that is consistent with the W3C XHTML 1.0 or HTML 4.01 standards. See <b><a href="http://www.w3.org/TR/xhtml1" class="podlinkurl"
+>http://www.w3.org/TR/xhtml1</a></b> and <b><a href="http://www.w3c.org/MarkUp" class="podlinkurl"
+>http://www.w3c.org/MarkUp</a></b> for references. There are no restrictions on what tags are named, however; you can ask for any new or unsupported tag that comes along from Netscape or Microsoft, and it will be made. Additionally, you can generate lists of said tags with one method call, or just parts of said tags (but not both at once).</p>
+
+<p>This module&#39;s purpose is to be lightweight, easy to use, and whose results are well-formed and pretty-printed (should humans wish to read or debug it). At the same time, it is supportive of your existing knowledge of HTML and as such its interface closely mirrors the actual appearance of the resulting tags. This means that methods have the same name as the actual tags, and named parameters that you pass correspond directly to the tag attributes produced. This module saves you having to remember the little details on formatting. For your convenience, a majority of the methods and their arguments are backwards-compatible with those in CGI.pm, but you are saved 200K of code size.</p>
+
+<p>As a reference, I strongly recommend that you check out <b>Kevin Werbach&#39;s</b> excellent &#34;The Bare Bones Guide to HTML&#34;, which is available at <b><a href="http://werbach.com/barebones/" class="podlinkurl"
+>http://werbach.com/barebones/</a></b>. I found this document invaluable when making this module, as it provides a comprehensive list of all the HTML tags along with their formatting and extensions.</p>
+
+<p>In this implementation, &#34;well formed&#34; means that tags are made as pairs by default, which look like &#34;&#60;tag&#62;&#60;/tag&#62;&#34;, unless they are known to be &#34;no pair&#34; tags, in which case they look like &#34;&#60;tag /&#62;&#34;. Tags that I know to be &#34;no pair&#34; are [basefont, img, area, param, br, hr, input, option, tbody, frame, comment, isindex, base, link, meta]. However, you can force any tag to be &#34;pair&#34; or &#34;start only&#34; or &#34;end only&#34; by appropriately modifying your call to the tag making method.</p>
+
+<p>Also, &#34;well formed&#34; means that tag attributes are formatted as &#34;key=value&#34;. While the HTML standard allowed there to be &#34;no value&#34; attributes, XHTML does not. These were formatted simply as &#34;key&#34; because their very presence indicates positive assertion, while their absense means otherwise. Before release 1-06, attributes that were known to be &#34;no value&#34; attributes were formatted as &#34;key&#34; by default. Modifiers that I know to be &#34;no value&#34; are [ismap, noshade, compact, checked, multiple, selected, nowrap, noresize, param]. As of release 1-06, &#34;no value&#34; attributes are formatted as &#39;key=&#34;1&#34;&#39; when they are true and they are absent when false, to keep backwards compatability. &#34;Well formed&#34; means that attribute values will always become bounded by quotes, which ensures they work with both string and numerical quantities (eg: key=&#34;value&#34;).</p>
+
+<p>Convenience methods start_html() and end_html() are provided to generate the required HTML that appears above and below your content; however, you can still make said HTML one tag at a time if you wish.</p>
+
+<h1><a class='u' href='#___top' title='click to go to top of document'
+name="HTML_CODE_FROM_SYNOPSIS_PROGRAM"
+>HTML CODE FROM SYNOPSIS PROGRAM <img alt='^' src='http://st.pimg.net/tucs/img/up.gif'></a></h1>
+
+<pre>        &#60;!DOCTYPE HTML PUBLIC &#34;-//W3C//DTD HTML 4.0//EN&#34;&#62;
+        &#60;html&#62;
+        &#60;head&#62;
+        &#60;title&#62;This Is My Page&#60;/title&#62;
+        &#60;style type=&#34;text/css&#34;&#62;
+        &#60;!-- 
+        body {
+                background-color: #ffffff; 
+                background-image: none;
+        }
+         --&#62;&#60;/style&#62;
+        &#60;/head&#62;
+        &#60;body&#62;
+        &#60;h1&#62;A Simple Example&#60;/h1&#62;
+        &#60;p&#62;Click 
+        &#60;a href=&#34;<a href="http://search.cpan.org&#34;&#62;here&#60;/a" class="podlinkurl"
+>http://search.cpan.org&#34;&#62;here&#60;/a</a>&#62; for more.&#60;/p&#62;
+        &#60;hr /&#62;
+        &#60;table&#62;
+        &#60;tr&#62;
+        &#60;th&#62;Name&#60;/th&#62;
+        &#60;th&#62;Count&#60;/th&#62;
+        &#60;th&#62;URL&#60;/th&#62;
+        &#60;th&#62;First Access&#60;/th&#62;&#60;/tr&#62;
+        &#60;tr&#62;
+        &#60;td&#62;Old Page&#60;/td&#62;
+        &#60;td&#62;33&#60;/td&#62;
+        &#60;td&#62;<a href="http://www.domain.com&#60;/td" class="podlinkurl"
+>http://www.domain.com&#60;/td</a>&#62;
+        &#60;td&#62;1999/04/23 13:55:02&#60;/td&#62;&#60;/tr&#62;&#60;/table&#62;
+        &#60;hr /&#62;
+        &#60;form method=&#34;post&#34; action=&#34;<a href="http://localhost" class="podlinkurl"
+>http://localhost</a>&#34;&#62;
+        &#60;p&#62;What&#39;s your name? 
+        &#60;input type=&#34;text&#34; name=&#34;name&#34; /&#62;&#60;/p&#62;
+        &#60;p&#62;What&#39;s the combination?
+        &#60;input type=&#34;checkbox&#34; name=&#34;words&#34; checked=&#34;1&#34; value=&#34;eenie&#34; /&#62;Eenie
+        &#60;input type=&#34;checkbox&#34; name=&#34;words&#34; value=&#34;meenie&#34; /&#62;Meenie
+        &#60;input type=&#34;checkbox&#34; name=&#34;words&#34; checked=&#34;1&#34; value=&#34;minie&#34; /&#62;Minie
+        &#60;input type=&#34;checkbox&#34; name=&#34;words&#34; value=&#34;moe&#34; /&#62;Moe&#60;/p&#62;
+        &#60;p&#62;What&#39;s your favorite colour? 
+        &#60;select name=&#34;color&#34; size=&#34;1&#34;&#62;
+        &#60;option value=&#34;red&#34; /&#62;Red
+        &#60;option value=&#34;green&#34; /&#62;Green
+        &#60;option value=&#34;blue&#34; /&#62;Blue
+        &#60;option value=&#34;chartreuse&#34; /&#62;Chartreuse
+        &#60;/select&#62;&#60;/p&#62;
+        &#60;input type=&#34;submit&#34; /&#62;
+        &#60;/form&#62;
+        &#60;/body&#62;
+        &#60;/html&#62;</pre>
+
+<h1><a class='u' href='#___top' title='click to go to top of document'
+name="SYNTAX"
+>SYNTAX <img alt='^' src='http://st.pimg.net/tucs/img/up.gif'></a></h1>
+
+<p>This class does not export any functions or methods, so you need to call them using object notation. This means using <b>Class-&#62;function()</b> for functions and <b>$object-&#62;method()</b> for methods. If you are inheriting this class for your own modules, then that often means something like <b>$self-&#62;method()</b>.</p>
+
+<p>Methods of this class always &#34;return&#34; their results, rather than printing them out to a file or the screen. Not only is this simpler, but it gives the calling code the maximum amount of control over what happens in the program. They may wish to do post-processing with the generated HTML, or want to output it in a different order than it is generated. By default, all results are returned as a scalar, but methods which generate a list of tags can optionally return an ARRAY ref, with each element containing a single tag. This can aid in post-processing and possibly speed up the program because there is less copying done.</p>
+
+<p>Through the magic of autoloading, this class can make any html tag by calling a class method with the same name as the tag you want. For examples, use &#34;hr()&#34; to make a &#34;&#60;hr /&#62;&#34; tag, or &#34;p(&#39;text&#39;)&#34; to make &#34;&#60;p&#62;text&#60;/p&#62;&#34;. This also means that if you mis-spell any method name, it will still make a new tag with the mis-spelled name. For autoloaded methods only, the method names are case-insensitive.</p>
+
+<p>If you call a class method whose name ends in either of [&#39;_start&#39;, &#39;_end&#39;, &#39;_pair&#39;, &#39;_mini&#39;], this will be interpreted as an instruction to make just part of one tag whose name are the part of the method name preceeding that suffix. For example, calling &#34;p_start( &#39;text&#39; )&#34; results in &#34;&#60;p&#62;text&#34; rather than &#34;&#60;p&#62;text&#60;/p&#62;&#34;. Similarly, calling &#34;p_end()&#34; will generate a &#34;&#60;/p&#62;&#34; only. Using the &#39;_pair&#39; suffix will force tags to be made as a pair, whether or not they would do so naturally. For example, calling &#34;br_pair&#34; would produce a &#34;&#60;br&#62;&#60;/br&#62;&#34; rather than the normal &#34;&#60;br /&#62;&#34;. Calling &#34;p_mini( &#39;text&#39; )&#34; results in &#34;&#60;p /&#62;text&#34;. When using either of [&#39;_start&#39;, &#39;_pair&#39;, &#39;_mini&#39;], the arguments you pass the method are exactly the same as the unmodified method would use, and there are no other symantec differences. However, when using the &#39;_end&#39; suffix, any arguments are ignored, as the latter member of a tag pair never carries any attributes anyway.</p>
+
+<p>If you call a class method whose name ends in &#34;_group&#34;, this will be interpreted as an instruction to make a list of tags whose name are the part of the method name preceeding the &#34;_group&#34;. For example, calling &#34;td_group( [&#39;here&#39;,&#39;we&#39;,&#39;are&#39;] )&#34; results in &#34;&#60;td&#62;here&#60;/td&#62;&#60;td&#62;we&#60;/td&#62;&#60;td&#62;are&#60;/td&#62;&#34; being generated. The arguments that you call this method are exactly the same as for calling a method to make a single tag of the same name, except that the extra optional parameter &#34;list&#34; can be used to force an ARRAY ref of the new tags to be returned instead of a scalar. The symantec difference is that any arguments whose values are ARRAY refs are interpreted as a list of values where each one is used in a separate tag; for a single tag, the literal ARRAY ref itself would be used. The number of tags produced is equal to the length of the longest ARRAY ref passed as an argument. For any other arguments who have fewer than this count, their last value is replicated and appended enough times as necessary to make them the same length. The value of a scalar argument is used for all the tags. For example, calling &#34;input_group( type =&#62; checkbox, name =&#62; &#39;letters&#39;, value =&#62; [&#39;a&#39;,&#39;b&#39;,&#39;c&#39;] )&#34; produces &#39;&#60;INPUT TYPE=&#34;checkbox&#34; NAME=&#34;letters&#34; VALUE=&#34;a&#34;&#62;&#60;INPUT TYPE=&#34;checkbox&#34; NAME=&#34;letters&#34; VALUE=&#34;b&#34;&#62;&#60;INPUT TYPE=&#34;checkbox&#34; NAME=&#34;letters&#34; VALUE=&#34;c&#34;&#62;&#39;.</p>
+
+<p>All autoloaded methods require their parameters to be in named format. These names and values correspond to attribute names and values for the new tags. Since &#34;no value&#34; attributes are essentially booleans, they can have any true or false value associated with them in the parameter list, which won&#39;t be printed. If an autoloaded method is passed exactly one parameter, it will be interpreted as the &#34;text&#34; that goes between the tag pair (&#60;tag&#62;text&#60;/tag&#62;) or after &#34;start tags&#34; (&#60;tag&#62;text). The same result can be had explicitely by passing the named parameter &#34;text&#34;. The names of any named parameters can upper or lower or mixed case, as is your preference, and optionally start with a &#34;-&#34;.</p>
+
+<p>All static (non-autoloaded) methods require positional parameters.</p>
+
+<h1><a class='u' href='#___top' title='click to go to top of document'
+name="FUNCTIONS_AND_METHODS"
+>FUNCTIONS AND METHODS <img alt='^' src='http://st.pimg.net/tucs/img/up.gif'></a></h1>
+
+<p>Note that all the methods defined below are static, so information specific to autoloaded methods won&#39;t likely apply to them. All of these methods take positional arguments.</p>
+
+<h2><a class='u' href='#___top' title='click to go to top of document'
+name="new()"
+>new()</a></h2>
+
+<p>This function creates a new HTML::EasyTags object (or subclass thereof) and returns it.</p>
+
+<h2><a class='u' href='#___top' title='click to go to top of document'
+name="initialize()"
+>initialize()</a></h2>
+
+<p>This method is used by <b>new()</b> to set the initial properties of an object, that it creates. All page attributes are wiped clean, resulting in an empty page.</p>
+
+<h2><a class='u' href='#___top' title='click to go to top of document'
+name="clone([_CLONE_])"
+>clone([ CLONE ])</a></h2>
+
+<p>This method initializes a new object to have all of the same properties of the current object and returns it. This new object can be provided in the optional argument CLONE (if CLONE is an object of the same class as the current object); otherwise, a brand new object of the current class is used. Only object properties recognized by HTML::EasyTags are set in the clone; other properties are not changed.</p>
+
+<h2><a class='u' href='#___top' title='click to go to top of document'
+name="groups_by_default([_VALUE_])"
+>groups_by_default([ VALUE ])</a></h2>
+
+<p>This method is an accessor for the boolean &#34;automatic grouping&#34; property of this object, which it returns. If VALUE is defined, this property is set to it. In cases where we aren&#39;t told explicitely that autoloaded methods are making a single or multiple tags (using [&#39;_start&#39;, &#39;_end&#39;, &#39;_pair&#39;, &#39;_mini&#39;] and &#39;_group&#39; respectively), we look to this property to determine what operation we guess. The default is &#34;single&#34;. When this property is true, we can make both single and groups of tags by using a suffix-less method name; however, making single tags this way is slower than when this property is false. Also, be aware that when we are making a &#34;group&#34;, arguments that are ARRAY refs are always flattened, and when we are making a &#34;single&#34;, ARRAY ref arguments are always used literally.</p>
+
+<h2><a class='u' href='#___top' title='click to go to top of document'
+name="prologue_tag([_VALUE_])"
+>prologue_tag([ VALUE ])</a></h2>
+
+<p>This method is an accessor for the scalar &#34;prologue tag&#34; property of this object, which it returns. If VALUE is defined, this property is set to it. This property is meant to be used literally and be the very first thing in an XHTML or HTML document. It tells the web browser such things as what version of the HTML standard we are adhering to. Citing backwards compatability with earlier versions of this class, the default prologue tag we make is for HTML version 4.0 and looks like &#39;&#60;!DOCTYPE HTML PUBLIC &#34;-//W3C//DTD HTML 4.0//EN&#34;&#62;&#39;.</p>
+
+<h2><a class='u' href='#___top' title='click to go to top of document'
+name="comment_tag(_TEXT_)"
+>comment_tag( TEXT )</a></h2>
+
+<p>This method returns a comment tag, which is only visible to people viewing the HTML source of a document, and not otherwise. It can take either a scalar or a list or an Array ref as its TEXT argument. If a single item of text is passed, then a comment tag that looks like &#34;&#60;!-- text --&#62;&#34; is made. If more than one item of text is passed, then a multi-line comment is made, which has each item of text on its own line and indented with a single tab. The latter is suitable for displaying CSS or JavaScript code in an elegant manner.</p>
+
+<h2><a class='u' href='#___top' title='click to go to top of document'
+name="make_html_tag(_NAME[,_PARAMS[,_TEXT[,_PART]]]_)"
+>make_html_tag( NAME[, PARAMS[, TEXT[, PART]]] )</a></h2>
+
+<p>This method is used internally to do the actual construction of single html tags. You can call it directly when you want faster code and/or more control over how tags are made. The first argument, NAME, is a scalar that defines the actual name of the tag we are making (eg: &#39;br&#39;); it is case-insensitive. The optional second argument, PARAMS, is a HASH ref containing attribute names and values for the new tag; the names (keys) are case-insensitive. The attribute values are all printed literally, so they should be scalars. The optional third argument, TEXT, is a scalar containing the text that goes between the tag pairs; it is not a tag attribute. The optional fourth argument, PART, is a scalar which indicates we should make just a certain part of the tag; acceptable values are [&#39;pair&#39;, &#39;start&#39;, &#39;end&#39;], and it is case-insensitive. This method knows which HTML tags are normally paired or not, which tag attributes take specified values or not, and acts accordingly.</p>
+
+<h2><a class='u' href='#___top' title='click to go to top of document'
+name="make_html_tag_group(_NAME[,_PARAMS[,_TEXT[,_LIST]]]_)"
+>make_html_tag_group( NAME[, PARAMS[, TEXT[, LIST]]] )</a></h2>
+
+<p>This method is used internally to do the actual construction of html tag groups. You can call it directly when you want faster code and/or more control over how tags are made. The first argument, NAME, is a scalar that defines the actual name of the tag we are making (eg: &#39;br&#39;); it is case-insensitive. The optional second argument, PARAMS, is a HASH ref containing attribute names and values for the new tag; the names (keys) are case-insensitive. Any attribute values which are ARRAY refs are flattened, and the number of tags made is determined by the length of the longest one. The optional third argument, TEXT, is a HASH ref (or scalar) containing the text that goes between the tag pairs; it is not a tag attribute, but if its an ARRAY ref then its length will influence the number of tags that are made as the length of tag attribute arrays do. The optional fourth argument, LIST, is a boolean/scalar which indicates whether this method returns the new tags in an ARRAY ref (one tag per element) or as a scalar (tags are concatenated together); a true value forces an ARRAY ref, scalar is the default. This method knows which HTML tags are normally paired or not, which tag attributes take specified values or not, and acts accordingly.</p>
+
+<h2><a class='u' href='#___top' title='click to go to top of document'
+name="start_html([_TITLE[,_HEAD[,_BODY[,_FRAMESET]]]_])"
+>start_html([ TITLE[, HEAD[, BODY[, FRAMESET]]] ])</a></h2>
+
+<p>This method returns a canned HTML template that is suitable for use as the top of an HTML page. It consists of the prologue tag (&#60;!DOCTYPE...), the opening &#39;html&#39; tag, the entire &#39;head&#39; section, and the opening &#39;body&#39; tag. The prologue tag looks the same as that generated by the class method prologue_tag(). The first optional argument, TITLE, is a scalar which defines the title for the document, and its default value is &#39;Untitled Document&#39;. The second argument, HEAD, is an Array ref (or scalar) containing anything else you would like to appear in the &#39;head&#39; section; it is flattened and the elements used as-is. The third argument, BODY, is a Hash ref containing attributes and values for the opening &#39;body&#39; tag. As of release 1.05 this class supports frameset documents as well as normal HTML. If the fourth argument, FRAMESET, is true, then it is assumed we will be making a frameset document, whereby the body section is wrapped in a &#60;noframes&#62; pair and there is a &#60;frameset&#62; pair between the head and noframes/body sections. FRAMESET is a Hash ref that contains the attributes and values that go in the opening frameset tag (analogous to BODY argument), except that a &#39;text&#39; attribute will be resolved into the text that goes inside the frameset pair, as with any autoloaded tag methods. So the &#39;text&#39; attribute of FRAMESET is where the &#34;frame&#34; tag html that you previously rendered goes. If FRAMESET is true but not a hash, it will be taken literally as &#39;text&#39; likewise as with autoloaded methods.</p>
+
+<h2><a class='u' href='#___top' title='click to go to top of document'
+name="end_html([_FRAMESET_])"
+>end_html([ FRAMESET ])</a></h2>
+
+<p>This method returns a canned HTML template that is suitable for use as the bottom of an HTML page. It consists of the closing &#39;body&#39; and &#39;html&#39; tags. As of release 1.05 this class supports frameset documents as well as normal HTML. If the optional argument FRAMESET is true, then there is a closing &#39;noframes&#39; tag between the closing &#39;body&#39; and &#39;html&#39; tags.</p>
+
+<h1><a class='u' href='#___top' title='click to go to top of document'
+name="COMPARISONS_WITH_CGI.PM"
+>COMPARISONS WITH CGI.PM <img alt='^' src='http://st.pimg.net/tucs/img/up.gif'></a></h1>
+
+<p>The methods of this class and their parameters are designed to be compatible with any same-named methods in the popular CGI.pm class. This class will produce browser-compatible (and often identical) HTML from such methods, and this class can accept all the same argument formats. Exceptions to this include:</p>
+
+<dl>
+<dt><a name="0"
+>0</a></dt>
+
+<dd>
+<p>None of our methods are exported and must be called using object notation, whereas CGI.pm can export any of it&#39;s methods.</p>
+
+<dt><a name="0"
+>0</a></dt>
+
+<dd>
+<p>Autoloaded methods do not use the presence or absence of arguments to decide whether to make the new tag as a pair or as &#34;start only&#34;. Also, CGI.pm does not do end-only tags.</p>
+
+<dt><a name="0"
+>0</a></dt>
+
+<dd>
+<p>Autoloaded methods that make html tags won&#39;t concatenate their arguments into a single argument under any circumstances, but in some cases the &#34;shortcuts&#34; of CGI.pm will do so.</p>
+
+<dt><a name="0"
+>0</a></dt>
+
+<dd>
+<p>We go further to make the generated HTML human-readable by: 1. having each new tag start on a new line; 2. making all tag and attribute names lowercase; 3. ensuring that about 20 often-used tag attributes always appear in the same order (eg: &#39;type&#39; is before &#39;name&#39; is before &#39;value&#39;), and before any others.</p>
+
+<dt><a name="0"
+>0</a></dt>
+
+<dd>
+<p>Our textarea() method is autoloaded, and doesn&#39;t have the special symantecs that CGI.pm&#39;s textarea() does.</p>
+
+<dt><a name="0"
+>0</a></dt>
+
+<dd>
+<p>Our convenience method start_html() is very simple and only accepts the three positional arguments [&#39;title&#39;, &#39;head&#39;, &#39;body&#39;]. Title is the most commonly used argument by far, and you can easily replicate the effects of missing arguments by making appropriate tags explicitely and passing them with the &#34;head&#34; argument. As of release 1.05, this method and end_html() also provided explicit frameset document support, and CGI.pm has no explicit frameset support.</p>
+</dd>
+</dl>
+
+<h1><a class='u' href='#___top' title='click to go to top of document'
+name="AUTHOR"
+>AUTHOR <img alt='^' src='http://st.pimg.net/tucs/img/up.gif'></a></h1>
+
+<p>Copyright (c) 1999-2003, Darren R. Duncan. All rights reserved. This module is free software; you can redistribute it and/or modify it under the same terms as Perl itself. However, I do request that this copyright information and credits remain attached to the file. If you modify this module and redistribute a changed version then please attach a note listing the modifications. This module is available &#34;as-is&#34; and the author can not be held accountable for any problems resulting from its use.</p>
+
+<p>I am always interested in knowing how my work helps others, so if you put this module to use in any of your own products or services then I would appreciate (but not require) it if you send me the website url for said product or service, so I know who you are. Also, if you make non-proprietary changes to the module because it doesn&#39;t work the way you need, and you are willing to make these freely available, then please send me a copy so that I can roll desirable changes into the main release.</p>
+
+<p>Address comments, suggestions, and bug reports to <b>perl@DarrenDuncan.net</b>.</p>
+
+<h1><a class='u' href='#___top' title='click to go to top of document'
+name="CREDITS"
+>CREDITS <img alt='^' src='http://st.pimg.net/tucs/img/up.gif'></a></h1>
+
+<p>Thanks very much to <b>Kevin Werbach</b> for publishing &#34;The Bare Bones Guide to HTML&#34;, which I found to be an invaluable resource when writing this module (and at other times as well). The latest version of the document is available at <b><a href="http://werbach.com/barebones/" class="podlinkurl"
+>http://werbach.com/barebones/</a></b>.</p>
+
+<p>This quick reference lists all the HTML tags that current browsers are likely to recognize, including all the elements of the official HTML 4.0 recommendation, and some Netscape and Microsoft extensions as well. Common attributes for these tags are also included in context, giving a good idea on how they are used.</p>
+
+<p>When writing this module, I used the Bare Bones reference to verify the consistant formatting used by all HTML tags, including how tag attributes are formatted. I could see the proper formatting for prologue and comment tags as well; their formats are unique compared to all the other tags. The other main uses I had for the document was in determining all the HTML tags which were not used as a pair (most use pairs, few don&#39;t), and for determining which tag attributes made a positive assertion just by their presence, without need for any associated values (most have values, few don&#39;t).</p>
+
+<p>Thanks to W3C for publishing their standards documents in an easy-to-understand manner. I made good use of their XHTML primer document when making release 1-06 of this module. The most recent version is at &#34;<a href="http://www.w3.org/TR/xhtml1" class="podlinkurl"
+>http://www.w3.org/TR/xhtml1</a>&#34;. The full title is &#34;XHTML(TM) 1.0: The Extensible HyperText Markup Language -- A Reformulation of HTML 4 in XML 1.0 -- W3C Recommendation 26 January 2000&#34;. I used this document to determine what changes I needed to make for this module&#39;s output to easily support the new XHTML standard as it supported HTML 4 and previous versions before, while keeping backwards compatability.</p>
+
+<p>Thanks to <b>Lincoln D. Stein</b> for setting a good interface standard in the HTML-related methods of his CGI.pm module. I was heavily influenced by his interfaces when designing my own. Thanks also because I borrowed ideas for my Synopsis program from his aforementioned module.</p>
+
+<h1><a class='u' href='#___top' title='click to go to top of document'
+name="SEE_ALSO"
+>SEE ALSO <img alt='^' src='http://st.pimg.net/tucs/img/up.gif'></a></h1>
+
+<p>perl(1), <a href="/perldoc?HTML%3A%3AFormTemplate" class="podlinkpod"
+>HTML::FormTemplate</a>, <a href="/perldoc?CGI%3A%3APortable" class="podlinkpod"
+>CGI::Portable</a>, <a href="/perldoc?CGI%3A%3AFormMagick" class="podlinkpod"
+>CGI::FormMagick</a>, CGI.</p>
+
+</div>
+
+
+<div class="footer"><div class="cpanstats">62617 Uploads, 19844 Distributions
+79979 Modules, 8071 Uploaders
+</div>
+Hosted by <a href="http://www.digitalcraftsmen.net/">craftsmen</a><br/>
+<a href="http://www.digitalcraftsmen.net/"><img src="http://st.pimg.net/tucs/img/DC-LOGO-S.gif"></a>
+</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-3528438-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+<script type="text/javascript" src="http://ipv4.v6test.develooper.com/cdn/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://ipv4.v6test.develooper.com/js/v1/v6test.js"></script>
+
+<script type="text/javascript">
+   // v6.target = '';
+   if (!v6.target) { v6.only_once = true }
+   v6.site = '7A0D89A6-2B82-11DF-B9DA-F61CBD13F020';
+   v6.api_server = 'http://ipv4.v6test.develooper.com';
+   try {
+     v6.test();
+   } catch(err) {}
+</script>
+<!-- Sun Mar 14 13:46:29 2010 GMT (0.181704044342041) @eucpan101 -->
+ </body>
+</html>

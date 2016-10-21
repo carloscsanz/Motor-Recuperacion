@@ -1,0 +1,645 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="X-UA-Compatible" content="IE=7" /><title>
+	C# compiler does not create warnings for unused variables and fields | Microsoft Connect
+</title><link rel="P3Pv1" href="http://www.microsoft.com/w3c/p3p.xml" /><link href="/styles/ConnectStylesLegacy.4.07.00.0054.css" type="text/css" rel="stylesheet" /><link href="/styles/ConnectStylesLatest.4.07.00.0054.css" type="text/css" rel="stylesheet" /><link href="/RadControls/TabStrip/Skins/InoxCust/TabStrip.InoxCust.css" type="text/css" rel="stylesheet" /><meta name="DCSext.Connect_SiteId" content="210" />
+<meta name="DCSext.Connect_ContentLocale" content="EN-US" />
+<meta name="WT.ti" content="Feedback - View" />
+
+    <meta name="title" content="C# compiler does not create warnings for unused variables and fields" />
+    <meta name="description" content="Consider this code:
+
+    using System;
+
+    namespace Test
+    {
+        public class BuggyClass
+        {
+            private string foo = String.Emp" />
+    
+    <meta name="Search.MSConnect.Feedback.ID" content="362970" />
+<meta name="Search.MSConnect.Feedback.Title" content="C# compiler does not create warnings for unused variables and fields" />
+<meta name="Search.MSConnect.Feedback.ConnectionTitle" content="Visual Studio and .NET Framework" />
+<meta name="Search.MSConnect.Feedback.ConnectionUrl" content="http://connect.microsoft.com/VisualStudio" />
+<meta name="Search.MSConnect.Feedback.WorkaroundCount" content="0" />
+<meta name="Search.MSConnect.Feedback.ValidationCount" content="1" />
+<meta name="Search.MSConnect.Feedback.UpVoteCount" content="1" />
+<meta name="Search.MSConnect.Feedback.DownVoteCount" content="0" />
+<meta name="Search.MSConnect.Feedback.Type" content="Bug" />
+<meta name="Search.MSConnect.Feedback.Status" content="Closed" />
+<meta name="Search.MSConnect.Feedback.Resolution" content="Won't Fix" />
+<meta name="Search.MSConnect.Feedback.OpenedDate" content="8/22/2008 5:25:54 AM" />
+<meta name="Search.MSConnect.Feedback.UpdatedDate" content="3/11/2009 2:57:34 PM" />
+<meta name="Search.MSConnect.Feedback.ClosedDate" content="9/12/2008 10:49:50 PM" />
+<meta name="Search.MSConnect.Feedback.OpenedBy" content="Tobi.NET" />
+<meta name="Search.MSConnect.Feedback.OpenedByUrl" content="http://connect.microsoft.com/VisualStudio/SearchResults.aspx?UserHandle=Tobi.NET" />
+<meta name="Search.MSConnect.Feedback.BlockingIssue" content="No" />
+<meta name="Search.MSConnect.Feedback.AccessRestriction" content="Public" />
+<meta name="Search.MSConnect.Feedback.SubmissionLanguage" content="English" />
+<meta name="Search.MSConnect.Feedback.AttachmentCount" content="0" />
+<meta name="Search.MSConnect.Feedback.DiscussionCount" content="0" />
+<meta name="Search.MSConnect.Feedback.DuplicateCount" content="0" />
+
+<link href="/WebResource.axd?d=6QDRjx_jTozg1AOfk0JoK-fdjIewTIeDsSZkD--6KHNQ7esgkQUO8w10vWDhEyf1k37NJNgx4Nov1yaOSScc6qrUZrqznDZhTNU4MgrezUw1&amp;t=633976937181904755" type="text/css" rel="stylesheet" class="Telerik_stylesheet" /><link href="/WebResource.axd?d=620BhtrXhbO173fJLh4NTUXrLBgiF7F-TrK_kBJg0IH0KXlHRCVLuzJvPRZBKDE6UwHoA8EPX68k_LpeXCTGgd8jPlm-bjnVe6fSFe4gXwhuQJvseBR5IQIDHnpO7AW_0&amp;t=633996362377118452" type="text/css" rel="stylesheet" /><link href="/WebResource.axd?d=6QDRjx_jTozg1AOfk0JoK-fdjIewTIeDsSZkD--6KHOcFTerJlmUc3S-4_n_iKKXOEDVnlHMPwMylxevNc345g2&amp;t=633976937181904755" type="text/css" rel="stylesheet" class="Telerik_stylesheet" /><link href="/WebResource.axd?d=6QDRjx_jTozg1AOfk0JoK-fdjIewTIeDsSZkD--6KHNpGetzDw1XM3SSuoECGqBErTHcJbU1DhoTvIo1Mhujfg2&amp;t=633976937181904755" type="text/css" rel="stylesheet" class="Telerik_stylesheet" /></head>
+<body>
+	<form name="aspnetForm" id="aspnetForm" style="height: 100%" method="post" action="/VisualStudio/feedback/details/362970/c-compiler-does-not-create-warnings-for-unused-variables-and-fields">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJNTQ0MzYzNzM5DxYCHhUxMTYwX3F1ZXN0aW9uc1ZlcnNpb24oKVhTeXN0ZW0uR3VpZCwgbXNjb3JsaWIsIFZlcnNpb249Mi4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5JDZmNzE1ZTJlLTg3NGUtNGNmZS1iM2RkLTI2NmNlMGIxYjUwNhYCZg9kFgYCAQ9kFggCAQ9kFgJmDxYCHgRUZXh0BVhDIyBjb21waWxlciBkb2VzIG5vdCBjcmVhdGUgd2FybmluZ3MgZm9yIHVudXNlZCB2YXJpYWJsZXMgYW5kIGZpZWxkcyB8IE1pY3Jvc29mdCBDb25uZWN0ZAICDxYCHwEFQDxsaW5rIHJlbD0iUDNQdjEiIGhyZWY9Imh0dHA6Ly93d3cubWljcm9zb2Z0LmNvbS93M2MvcDNwLnhtbCIgLz5kAgQPFgIfAWVkAgYPFgIfAQWkATxtZXRhIG5hbWU9IkRDU2V4dC5Db25uZWN0X1NpdGVJZCIgY29udGVudD0iMjEwIiAvPg0KPG1ldGEgbmFtZT0iRENTZXh0LkNvbm5lY3RfQ29udGVudExvY2FsZSIgY29udGVudD0iRU4tVVMiIC8+DQo8bWV0YSBuYW1lPSJXVC50aSIgY29udGVudD0iRmVlZGJhY2sgLSBWaWV3IiAvPg0KZAIDD2QWBAIDD2QWAmYPFgIeBWNsYXNzBQpQYWdlSGVhZGVyFgwCAQ8WAh4EaHJlZgUBLxYCZg8WBB4Dc3JjBRovaW1hZ2VzL01TQ29ubmVjdF9Mb2dvLmdpZh4DYWx0BRFNaWNyb3NvZnQgQ29ubmVjdGQCBQ8PFgIfAQUVV2VsY29tZSwgPGI+Z3Vlc3Q8L2I+ZGQCBw8PFgQfAQUHU2lnbiBpbh4LTmF2aWdhdGVVcmwFjQJodHRwczovL2xvZ2luLmxpdmUuY29tL2xvZ2luLnNyZj93YT13c2lnbmluMS4wJnJwc252PTExJmN0PTEyNjg1NzQ1NDUmcnZlcj02LjAuNTI4Ni4wJndwPU1CSV9TU0wmd3JlcGx5PWh0dHBzOiUyRiUyRmNvbm5lY3QubWljcm9zb2Z0LmNvbSUyRlZpc3VhbFN0dWRpbyUyRmZlZWRiYWNrJTJGZGV0YWlscyUyRjM2Mjk3MCUyRmMtY29tcGlsZXItZG9lcy1ub3QtY3JlYXRlLXdhcm5pbmdzLWZvci11bnVzZWQtdmFyaWFibGVzLWFuZC1maWVsZHMmbGM9MTAzMyZpZD02NDQxNmRkAgkPDxYEHwEFDFlvdXIgUHJvZmlsZR8GBQ0vcHJvZmlsZS5hc3B4ZGQCCw8PFgQfAQUESGVscB8GBQYvaGVscC9kZAINDxAPFgYeC18hRGF0YUJvdW5kZx4HRW5hYmxlZGgeB1Zpc2libGVoZGQWAGQCBQ8WAh8CBQpNYWluQ29sdW1uFgICAQ8WAh8CBQ9Db250ZW50U3Vycm91bmQWCgIBD2QWDmYPDxYEHghDc3NDbGFzcwUKVG9wTmF2SXRlbR4EXyFTQgICZBYCAgEPFgQeCWlubmVyaHRtbAUESE9NRR8DBQEvZAIBDw8WBB8KBQpUb3BOYXZJdGVtHwsCAmQWAgIBDxYEHwwFDllPVVIgREFTSEJPQVJEHwMFCy9kYXNoYm9hcmQvZAICDw8WBB8KBQpUb3BOYXZJdGVtHwsCAmQWAgIBDxYEHwwFFENPTk5FQ1RJT04gRElSRUNUT1JZHwMFCy9kaXJlY3RvcnkvZAIDDw8WAh8BBQZTZWFyY2hkZAIEDxAPFgIfB2cWAh4Ib25jaGFuZ2UFxgFUb2dnbGVNc1NlYXJjaEF0dHJpYnV0aW9uKCdjdGwwMF9Ub3BOYXZiYXJfU2VhcmNoU2NvcGUnLCAnY3RsMDBfVG9wTmF2YmFyX1NlYXJjaElucHV0JywgJ2N0bDAwX1RvcE5hdmJhcl9TZWFyY2hMb2dvJywgJ2N0bDAwX1RvcE5hdmJhcl9TZWFyY2hCdXR0b24nLCAnU2VhcmNoIGFsbCBDb25uZWN0JywgJ1NlYXJjaCB0aGlzIGNvbm5lY3Rpb24nKTsPFgJmAgEWAhAFD1RoaXMgQ29ubmVjdGlvbgUOVGhpc0Nvbm5lY3Rpb25nEAULQWxsIENvbm5lY3QFCkFsbENvbm5lY3RnZGQCBQ8PZBYIHglvbmtleWRvd24FtAFpZiAoZXZlbnQud2hpY2ggfHwgZXZlbnQua2V5Q29kZSl7IGlmICgoKGV2ZW50LndoaWNoID09IDEzKSB8fCAoZXZlbnQua2V5Q29kZSA9PSAxMykpICYmIHRoaXMudmFsdWUgIT0gJycgKSB7IF9fZG9Qb3N0QmFjaygnY3RsMDAkVG9wTmF2YmFyJFNlYXJjaEJ1dHRvbicsJycpfX0gZWxzZSB7cmV0dXJuIHRydWV9OyAeBm9uYmx1cgVYUmVzZXRTZWFyY2hXaGVuRm9jdXNMb3N0KCdjdGwwMF9Ub3BOYXZiYXJfU2VhcmNoSW5wdXQnLCAnY3RsMDBfVG9wTmF2YmFyX1NlYXJjaEJ1dHRvbicpOx4Hb25rZXl1cAVCVG9nZ2xlSW5wdXRUZXh0Ym94QnV0dG9uKHRoaXMsICdjdGwwMF9Ub3BOYXZiYXJfU2VhcmNoQnV0dG9uJywgMSk7HghsYW5ndWFnZQUKSmF2YVNjcmlwdGQCBw8PZBYCHw8FWFJlc2V0U2VhcmNoV2hlbkZvY3VzTG9zdCgnY3RsMDBfVG9wTmF2YmFyX1NlYXJjaElucHV0JywgJ2N0bDAwX1RvcE5hdmJhcl9TZWFyY2hCdXR0b24nKTtkAgMPZBYCAgEPDxYCHwlnZBYCAgEPFgIfAQXIATxhIGhyZWY9Ii9WaXN1YWxTdHVkaW8iPlZpc3VhbCBTdHVkaW8gYW5kIC5ORVQgRnJhbWV3b3JrIEhvbWU8L2E+PGEgaHJlZj0iL1Zpc3VhbFN0dWRpby9Eb3dubG9hZHMiPkRvd25sb2FkczwvYT48YSBocmVmPSIvVmlzdWFsU3R1ZGlvL0ZlZWRiYWNrIj5GZWVkYmFjazwvYT48YSBocmVmPSIvVmlzdWFsU3R1ZGlvL1N1cnZleXMiPlN1cnZleXM8L2E+ZAIFDxYCHwIFG0NvbnRlbnRQYW5lV2l0aGluQ29ubmVjdGlvbhYEAgEPFgIfAWVkAgUPZBYcZg8PFgQfAQUIVG9iaS5ORVQfBgU0L1Zpc3VhbFN0dWRpby9TZWFyY2hSZXN1bHRzLmFzcHg/VXNlckhhbmRsZT1Ub2JpLk5FVGRkAgEPDxYCHhFTdGF0dXNEaXNwbGF5TW9kZQsptQFNaWNyb3NvZnQuQ29ubmVjdC5Vc2VyRXhwZXJpZW5jZS5IZWxwZXJzLkN1c3RvbWVyU2l0ZS5GZWVkYmFja1N0YXR1c0Rpc3BsYXlNb2RlLCBNaWNyb3NvZnQuQ29ubmVjdC5Vc2VyRXhwZXJpZW5jZSwgVmVyc2lvbj00LjcuMC41NCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iYzg0MjRhZDVjM2RiNGE0AmQWAmYPDxYCHwlnZBYIAgEPFgQfBQUGQ2xvc2VkHgVzdHlsZQUfYmFja2dyb3VuZC1wb3NpdGlvbjotMTAwcHggMHB4O2QCAw9kFgQCAQ9kFgJmDw8WAh8BBQZDbG9zZWRkZAIDD2QWBAIBD2QWAmYPDxYCHwEFDGFzIFdvbid0IEZpeGRkAgMPZBYCZg8PZBYCHwUFFUhlbHAgZm9yIGFzIFdvbid0IEZpeGQCBQ8WAh8JaBYCAgMPFgIfCWhkAgcPDxYSHghQb3NpdGlvbgspd1RlbGVyaWsuV2ViLlVJLlRvb2xUaXBQb3NpdGlvbiwgVGVsZXJpay5XZWIuVUksIFZlcnNpb249MjAwOC4xLjYxOS4yMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj0xMjFmYWU3ODE2NWJhM2Q0Fx8LAgIfAQXzAVdvbid0IEZpeDxiciAvPjxiciAvPg0KCQlEdWUgdG8gc2V2ZXJhbCBmYWN0b3JzIHRoZSBwcm9kdWN0IHRlYW0gZGVjaWRlZCB0byBmb2N1cyBpdHMgZWZmb3J0cyBvbiBvdGhlciBpdGVtcy48YnIgLz48YnIgLz4NCgkJQSBtb3JlIGRldGFpbGVkIGV4cGxhbmF0aW9uIGZvciB0aGUgcmVzb2x1dGlvbiBvZiB0aGlzIHBhcnRpY3VsYXIgaXRlbSBtYXkgaGF2ZSBiZWVuIHByb3ZpZGVkIGluIHRoZSBjb21tZW50cyBzZWN0aW9uLh4FVGl0bGVlHwoFEVJlc29sdXRpb25Ub29sdGlwHg5BdXRvQ2xvc2VEZWxheWYeF0VuYWJsZUFqYXhTa2luUmVuZGVyaW5naB4PVGFyZ2V0Q29udHJvbElEBTJjdGwwMF9NYXN0ZXJCb2R5X0ZlZWRiYWNrU3RhdHVzX1Jlc29sdXRpb25IZWxwSWNvbh4KUmVsYXRpdmVUbwspflRlbGVyaWsuV2ViLlVJLlRvb2xUaXBSZWxhdGl2ZURpc3BsYXksIFRlbGVyaWsuV2ViLlVJLCBWZXJzaW9uPTIwMDguMS42MTkuMjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49MTIxZmFlNzgxNjViYTNkNAFkZAICDw8WBh4KZmVlZGJhY2tJRALakxYeDmZlZWRiYWNrU2l0ZUlEAtIBHhJmZWVkYmFja0RldGFpbHNVcmwFaS9WaXN1YWxTdHVkaW8vZmVlZGJhY2svZGV0YWlscy8zNjI5NzAvYy1jb21waWxlci1kb2VzLW5vdC1jcmVhdGUtd2FybmluZ3MtZm9yLXVudXNlZC12YXJpYWJsZXMtYW5kLWZpZWxkc2QWAmYPFCsAAgIBZmQCAw8WAh8JaBYCAgEPZBYCAgMPFgQeC18hSXRlbUNvdW50Zh8JaGQCBA8WAh8JaBYCAgEPZBYCAgMPFgIfCWhkAgUPDxYCHwloZBYEAgEPDxYCHwEFDkVkaXQgdGhpcyBpdGVtZGQCAw8PFgIfCWhkFgICAQ8PFgIfAQUMYXR0YWNoIGZpbGVzZGQCBg9kFgICAQ9kFgJmD2QWAmYPFgIfAQUBMGQCBw9kFgICAQ9kFgJmD2QWAmYPDxYCHwloZBYCAgEPDxYEHg1PbkNsaWVudENsaWNrBZwBcmV0dXJuIENvbmZpcm1BY3Rpb24oJ1lvdSBhcmUgYWJvdXQgdG8gbGV0IE1pY3Jvc29mdCBrbm93IHRoYXQgeW91IGhhdmUgYWxzbyBleHBlcmllbmNlZCB0aGlzIGJ1Zy4gVGhpcyBhY3Rpb24gY2Fubm90IGJlIHVuZG9uZS4gRG8geW91IHdhbnQgdG8gY29udGludWU/Jyk7HwhnZGQCCA8PFgIfCWhkFgICAQ9kFgJmD2QWBmYPDxYGHghJbWFnZVVybAUVL2ltYWdlcy93YXRjaGxpc3QuZ2lmHg1BbHRlcm5hdGVUZXh0BQpXYXRjaCBMaXN0HwloZGQCAQ8PFgIfAQUDYWRkZGQCAg8PFgIfCGhkZAIJDxYCHwlnFgJmDxYEHg9yZXNwb25zZVZlcnNpb24CAR4ZZGV0ZXJtaW5pbmdBbnN3ZXJNYXBwaW5nczKvBgABAAAA/////wEAAAAAAAAADAIAAABJU3lzdGVtLCBWZXJzaW9uPTIuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OQUBAAAAMlN5c3RlbS5Db2xsZWN0aW9ucy5TcGVjaWFsaXplZC5OYW1lVmFsdWVDb2xsZWN0aW9uBwAAAAhSZWFkT25seQxIYXNoUHJvdmlkZXIIQ29tcGFyZXIFQ291bnQES2V5cwZWYWx1ZXMHVmVyc2lvbgADAwAGBQABMlN5c3RlbS5Db2xsZWN0aW9ucy5DYXNlSW5zZW5zaXRpdmVIYXNoQ29kZVByb3ZpZGVyKlN5c3RlbS5Db2xsZWN0aW9ucy5DYXNlSW5zZW5zaXRpdmVDb21wYXJlcggIAgAAAAAJAwAAAAkEAAAAAAAAAAkFAAAACQYAAAABAAAABAMAAAAyU3lzdGVtLkNvbGxlY3Rpb25zLkNhc2VJbnNlbnNpdGl2ZUhhc2hDb2RlUHJvdmlkZXIBAAAABm1fdGV4dAMdU3lzdGVtLkdsb2JhbGl6YXRpb24uVGV4dEluZm8JBwAAAAQEAAAAKlN5c3RlbS5Db2xsZWN0aW9ucy5DYXNlSW5zZW5zaXRpdmVDb21wYXJlcgEAAAANbV9jb21wYXJlSW5mbwMgU3lzdGVtLkdsb2JhbGl6YXRpb24uQ29tcGFyZUluZm8JCAAAABEFAAAAAAAAABAGAAAAAAAAAAQHAAAAHVN5c3RlbS5HbG9iYWxpemF0aW9uLlRleHRJbmZvBgAAAA9tX2xpc3RTZXBhcmF0b3IMbV9pc1JlYWRPbmx5EWN1c3RvbUN1bHR1cmVOYW1lC21fbkRhdGFJdGVtEW1fdXNlVXNlck92ZXJyaWRlDW1fd2luMzJMYW5nSUQBAAEAAAABCAEICgEKygAAAAB/AAAABAgAAAAgU3lzdGVtLkdsb2JhbGl6YXRpb24uQ29tcGFyZUluZm8DAAAACXdpbjMyTENJRAdjdWx0dXJlBm1fbmFtZQAAAQgIfwAAAH8AAAAGCQAAAAALFgJmD2QWAmYPFgIfCWhkAgoPZBYIZg8WAh8BBQ0wIGF0dGFjaG1lbnRzZAIBDxYCHwloZAICDw8WBB8BBQxhdHRhY2ggZmlsZXMfCWhkZAIDDxYEHx1mHwloZAILD2QWAmYPPCsACQEADxYGHghEYXRhS2V5cxYAHx0C/////w8fCWhkZAIMD2QWAmYPZBYCAgEPFCsAAhQrAAIPFgQfB2cfF2hkEBYCZgIBFgIUKwACDxYCHwEFDENvbW1lbnRzICgyKRYCHgJJRAUKcnRDb21tZW50c2QUKwACDxYCHwEFD1dvcmthcm91bmRzICgwKRYCHgJpZAUNcnRXb3JrYXJvdW5kc2QPFgJmZhYBBW5UZWxlcmlrLldlYi5VSS5SYWRUYWIsIFRlbGVyaWsuV2ViLlVJLCBWZXJzaW9uPTIwMDguMS42MTkuMjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49MTIxZmFlNzgxNjViYTNkNGQWBGYPDxYCHwEFDENvbW1lbnRzICgyKRYCHyQFCnJ0Q29tbWVudHNkAgEPDxYCHwEFD1dvcmthcm91bmRzICgwKRYCHyUFDXJ0V29ya2Fyb3VuZHNkAg0PFCsAAmQVAgtycHZDb21tZW50cw5ycHZXb3JrYXJvdW5kcxYEZg9kFgQCAQ9kFgJmD2QWAgIBD2QWCGYPDxYEHwoFD3RvcF9wYW5lbF9yaWdodB8LAgJkZAICD2QWAgIBDxYCHwEFF1BsZWFzZSBlbnRlciBhIGNvbW1lbnQuZAIDDw8WBB8BBQZTdWJtaXQfHgU2cmV0dXJuIGN0bDAwX01hc3RlckJvZHlfY2JDb21tdW5pdHlDb21tZW50X3ZhbGlkYXRlKCk7FgIeB29uY2xpY2sFSGphdmFzY3JpcHQ6Y3RsMDBfTWFzdGVyQm9keV9jYkNvbW11bml0eUNvbW1lbnRfVG9nZ2xlSW5wdXRDb250cm9sc09mZigpO2QCBA8WBB4FdmFsdWUFBkNhbmNlbB8mBUhqYXZhc2NyaXB0OmN0bDAwX01hc3RlckJvZHlfY2JDb21tdW5pdHlDb21tZW50X1RvZ2dsZUlucHV0Q29udHJvbHNPZmYoKTtkAgMPZBYCZg9kFgICAQ8WAh8dAgIWBGYPZBYCZg8VAxFjb21tZW50X21pY3Jvc29mdDxQb3N0ZWQgYnkgPHN0cm9uZz5NaWNyb3NvZnQ8L3N0cm9uZz4gb24gOC8yNS8yMDA4IGF0IDM6MzkgQU2VAlRoYW5rcyBmb3IgeW91ciBmZWVkYmFjay4gV2UgYXJlIGVzY2FsYXRpbmcgdGhpcyBidWcgdG8gdGhlIHByb2R1Y3QgdW5pdCB3aG8gd29ya3Mgb24gdGhhdCBzcGVjaWZpYyBmZWF0dXJlIGFyZWEuIFRoZSB0ZWFtIHdpbGwgcmV2aWV3IHRoaXMgaXNzdWUgYW5kIG1ha2UgYSBkZWNpc2lvbiBvbiB3aGV0aGVyIHRoZXkgd2lsbCBmaXggaXQgb3Igbm90IGZvciB0aGUgbmV4dCByZWxlYXNlLjxiciAvPjxiciAvPlRoYW5rIHlvdSwgPGJyIC8+VmlzdWFsIFN0dWRpbyBQcm9kdWN0IFRlYW1kAgEPZBYCZg8VAxFjb21tZW50X21pY3Jvc29mdDxQb3N0ZWQgYnkgPHN0cm9uZz5NaWNyb3NvZnQ8L3N0cm9uZz4gb24gOC8yNy8yMDA4IGF0IDM6MzkgUE28BERlYXIgVG9iaS5ORVQsPGJyIC8+VGhhbmtzIGZvciB5b3VyIGZlZWRiYWNrLiBUaGVzZSBhcmUgaW50ZXJlc3RpbmcgY2FzZXMgaW4gd2hpY2ggdGhlIGNvbXBpbGVyIGNvdWxkIHBvdGVudGlhbGx5IHdhcm4uIEJ1dCBvdXIgZ3VpZGFuY2UgZm9yIGN1c3RvbWVycyB3aG8gYXJlIGludGVyZXN0ZWQgaW4gZGlzY292ZXJpbmcgdW51c2VkIGVsZW1lbnRzIGluIHRoZWlyIGNvZGUgaXMgdG8gdXNlIEZ4Q29wLiBJdCBjYW4gZGlzY292ZXIgdW51c2VkIGZpZWxkcyBhbmQgbXVjaCBtb3JlIGludGVyZXN0aW5nIGRhdGEgYWJvdXQgeW91ciBjb2RlLiBTbyB3ZSBhcmUgbm90IGFjdGl2ZWx5IGVuaGFuY2luZyB0aGUgY29tcGlsZXIncyBkZXRlY3Rpb24gb2YgdGhlc2UgY29uZGl0aW9ucyBhbmQgd2lsbCBub3QgYmUgbWFraW5nIHRoZSBjaGFuZ2VzIHlvdSBzdWdnZXN0LiBSZWdhcmRsZXNzLCBJIGdyZWF0bHkgYXBwcmVjaWF0ZSB0aGUgZmVlZGJhY2suPGJyIC8+PGJyIC8+UmVnYXJkcyw8YnIgLz48YnIgLz5FZCBNYXVyZXI8YnIgLz5EZXZlbG9wbWVudCBMZWFkLCBNYW5hZ2VkIENvbXBpbGVyIFBsYXRmb3JtZAIBD2QWBAIBD2QWAmYPZBYCAgEPZBYIZg8PFgQfCgUOdG9wX3BhbmVsX2xlZnQfCwICZGQCAg9kFgICAQ8WAh8BBRpQbGVhc2UgZW50ZXIgYSB3b3JrYXJvdW5kLmQCAw8PFgQfAQUGU3VibWl0Hx4FMHJldHVybiBjdGwwMF9NYXN0ZXJCb2R5X2NiV29ya2Fyb3VuZF92YWxpZGF0ZSgpOxYCHyYFQmphdmFzY3JpcHQ6Y3RsMDBfTWFzdGVyQm9keV9jYldvcmthcm91bmRfVG9nZ2xlSW5wdXRDb250cm9sc09mZigpO2QCBA8WBB8nBQZDYW5jZWwfJgVCamF2YXNjcmlwdDpjdGwwMF9NYXN0ZXJCb2R5X2NiV29ya2Fyb3VuZF9Ub2dnbGVJbnB1dENvbnRyb2xzT2ZmKCk7ZAIDD2QWAmYPZBYCAgEPFgIfHWZkAgcPZBYKAgEPDxYCHwEFNyYjMTY5OyAyMDEwIE1pY3Jvc29mdCBDb3Jwb3JhdGlvbi4gQWxsIHJpZ2h0cyByZXNlcnZlZC5kZAIDDxYEHwwFHk1pY3Jvc29mdCBDb25uZWN0IFRlcm1zIG9mIFVzZR8DBQsvdGVybXMuYXNweGQCBQ8WBB8MBQpUcmFkZW1hcmtzHwMFQmh0dHA6Ly93d3cubWljcm9zb2Z0LmNvbS9saWJyYXJ5L3Rvb2xiYXIvMy4wL3RyYWRlbWFya3MvZW4tdXMubXNweGQCBw8WBB8MBRFQcml2YWN5IFN0YXRlbWVudB8DBR1odHRwOi8vcHJpdmFjeS5taWNyb3NvZnQuY29tL2QCCQ8WAh8FBQlNaWNyb3NvZnRkAgkPFgIfAgUMQm90dG9tQm9yZGVyZAIFDxYCHwEF2AQ8c2NyaXB0IHR5cGU9InRleHQvamF2YXNjcmlwdCIgc3JjPSIvb21uaXR1cmUvb21uaV9yc2lkX2Nvbm5lY3QuNC4wNy4wMC4wMDU0LmpzIj48L3NjcmlwdD4NCjxzY3JpcHQgdHlwZT0idGV4dC9qYXZhc2NyaXB0IiBzcmM9Ii9vbW5pdHVyZS9zX2NvZGUuNC4wNy4wMC4wMDU0LmpzIj48L3NjcmlwdD4NCjxzY3JpcHQgdHlwZT0idGV4dC9qYXZhc2NyaXB0IiBzcmM9Ii9vbW5pdHVyZS9PbW5pSGVscGVyX2Nvbm5lY3QuNC4wNy4wMC4wMDU0LmpzIj48L3NjcmlwdD4NCjxzY3JpcHQgdHlwZT0idGV4dC9qYXZhc2NyaXB0Ij48IS0tDQp0cnkge3ZhciBzX2NvZGU9cy50KCk7aWYoc19jb2RlKWRvY3VtZW50LndyaXRlKHNfY29kZSl9IGNhdGNoKGVycil7fS8vIC0tPg0KPC9zY3JpcHQ+DQo8bm9zY3JpcHQ+PGEgaHJlZj0iaHR0cDovL3d3dy5vbW5pdHVyZS5jb20iIHRpdGxlPSJXZWIgQW5hbHl0aWNzIj48aW1nIHNyYz0iaHR0cDovL21zc3Rvbm9qc2Nvbm5lY3QuMTEyLjJPNy5uZXQvYi9zcy9tc3N0b25vanNjb25uZWN0LzEvSC4yMC4yLS1OUy8wIiBoZWlnaHQ9IjEiIHdpZHRoPSIxIiBib3JkZXI9IjAiIGFsdD0iIiAvPjwvYT48L25vc2NyaXB0Pg0KDQpkGAIFHl9fQ29udHJvbHNSZXF1aXJlUG9zdEJhY2tLZXlfXxYDBRtjdGwwMCRNYXN0ZXJCb2R5JHJtcFRhYlBhZ2UFMWN0bDAwJE1hc3RlckJvZHkkRmVlZGJhY2tTdGF0dXMkUmVzb2x1dGlvblRvb2xUaXAFKmN0bDAwJE1hc3RlckJvZHkkdHNDdXN0b21lckludGVyYWN0aW9uVGFicwUuY3RsMDAkTWFzdGVyQm9keSRGZWVkYmFja1NpbXBsZVZvdGUkU2ltcGxlVm90ZQ8UKwACZAUETm9uZWTXK5uFza7ftPSNeZ+UjFhp9Za1Nw==" />
+
+<script type="text/javascript" src="/scripts/ConnectScripts.4.07.00.0054.js"></script>
+<script src="/ScriptResource.axd?d=sgzSlINw2e7VQnaX1ZHPhLgMHY6ADpf3bmr2U7cavKK3k2ay53ayL-VetZW_6gc_gnFCb9xhxMyrdJ12Tb4zCjqcMsGd4ZNJXR6IHH75HEs1&amp;t=650bd2e9" type="text/javascript"></script>
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWDALj+qfTCQL2mYOQBQLVparsDALjzrOrAgK5m5a5DAKeiPXiBQLz8/6sDAKU+KG8DAK9xt2RDQKeweGGBwLR+tzSBQLZ1+1tSx5SGiwGFL0KYoo/oILxbeKiAPo=" />
+		
+		<div class="PageSurround">
+			<div id="ctl00_PageHeader_Header" class="PageHeader">
+    <div class="Banner">
+        <a href="/" id="ctl00_PageHeader_BannerImageLink"><img src="/images/MSConnect_Logo.gif" id="ctl00_PageHeader_BannerImage" border="0" alt="Microsoft Connect" /></a>
+    </div>
+    <div class="RightCorner">
+        <div>
+            
+            <span id="ctl00_PageHeader_UserHandle" class="UserHandle">Welcome, <b>guest</b></span>
+            <a id="ctl00_PageHeader_SignIn" href="https://login.live.com/login.srf?wa=wsignin1.0&amp;rpsnv=11&amp;ct=1268574545&amp;rver=6.0.5286.0&amp;wp=MBI_SSL&amp;wreply=https:%2F%2Fconnect.microsoft.com%2FVisualStudio%2Ffeedback%2Fdetails%2F362970%2Fc-compiler-does-not-create-warnings-for-unused-variables-and-fields&amp;lc=1033&amp;id=64416">Sign in</a>
+                <span class="Pipe">|</span>
+            <a id="ctl00_PageHeader_YourProfile" href="/profile.aspx">Your Profile</a>
+                <span class="Pipe">|</span>
+            <a id="ctl00_PageHeader_Help" href="/help/">Help</a>
+        </div>
+        <div>
+            
+        </div>
+    </div>
+    <div class="ClearBoth"></div>
+</div>
+			<div id="ctl00_MainColumn" class="MainColumn">
+				<div id="ctl00_ContentSurround" class="ContentSurround">
+					
+
+<div class="TopNavSurround">
+    <div class="TopNav">
+        <div id="ctl00_TopNavbar_HomeLinkPanel" class="TopNavItem">
+	
+            <div class="Connector"><div class="ConnectorLine"></div></div>
+            <div class="LinkContainer">
+                <a href="/" id="ctl00_TopNavbar_HomeLink" class="TopNavLink">HOME</a>
+            </div>
+        
+</div>
+        <div id="ctl00_TopNavbar_DashboardLinkPanel" class="TopNavItem">
+	
+            <div class="Connector"><div class="ConnectorLine"></div></div>
+            <div class="LinkContainer">
+                <a href="/dashboard/" id="ctl00_TopNavbar_DashboardLink" class="TopNavLink">YOUR DASHBOARD</a>
+            </div>
+        
+</div>
+        <div id="ctl00_TopNavbar_ConnectionDirectoryLinkPanel" class="TopNavItem">
+	
+            <div class="Connector"><div class="ConnectorLine"></div></div>
+            <div class="LinkContainer">
+                <a href="/directory/" id="ctl00_TopNavbar_ConnectionDirectoryLink" class="TopNavLink">CONNECTION DIRECTORY</a>
+            </div>
+        
+</div>
+        <div class="TopNavSearch">
+            <span id="ctl00_TopNavbar_SearchLabel" class="TopNavSearchLabel">Search</span>
+            <select name="ctl00$TopNavbar$SearchScope" id="ctl00_TopNavbar_SearchScope" class="TopNavSearchScope" onchange="ToggleMsSearchAttribution('ctl00_TopNavbar_SearchScope', 'ctl00_TopNavbar_SearchInput', 'ctl00_TopNavbar_SearchLogo', 'ctl00_TopNavbar_SearchButton', 'Search all Connect', 'Search this connection');">
+	<option value="ThisConnection">This Connection</option>
+	<option value="AllConnect">All Connect</option>
+
+</select>
+            <span class="MsSearchContainer">
+                <input name="ctl00$TopNavbar$SearchInput" type="text" maxlength="200" id="ctl00_TopNavbar_SearchInput" class="MsSearchTextBoxAllConnect" onkeydown="if (event.which || event.keyCode){ if (((event.which == 13) || (event.keyCode == 13)) &amp;&amp; this.value != '' ) { __doPostBack('ctl00$TopNavbar$SearchButton','')}} else {return true}; " onblur="ResetSearchWhenFocusLost('ctl00_TopNavbar_SearchInput', 'ctl00_TopNavbar_SearchButton');" onkeyup="ToggleInputTextboxButton(this, 'ctl00_TopNavbar_SearchButton', 1);" language="JavaScript" /><span id="ctl00_TopNavbar_SearchLogo" class="MsSearchLogoAllConnect" title=""></span><input type="submit" name="ctl00$TopNavbar$SearchButton" value="" id="ctl00_TopNavbar_SearchButton" disabled="disabled" class="MsSearchButton" onblur="ResetSearchWhenFocusLost('ctl00_TopNavbar_SearchInput', 'ctl00_TopNavbar_SearchButton');" />
+            </span>
+        </div>
+    </div>
+    <div class="ClearBoth"></div>
+</div>
+<div class="ClearBoth"></div>
+
+
+					<div>
+						<div>
+							<div id="ctl00_LeftColumn" class="LeftColumn">
+								
+<div class="LeftNav">
+    <a href="/VisualStudio">Visual Studio and .NET Framework Home</a><a href="/VisualStudio/Downloads">Downloads</a><a href="/VisualStudio/Feedback">Feedback</a><a href="/VisualStudio/Surveys">Surveys</a>
+</div>
+								
+							</div>
+						</div>
+						<div id="ctl00_ContentPane" class="ContentPaneWithinConnection">
+							
+							
+							
+	<div class="view-feedback">
+		<h1 class="feedback_title">
+			C# compiler does not create warnings for unused variables and fields
+			<span class="handle">by
+				<a id="ctl00_MasterBody_hypHandle" href="/VisualStudio/SearchResults.aspx?UserHandle=Tobi.NET">Tobi.NET</a>
+            </span>
+		</h1>
+		<div class="FeedbackDetailsView">
+			<div id="ctl00_MasterBody_FeedbackStatus_FeedbackStatusContainer" class="FeedbackStatusModule">
+	
+	<table cellpadding="0" cellspacing="0" border="0" width="100%">
+		<tr>
+			<td>
+				<div class="StatusImageDisplay">
+					<div class="StatusImage">
+						<div id="ctl00_MasterBody_FeedbackStatus_StatusImage" class="FeedbackStatusImage" alt="Closed" style="background-position:-100px 0px;"></div>
+					</div>
+				</div>
+			</td>
+			<td id="ctl00_MasterBody_FeedbackStatus_TextDisplayRight" class="TextDisplayRight">
+				<div class="StatusTextDisplay">
+					<div class="StatusText">
+						<span id="ctl00_MasterBody_FeedbackStatus_StatusLabel">Closed</span>
+					</div>
+					<div id="ctl00_MasterBody_FeedbackStatus_ResolutionRight" class="ResolutionText">
+						<div class="ResolutionTextContainer">
+							<span id="ctl00_MasterBody_FeedbackStatus_ResolutionLabel">as Won't Fix</span>
+							<span class="ResolutionHelpIcon">
+								<img id="ctl00_MasterBody_FeedbackStatus_ResolutionHelpIcon" class="ResolutionHelpIcon" alt="Help for as Won't Fix" src="/images/Icon_Information_Small.png" border="0" />
+							</span>
+						</div>
+					</div>
+				</div>
+			</td>
+	
+		</tr>
+		<tr>
+			
+		</tr>
+	</table>
+	<div id="ctl00_MasterBody_FeedbackStatus_ResolutionToolTip" class=" ResolutionTooltip" hideevent="Manual" style="display:none;">
+		<!-- 2008.1.619.20 --><input id="ctl00_MasterBody_FeedbackStatus_ResolutionToolTip_ClientState" name="ctl00_MasterBody_FeedbackStatus_ResolutionToolTip_ClientState" type="hidden" />
+	</div>
+
+</div>
+
+
+		</div>
+	    <br clear="all" />
+		<div id="FeedbackDetailsMiddleSection">
+			<div id="FeedbackSimpleVoteOuterRegion">
+				<div id="ctl00_MasterBody_FeedbackSimpleVote_SimpleVote" class="simpleVote_largeOuterShell"><div id="ctl00_MasterBody_FeedbackSimpleVote_SimpleVote_ctl00">
+	<div id="ctl00_MasterBody_FeedbackSimpleVote_SimpleVote_ctl02" class="simpleVote_largeButton simpleVote_largeUpDefault">
+	<div id="ctl00_MasterBody_FeedbackSimpleVote_SimpleVote_ctl02_text" class="simpleVote_largeText simpleVote_largeUpText" onselectstart="return false;">1</div>
+	</div>
+	<div id="ctl00_MasterBody_FeedbackSimpleVote_SimpleVote_ctl02_hoverText" class="simpleVote_hoverText"><div class="simpleVote_hoverText_inner">Sign in to vote</div></div><div id="ctl00_MasterBody_FeedbackSimpleVote_SimpleVote_ctl03" class="simpleVote_largeButton simpleVote_largeDownDefault">
+	<div id="ctl00_MasterBody_FeedbackSimpleVote_SimpleVote_ctl03_text" class="simpleVote_largeText simpleVote_largeDownText" onselectstart="return false;">0</div>
+	</div>
+	<div id="ctl00_MasterBody_FeedbackSimpleVote_SimpleVote_ctl03_hoverText" class="simpleVote_hoverText"><div class="simpleVote_hoverText_inner">Sign in to vote</div></div><div class="simpleVote_largeLinkOuter">
+		<a href="javascript:__doPostBack('ctl00$MasterBody$FeedbackSimpleVote$SimpleVote$ctl05','')">Sign in<br /></a> to vote
+	</div>
+</div></div>
+			</div>
+
+            <table border="0" cellpadding="0" cellspacing="0" class="font85em">
+                <tr>
+                    <td width="9"><div class="DetailsBox-TopLeftCorner"></div></td>
+                    <td width="452" class="detailsBackground detailsBackgroundWithHeight"></td>
+                    <td width="9"><div class="DetailsBox-TopRightCorner"></div></td>
+                    <td width="15"></td>
+                    <td width="9"><div class="DetailsBox-TopLeftCorner"></div></td>
+                    <td width="162" class="detailsBackground"></td>
+                    <td width="9"><div class="DetailsBox-TopRightCorner"></div></td>
+                </tr>
+                <tr>
+                    <td class="detailsBackground"></td>
+                    <td class="detailsBackground detailsBackgroundWithHeight">
+		                <table id="DetailsTable" border="0" width="440">
+			                <tr>
+				                <td class="Label" width="150">
+					                Type:
+				                </td>
+				                <td class="Data" width="290">
+					                Bug
+				                </td>
+			                </tr>
+			                <tr>
+				                <td class="Label">
+					                ID:
+				                </td>
+				                <td class="Data">
+					                362970
+				                </td>
+			                </tr>
+			                <tr>
+				                <td class="Label">
+					                Opened:
+				                </td>
+				                <td class="Data">
+					                8/22/2008 5:25:54 AM
+				                </td>
+			                </tr>
+			                <tr>
+				                <td class="Label">
+					                Access Restriction:
+				                </td>
+				                <td class="Data">
+					                Public
+				                </td>
+			                </tr>
+			                
+			                
+		                </table>
+                        
+                    </td>
+                    <td class="detailsBackground"></td>
+                    <td></td>
+                    <td class="detailsBackground"></td>
+                    <td class="detailsBackground">
+		                <div id="ctl00_MasterBody_pnlWorkarounds" class="action">
+	
+			                <div id="ctl00_MasterBody_upWorkaroundCount">
+		
+			                        <div id="workaroundCount" class="status">
+				                        0
+			                        </div>
+			                        <div class="text">
+				                        Workaround(s)<br />
+				                        <div id="ctl00_MasterBody_pnlWorkaroundLink" class="link">
+			
+				                            <a href="#tabs" onclick="toggleWorkaroundTabView('ctl00_MasterBody_tsCustomerInteractionTabs', 'ctl00_MasterBody_cbWorkaround', false);">view</a>
+				                            
+		</div>
+                                    </div>
+				                
+	</div>
+		                
+</div>
+		                <div id="ctl00_MasterBody_pnlValidate" class="action">
+			                <div id="ctl00_MasterBody_upValidation">
+	
+					                <div id="validationCount" class="status">
+						                1</div>
+					                <div class="text">
+						                User(s) can reproduce this bug
+                                        
+					                </div>
+				                
+</div>
+		                </div>
+		                
+                    </td>
+                    <td class="detailsBackground"></td>
+                </tr>
+                <tr>
+                    <td><div class="DetailsBox-BottomLeftCorner"></div></td>
+                    <td class="detailsBackground detailsBackgroundWithHeight"></td>
+                    <td><div class="DetailsBox-BottomRightCorner"></div></td>
+                    <td></td>
+                    <td><div class="DetailsBox-BottomLeftCorner"></div></td>
+                    <td class="detailsBackground"></td>
+                    <td><div class="DetailsBox-BottomRightCorner"></div></td>
+                </tr>
+            </table>
+		</div>
+		<div id="FeedbackDescriptionBox">
+		    <blockquote class="FeedbackDescription">
+		        <span>
+		            Consider this code:<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;using System;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;namespace Test<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public class BuggyClass<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private string foo = String.Empty;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private int _bar = 5;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private int _wrongBar = 5;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public int Bar<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;get { return _bar; }<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set { _wrongBar = value; }<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public void DoSomething()<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string msg = &quot;foo&quot; + 1.ToString();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />It contains three variables and fields which ar never used, so I would expect the compiler to emit three warnings. But csc does nothing - in none of three different versions:<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;c:\tmp\---&gt;C:\WINDOWS\Microsoft.NET\Framework\v3.5\csc.exe /warn:4 /target:library test.cs <br />&nbsp;&nbsp;&nbsp;&nbsp;Microsoft (R) Visual C# 2008 Compiler Version 3.5.30729.1<br />&nbsp;&nbsp;&nbsp;&nbsp;, fr Microsoft (R) .NET Framework Version 3.5<br />&nbsp;&nbsp;&nbsp;&nbsp;Copyright (C) Microsoft Corporation. Alle Rechte vorbehalten.<br /><br /><br />&nbsp;&nbsp;&nbsp;&nbsp;c:\tmp\---&gt;C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\csc.exe /warn:4 /target:library test.cs <br />&nbsp;&nbsp;&nbsp;&nbsp;Microsoft (R) Visual C# 2005, Compilerversion 8.00.50727.3053<br />&nbsp;&nbsp;&nbsp;&nbsp;fr Microsoft (R) Windows (R) 2005 Framework, Version 2.0.50727<br />&nbsp;&nbsp;&nbsp;&nbsp;Copyright (C) Microsoft Corporation 2001-2005. Alle Rechte vorbehalten.<br /><br /><br />&nbsp;&nbsp;&nbsp;&nbsp;c:\tmp\---&gt;C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\csc.exe /warn:4 /target:library test.cs <br />&nbsp;&nbsp;&nbsp;&nbsp;Microsoft (R) Visual C# .NET-Compilerversion 7.10.6001.4<br />&nbsp;&nbsp;&nbsp;&nbsp;fr Microsoft (R) .NET Framework, Version 1.1.4322<br />&nbsp;&nbsp;&nbsp;&nbsp;Copyright (C) Microsoft Corporation 2001-2002. Alle Rechte vorbehalten.
+		        </span>
+            </blockquote>
+        </div>
+		<div id="detailsHeader">
+			<div id="detailsViewToggle" onmouseover="this.style.cursor = 'pointer';" onmouseleave="this.style.cursor = 'default'">
+	            <a href="#" onclick="toggleFeedbackDetails('/images/communitydiscussionicons/collapsed_30.gif', '/images/communitydiscussionicons/expanded_30.gif');">
+                    <img id="detailsImage" 
+                        src="/images/communitydiscussionicons/collapsed_30.gif" 
+                        width="16" height="16" alt="" />
+	            </a>
+            </div>
+			<div id="detailsHeaderText">
+				Details
+				<span id="detailsLink">(<a href="#details" onclick="toggleFeedbackDetails('/images/communitydiscussionicons/collapsed_30.gif', '/images/communitydiscussionicons/expanded_30.gif');">expand</a>)</span>
+            </div>
+		</div>
+
+            <div id="feedbackDetails">
+				
+			<div id="surveyContent">
+                <div class="data-box"><div class="ClearBoth"></div><div class="data-item"><div class="Header"><span><font face=Verdana size=2>
+<style>
+SPAN.9em P
+{margin-top:0px;margin-bottom:0px;width:500px;position:relative;left:193px;}
+SPAN.9em
+{font:8.5pt verdana;}
+SPAN P FONT SPAN.DevDivLayout
+{float:none !important;float:left;font:bold 8.5pt Verdana;width:193px;position:relative !important;position:absolute;left:0px !important;left:197px;}
+</style>
+<span class=DevDivLayout>Product Language</span></font></span></div><div class="Body"><span id="ctl00_MasterBody_surveyQuestions_CustomForm51266">German</span></div></div><div class="ClearBoth"></div><div class="data-item"><div class="Header"><span><p><span style="font-family:verdana;font-size:13px"><span style="font-family:verdana;font-size:13px"><span style="font-family:verdana;font-size:13px"><span style="font-family:verdana;font-size:13px"><span style="font-family:verdana;font-size:13px"><span style="font-family:verdana;font-size:13px"><span style="font-family:verdana;font-size:13px"><span style="font-family:verdana;font-size:13px"><span style="font-family:verdana;font-size:13px"><span style="font-family:verdana;font-size:13px"><span style="font-family:verdana;font-size:13px"><span style="font-family:verdana;font-size:13px"><span style="font-family:verdana;font-size:13px"><span style="font-family:verdana;font-size:13px"><span class=DevDivLayout>Version</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></p></span></div><div class="Body"><span id="ctl00_MasterBody_surveyQuestions_CustomForm51267">.NET Framework 3.5 Service Pack 1</span></div></div><div class="ClearBoth"></div><div class="data-item"><div class="Header"><span><span style="font-family:verdana;font-size:13px"><span style="font-family:verdana;font-size:13px"><span style="font-family:verdana;font-size:13px"><span class=DevDivLayout>Operating System</span></span></span></span></span></div><div class="Body"><span id="ctl00_MasterBody_surveyQuestions_CustomForm51268">Windows XP Professional</span></div></div><div class="ClearBoth"></div><div class="data-item"><div class="Header"><span><font face=Verdana size=2><font face=Verdana size=2><span class=DevDivLayout>Operating System Language</span></font></font></span></div><div class="Body"><span id="ctl00_MasterBody_surveyQuestions_CustomForm51269">German</span></div></div><div class="ClearBoth"></div><div class="data-item"><div class="Header"><span><font face=Verdana size=2><span class=DevDivLayout>Steps to Reproduce</span></font></span></div><div class="Body"><span>Compile this code:<br /><br />    using System;<br /><br />    namespace Test<br />    {<br />        public class BuggyClass<br />        {<br />            private string foo = String.Empty;<br />            private int _bar = 5;<br />            private int _wrongBar = 5;<br /><br />            public int Bar<br />            {<br />                get { return _bar; }<br />                set { _wrongBar = value; }<br />            }<br /><br />            public void DoSomething()<br />            {<br />                string msg = &quot;foo&quot; + 1.ToString();<br />            }<br />        }<br />    }<br /><br /></span></div></div><div class="ClearBoth"></div><div class="data-item"><div class="Header"><span><font face=Verdana size=2><span class=DevDivLayout>Actual Results</span></font></span></div><div class="Body"><span>    c:\tmp\---&gt;C:\WINDOWS\Microsoft.NET\Framework\v3.5\csc.exe /warn:4 /target:library test.cs <br />    Microsoft (R) Visual C# 2008 Compiler Version 3.5.30729.1<br />    , fr Microsoft (R) .NET Framework Version 3.5<br />    Copyright (C) Microsoft Corporation. Alle Rechte vorbehalten.<br /></span></div></div><div class="ClearBoth"></div><div class="data-item"><div class="Header"><span><font face=Verdana size=2><span class=DevDivLayout>Expected Results</span></font></span></div><div class="Body"><span>    test.cs(19,20): warning CS0219: The variable `msg' is assigned but its value is never used<br />    test.cs(7,24): warning CS0169: The private field `Test.BuggyClass.foo' is assigned but its value is never used<br />    test.cs(9,21): warning CS0169: The private field `Test.BuggyClass._wrongBar' is assigned but its value is never used<br /></span></div></div><div class="ClearBoth"></div><div class="data-item"><div class="Header"><span>TAP Code (if applicable)</span></div><div class="Body"><span>&nbsp;</span></div></div><div class="ClearBoth"></div><div><div class="Header"><span><table style="border-right:#1162bb thin solid;border-top:#1162bb thin solid;border-left:#1162bb thin solid;border-bottom:#1162bb thin solid" border=1 cellspacing=0 cellpadding=4>
+<tbody>
+<tr>
+<td>      You can indicate your satisfaction with how Microsoft handled this issue by completing this quick <a href="https://connect.microsoft.com/VisualStudio/Survey/Survey.aspx?SurveyID=7188">3 question survey</a>. [<a href="https://connect.microsoft.com/VisualStudio/content/content.aspx?ContentID=12367#Q7">Details</a>]</td>
+</tr>
+</tbody>
+</table>
+<p> </p></span></div><div class="Body"></div></div></div>
+            </div>
+            
+            <script type="text/javascript" language="javascript">
+                stripUnwantedElementsFromFeedbackContent();
+            </script>
+		
+			<div id="ctl00_MasterBody_fileAttachmentsDiv" class="data-item">
+				<div class="Header">
+					File Attachments
+                </div>
+				<div class="Body">
+					0 attachments
+					
+					
+				</div>
+			</div>
+			
+		</div>
+</div>
+	<a name="tabs"></a>
+	<div id="tabpages">
+	<div id="ctl00_MasterBody_upTabStrip">
+	
+			<div id="ctl00_MasterBody_tsCustomerInteractionTabs" class="RadTabStrip RadTabStrip_Vista RadTabStripTop_Vista ">
+		<div class="rtsLevel rtsLevel1">
+			<ul class="rtsUL"><li class="rtsLI rtsFirst"><a class="rtsLink rtsSelected" ID="rtComments" href="#"><span class="rtsOut"><span class="rtsIn"><span class="rtsTxt">Comments (2)</span></span></span></a></li><li class="rtsLI rtsLast"><a class="rtsLink rtsAfter" id="rtWorkarounds" href="#"><span class="rtsOut"><span class="rtsIn"><span class="rtsTxt">Workarounds (0)</span></span></span></a></li></ul>
+		</div><input id="ctl00_MasterBody_tsCustomerInteractionTabs_ClientState" name="ctl00_MasterBody_tsCustomerInteractionTabs_ClientState" type="hidden" />
+	</div>
+		
+</div>
+	<div id="ctl00_MasterBody_rmpTabPage" class="pageView">
+	<div id="ctl00_MasterBody_rpvComments">
+		
+
+                <div id="ctl00_MasterBody_upCommunityCommentBox">
+			
+                        
+
+<div class="HtmlWidth">
+			
+    <div id="ctl00_MasterBody_cbCommunityComment_pnlAddNew" class="top_panel_right">
+				<a id="ctl00_MasterBody_cbCommunityComment_postLink" href="https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=11&ct=1268574545&rver=6.0.5286.0&wp=MBI_SSL&wreply=https:%2F%2Fconnect.microsoft.com%2FVisualStudio%2Ffeedback%2Fdetails%2F362970%2Fc-compiler-does-not-create-warnings-for-unused-variables-and-fields&lc=1033&id=64416">Sign in</a> to post a comment.
+			</div>
+	
+    <div id="ctl00_MasterBody_cbCommunityComment_Comment" style="margin: 15px; display: none;">
+        <textarea name="ctl00$MasterBody$cbCommunityComment$UserCommentTextBox" rows="8" cols="20" id="ctl00_MasterBody_cbCommunityComment_UserCommentTextBox" style="margin: 5px; width: 694px; border: 1px solid #c9c9c9; padding: 3px; font-family: verdana; font-size: 8pt;"></textarea>
+        <div id="ctl00_MasterBody_cbCommunityComment_pnlErrorMessage" style="display: none; color: #ff0000; margin: 3px; padding: 0px 0px 4px 4px; font-size: .8em;">
+				
+            Please enter a comment.
+        
+			</div>
+	    <div id="ActionButtons" style="text-align: right;">
+		    <input type="submit" name="ctl00$MasterBody$cbCommunityComment$SubmitButton" value="Submit" onclick="return ctl00_MasterBody_cbCommunityComment_validate();javascript:ctl00_MasterBody_cbCommunityComment_ToggleInputControlsOff();" id="ctl00_MasterBody_cbCommunityComment_SubmitButton" class="InputControl" style="padding-left: 5px; padding-right: 5px;" />
+		    <input name="ctl00$MasterBody$cbCommunityComment$CancelButton" type="button" id="ctl00_MasterBody_cbCommunityComment_CancelButton" style="padding-left: 5px; padding-right: 5px;" class="InputControl" value="Cancel" onclick="javascript:ctl00_MasterBody_cbCommunityComment_ToggleInputControlsOff();" />
+	    </div>
+    </div>		
+
+</div>
+
+<script language="javascript" type="text/javascript">
+    	
+	function ctl00_MasterBody_cbCommunityComment_validate() {
+
+        var cbox = $get('ctl00_MasterBody_cbCommunityComment_UserCommentTextBox');        
+        
+        if (cbox.value.match(/^\s*$/)) {
+        
+            $get('ctl00_MasterBody_cbCommunityComment_pnlErrorMessage').style.display = 'block';
+            cbox.value = '';
+            cbox.focus();
+            return false;
+
+        } else {
+            
+            ctl00_MasterBody_cbCommunityComment_ToggleInputControlsOff();
+    		$get("ctl00_MasterBody_cbCommunityComment_pnlAddNew").style.display = 'none';
+            return true;
+        }
+ 
+	}
+	
+	function ctl00_MasterBody_cbCommunityComment_ToggleInputControlsOff() {
+	
+		$get( "ctl00_MasterBody_cbCommunityComment_Comment" ).style.display = 'none';
+        $get('ctl00_MasterBody_cbCommunityComment_pnlErrorMessage').style.display = 'none';
+		$get("ctl00_MasterBody_cbCommunityComment_pnlAddNew").style.display = 'block';
+        					
+	}
+	
+	function ctl00_MasterBody_cbCommunityComment_ToggleInputControlsOn() {
+		
+		$get("ctl00_MasterBody_cbCommunityComment_Comment").style.display = 'block';
+		$get("ctl00_MasterBody_cbCommunityComment_pnlAddNew").style.display = 'none';
+		
+		userComment = $get("ctl00_MasterBody_cbCommunityComment_UserCommentTextBox");
+		userComment.value = '';
+
+        // a slight delay to give the browser some time to render the 
+        // appropriate elements before setting focus to the comment
+        // text area element.
+	    setTimeout(function() { userComment.focus(); }, 500);
+
+	}
+
+</script>
+
+                    
+		</div>
+            
+                <div id="ctl00_MasterBody_upCommunityComments">
+			
+                
+                         <div class="FeedbackDetailsTabPageOuterRegion">
+
+                            
+                                    <div class="comment">
+                                        <div class="header comment_microsoft">
+                                            Posted by <strong>Microsoft</strong> on 8/25/2008 at 3:39 AM
+                                        </div>
+                                        <div class="content">
+                                            Thanks for your feedback. We are escalating this bug to the product unit who works on that specific feature area. The team will review this issue and make a decision on whether they will fix it or not for the next release.<br /><br />Thank you, <br />Visual Studio Product Team
+                                        </div>
+                                    </div>
+                                
+                                    <div class="comment">
+                                        <div class="header comment_microsoft">
+                                            Posted by <strong>Microsoft</strong> on 8/27/2008 at 3:39 PM
+                                        </div>
+                                        <div class="content">
+                                            Dear Tobi.NET,<br />Thanks for your feedback. These are interesting cases in which the compiler could potentially warn. But our guidance for customers who are interested in discovering unused elements in their code is to use FxCop. It can discover unused fields and much more interesting data about your code. So we are not actively enhancing the compiler's detection of these conditions and will not be making the changes you suggest. Regardless, I greatly appreciate the feedback.<br /><br />Regards,<br /><br />Ed Maurer<br />Development Lead, Managed Compiler Platform
+                                        </div>
+                                    </div>
+                                
+
+                        </div>
+
+                    
+		</div>
+             
+            
+	</div><div id="ctl00_MasterBody_rpvWorkarounds" style="display:none;">
+		
+             
+                <div id="ctl00_MasterBody_upWorkaroundCommentBox">
+			
+                        
+
+<div class="HtmlWidth">
+			
+    <div id="ctl00_MasterBody_cbWorkaround_pnlAddNew" class="top_panel_left">
+				<a id="ctl00_MasterBody_cbWorkaround_postLink" href="https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=11&ct=1268574545&rver=6.0.5286.0&wp=MBI_SSL&wreply=https:%2F%2Fconnect.microsoft.com%2FVisualStudio%2Ffeedback%2Fdetails%2F362970%2Fc-compiler-does-not-create-warnings-for-unused-variables-and-fields&lc=1033&id=64416">Sign in</a> to post a workaround.
+			</div>
+	
+    <div id="ctl00_MasterBody_cbWorkaround_Comment" style="margin: 15px; display: none;">
+        <textarea name="ctl00$MasterBody$cbWorkaround$UserCommentTextBox" rows="8" cols="20" id="ctl00_MasterBody_cbWorkaround_UserCommentTextBox" style="margin: 5px; width: 694px; border: 1px solid #c9c9c9; padding: 3px; font-family: verdana; font-size: 8pt;"></textarea>
+        <div id="ctl00_MasterBody_cbWorkaround_pnlErrorMessage" style="display: none; color: #ff0000; margin: 3px; padding: 0px 0px 4px 4px; font-size: .8em;">
+				
+            Please enter a workaround.
+        
+			</div>
+	    <div id="ActionButtons" style="text-align: right;">
+		    <input type="submit" name="ctl00$MasterBody$cbWorkaround$SubmitButton" value="Submit" onclick="return ctl00_MasterBody_cbWorkaround_validate();javascript:ctl00_MasterBody_cbWorkaround_ToggleInputControlsOff();" id="ctl00_MasterBody_cbWorkaround_SubmitButton" class="InputControl" style="padding-left: 5px; padding-right: 5px;" />
+		    <input name="ctl00$MasterBody$cbWorkaround$CancelButton" type="button" id="ctl00_MasterBody_cbWorkaround_CancelButton" style="padding-left: 5px; padding-right: 5px;" class="InputControl" value="Cancel" onclick="javascript:ctl00_MasterBody_cbWorkaround_ToggleInputControlsOff();" />
+	    </div>
+    </div>		
+
+</div>
+
+<script language="javascript" type="text/javascript">
+    	
+	function ctl00_MasterBody_cbWorkaround_validate() {
+
+        var cbox = $get('ctl00_MasterBody_cbWorkaround_UserCommentTextBox');        
+        
+        if (cbox.value.match(/^\s*$/)) {
+        
+            $get('ctl00_MasterBody_cbWorkaround_pnlErrorMessage').style.display = 'block';
+            cbox.value = '';
+            cbox.focus();
+            return false;
+
+        } else {
+            
+            ctl00_MasterBody_cbWorkaround_ToggleInputControlsOff();
+    		$get("ctl00_MasterBody_cbWorkaround_pnlAddNew").style.display = 'none';
+            return true;
+        }
+ 
+	}
+	
+	function ctl00_MasterBody_cbWorkaround_ToggleInputControlsOff() {
+	
+		$get( "ctl00_MasterBody_cbWorkaround_Comment" ).style.display = 'none';
+        $get('ctl00_MasterBody_cbWorkaround_pnlErrorMessage').style.display = 'none';
+		$get("ctl00_MasterBody_cbWorkaround_pnlAddNew").style.display = 'block';
+        					
+	}
+	
+	function ctl00_MasterBody_cbWorkaround_ToggleInputControlsOn() {
+		
+		$get("ctl00_MasterBody_cbWorkaround_Comment").style.display = 'block';
+		$get("ctl00_MasterBody_cbWorkaround_pnlAddNew").style.display = 'none';
+		
+		userComment = $get("ctl00_MasterBody_cbWorkaround_UserCommentTextBox");
+		userComment.value = '';
+
+        // a slight delay to give the browser some time to render the 
+        // appropriate elements before setting focus to the comment
+        // text area element.
+	    setTimeout(function() { userComment.focus(); }, 500);
+
+	}
+
+</script>
+
+                    
+		</div>
+            
+                <div id="ctl00_MasterBody_upWorkaroundComments">
+			
+                
+                         <div class="FeedbackDetailsTabPageOuterRegion">
+
+                            
+
+                        </div>
+
+                    
+		</div>
+             
+            
+	</div><input id="ctl00_MasterBody_rmpTabPage_ClientState" name="ctl00_MasterBody_rmpTabPage_ClientState" type="hidden" />
+</div>    
+    </div>
+
+
+						</div>
+						<div class="ClearBoth"></div>
+					</div>
+					
+
+<div class="PageFooter">
+    <div class="FloatLeft">
+        <span id="ctl00_PageFooter_Copyright" class="Copyright">&#169; 2010 Microsoft Corporation. All rights reserved.</span>
+        <a href="/terms.aspx" id="ctl00_PageFooter_TermsOfUseLink">Microsoft Connect Terms of Use</a>
+            <span class="Pipe">|</span>
+        <a href="http://www.microsoft.com/library/toolbar/3.0/trademarks/en-us.mspx" id="ctl00_PageFooter_TrademarksLink">Trademarks</a>
+            <span class="Pipe">|</span>
+        <a href="http://privacy.microsoft.com/" id="ctl00_PageFooter_PrivacyStatementLink">Privacy Statement</a>
+    </div>
+    <div class="FloatRight">
+        <a href="http://www.microsoft.com"><img src="../../../../Images/Logo_Microsoft-Black_90x15.gif" id="ctl00_PageFooter_MicrosoftLogo" width="90" height="15" border="0" alt="Microsoft" /></a>
+    </div>
+    <div class="ClearBoth"></div>
+</div>
+					<div id="ctl00_BottomBorder" class="BottomBorder"></div>
+				</div>
+			</div>
+		</div>
+	
+<script>ToggleMsSearchAttribution('ctl00_TopNavbar_SearchScope', 'ctl00_TopNavbar_SearchInput', 'ctl00_TopNavbar_SearchLogo', 'ctl00_TopNavbar_SearchButton', 'Search all Connect', 'Search this connection');</script>
+<script src="/ScriptResource.axd?d=PkFkbCtvPelR7aWD24Cp932N0y67fOUUxy98uSlAGPCcTqwnNELEBAodZchUGGk40&amp;t=504a9c7c" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=PkFkbCtvPelR7aWD24Cp932N0y67fOUUxy98uSlAGPDmscxt8WOOJSqGH_bH1IJE845fdSdKc2vgvJX1Q5eJGw2&amp;t=504a9c7c" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=PkFkbCtvPelR7aWD24Cp9xdgRYSHVJbxNgG03eCmLPcoSAiyMedwxwn6wPXbkFbn1EcOM2v7uKje6kUVn-VfvQ2&amp;t=504a9c7c" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=DY6HrsNDomK6FQCs0HjoFq1fM5RZ7fzF0SmHcM7AwkCy0XXgT9v45a9PDizrD7gLI8-YVINl6xlLEtUpxlkMJ4pXQ1N7VlUHTq1tgbIVixzgzB6RpRUyIqqeU6Y9ek1P0&amp;t=28ae1f04" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=DY6HrsNDomK6FQCs0HjoFq1fM5RZ7fzF0SmHcM7AwkCy0XXgT9v45a9PDizrD7gLI8-YVINl6xlLEtUpxlkMJ4pXQ1N7VlUHTq1tgbIVixy_QWS6UeeReJoaH0mGFDgj0&amp;t=28ae1f04" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=PkFkbCtvPelR7aWD24Cp932N0y67fOUUxy98uSlAGPDjd3dE6Izhm8j7JeY4yRShvfTFZuMGVaA5slkYQMTV4n6jMbpp73EcTR314JPnGD81&amp;t=504a9c7c" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=PkFkbCtvPelR7aWD24Cp932N0y67fOUUxy98uSlAGPBw0_9udplkqiAgMZ8I0uIs4nQfN8IX-vLAJaRsLIMebyqYZTfDpFY3MG2NmnVroTQ1&amp;t=504a9c7c" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=PkFkbCtvPelR7aWD24Cp9xdgRYSHVJbxNgG03eCmLPd9IcC8k1XSgDTXJhp3Vcltpnkabns6LPCS8e44UUlAbQ2&amp;t=504a9c7c" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=PkFkbCtvPelR7aWD24Cp9xdgRYSHVJbxNgG03eCmLPcpvDC8pZOomlwn7LrntqLsdqVyTBQ9bQGNCgchMFGP6W2M6AXy72N8-MRA87punHw1&amp;t=504a9c7c" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+Sys.Application.initialize();
+Sys.Application.add_init(function() {
+    $create(Telerik.Web.UI.RadToolTip, {"autoCloseDelay":0,"clientStateFieldID":"ctl00_MasterBody_FeedbackStatus_ResolutionToolTip_ClientState","formID":"aspnetForm","position":23,"relativeTo":1,"skin":"Outlook","targetControlID":"ctl00_MasterBody_FeedbackStatus_ResolutionHelpIcon","text":"Won\u0027t Fix\u003cbr /\u003e\u003cbr /\u003e\r\n\t\tDue to several factors the product team decided to focus its efforts on other items.\u003cbr /\u003e\u003cbr /\u003e\r\n\t\tA more detailed explanation for the resolution of this particular item may have been provided in the comments section.","width":"250px"}, null, null, $get("ctl00_MasterBody_FeedbackStatus_ResolutionToolTip"));
+});
+Sys.Application.add_init(function() {
+    $create(AjaxControls.SimpleVoteButton, {"buttonType":"Up","enabled":0,"isSelected":0,"postback":"__doPostBack(\u0027ctl00$MasterBody$FeedbackSimpleVote$SimpleVote$ctl02\u0027,\u0027\u0027)","size":"large","value":1}, null, null, $get("ctl00_MasterBody_FeedbackSimpleVote_SimpleVote_ctl02"));
+});
+Sys.Application.add_init(function() {
+    $create(AjaxControls.SimpleVoteButton, {"buttonType":"Down","enabled":0,"isSelected":0,"postback":"__doPostBack(\u0027ctl00$MasterBody$FeedbackSimpleVote$SimpleVote$ctl03\u0027,\u0027\u0027)","size":"large","value":0}, null, null, $get("ctl00_MasterBody_FeedbackSimpleVote_SimpleVote_ctl03"));
+});
+Sys.Application.add_init(function() {
+    $create(AjaxControls.SimpleVote, {"buttonsEnabled":0,"postback":"__doPostBack(\u0027ctl00$MasterBody$FeedbackSimpleVote$SimpleVote\u0027,\u0027click\u0027)"}, null, null, $get("ctl00_MasterBody_FeedbackSimpleVote_SimpleVote"));
+});
+Sys.Application.add_init(function() {
+    $create(Telerik.Web.UI.RadTabStrip, {"_selectedIndex":0,"_skin":"Vista","clientStateFieldID":"ctl00_MasterBody_tsCustomerInteractionTabs_ClientState","multiPageID":"ctl00_MasterBody_rmpTabPage","selectedIndexes":["0"],"tabData":[{},{}]}, null, null, $get("ctl00_MasterBody_tsCustomerInteractionTabs"));
+});
+Sys.Application.add_init(function() {
+    $create(Telerik.Web.UI.RadMultiPage, {"clientStateFieldID":"ctl00_MasterBody_rmpTabPage_ClientState","pageViewData":[{"id":"ctl00_MasterBody_rpvComments"},{"id":"ctl00_MasterBody_rpvWorkarounds"}],"selectedIndex":0}, null, null, $get("ctl00_MasterBody_rmpTabPage"));
+});
+//]]>
+</script>
+</form>
+	<script type="text/javascript" src="/omniture/omni_rsid_connect.4.07.00.0054.js"></script>
+<script type="text/javascript" src="/omniture/s_code.4.07.00.0054.js"></script>
+<script type="text/javascript" src="/omniture/OmniHelper_connect.4.07.00.0054.js"></script>
+<script type="text/javascript"><!--
+try {var s_code=s.t();if(s_code)document.write(s_code)} catch(err){}// -->
+</script>
+<noscript><a href="http://www.omniture.com" title="Web Analytics"><img src="http://msstonojsconnect.112.2O7.net/b/ss/msstonojsconnect/1/H.20.2--NS/0" height="1" width="1" border="0" alt="" /></a></noscript>
+
+
+</body>
+</html>

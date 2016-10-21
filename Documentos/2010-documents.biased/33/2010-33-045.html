@@ -1,0 +1,250 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>DDR vs. Dual Channel RDRAM</TITLE>
+<META name="resource-type" content="document"> 
+<META name="distribution" content="GLOBAL"> 
+<META name="description" content="DDR vs. Dual Channel RDRAM">
+<META name="copyright" content="DEW Associates Corporation">
+<META name="keywords" content="DDR Memory Rambus Dual Channel RDRAM">
+<META NAME="author" content="DEW Associates Corporation">
+<META NAME="rating" content="GENERAL">
+<META NAME="robots" content="all">
+<META NAME="classification" content="Computers, Servers, Networking, Components">
+<META HTTP-EQUIV="Reply-To" content="webmaster@dewassoc.com">
+<META HTTP-EQUIV="content-type:" content="text/html; charset=ISO-8859-1">
+<META HTTP-EQUIV="content-language" content="en">
+<style>
+<!-
+a{text-decoration:none}
+//->
+</style>
+</HEAD> 
+<body bgcolor="#FFFFFF" text="#000000" link="#336699" alink="336699" vlink="#336699">
+<p align="center"><font size="5" color="000080"><b>DDR vs. Dual Channel RDRAM</b></font></p>
+<p align="center"><b><font size="2">If you have arrived here through a search engine, and there's no menu to the left
+<a href="http://www.dewassoc.com/performance/index.html" target="_top">click here</a>!</font></b></p>
+<p><font size="2">Updated 7/01/01</font></p>
+<p>A little more than a year ago, we joined a number of other testing facilities and began comparing the performance of an Intel OR840 Chipset based platform using Direct Rambus (RDRAM) as against an early version of the Micron Samurai DDR platform. At that time, developers of DDR memory promised that it would be the undisputed winner as the next generation memory for high performance platforms.</p>
+<p><b>Performance Analysis and Comparison of Micron's&nbsp; DDR Platform and the Intel 840 Chipset with RDRAM.</b></p>
+<p><b><u><font color="#000080" size="4">Introduction</font></u></b><br>
+Since its introduction in September 1999, Direct Rambus has been beset by high production costs and other developmental issues causing extremely high retail prices, low availability, technical troubles and in some version, questionable performance. At the time, Intel�s primary RDRAM platform was built around the 820 chipset, which also fell under widespread criticism in the media and on the web for its multitude of problems.
+It didn't take long for the channel to report enormous inventory buildups of these hard to sell 820 platforms. Since the 820 chipset was the only one supporting Direct Rambus at the time, PC133 SDRAM entered the mainstream almost entirely uncontested. Although Intel had been perceived as resisting PC133, that perception quickly faded with
+the introduction of Intel's 815 chipset, referred to as Solano.</p>
+<p>It should be obvious by now that both Intel and the computer industry as a whole, were extremely disappointed by the poor performance and other glitches that befell the 820 chipset. As a result, Intel quickly rolled out its 840 dual channel Rambus platform, which quickly assumed the role of Intel�s reference platform for RDRAM performance. As you may have read elsewhere on our Website, there had been considerable controversy
+over Direct Rambus and Intel's decision to fully support it in lieu of DDR SDRAM. Intel released the 840 Chipset on their premium OR840 motherboard with Rambus only support. There was every indication that Intel would ignore DDR SDRAM even though there was no question that the next battle over PC main memory standards and performance would be fought between the 840 and dual Rambus and DDR. What was surprising was Intel's willingness
+forgo DDR SDRAM support even though it may mean a loss of market share.</p>
+<p>DDR first arrived on graphic accelerators, and began volume production in the 300MHz range during 2000, however late in 2000 it was evident that volume production of computers with DDR memory were hitting the market. Nearly weekly we see new computer designs employing DDR landing on consumer desktops. Even today, almost a year later, there are new designs and validation platforms arriving on the market.</p>
+<p>During the introduction of DDR, Micron led the pack with its Samurai DDR chipset. It didn't take long for VIA, AMD, ALI, nVidia, Transmeta, Serverworks and
+even Intel to recognize the performance and price value of DDR and begin their own development of DDR chipsets for mainstream desktops, workstations, notebooks and servers. As of this moment in time, Rambus is supported by only two chipsets, the 840 and 850 from Intel.</p>
+<p><b><u><font color="#000080" size="4">The Platforms</font></u></b><br>
+From the end of 1999 through the first quarter of 2000, a number of sources (all independent of each other) began reporting very favorable benchmarks for DDR SDRAM using Micron�s Samurai DDR chip. Although we were not able to obtain samples until late in the third quarter of 2000, the initial test results we obtained were extremely impressive. Micron continued to optimize their chip, and shortly thereafter validated production.</p>
+<p>We were extremely fortunate at the time to have been able to obtain one of Micron's test platforms with which to run some of our own comparative test against a Rambus equipped platform. The test platform consisted of a motherboard that supports 64-bit and 32-bit PCI slots, dual processor slots and 4 DIMM slots using buffered or unbuffered DDR SDRAM. Unfortunately, when we used unregistered PC2100 (266MHz) memory, we were only able
+to populate two of the four DIMM slots. calling for registered PC2100. This board included a new south bridge chip capable of ATA-100, however to keep things as even as possible, we only used ATA-66 mode.</p>
+<p>We configured the test platform with a Intel Pentium PIII 733MHz processor, 256MB of unbuffered DDR SDRAM, a Maxtor 10G drive and a 32MB ATI All-In-Wonder Radeon video card. We configured the Intel OR840 based platform identically except for the 256MB of PC800 RDRAM. Both platforms were tested with normal Windows� 98SE and Windows 2000 OEM installations, with each having the latest drivers installed, including Micron's latest GART
+driver that enables AGP FastWrites. We chose the Intel PIII 733MHz processor as we felt that it was, by current industry standards, a midrange processor. As a general rule, fast processors magnify the performance of DRAM, therefore the presumption can be made that the benchmarks for processor speeds of a gigahertz or more should remain constant, however the magnitude of performance delta will increase.</p>
+<p><b><font size="4" color="#000080"><u>The Testing</u></font></b></p>
+<p><b><u><font color="#000080">Linpack MFLOPS</font></u></b><br>
+Linpack MFLOPS is one of the oldest and most trusted benchmarks in existence. This particular benchmark is numerically intensive and evaluates memory limited double precision floating point performance. By varying the size of the data matrix, the performance impact of the L1, L2 and DRAM can be determined. We opted to use this benchmark over those that we normally use for two reasons. First, we want to compare our results against similar
+tests conducted by others. Second, Linpack MFLOPS is widely acceptance by a large number of other testing facilities. In addition, we excluded results that were dependent entirely on L1 and L2 performance, focusing instead on DRAM limited performance with dataset sizes ranging from 512KBytes to 1.5MBytes.</p>
+<p>Linpack was run under Windows 98SE and under Windows 2000. In each case, the tests were performed in sets of three, on three separate days, with each being performed after a clean restart of the test platforms. After running the tests as noted, there was little question that Micron's DDR test platform delivered an impressive performance advantage over the OR840, producing a 16.4% performance advantage in Window 98 and 7.8% in Windows 2000.</p>
+<p><b><u><font color="#000080">Stream</font></u></b><br>
+Our Stream testing was conducted in DOS, Windows 98SE and Windows 2000, and similar to our Linpack testing, the results were recorded during three test sessions conducted over a period of three days, with each conducted after a clean boot of the test platform. Under DOS, Micron's DDR test platform delivered an impressive 19% performance advantage.</p>
+<p>Amazingly, under Windows 98SE, there was an impressive 28-30% performance advantage in favor of Micron's DDR test platform, however this advantage shrinks measurably to 2-3% when the tests were conducted using Windows 2000 as the operating system. It appears that the DDR platform has little advantage over the OR840 with PC800 RDRAM.</p>
+<p>Since all previous tests that we had performed indicated a decided advantage in favor of Micron's DDR equipped test platform, we repeated all of the Stream tests on the Windows 2000 platforms. This confirmed the fact that the closeness of the scores wasn't merely an aberration.&nbsp;It appears that when the Micron platform is configured with four 128M registered DIMMs, its Wstream Windows 2000 performance increased, essentially eliminating
+the performance gap between the two systems. This indicates that Wstream under Windows 2000 benefits from wide interleaving, 4 way, and may not be as latency sensitive as some applications and benchmarks. This change in results caused us to carefully observe our other tests, especially when comparing Windows 98SE versus Windows 2000.</p>
+<p><b><u><font color="#000080">WinTune Memory Bandwidth Test</font></u></b><br>
+We decided to use WinTune V.4.0 to evaluate some aspects of DRAM performance under both Windows 98SE as well as Windows 2000. Windows 98SE provided us with some minor fluctuation in the testing results, however Windows 2000 was extremely stable, hardly any fluctuation. Above all, there was little performance difference between the two operating systems.</p>
+<p>While DDR showed an outstanding advantage in Write and Copy activity, Reads showed essentially no difference, and the OR840 Rambus platform actually exceed DDR in 2Mbyte reads by 0.5% to 0.8%. The average performance difference for Writes is 42.1% to 44.8% favoring DDR. For Copy transactions, DDR outperforms the OR840 by 12.8% to 16.5%. If you create an average from this, Reads, Writes and Copies, DDR outperforms the 840 by 18.9% to 22.6%,
+although doing so is a bit unfair as data reads are extremely important in high-end workstation and server platforms.</p>
+<p>If we were to create the best overall score with WinTune, it would be 14.3% in favor of DDR, howeverWinTune generates its overall bandwidth score as an average of all other bandwidth scores measured in MB/s, including a processor centric 4 Kbyte number that we have excluded from this analysis. WinTune�s method of averaging weighs heavily toward cache performance rather than DRAM performance. Therefore, we believe our test methods create a
+more realistic ratio, allowing DRAM performance differences to be more clearly developed. Obviously, DDR delivers winning performance, but we would like to insure that the playing field is as level as possible.</p>
+<p><b><u><font color="#000080">SysMark 2000</font></u></b><br>
+SysMark 2000 is currently the most comprehensive and reliable business application benchmark in the industry, and is widely used by most OEM's to test system performance. It loads and runs a dozen leading applications for basic business productivity and for advanced content creation. When compared to synthetic benchmarks, it is very significant for DRAM, as it develops sufficiently accurate numbers so as to develop the necessary two or three
+percent differences in these application benchmarks.</p>
+<p>As we ran our tests, we noted that in three of the applications, Corel Draw, Excel 2000 and Elastic Reality (an image morphing application), there was no appreciable differences in performance. In all remaining applications, however, DDR exceeds dual channel RDRAM performance by a relatively small margin. The DDR platform beats the OR840 by an average of 2.0% to 2.2% in the applications noted below, and by 1.1% to 1.2% overall.</p>
+<p>Those applications are:<br>
+Bryce � a 3D scene rendering application<br>
+Naturally Speaking � Real time continuous speech recognition application<br>
+Netscape Communicator � Web page authoring package<br>
+Paradox � Database processing environment<br>
+Photoshop � Image processing software<br>
+PowerPoint 2000 � Presentation software<br>
+Word 2000 � Word Processing</p>
+<p>The OR840 outperforms DDR in only two applications - Premier and Microsoft Media Encoder. Interestingly though, these two applications are closely related, as both perform batch oriented video file compression. These two applications fall into the category of professional or semi-professional content creation applications, along with Bryce and Elastic Reality, and are generally not intended for the casual user, a home user or business PC.</p>
+<p>The table below contains the precise best case run time results for each of the applications and configurations in SysMark 2000. The numbers shown are the fastest of three sets of three iterations of each program script.</p>
+<div align="left">
+  <table border="1" cellpadding="1" cellspacing="1" width="50%" bordercolor="#000000">
+    <tr>
+      <td width="34%" bgcolor="#336699">&nbsp;</td>
+      <td width="20%" bgcolor="#336699">
+        <p align="center"><font size="2" color="#FFFFFF"><b>OR840</b></font></p>
+      </td>
+      <td width="21%" bgcolor="#336699">
+        <p align="center"><font size="2" color="#FFFFFF"><b>DDR</b></font></p>
+      </td>
+      <td width="25%" bgcolor="#336699">
+        <p align="center"><font size="2" color="#FFFFFF"><b>DDR/OR840</b></font></p>
+      </td>
+    </tr>
+    <tr>
+      <td width="34%"><b><font size="2">Bryce 4</font></b></td>
+      <td width="20%" align="center"><font size="2">89.02</font></td>
+      <td width="21%" align="center"><font size="2">87.32</font></td>
+      <td width="25%" align="center"><font size="2">1.8%</font></td>
+    </tr>
+    <tr>
+      <td width="34%"><b><font size="2">CorelDraw 9</font></b></td>
+      <td width="20%" align="center"><font size="2">114.22</font></td>
+      <td width="21%" align="center"><font size="2">114.16</font></td>
+      <td width="25%" align="center"><font size="2">0.1%</font></td>
+    </tr>
+    <tr>
+      <td width="34%"><b><font size="2">Elastic Reality 3.1</font></b></td>
+      <td width="20%" align="center"><font size="2">52.0</font></td>
+      <td width="21%" align="center"><font size="2">52.01</font></td>
+      <td width="25%" align="center"><font size="2">0.0%</font></td>
+    </tr>
+    <tr>
+      <td width="34%"><b><font size="2">Excel 2000</font></b></td>
+      <td width="20%" align="center"><font size="2">64.20</font></td>
+      <td width="21%" align="center"><font size="2">64.18</font></td>
+      <td width="25%" align="center"><font size="2">0.0%</font></td>
+    </tr>
+    <tr>
+      <td width="34%"><b><font size="2">Naturally Speaking</font></b></td>
+      <td width="20%" align="center"><font size="2">111.82</font></td>
+      <td width="21%" align="center"><font size="2">108.83</font></td>
+      <td width="25%" align="center"><font size="2">4.1%</font></td>
+    </tr>
+    <tr>
+      <td width="34%"><font size="2"><b>Netscape</b></font></td>
+      <td width="20%" align="center"><font size="2">81.70</font></td>
+      <td width="21%" align="center"><font size="2">79.65</font></td>
+      <td width="25%" align="center"><font size="2">2.75%</font></td>
+    </tr>
+    <tr>
+      <td width="34%"><b><font size="2">Paradox 9.0</font></b></td>
+      <td width="20%" align="center"><font size="2">105.02</font></td>
+      <td width="21%" align="center"><font size="2">103.86</font></td>
+      <td width="25%" align="center"><font size="2">1.7%</font></td>
+    </tr>
+    <tr>
+      <td width="34%"><b><font size="2">Photoshop 5.5</font></b></td>
+      <td width="20%" align="center"><font size="2">69.55</font></td>
+      <td width="21%" align="center"><font size="2">69.20</font></td>
+      <td width="25%" align="center"><font size="2">1.0%</font></td>
+    </tr>
+    <tr>
+      <td width="34%"><b><font size="2">PowerPoint 2000</font></b></td>
+      <td width="20%" align="center"><font size="2">96.10</font></td>
+      <td width="21%" align="center"><font size="2">94.84</font></td>
+      <td width="25%" align="center"><font size="2">2.1%</font></td>
+    </tr>
+    <tr>
+      <td width="34%"><b><font size="2">Premiere 5.1</font></b></td>
+      <td width="20%" align="center"><font size="2">81.08</font></td>
+      <td width="21%" align="center"><font size="2">82.86</font></td>
+      <td width="25%" align="center"><font size="2">-1.8%</font></td>
+    </tr>
+    <tr>
+      <td width="34%"><b><font size="2">Media Encoder</font></b></td>
+      <td width="20%" align="center"><font size="2">65.02</font></td>
+      <td width="21%" align="center"><font size="2">66.52</font></td>
+      <td width="25%" align="center"><font size="2">-1.8%</font></td>
+    </tr>
+    <tr>
+      <td width="34%"><b><font size="2">Word 2000</font></b></td>
+      <td width="20%" align="center"><font size="2">108.26</font></td>
+      <td width="21%" align="center"><font size="2">106.22</font></td>
+      <td width="25%" align="center"><font size="2">4.0%</font></td>
+    </tr>
+  </table>
+</div>
+<p><b><u><font color="#000080">ZD CPUmark99</font></u></b><br>
+CPUmark, as a key element of Intel�s ICOMP index, has proven itself to be a reputable evaluation of the processor�s integer and cached memory performance, independent of graphics or hard disk. Unlike previous high end processors, with the Coppermine�s reduced 256KB cache size, DRAM performance differences can be identified with this benchmark. In this particular group of tests, there was a 1% difference in favor of DDR, not something significant, but a difference nonetheless.</p>
+<p><b><u><font color="#000080">3D Game Performance � Expendable</font></u></b><br>
+Using the popular game demo Expendable, we ran our tests at two different screen resolutions, and as it turns out, at either resolution, this game is still primarily CPU limited in its performance. As the resolution increases from 640x480x16 to 1024x768x32, the overall accelerator fill rate demand increases by more than 5X. The ATI DDR fill rate capacity is so high that there is only a very small frame rate difference between these two resolutions.</p>
+<p>When it comes to the CPU and DRAM limited performance evaluation, there is a consistent 1.5% to 2.1% performance difference between the OR840 and Micron's DDR platform, with DDR in the lead in both cases. This appears to be consistent with the performance differences seen in the other applications, but to a user, this difference is barely noticeable.</p>
+<p><b><u><font color="#000080">3D Game Performance - Quake3 Arena</font></u></b><br>
+Quake, everyone's favorite as a game benchmark. It is one of the more enduring games, and perhaps one of the more credible game benchmarks in the industry. Both platforms were configured with Windows 98SE using identical driver sets and with all performance features enabled, including AGP fastwrites. The Windows registry settings were left in their default modes, with no tweaking at all. We had been assured that Micron had physically verified that the test platform supplied was
+capable of AGP fastwrite cycles, and as we believe it to be one of the only non-Intel platforms to employ fastwrite compatibility.</p>
+<p>To complete this phase of testing, we ran three sets of three as above, which included running both demo scripts contained in the retail demo of Quake 3 Arena. If you're a hardware fanatic, then you probably know that Demo 1 is used most frequently by the hardware sites. On the other hand Demo 2 provides for a slightly more complex load on the processor and DRAM. In both cases, DDR held an advantage over Rambus, but only at lower resolutions. As the quality of the resolution increased, DDR's advantage decreased.</p>
+<div align="left">
+  <table border="1" cellspacing="0" width="53%" cellpadding="0" bordercolor="#000000">
+    <tr>
+      <td width="46%" bgcolor="#336699"><font color="#FFFFFF">&nbsp;</font></td>
+      <td width="54%" colspan="3" bgcolor="#336699">
+        <p align="center"><font size="2" color="#FFFFFF"><b>Values are Frames Per Second (fps)</b></font></td>
+    </tr>
+    <tr>
+      <td width="46%" bgcolor="#336699"><font size="2" color="#FFFFFF"><b>Quake 3 - Demo 1</b></font></td>
+      <td width="18%" align="center"><font size="2"><b>&nbsp;OR840</b></font></td>
+      <td width="18%" align="center"><font size="2"><b>DDR</b></font></td>
+      <td width="18%" align="center"><font size="2"><b>OR840/DDR</b></font></td>
+    </tr>
+    <tr>
+      <td width="46%" bgcolor="#336699"><font size="2" color="#FFFFFF"><b>Normal 640x480x16</b></font></td>
+      <td width="18%" align="center"><font size="2">117.1</font></td>
+      <td width="18%" align="center"><font size="2">127.2</font></td>
+      <td width="18%" align="center"><font size="2">8.2%</font></td>
+    </tr>
+    <tr>
+      <td width="46%" bgcolor="#336699"><font size="2" color="#FFFFFF"><b>Med. Quality 800x600x32</b></font></td>
+      <td width="18%" align="center"><font size="2">95.7</font></td>
+      <td width="18%" align="center"><font size="2">101.6</font></td>
+      <td width="18%" align="center"><font size="2">6.5%</font></td>
+    </tr>
+    <tr>
+      <td width="46%" bgcolor="#336699"><font color="#FFFFFF">&nbsp;</font></td>
+      <td width="18%" align="center">&nbsp;</td>
+      <td width="18%" align="center">&nbsp;</td>
+      <td width="18%" align="center">&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="46%" bgcolor="#336699"><font size="2" color="#FFFFFF"><b>Quake 3 - Demo 2</b></font></td>
+      <td width="18%" align="center"><font size="2"><b>&nbsp;OR840</b></font></td>
+      <td width="18%" align="center"><font size="2"><b>DDR</b></font></td>
+      <td width="18%" align="center"><font size="2"><b>OR840/DDR</b></font></td>
+    </tr>
+    <tr>
+      <td width="46%" bgcolor="#336699"><font size="2" color="#FFFFFF"><b>Normal 640x480x16</b></font></td>
+      <td width="18%" align="center"><font size="2">&nbsp;112.8</font></td>
+      <td width="18%" align="center"><font size="2">121.9</font></td>
+      <td width="18%" align="center"><font size="2">8.4%</font></td>
+    </tr>
+    <tr>
+      <td width="46%" bgcolor="#336699"><font size="2" color="#FFFFFF"><b>Med. Quality 800x600x32</b></font></td>
+      <td width="18%" align="center"><font size="2">&nbsp;99.6</font></td>
+      <td width="18%" align="center"><font size="2">106.6</font></td>
+      <td width="18%" align="center"><font size="2">7.1%</font></td>
+    </tr>
+  </table>
+</div>
+<p>DDR�s advantage is at its highest at lower resolutions as they are less fill rate limited. The DDR advantage is somewhat distorted under Demo2 because of the difference in CPU load as noted above. Micron�s new chipset delivers a 6.3% to 8.3% advantage over the OR840 in this test, however as noted, this would be meaningless to the power desktop user. As resolution increases, the advantage shrinks as performance becomes almost entirely accelerator limited.</p>
+<p><b><u><font color="#000080">3D WinBench 2000</font></u></b><br>
+We tested both platforms with the same configuration we used above for the Quake3 tests, except we adjusted the screen resolutions to 1024x768x16. Although several other testing facilities reported differences ranging from .01% through as much as 5%, we were only able to develop a consistent difference of .05% between the two platforms, and that was in the accelerated game script tests. As far as we are concerned, this test was a dead heat between the two.</p>
+<p><b><u><font color="#000080">MCAD Workstation Performance - Viewperf</font></u></b><br>
+Under Windows 2000 we tested Viewperf using the ATI AIW AGP at 1024x768x32, and across three test segments of 3 tests each, we noted that in all three, the variation in results was less than .05%. All tests favored the OR840 by 1% to 3% each time. In the AWadvs-03 tests, the OR840 rose above DDR only by one-half of one percent. In the DX-05 testing though, the difference was nearly 3%, favoring the OR840.</p>
+<p><b><u><font color="#000080">ZD Serverbench Performance</font></u></b><br>
+The ZD Serverbench Performance Benchmark measures sustained server throughput by simulating synthetically a varying number of active client computers accessing the server over a synthetic 100mbit Ethernet with up to 20 client sessions placing long-term continuous demand on the server. A number of testing facilities elected to use this benchmark, although none explained exactly why. We decided to use it for no other reason than to run comparative tests against
+their results, as we feel strongly that this benchmark serves no useful purpose. While creating synthetic testing benchmarks may work for certain circumstances, creating a synthetic environment for a server is unrealistic as there are too many factors that come into play that are out of the confines of the server itself.</p>
+<p>In any event, most of the other testing facilities touted the fact that both platforms performed nearly equal, and what ever small difference there was went to the OR840. Unlike the other facilities, we created a three (3) drive RAID using three 15,000 RPM Seagate drives.</p>
+<p>We instantly took note of the fact that at 12 clients and below, throughput was unaffected by memory issues, but rather being processor limited. In a single processor environment, the number of transactions per second was reduced by almost exactly half. TPS throughput declined when the number of clients rose to 16 and above, which we feel was due to drive issues more than anything that could be related to memory performance. We did note the following results, however we will leave their actual significance to you.</p>
+<p>The DDR barely squeaked past the OR840 in one test in one test session when the number of client connections was low, and sustained an approximate equal position up to 10-12 clients. When the number of client connections rose, especially at 16 and 20 client levels, the OR840 displayed a definite advantage. Of the nine test sessions we ran, three sets of three, we were able to reproduce near identical results. It would seem that the OR840's PCI and memory bus architecture might be the contributing factor rather than one of DRAM performance characteristics.</p>
+<p>Obviously neither of these two platforms are meant to be server platforms. However many small companies may want to examine them more closely as small workgroup servers supporting perhaps up to 25 users each, such as with Microsoft's Small Business Server. Last fall an argument could be made that given the closeness of these test results, it would be prudent to select the DDR platform due to the higher cost of Rambus memory. Today, however, that is no longer a valid argument.</p>
+<p><b><u>Summary</u></b><br>
+What is the real bottom line here? A little more than a year ago, DDR held a promising advantage over Dual-Channel Rambus RDRAM in two areas, speed and end-user cost. Yes, in a large number of cases, DDR does exceed the performance of Rambus, but not by the margins that proponents of DDR have been espousing. On a factual basis, in environments where substantial multi-threading operations and heavy bus loading occurs, the OR840 with Rambus demonstrates that it does all that Intel had
+promised and more. But let's look at the real issue here. Would you purchase either of these machine to surf the Internet, do word processing or handle your email? Not hardly! On the other hand, if you need real power for multi-tasking, multi-threaded operations, both are serious contenders. Both platforms (with their different memory types) have their unique capabilities, and with that their unique place in the world of computers. It is more of a matter of choosing which best fits your needs.</p>
+<p>The performance results of DDR is indeed impressive, and lately we have heard and seen much that promises that the performance potential of DDR is still not exhausted. We have been told that one vendor plans to produce a high-speed 128-bit implementation of DDR main memory for desktop computing. Maybe others will attempt to implement dual channel DDR (or 128-bit DDR) solutions. Let's wait and see what actually comes down the shoot, there's a difference between making promises and keeping them.</p>
+<p>You may also want to review, <b><a href="rdram_v_sdram.htm">RDRAM versus
+SDRAM, Distinguishing Fact From Fiction</a></b>.</p>
+<p align="center"><a href="javascript:history.go(-1)"><img border="0" src="../../images/Back_1.gif" width="56" height="36"></a>
+<!--footer below this line-->
+<p><font face="Arial" size="1">Notice: Windows� 95, Windows� 98, Windows� NT, Windows� 2000 and<br>
+Microsoft� Office are registered trademarks or trademarks of the Microsoft Corporation.<br>
+All other trademarks are the property of their respective owners.</font></p>
+<p><font class="footer" face="Verdana,Arial,Helvetica" size="1">Copyright �1995-2001
+<a href="../../../index.html">DEW Associates Corporation</a>. All rights reserved.</font></p>
+</BODY>
+</HTML>

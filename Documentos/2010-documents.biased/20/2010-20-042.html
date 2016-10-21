@@ -1,0 +1,305 @@
+<html>
+<title>Web Agent Related Research at the Center for Machine Translation</title>
+
+<h2>To be presented at the SIGNIDR meeting, August 4, 1994
+in McLean, Virginia</h2>
+<body>
+<p> <hr> <p>
+<h2>Web Agent Related Research at the Center for Machine Translation</h2> <p>
+
+<h3>Michael L. Mauldin, John R. R. Leavitt</h3> <p>
+
+<h3>CENTER FOR MACHINE TRANSLATION <BR>
+CARNEGIE MELLON UNIVERSITY <BR>
+5000 FORBES AVENUE <BR>
+PITTSBURGH, PA 15213
+</h3> <p>
+
+<h3>fuzzy@cmu.edu, jrrl+@cs.cmu.edu</h3> <p>
+
+<h3>August 4, 1994</h3> <p>
+
+<h2>ABSTRACT</h2>
+
+This paper describes the
+<a href="http://fuzine.vperson.com/mlm/lycos-home.html">Lycos</a> and
+<a href="http://thule.mt.cs.cmu.edu:8001/jrrl-space/webants.html">WebAnts
+project</a> projects at the <a href="http://www.mt.cs.cmu.edu/cmt/CMT-home.html">Center for Machine Translation</a> (CMT) at
+Carnegie Mellon University. Lycos is an experiment in best-first-search
+within the space of documents formed by the Web. WebAnts is an
+experiment in distributing the information collection task to a number
+of cooperating processors. We also discuss directions for future agents
+that act as proxies for people who will soon be too busy to answer
+their email. <p>
+
+<h2>Introduction</h2>
+
+ The Center for Machine Translation at Carnegie Mellon University researches
+and develops software for automatic translation of text from one language into
+another. In order to translate text, we have a large technology base of
+natural language processing resources, algorithms, techniques and expertise. <p>
+
+ We have also applied these natural language processing methods to the
+problems of information retrieval and organization. We are now focussing our
+attention on the Web as a textual resource of vast breadth and depth. <p>
+
+<h2>Lycos: Hunting WWW Information</h2> <p>
+
+The <a href="http://fuzine.vperson.com/mlm/lycos-home.html">Lycos</a>
+project at Carnegie Mellon is in the early stage, we have a Web
+explorer in operation, and our indexer will come on-line later this
+month. We will use the
+<a href="http://fuzine.vperson.com/scout/home.html">SCOUT indexer</a>
+which has an HTTP gateway (a set Sample database of the Tipster corpus
+from Wall Street Journal is available intermittently from the
+Experimental SCOUT server). <p>
+
+ Lycos is written in Perl, but uses a C program based on CERN's libwww to
+fetch URLs. It uses a random search, keeps its record of URLs visited in a
+Perl assoc list stored in DBM (thanks to Charlie Stross for the tip that Gnu
+DBM doesn't have arbitrary limits!). It searches HTTP, FTP, and GOPHER sites,
+ignoreing TELNET, MAILTO, and WAIS. Lycos uses a data reduction scheme to
+reduce the stored information about each document:
+
+<ul>
+<li> Title
+<li> Headings and Subheadings
+<li> 100 most "weighty" words (using Tf*IDf weights [Salton & McGill 83])
+<li> First 20 lines
+<li> Size in bytes
+<li> Number of words
+</ul>
+
+ Lycos keeps a word frequency count as it runs...it has read over 25 million
+words. A list of the most frequent words found after searching 6.3 million
+words is available off the <a href="http://fuzine.vperson.com/mlm/lycos-home.html">Lycos</a> home page. <p>
+
+ Lycos searches the entire Web, not just HTTP servers. So far, the breakdown
+of file types found is:
+<pre>
+         142132 http
+         102910 ftp
+          84143 gopher
+           4314 news
+           1396 telnet
+            379 mailto
+            244 wais
+             13 rlogin
+</pre> <p>
+
+ Citation counting (number of "parents" by URL): this is the first 20 URLs
+sorted by number of documents that reference that URL. What I did not do was
+to count only references from different sites (I'm sure that 99% of the refs to
+http://gdbwww.gdb.orf/omim come from the Genome Database server itself).
+
+<pre>
+1703 <a href="http://gdbwww.gdb.org/omim/">http://gdbwww.gdb.org/omim/</a>
+1578 <a href="http://cossack.cosmic.uga.edu/keywords.html">http://cossack.cosmic.uga.edu/keywords.html</a>
+ 692 <a href="ftp://ftp.network.com/IPSEC/rfcindex4.html">ftp://ftp.network.com/IPSEC/rfcindex4.html</a>
+ 421 <a href="ftp://ftp.network.com/IPSEC/rfcindex3.html">ftp://ftp.network.com/IPSEC/rfcindex3.html</a>
+ 322 <a href="ftp://ftp.network.com/IPSEC/rfcauthor.html">ftp://ftp.network.com/IPSEC/rfcauthor.html</a>
+ 319 <a href="ftp://ftp.network.com/IPSEC/rfcindex5.html">ftp://ftp.network.com/IPSEC/rfcindex5.html</a>
+ 234 <a href="ftp://ftp.network.com/IPSEC/rfcindex2.html">ftp://ftp.network.com/IPSEC/rfcindex2.html</a>
+ 202 <a href="ftp://ftp.network.com/IPSEC/rfcindex1.html">ftp://ftp.network.com/IPSEC/rfcindex1.html</a>
+ 177 <a href="http://info.cern.ch/hypertext/WWW/TheProject.html">http://info.cern.ch/hypertext/WWW/TheProject.html</a>
+ 166 <a href="http://www.ncsa.uiuc.edu/SDG/Software/Mosaic/Docs/whats-new.html">http://www.ncsa.uiuc.edu/SDG/Software/Mosaic/Docs/whats-new.html</a>
+ 135 <a href="http://www.ncsa.uiuc.edu/SDG/Software/Mosaic/MetaIndex.html">http://www.ncsa.uiuc.edu/SDG/Software/Mosaic/MetaIndex.html</a>
+ 133 <a href="http://www.cs.columbia.edu/~radev/">http://www.cs.columbia.edu/~radev/</a>
+ 133 <a href="http://www.ncsa.uiuc.edu/SDG/Software/Mosaic/NCSAMosaicHome.html">http://www.ncsa.uiuc.edu/SDG/Software/Mosaic/NCSAMosaicHome.html</a>
+ 118 <a href="http://www.cs.colorado.edu/homes/mcbryan/public_html/bb/summary.html">http://www.cs.colorado.edu/homes/mcbryan/public_html/bb/summary.html</a>
+ 108 <a href="http://www.mcs.anl.gov/home/gropp/">http://www.mcs.anl.gov/home/gropp/</a>
+ 107 <a href="http://info.cern.ch/hypertext/DataSources/bySubject/Overview.html">http://info.cern.ch/hypertext/DataSources/bySubject/Overview.html</a>
+ 105 <a href="http://www.ncsa.uiuc.edu/SDG/Software/Mosaic/StartingPoints/NetworkStartingPoints.html">http://www.ncsa.uiuc.edu/SDG/Software/Mosaic/StartingPoints/NetworkStartingPoints.html</a>
+ 101 <a href="http://www.ncsa.uiuc.edu/SDG/Software/Mosaic/Docs/help-about.html">http://www.ncsa.uiuc.edu/SDG/Software/Mosaic/Docs/help-about.html</a>
+ 85 <a href="http://cui_www.unige.ch/w3catalog">http://cui_www.unige.ch/w3catalog</a>
+</pre> <p>
+
+ The Lycos philosophy is to keep a finite model of the web that enables
+subsequent searches to proceed more rapidly. The idea is to prune the ``tree''
+of documents and to represent the clipped ends with a summary of the documents
+found under that node. The 100 most important words lists from several
+documents can be combined to produce a list of the 100 most important words in
+the set of documents. <p>
+
+ Alternative fixed representations of documents or document sets include the
+vector models such as Dumais at BellCore [Deerwester et al. 90, Dumais et al.
+94] and Gallant & Caid at Hecht-Neilson Corporation [Gallant et al. 94]. The
+number 100 was chosen arbitarily, so we will need to investigate to find
+whether than number is too high or too low. <p>
+
+ One perhaps unique aspect of Lycos is that it uses the text in the parent
+document to describe the unexplored links (currently, the highlighted text from
+each anchor is associated with the URL for that anchor). In this way, Lycos
+can retrieve documents that it has not even searched. <p>
+
+ Once the exploration and retrieval functions are in place, we will turn to
+experiments in ``best-first-search,'' to be able to process on-demand queries
+by searching the webv in a knowledge-directed way. <p>
+
+<h2>WebAnts: Hunting in Packs</h2> <p>
+
+The <a href="http://thule.mt.cs.cmu.edu:8001/jrrl-space/webants.html">WebAnts
+project</a>, also in the early stage, is progressing with cooperation
+in mind. Like Lycos, this project makes a clear preference for
+explorer-based schemes over those that require cooperation from each
+information server [Flater & Yesha 93, Koster 94a, Koster 94b]. There
+are several motivating issues behind this project. First, information
+discovery on the web (including gopher-space and ftp-space) is now (and
+will remain) too large a task. Given that there are currently several
+thousand web and gopher servers and an order of magnitude more ftp
+servers, and that these numbers are growing, the scale is too great for
+the use of a single explorer agent to be effective. <p>
+
+Second, it is undesirable to rely on a single site for such services,
+as this would create a bottleneck. Creating a single explorer site does
+nothing to solve the fan-in, fan-out nature of the information
+discovery problem, but rather exacerbates it, making that one site a
+bottleneck for all users. <p>
+
+Finally, it is undesirable for multiple explorers to examine the same
+sites [Eichmann et al. 94, Koster 94c]. This situation would be worse
+than relying on a single information server, since it is certain that
+net traffic would be higher and it is uncertain that better results
+would be achieved. This is, unfortunately, almost what we have now. To
+search for information on a general topic, a user cannot rely on a
+single search engine, since none of them explore everything. <p>
+
+To address these issues, the WebAnts project is developing a
+cooperative explorer agent; that is, an explorer (or ant) which will
+share results with other ants and not duplicate their efforts. Another
+system that employs multiple agents is the WebCrawler [Pinkerton 94],
+although it is unclear as to how distributed these agents are. The
+WebAnts model could be used for either searching or indexing, although
+at the moment, we are concentrating on searching, until we have settled
+on a design for the index. <p>
+
+For searching, we expect this cooperation to be very effective, in that
+the different ants may be directed based on others' results. If one ant
+finds a document that satisfies the search criteria, it can share the
+references from that document with any other ants that are not
+currently exploring hits of their own. And as each ant explores a
+document, it lets other ants know, so that they do not have to examine
+the same document. <p>
+
+For indexing, this cooperation allows each indexer to conserve
+resources, and also to distribute the indexing load between different
+explorers. Each index server would provide all the information gathered
+by one of the ants during exploration. When querying, a user could
+restrict the query to the local ant or allow it to propagate to the
+entire colony. While this does not solve the fan-in, fan-out problem at
+the macro level, it does serve to reduce the bottleneck effect. This is
+a simpler version of the &Uuml;bernet used by ALIBI [Flater & Yesha 93]. <p>
+
+One issue that the WebAnts project does not yet entirely address, but
+which any indexer must eventually deal with, is that the size of an
+index will grow proportionally to the size of the web. The storage,
+retrieval, and distribution of information on the scale will no doubt
+prove a compelling challenge in coming years. <p>
+
+<h2>The Future of the Web</h2> <p>
+
+We categorize Web agents into two broad classes: those that ``pull''
+information out, such as the WebCrawler and Lycos, and those that
+``push'' information back out, of which the best example is fictional.
+In Cold as Ice, [Sheffield 92] describes ``faxes,'' which can be
+defined as expert systems that can oversee experiments, answer
+questions, and replace many of the functions of secretaries and
+assistants. <p>
+
+It is this second kind of agent that we hope to build in the future,
+building on our success with TinyMUD agents such as Julia [Mauldin 94].
+Instead of looking for answers, a proxy agent might read newsgroups
+looking for questions relevant to its owner's areas of interest, might
+send email to people working on a problem that the its owner has
+several publications that might be relevant, and might sort, prioritize
+and even answer email.  <p>
+
+<h2>References</h2>
+
+[Deerwester et al. 90] <ul>
+ S. Deerwester, S. T. Dumais, G. W. Furnas, T. K. Landauer and
+ R. Harshman.
+ "Indexing by Latent Semantic Analysis."
+ <i>JASIS</i> 41(6):391-407, September, 1990.
+</ul>
+
+[Dumais et al. 94] <ul>
+ Dumais, S.T.
+ "Latent Semantic Indexing (LSI) and TREC-2."
+ In Harman, D. K. (editor), <i>The Second Text Retrieval Conference</i>
+ (TREC-2), pages 105-115. March, 1994.
+ Available from National Institute of Standards as NIST SP
+ 500-215.
+</ul>
+
+[Eichmann et al. 94] <ul>
+ Eichmann, D., McGregor, T., and Danley, D.
+ <a href="http://rbse.jsc.nasa.gov/eichmann/www94/Spider/Spider.html">The RBSE Spider - Balancing Effective Search Against Web Load</a>
+ 1994
+ Also in the <i>First World Wide Web Conference</i>, 1994.
+</ul>
+
+[Flater & Yesha 93] <ul>
+ Flater, D. and Yesha, Y.
+ "Properties of Networked Information Retrieval with ALIBI."
+ In <i>Proceedings of Second International Conference on Information
+ and Knowledge Management</i>. ACM Press, November, 1993.
+</ul>
+
+[Gallant et al. 94] <ul>
+ Gallant, S.I., Caid, W.R, Carleton, J., Gutschow, Hecht-Nielsen,
+ R., Qing, K.P., and Sudbeck, D.
+ "Feedback and Mixing Experiments with <i>MatchPlus</i>."
+ In Harman, D. K. (editor), <i>The Second Text Retrieval Conference</i>
+ (TREC-2), pages 101-104. March, 1994.
+ Available from National Institute of Standards as NIST SP
+ 500-215.
+</ul>
+
+[Koster 94a] <ul> Koster, M.
+ <a href="http://web.nexor.co.uk/mak/doc/aliweb-paper/paper.html.">The ALIWEB Home Page</a>.
+ 1994
+</ul>
+
+[Koster 94b] <ul> Koster, M.
+ <a href="http://www.lerc.nasa.gov/Doc/archieplex-info.html">The ARCHIEPLEX Home Page</a>.
+ 1994
+ Also in the <i>First World Wide Web Conference</i>, 1994.
+</ul>
+
+[Koster 94c] <ul> Koster, M.
+ <a href="http://web.nexor.co.uk/aliweb/doc/history.html">The History of ALIWEB</a>.
+ 1994
+</ul>
+
+[Mauldin 94] <ul> Mauldin, M.L.
+ <a href="http://fuzine.vperson.com/mlm/aaai94.html">Chatterbots, Tinymuds and the Turing Test: Entering the Loebner Prize Competition</a>.
+ In <i>National Conference on Artificial Intelligence</i> (AAAI-94).
+ August, 1994.
+</ul>
+
+[Pinkerton 94] <ul> Pinkerton, B.
+ <a href="http://www.biotech.washington.edu/WebCrawler/WebCrawler.html">The Webcrawler Home Page</a>.
+ 1994
+</ul>
+
+[Salton & McGill 83] <ul>
+ G. Salton and M. J. McGill.
+ McGraw-Hill Computer Science Series: <i>Introduction to Modern
+ Information Retrieval</i>.
+ McGraw-Hill, New York, 1983.
+</ul>
+
+[Sheffield 92] <ul> Sheffield, C.
+ <i>Cold as Ice</i>.
+ TOR Science Fiction, 1992.
+ ISBN 0-812-51163-8.
+</ul>
+</body>
+<p>
+<hr>
+<a href="http://fuzine.vperson.com/mlm/signidr94brief.html">Briefing
+slides</a>
+<hr>
+<address>Last updated 15-Jul-94 by <a href="http://fuzine.vperson.com/mlm/home.html">fuzzy@cmu.edu</a></address>
+

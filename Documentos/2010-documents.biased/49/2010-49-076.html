@@ -1,0 +1,390 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link href="http://www.informikon.com/templates/js_simplicity_blue/css/fixed.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="http://www.informikon.com/templates/js_simplicity_blue/css/fluid.css" rel="stylesheet" type="text/css" media="screen" />
+<title>Informikon - Picture-In-a-Picture sample in C#</title>
+<meta name="title" content="Picture-In-a-Picture sample in C#" />
+<meta name="author" content="Daniel P" />
+<meta name="description" content="Informikon - Multimedia programming and development in .NET." />
+<meta name="keywords" content="Multimedia programming in .NET, DirectShow, Managed graphics, FFMpeg, C# SDK, C++, FFWrapper libraries" />
+<meta name="Generator" content="Joomla! - Copyright (C) 2005 - 2007 Open Source Matters. All rights reserved." />
+<meta name="robots" content="index, follow" />
+<base href="http://www.informikon.com/" />
+	<link rel="shortcut icon" href="http://www.informikon.com/images/favicon.ico" />
+	<link href="templates/js_simplicity_blue/css/template_css.css" rel="stylesheet" type="text/css" media="screen" />
+<style type="text/css" media="screen">
+#main-body {width:100%;} #content{width:79.1%;margin-right:0.5%;} #sidebar{width:19.6%;}
+</style>
+<script type="text/javascript" src="http://www.informikon.com/templates/js_simplicity_blue/js/stylechanger.js"></script>
+</head>
+<body>
+<div id="wrap-a">
+<div id="wrap-b">
+<div id="wrap-c">
+<div id="wrap">
+<div id="wrap-inner">
+<div class="topbar"></div>
+<div id="header">
+<h1 title="Informikon"><a href="index.php" title="Informikon">Informikon</a></h1>
+</div>
+<div id="navbar">		<div class="moduletopnav">
+			<div>
+				<div>
+					<div>
+						<ul id="mainlevel"><li><a href="index.php" class="mainlevel" >HOME</a></li><li><a href="http://www.informikon.com/tutorials/" class="mainlevel" >TUTORIALS</a></li><li><a href="http://www.informikon.com/blog/" class="mainlevel" >BLOG</a></li><li><a href="http://www.informikon.com/component/option,com_joomlaboard/Itemid,76/" class="mainlevel" >FORUMS</a></li><li><a href="http://www.informikon.com/contact-us/" class="mainlevel" >CONTACT US</a></li></ul>					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+<div id="main-body">
+<div id="content"><div class="inside">
+	<style type="text/css">/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.csharp .imp {font-weight: bold; color: red;}
+.csharp .kw1 {color: #0600FF;}
+.csharp .kw2 {color: #FF8000; font-weight: bold;}
+.csharp .kw3 {color: #008000;}
+.csharp .kw4 {color: #FF0000;}
+.csharp .kw5 {color: #000000;}
+.csharp .co1 {color: #008080; font-style: italic;}
+.csharp .co2 {color: #008080;}
+.csharp .coMULTI {color: #008080; font-style: italic;}
+.csharp .es0 {color: #008080; font-weight: bold;}
+.csharp .br0 {color: #008000;}
+.csharp .st0 {color: #808080;}
+.csharp .nu0 {color: #FF0000;}
+.csharp .me1 {color: #0000FF;}
+.csharp .me2 {color: #0000FF;}
+</style>	<script type="text/javascript">
+	<!--
+	
+		
+		
+	/**
+	* Adds an onload event to the window
+	*/
+	function addLoadEvent(fn) {
+		if (typeof(window.onload) == 'function') {
+			var _fn = window.onload;
+			window.onload = function() {
+				_fn();
+				fn();
+			}
+		} else {
+			window.onload = fn;
+		} 
+	}
+	
+	//-->
+	</script>
+	
+	<style type="text/css">
+/* fix pre tags size */pre {font-size: 12px;margin-left: 15px;}pre ol, pre ul {width: 550px;overflow: auto;}
+</style>			<table class="contentpaneopen">
+			<tr>
+								<td class="contentheading" width="100%">
+					Picture-In-a-Picture sample in C#									</td>
+							<td align="right" width="100%" class="buttonheading">
+				<a href="http://www.informikon.com/index2.php?option=com_content&amp;do_pdf=1&amp;id=224" target="_blank" onclick="window.open('http://www.informikon.com/index2.php?option=com_content&amp;do_pdf=1&amp;id=224','win2','status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=640,height=480,directories=no,location=no'); return false;" title="PDF">
+					<img src="http://www.informikon.com/templates/js_simplicity_blue/images/pdf_button.png"  alt="PDF" name="PDF" align="middle" border="0" /></a>
+			</td>
+							<td align="right" width="100%" class="buttonheading">
+					<a href="http://www.informikon.com/index2.php?option=com_content&amp;task=view&amp;id=224&amp;pop=1&amp;page=0&amp;Itemid=72" target="_blank" onclick="window.open('http://www.informikon.com/index2.php?option=com_content&amp;task=view&amp;id=224&amp;pop=1&amp;page=0&amp;Itemid=72','win2','status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=640,height=480,directories=no,location=no'); return false;" title="Print">
+						<img src="http://www.informikon.com/templates/js_simplicity_blue/images/printButton.png"  alt="Print" name="Print" align="middle" border="0" /></a>
+				</td>
+							<td align="right" width="100%" class="buttonheading">
+				<a href="http://www.informikon.com/index2.php?option=com_content&amp;task=emailform&amp;id=224&amp;itemid=72" target="_blank" onclick="window.open('http://www.informikon.com/index2.php?option=com_content&amp;task=emailform&amp;id=224&amp;itemid=72','win2','status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=400,height=250,directories=no,location=no'); return false;" title="E-mail">
+					<img src="http://www.informikon.com/templates/js_simplicity_blue/images/emailButton.png"  alt="E-mail" name="E-mail" align="middle" border="0" /></a>
+			</td>
+						</tr>
+			</table>
+			
+		<table class="contentpaneopen">
+				<tr>
+			<td valign="top" colspan="2">
+				<script type="text/javascript" language="JavaScript">var sburl9450 = window.location.href; var sbtitle9450 = document.title;</script><script type="text/javascript" language="JavaScript">var sbtitle9450=encodeURIComponent("Picture-In-a-Picture sample in C#"); var sburl9450=decodeURI("http://www.informikon.com/directshow-tutorials/picture-in-a-picture-sample-in-c.html"); sburl9450=sburl9450.replace(/amp;/g, "");sburl9450=encodeURIComponent(sburl9450);</script><p>
+In this tutorial, we&#39;ll see that it is easy to play two video streams
+at the same time with DirectShow and C#. To accomplish this, we&#39;ll introduce
+two new interfaces supported by the standard Video Mixing Renderer filter.
+Once again, the code can be found in a <a href="downloads/informikon/tutorials/tutorialDS8.zip">zip</a> file.
+</p>
+<p>
+This tutorial will implement a simple version of the Pip sample of the SDK.
+We create a custom library that includes the interfaces that we need for this
+exercise. The content of the idl file is provided in the file named &quot;pip.idl&quot;.
+There is nothing special about this idl and the way we generate our assembly.
+(You can look at <a href="http://www.informikon.com/directshow-tutorials/c-jukebox-version-3-cooking-a-custom-library.html">this tutorial</a> for more information
+about creating a custom library or you can use the open-source DirectShowLib).
+</p>
+<p>
+We declare variables for the usual interfaces:
+</p>
+<pre class="csharp"><ol><li class="li1">        </li><li class="li1"><div class="de1">IGraphBuilder gb = <span class="kw1">null</span>;</div></li><li class="li1"><div class="de1">IMediaControl mc = <span class="kw1">null</span>;</div></li><li class="li1"><div class="de1">IMediaEventEx me = <span class="kw1">null</span>;</div></li><li class="li2"><div class="de2">IMediaSeeking ms = <span class="kw1">null</span>;</div></li><li class="li1"><div class="de1">IBasicVideo bv = <span class="kw1">null</span>;</div></li><li class="li1"><div class="de1">IVideoWindow vw = <span class="kw1">null</span>;</div></li><li class="li1"><div class="de1">IVMRFilterConfig fc = <span class="kw1">null</span>;</div></li><li class="li1"><div class="de1">IVMRMixerControl vmc = <span class="kw1">null</span>;</div></li><li class="li2"> </li></ol><div class="foot"> &nbsp; </div></pre> 
+<p>
+Only the last two variables deserve some explanation. The Picture-In-a-Picture
+sample plays two videos, one covers the whole client area and the other is 
+alpha-blended and positioned (in our sample) in the upper left corner. The
+<em>IVMRFilterConfig</em> interface lets us set the numbers of videos (it
+can be more than two) we want to play. It also allows us to select the VMR
+mode. We haven&#39;t succeeded in correctly using the VMR in &quot;windowless&quot; mode but
+we have used the &quot;renderless&quot; mode in the custom allocator/presenter of the
+last tutorial. So in this tutorial, we&#39;ll use the &quot;windowed&quot; mode. When using
+this mode, the interaction between DirectShow and Windows is the same as what
+we have used so far (for example, we are using the IMediaEventEx and IVideoWindow
+interfaces to control Windows messaging and placement). The <em>IVMRMixerControl</em>
+interface supported by the Video Mixing Renderer filter is used to set the position
+of the second video and its transparency. Now we&#39;ll look at the COM objects that we need:
+</p>
+<pre class="csharp"><ol><li class="li1">        </li><li class="li1"><div class="de1"><span class="co1">//CLSID_FilterGraph (take from uuids.h DirectX include)</span></div></li><li class="li1"><div class="de1">Guid FgGuid = <a href="http://www.google.com/search?q=new+msdn.microsoft.com"><span class="kw3">new</span></a> Guid<span class="br0">&#40;</span> <span class="st0">&quot;e436ebb3-524f-11ce-9f53-0020af0ba770&quot;</span> <span class="br0">&#41;</span>;</div></li><li class="li1"><div class="de1"><span class="co1">//CLSID_VideoMixingRenderer (take from uuids.h DirectX include)</span></div></li><li class="li2"><div class="de2">Guid VmrGuid = <a href="http://www.google.com/search?q=new+msdn.microsoft.com"><span class="kw3">new</span></a> Guid<span class="br0">&#40;</span> <span class="st0">&quot;B87BEB7B-8D29-423f-AE4D-6582C10175AC&quot;</span> <span class="br0">&#41;</span>; </div></li><li class="li1"> </li></ol><div class="foot"> &nbsp; </div></pre>
+<p>
+We need a Filter Graph object and a Video Mixer Renderer. So we define their
+guids and we&#39;ll call <em>Activator.CreateInstance</em> to create the objects
+(as we have done before). After that we add the VMR filter to the graph:
+</p>
+<pre class="csharp"><ol><li class="li1">                </li><li class="li1"><div class="de1"><span class="co1">// create the vmr object and add to the filter graph</span></div></li><li class="li1"><div class="de1">t = Type.<span class="me1">GetTypeFromCLSID</span><span class="br0">&#40;</span> VmrGuid <span class="br0">&#41;</span>;</div></li><li class="li1"><div class="de1">vmr = Activator.<span class="me1">CreateInstance</span><span class="br0">&#40;</span> t <span class="br0">&#41;</span>;</div></li><li class="li2"><div class="de2">gb.<span class="me1">AddFilter</span><span class="br0">&#40;</span> <span class="br0">&#40;</span>IBaseFilter<span class="br0">&#41;</span>vmr, <span class="st0">&quot;Video Mixing Renderer&quot;</span> <span class="br0">&#41;</span>;</div></li><li class="li1"> </li></ol><div class="foot"> &nbsp; </div></pre>
+<p>
+Then, we grab the <em>IVMRFilterConfig</em> interface from the VMR object and
+sets its rendering mode and number of streams.
+</p>
+<pre class="csharp"><ol><li class="li1">                </li><li class="li1"><div class="de1"><span class="co1">// configure the vmr for two streams</span></div></li><li class="li1"><div class="de1">fc = <span class="br0">&#40;</span>IVMRFilterConfig<span class="br0">&#41;</span>vmr;  </div></li><li class="li1"><div class="de1"><span class="co1">//VMRMode_Windowed  = 0x00000001</span></div></li><li class="li2"><div class="de2">fc.<span class="me1">SetRenderingMode</span><span class="br0">&#40;</span> 0x00000001 <span class="br0">&#41;</span>;</div></li><li class="li1"><div class="de1">fc.<span class="me1">SetNumberOfStreams</span><span class="br0">&#40;</span> <span class="nu0">2</span> <span class="br0">&#41;</span>;</div></li><li class="li1"> </li></ol><div class="foot"> &nbsp; </div></pre>
+<p>
+Because the two videos might be made of different formats, we use Intelligent
+Connect to add the needed filters to our graph.    
+</p>
+<pre class="csharp"><ol><li class="li1"> </li><li class="li1"><div class="de1"><span class="co1">// build the rest of the graph</span></div></li><li class="li1"><div class="de1">gb.<span class="me1">RenderFile</span><span class="br0">&#40;</span> fName1, <span class="kw1">null</span> <span class="br0">&#41;</span>;</div></li><li class="li1"><div class="de1">gb.<span class="me1">RenderFile</span><span class="br0">&#40;</span> fName2, <span class="kw1">null</span> <span class="br0">&#41;</span>;</div></li><li class="li2"> </li></ol><div class="foot"> &nbsp; </div></pre>
+<p>
+After setting the window size, style and owner, we describe the settings
+for the second video. This uses a struct (imported when we have created
+our interop assembly) <em>_NORMALIZEDRECT</em> that sets the usual coordinates
+with &quot;normalized&quot; values i.e. between 0.0f and 1.0f. The second video will
+appear in the upper left corner so its coordinates are defined as follows:
+</p>
+<pre class="csharp"><ol><li class="li1">                </li><li class="li1"><div class="de1"><span class="co1">// position the second stream and set its alpha value</span></div></li><li class="li1"><div class="de1">vmc = <span class="br0">&#40;</span>IVMRMixerControl<span class="br0">&#41;</span>vmr;</div></li><li class="li1"><div class="de1">r = <a href="http://www.google.com/search?q=new+msdn.microsoft.com"><span class="kw3">new</span></a> _NORMALIZEDRECT<span class="br0">&#40;</span><span class="br0">&#41;</span>;</div></li><li class="li2"><div class="de2">r.<span class="me1">bottom</span> = <span class="nu0">0</span>.5f; r.<span class="me1">Left</span> = <span class="nu0">0</span>.0f; r.<span class="me1">Top</span> = <span class="nu0">0</span>.0f ; r.<span class="me1">right</span> = <span class="nu0">0</span>.5f;</div></li><li class="li1"><div class="de1">vmc.<span class="me1">SetOutputRect</span><span class="br0">&#40;</span> <span class="nu0">1</span>, <span class="kw1">ref</span> r <span class="br0">&#41;</span>;</div></li><li class="li1"><div class="de1">vmc.<span class="me1">SetAlpha</span><span class="br0">&#40;</span> <span class="nu0">1</span>, <span class="nu0">0</span>.7f <span class="br0">&#41;</span>;</div></li><li class="li1"> </li></ol><div class="foot"> &nbsp; </div></pre>
+<p>
+Then, we set the alpha value of the stream 1 (or the second stream) to 0.7 
+where the &quot;value specified can be between 0.0 (fully transparent) and 1.0 
+(full opaque)&quot;. 
+</p>
+<p>
+We are left with calling <em>Run</em> to play the videos. If you click the
+&quot;Swap&quot; menu item then we just call our <em>Pip</em> function with the file names
+exchanged.
+</p>
+<div style="clear:both; text-align: left"><br /><hr><br />Bookmark it...<br /><a onclick="window.open('http://digg.com/submit?phase=2&amp;url='+sburl9450+'&amp;title='+sbtitle9450);return false;" href="http://digg.com/submit?phase=2&amp;url=http://www.informikon.com/directshow-tutorials/picture-in-a-picture-sample-in-c.html&amp;title=Picture-In-a-Picture sample in C#" title="Digg!" target="_blank"><img src="http://www.informikon.com/mambots/content/socialbookmarkerbot_images/digg.png" alt="Digg!" title="Digg!" style="border: solid 1px Red; padding: 1px; margin: 1px;" /></a><a onclick="window.open('http://reddit.com/submit?url='+sburl9450+'&amp;title='+sbtitle9450);return false;" href="http://reddit.com/submit?url=http://www.informikon.com/directshow-tutorials/picture-in-a-picture-sample-in-c.html&amp;title=Picture-In-a-Picture sample in C#" title="Reddit!" target="_blank"><img src="http://www.informikon.com/mambots/content/socialbookmarkerbot_images/reddit.png" alt="Reddit!" title="Reddit!" style="border: solid 1px Red; padding: 1px; margin: 1px;" /></a><a onclick="window.open('http://del.icio.us/post?url='+sburl9450+'&amp;title='+sbtitle9450);return false;" href="http://del.icio.us/post?url=http://www.informikon.com/directshow-tutorials/picture-in-a-picture-sample-in-c.html&amp;title=Picture-In-a-Picture sample in C#" title="Del.icio.us!" target="_blank"><img src="http://www.informikon.com/mambots/content/socialbookmarkerbot_images/delicious.png" alt="Del.icio.us!" title="Del.icio.us!" style="border: solid 1px Red; padding: 1px; margin: 1px;" /></a><a onclick="window.open('http://www.google.com/bookmarks/mark?op=add&amp;bkmk='+sburl9450+'&amp;title='+sbtitle9450);return false;" href="http://www.google.com/bookmarks/mark?op=add&amp;bkmk=http://www.informikon.com/directshow-tutorials/picture-in-a-picture-sample-in-c.html&amp;title=Picture-In-a-Picture sample in C#" title="Google!" target="_blank"><img src="http://www.informikon.com/mambots/content/socialbookmarkerbot_images/google.png" alt="Google!" title="Google!" style="border: solid 1px Red; padding: 1px; margin: 1px;" /></a><a onclick="window.open('http://www.facebook.com/share.php?u='+sburl9450+'&amp;t='+sbtitle9450);return false;" href="http://www.facebook.com/share.php?u=http://www.informikon.com/directshow-tutorials/picture-in-a-picture-sample-in-c.html&amp;t=Picture-In-a-Picture sample in C#" title="Facebook!" target="_blank"><img src="http://www.informikon.com/mambots/content/socialbookmarkerbot_images/facebook.png" alt="Facebook!" title="Facebook!" style="border: solid 1px Red; padding: 1px; margin: 1px;" /></a><a onclick="window.open('http://slashdot.org/bookmark.pl?url='+sburl9450+'&amp;title='+sbtitle9450);return false;" href="http://slashdot.org/bookmark.pl?url=http://www.informikon.com/directshow-tutorials/picture-in-a-picture-sample-in-c.html&amp;title=Picture-In-a-Picture sample in C#" title="Slashdot!" target="_blank"><img src="http://www.informikon.com/mambots/content/socialbookmarkerbot_images/slashdot.png" alt="Slashdot!" title="Slashdot!" style="border: solid 1px Red; padding: 1px; margin: 1px;" /></a><a onclick="window.open('http://technorati.com/faves/?add='+sburl9450+'&amp;title='+sbtitle9450);return false;" href="http://technorati.com/faves/?add=http://www.informikon.com/directshow-tutorials/picture-in-a-picture-sample-in-c.html" title="Technorati!" target="_blank"><img src="http://www.informikon.com/mambots/content/socialbookmarkerbot_images/technorati.png" alt="Technorati!" title="Technorati!" style="border: solid 1px Red; padding: 1px; margin: 1px;" /></a><a onclick="window.open('http://www.stumbleupon.com/submit?url='+sburl9450+'&amp;title='+sbtitle9450);return false;" href="http://www.stumbleupon.com/submit?url=http://www.informikon.com/directshow-tutorials/picture-in-a-picture-sample-in-c.html&amp;title=Picture-In-a-Picture sample in C#" title="StumbleUpon!" target="_blank"><img src="http://www.informikon.com/mambots/content/socialbookmarkerbot_images/stumbleupon.png" alt="StumbleUpon!" title="StumbleUpon!" style="border: solid 1px Red; padding: 1px; margin: 1px;" /></a><a onclick="window.open('http://www.newsvine.com/_tools/seed&amp;save?u='+sburl9450+'&amp;h='+sbtitle9450);return false;" href="http://www.newsvine.com/_tools/seed&amp;save?u=http://www.informikon.com/directshow-tutorials/picture-in-a-picture-sample-in-c.html&amp;h=Picture-In-a-Picture sample in C#" title="Newsvine!" target="_blank"><img src="http://www.informikon.com/mambots/content/socialbookmarkerbot_images/newsvine.png" alt="Newsvine!" title="Newsvine!" style="border: solid 1px Red; padding: 1px; margin: 1px;" /></a><a onclick="window.open('http://www.furl.net/storeIt.jsp?u='+sburl9450+'&amp;t='+sbtitle9450);return false;" href="http://www.furl.net/storeIt.jsp?u=http://www.informikon.com/directshow-tutorials/picture-in-a-picture-sample-in-c.html&amp;t=Picture-In-a-Picture sample in C#" title="Furl!" target="_blank"><img src="http://www.informikon.com/mambots/content/socialbookmarkerbot_images/furl.png" alt="Furl!" title="Furl!" style="border: solid 1px Red; padding: 1px; margin: 1px;" /></a><a onclick="window.open('http://myweb2.search.yahoo.com/myresults/bookmarklet?u='+sburl9450+'&amp;t='+sbtitle9450);return false;" href="http://myweb2.search.yahoo.com/myresults/bookmarklet?u=http://www.informikon.com/directshow-tutorials/picture-in-a-picture-sample-in-c.html&amp;t=Picture-In-a-Picture sample in C#" title="Yahoo!" target="_blank"><img src="http://www.informikon.com/mambots/content/socialbookmarkerbot_images/yahoo.png" alt="Yahoo!" title="Yahoo!" style="border: solid 1px Red; padding: 1px; margin: 1px;" /></a><a onclick="window.open('http://ma.gnolia.com/beta/bookmarklet/add?url='+sburl9450+'&amp;title='+sbtitle9450);return false;" href="http://ma.gnolia.com/beta/bookmarklet/add?url=http://www.informikon.com/directshow-tutorials/picture-in-a-picture-sample-in-c.html&amp;title=Picture-In-a-Picture sample in C#" title="Ma.gnolia!" target="_blank"><img src="http://www.informikon.com/mambots/content/socialbookmarkerbot_images/magnolia.png" alt="Ma.gnolia!" title="Ma.gnolia!" style="border: solid 1px Red; padding: 1px; margin: 1px;" /></a></div>			</td>
+		</tr>
+				</table>
+
+		<span class="article_seperator">&nbsp;</span>
+
+					<table align="center" style="margin-top: 25px;">
+			<tr>
+									<th class="pagenav_prev">
+						<a href="http://www.informikon.com/directshow-tutorials/notes-on-writing-a-vmr-9-custom-allocator/presenter-in-c.html">
+							&lt; Prev</a>
+					</th>
+										<td width="50">&nbsp;
+
+					</td>
+										<th class="pagenav_next">
+						<a href="http://www.informikon.com/directshow-tutorials/yet-another-capture-sample-in-c.html">
+							Next &gt;</a>
+					</th>
+								</tr>
+			</table>
+						<div class="back_button">
+				<a href='javascript:history.go(-1)'>
+					[ Back ]</a>
+			</div>
+			</div>
+</div>
+<div id="sidebar">
+<div class="inside">
+		<div class="moduledark">
+			<div>
+				<div>
+					<div>
+						<h3>Main Menu</h3>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr align="left"><td><a href="home/" class="mainlevel" >Home</a></td></tr>
+<tr align="left"><td><a href="http://www.informikon.com/tutorials/" class="mainlevel" id="active_menu">Tutorials</a></td></tr>
+<tr align="left"><td><a href="http://www.informikon.com/blog/" class="mainlevel" >Blog</a></td></tr>
+<tr align="left"><td><a href="http://www.informikon.com/component/option,com_joomlaboard/Itemid,60/" class="mainlevel" >Forums</a></td></tr>
+<tr align="left"><td><a href="http://www.informikon.com/links/" class="mainlevel" >References</a></td></tr>
+<tr align="left"><td><a href="http://www.informikon.com/contact-us/" class="mainlevel" >Contact Us</a></td></tr>
+<tr align="left"><td><a href="http://www.informikon.com/sitemap/" class="mainlevel" >Sitemap</a></td></tr>
+</table>					</div>
+				</div>
+			</div>
+		</div>
+				<div class="modulebdr">
+			<div>
+				<div>
+					<div>
+						<h3>Login</h3><form action="http://www.informikon.com/component/option,com_comprofiler/Itemid,0/task,login/" method="post" id="mod_loginformbdr" style="margin:0px;">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="mod_loginbdr">
+<tr><td><span id="mod_login_usernametextbdr"><label for="mod_login_usernamebdr">Username</label></span><br />
+<input type="text" name="username" id="mod_login_usernamebdr" class="inputboxbdr" size="10" /><br />
+<span id="mod_login_passwordtextbdr"><label for="mod_login_passwordbdr">Password</label></span><br /><input type="password" name="passwd" id="mod_login_passwordbdr" class="inputboxbdr" size="10" /><br />
+<input type="hidden" name="op2" value="login" />
+<input type="hidden" name="lang" value="english" />
+<input type="hidden" name="force_session" value="1" />
+<input type="hidden" name="return" value="http://www.informikon.com/directshow-tutorials/picture-in-a-picture-sample-in-c.html" />
+<input type="hidden" name="message" value="0" />
+<input type="hidden" name="j97db5acd930b56f57b8af78f87307dd0" value="1" />
+<input type="checkbox" name="remember" id="mod_login_rememberbdr" class="inputboxbdr" value="yes" /> <span id="mod_login_remembermetextbdr"><label for="mod_login_rememberbdr">Remember me</label></span><br />
+<input type="submit" name="Submit" class="buttonbdr" value="Login" /></td></tr>
+<tr><td><a href="http://www.informikon.com/component/option,com_comprofiler/Itemid,0/task,lostPassword/" class="mod_loginbdr">Lost Password?</a></td></tr>
+<tr><td>No account yet? <a href="http://www.informikon.com/component/option,com_comprofiler/Itemid,0/task,registers/" class="mod_loginbdr">Register</a></td></tr>
+</table></form>					</div>
+				</div>
+			</div>
+		</div>
+				<div class="modulebdr">
+			<div>
+				<div>
+					<div>
+						<h3>Latest News</h3><ul class="latestnewsbdr">
+	<li class="latestnewsbdr">
+		<a href="http://www.informikon.com/blog/howto-silverlight-and-visual-studio-express.html" class="latestnewsbdr">
+			HOWTO: Silverlight and Visual Studio Express</a>
+	</li>
+		<li class="latestnewsbdr">
+		<a href="http://www.informikon.com/blog/developing-silverlight2b1-with-visual-express.html" class="latestnewsbdr">
+			Developing Silverlight2B1 with Visual Express</a>
+	</li>
+		<li class="latestnewsbdr">
+		<a href="http://www.informikon.com/blog/silverlight-tools-for-vbe.html" class="latestnewsbdr">
+			Silverlight tools for VBE</a>
+	</li>
+		<li class="latestnewsbdr">
+		<a href="http://www.informikon.com/blog/amd-apl-becomes-frawewave.html" class="latestnewsbdr">
+			AMD APL becomes Frawewave</a>
+	</li>
+		<li class="latestnewsbdr">
+		<a href="http://www.informikon.com/blog/silverlight-xaml-and-wpf.html" class="latestnewsbdr">
+			Silverlight, Xaml and WPF</a>
+	</li>
+	</ul>					</div>
+				</div>
+			</div>
+		</div>
+				<div class="module">
+			<div>
+				<div>
+					<div>
+							
+		<script type="text/javascript" language="Javascript">
+		
+		function buildLink(site, link)
+		{
+			var id = document.selectFeed.feeds.value;
+			
+			url = '/index.php?option=com_rd_rss&id=';
+			url = site.concat(url);
+			url = url.concat(id);
+			url = url.concat(link);
+			
+			if(id==0)
+			{
+				alert("Please select a RSS Feed");	
+			}
+			else
+			{
+				 window.location=url;
+			}			
+		}
+			
+		</script>
+		
+		<form method="post" name="selectFeed">
+				
+		<div class="syndicate">
+		
+<select name="feeds" class="inputbox" size="1" >
+	<option value="0">Select RSS Feed</option>
+	<option value="4">Blog</option>
+	<option value="1">Frontpage</option>
+	<option value="3">Tutorials</option>
+</select>
+		<div align="center">
+			<a href="javascript:buildLink('http://www.informikon.com','&feed=RSS0.91')">
+				<img src="http://www.informikon.com/images/M_images/rss091.gif"  alt="RSS 0.91" name="RSS091" align="middle" border="0" /></a>
+		</div>
+				<div align="center">
+			<a href="javascript:buildLink('http://www.informikon.com','&feed=RSS1.0')">
+				<img src="http://www.informikon.com/images/M_images/rss10.gif"  alt="RSS 1.0" name="RSS10" align="middle" border="0" /></a>
+		</div>
+				<div align="center">
+			<a href="javascript:buildLink('http://www.informikon.com','&feed=RSS2.0')">
+				<img src="http://www.informikon.com/images/M_images/rss20.gif"  alt="RSS 2.0" name="RSS20" align="middle" border="0" /></a>
+		</div>
+				<div align="center">
+			<a href="javascript:buildLink('http://www.informikon.com','&feed=ATOM0.3')">
+				<img src="http://www.informikon.com/images/M_images/atom03.gif"  alt="ATOM 0.3" name="ATOM03" align="middle" border="0" /></a>
+		</div>
+				<div align="center">
+			<a href="javascript:buildLink('http://www.informikon.com','&feed=OPML')">
+				<img src="http://www.informikon.com/images/M_images/opml.png"  alt="OPML" name="OPML" align="middle" border="0" /></a>
+		</div>
+		</div>
+</form>
+		
+		
+		
+							</div>
+				</div>
+			</div>
+		</div>
+		</div>
+</div>
+</div>
+<script type="text/javascript">
+setWidthFont();
+</script>
+
+<div id="footer">
+</div>
+</div>
+</div>
+<div id="user1">		<div class="moduletablemidS">
+			
+<form action="index.php?option=com_search" method="get">
+	<div class="searchmidS">
+		<input name="searchword" id="mod_search_searchword" maxlength="20" alt="search" class="inputboxmidS" type="text" size="20" value="search..."  onblur="if(this.value=='') this.value='search...';" onfocus="if(this.value=='search...') this.value='';" />	</div>
+
+	<input type="hidden" name="option" value="com_search" />
+	<input type="hidden" name="Itemid" value="" />	
+</form>		</div>
+		</div>
+
+<div class="access">
+<div id="access_buttons">
+<a href="index.php" title="Increase size" onclick="changeFontSize(1);return false;">
+<img src="http://www.informikon.com/templates/js_simplicity_blue/images/larger.png" alt="larger" width="17" height="17" border="0" /></a>
+<a href="index.php" title="Decrease size" onclick="changeFontSize(-1);return false;">
+<img src="http://www.informikon.com/templates/js_simplicity_blue/images/smaller.png" alt="smaller" width="17" height="17" border="0" /></a>
+<a href="index.php" title="Revert styles to default" onclick="revertStyles(); return false;">
+<img src="http://www.informikon.com/templates/js_simplicity_blue/images/reset.png" alt="reset" width="17" height="17" border="0" /></a>
+<span class="widthbuttons"><a href="index.php" title="Switch to fixed-width version" onclick="switchFixed();return false;">
+<img src="http://www.informikon.com/templates/js_simplicity_blue/images/fixed.png" alt="fixed-width" id="theme-fixed" height="17" width="17" border="0" /></a >
+<a href="index.php" title="Switch to fluid-width version" onclick="switchFluid();return false;" >
+<img src="http://www.informikon.com/templates/js_simplicity_blue/images/fluid.png" alt="fluid-width" id="theme-fluid" height="17" width="17" border="0" /></a ></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="designer"><a href="http://www.joomlashack.com" title="Joomla Template by JoomlaShack">Joomla Template by Joomlashack</a></div>
+
+<div class="designertoo"><a href="http://www.joomlashack.com" title="Joomla Templates by JoomlaShack">Joomla Templates by JoomlaShack</a>&nbsp;<a href="http://www.compassdesigns.net" title="Joomla Templates by Compass Design">Joomla Templates by Compass Design</a></div><script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-864779-2";
+urchinTracker();
+</script>
+</body>
+</html>
+<!-- 1268573969 -->

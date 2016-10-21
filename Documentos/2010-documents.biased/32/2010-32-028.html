@@ -1,0 +1,1189 @@
+<html>
+
+<head>
+
+<meta name="Keywords" content="Cascading, Style, Sheet">
+<meta name="Description" content="This lesson shows how to use a style sheet on a web page.">
+
+<link rel="stylesheet" type="text/css" href="../Lessons.css">
+
+<title>C# and ASP.NET: Using Cascading Style Sheet</title>
+</head>
+
+<body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+
+<div align="center">
+  <center>
+
+<table border="0" width="900" cellspacing="1" cellpadding="0">
+  <tr>
+    <td width="738" align="center">
+    
+<!-- Casale Media: 728x90 (Banner) -->
+<script type="text/javascript">
+var CasaleArgs = new Object();
+CasaleArgs.version = 2;
+CasaleArgs.adUnits = "2";
+CasaleArgs.casaleID = 56757;
+</script>
+<script type="text/javascript" src="http://js.casalemedia.com/casaleJTag.js"></script>
+<!-- DO NOT MODIFY -->
+
+    </td>
+  </tr>
+</table>
+
+  </center>
+</div>
+
+&nbsp;
+<div align="center">
+  <center>
+  <table border="0" width="900">
+    <tr>
+      <td width="680" valign="top" rowspan="2">
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="10%" valign="middle" align="center"><a href="index.htm"><img border="0" src="../lessonno/L04.gif" alt="Home" width="60" height="63"></a></td>
+    <td width="90%">
+      <p class="maintitle">Using Cascading Style Sheet</p></td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2" height="2" bgcolor="#CC3300"></td>
+  </tr>
+</table>
+
+<Span name=KonaBody>
+
+&nbsp;
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%">
+      <p class="paratitle">CSS Fundamentals</td>
+  </tr>
+  <tr>
+    <td width="100%" height="1" bgcolor="#FF0000"></td>
+  </tr>
+</table>
+
+&nbsp;
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%">
+      <p class="subtitle">Using Inline Style Sheet</td>
+  </tr>
+  <tr>
+    <td width="100%" height="1" bgcolor="#0000FF"></td>
+  </tr>
+</table>
+
+<table border="0" width="100%">
+  <tr>
+    <td valign="top">
+          
+<script type="text/javascript"><!--
+google_ad_client = "pub-3968514660870014";
+google_ad_width = 160;
+google_ad_height = 90;
+google_ad_format = "160x90_0ads_al";
+google_ad_type = "text_image";
+google_ad_channel ="";
+google_color_border = "800000";
+google_color_bg = "FFFFFF";
+google_color_link = "0000FF";
+google_color_url = "0000ff";
+google_color_text = "000000";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+    </td>
+    <td>
+      <p class="parajust">Besides HTML and JavaScript, you can use Cascading Style Sheet in your
+      ASP.NET web pages. In its simplest form, you can create inline CSS code,
+      which is a formatting you include as an attribute of an HTML tag. Here are
+      examples:
+    </td>
+  </tr>
+</table>
+
+<pre>&lt;%@ Page Language=&quot;C#&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+
+&lt;title&gt;Grier Summer Camp&lt;/title&gt;
+&lt;/head&gt;
+&lt;body <font color="#FF0000">style=&quot;font-family: Verdana, Helvetica, Arial, 'Sans Serif';
+             color: #000000;	
+             font-size: 10pt;
+             background-color: #99CCFF&quot;</font>&gt;
+
+&lt;p&gt;Grier Summer Camp&lt;/p&gt;
+
+&lt;p&gt;Coolfront Island&lt;/p&gt;
+
+&lt;p&gt;Coolfront Island, our star house of the season, is a 2-story 
+like chateau featuring nicely finished brown bricks whose sight is 
+tremendously appealing. The estate introduces two large living 
+rooms with exquisite velour furniture. The colonial veranda offers 
+a patio spanning two walls with a lost view down the far-reaching 
+landscape. In this particular setting, besides their usual 
+activities, children will learn special human needs to make their 
+experience unforgettable.&lt;/p&gt;
+
+&lt;hr <font color="#FF0000">style=&quot;color:#000080&quot;</font>&gt;
+&lt;% Response.Write(&quot;Copyright &amp;copy; 2009 Grier Summer Camp&quot;); %&gt;
+&lt;hr <font color="#FF0000">style=&quot;color:#000080&quot;</font>&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+      <p class="parajust">This would produce:
+      <p class="pcenter">
+		<img border="0" src="../asp.net/previews/css1.gif" alt="Browser" width="632" height="329">
+      <p class="parajust">If you are using <b>Response.Write();</b> and you want
+      to include inline CSS in a tag, start the HTML tag in the <b> &lt;% %&gt;</b>
+      combination but, for the <b>style</b> attribute, include the value in
+      single-quotes. Here is an example:
+      <pre>&lt;%@ Page Language=&quot;C#&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+
+&lt;title&gt;Grier Summer Camp&lt;/title&gt;
+&lt;/head&gt;
+&lt;body style=&quot;font-family: Verdana, Helvetica, Arial, 'Sans Serif';
+    color: #000000;	
+    font-size: 10pt;
+    background-color: #99CCFF&quot;&gt;
+
+&lt;p&gt;Grier Summer Camp&lt;/p&gt;
+
+&lt;% Response.Write(&quot;<font color="#FF0000">&lt;p style='color: #FF0000; font-size: 14pt'&gt;</font>&quot;); %&gt;
+&lt;% Response.Write(&quot;Coolfront Island&lt;/p&gt;&quot;); %&gt;
+
+&lt;p&gt;Coolfront Island, our star house of the season, is a 2-story 
+like chateau featuring nicely finished brown bricks whose sight is 
+tremendously appealing. The estate introduces two large living 
+rooms with exquisite velour furniture. The colonial veranda offers 
+a patio spanning two walls with a lost view down the far-reaching 
+landscape. In this particular setting, besides their usual 
+activities, children will learn special human needs to make their 
+experience unforgettable.&lt;/p&gt;
+
+&lt;hr style=&quot;color:#000080&quot;&gt;
+&lt;% Response.Write(&quot;Copyright &amp;copy; 2009 Grier Summer Camp&quot;); %&gt;
+&lt;hr style=&quot;color:#000080&quot;&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+      <p class="parajust">Instead of manually writing your CSS code, if you don't know
+      much Cascading Style Sheet, Microsoft Visual Web Developer 2008 Express 
+		Edition (or Microsoft Visual Studio 2008)
+      can assist you with creating the necessary
+      styles. In Microsoft Visual Web Developer 2008 Express Edition, to create inline
+      CSS, you can
+      various options. In the Design view of the page, click the word or
+      paragraph where you want to apply CSS formatting. On the Formatting
+      toolbar, you can use one of the options. The best way to create inline CSS
+      is through the Properties window. To do this, in the Design view of the
+      page, click the word or paragraph where you want to apply the formatting.
+      In the Properties window, click Style and click its browse button 
+		<img border="0" src="../buttons/ellipsis1.gif" width="15" height="15" alt="Browse">.
+      This would bring up the Style Builder dialog box:
+      <p class="pcenter">
+		<img border="0" src="../asp.net/dlgboxes/modifystyle1.gif" alt="Style Builder" width="570" height="477">
+      </p>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%">
+      <p class="exotitle"><img border="0" src="../images/practical1.gif" width="20" height="16">Practical
+      Learning: Creating Inline CSS</td>
+  </tr>
+  <tr>
+    <td width="100%" bgcolor="#CC3300" height="1"></td>
+  </tr>
+</table>
+<ol>
+  <li>Start Microsoft Visual Web Developer 2008 Express Edition or Microsoft
+    Visual Studio</li>
+	<li>To create a web site,
+    on the main menu, click File and click New Web Site...</li>
+  <li>Make sure ASP.NET Web Site is selected.<br>
+    Set the Language combo box to Visual C#</li>
+  <li>Click the combo box on the left side of Browse, press End, and press Delete
+    a few times (8), and change it to <b>geometry2</b></li>
+  <li>Click OK</li>
+  <li>In the Solution Explorer, right-click C:\...\geometry2\ and click New
+    Folder</li>
+  <li>Type <b>images</b> as the name of the new folder and press Enter</li>
+  <li>Copy each of the following pictures to your My Documents folder:<br>
+    &nbsp;
+    <table border="0" width="289">
+      <tr>
+        <td width="246"><img border="0" src="../illustrations/rectangle.gif" alt="Rectangle" width="141" height="95"></td>
+        <td width="30">
+		<img border="0" src="../illustrations/square.gif" alt="Square" width="105" height="100"></td>
+      </tr>
+    </table>
+  </li>
+  <li>In the Solution Explorer, right-click images and click Add Existing
+    Item...</li>
+  <li>Locate the the above images, select them, and click Open</li>
+  <li>In the Solution Explorer, right-click Default.aspx and click Rename</li>
+  <li>Change the name to <b>index.aspx</b> and press Enter</li>
+
+  <li>In the Solution Explorer, click C:\..\geometry2\</li>
+
+  <li>To add a new web page, on the main menu, click Website -&gt; Add New
+    Item...</li>
+  <li>Make sure Web Form is selected.<br>
+    Set the Name to <strong>rectangle</strong></li>
+	<li>Click Add</li>
+  <li>&nbsp;Locate the &lt;title&gt; tag and change it to &lt;title&gt;<b>Geometry:
+    Rectangle</b>&lt;/title&gt;</li>
+  <li>To add a new web page, on the main menu, click Website -&gt; Add New
+    Item...</li>
+  <li>Make sure Web Form is selected.<br>
+    Set the Name to <b>square</b> and click Add</li>
+  <li>Change the file as follows:<br>
+    &nbsp;
+    <table border="0" width="560">
+      <tr>
+        <td width="100%">
+          <pre>&lt;%@ Page Language=&quot;C#&quot;
+    AutoEventWireup=&quot;true&quot; 
+    CodeFile=&quot;square.aspx.cs&quot; 
+    Inherits=&quot;square&quot; %&gt;
+
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; 
+     &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+&lt;head runat=&quot;server&quot;&gt;
+&lt;title&gt;<font color="#FF0000">Geometry: Square</font>&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+<font color="#FF0000">&lt;p&gt;A square is a geometric figure made of 4 equal sides 
+  connected to produce four right angles.&lt;/p&gt;
+  
+&amp;nbsp;
+&lt;table border=&quot;0&quot; width=&quot;660&quot;&gt;
+  &lt;tr&gt;
+    &lt;td colspan=&quot;2&quot;&gt;
+      &lt;hr color=&quot;#0000FF&quot; /&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td align=&quot;center&quot;&gt;&lt;a href=&quot;index.aspx&quot;&gt;Home&lt;/a&gt;&lt;/td&gt;
+    &lt;td align=&quot;center&quot;&gt;Copyright � 2009 FunctionX&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td colspan=&quot;2&quot;&gt;
+      &lt;hr color=&quot;#0000FF&quot; /&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</font>
+  
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+        </td>
+      </tr>
+    </table>
+  </li>
+  <li>Click the index.aspx tab to access the first file</li>
+  <li>Change it as follows:<br>
+    &nbsp;
+    <table border="0" width="560">
+      <tr>
+        <td width="100%">
+          <pre>&lt;%@ Page Language=&quot;C#&quot;
+    AutoEventWireup=&quot;true&quot;
+    CodeFile=&quot;index.aspx.cs&quot;
+    Inherits=&quot;_Default&quot;
+%&gt;
+
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot;
+     &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+&lt;head runat=&quot;server&quot;&gt;
+&lt;title&gt;<font color="#FF0000">Geometry</font>&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+<font color="#FF0000">&lt;h1 style=&quot;text-align:center&quot;&gt;Geometric Figures&lt;/h1&gt;
+  
+&lt;p&gt;This application is used to perform geometric calculations.&lt;/p&gt;
+  
+&lt;a href=&quot;square.aspx&quot;&gt;Square&lt;/a&gt;</font>
+
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+        </td>
+      </tr>
+    </table>
+  </li>
+  <li>On the main menu, click Debug -&gt; Start Without Debugging<br>
+    Access the browser to see the result:<br>
+    &nbsp;<br>
+    <img border="0" src="../asp.net/previews/browser11.gif" alt="Real Estate" width="510" height="326"></li>
+  <li>Return to your programming environment</li>
+	<li>Click the index.aspx tab to access its file and click its Source
+          button to access its code</li>
+	<li>Change the contents of the index.aspx file as follows:<br>
+          &nbsp;
+          <table border="0" width="542">
+			<tr>
+				<td width="534">
+				<pre>&lt;%@ Page Language=&quot;C#&quot;
+    AutoEventWireup=&quot;true&quot;
+    CodeFile=&quot;index.aspx.cs&quot;
+    Inherits=&quot;_Default&quot;
+%&gt;
+
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot;
+     &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+&lt;head runat=&quot;server&quot;&gt;
+&lt;title&gt;Geometry&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;table border=&quot;0&quot;&gt;
+  &lt;tr&gt;
+    &lt;td&gt;
+      &lt;p&gt;Geometry&lt;/p&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+&amp;nbsp;
+
+&lt;table border=&quot;0&quot; width=&quot;660&quot;&gt;
+  &lt;tr&gt;
+    &lt;td&gt;
+      &lt;p&gt;Geometry is the study of shapes and figures, including 
+      how they are made up or constituted, and what to get from 
+      them. To make the study a little easier, there are some 
+      relatively simple figures that have already been 
+      established and fairly documented.&lt;/p&gt;
+                    
+      &lt;p&gt;Geometry is not just about recognizing some shapes, it 
+      is also about their related calculations. In our lessons, 
+      we will study some of these shapes and we intend to 
+      perform their calculations.&lt;/p&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+&amp;nbsp;
+
+&lt;table border=&quot;0&quot; width=&quot;660&quot;&gt;
+  &lt;tr&gt;
+    &lt;td&gt;
+      &lt;p&gt;Available Shapes:&lt;/p&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;a href=&quot;rectangle.aspx&quot;&gt;Rectangle&lt;/a&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;a href=&quot;square.aspx&quot;&gt;Square&lt;/a&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+&amp;nbsp;
+
+&lt;table border=&quot;0&quot; width=&quot;660&quot;&gt;
+  &lt;tr&gt;
+    &lt;td colspan=&quot;2&quot;&gt;
+      &lt;hr color=&quot;#0000ff&quot; /&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td align=&quot;center&quot;&gt;
+      &lt;p&gt;Copyright � 2009 Netconsulting, Inc.&lt;/p&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td colspan=&quot;2&quot;&gt;
+      &lt;hr color=&quot;#0000ff&quot; /&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+				</td>
+			</tr>
+	</table>
+	</li>
+	<li>To manually create inline CSS formatting, change the code in the
+          first table as follows:<br>
+          &nbsp;
+          <table border="0" width="560">
+			<tr>
+				<td width="100%">
+				<pre>&lt;table border=&quot;0&quot; <font color="#FF0000">style=&quot;width:660px&quot;</font>&gt;
+  &lt;tr&gt;
+    &lt;td <font color="#FF0000">style=&quot;text-align: center&quot;</font>&gt;
+      &lt;p&gt;Geometry&lt;/p&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</pre>
+				</td>
+			</tr>
+	</table>
+	</li>
+	<li>In the lower-left section of the window, click the Design button</li>
+	<li>On the web page, click the title Geometry</li>
+	<li>On the main menu, click Format -&gt; New Style...</li>
+	<li>In the top section, click the arrow of the Selector combo box and 
+		select (inline style)</li>
+	<li>In the left frame, click Font if necessary.<br>
+          Click the Font-Family combo box and select Times New Roman, Times, 
+		serif</li>
+	<li>In the string, double-click the second Times to select it and 
+		replace it with <b>Garamond, Georgia</b></li>
+	<li>Click the arrow of the Font-Size combo box and select x-large</li>
+	<li>Click the arrow of the Font-Weight combo box and select Bold</li>
+	<li>Click the arrow button of the Font-Color combo box and select Red <br>
+          &nbsp;<br>
+	<img border="0" src="../asp.net/dlgboxes/newstyle1.gif" alt="New Style" width="570" height="546"></li>
+	<li>Click OK</li>
+	<li>Locate the Available Shapes line and change its &lt;p&gt; tag as follows:<br>
+          &nbsp;
+          <table border="0" width="560">
+			<tr>
+				<td width="100%">
+				<pre>&lt;table border=&quot;0&quot; width=&quot;660&quot;&gt;
+  &lt;tr&gt;
+    &lt;td&gt;
+      &lt;p <font color="#FF0000">style=&quot;font-family: Verdana, Arial, Sans-Serif;
+                font-weight: bold;
+                font-size: 10pt;
+                color: #000080&quot;</font>&gt;Available Shapes:&lt;/p&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;a href=&quot;rectangle.aspx&quot;&gt;Perimeter&lt;/a&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;a href=&quot;square.aspx&quot;&gt;Square&lt;/a&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</pre>
+				</td>
+			</tr>
+	</table>
+	</li>
+	<li>In the lower-left section of the window, click Design</li>
+	<li>In the first paragraph, click the word <b>shapes</b></li>
+	<li>In the Properties window, click Style and click its ellipsis button 
+		<img border="0" src="../buttons/ellipsis1.gif" width="16" height="16" alt="Browse"></li>
+	<li>In the left frame, make sure Font is selected.<br>
+          Click the combo box on the right side of Font-Family and type:<br>
+          &nbsp;
+          <table border="0" width="560">
+			<tr>
+				<td width="100%">
+				<pre>Helvetica, Verdana, Arial, sans-serif</pre>
+				</td>
+			</tr>
+	</table>
+	</li>
+	<li>Click the combo box on the right side of Font-Size and type <strong>12<br>
+	</strong>&nbsp;<br>
+	<img alt="Modify Style" src="../asp.net/dlgboxes/modifystyle2.gif" width="570" height="477"></li>
+	<li>In the left frame, click Block</li>
+	<li>In the Text-Align combo box, select
+          Justified<br>
+      &nbsp;<br>
+      <img border="0" src="../asp.net/dlgboxes/modifystyle4.gif" alt="Modify Style" width="570" height="477"></li>
+	<li>Click OK</li>
+	<li>In the lower-left section of the window, click Source</li>
+	<li>Copy the whole style code that was applied from the first paragraph
+          to the next block</li>
+	<li>Change the HTML code of the last table as follows:<br>
+          &nbsp;
+          <table border="0" width="560">
+			<tr>
+				<td width="100%">
+                <pre>&lt;table border=&quot;0&quot; width=&quot;660&quot;&gt;
+  &lt;tr&gt;
+    &lt;td colspan=&quot;2&quot;&gt;
+      &lt;hr color=&quot;#0000ff&quot; /&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td align=&quot;center&quot;&gt;
+      &lt;p <font color="#FF0000">style=&quot;font-family: Verdana, Tahoma, Arial, Sans-Serif;
+                font-size: 11pt;
+                font-weight: normal;
+                text-align: center&quot;</font>&gt;
+                Copyright � 2009 NetConsulting, Inc.
+       &lt;/p&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td colspan=&quot;2&quot;&gt;
+      &lt;hr color=&quot;#0000ff&quot; /&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</pre>
+				</td>
+			</tr>
+	</table>
+	</li>
+	<li>On the main menu, click Debug -&gt; Start Without Debugging<br>
+&nbsp;<br>
+	<img border="0" src="../asp.net/previews/geometry01.gif" alt="Browser" width="694" height="645"></li>
+	<li>Return to your programming environment</li>
+</ol>
+
+</span></td>
+      <td>
+   
+&nbsp;
+   
+<table border="0" width="100%">
+  <tr>
+    <td width="100%">
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-3968514660870014";
+google_ad_width = 300;
+google_ad_height = 250;
+google_ad_format = "300x250_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+    </td>
+  </tr>
+</table>
+
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+   
+&nbsp;
+        <table border="0" width="100%">
+          <tr>
+            <td width="100%">
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-3968514660870014";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_type = "text_image";
+google_ad_channel ="";
+google_color_border = "FFFFFF";
+google_color_link = "0000FF";
+google_color_bg = "FFFFFF";
+google_color_text = "000000";
+google_color_url = "008000";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+            </td>
+          </tr>
+        </table>
+        <table border="0" width="100%">
+          <tr>
+            <td width="100%"></td>
+          </tr>
+        </table>
+&nbsp;
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+&nbsp;
+
+<div align="center">
+  <center>
+<table border="0" width="900">
+  <tr>
+    <td width="680" rowspan="2">
+
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%">
+      <p class="subtitle">Creating Local CSS Code</td>
+  </tr>
+  <tr>
+    <td width="100%" height="1" bgcolor="#0000FF"></td>
+  </tr>
+</table>
+
+      <p class="parajust"><a name="ResponseCSSClass"></a>Besides the inline
+      formatting, you can also create CSS code in the head section and apply its
+      formatting to the necessary HTML tags. We saw already that you could add
+      HTML tags to the parentheses of <b>Response.Write();</b>. If you create
+      your CSS code in the head section of the same file, the browser would make
+      sure it applies the formatting to the appropriate HTML tag. Here are
+      examples:
+      <pre>&lt;%@ Page Language=&quot;C#&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;</pre>
+
+
+      <pre>&lt;style&gt;
+
+body {
+    font-family: Helvetica, Verdana, Arial, 'Sans Serif';
+    color: #000000;	
+    font-size: 10pt;
+    background-color: #FFDCA5 }
+
+h6 {
+    font-family: Verdana, Tahoma, 'Sans Serif';
+    color:       #CC3300;
+    font-size:   10pt;
+    text-align:  center }
+
+hr { color=#CC3300 }
+
+&lt;/style&gt;
+
+&lt;title&gt;Grier Summer Camp&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p&gt;Grier Summer Camp&lt;/p&gt;
+
+&lt;p&gt;Coolfront Island&lt;/p&gt;
+
+&lt;p&gt;Coolfront Island, our star house of the season, is a 2-story 
+like chateau featuring nicely finished brown bricks whose sight is 
+tremendously appealing. The estate introduces two large living 
+rooms with exquisite velour furniture. The colonial veranda offers 
+a patio spanning two walls with a lost view down the far-reaching 
+landscape. In this particular setting, besides their usual 
+activities, children will learn special human needs to make their 
+experience unforgettable.&lt;/p&gt;
+
+&lt;hr&gt;
+&lt;% Response.Write(&quot;<font color="#FF0000">&lt;h6&gt;</font>Copyright &amp;copy; 2007 Grier Summer Camp<font color="#FF0000">&lt;/h6&gt;</font>&quot;); %&gt;
+&lt;hr&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+      <p class="parajust">This would produce:
+      <p class="pcenter">
+		<img border="0" src="../asp.net/previews/browser17.gif" alt="Preview" width="632" height="329">
+      <p class="parajust"><a name="ResponseCSSClass"></a>You can also create
+      custom tags, referred to as custom classes, in your CSS code. If you create a custom class as part of your
+      CSS, to
+      use it in the <b> &lt;% %&gt;</b> section, include the name of the class in
+      single-quotes. Here are examples:
+<pre>&lt;%@ Page Language=&quot;C#&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+
+&lt;style&gt;
+
+body {
+    font-family: Helvetica, Verdana, Arial, 'Sans Serif';
+    color: #000000;	
+    font-size: 10pt;
+    background-color: #FFDCA5 }
+
+
+hr { color=#CC3300 }
+
+<font color="#FF0000">.toptitle {
+  color: #800000;
+  font-family: 'Times New Roman', Garamond, Georgia, Serif;
+  text-align:  center;
+  font-size:   24pt;
+  font-weight: bold;
+  text-decoration: none }
+
+.housetitle {
+  color: #CC3300;
+  font-family: Georgia, Times New Roman, Courier New;
+  font-size: 16pt;
+  font-weight: bold;
+  text-decoration: none }
+
+.copyright {
+  font-family: Verdana, Tahoma, 'Sans Serif';
+  color:       #CC3300;
+  font-size:   10pt;
+  text-align:  center }</font>
+
+&lt;/style&gt;
+
+&lt;title&gt;Grier Summer Camp&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;% Response.Write(&quot;&lt;p <font color="#FF0000">class='toptitle'</font>&gt;Grier Summer Camp&lt;/p&gt;&quot;); %&gt;
+
+&lt;% Response.Write(&quot;&lt;p <font color="#FF0000">class='housetitle'</font>&gt;Coolfront Island&lt;/p&gt;&quot;); %&gt;
+
+&lt;p&gt;Coolfront Island, our star house of the season, is a 2-story 
+like chateau featuring nicely finished brown bricks whose sight is 
+tremendously appealing. The estate introduces two large living 
+rooms with exquisite velour furniture. The colonial veranda offers 
+a patio spanning two walls with a lost view down the far-reaching 
+landscape. In this particular setting, besides their usual 
+activities, children will learn special human needs to make their 
+experience unforgettable.&lt;/p&gt;
+
+&lt;hr&gt;
+&lt;% Response.Write(&quot;&lt;p <font color="#FF0000">class='copyright'</font>&gt; &quot; + 
+	&quot;Copyright &amp;copy; 2007 Grier Summer Camp&lt;/p&gt;&quot;); %&gt;
+&lt;hr&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+
+
+      <p class="parajust">This would produce:</p>
+      <p class="pcenter">
+		<img border="0" src="../asp.net/previews/css3.gif" alt="Preview" width="632" height="382"></p>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%">
+      <p class="subtitle">Using an External CSS File</td>
+  </tr>
+  <tr>
+    <td width="100%" height="1" bgcolor="#0000FF"></td>
+  </tr>
+</table>
+
+      <p class="parajust">As mentioned earlier, you can also create a CSS file.
+      To do this, you can use Notepad and enter the necessary code. You should
+      then save the file with a .css extension. Microsoft Visual Web Developer 
+		2008 Express Edition provides its own means of creating a CSS file you can use in any
+      application or to create and add a CSS file to the current project.</p>
+      <p class="parajust">To create an independent CSS file, on the main menu,
+      you can click File -&gt; New File..., select Style Sheet in the Templates list, 
+		and accept or give a name to
+      the file:</p>
+		<p>
+		<img alt="Add New Item" src="fundamentals/dlgboxes/addnewitem1.gif" width="631" height="502">&nbsp;</p>
+		<p class="parajust">Click Add.
+      After creating the file, you must save it and add it to any folder of your
+      choice.</p>
+      <p class="parajust">To create a CSS file and add it to the current
+      project, on the main menu, you can click Web Site -&gt; Add New Item... In
+      the Templates section, click Style Sheet, accept the suggested name or give a name of your choice (recommended) and click
+      Add.</p>
+      <p class="parajust">When you start a new Style Sheet, you get a screen
+      divided in two sections. The left section displays the already created
+      tags or classes of your files. The right frame displays the formats (tags,
+      classes) that have already been created in the file.
+      
+      <p class="parajust"> After creating and saving the file with
+      .css extension, you can reference it by its name. For example if you
+      create a file named Example.css, to use its formats in your web page, in
+      the head section of the page, you would type:</p>
+      
+      <pre>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;Example.css&quot;&gt;</pre>
+      
+      <p class="parajust">The advantage of this application-level style is that
+      the same style can be applied to different pages of your web site, as long
+      as you remember to reference the CSS file.</p>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%">
+      <p class="exotitle">
+		<img border="0" src="../images/practical1.gif" width="20" height="16" alt="Practical">Practical
+      Learning: Using CSS</td>
+  </tr>
+  <tr>
+    <td width="100%" height="1" bgcolor="#CC3300"></td>
+  </tr>
+</table>
+      <ol>
+        <li>On the main menu, click Website -&gt; Add New Item...</li>
+        <li>In the Templates list, click Style Sheet</li>
+        <li>Change the name of the file to <b>geometry</b> and click Add</li>
+        <li>In the middle frame, right-click body and click Build Style</li>
+		<li>Click the Font-Family combo box and type <strong>Verdana, Tahoma, Arial, sans-serif</strong></li>
+        <li>Click the Font-Size combo box and type <strong>11</strong></li>
+		<li>Click the arrow of the Color combo box and select Black<br>
+          &nbsp;<br>
+		<img border="0" src="../asp.net/dlgboxes/modifystyle3.gif" alt="Style Builder" width="570" height="477"></li>
+        <li>Click OK</li>
+        <li>In the left frame, right-click Classes and click Add Style Rule...</li>
+        <li>Click the Class Name radio button and click in the text box under it</li>
+        <li>Type <b>maintitle</b><br>
+&nbsp;<br>
+		<img alt="Add Style Rule" src="../asp.net/dlgboxes/addstylerule1.gif" width="479" height="321"></li>
+		<li>Click the select button <img border="0" src="../buttons/select1.gif" alt="Select" width="39" height="23"></li>
+        <li>Click OK</li>
+		<li>Again, in the left frame, right-click Classes and click Add Style Rule...</li>
+        <li>Click the Class Name radio button and click in the text box under it</li>
+        <li>Type <b>justifiedparagraph</b>
+          and click the select button <img border="0" src="../buttons/select1.gif" alt="Select" width="39" height="23"></li>
+        <li>Click OK</li>
+		<li>Once again, right-click Classes and click Add Style Rule</li>
+		<li>Click Class Name, click its text box and type <b>centered</b></li>
+		<li>Click the select button <img border="0" src="../buttons/select1.gif" alt="Select" width="39" height="23">
+          and click OK</li>
+        <li>In the file, right-click maintitle and click Build Style...</li>
+        <li>Click the combo box on the right side of Font-Family and type<br>
+          <b>Times New Roman , Garamond, Georgia, serif</b></li>
+        <li>Click OK</li>
+        <li>Complete the file as follows:<br>
+          &nbsp;
+          <table border="0" width="560">
+            <tr>
+              <td width="100%">
+                <pre>body
+{
+	font-family: Verdana, Tahoma, Arial, Sans-Serif;
+	font-size: 11pt;
+	color: black;
+}
+
+.maintitle
+{
+	font-family: 'Times New Roman' , Garamond, Georgia, Serif;
+	color: blue;
+	text-align: center;
+	font-size: 24pt;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.justifiedparagraph
+{
+	font-family: Verdana, Tahoma, Arial, Sans-Serif;
+	font-size: 10pt;
+	font-weight: normal;
+	text-align: justify;
+}
+
+.centered
+{
+	text-align: center;
+}
+
+.formula
+{
+	font-weight: bold;
+	font-size: 10pt;
+	color: blue;
+	font-family: Verdana, Helvetica, Tahoma, Sans-Serif;
+}
+
+a:link       {
+      font-family: Verdana, Helvetica, Arial, Sans Serif;
+      color: #0000FF;
+      font-size: 10pt;
+      font-weight: bold;
+      text-decoration: none }
+
+a:alink {
+      font-family: Verdana, Helvetica, Arial, Sans Serif;
+      color: #FF00FF;
+      font-size: 10pt;
+      font-weight: bold;
+      text-decoration: none }
+
+a:visited
+{
+	font-family: Verdana, Helvetica, Arial, Sans Serif;
+	color: Green;
+	font-size: 10pt;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+a:hover
+{
+	font-family: Verdana, Helvetica, Arial, Sans Serif;
+	color: #FF0000;
+	font-size: 10pt;
+	font-weight: Bold;
+	text-decoration: none;
+}</pre>
+              </td>
+            </tr>
+          </table>
+        </li>
+        <li>Click the rectangle.aspx tab and change its Source code as follows:<br>
+          &nbsp;
+          <table border="0" width="560">
+            <tr>
+              <td width="100%">
+                <pre>&lt;%@ Page Language=&quot;C#&quot; 
+         AutoEventWireup=&quot;true&quot; 
+         CodeFile=&quot;rectangle.aspx.cs&quot; 
+         Inherits=&quot;rectangle&quot; %&gt;
+
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot;
+ &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; &gt;
+&lt;head runat=&quot;server&quot;&gt;
+
+<font color="#FF0000">&lt;link rel=&quot;Stylesheet&quot; type=&quot;text/css&quot; href=&quot;geometry.css&quot; /&gt;</font>
+&lt;title&gt;Geometry: Rectangle&lt;/title&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;table border=&quot;0&quot; style=&quot;width: 660px&quot;&gt;
+  &lt;tr&gt;
+    &lt;td style=&quot;width: 100%&quot;&gt;
+      &lt;p class=&quot;maintitle&quot;&gt;Geometry: Rectangle&lt;/p&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+    
+ &amp;nbsp;
+ 
+&lt;table border=&quot;0&quot; width=&quot;660&quot;&gt;
+  &lt;tr&gt;
+    &lt;td&gt;
+      &lt;p <font color="#FF0000">class=&quot;justifiedparagraph&quot;</font>&gt;A rectangle is a geometric figure made 
+      of 4 sides connected to produce four right angles. The 
+      horizontal measurement of the rectangle, the base, is its 
+      length. The vertical measurement of the figure is referred 
+      to as its height. In geometry, a rectangle can be 
+      represented as follows:&lt;/p&gt;
+        
+      &lt;p class=&quot;centered&quot;&gt;
+        &lt;img src=&quot;images/rectangle1.gif&quot; alt=&quot;Rectangle&quot; /&gt;
+      &lt;/p&gt;        
+
+      &lt;p class=&quot;justifiedparagraph&quot;&gt;To process a rectangle, you usually 
+      must provide, or must be given, the length and the height. 
+      You can then calculate the perimeter and the area. To 
+      assist you with these calculations, you can use some 
+      pre-established formulas. Suppose the values are 
+      represented as follows:&lt;/p&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+    
+&amp;nbsp;
+        
+&lt;table style=&quot;width: 660px&quot;&gt;
+  &lt;tr&gt;
+    &lt;td style=&quot;width: 660px&quot;&gt;
+      &lt;strong&gt;L: length&lt;/strong&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td style=&quot;width: 660px&quot;&gt;
+      &lt;strong&gt;H: height&lt;/strong&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td style=&quot;width: 660px&quot;&gt;
+      &lt;strong&gt;P: perimeter&lt;/strong&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td style=&quot;width: 660px&quot;&gt;
+      &lt;strong&gt;A: area&lt;/strong&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+            
+&amp;nbsp;
+
+&lt;table border=&quot;0&quot; style=&quot;width: 660px&quot;&gt;
+  &lt;tr&gt;
+    &lt;td style=&quot;width: 100%&quot;&gt;
+      &lt;p class=&quot;justifiedparagraph&quot;&gt;Based on these, the following 
+      calculations can be made&lt;/p&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td style=&quot;width: 100%&quot;&gt;
+      &lt;p class=&quot;formula&quot;&gt;P = (L + H) * 2&lt;/p&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td style=&quot;width: 100%&quot;&gt;
+      &lt;p class=&quot;formula&quot;&gt;A = L * H&lt;/p&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+&amp;nbsp;
+            
+&lt;table border=&quot;0&quot; style=&quot;width: 660px&quot;&gt;
+  &lt;tr&gt;
+    &lt;td style=&quot;width: 100%&quot;&gt;
+      &lt;p class=&quot;justifiedparagraph&quot;&gt;A rectangle can also be represented on a 
+      Cartesian coordinate system by four points A(x1, y1), 
+      B(x2, y2), C(x3, y3), and D(x4, y4). In this case, the 
+      perimeter can be calculated by adding the distances among 
+      the adjacent points. The area can be calculated by 
+      multiplying the two adjacent distances of three points.&lt;/p&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+&amp;nbsp;
+
+&lt;table border=&quot;0&quot; width=&quot;660&quot;&gt;
+  &lt;tr&gt;
+    &lt;td colspan=&quot;2&quot;&gt;
+      &lt;hr color=&quot;#0000FF&quot; /&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td align=&quot;center&quot; style=&quot;height: 18px&quot;&gt;
+      &lt;a href=&quot;index.aspx&quot;&gt;Home&lt;/a&gt;
+    &lt;/td&gt;
+    &lt;td align=&quot;center&quot; style=&quot;height: 18px&quot;&gt;
+      &lt;p class=&quot;centered&quot;&gt;Copyright � 2009 NetConsulting, Inc.&lt;/p&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td colspan=&quot;2&quot;&gt;
+      &lt;hr color=&quot;#0000FF&quot; /&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+              </td>
+            </tr>
+          </table>
+        </li>
+        <li>Save everything</li>
+        <li>Return to the browser and refresh</li>
+        <li>Access the Rectangle page<br>
+          &nbsp;<br>
+          <img border="0" src="../asp.net/previews/rectangle1.gif" alt="Rectangle" width="626" height="832"></li>
+      </ol>
+
+    </td>
+    <td valign="top">
+      <table border="0" width="100%">
+        <tr>
+          <td width="100%"><!-- Casale Media: 336x280, 300x250 (Rectangle) -->
+            <script type="text/javascript">
+var CasaleArgs = new Object();
+CasaleArgs.version = 2;
+CasaleArgs.adUnits = "6,4";
+CasaleArgs.casaleID = 56757;
+</script>
+            <script type="text/javascript" src="http://js.casalemedia.com/casaleJTag.js"></script>
+            <!-- DO NOT MODIFY -->
+          </td>
+        </tr>
+      </table>&nbsp;
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      &nbsp;
+      <table border="0" width="100%">
+        <tr>
+          <td width="100%" align="center"><!-- Casale Media: 160x600, 120x600 (Tower) -->
+            <script type="text/javascript">
+var CasaleArgs = new Object();
+CasaleArgs.version = 2;
+CasaleArgs.adUnits = "5,3";
+CasaleArgs.casaleID = 56757;
+</script>
+            <script type="text/javascript" src="http://js.casalemedia.com/casaleJTag.js"></script>
+            <!-- DO NOT MODIFY -->
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+  </center>
+</div>
+
+&nbsp;
+
+&nbsp;
+
+<div align="center">
+  <center>
+<table border="0" width="900">
+  <tr>
+    <td width="100%" align="center">
+    
+<script type="text/javascript"><!--
+google_ad_client = "pub-3968514660870014";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_type = "image";
+google_ad_channel ="";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+    </td>
+  </tr>
+</table>
+
+  </center>
+</div>
+
+&nbsp;
+
+<div align="center">
+  <center>
+<table border="0" width="900">
+  <tr>
+    <td colspan="3">
+      <hr color="#FF0000">
+    </td>
+  </tr>
+  <tr>
+    <td align="center"><a href="Lesson03.htm">Previous</a></td>
+    <td align="center"><a href="index.htm">Copyright � 2009 FunctionX</a></td>
+    <td align="center"><a href="Lesson05.htm">Next</a></td>
+  </tr>
+  <tr>
+    <td colspan="3">
+      <hr color="#FF0000">
+    </td>
+  </tr>
+</table>
+  </center>
+</div>
+
+<!-- DynamiContext AdLinks  -->
+<SCRIPT LANGUAGE="JavaScript">
+var dc_UnitID = 14;
+var dc_PublisherID = 2409;
+var dc_AdLinkColor = 'blue';
+var  dc_adprod='ADL';
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" SRC="http://kona.kontera.com/javascript/lib/KonaLibInline.js"></SCRIPT>
+<!-- DynamiContext AdLinks  -->
+
+</body>
+
+</html>

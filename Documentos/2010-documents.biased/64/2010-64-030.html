@@ -1,0 +1,1993 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+            "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<script id="before-content" type="text/javascript">
+var pageload = {
+	pagemark: '122446155892067399',
+	before_content: (new Date).getTime()
+};
+function pageload_done( $, console, maybe ){
+	pageload.after_readycode	= (new Date).getTime();
+	pageload.content_ready_time	= pageload.content_ready - pageload.before_content;
+	pageload.script_ready_time	= pageload.after_readycode - pageload.content_ready;
+	pageload.ready_time		= pageload.after_readycode - pageload.before_content;
+	// Only report 1% of cases.
+	maybe || (Math.random()>0.01) || $.ajax({ data: {
+		op: 'page_profile',
+		pagemark: pageload.pagemark,
+		dom: pageload.content_ready_time,
+		js: pageload.script_ready_time
+	} });
+}
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+
+<title>Search Slashdot</title>
+
+<link rel="stylesheet" type="text/css" media="screen, projection" href="//a.fsdn.com/sd/core-tidied.css?T_2_5_0_290" >
+<link rel="stylesheet" type="text/css" media="screen, projection" href="//a.fsdn.com/sd/search.css?T_2_5_0_290" >
+<!--[if lt IE 7]><link rel="stylesheet" type="text/css" media="screen, projection" href="//a.fsdn.com/sd/ie6.css?T_2_5_0_290" ><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" type="text/css" media="screen, projection" href="//a.fsdn.com/sd/ie7.css?T_2_5_0_290" ><![endif]-->
+<!--[if gte IE 8]><link rel="stylesheet" type="text/css" media="screen, projection" href="//a.fsdn.com/sd/ie8.css?T_2_5_0_290" ><![endif]-->
+
+
+<script src="//a.fsdn.com/sd/all-minified.js?T_2_5_0_290" type="text/javascript"></script>
+<script id="after-jquery" type="text/javascript">
+(function( $, pageload, pageload_done, console ){
+$ && pageload && $(function(){
+	pageload.content_ready = (new Date).getTime();
+	pageload_done && $(function(){ pageload_done($, console, 'maybe'); });
+});
+})(window.jQuery, window.pageload, window.pageload_done, window.console);
+</script>
+<script type="text/javascript">
+(function(){
+var regexp=/\s*(?:\d+|many)\s+more\s*/i;
+
+	
+	var auto_more_count = 2;
+
+	function auto_more(){
+		var $more_link = $('#more-experiment a');
+		$more_link.each(function(){
+			var $lastitem = $('#firehoselist>div.fhitem:visible:last');
+			if ( Bounds.intersect(window, $lastitem) ) {
+				// _any_ click can trigger, but click-specific ad will win
+				setTimeout(function(){ inlineAdFirehose($lastitem, 1); }, 0);
+				//setFirehoseAction();
+				//$more_link.click();
+				!--auto_more_count && (auto_more=undefined);
+				// don't allow a call till the next paginate gets built and |more_possible|
+				$(document).unbind('scroll', call_auto_more);
+			}
+		});
+	};
+
+	function call_auto_more(){ auto_more && auto_more(); }
+	
+
+
+	
+
+
+$('#more-experiment a').
+	live('more-possible', function( event ){
+		var $more_link=$(this);
+		if ( regexp.test($more_link.text()) ) {
+		
+		
+			$(document).bind('scroll', call_auto_more);
+		} else {
+			$(document).unbind('scroll', call_auto_more);
+		
+		}
+	});
+})();
+</script>
+
+<script type="text/javascript">
+var suggestions_for_context = {
+	nod: 'fresh funny insightful interesting maybe ',
+	nix: 'binspam dupe notthebest offtopic slownewsday stale stupid ',
+
+	tagnod: 'descriptive',
+	feedback: 'typo dupe error',
+	metanod: 'insightful interesting informative funny underrated',
+	metanix: 'offtopic flamebait troll redundant overrated'
+};
+
+</script>
+
+<script type="text/javascript">
+var adpage = 'search';
+</script><link rel="top"       title="News for nerds, stuff that matters" href="//slashdot.org/" >
+<link rel="search"    title="Search Slashdot" href="//slashdot.org/search.pl">
+<link rel="alternate" title="Slashdot RSS" href="http://rss.slashdot.org/Slashdot/slashdot" type="application/rss+xml">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<!-- DoubleClick Random Number -->
+<script type="text/javascript">
+   dfp_ord=Math.random()*10000000000000000;
+   dfp_tile = 1;
+</script>
+<!-- End DoubleClick Random Number -->
+
+
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-32013-5");
+pageTracker._setDomainName("slashdot.org");
+pageTracker._initData();
+</script>
+
+</head>
+<body>
+<div id="top_parent"></div>
+
+
+<div id="jump">
+<a href="#main-articles">Stories</a>
+<br>
+<a href="#blocks">Slash Boxes</a>
+<br>
+<a href="#comments">Comments</a>
+</div>
+<div id="frame">
+<div></div>
+<div id="topnav">
+	<div id="logo">
+		<h1>
+			<a href="//slashdot.org">Slashdot</a>
+		</h1>
+	</div>
+	<div class="search ">
+
+		<form method="get" action="//slashdot.org/index2.pl">
+			<fieldset>
+				<legend>Search</legend>
+				<input type="text" name="fhfilter" value="">
+				<input type="submit" value="Search" class="button">
+			</fieldset>
+		</form>
+
+	</div>
+</div>
+<div id="slogan">
+	<h2>
+		News for nerds, stuff that matters
+	</h2>
+</div>
+
+
+<div class="ad31 advertisement" style="background:#072f2e;margin:0 1.25em">
+	
+</div>
+<div id="wrapper">
+	<div id="user-section">
+		<div class="content">
+			<ul class="legacynav ">
+			
+					<li class="begin"><a id="loginlink" class="collapsed" href="//slashdot.org/my/login" onclick="show_login_box(); return false">Log In</a></li>
+					<li><a href="//slashdot.org/my/newuser" title="">Create Account</a></li>
+                                        <li><a href="//slashdot.org/help" title="Get help with your account.">Help</a></li>
+					<li><a href="//slashdot.org/subscribe.pl" title="An option to see Slashdot without these ads">Subscribe</a></li>
+					<li><a href="//slashdot.org/firehose.shtml">Firehose</a></li>
+			
+				</ul>
+				<ul id="user-utils" >
+                                
+											<li><a href="//slashdot.org/faq/accounts.shtml#ac050" title="Save preferences, your own Journal, define Friends &amp;  Foes for discussions, participate in Moderation and more ...">Why Log In?</a></li>
+										
+
+										
+											<li><a href="//slashdot.org/faq/subscriptions.shtml" title="An option to see Slashdot without these ads">Why Subscribe?</a></li>
+										
+
+                                        
+
+				</ul>
+			
+				<div id="loginform">
+					<form action="//slashdot.org/login.pl" method="post">
+<fieldset>
+	<legend>Log In</legend>
+	<label>
+		Nickname
+	</label>
+	<input type="text" name="unickname" size="20" value="">
+	<label>
+		Password
+	</label>
+	<input type="hidden" name="returnto" value="//slashdot.org/">
+	<input type="hidden" name="op" value="userlogin">
+	<input type="password" name="upasswd" size="20">
+	<label class="checkbox">
+		<input type="checkbox" name="login_temp" value="yes">
+		Public Terminal
+	</label>
+	<input type="submit" name="userlogin" value="Log in" class="button">
+	</fieldset>
+</form>
+
+
+
+<hr>
+
+
+<form action="//slashdot.org/login.pl" method="post">
+<fieldset>
+	<input type="hidden" name="slash_returnto" value="//slashdot.org/">
+	<input type="hidden" name="op" value="claim_openid">
+	<input type="hidden" name="openid_login" value="1">
+	<label for="openid_url" class="openid_url">
+	<input type="text" name="openid_url" value="http://" size="32" maxlength="255">
+	</label>
+	<input type="submit" value="Log in with OpenID" class="button">
+</fieldset>
+</form>
+
+
+<p>
+<b>
+<a href="//slashdot.org/my/newuser">Create Account</a>
+&nbsp;|&nbsp;
+<a href="//slashdot.org/my/mailpassword">Retrieve Password</a>
+</b>
+</p>
+				</div>
+			
+			</div>
+		</div>
+
+
+        
+
+
+
+
+		<div id="links" >
+			
+			<div class="block" id="links-sections">
+	<div class="title" id="links-sections-title">
+		
+		<h4  class='active'>
+			
+				<a class="data-title" href="//slashdot.org" >Slashdot</a>
+				
+				
+				<script type="data">{ color: "", viewname: "stories", filter: "", name: "Main", id: 13 }</script>
+
+			
+		</h4>
+	</div>
+	<div class="content" id="links-sections-content">
+	
+		<ul id="firehose-sections">
+	<script type="data">{ active_id:13, default_id:1 }</script>
+	  		
+			
+			
+		
+		<li class="hide" id="fhsection-45">
+			<a id="fhsectiontitle-45" class="data-title" href="//amd.vendors.slashdot.org">AMD</a>
+			
+		<script type="data">{ color: "", viewname: "stories", filter: "vendor_amd", name: "AMD", id: 45 }</script>
+		</li>
+	 		
+			
+			
+		
+		<li class="hide" id="fhsection-11">
+			<a id="fhsectiontitle-11" class="data-title" href="//apache.slashdot.org">Apache</a>
+			
+		<script type="data">{ color: "", viewname: "stories", filter: "apache", name: "Apache", id: 11 }</script>
+		</li>
+	 		
+			
+			
+		
+		<li class="" id="fhsection-53">
+			<a id="fhsectiontitle-53" class="data-title" href="//apple.slashdot.org">Apple</a>
+			
+		<script type="data">{ skin: "<link rel=\"alternate stylesheet\"  type=\"text/css\" media=\"screen, projection\" href=\"//a.fsdn.com/sd/yui_apple.css?T_2_5_0_290\" title=\"apple\">", color: "", viewname: "stories", filter: "apple", name: "Apple", id: 53 }</script>
+		</li>
+	 		
+			
+			
+		
+		<li class="" id="fhsection-63">
+			<a id="fhsectiontitle-63" class="data-title" href="//ask.slashdot.org">Ask Slashdot</a>
+			
+		<script type="data">{ skin: "<link rel=\"alternate stylesheet\"  type=\"text/css\" media=\"screen, projection\" href=\"//a.fsdn.com/sd/yui_askslashdot.css?T_2_5_0_290\" title=\"askslashdot\">", color: "", viewname: "stories", filter: "askslashdot", name: "Ask Slashdot", id: 63 }</script>
+		</li>
+	 		
+			
+			
+		
+		<li class="hide" id="fhsection-31">
+			<a id="fhsectiontitle-31" class="data-title" href="//backslash.slashdot.org">Backslash</a>
+			
+		<script type="data">{ color: "", viewname: "stories", filter: "backslash", name: "Backslash", id: 31 }</script>
+		</li>
+	 		
+			
+			
+		
+		<li class="" id="fhsection-49">
+			<a id="fhsectiontitle-49" class="data-title" href="//books.slashdot.org">Book Reviews</a>
+			
+		<script type="data">{ color: "", viewname: "stories", filter: "books", name: "Book Reviews", id: 49 }</script>
+		</li>
+	 		
+			
+			
+		
+		<li class="hide" id="fhsection-5">
+			<a id="fhsectiontitle-5" class="data-title" href="//bsd.slashdot.org">BSD</a>
+			
+		<script type="data">{ color: "", viewname: "stories", filter: "bsd", name: "BSD", id: 5 }</script>
+		</li>
+	 		
+			
+			
+		
+		<li class="hide" id="fhsection-61">
+			<a id="fhsectiontitle-61" class="data-title" href="//developers.slashdot.org">Developers</a>
+			
+		<script type="data">{ skin: "<link rel=\"alternate stylesheet\"  type=\"text/css\" media=\"screen, projection\" href=\"//a.fsdn.com/sd/yui_developers.css?T_2_5_0_290\" title=\"developers\">", color: "", viewname: "stories", filter: "developers", name: "Developers", id: 61 }</script>
+		</li>
+	 		
+			
+			
+		
+		<li class="hide" id="fhsection-1">
+			<a id="fhsectiontitle-1" class="data-title" href="//entertainment.slashdot.org">Entertainment</a>
+			
+		<script type="data">{ color: "", viewname: "stories", filter: "entertainment", name: "Entertainment", id: 1 }</script>
+		</li>
+	 		
+			
+			
+		
+		<li class="hide" id="fhsection-55">
+			<a id="fhsectiontitle-55" class="data-title" href="//features.slashdot.org">Features</a>
+			
+		<script type="data">{ color: "", viewname: "stories", filter: "features", name: "Features", id: 55 }</script>
+		</li>
+	 		
+			
+			
+		
+		<li class="" id="fhsection-33">
+			<a id="fhsectiontitle-33" class="data-title" href="//games.slashdot.org">Games</a>
+			
+		<script type="data">{ skin: "<link rel=\"alternate stylesheet\"  type=\"text/css\" media=\"screen, projection\" href=\"//a.fsdn.com/sd/yui_games.css?T_2_5_0_290\" title=\"games\">", color: "", viewname: "stories", filter: "games", name: "Games", id: 33 }</script>
+		</li>
+	 		
+			
+			
+		
+		<li class="hide" id="fhsection-43">
+			<a id="fhsectiontitle-43" class="data-title" href="//radio.slashdot.org">Geeks in Space</a>
+			
+		<script type="data">{ color: "", viewname: "stories", filter: "radio", name: "Geeks in Space", id: 43 }</script>
+		</li>
+	 		
+			
+			
+		
+		<li class="" id="fhsection-3">
+			<a id="fhsectiontitle-3" class="data-title" href="//hardware.slashdot.org">Hardware</a>
+			
+		<script type="data">{ skin: "<link rel=\"alternate stylesheet\"  type=\"text/css\" media=\"screen, projection\" href=\"//a.fsdn.com/sd/yui_hardware.css?T_2_5_0_290\" title=\"hardware\">", color: "", viewname: "stories", filter: "hardware", name: "Hardware", id: 3 }</script>
+		</li>
+	 		
+			
+			
+		
+		<li class="" id="fhsection-25">
+			<a id="fhsectiontitle-25" class="data-title" href="//idle.slashdot.org">Idle</a>
+			
+		<script type="data">{ skin: "<link rel=\"alternate stylesheet\"  type=\"text/css\" media=\"screen, projection\" href=\"//a.fsdn.com/sd/yui_idle.css?T_2_5_0_290\" title=\"idle\">", color: "", viewname: "stories", filter: "idle", name: "Idle", id: 25 }</script>
+		</li>
+	 		
+			
+			
+		
+		<li class="hide" id="fhsection-7">
+			<a id="fhsectiontitle-7" class="data-title" href="//intel.vendors.slashdot.org">Intel</a>
+			
+		<script type="data">{ color: "", viewname: "stories", filter: "vendor_intel", name: "Intel", id: 7 }</script>
+		</li>
+	 		
+			
+			
+		
+		<li class="" id="fhsection-39">
+			<a id="fhsectiontitle-39" class="data-title" href="//interviews.slashdot.org">Interviews</a>
+			
+		<script type="data">{ color: "", viewname: "stories", filter: "interviews", name: "Interviews", id: 39 }</script>
+		</li>
+	 		
+			
+			
+		
+		<li class="hide" id="fhsection-15">
+			<a id="fhsectiontitle-15" class="data-title" href="//it.slashdot.org">IT</a>
+			
+		<script type="data">{ skin: "<link rel=\"alternate stylesheet\"  type=\"text/css\" media=\"screen, projection\" href=\"//a.fsdn.com/sd/yui_it.css?T_2_5_0_290\" title=\"it\">", color: "", viewname: "stories", filter: "it", name: "IT", id: 15 }</script>
+		</li>
+	 		
+			
+			
+		
+		<li class="" id="fhsection-65">
+			<a id="fhsectiontitle-65" class="data-title" href="//linux.slashdot.org">Linux</a>
+			
+		<script type="data">{ skin: "<link rel=\"alternate stylesheet\"  type=\"text/css\" media=\"screen, projection\" href=\"//a.fsdn.com/sd/yui_linux.css?T_2_5_0_290\" title=\"linux\">", color: "", viewname: "stories", filter: "linux", name: "Linux", id: 65 }</script>
+		</li>
+	 		
+			
+			
+		
+		<li class="hide" id="fhsection-21">
+			<a id="fhsectiontitle-21" class="data-title" href="//meta.slashdot.org">Meta</a>
+			
+		<script type="data">{ color: "", viewname: "stories", filter: "meta", name: "Meta", id: 21 }</script>
+		</li>
+	 		
+			
+			
+		
+		<li class="" id="fhsection-47">
+			<a id="fhsectiontitle-47" class="data-title" href="//mobile.slashdot.org">Mobile</a>
+			
+		<script type="data">{ skin: "<link rel=\"alternate stylesheet\"  type=\"text/css\" media=\"screen, projection\" href=\"//a.fsdn.com/sd/yui_mobile.css?T_2_5_0_290\" title=\"mobile\">", color: "", viewname: "stories", filter: "mobile", name: "Mobile", id: 47 }</script>
+		</li>
+	 		
+			
+			
+		
+		<li class="hide" id="fhsection-35">
+			<a id="fhsectiontitle-35" class="data-title" href="//news.slashdot.org">News</a>
+			
+		<script type="data">{ color: "", viewname: "stories", filter: "news", name: "News", id: 35 }</script>
+		</li>
+	 		
+			
+			
+		
+		<li class="hide" id="fhsection-23">
+			<a id="fhsectiontitle-23" class="data-title" href="//oracle.vendors.slashdot.org">Oracle</a>
+			
+		<script type="data">{ color: "", viewname: "stories", filter: "vendor_oracle", name: "Oracle", id: 23 }</script>
+		</li>
+	 		
+			
+			
+		
+		<li class="hide" id="fhsection-27">
+			<a id="fhsectiontitle-27" class="data-title" href="//politics.slashdot.org">Politics</a>
+			
+		<script type="data">{ skin: "<link rel=\"alternate stylesheet\"  type=\"text/css\" media=\"screen, projection\" href=\"//a.fsdn.com/sd/yui_politics.css?T_2_5_0_290\" title=\"politics\">", color: "", viewname: "stories", filter: "politics", name: "Politics", id: 27 }</script>
+		</li>
+	 		
+			
+			
+		
+		<li class="hide" id="fhsection-57">
+			<a id="fhsectiontitle-57" class="data-title" href="//polls.slashdot.org">Polls</a>
+			
+		<script type="data">{ color: "", viewname: "stories", filter: "polls", name: "Polls", id: 57 }</script>
+		</li>
+	 		
+			
+			
+		
+		<li class="" id="fhsection-29">
+			<a id="fhsectiontitle-29" class="data-title" href="//science.slashdot.org">Science</a>
+			
+		<script type="data">{ color: "", viewname: "stories", filter: "science", name: "Science", id: 29 }</script>
+		</li>
+	 		
+			
+			
+		
+		<li class="hide" id="fhsection-59">
+			<a id="fhsectiontitle-59" class="data-title" href="//search.slashdot.org">Search</a>
+			
+		<script type="data">{ color: "", viewname: "stories", filter: "search", name: "Search", id: 59 }</script>
+		</li>
+	 		
+			
+			
+		
+		<li class="hide" id="fhsection-37">
+			<a id="fhsectiontitle-37" class="data-title" href="slashdot.sourceforge.net">SF.net Auth</a>
+			
+		<script type="data">{ color: "", viewname: "stories", filter: "sfauth", name: "SF.net Auth", id: 37 }</script>
+		</li>
+	 		
+			
+			
+		
+		<li class="hide" id="fhsection-19">
+			<a id="fhsectiontitle-19" class="data-title" href="//slashdot.org">Taco Hell</a>
+			
+		<script type="data">{ color: "", viewname: "stories", filter: "tacohell", name: "Taco Hell", id: 19 }</script>
+		</li>
+	 		
+			
+			
+		
+		<li class="hide" id="fhsection-17">
+			<a id="fhsectiontitle-17" class="data-title" href="//tech.slashdot.org">Technology</a>
+			
+		<script type="data">{ color: "", viewname: "stories", filter: "tech", name: "Technology", id: 17 }</script>
+		</li>
+	 		
+			
+			
+		
+		<li class="hide" id="fhsection-67">
+			<a id="fhsectiontitle-67" class="data-title" href="//slashdot.org">The 2000 Beanies</a>
+			
+		<script type="data">{ color: "", viewname: "stories", filter: "awards", name: "The 2000 Beanies", id: 67 }</script>
+		</li>
+	 		
+			
+			
+		
+		<li class="hide" id="fhsection-51">
+			<a id="fhsectiontitle-51" class="data-title" href="//thinkgeek.shill.slashdot.org">ThinkGeek</a>
+			
+		<script type="data">{ skin: "<link rel=\"alternate stylesheet\"  type=\"text/css\" media=\"screen, projection\" href=\"//a.fsdn.com/sd/yui_thinkgeek.css?T_2_5_0_290\" title=\"thinkgeek\">", color: "", viewname: "stories", filter: "thinkgeek", name: "ThinkGeek", id: 51 }</script>
+		</li>
+	 		
+			
+			
+		
+		<li class="hide" id="fhsection-41">
+			<a id="fhsectiontitle-41" class="data-title" href="//vendors.slashdot.org">Vendors</a>
+			
+		<script type="data">{ color: "", viewname: "stories", filter: "vendors", name: "Vendors", id: 41 }</script>
+		</li>
+	 		
+			
+			
+		
+		<li class="" id="fhsection-9">
+			<a id="fhsectiontitle-9" class="data-title" href="//yro.slashdot.org">YRO</a>
+			
+		<script type="data">{ skin: "<link rel=\"alternate stylesheet\"  type=\"text/css\" media=\"screen, projection\" href=\"//a.fsdn.com/sd/yui_yro.css?T_2_5_0_290\" title=\"yro\">", color: "", viewname: "stories", filter: "yro", name: "YRO", id: 9 }</script>
+		</li>
+	
+</ul>
+	
+	</div>
+	
+</div>
+<div class="block" id="links-help">
+	<div class="title" id="links-help-title">
+		<h4><a href="//slashdot.org/help">Site Info</a></h4>
+	</div>
+	<div class="content" id="links-help-content">
+		<ul>
+			<li><a href="//slashdot.org/faq/">FAQ</a></li>
+			<li><a href="http://sourceforge.net/tracker/?func=add&amp;group_id=4421&amp;atid=104421">Bugs</a></li>
+			<li><a href="//slashdot.org/code.shtml">Code</a></li>
+		</ul>
+	</div>
+</div>
+<div class="block" id="links-stories">
+	<div class="title" id="links-stories-title">
+		<h4>Stories</h4>
+	</div>
+	<div class="content" id="links-stories-content">
+		<ul>
+			<li><a href="//slashdot.org/search.pl">Old Stories</a></li>
+			<li><a href="//polls.slashdot.org/">Old Polls</a></li>
+			<li><a href="//slashdot.org/hof.shtml">Hall of Fame</a></li>
+			<li><a href="//slashdot.org/submission">Submit Story</a></li>
+		</ul>
+	</div>
+</div> 
+			
+		</div>
+		<div id="contents">
+
+<div class="lb"><div class="ad1 advertisement"><!-- placeholder for ad position 1 --></div></div>
+
+		
+			<div id="search" class="aduserbox "><a name="blocks"></a>
+		<div id="slashboxes">
+		<div class="block">
+	<div class="title" id="advertisement-title">
+		<h4>
+			Advertisement
+		</h4>
+	</div>
+	<div class="content" id="advertisement-content">
+		<div class="ad2 advertisement"><!-- ad position 2 -->
+	<!-- DoubleClick Ad Tag -->
+		
+<script type="text/javascript">
+	var ad6 = 'inactive';
+</script>
+		
+
+<div id="fad2">
+		
+			
+	
+	<script type="text/javascript">
+	//<![CDATA[
+
+		var hint   = 'mainpage,technology,google';
+
+		document.write('<script type="text/javascript" src="http://ad.doubleclick.net/adj/ostg.slashdot/mainpage_p2_sky;pg=search;logged_in=0;tile='+dfp_tile+';tpc=technology;tpc=google;ord='+dfp_ord+'?"><\/script>');
+		dfp_tile++;
+	//]]>
+	</script>
+			
+		
+</div>
+<!-- End DoubleClick Ad Tag --></div>
+	</div>
+</div>
+		</div><div class="generaltitle" >
+	<div class="title">
+		<h3 >
+			Search Slashdot
+			
+		</h3>
+	</div>
+</div><div class="generalbody">
+
+	<div class="topic">
+		<a href="//slashdot.org/search.pl?tid=14">
+			<img src="//a.fsdn.com/sd/topics/topicgoogle.gif" width="104" height="38" alt="" title="">
+		</a>
+	</div>
+
+
+<form action="//slashdot.org/search.pl" method="get">
+<fieldset>
+	<legend>Search </legend>
+	<input type="hidden" name="tid" value="14">
+	<input type="text" size="40" name="query" value="">
+	
+		<select id="author" name="author">
+	<option value="139456">aeneas</option>
+	<option value="178989">AilleCat</option>
+	<option value="1090621">Alan_Intel</option>
+	<option value="" selected>All Authors</option>
+	<option value="5805">AMD</option>
+	<option value="974503">AskAMD</option>
+	<option value="1084359">Benson_Intel</option>
+	<option value="22837">blizzard</option>
+	<option value="1069922">Bob_Intel</option>
+	<option value="1457">chrisd</option>
+	<option value="4114">Cliff</option>
+	<option value="1">CmdrTaco</option>
+	<option value="4">CowboyNeal</option>
+	<option value="7067">DanShearer</option>
+	<option value="1094249">DavidS_Intel</option>
+	<option value="131645">emmett</option>
+	<option value="1069756">Engineers at Intel</option>
+	<option value="2">Hemos</option>
+	<option value="187">HeUnique</option>
+	<option value="78724">jamie</option>
+	<option value="68949">jimjag</option>
+	<option value="7654">JonKatz</option>
+	<option value="1097201">Josh_Intel</option>
+	<option value="23632">justin++</option>
+	<option value="3715">kdawson</option>
+	<option value="129804">krow</option>
+	<option value="1076419">Lorie_Intel</option>
+	<option value="974493">MargaretLewisAMD</option>
+	<option value="4716">michael</option>
+	<option value="462161">mojoski</option>
+	<option value="592">nate</option>
+	<option value="2717">Nathan</option>
+	<option value="2147">Nik</option>
+	<option value="2726">OctobrX</option>
+	<option value="965714">OSTG Marketing</option>
+	<option value="1054502">OSTG Marketing Dept.</option>
+	<option value="3605">pudge</option>
+	<option value="357">Roblimo</option>
+	<option value="5">samzenpus</option>
+	<option value="1069920">Scott_Intel</option>
+	<option value="55">ScuttleMonkey</option>
+	<option value="1136">sengan</option>
+	<option value="1080853">Shobhan_Intel</option>
+	<option value="40">simoniker</option>
+	<option value="462162">SlashTeam</option>
+	<option value="1459">Soulskill</option>
+	<option value="27346">thiemeworks</option>
+	<option value="36799">timothy</option>
+	<option value="43">vroom</option>
+	<option value="12082">Zonk</option>
+</select>
+	
+	<select id="sort" name="sort">
+	<option value="1" selected>Order By Date</option>
+	<option value="2">Order By Score</option>
+</select>
+
+	<input type="submit" value="Search"><BR>
+
+	<input type="radio" name="op" value="stories" CHECKED> Stories
+	<input type="radio" name="op" value="comments"> Comments
+	<input type="radio" name="op" value="users"> Users
+	<input type="radio" name="op" value="polls"> Polls
+	
+		<input type="radio" name="op" value="journals"> Journals
+	
+	
+	
+	<div class="options">
+	
+
+	
+
+	
+	</div>
+	</fieldset>
+</form>
+
+
+
+<div class="sectiontitle">
+<a href="//slashdot.org/search.pl">Slashdot</a>
+
+:: <a href="//slashdot.org/search.pl?tid=766">Technology</a>
+
+:: <a href="//slashdot.org/search.pl?tid=14">Google</a>
+
+
+
+</div><div class="storysearch">
+	
+	
+	<div class="search-results">
+			<h4>
+				<a href="//yro.slashdot.org/article.pl?sid=10/03/13/1929235">
+					Brinksmanship Continues In Google-China Row Over Censorship
+				</a>
+				
+			</h4>
+			<div class="data">
+				On March 13th, 2010 with 116 comments
+			</div>
+			<div class="intro">
+				According to The Financial Times, "Google has drawn up detailed plans for the closure of its Chinese search engine and is now '99.9 per cent' certain to go...
+			</div>
+			<div class="details">
+				<a href="http://yro.slashdot.org">Your Rights Online</a> &raquo;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=84">Businesses</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=60">Censorship</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=14">Google</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=61">Government</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=384">Index</a>
+				
+			</div>
+			 
+		</div>
+	
+	
+	<div class="search-results">
+			<h4>
+				<a href="//tech.slashdot.org/article.pl?sid=10/03/13/1659223">
+					Key Web App Standard Approaches Consensus
+				</a>
+				
+			</h4>
+			<div class="data">
+				On March 13th, 2010 with 112 comments
+			</div>
+			<div class="intro">
+				suraj.sun tips a report up at CNet which begins:
+"Browser makers, grappling with outmoded technology and a vision to rebuild the Web as a foundation for...
+			</div>
+			<div class="details">
+				<a href="http://tech.slashdot.org">Technology</a> &raquo;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=94">The Internet</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=14">Google</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=11">Microsoft</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=366">Mozilla</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=303">Oracle</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=766">Technology</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=633">News</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=384">Index</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=228">Your Rights Online</a>
+				
+			</div>
+			 
+		</div>
+	
+	
+	<div class="search-results">
+			<h4>
+				<a href="//yro.slashdot.org/article.pl?sid=10/03/12/185227">
+					China Warns Google To Obey Or Leave
+				</a>
+				
+			</h4>
+			<div class="data">
+				On March 12th, 2010 with 523 comments
+			</div>
+			<div class="intro">
+				suraj.sun writes with this snippet from an Associated Press report:
+"China's top Internet regulator insisted Friday that Google must obey its laws or 'pay the...
+			</div>
+			<div class="details">
+				<a href="http://yro.slashdot.org">Your Rights Online</a> &raquo;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=60">Censorship</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=14">Google</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=61">Government</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=94">The Internet</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=384">Index</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=228">Your Rights Online</a>
+				
+			</div>
+			 
+		</div>
+	
+	
+	<div class="search-results">
+			<h4>
+				<a href="//tech.slashdot.org/article.pl?sid=10/03/10/2117242">
+					Google Opens Apps Marketplace
+				</a>
+				
+			</h4>
+			<div class="data">
+				On March 10th, 2010 with 54 comments
+			</div>
+			<div class="intro">
+				snydeq writes "Google has launched the Google Apps Marketplace, providing a venue for third-party, cloud-based applications to supplement Google's own online...
+			</div>
+			<div class="details">
+				<a href="http://tech.slashdot.org">Technology</a> &raquo;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=165">Software</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=14">Google</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=3082">IT</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=766">Technology</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=384">Index</a>
+				
+			</div>
+			 
+		</div>
+	
+	
+	<div class="search-results">
+			<h4>
+				<a href="//tech.slashdot.org/article.pl?sid=10/03/09/2116249">
+					Google's Computing Power Refines Translation
+				</a>
+				
+			</h4>
+			<div class="data">
+				On March  9th, 2010 with 141 comments
+			</div>
+			<div class="intro">
+				gollum123 sends an excerpt from the NY Times on how Google has taken a lead in language translation, in one of the company's few unqualified successes as it...
+			</div>
+			<div class="details">
+				<a href="http://tech.slashdot.org">Technology</a> &raquo;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=14">Google</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=766">Technology</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=384">Index</a>
+				
+			</div>
+			 
+		</div>
+	
+	
+	<div class="search-results">
+			<h4>
+				<a href="//tech.slashdot.org/article.pl?sid=10/03/08/2131233">
+					Google To Steal Office Web Apps' Thunder?
+				</a>
+				
+			</h4>
+			<div class="data">
+				On March  8th, 2010 with 151 comments
+			</div>
+			<div class="intro">
+				Barence writes "Google has stepped up its assault on Microsoft's productivity software with the acquisition of a start-up company that allows Office users to...
+			</div>
+			<div class="details">
+				<a href="http://tech.slashdot.org">Technology</a> &raquo;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=14">Google</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=11">Microsoft</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=165">Software</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=94">The Internet</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=766">Technology</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=384">Index</a>
+				
+			</div>
+			 
+		</div>
+	
+	
+	<div class="search-results">
+			<h4>
+				<a href="//hardware.slashdot.org/article.pl?sid=10/03/08/151248">
+					When the Power Goes Out At Google
+				</a>
+				
+			</h4>
+			<div class="data">
+				On March  8th, 2010 with 135 comments
+			</div>
+			<div class="intro">
+				1sockchuck writes "What happens when the power goes out in one of Google's mighty data centers? The company has issued an incident report on a Feb. 24 outage...
+			</div>
+			<div class="details">
+				<a href="http://hardware.slashdot.org">Hardware</a> &raquo;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=14">Google</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=154">Power</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=384">Index</a>
+				
+			</div>
+			 
+		</div>
+	
+	
+	<div class="search-results">
+			<h4>
+				<a href="//news.slashdot.org/article.pl?sid=10/03/06/0227224">
+					YouTube Makes Captioning Available To All
+				</a>
+				
+			</h4>
+			<div class="data">
+				On March  6th, 2010 with 102 comments
+			</div>
+			<div class="intro">
+				adeelarshad82 writes "Google's YouTube announced that it has moved its automatic speech-recognition and closed-captioning technology out of beta and has now...
+			</div>
+			<div class="details">
+				<a href="http://news.slashdot.org">News</a> &raquo;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=3525">Youtube</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=14">Google</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=88">Social Networks</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=357583">The Media</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=633">News</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=384">Index</a>
+				
+			</div>
+			 
+		</div>
+	
+	
+	<div class="search-results">
+			<h4>
+				<a href="//developers.slashdot.org/article.pl?sid=10/03/04/2039212">
+					Where Android Beats the iPhone
+				</a>
+				
+			</h4>
+			<div class="data">
+				On March  4th, 2010 with 365 comments
+			</div>
+			<div class="intro">
+				snydeq writes "Peter Wayner provides a developer's comparison of Android and the iPhone and finds Android not only competitive but in fact a better choice than...
+			</div>
+			<div class="details">
+				<a href="http://developers.slashdot.org">Developers</a> &raquo;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=883">Cellphones</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=14">Google</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=952">Java</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=3017">Operating Systems</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=22">Programming</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=598">Developers</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=384">Index</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=398">Mobile</a>
+				
+			</div>
+			 
+		</div>
+	
+	
+	<div class="search-results">
+			<h4>
+				<a href="//search.slashdot.org/article.pl?sid=10/03/04/1518249">
+					Google Indexing In Near-Realtime
+				</a>
+				
+			</h4>
+			<div class="data">
+				On March  4th, 2010 with 79 comments
+			</div>
+			<div class="intro">
+				krou writes "ReadWriteWeb is covering Google's embrace of a system that would enable any Web publisher to 'automatically submit new content to Google for...
+			</div>
+			<div class="details">
+				<a href="http://search.slashdot.org">Search</a> &raquo;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=14">Google</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=94">The Internet</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=384">Index</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=12">Search</a>
+				
+			</div>
+			 
+		</div>
+	
+	
+	<div class="search-results">
+			<h4>
+				<a href="//hardware.slashdot.org/article.pl?sid=10/03/03/2048229">
+					Turn Your Roomba Into a Household Google Bot
+				</a>
+				
+			</h4>
+			<div class="data">
+				On March  3rd, 2010 with 79 comments
+			</div>
+			<div class="intro">
+				Wael Chatila writes "By adding an on-board computer and a camera on a Roomba, the Roomba can be used to index your home. As a bonus, you can also control the...
+			</div>
+			<div class="details">
+				<a href="http://hardware.slashdot.org">Hardware</a> &raquo;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=2248">Robotics</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=14">Google</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=480">Hardware Hacking</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=3045">Input Devices</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=4956">Toys</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=766">Technology</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=384">Index</a>
+				
+			</div>
+			 
+		</div>
+	
+	
+	<div class="search-results">
+			<h4>
+				<a href="//idle.slashdot.org/article.pl?sid=10/03/03/161226">
+					Topeka, Kansas Unofficially Renamed "Google"
+				</a>
+				
+			</h4>
+			<div class="data">
+				On March  3rd, 2010 with 7 comments
+			</div>
+			<div class="intro">
+				Mayor Bill Bunten issued a proclamation Monday that Topeka shall be referred to as "Google, Kansas - the capital city of fiber optics," for a period of one...
+			</div>
+			<div class="details">
+				<a href="http://idle.slashdot.org">Idle</a> &raquo;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=14">Google</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=21105">Idle</a>
+				
+			</div>
+			 
+		</div>
+	
+	
+	<div class="search-results">
+			<h4>
+				<a href="//yro.slashdot.org/article.pl?sid=10/03/03/1259202">
+					Google Asks US For WTO Block On China Censorship
+				</a>
+				
+			</h4>
+			<div class="data">
+				On March  3rd, 2010 with 115 comments
+			</div>
+			<div class="intro">
+				An anonymous reader writes "Google is asking the US government to petition the World Trade Organization to recognize China's censorship as an unfair barrier to...
+			</div>
+			<div class="details">
+				<a href="http://yro.slashdot.org">Your Rights Online</a> &raquo;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=60">Censorship</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=14">Google</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=61">Government</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=209">United States</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=384">Index</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=228">Your Rights Online</a>
+				
+			</div>
+			 
+		</div>
+	
+	
+	<div class="search-results">
+			<h4>
+				<a href="//search.slashdot.org/article.pl?sid=10/03/02/1556239">
+					Blog About Facebook Gets Mistaken For Facebook
+				</a>
+				
+			</h4>
+			<div class="data">
+				On March  2nd, 2010 with 7 comments
+			</div>
+			<div class="intro">
+				An anonymous reader writes "Scansafe has an article about a personal blog about Facebook that got indexed by Google and received the top search result for...
+			</div>
+			<div class="details">
+				<a href="http://search.slashdot.org">Search</a> &raquo;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=14">Google</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=88">Social Networks</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=21105">Idle</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=12">Search</a>
+				
+			</div>
+			 
+		</div>
+	
+	
+	<div class="search-results">
+			<h4>
+				<a href="//tech.slashdot.org/article.pl?sid=10/03/02/1344259">
+					New Chrome Beta Adds Privacy Controls, Translation Option
+				</a>
+				
+			</h4>
+			<div class="data">
+				On March  2nd, 2010 with 181 comments
+			</div>
+			<div class="intro">
+				billandad writes "Anyone would think the timing was deliberate; just as Microsoft is forced into giving users the option to switch from IE via the browser...
+			</div>
+			<div class="details">
+				<a href="http://tech.slashdot.org">Technology</a> &raquo;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=14">Google</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=83">Privacy</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=165">Software</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=766">Technology</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=384">Index</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=228">Your Rights Online</a>
+				
+			</div>
+			 
+		</div>
+	
+	
+	<div class="search-results">
+			<h4>
+				<a href="//mobile.slashdot.org/article.pl?sid=10/03/02/0329249">
+					Google Awarded Broad Patent For Location-Based Advertising
+				</a>
+				
+			</h4>
+			<div class="data">
+				On March  1st, 2010 with 54 comments
+			</div>
+			<div class="intro">
+				Mashable has a report of a patent that just issued (6-1/2 years after filing) &mdash; apparently  Google now has a lock on location-based advertising. It's not...
+			</div>
+			<div class="details">
+				<a href="http://mobile.slashdot.org">Mobile</a> &raquo;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=129">Advertising</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=14">Google</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=473">Patents</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=398">Mobile</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=384">Index</a>
+				
+			</div>
+			 
+		</div>
+	
+	
+	<div class="search-results">
+			<h4>
+				<a href="//it.slashdot.org/article.pl?sid=10/03/02/0047249">
+					Aurora Attack &mdash; Resistance Is Futile, Pretty Much
+				</a>
+				
+			</h4>
+			<div class="data">
+				On March  1st, 2010 with 267 comments
+			</div>
+			<div class="intro">
+				eldavojohn writes "Do you have branch offices in China? iSec has published a new report (PDF) outlining the severity of the attacks on Google.cn, allegedly by...
+			</div>
+			<div class="details">
+				<a href="http://it.slashdot.org">IT</a> &raquo;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=76">Security</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=14">Google</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=766">Technology</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=384">Index</a>
+				
+			</div>
+			 
+		</div>
+	
+	
+	<div class="search-results">
+			<h4>
+				<a href="//tech.slashdot.org/article.pl?sid=10/03/01/214246">
+					Google Acquires Online Image Editing Tool Picnik
+				</a>
+				
+			</h4>
+			<div class="data">
+				On March  1st, 2010 with 84 comments
+			</div>
+			<div class="intro">
+				Many different sources are writing to tell us about Google's acquisition of online image editing tool Picnik.  "And all this leads us to today&rsquo;s exciting...
+			</div>
+			<div class="details">
+				<a href="http://tech.slashdot.org">Technology</a> &raquo;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=14">Google</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=136">Graphics</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=94">The Internet</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=384">Index</a>
+				
+			</div>
+			 
+		</div>
+	
+	
+	<div class="search-results">
+			<h4>
+				<a href="//tech.slashdot.org/article.pl?sid=10/03/01/180243">
+					Microsoft Behind Google Complaints To EC
+				</a>
+				
+			</h4>
+			<div class="data">
+				On March  1st, 2010 with 346 comments
+			</div>
+			<div class="intro">
+				justice4all writes to share that some of the recent complaints to the European Commission about Google have apparently been coming from Microsoft.  "A lawyer...
+			</div>
+			<div class="details">
+				<a href="http://tech.slashdot.org">Technology</a> &raquo;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=14">Google</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=11">Microsoft</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=766">Technology</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=384">Index</a>
+				
+			</div>
+			 
+		</div>
+	
+	
+	<div class="search-results">
+			<h4>
+				<a href="//developers.slashdot.org/article.pl?sid=10/03/01/1317228">
+					Google Go Capturing Developer Interest
+				</a>
+				
+			</h4>
+			<div class="data">
+				On March  1st, 2010 with 432 comments
+			</div>
+			<div class="intro">
+				angry tapir writes with news that Google Go seems to be cutting a wide swath through the programming community in just a short time since its early,...
+			</div>
+			<div class="details">
+				<a href="http://developers.slashdot.org">Developers</a> &raquo;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=22">Programming</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=14">Google</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=598">Developers</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=384">Index</a>
+				
+			</div>
+			 
+		</div>
+	
+	
+	<div class="search-results">
+			<h4>
+				<a href="//tech.slashdot.org/article.pl?sid=10/02/28/2050241">
+					Google Enhances Street View With User Photos
+				</a>
+				
+			</h4>
+			<div class="data">
+				On February 28th, 2010 with 133 comments
+			</div>
+			<div class="intro">
+				Google has launched a competitor or counterpart to Microsoft's Photosynth, which employs user-contributed photos of much-photographed sites to supplement the...
+			</div>
+			<div class="details">
+				<a href="http://tech.slashdot.org">Technology</a> &raquo;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=14">Google</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=88">Social Networks</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=384">Index</a>
+				
+			</div>
+			 
+		</div>
+	
+	
+	<div class="search-results">
+			<h4>
+				<a href="//search.slashdot.org/article.pl?sid=10/02/26/1717254">
+					Losing Google Would Hit Chinese Science Hard
+				</a>
+				
+			</h4>
+			<div class="data">
+				On February 26th, 2010 with 161 comments
+			</div>
+			<div class="intro">
+				An anonymous reader writes to share recent statements by Chinese scientists that indicate troubled waters ahead if Google were to pull out of China.  "More...
+			</div>
+			<div class="details">
+				<a href="http://search.slashdot.org">Search</a> &raquo;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=14">Google</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=100">Science</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=766">Technology</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=12">Search</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=384">Index</a>
+				
+			</div>
+			 
+		</div>
+	
+	
+	<div class="search-results">
+			<h4>
+				<a href="//yro.slashdot.org/article.pl?sid=10/02/26/175254">
+					EU Says Google Street View Violates Privacy
+				</a>
+				
+			</h4>
+			<div class="data">
+				On February 26th, 2010 with 300 comments
+			</div>
+			<div class="intro">
+				upto0013 notes the latest spot of trouble for Google in Europe: the EU says that Google's Street View images violate privacy laws. The EU's privacy watchdog...
+			</div>
+			<div class="details">
+				<a href="http://yro.slashdot.org">Your Rights Online</a> &raquo;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=14">Google</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=83">Privacy</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=384">Index</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=228">Your Rights Online</a>
+				
+			</div>
+			 
+		</div>
+	
+	
+	<div class="search-results">
+			<h4>
+				<a href="//yro.slashdot.org/article.pl?sid=10/02/25/199238">
+					Google Looks To Convert Print Pubs Into E-Articles
+				</a>
+				
+			</h4>
+			<div class="data">
+				On February 25th, 2010 with 42 comments
+			</div>
+			<div class="intro">
+				bizwriter writes "A patent application by Google (GOOG), filed in August 2008 and made public last week, shows that the company is trying to automate the...
+			</div>
+			<div class="details">
+				<a href="http://yro.slashdot.org">Your Rights Online</a> &raquo;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=357583">The Media</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=14">Google</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=473">Patents</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=633">News</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=384">Index</a>
+				
+			</div>
+			 
+		</div>
+	
+	
+	<div class="search-results">
+			<h4>
+				<a href="//yro.slashdot.org/article.pl?sid=10/02/24/1325219">
+					Xerox Sues Google, Yahoo Over Search Patents
+				</a>
+				
+			</h4>
+			<div class="data">
+				On February 24th, 2010 with 202 comments
+			</div>
+			<div class="intro">
+				gnosygnus writes "Xerox Corp has sued Google, Inc. and Yahoo, Inc., accusing them of infringing the document management company's patents related to Internet...
+			</div>
+			<div class="details">
+				<a href="http://yro.slashdot.org">Your Rights Online</a> &raquo;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=473">Patents</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=14">Google</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=332">The Courts</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=140">Yahoo!</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=228">Your Rights Online</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=384">Index</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=12">Search</a>
+				
+			</div>
+			 
+		</div>
+	
+	
+	<div class="search-results">
+			<h4>
+				<a href="//news.slashdot.org/article.pl?sid=10/02/24/1353205">
+					YouTube To Kill IE6 Support On March 13
+				</a>
+				
+			</h4>
+			<div class="data">
+				On February 24th, 2010 with 282 comments
+			</div>
+			<div class="intro">
+				Joel writes "Over six months ago, Google announced it would start phasing out support for Internet Explorer 6 on Orkut and YouTube, and started pushing its...
+			</div>
+			<div class="details">
+				<a href="http://news.slashdot.org">News</a> &raquo;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=4921">Internet Explorer</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=3525">Youtube</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=14">Google</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=384">Index</a>
+				
+			</div>
+			 
+		</div>
+	
+	
+	<div class="search-results">
+			<h4>
+				<a href="//yro.slashdot.org/article.pl?sid=10/02/24/1323218">
+					Google Italy Execs Convicted Over YouTube Bullying Video
+				</a>
+				
+			</h4>
+			<div class="data">
+				On February 24th, 2010 with 391 comments
+			</div>
+			<div class="intro">
+				FTWinston writes "Three Italian Google executives have been convicted of privacy violations in Italy over the contents of a YouTube video showing a boy with...
+			</div>
+			<div class="details">
+				<a href="http://yro.slashdot.org">Your Rights Online</a> &raquo;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=60">Censorship</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=14">Google</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=3525">Youtube</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=384">Index</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=228">Your Rights Online</a>
+				
+			</div>
+			 
+		</div>
+	
+	
+	<div class="search-results">
+			<h4>
+				<a href="//tech.slashdot.org/article.pl?sid=10/02/23/1616221">
+					Google Android &mdash; a Universe of Incompatible Devices
+				</a>
+				
+			</h4>
+			<div class="data">
+				On February 23rd, 2010 with 636 comments
+			</div>
+			<div class="intro">
+				snydeq writes "Galen Gruman writes about the dark side of the recent flood of Android smartphones: versions run amok. 'That flood of options should be a good...
+			</div>
+			<div class="details">
+				<a href="http://tech.slashdot.org">Technology</a> &raquo;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=3017">Operating Systems</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=883">Cellphones</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=14">Google</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=886">Handhelds</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=384">Index</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=398">Mobile</a>
+				
+			</div>
+			 
+		</div>
+	
+	
+	<div class="search-results">
+			<h4>
+				<a href="//yro.slashdot.org/article.pl?sid=10/02/23/1346227">
+					Google To Restart Talks With China
+				</a>
+				
+			</h4>
+			<div class="data">
+				On February 23rd, 2010 with 118 comments
+			</div>
+			<div class="intro">
+				eldavojohn writes "Following the infamous attacks allegedly carried out by the Chinese government, Google sent a strongly worded message to China.  However,...
+			</div>
+			<div class="details">
+				<a href="http://yro.slashdot.org">Your Rights Online</a> &raquo;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=60">Censorship</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=14">Google</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=94">The Internet</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=384">Index</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=228">Your Rights Online</a>
+				
+			</div>
+			 
+		</div>
+	
+	
+	<div class="search-results">
+			<h4>
+				<a href="//news.slashdot.org/article.pl?sid=10/02/22/1639254">
+					US Inadvertently Enabled Chinese Google Hackers
+				</a>
+				
+			</h4>
+			<div class="data">
+				On February 22nd, 2010 with 103 comments
+			</div>
+			<div class="intro">
+				Phrogman writes "In this CNN article by Bruce Schneier, he states that the US Government inadvertently enabled Chinese hackers access to Google's Gmail. The...
+			</div>
+			<div class="details">
+				<a href="http://news.slashdot.org">News</a> &raquo;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=14">Google</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=76">Security</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=209">United States</a>,&nbsp;
+				
+					
+					<a href="//slashdot.org/search.pl?tid=384">Index</a>
+				
+			</div>
+			 
+		</div>
+	
+	<div class="pagination">
+	
+				
+				
+				
+					<a href="//slashdot.org/search.pl?threshold=1&amp;op=stories&amp;tid=14&amp;sort=1&amp;start=30">Next 30 matches &raquo;</a>
+				
+	
+	</div>
+	</div>
+</div>
+<script type="text/javascript">
+(function() {
+// coremetrics
+if( window.location.hostname.indexOf('slashdot.org') >= 0 ) {
+	cmSetProduction();
+}
+cmCreatePageviewTag && cmCreatePageviewTag('OLD STORIES') && (cmCreatePageviewTag = null);
+})();
+</script></div>	
+		</div>
+			<div id="footer">
+				<div class="search">
+				
+					<form method="get" action="//slashdot.org/search.pl">
+						<fieldset>
+							<legend>Search</legend>
+							<input type="text" name="query" value="" size="20">
+							<input type="submit" value="Search" class="button">
+						</fieldset>
+					</form>
+				
+				</div>
+				<div class="rightcontent">
+					
+                		        <small>Neutrinos have bad breadth.</small>
+					
+				</div>	
+			</div>
+		</div>	
+	</div>
+	<div class="copyright">
+		<p>
+
+			All trademarks and copyrights on this page are owned by their respective owners.  Comments are owned by the Poster.  The Rest &copy; 1997-2010 <a href="http://geek.net/">Geeknet, Inc.</a>
+		</p>
+	</div>
+	<div id="login_cover" style="display:none" onclick="hide_login_box()"></div>
+<div id="login_box" style="display:none">
+<div class="generaltitle" >
+	<div class="title">
+		<h3 >
+			Please Log In to Continue<a href="#" onclick="hide_login_box(); return false" class="close" title="Close this box">x</a>
+			
+		</h3>
+	</div>
+</div>
+<div id="login_box_content">
+<form action="//slashdot.org/login.pl" method="post">
+<fieldset>
+	<legend>Log In</legend>
+	<label>
+		Nickname
+	</label>
+	<input type="text" name="unickname" size="20" value="">
+	<label>
+		Password
+	</label>
+	<input type="hidden" name="returnto" value="//slashdot.org/">
+	<input type="hidden" name="op" value="userlogin">
+	<input type="password" name="upasswd" size="20">
+	<label class="checkbox">
+		<input type="checkbox" name="login_temp" value="yes">
+		Public Terminal
+	</label>
+	<input type="submit" name="userlogin" value="Log in" class="button">
+	</fieldset>
+</form>
+
+
+
+<hr>
+
+
+<form action="//slashdot.org/login.pl" method="post">
+<fieldset>
+	<input type="hidden" name="slash_returnto" value="//slashdot.org/">
+	<input type="hidden" name="op" value="claim_openid">
+	<input type="hidden" name="openid_login" value="1">
+	<label for="openid_url" class="openid_url">
+	<input type="text" name="openid_url" value="http://" size="32" maxlength="255">
+	</label>
+	<input type="submit" value="Log in with OpenID" class="button">
+</fieldset>
+</form>
+
+
+<p>
+<b>
+<a href="//slashdot.org/my/newuser">Create Account</a>
+&nbsp;|&nbsp;
+<a href="//slashdot.org/my/mailpassword">Retrieve Password</a>
+</b>
+</p>
+</div></div>
+<script type="text/javascript">logged_in = 0</script>
+	<div class="btmnav">
+		<ul>
+			<li class="begin"><a href="//slashdot.org/">home</a></li>
+			<li class="submit"><a href="//slashdot.org/submission">submit story</a></li>
+			<li><a href="//slashdot.org/help/">help </a></li>
+			<li><a href="http://geek.net/advertising">advertise</a></li>
+			<li><a href="http://geek.net/terms.php">terms of service</a></li>
+			<li><a href="http://geek.net/privacy.php">privacy</a></li>
+			<li class="rss"><a href="http://rss.slashdot.org/Slashdot/slashdot">rss</a></li>
+		</ul>
+	</div>
+<script type="text/javascript">
+pageTracker._trackPageview();
+(function() {
+
+// coremetrics
+	setSlashCMCallback( function(params){
+		if( window.location.hostname.indexOf('slashdot.org') >= 0 ) {
+			cmSetProduction();
+		}
+		var searchstring = 'SEARCH ';
+		if( params.updateNum > 0 ) {
+			searchstring = searchstring + 'SUCCESSFUL';
+		} else
+		{
+			searchstring = searchstring + 'UNSUCCESSFUL';
+			params.updateNum = 0;
+		}
+		cmCreatePageviewTag( searchstring, params.updateType.toUpperCase(), params.updateTerms, params.UpdateNum );
+	});
+
+	var basedomain	= 'slashdot.org';
+	var site	= basedomain.replace(/\..*/gi,'');
+	var subsite	= location.hostname.replace(/\..*/gi,'');
+	var section	= subsite;
+	var t		= $('title').text();
+	var title	= ( t.indexOf('|') >= 0 ? t.replace(/.* \| /gi,'') : 'SECTION PAGE: ' + section );
+	if( window.location.hostname.indexOf('slashdot.org') >= 0 ) {
+		cmSetProduction();
+	}
+	cmCreatePageviewTag && cmCreatePageviewTag('ARTICLE DETAIL: ' + section, null, null, null, title + '-_-' + section ) && (cmCreatePageviewTag = null);
+})();
+</script>
+<div id="modal_cover" style="display:none"></div>
+<div id="modal_box" style="display:none">
+        <div class="generaltitle" >
+                <div class="title"><h3><span id="preference_title"></span> <a href="#" onclick="hide_modal_box(); return false">Close</a></h3></div>
+        </div>
+        <div id="modal_box_content"></div>
+</div>
+<script id="after-content" type="text/javascript">
+(function( $, fn, console ){
+	$ && fn && $(function(){ fn($, console); });
+})(window.jQuery, window.pageload_done, window.console);
+</script>
+</body>
+</html>

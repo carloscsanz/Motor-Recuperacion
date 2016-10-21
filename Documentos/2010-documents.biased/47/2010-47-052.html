@@ -1,0 +1,891 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+            <title>How do I make ANTLRWorks and Visual Studio work together? (CSharp as target language) - ANTLR 3 - ANTLR Project</title>
+    
+        
+        
+        
+        
+        
+
+                        
+    
+    
+            
+<meta id="confluence-context-path" name="confluence-context-path" content="/wiki">
+<meta id="atlassian-token" name="atlassian-token" content="sacZEhnkWz">
+<meta id="confluence-space-key" name="confluence-space-key" content="ANTLR3">
+
+<script type="text/javascript">
+    // Deprecated global variables. To be removed in a future version of Confluence.
+    var contextPath = '/wiki';
+    var i18n = [];
+</script>
+
+    
+
+<!-- include system resources -->
+<link type="text/css" rel="stylesheet" href="/wiki/s/1634/1/1.0/_/download/batch/confluence.web.resources:master-styles/confluence.web.resources:master-styles.css" media="all"/>
+<!--[if IE]>
+<link type="text/css" rel="stylesheet" href="/wiki/s/1634/1/1.0/_/download/batch/confluence.web.resources:master-styles/confluence.web.resources:master-styles.css?ieonly=true" media="all"/>
+<![endif]-->
+<script type="text/javascript" src="/wiki/s/1634/1/1.0.2/_/download/batch/com.atlassian.auiplugin:jquery/com.atlassian.auiplugin:jquery.js" ></script>
+<script type="text/javascript" src="/wiki/s/1634/1/1.0.2/_/download/batch/com.atlassian.auiplugin:jquery-base/com.atlassian.auiplugin:jquery-base.js" ></script>
+<script type="text/javascript" src="/wiki/s/1634/1/1.0.2/_/download/batch/com.atlassian.auiplugin:ajs/com.atlassian.auiplugin:ajs.js" ></script>
+<link type="text/css" rel="stylesheet" href="/wiki/s/1634/1/1.0/_/download/batch/confluence.macros.profile:network-resources-css/confluence.macros.profile:network-resources-css.css" media="all"/>
+<link type="text/css" rel="stylesheet" href="/wiki/s/1634/1/1.0/_/download/batch/confluence.macros.profile:profile-macro-styles/confluence.macros.profile:profile-macro-styles.css" media="all"/>
+<!--[if IE]>
+<link type="text/css" rel="stylesheet" href="/wiki/s/1634/1/1.0/_/download/batch/confluence.macros.profile:profile-macro-styles/confluence.macros.profile:profile-macro-styles.css?ieonly=true" media="all"/>
+<![endif]-->
+<script type="text/javascript" src="/wiki/s/1634/1/1.0/_/download/batch/confluence.macros.profile:profile-macro-styles/confluence.macros.profile:profile-macro-styles.js" ></script>
+<link type="text/css" rel="stylesheet" href="/wiki/s/1634/1/1.6.2.8/_/download/batch/confluence.macros.advanced:recently-updated-sidebar-resources/confluence.macros.advanced:recently-updated-sidebar-resources.css" media="all"/>
+<script type="text/javascript" src="/wiki/s/1634/1/1.5/_/download/batch/com.atlassian.confluence.extra.officeconnector:editinoffice/com.atlassian.confluence.extra.officeconnector:editinoffice.js" ></script>
+<script type="text/javascript" src="/wiki/s/1634/1/1.0/_/download/batch/confluence.web.resources:image-effects/confluence.web.resources:image-effects.js" ></script>
+<script type="text/javascript" src="/wiki/s/1634/1/1.0/_/download/batch/confluence.web.resources:prototype/confluence.web.resources:prototype.js" ></script>
+<script type="text/javascript" src="/wiki/s/1634/1/1.0/_/download/batch/confluence.web.resources:scriptaculous/confluence.web.resources:scriptaculous.js" ></script>
+<script type="text/javascript" src="/wiki/s/1634/1/1.0/_/download/resources/confluence.web.resources:dwr/engine.js" ></script>
+<script type="text/javascript" src="/wiki/s/1634/1/1.0/_/download/resources/confluence.web.resources:dwr/util.js" ></script>
+<script type="text/javascript" src="/wiki/s/1634/1/1.0/_/download/resources/confluence.web.resources:labels-editor/AddLabeltoEntity.js" ></script>
+<script type="text/javascript" src="/wiki/s/1634/1/1.0/_/download/resources/confluence.web.resources:labels-editor/RemoveLabelFromEntity.js" ></script>
+<script type="text/javascript" src="/wiki/s/1634/1/1.0/_/download/resources/confluence.web.resources:labels-editor/SuggestedLabelsForEntity.js" ></script>
+<script type="text/javascript" src="/wiki/s/1634/1/1.0/_/download/resources/confluence.web.resources:labels-editor/GenerateAutocompleteLabelsListForEntity.js" ></script>
+<script type="text/javascript" src="/wiki/s/1634/1/1.0/_/download/batch/confluence.web.resources:labels-editor/confluence.web.resources:labels-editor.js" ></script>
+<link type="text/css" rel="stylesheet" href="/wiki/s/1634/1/1.0/_/download/batch/confluence.web.resources:labels-editor/confluence.web.resources:labels-editor.css" media="all"/>
+<script type="text/javascript" src="/wiki/s/1634/1/1.0/_/download/batch/confluence.web.resources:animation/confluence.web.resources:animation.js" ></script>
+<script type="text/javascript" src="/wiki/s/1634/1/1.0/_/download/batch/confluence.web.resources:comments/confluence.web.resources:comments.js" ></script>
+<link type="text/css" rel="stylesheet" href="/wiki/s/1634/1/1.0/_/download/batch/confluence.web.resources:comments/confluence.web.resources:comments.css" media="all"/>
+<!--[if IE]>
+<link type="text/css" rel="stylesheet" href="/wiki/s/1634/1/1.0/_/download/batch/confluence.web.resources:comments/confluence.web.resources:comments.css?ieonly=true" media="all"/>
+<![endif]-->
+<script type="text/javascript" src="/wiki/s/1634/1/1.0/_/download/batch/confluence.web.resources:breadcrumbs/confluence.web.resources:breadcrumbs.js" ></script>
+<script type="text/javascript" src="/wiki/s/1634/1/1.0/_/download/batch/confluence.web.resources:master-scripts/confluence.web.resources:master-scripts.js" ></script>
+<script type="text/javascript" src="/wiki/s/1634/1/1.0/_/download/resources/confluence.web.resources:master-scripts/PageNotification.js" ></script>
+<link type="text/css" rel="stylesheet" href="/wiki/s/1634/1/1.0/_/download/batch/confluence.web.resources:print-styles/confluence.web.resources:print-styles.css?media=print" media="print"/>
+<script type="text/javascript" src="/wiki/s/1634/1/1.0/_/download/batch/confluence.web.resources:safe-ajax/confluence.web.resources:safe-ajax.js" ></script>
+<script type="text/javascript" src="/wiki/s/1634/1/1.0.2/_/download/batch/com.atlassian.auiplugin:dialog/com.atlassian.auiplugin:dialog.js" ></script>
+<link type="text/css" rel="stylesheet" href="/wiki/s/1634/1/1.0.2/_/download/batch/com.atlassian.auiplugin:dialog/com.atlassian.auiplugin:dialog.css" media="all"/>
+<!--[if IE]>
+<link type="text/css" rel="stylesheet" href="/wiki/s/1634/1/1.0.2/_/download/batch/com.atlassian.auiplugin:dialog/com.atlassian.auiplugin:dialog.css?ieonly=true" media="all"/>
+<![endif]-->
+<script type="text/javascript" src="/wiki/s/1634/1/1.0/_/download/batch/confluence.userstatus:userstatus-resources/confluence.userstatus:userstatus-resources.js" ></script>
+<link type="text/css" rel="stylesheet" href="/wiki/s/1634/1/1.0/_/download/batch/confluence.userstatus:userstatus-resources/confluence.userstatus:userstatus-resources.css" media="all"/>
+<script type="text/javascript" src="/wiki/s/1634/1/1.0/_/download/batch/confluence.web.resources:contentnamesearch/confluence.web.resources:contentnamesearch.js" ></script>
+<link type="text/css" rel="stylesheet" href="/wiki/s/1634/1/1.0/_/download/batch/confluence.web.resources:contentnamesearch/confluence.web.resources:contentnamesearch.css" media="all"/>
+<script type="text/javascript" src="/wiki/s/1634/1/1.0/_/download/batch/confluence.web.resources:userlink/confluence.web.resources:userlink.js" ></script>
+<link type="text/css" rel="stylesheet" href="/wiki/s/1634/1/1.0/_/download/batch/confluence.web.resources:userlink/confluence.web.resources:userlink.css" media="all"/>
+<!--[if IE]>
+<link type="text/css" rel="stylesheet" href="/wiki/s/1634/1/1.0/_/download/batch/confluence.web.resources:userlink/confluence.web.resources:userlink.css?ieonly=true" media="all"/>
+<![endif]-->
+<script type="text/javascript" src="/wiki/s/1634/1/1.0.2/_/download/batch/com.atlassian.auiplugin:drop-down/com.atlassian.auiplugin:drop-down.js" ></script>
+<link type="text/css" rel="stylesheet" href="/wiki/s/1634/1/1.0.2/_/download/batch/com.atlassian.auiplugin:drop-down/com.atlassian.auiplugin:drop-down.css" media="all"/>
+<script type="text/javascript" src="/wiki/s/1634/1/1.0/_/download/batch/confluence.web.resources:atlassian-effects/confluence.web.resources:atlassian-effects.js" ></script>
+
+<!-- end system resources -->
+
+    <link rel="stylesheet" href="/wiki/s/1634/1/1/_/styles/combined.css?spaceKey=ANTLR3" type="text/css">
+
+    <meta name="confluence-request-time" content="1268574550183">
+
+    <link rel="shortcut icon" href="/wiki/favicon.ico">
+    <link rel="icon" type="image/png" href="/wiki/s/1634/1/_/images/logo/confluence_16.png">
+
+<link rel="search" type="application/opensearchdescription+xml" href="/wiki/opensearch/osd.action" title="ANTLR Project"/>
+
+    
+</head>
+
+            <body onload="placeFocus()" id="com-atlassian-confluence">
+    
+
+
+    
+<div id="header">
+        <form id="quick-search" class="quick-search" method="get" action="/wiki/dosearchsite.action">
+                <fieldset>
+            <legend>Quick Search</legend>
+            <input class="quick-search-query" id="quick-search-query" type="text" accessKey="q" autocomplete="off" name="queryString" size="25" />
+            <input class="quick-search-submit" id="quick-search-submit" type="submit" value="Search" />
+        </fieldset>
+        <fieldset class="hidden parameters">
+            <input type="hidden" class="quickSearchPlaceholder" id="quickSearchPlaceholder" value="Search" />
+
+            <input type="hidden" id="quickNavEnabled" value="true" />
+             <!-- Quick nav disabled. SettingsManager could not be found -->         </fieldset>
+    </form>
+    <ul id="header-menu-bar" class="ajs-menu-bar">
+                    
+        
+            <li class="normal ajs-menu-item">
+        <a id="browse-menu-link" class="browse trigger ajs-menu-title" href="#"><span><span>Browse</span></span></a>         <div class="hidden ajs-drop-down">
+                        <ul  id="browse-menu-link-leading"                 class="section-leading first">
+                                        <li>
+    
+    <a  id="space-pages-link"  href="/wiki/pages/listpages.action?key=ANTLR3"  class=""  >
+                   <span>Pages</span>            </a>
+</li>
+                                        <li>
+    
+    <a  id="space-blogposts-link"  href="/wiki/pages/viewrecentblogposts.action?key=ANTLR3"  class=""  >
+                   <span>News</span>            </a>
+</li>
+                                        <li>
+    
+    <a  id="space-labels-link"  href="/wiki/labels/listlabels-heatmap.action?key=ANTLR3"  class=""  >
+                   <span>Labels</span>            </a>
+</li>
+                                        <li>
+    
+    <a  id="space-attachments-link"  href="/wiki/spaces/listattachmentsforspace.action?key=ANTLR3"  class=""  >
+                   <span>Attachments</span>            </a>
+</li>
+                                        <li>
+    
+    <a   href="/wiki/spaces/space-bookmarks.action?spaceKey=ANTLR3"  class=""  >
+                   <span>Bookmarks</span>            </a>
+</li>
+                                        <li>
+    
+    <a  id="space-mail-link"  href="/wiki/spaces/viewmailarchive.action?key=ANTLR3"  class=""  >
+                   <span>Mail</span>            </a>
+</li>
+                                        <li>
+    
+    <a  id="space-advanced-link"  href="/wiki/spaces/viewspacesummary.action?key=ANTLR3"  class=""  >
+                   <span>Advanced</span>            </a>
+</li>
+                            </ul>
+                    </div>
+    </li>
+        
+                                                         <li class="ajs-menu-item normal">
+    
+    <a  id="login-link"  href="/wiki/login.action?os_destination=%2Fpages%2Fviewpage.action%3FpageId%3D557075"  class="user-item login-link"  >
+                   <span>Log In</span>            </a>
+</li>
+                            </ul>
+    
+    
+    <ol id="breadcrumbs">
+                    
+        <li class="first" ><span>
+                                    <a href="/wiki/dashboard.action">Dashboard</a>
+                </span></li>
+                    
+        <li><span>
+                                    <a href="/wiki/display/ANTLR3">ANTLR 3</a>
+                </span></li>
+                                        <li id="ellipsis" title="    &#8230;
+                    ANTLR 3 Wiki Home
+             &gt;         ANTLR v3 FAQ
+        &#8230;
+"><span><strong>&#8230;</strong></span></li>
+                                    
+        <li class="hidden-crumb" ><span>
+                                    <a href="/wiki/display/ANTLR3/ANTLR+3+Wiki+Home">ANTLR 3 Wiki Home</a>
+                </span></li>
+                                
+        <li class="hidden-crumb" ><span>
+                                    <a href="/wiki/display/ANTLR3/ANTLR+v3+FAQ">ANTLR v3 FAQ</a>
+                </span></li>
+                    
+        <li><span>
+                                    <a href="/wiki/display/ANTLR3/FAQ+-+General">FAQ - General</a>
+                </span></li>
+                    
+        <li><span>
+                                    How do I make ANTLRWorks and Visual Studio work together? (CSharp as target language)
+                </span></li>
+        </ol>
+
+</div>
+<div id="main">
+    
+                <ul id="user-control-panel">
+                                
+            <li class="first"><a href="/wiki/login.action?os_destination=%2Fpages%2Fviewpage.action%3FpageId%3D557075">Log In</a></li>
+
+                                                        </ul>
+        
+    <div id="navigation" class="content-navigation view">
+        <fieldset class="hidden parameters">
+            <input type="hidden" id="pageId" value="557075">
+        </fieldset>
+        <ul class="ajs-menu-bar">
+                                
+                        
+            <li class="normal ajs-menu-item">
+        <a id="action-menu-link" class="action trigger ajs-menu-title" href="#"><span><span>Tools</span></span></a>         <div class="hidden ajs-drop-down">
+                        <ul  id="action-menu-link-primary"                 class="section-primary first">
+                                        <li>
+    
+    <a  id="view-attachments-link"  href="/wiki/pages/viewpageattachments.action?pageId=557075"  class="action-view-attachments"  accessKey="a" >
+                   <span><u>A</u>ttachments (0)</span>            </a>
+</li>
+                                        <li>
+    
+    <a  id="action-view-history-link"  href="/wiki/pages/viewpreviousversions.action?pageId=557075"  class="action-view-history"  >
+                   <span>Page History</span>            </a>
+</li>
+                            </ul>
+                        <ul  id="action-menu-link-secondary"                 class="section-secondary">
+                                        <li>
+    
+    <a  id="view-page-info-link"  href="/wiki/pages/viewinfo.action?pageId=557075"  class="action-view-info"  accessKey="i" >
+                   <span><u>I</u>nfo</span>            </a>
+</li>
+                                        <li>
+    
+    <a  id="action-view-source-link"  href="/wiki/pages/viewpagesrc.action?pageId=557075"  class="action-view-source popup-link"  >
+                   <span>View Wiki Markup</span>            </a>
+</li>
+                            </ul>
+                    </div>
+    </li>
+            </ul>
+    </div>
+
+    <h1 id="title-heading" class="pagetitle">
+                    <a href="/wiki/display/ANTLR3"><img class="logo space custom" src="/wiki/download/attachments/292/ANTLR3?version=1&amp;modificationDate=1229714323000" alt=""></a>        
+		<span id="title-text">
+					            <a href="/wiki/pages/viewpage.action?pageId=557075">How do I make ANTLRWorks and Visual Studio work together? (CSharp as target language)</a>
+    				</span>
+    </h1>
+
+    <!--
+    Root decorator: this is a layer of abstraction that Confluence doesn't need. It will be removed eventually.
+-->
+
+
+
+
+    
+    
+
+    
+    
+        
+    
+    
+                    
+    
+
+    
+
+
+<div id="content" class="page view">
+    
+        
+    
+            
+                            
+    
+
+                    
+
+        
+        <div class="page-metadata">
+    <ul>
+                <li class="page-metadata-modification-info">
+                    Added by <a class="url fn" href="/wiki/display/~ruth">Ruth Karl</a>, last edited by <a class="url fn" href="/wiki/display/~lwhitney@hdgreetings.com">Lee Whitney</a> on Mar 28, 2009
+                                        <span class="noprint">&nbsp;(<a href="/wiki/pages/diffpages.action?pageId=557075&originalId=17268903">view change</a>)</span>
+                            </li>
+            </ul>
+      <div id="versionComment" class="noteMacro" style="display:none; padding: 5px;">
+      <strong>Comment:</strong>
+      <br />
+  </div>
+
+    <script>
+      var show = document.getElementById('show');
+      var hide = document.getElementById('hide');
+      var versionComment = document.getElementById('versionComment');
+
+      function showComment(){
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+        versionComment.style.display = 'block';
+      }
+
+      function hideComment(){
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+        versionComment.style.display = 'none';
+      }
+
+    </script>
+</div>        
+        <div class="wiki-content">
+           <!-- wiki content -->
+            <p>How to make ANTLRWorks and Visual Studio work together - with C# as the target language.
+<br class="atl-forced-newline" /></p>
+
+<p>This has been tested on Vista (32-bit and 64-bit), and Windows 7 Beta 1 (64-bit) with Visual Studio 2008 and 2005</p>
+
+<h5><a name="HowdoImakeANTLRWorksandVisualStudioworktogether%3F%28CSharpastargetlanguage%29-DownloadandUnpackANTLR"></a>Download and Unpack ANTLR</h5>
+
+<ol>
+	<li>Download the latest version of the <a href="http://www.antlr.org/download/antlrworks-1.2.3.jar" title="Download ANTLRWorks" class="external-link" rel="nofollow">ANTLRWorks GUI Development Environment</a> (Version 1.2.3 for Windows, Linux and Mac OS X).</li>
+	<li>Download the latest version of <a href="http://www.antlr.org/download/antlr-3.1.3.tar.gz" title="Download ANTLR v3" class="external-link" rel="nofollow">ANTLR v3</a>&nbsp; (ANTLR Version 3.1.3 source distribution)</li>
+	<li>Create a new folder of your choice.&nbsp; For this example assume C:\ANTLR, however <em>any location may be chosen</em></li>
+	<li>Unpack antlr-3.1.3.tar.gz into the new folder C:\ANTLR</li>
+	<li>Unzip the file C:\ANTLR\antlr-3.1.3\runtime\CSharp\dist\DOT-NET-runtime-3.1.3.zip into C:\ANTLR\antlr-3.1.3\runtime\CSharp\Libraries</li>
+</ol>
+
+
+<h5><a name="HowdoImakeANTLRWorksandVisualStudioworktogether%3F%28CSharpastargetlanguage%29-InstallJavaruntimeandJDK"></a>Install Java runtime and JDK</h5>
+
+<ol>
+	<li>ANTLR requires the <a href="http://java.com" title="Download Java" class="external-link" rel="nofollow">Java runtime</a> to run.&nbsp; Download and install if you don't have it.</li>
+	<li>ANTLRWorks requires the <a href="http://java.sun.com/javase/downloads" title="Download JDK" class="external-link" rel="nofollow">JDK (Java Development Kit)</a> for debugging.&nbsp; Download and install as needed.</li>
+</ol>
+
+
+<h5><a name="HowdoImakeANTLRWorksandVisualStudioworktogether%3F%28CSharpastargetlanguage%29-UseANTLRfromVisualStudio"></a>Use ANTLR from Visual Studio</h5>
+
+
+<ol>
+	<li>Create a new Visual      Studio project</li>
+	<li>Add these project references from the folder C:\ANTLR\antlr-3.1.3\runtime\CSharp\Libraries
+	<ul>
+		<li>Antlr3.Runtime.dll&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (Antlr runtime 3.1.3)</li>
+		<li>antlr.runtime.dll&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (Antlr runtime 2.7.7 for StringTemplate)</li>
+		<li>StringTemplate.dll</li>
+		<li>Antlr3.Utility.dll</li>
+	</ul>
+	</li>
+	<li>Start ANTLRWorks with a double      click on the jar-file (antlrworks-1.2.3.jar)</li>
+	<li>Copy the following test grammar      into the new file.&nbsp; <b>Note the language property in the options section of the grammar is what specifies C# targeted output</b>.
+<div class='table-wrap'>
+<table class='confluenceTable'><tbody>
+<tr>
+<td class='confluenceTd'> grammar Test; <br class="atl-forced-newline" />  <br class="atl-forced-newline" />
+options <br class="atl-forced-newline" />
+{language = 'CSharp2'; <br class="atl-forced-newline" />
+output=AST; <br class="atl-forced-newline" />
+} <br class="atl-forced-newline" />
+expr : mexpr (PLUS&#94; mexpr)&#42; SEMI&#33; <br class="atl-forced-newline" />
+; <br class="atl-forced-newline" />
+mexpr <br class="atl-forced-newline" />
+: atom (STAR&#94; atom)&#42; <br class="atl-forced-newline" />
+; <br class="atl-forced-newline" />
+atom: INT <br class="atl-forced-newline" />
+; <br class="atl-forced-newline" />
+//class csharpTestLexer extends Lexer; <br class="atl-forced-newline" />
+WS : (' ' <br class="atl-forced-newline" />
+&#124; '\t' <br class="atl-forced-newline" />
+&#124; '\n' <br class="atl-forced-newline" />
+&#124; '\r') <br class="atl-forced-newline" />
+{  $channel = HIDDEN;  } <br class="atl-forced-newline" />
+; <br class="atl-forced-newline" />
+LPAREN: '(' <br class="atl-forced-newline" />
+; <br class="atl-forced-newline" />
+RPAREN: ')' <br class="atl-forced-newline" />
+; <br class="atl-forced-newline" />
+STAR: '*' <br class="atl-forced-newline" />
+; <br class="atl-forced-newline" />
+PLUS: '+' <br class="atl-forced-newline" />
+; <br class="atl-forced-newline" />
+SEMI: ';' <br class="atl-forced-newline" />
+; <br class="atl-forced-newline" />
+protected <br class="atl-forced-newline" />
+DIGIT <br class="atl-forced-newline" />
+: '0'..'9' <br class="atl-forced-newline" />
+; <br class="atl-forced-newline" />
+INT : (DIGIT)&#43; <br class="atl-forced-newline" />
+; </td>
+</tr>
+</tbody></table>
+</div>
+</li>
+	<li>Save this file as Test<font color="">.g (the name of the file has to equal the      name of the grammar) in your VS project directory.</font></li>
+	<li><font color="">Add existing item Test</font>.g (the file you just saved) to your      project.</li>
+	<li>Now go back to ANTLRWorks. Do Ctrl+R (check grammar): You should get a success message.</li>
+	<li>Open the menu      File-&gt;Preferences, choose tab General and set the output path to your      Visual Studio Project directory. (In case you experience any Java related      problems: check tab Compiler to set the path to javac). Click APPLY and      close Preferences Window.</li>
+	<li>Now try Ctrl+Shift+G (Generate      Code). You should get a success message.</li>
+	<li>Add the generated .cs files to      your VS project.</li>
+	<li>Back in Visual Studio you      should be able to build your solution and work with the parser.</li>
+	<li>Whenever you need to make      changes to your grammar, you can do it in ANTLRWorks now and lexer and      parser will be updated automatically in your project.</li>
+</ol>
+
+
+<h5><a name="HowdoImakeANTLRWorksandVisualStudioworktogether%3F%28CSharpastargetlanguage%29-DebuggingwithANTLRWorks"></a>Debugging with ANTLRWorks</h5>
+
+<ol>
+	<li>From the menu      select File-&gt;Preferences, choose tab Compile and set the javac path to &lt;JDK Path&gt;\jre\bin</li>
+	<li>Add an exception to the Windows Firewall (or other firewall) to grant network access to java.exe and javaw.exe.&nbsp; By default these programs are installed to C:\program files (x86)\java\jre6\bin.</li>
+	<li>From the menu select Debugger-&gt;Debug..., then set the option "Line Endings" to Windows (CRLF)</li>
+	<li>For the "Text" option type in the expression&nbsp; "2+3*4", then press the enter key to add a CRLF (carriage return/line feed) to end of the expression, then click OK.</li>
+	<li>You can now use the VCR style buttons to step through, debug, and run the grammar in the debugger.</li>
+</ol>
+
+
+<h5><a name="HowdoImakeANTLRWorksandVisualStudioworktogether%3F%28CSharpastargetlanguage%29-WhatNext%3F"></a>What Next?</h5>
+
+<p>If you're not sure where to go next, a good start is to follow the <a href="http://www.antlr.org/works/help/index.html" class="external-link" rel="nofollow">tutorials</a> on the help page.</p>
+        </div>
+
+        <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+         <rdf:Description
+    rdf:about="http://www.antlr.org/wiki/pages/viewpage.action?pageId=557075"
+    dc:identifier="http://www.antlr.org/wiki/pages/viewpage.action?pageId=557075"
+    dc:title="How do I make ANTLRWorks and Visual Studio work together? (CSharp as target language)"
+    trackback:ping="http://www.antlr.org/wiki/rpc/trackback/557075"/>
+</rdf:RDF>
+-->
+
+            
+    
+    
+    
+
+
+<fieldset class="hidden parameters">
+    <legend>Labels parameters</legend>
+    <input type="hidden" id="editLabel" value="Edit">
+    <input type="hidden" id="addLabel" value="Add Labels">
+    <input type="hidden" id="domainName" value="http://www.antlr.org/wiki">
+    <input type="hidden" id="pageId" value="557075">
+    <input type="hidden" id="spaceKey" value="ANTLR3">
+</fieldset>
+
+<div id="labels-section" class="pageSection">
+    <div id="default-labels-header" class="section-header">
+        <h2 id="labels-section-title" class="section-title ">Labels</h2>
+            </div>
+
+    <div class="labels-editor">
+        <div id="labelsList">
+            <div id="label-5" class="confluence-label">
+    <a class="label" rel="nofollow" href="/wiki/label/ANTLR3/faq_general">faq_general</a>    <span class="remove-label-caption">faq_general</span>
+    <a class="remove-label" href="#">Delete</a>
+</div>
+        </div>
+
+        <span class="errorMessage error" id="errorSpan"></span>
+        <form method="GET" action="" id="add-labels-form">
+            <div id="labelInputSpan" class="labels-input">
+                <div id="labelOperationErrorContainer" class="hidden">
+                    <span class="error"><span class="errorMessage" id="labelOperationErrorMessage"></span></span>
+                </div>
+
+                <div class="caption">Enter labels to add to this page:</div>
+
+                <input autocomplete="off" id="labelsString" name="labelsString" value="" size="40">
+                <input type="submit" class="add-labels" value="Add">
+                <input type="submit" class="hide-labels-editor" value="Done">
+                <div id="waitImageAndStatus">
+                    <img class="waiting" alt="Please wait" src="/wiki/s/1634/1/_/images/icons/wait.gif">&nbsp;
+                    <span id="labelOperationStatus" class="smalltext"></span>
+                </div>
+                <div class="auto_complete" id="labelsAutocompleteList"></div>
+                <div class="labels-tip">
+                    <div id="suggestedLabelsSpan"></div>
+                    Looking for a label? Just start typing.
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+            
+            
+
+<!--
+    Root decorator: this is a layer of abstraction that Confluence doesn't need. It will be removed eventually.
+-->
+
+
+
+
+    
+        
+    
+    
+
+
+<fieldset class="parameters hidden">
+    <input type="hidden" id="deleteCommentConfirmMessage" value="Are you sure you want to remove the comment?">
+    <input type="hidden" id="collapseTooltip" value="Click to toggle the display of this comment.">
+</fieldset>
+
+
+
+
+
+<div id="comments-section" class="pageSection">
+    
+            <div class="section-header ">
+            <h2 id="comments-section-title" class="section-title">
+                <a name="comments">Comments (6)</a>
+            </h2>
+            &nbsp;
+            <ul id="comment-top-links" class="global-comment-actions">
+                <li id="comment-show-hide">
+                    <a href="/wiki/pages/viewpage.action?pageId=557075&showComments=false#comments" id="comments-hide" >Hide Comments</a>
+                    <a href="/wiki/pages/viewpage.action?pageId=557075&showComments=true#comments" id="comments-show"  class="hidden" >Show Comments</a>
+                </li>
+                <li id="comments-expand-collapse" >
+                    <a href="#" id="comments-collapse">Collapse All</a>
+                    <span id="collapse-wait" class="hidden">Collapsing&hellip;</span>
+                    <span id="expand-wait" class="hidden">Expanding&hellip;</span>
+                    <a href="#" class="hidden" id="comments-expand">Expand All</a>
+                </li>
+                            </ul>
+        </div>
+    
+    
+                            <ol class="comment-threads top-level " id="page-comments">
+                        <li id="comment-thread-12451857" class="comment-thread">
+                    <div class="comment  " id="comment-12451857">
+                <p class="comment-user-logo">
+                    <a class="" href="/wiki/display/~sprevrha"><img class="userLogo logo" src="/wiki/images/icons/profilepics/default.gif" alt="" title="sprevrha"></a>                </p>
+                <p class="date" title="Oct 21, 2008 15:48">
+                    Oct 21, 2008
+                </p>
+                <div class="comment-header comment-toggle">
+                    <h4 class="author"><a class="url fn" href="/wiki/display/~sprevrha">Sven Prevrhal</a> says:</h4>
+                                        <span class="excerpt">Looks like the automatic updating does not work with Visual Studio 2008 Express ...</span>
+                </div>
+                <div class="comment-body">
+                    <div class="comment-content wiki-content">
+                        <p>Looks like the automatic updating does not work with Visual Studio 2008 Express (C#).</p>
+                    </div>
+                    <div class="comment-actions">
+                                                    <ul id="comment-actions-secondary">
+                                                          <li class="first comment-permalink">
+            <a title="Permanent link to this comment" href="/wiki/pages/viewpage.action?pageId=557075&amp;focusedCommentId=12451857#comment-12451857"
+                id="comment-permalink-12451857"                ><span>Permalink</span></a></li>
+            </ul>
+                            <ul id="comment-actions-primary">
+            </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+         <rdf:Description
+    rdf:about="http://www.antlr.org/wiki/pages/viewpage.action?pageId=557075&amp;focusedCommentId=12451857#comment-12451857"
+    dc:identifier="http://www.antlr.org/wiki/pages/viewpage.action?pageId=557075&amp;focusedCommentId=12451857#comment-12451857"
+    dc:title="How do I make ANTLRWorks and Visual Studio work together? (CSharp as target language)"
+    trackback:ping="http://www.antlr.org/wiki/rpc/trackback/12451857"/>
+</rdf:RDF>
+-->
+
+                    
+            </li>
+                        <li id="comment-thread-17268783" class="comment-thread">
+                    <div class="comment  " id="comment-17268783">
+                <p class="comment-user-logo">
+                    <a class="" href="/wiki/display/~lwhitney@hdgreetings.com"><img class="userLogo logo" src="/wiki/images/icons/profilepics/default.gif" alt="" title="lwhitney@hdgreetings.com"></a>                </p>
+                <p class="date" title="Mar 23, 2009 12:07">
+                    Mar 23, 2009
+                </p>
+                <div class="comment-header comment-toggle">
+                    <h4 class="author"><a class="url fn" href="/wiki/display/~lwhitney@hdgreetings.com">Lee Whitney</a> says:</h4>
+                                        <span class="excerpt">The "automatic updating" should work fine with VS Express, however in any case i...</span>
+                </div>
+                <div class="comment-body">
+                    <div class="comment-content wiki-content">
+                        <p>The "automatic updating" should work fine with VS Express, however in any case it only applies when you have a generated code file open in the editor.&nbsp; If you don't there is not a difference.</p>
+
+<p>Finally notification or not, VS will always compile from the latest file on disk and will always include the latest files generated by ANTLR.</p>
+                    </div>
+                    <div class="comment-actions">
+                                                    <ul id="comment-actions-secondary">
+                                                          <li class="first comment-permalink">
+            <a title="Permanent link to this comment" href="/wiki/pages/viewpage.action?pageId=557075&amp;focusedCommentId=17268783#comment-17268783"
+                id="comment-permalink-17268783"                ><span>Permalink</span></a></li>
+            </ul>
+                            <ul id="comment-actions-primary">
+            </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+         <rdf:Description
+    rdf:about="http://www.antlr.org/wiki/pages/viewpage.action?pageId=557075&amp;focusedCommentId=17268783#comment-17268783"
+    dc:identifier="http://www.antlr.org/wiki/pages/viewpage.action?pageId=557075&amp;focusedCommentId=17268783#comment-17268783"
+    dc:title="How do I make ANTLRWorks and Visual Studio work together? (CSharp as target language)"
+    trackback:ping="http://www.antlr.org/wiki/rpc/trackback/17268783"/>
+</rdf:RDF>
+-->
+
+                    
+            </li>
+                        <li id="comment-thread-18645169" class="comment-thread">
+                    <div class="comment  " id="comment-18645169">
+                <p class="comment-user-logo">
+                    <a class="" href="/wiki/display/~peropejovic"><img class="userLogo logo" src="/wiki/images/icons/profilepics/user_headphones.gif" alt="" title="peropejovic"></a>                </p>
+                <p class="date" title="May 28, 2009 13:07">
+                    May 28, 2009
+                </p>
+                <div class="comment-header comment-toggle">
+                    <h4 class="author"><a class="url fn" href="/wiki/display/~peropejovic">cpedros</a> says:</h4>
+                                        <span class="excerpt">I'm presuming in the context of the above example we need to remove the output l...</span>
+                </div>
+                <div class="comment-body">
+                    <div class="comment-content wiki-content">
+                        <p>I'm presuming in the context of the above example we need to remove the output language:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">language = 'CSharp2';
+</pre>
+</div></div>
+<p>from the grammar file in order to be able to debug it in ANTLRWorks?</p>
+                    </div>
+                    <div class="comment-actions">
+                                                    <ul id="comment-actions-secondary">
+                                                          <li class="first comment-permalink">
+            <a title="Permanent link to this comment" href="/wiki/pages/viewpage.action?pageId=557075&amp;focusedCommentId=18645169#comment-18645169"
+                id="comment-permalink-18645169"                ><span>Permalink</span></a></li>
+            </ul>
+                            <ul id="comment-actions-primary">
+            </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+         <rdf:Description
+    rdf:about="http://www.antlr.org/wiki/pages/viewpage.action?pageId=557075&amp;focusedCommentId=18645169#comment-18645169"
+    dc:identifier="http://www.antlr.org/wiki/pages/viewpage.action?pageId=557075&amp;focusedCommentId=18645169#comment-18645169"
+    dc:title="How do I make ANTLRWorks and Visual Studio work together? (CSharp as target language)"
+    trackback:ping="http://www.antlr.org/wiki/rpc/trackback/18645169"/>
+</rdf:RDF>
+-->
+
+                    
+            </li>
+                        <li id="comment-thread-18645304" class="comment-thread">
+                    <div class="comment  " id="comment-18645304">
+                <p class="comment-user-logo">
+                    <a class="" href="/wiki/display/~adrian"><img class="userLogo logo" src="/wiki/images/icons/profilepics/default.gif" alt="" title="adrian"></a>                </p>
+                <p class="date" title="Jun 03, 2009 04:50">
+                    Jun 03, 2009
+                </p>
+                <div class="comment-header comment-toggle">
+                    <h4 class="author"><a class="url fn" href="/wiki/display/~adrian">Adrian Waters</a> says:</h4>
+                                        <span class="excerpt">I am very much a newcomer to this area so would welcome a little assistance.
+
+I ...</span>
+                </div>
+                <div class="comment-body">
+                    <div class="comment-content wiki-content">
+                        <p>I am very much a newcomer to this area so would welcome a little assistance.</p>
+
+<p>I have followed the instructions in this page as best I can. I can compile my C# program and run it and connect the ANTLRWorks debugger to it. However, when I use the example expression "2+3*4", the parsing ends with the debugger showing "nil" -&gt; "&lt;missing INT&gt;".</p>
+
+<p>If I change the expression to "27+3*4", the debugger breaks showing "27" as the input and "nil" in the tree. Clicking "Step Forward" then  changes the tree to "nil" -&gt; "27".</p>
+
+<p>I am not sure what I am supposed to see but I sense that this is incorrect. Why is "2" showing "&lt;missing INT&gt;" but "27" is recognised correctly (I copied the grammar directly off this web page)? Why, even when the integer is recognised, does parsing then stop, rather than continue with the rest of the expression?</p>
+
+<p>I would really appreciate an example of how to process the AST in my C# program.</p>
+
+<p>Many thanks in advance for any help.</p>
+                    </div>
+                    <div class="comment-actions">
+                                                    <ul id="comment-actions-secondary">
+                                                          <li class="first comment-permalink">
+            <a title="Permanent link to this comment" href="/wiki/pages/viewpage.action?pageId=557075&amp;focusedCommentId=18645304#comment-18645304"
+                id="comment-permalink-18645304"                ><span>Permalink</span></a></li>
+            </ul>
+                            <ul id="comment-actions-primary">
+            </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+         <rdf:Description
+    rdf:about="http://www.antlr.org/wiki/pages/viewpage.action?pageId=557075&amp;focusedCommentId=18645304#comment-18645304"
+    dc:identifier="http://www.antlr.org/wiki/pages/viewpage.action?pageId=557075&amp;focusedCommentId=18645304#comment-18645304"
+    dc:title="How do I make ANTLRWorks and Visual Studio work together? (CSharp as target language)"
+    trackback:ping="http://www.antlr.org/wiki/rpc/trackback/18645304"/>
+</rdf:RDF>
+-->
+
+                    
+            </li>
+                        <li id="comment-thread-18907199" class="comment-thread">
+                    <div class="comment  " id="comment-18907199">
+                <p class="comment-user-logo">
+                    <a class="" href="/wiki/display/~tony.gray@ca.schneider-electric.com"><img class="userLogo logo" src="/wiki/images/icons/profilepics/default.gif" alt="" title="tony.gray@ca.schneider-electric.com"></a>                </p>
+                <p class="date" title="Jun 17, 2009 14:42">
+                    Jun 17, 2009
+                </p>
+                <div class="comment-header comment-toggle">
+                    <h4 class="author"><a class="url fn" href="/wiki/display/~tony.gray@ca.schneider-electric.com">Tony Gray</a> says:</h4>
+                                        <span class="excerpt">I'm also a newcomer and hadn't had any success at getting the debugger work work...</span>
+                </div>
+                <div class="comment-body">
+                    <div class="comment-content wiki-content">
+                        <p>I'm also a newcomer and hadn't had any success at getting the debugger work work with C# as the target language.&nbsp; All I got was timeouts waiting to connect to the&nbsp;parser.&nbsp; My biggest problem was that I didn't really understand how debugging works generally with Antlr.&nbsp; Things got much better when I read:</p>
+
+<p><a href="http://www.antlr.org/wiki/display/ANTLR3/Antlr+3+CSharp+Target#Antlr3CSharpTarget-DebuggingwithANTLRWorks" title="Antlr 3 CSharp Target Debugging" class="external-link" rel="nofollow">Antlr 3 CSharp Target Debugging</a><br class="atl-forced-newline" /></p>
+
+<p>Tony.</p>
+
+<p>Oh, on another note, item 1) above it says "From the menu select File-&gt;Preferences, choose tab Compile and set the javac path to \jre\bin"&nbsp; but there is no javac.exe in that directory, I had to set it to\bin to get it to work.</p>
+                    </div>
+                    <div class="comment-actions">
+                                                    <ul id="comment-actions-secondary">
+                                                          <li class="first comment-permalink">
+            <a title="Permanent link to this comment" href="/wiki/pages/viewpage.action?pageId=557075&amp;focusedCommentId=18907199#comment-18907199"
+                id="comment-permalink-18907199"                ><span>Permalink</span></a></li>
+            </ul>
+                            <ul id="comment-actions-primary">
+            </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+         <rdf:Description
+    rdf:about="http://www.antlr.org/wiki/pages/viewpage.action?pageId=557075&amp;focusedCommentId=18907199#comment-18907199"
+    dc:identifier="http://www.antlr.org/wiki/pages/viewpage.action?pageId=557075&amp;focusedCommentId=18907199#comment-18907199"
+    dc:title="How do I make ANTLRWorks and Visual Studio work together? (CSharp as target language)"
+    trackback:ping="http://www.antlr.org/wiki/rpc/trackback/18907199"/>
+</rdf:RDF>
+-->
+
+                    
+            </li>
+                        <li id="comment-thread-18907204" class="comment-thread">
+                    <div class="comment  " id="comment-18907204">
+                <p class="comment-user-logo">
+                    <a class="" href="/wiki/display/~diegodob"><img class="userLogo logo" src="/wiki/images/icons/profilepics/default.gif" alt="" title="diegodob"></a>                </p>
+                <p class="date" title="Jun 19, 2009 12:46">
+                    Jun 19, 2009
+                </p>
+                <div class="comment-header comment-toggle">
+                    <h4 class="author"><a class="url fn" href="/wiki/display/~diegodob">Diego P. Dobniewski</a> says:</h4>
+                                        <span class="excerpt">Hello Tony
+
+I am using ANTLRWorks 1.2.3, but I compiles the grammar with "antlr-...</span>
+                </div>
+                <div class="comment-body">
+                    <div class="comment-content wiki-content">
+                        <p>Hello Tony</p>
+
+<p>I am using ANTLRWorks 1.2.3, but I compiles the grammar with "antlr-3.1.3.jar" from command line, and Visual Studio 2008 Team System</p>
+
+
+<p>I am using ANTLRWorks Debug Remote feature</p>
+
+<p>I used:</p>
+
+
+<p>java &#45;classpath antlr-3.1.3.jar org.antlr.Tool &#45;debug &#45;message-format vs2005 grammar_file.g &#45;o output_dir_to_visual_studio_source</p>
+
+<p>I am use "-message-format vs2005" for MSBUILD integration. You shouldn't use it</p>
+
+<p>Try this (works for me):</p>
+<ol>
+	<li>Follow the steps of "Use ANTLR from Visual Studio" section</li>
+	<li>compile you grammar (Parser OR Walker) with "-debug" param from command line</li>
+	<li>Refresh parser/walker source file from Visual Studio</li>
+	<li>run C# application, it will be blocked</li>
+	<li>In antlr go to "Debugger" &#45;&gt; "Debug remote..."</li>
+	<li>Select as Host "127.0.0.1" (don't work for me with "localhost" I don't know why) and 49100 port (the default debugger port)</li>
+	<li>Then you should able go forward in ANTLRworks debugger</li>
+</ol>
+
+
+
+<p>Best regards</p>
+
+<p>Diego</p>
+
+<p>NOTE (post modification)</p>
+
+
+<p>I am using Windows Vista 64. I have realized that in my C:\Windows\System32\drivers\etc\hosts file, the entry "127.0.0.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; localhost" was missed, I fix it.</p>
+
+<p>Now the conten of my hosts file is:</p>
+
+<p>127.0.0.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; localhost<br/>
+::1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; localhost</p>
+
+<p>"localhost" works as host for ANTLRWorks debugger&#33;</p>
+                    </div>
+                    <div class="comment-actions">
+                                                    <ul id="comment-actions-secondary">
+                                                          <li class="first comment-permalink">
+            <a title="Permanent link to this comment" href="/wiki/pages/viewpage.action?pageId=557075&amp;focusedCommentId=18907204#comment-18907204"
+                id="comment-permalink-18907204"                ><span>Permalink</span></a></li>
+            </ul>
+                            <ul id="comment-actions-primary">
+            </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+         <rdf:Description
+    rdf:about="http://www.antlr.org/wiki/pages/viewpage.action?pageId=557075&amp;focusedCommentId=18907204#comment-18907204"
+    dc:identifier="http://www.antlr.org/wiki/pages/viewpage.action?pageId=557075&amp;focusedCommentId=18907204#comment-18907204"
+    dc:title="How do I make ANTLRWorks and Visual Studio work together? (CSharp as target language)"
+    trackback:ping="http://www.antlr.org/wiki/rpc/trackback/18907204"/>
+</rdf:RDF>
+-->
+
+                    
+            </li>
+                </ol>
+    
+                                    </div>
+
+
+
+            
+</div>
+    <br class="clear">
+</div>
+
+
+<div id="footer">
+                                        <p class="license license-opensource">
+                  Powered by a free <b>Atlassian Confluence Open Source Project License</b> granted to ANTLR. <a href="http://www.atlassian.com/c/conf/11461">Evaluate Confluence today</a>.<br>
+                </p>
+                            <ul id="poweredby">
+        <li class="noprint">Powered by <a href="http://www.atlassian.com/software/confluence" class="smalltext">Atlassian Confluence</a> 3.0.1, the <a href="http://www.atlassian.com/software/confluence" class="smalltext">Enterprise Wiki</a>.</li>
+        <li class="print-only">Printed by Atlassian Confluence 3.0.1, the Enterprise Wiki.</li>
+        <li class="noprint"><a href="http://jira.atlassian.com/secure/BrowseProject.jspa?id=10470" class="smalltext">Bug/feature request</a> &#8211;</li>
+        <li class="noprint"><a href="http://www.atlassian.com/about/connected.jsp?s_kwcid=Confluence-stayintouch" class="smalltext">Atlassian news</a> &#8211;</li>
+        <li class="noprint"><a href="/wiki/administrators.action">Contact administrators</a></li>
+    </ul>
+</div>
+
+
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-1024344-1";
+urchinTracker();
+</script>
+
+</body>
+</html>

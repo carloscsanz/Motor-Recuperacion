@@ -1,0 +1,465 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>WebAIM: How to Make Accessible Web Content Using Dreamweaver</title>
+
+	<link rel="shortcut icon" href="/favicon.ico" />
+	<link rel="home" href="/" />
+	<link rel="copyright" href="/copyright" />
+	<link rel="search" href="/search/" />
+	<link rel="alternate" href="http://webaim.org/blog/feed" type="application/rss+xml" title="WebAIM News and Blog" />
+
+
+</head>
+<body>
+<div id="sizer">
+<div id="expander">
+<div id="wrapper">
+	<div id="skiptocontent"><a href="#maincontent">skip to main content</a></div>
+
+	<div id="logo">
+					<div><a href="/" class="transparent">
+		
+				<img src="/media/template/logo.gif" alt="WebAIM - Web Accessibility in Mind" width="189" height="86" />
+
+		</a>	  </div>
+				<p id="expanding"><span id="expanding2">Expanding the web's potential for people with disabilities</span></p>
+	</div>
+
+<div id="header">
+	<ul id="tabs">
+		<li id="products"><a href="/products/"><span></span>Products</a></li>
+		<li id="services"><a href="/services/"><span></span>Services</a></li>
+		<li id="articles"><a href="/articles/" class="current"><span></span>Articles</a></li>
+		<li id="resources"><a href="/resources/"><span></span>Resources</a></li>
+		<li id="community"><a href="/community/"><span></span>Community</a></li>
+	</ul>
+</div>
+
+<div id="sitesearchcontainer">
+	<form method="get" action="/search/" id="sitesearch">
+		<p><label for="q" class="hidden">Search</label> <input type="text" name="q" id="q" /> <input type="image" alt="Submit Search" value="Submit Search" src="/media/template/search.gif" class="transparent" /></p>
+	</form>
+</div>
+
+<div id="maincontainer">
+	<div id="sidebarcontainer">
+		<div id="sidebarbox">
+			<h2>Getting Started</h2>
+			<p id="introto"><a href="/intro">Introduction to web accessibility</a></p>
+
+
+						<h2>From the <a href="/blog/">Blog</a></h2>
+		<ul id="blog"><li><a href="/blog/csun-2010/">WebAIM's 2010 CSUN Lineup<br /><span>March 4, 2010</span></a></li><li><a href="/blog/web-accessibility-preferences-are-for-sissies/">Web Accessibility Preferences Are For Sissies?<br /><span>March 2, 2010</span></a></li><li><a href="/blog/target-com-accessibility/">Target.com Accessibility<br /><span>February 11, 2010</span></a></li><li><a href="/blog/jaws-ate-my-tables/">JAWS ate my tables<br /><span>December 2, 2009</span></a></li><li><a href="/blog/reflections-on-10-years/">Reflections on 10 Years<br /><span>November 30, 2009</span></a></li></ul>
+						<h2>Community</h2>
+				 <ul>
+					<li><a href="/newsletter/">Newsletter</a></li>
+					<li><a href="/blog/">Blog</a></li>
+					<li><a href="/forums/">Forums</a></li>
+					<li><a href="/discussion/">Email Discussion List</a></li>
+					<li><a href="/community/rss">RSS/News Feeds <img src="/media/template/icon_rss.png" alt="" width="14" height="14" /></a></li>
+				 </ul>
+		</div><!--sidebarbox-->
+	</div><!--sidebarcontainer-->
+
+	<div id="maincontent">
+					<p id="breadcrumbs">
+				<span class="hidden">You are here: </span><a href="/">Home</a> &gt; <a href="/articles/">Articles</a> &gt; Dreamweaver</p>
+
+		
+
+
+	<div class="section" id="dreamweaver">
+		<h1>How to Make Accessible Web Content Using Dreamweaver</h1>
+
+		<div class="toc">
+			<h2>Article Contents</h2>
+
+			<ol class="pagecontents">
+				<li><a href="#intro">Introduction</a></li>
+
+				<li>
+					<a href="#features">Accessibility Features of Dreamweaver</a>
+
+					<ol>
+						<li><a href="#prompts">New accessibility prompts (if enabled)</a></li>
+
+						<li><a href="#reporting">Accessibility reporting</a></li>
+
+						<li><a href="#reference">Accessibility reference</a></li>
+
+						<li><a href="#interface">Accessible authoring interface</a></li>
+					</ol>
+				</li>
+
+				<li>
+					<a href="#creating">Creating Accessible Content</a>
+
+					<ol>
+						<li><a href="#images">Alternative text for images</a></li>
+
+						<li><a href="#forms">Form labels</a></li>
+
+						<li><a href="#tables">Data table accessibility</a></li>
+
+						<li><a href="#frames">Frame titles</a></li>
+					</ol>
+				</li>
+
+				<li>
+					<a href="#older">Accessibility Techniques for Versions 3 and 4</a>
+
+					<ol>
+						<li><a href="#template">Change the default template to one that is valid</a></li>
+
+						<li><a href="#validator">Install an accessibility validator extension</a></li>
+					</ol>
+				</li>
+
+				
+			</ol>
+		</div>
+
+		<div class="section" id="intro">
+			<h2>Introduction</h2>
+
+			
+    <p><a href="http://www.macromedia.com/software/dreamweaver/" title="Link to External Site" class="external">Dreamweaver 
+      MX and MX 2004<span> - external link</span></a>, developed by <a href="http://www.macromedia.com/" title="Link to External Site" class="external">Adobe, 
+      formerly Macromedia<span> - external link</span></a>, is one of the most 
+      popular and powerful web development applications available today. It is 
+      popular for a few reasons:</p>
+
+			<ul>
+				<li>Its <acronym title="What you see is what you get">WYSIWYG</acronym> (What you see is what you get) interface allows you to create a web page without looking at the code. If you are new to web Design, this can be especially inviting.</li>
+
+				<li>The <acronym title="HyperText Markup Language">HTML</acronym> code created in the <acronym title="What you see is what you get">WYSIWYG</acronym> interface tends to be cleaner and more compliant with <a href="http://www.w3.org/MarkUp/" title="Link to External Site" class="external"><acronym title="World Wide Web Consortium">W3C</acronym> <acronym title="HyperText Markup Language">HTML</acronym> and <acronym title="eXtensible HyperText Markup Language">XHTML</acronym> specifications<span> - external link</span></a> than code created with other tools. Standards compliant code is usually more accessible more compatible with emerging and assistive technologies.</li>
+
+				<li>You can make changes manually, or in the <span class="menuchoice">Code</span> view, without worrying that Dreamweaver will change your code back. This feature has really set Dreamweaver apart from other web development applications.</li>
+
+				<li>It integrates smoothly with other Macromedia tools, especially Flash.</li>
+			</ul>
+		</div>
+
+		<div class="section" id="features">
+			<h2>Accessibility Features of Dreamweaver</h2>
+
+			<p>Many of the features mentioned in this article are only available in the most recent versions of Dreamweaver (MX and MX 2004). If you are using Dreamweaver 4 or earlier, many of the features mentioned below will not be available, or will not be as complete. See <a href="#older">Accessibility techniques for versions 3 and 4</a> below if you would like to read some additional techniques to improve the accessibility features of older versions of Dreamweaver.</p>
+
+			<div class="section" id="prompts">
+				
+      <h3>New accessibility prompts (if enabled)</h3>
+
+				<p>Dreamweaver allows developers to be prompted when inserting certain web elements that may need accessibility attributes added to them. Unfortunately, these options are disabled in the preferences by default.</p>
+
+				<div class="important">
+					<p><span class="title"><strong>Important</strong></span></p>
+
+					<p>By default, the accessibility options are <strong>disabled</strong> in Dreamweaver MX. To enable the accessibility features of Dreamweaver MX 2004, select <span class="menuchoice">Edit <em>&gt;</em> Preferences <em>&gt;</em> Accessibility</span> and then check the boxes for <span class="menuchoice">Form objects</span>, <span class="menuchoice">Frames</span>, <span class="menuchoice">Media</span>, and <span class="menuchoice">Images</span></p>
+				</div>
+
+				<div class="mediaobject">
+					<img src="media/default.jpg" alt="screenshot showing Dreamweaver's accessibility preferences" width="366" height="193" />
+				</div>
+
+				<p>Once selected, Dreamweaver will display a prompt for accessibility features when each of the identified elements are inserted into a document.</p>
+			</div>
+
+			<div class="section" id="reporting">
+				<h3>Accessibility reporting</h3>
+
+				<div class="mediaobject">
+					<img src="media/reporting.gif" alt="Screenshot showing Dreamweavers accessibility reporting features" width="450" height="257" />
+				</div>
+
+				<p>Dreamweaver can validate against common accessibility standards and give feedback regarding the accessibility of web content. The reports can be accessed by selecting <span class="menuchoice">Site &gt; Reports</span>.</p>
+			</div>
+
+			<div class="section" id="reference">
+				<h3>Accessibility reference</h3>
+
+				<p>Among the other reference materials included in Dreamweaver, there is an <span class="menuchoice">Accessibility Reference</span>. The reference materials were provided by <a href="http://www.usablenet.com/" title="Link to External Site" class="external">UsableNet<span> - external link</span></a>. Unfortunately, the reference is quite technical in nature and not very helpful unless you are already familiar with <acronym title="HyperText Markup Language">HTML</acronym> and accessibility techniques in general.</p>
+
+				<div class="mediaobject">
+					<img src="media/reference.gif" alt="Screenshot of Dreamweaver's accessibility reference" width="446" height="335" />
+				</div>
+			</div>
+
+			<div class="section" id="interface">
+				<h3>Accessible authoring interface</h3>
+
+				<p>Most of the dialogs, menus, and other interface elements are accessible to screen readers.</p>
+			</div>
+		</div>
+
+		<div class="section" id="creating">
+			<h2>Creating Accessible Content</h2>
+
+			<div class="important">
+				<p><span class="title"><strong>Important</strong></span></p>
+
+				<p>In order for accessibility prompts to display in Dreamweaver:</p>
+
+				<ol>
+					<li>The accessibility preferences must be enabled</li>
+
+					<li>You must be in <span class="menuchoice">Design</span> view in the interface. If you are in the <span class="menuchoice">Code</span> view or the code window has the cursor focus when you insert elements, the accessibility prompts will not display.</li>
+				</ol>
+			</div>
+
+			<div class="section" id="images">
+				<h3>Alternative text for images</h3>
+
+				<p>With the accessibility options enabled in the preferences, Dreamweaver now prompts the user for alternative text when an image is inserted into a document.</p>
+
+				<div class="mediaobject">
+					<img src="media/alt_text.gif" alt="Screenshot of image accessibility options" width="360" height="126" />				</div>
+
+				<p>Type the appropriate and equivalent alternative text into the <span class="menuchoice">Alternate text</span> area. If the image is a complex image, enter a <acronym title="Universal Resource Locator">URL</acronym> or browse to a web page to use for a longer description (<code class="markup">longdesc</code> attribute of the <code class="markup">img</code> tag). If nothing is selected for <span class="menuchoice">Long description</span>, then the <code class="markup">longdesc</code> attribute is not added to the image. Alternatively, if the image does not convey content and does not provide page functionality, <span class="menuchoice">&lt;empty&gt;</span> can be selected for <span class="menuchoice">Alternate text</span> to provide empty <code class="markup">alt</code> text (<code class="markup">alt=""</code>).</p>
+
+				<div class="mediaobject">
+					<img src="media/empty.gif" alt="Screenshot showing empty alternative text being selected" width="333" height="123" />
+				</div>
+
+				<p>Once the image has been added to the document, the alternative text can be added or modified by using the <span class="menuchoice">Properties</span> panel.</p>
+
+				<div class="mediaobject">
+					<img src="media/properties.gif" alt="Screenshot showing alternative text being added through the properties panel" width="391" height="124" />				</div>
+
+				<p>As with the accessibility prompt, you can select <span class="menuchoice">&lt;empty&gt;</span> from the <span class="menuchoice">Alt</span> drop-down menu to assign empty alternative text to the image.</p>
+
+				<p>Longdesc <strong>cannot</strong> be added to the image using the <span class="menuchoice">Properties</span> panel. To add <code class="markup">longdesc</code> to an image, either re-insert the image and complete the <span class="menuchoice">Long description</span> area of the accessibility options or add the <code class="markup">longdesc</code> attribute to the image in the <span class="menuchoice">Code</span> view.</p>
+
+				<p>Dreamweaver also provides an option for <code class="markup">alt</code> text for hotspots of client side image maps.</p>
+			</div>
+
+			<div class="section" id="forms">
+				<h3>Form labels</h3>
+
+				
+      <p>With the accessibility options enabled, Dreamweaver 
+        will prompt for appropriate labeling information when form elements are 
+        added to your web page.</p>
+
+				<div class="mediaobject">
+					<img src="media/labels.gif" alt="screenshot of form label dialog box" width="430" height="259" />
+				</div>
+
+				<p>Simply type the appropriate form label into the <span class="menuchoice">Label</span> dialog box. You can then select the label style: <span class="menuchoice">Wrap with label tag</span>, <span class="menuchoice">Attach label tag using 'for' attribute</span>, or <span class="menuchoice">No label tag</span>. The best results are accomplished by selecting <span class="menuchoice">Attach label using 'for' attribute</span>. This allows the form label to be moved to another position within the page and is most compatible with existing screen readers. You can also choose to position the form label before or after the form item. The <span class="menuchoice">Input Tag Accessibility Attributes</span> dialog also provides options for specifying <span class="menuchoice">Access key</span> and <span class="menuchoice">Tab Index</span>, neither of which are necessary for accessibility and both of which are often misused.</p>
+
+				<p>To add labels to form elements already within a web page, there are three methods that can be used:</p>
+
+				<ol>
+					<li>Delete, then reinsert the form element and add the appropriate label using the dialog box.</li>
+
+					<li>Add the appropriate label information in <span class="menuchoice">Code</span> view.</li>
+
+					<li>Select both the label and the form element and select <span class="menuchoice">Insert &gt; Form &gt; Label</span>. For this method to work, the label and the form element must be adjacent to each other. When this method is used, Dreamweaver surrounds the label and the form element with the label tags, which limits your ability to move the label and is not fully supported in all screen readers.</li>
+				</ol>
+
+				<div class="important">
+					<p><span class="title"><strong>Important</strong></span></p>
+
+					<p>Dreamweaver incorrectly provides the <span class="menuchoice">Label</span> dialog box when you insert button and image input elements into your web page. Neither of these form elements should be given labels. A screen reader will read the <code class="markup">value</code> attribute of the button input element and will read the <code class="markup">alt</code> attribute of the image input element; both of which can be provided using the <span class="menuchoice">Properties</span> panel.</p>
+				</div>
+			</div>
+
+			<div class="section" id="tables">
+				<h3>Data table accessibility</h3>
+
+				<p>There are three principles involved in making data tables accessible to screen reader users:</p>
+
+				<ol>
+					<li>Designate table headers</li>
+
+					<li>Assign a <code class="markup">scope</code> to row and/or column headers</li>
+
+					<li>For complex tables, assign <code class="markup">headers</code> and <code class="markup">id</code> attributes to header and data table cells.</li>
+				</ol>
+
+				<p>Dreamweaver's visual interface supports option 1 (designating headers), partially supports option 2 (assigning <code class="markup">scope</code>), and does not support option 3.</p>
+
+				<p>Dreamweaver supports designating table headers in two ways. First, if the table already exists, you can identify table headers by selecting a table cell, row, or column, then selecting or deselecting the <span class="menuchoice">Header</span> option on the <span class="menuchoice">Properties</span> panel.</p>
+
+				<div class="mediaobject">
+					<img src="media/header.gif" alt="screenshot highlighting the Header option of the Properties panel" width="422" height="128" />
+				</div>
+
+				<p>Second, if the accessibility options are enabled in the <span class="menuchoice">Preferences</span>, a dialog box will be presented when the table is inserted. You can then choose whether the table has no headers (<span class="menuchoice">None</span>), row headers (<span class="menuchoice">Left</span>), column headers (<span class="menuchoice">Top</span>), or row AND column headers (<span class="menuchoice">Both</span>).</p>
+
+				<div class="mediaobject">
+					<img src="media/table.gif" alt="Screenshot showing table accessibility features, including headers, caption, and summary." width="413" height="439" />
+				</div>
+
+				<p>Dreamweaver will designate the correct cells as table headers using the <code class="markup">&lt;th&gt;</code> tag.</p>
+
+				<div class="note">
+					<p><span class="title"><strong>Note</strong></span></p>
+
+					<p>If the table you are inserting is not a data table, do not select any of the accessibility options, as non-data tables do not need these additional accessibility features.</p>
+				</div>
+
+				<p>When using the <span class="menuchoice">Table</span> accessibility dialog box to select headers, Dreamweaver will also insert the appropriate <code class="markup">scope</code> attribute to those headers (e.g., <code class="markup">scope=col</code> or <code class="markup">scope=row</code>).</p>
+
+				<div class="note">
+					<p><span class="title"><strong>Note</strong></span></p>
+
+					<p>If you indicate that your table has both row and column headers by selecting <span class="menuchoice">Both</span> under <span class="menuchoice">Header</span>, then Dreamweaver will designate the top-left cell as a column header. In some instances, this cell may actually be a row header or not a header at all. Be sure to either remove or change the scope attribute for this cell in the <span class="menuchoice">Code</span> view to appropriately match the layout of your data table.</p>
+				</div>
+
+				<p>The only way to add the <code class="markup">scope</code> attribute to tables that already exist in your document is to add them manually in <span class="menuchoice">Code</span> view. For complex tables which have headers that span rows or columns and for which <code class="markup">scope</code> is not sufficient, you must add <code class="markup">headers</code> and <code class="markup">id</code> attributes to the table in <span class="menuchoice">Code</span> view. The visual interface does not support the addition of <code class="markup">headers</code> and <code class="markup">id</code>.</p>
+
+				<p>The <span class="menuchoice">Table</span> accessibility dialog box also allows the addition of <span class="menuchoice">Caption</span> and <span class="menuchoice">Summary</span>, both of which provide additional information about the contents of the table. In most cases, these should both be provided</p>
+			</div>
+
+			<div class="section" id="frames">
+				<h3>Frame titles</h3>
+
+				<p>If the accessibility option for frames is set within the preferences, Dreamweaver will prompt you for frame titles when a new frameset document is created.</p>
+
+				<div class="mediaobject">
+					<img src="media/frame.gif" alt="screenshot showing frame properties and option to add frame title" width="356" height="145" />
+				</div>
+
+				<p>The <span class="menuchoice">Title</span> option should be a brief description of the frame contents or functionality. This information will be read by a screen reader to identify the frame. The <span class="menuchoice">Frame Tag Accessibility Attributes</span> dialog will only be displayed if you create a new frameset document (<span class="menuchoice">File &gt; New &gt; Framesets</span>) and will not display if you modify an existing document into a framed page (<span class="menuchoice">Modify &gt; Frameset &gt; Split Frame</span>).</p>
+
+				<p>You can also modify <code class="markup">noframes</code> content for the frameset document by selecting <span class="menuchoice">Modify &gt; Frameset &gt; Edit NoFrames Content</span>.</p>
+			</div>
+		</div>
+
+		<div class="section" id="older">
+			
+    <h2>Accessibility Techniques for Versions 3 and 4</h2>
+
+			<p>If you are using a version of Dreamweaver that predates MX, you have probably noticed that many of the accessibility features mentioned so far are either not available or not as complete. If you use Dreamweaver regularly, you may want to consider upgrading to a newer version. Still, there are some things you can do to make older versions of Dreamweaver more accessible.</p>
+
+			<div class="section" id="template">
+				<h3>Change the default template to one that is valid</h3>
+
+				<p>The default blank page that comes with Dreamweaver is not inaccessible <em><span lang="la" xml:lang="la">per se</span></em>, but it is incomplete as far as valid <acronym title="HyperText Markup Language">HTML</acronym> is concerned. To update the default blank page, you must exit out of Dreamweaver, then find the folder on your computer where Dreamweaver resides. Inside of that folder should be another folder called configuration, inside of which should be another folder called templates. The path to this folder is probably something like "C:\Program Files\Macromedia\Dreamweaver 4\Configuration\Templates," although it may be different on your computer. Inside of the templates folder is a document called default. Open this document in a text editor of some sort (Notepad, Wordpad, Text Edit, or something similar). Then change the <acronym title="HyperText Markup Language">HTML</acronym> inside of that file to look something like this:</p>
+
+				<p>[<a href="#validator">skip over <acronym title="HyperText Markup Language">HTML</acronym> markup</a>]</p>
+
+				<div class="programlisting">
+					<code class="markup">
+					&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;<br />
+					&lt;html lang="en"&gt;<br />
+					&lt;head&gt;<br />
+					&lt;title&gt;Untitled Document&lt;/title&gt;<br />
+					&lt;meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"&gt;<br />
+					&lt;/head&gt;<br />
+					&lt;body&gt;<br />
+					<br />
+					&lt;/body&gt;<br />
+					&lt;/html&gt;</code></div>
+
+				<p>This is not the only valid template. The template above is for documents which are meant to be valid according to the <acronym title="HyperText Markup Language">HTML</acronym> 4.0 Transitional syntax. A template for a <acronym title="eXtensible HyperText Markup Language">XHTML</acronym> 1.0 transtional document would look something like this:</p>
+
+				<p>[<a href="#validator">skip over <acronym title="HyperText Markup Language">HTML</acronym> markup</a>]</p>
+
+				<div class="programlisting">
+					<code class="markup">
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;<br />
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;<br />
+&lt;head&gt;<br />
+&lt;meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /&gt;<br />
+&lt;title&gt;Untitled Document&lt;/title&gt;<br />
+&lt;/head&gt;<br />
+&lt;body&gt;<br />
+<br />
+&lt;/body&gt;<br />
+&lt;/html&gt;
+</code>
+				</div>
+			</div>
+
+			<div class="section" id="validator">
+				<h3>Install an accessibility validator extension</h3>
+
+				<p>There are two accessibility extensions for Dreamweaver to choose from. Macromedia made one themselves, and UsableNet made another one. Overall, UsableNet's is better and more customizable. Neither one is perfect. The Dreamweaver extensions below can evaluate pages that are on your hard drive.</p>
+
+				<div class="section" id="h222">
+					<h4>The "Section 508 Accessibility Suite Extension"</h4><span class="inlinemediaobject floatright"><img class="border" src="media/508.gif" width="189" height="171" alt="Screen shot of the new Accessibility menu item which was created when the UsableNet extension was installed - options include 'evaluate and fix', 'explain and fix', and 'run online report'." /></span>
+
+					<p>The programmers at UsableNet.com have put together another accessibility validator, which they have called the "508 Accessibility Suite Extension." This extension creates an entirely new menu item called <span class="menuchoice">Accessibility</span> . This extension is more customizable, and has more functionality than Macromedia's extension. You can check a single web page at a time, or you can check entire sites at a time. It should be mentioned that checking the whole site at a time can take a VERY long time. In addition, the sheer quantity of feedback about all of the pages is almost completely unmanageable. When used on a single page, however, this can be a useful tool and a starting point for accessibility.</p>
+
+					<div class="mediaobject">
+						<img src="media/fix.gif" width="433" height="259" alt="Screen shot of the report settings in UsableNet's extension - You can turn on and off each of the individual checkpoints in the report, to get the report as specific as you like." />					</div>
+
+					<p>&nbsp;</p>
+
+					<div class="mediaobject">
+						<img src="media/fix2.gif" width="335" height="283" alt="Screen shot of the Usable Net extension settings dialog box - Note that you can check the current document or the whole site at a time." />					</div>
+
+					<p>As with all automated accessibility validators, you must still perform the manual checks or else the feedback is much less useful.</p>
+				</div>
+			</div>
+			
+
+
+		<div class="see also">
+			<h2>See Also</h2>
+
+			<ul>
+				
+						<li><a href="http://www.macromedia.com/software/dreamweaver/productinfo/features/static_tour/support/index.html#06" title="Link to External Site" class="external">Dreamweaver MX's accessibility features<span> - external link</span></a></li>
+						
+					</ul>
+				
+		</div>
+		</div>
+</div>
+
+
+		<div id="googleads">
+		<h2 class="hidden">Advertisements</h2>
+		<script type="text/javascript"><!--
+		google_ad_client = "pub-3425065584340603";
+		google_ad_width = 468;
+		google_ad_height = 60;
+		google_ad_format = "468x60_as";
+		google_ad_type = "text";
+		google_ad_channel ="";
+		google_color_border = "1C205B";
+		google_color_bg = "FFFFFF";
+		google_color_link = "BF1722";
+		google_color_text = "000000";
+		google_color_url = "20399D";
+		//--></script>
+		<script type="text/javascript"
+		  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+		</script>
+	</div>
+		<div id="webaiminfo">
+		<p>WebAIM is an initiative of:<br />
+		<a href="http://www.cpd.usu.edu/" class="transparent"><img src="/media/template/cpdlogo.gif" alt="Center for Persons with Disabilities (CPD)" width="106" height="41" /></a>
+		<a href="http://www.usu.edu/" class="transparent"><img src="/media/template/usulogo.gif" alt="Utah State University" width="102" height="26" /></a></p>
+	</div>
+</div><!--maincontent-->
+</div><!--maincontainer-->
+
+	<div id="footercontainer">
+		<div id="footer">
+			<ul>
+				<li><a href="/about">About Us</a> &#8226;</li>
+				<li><a href="/contact">Contact Us</a> &#8226; </li>
+ 				<li><a href="/copyright">Copyright</a> 1999-2010 WebAIM</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<!--wrapper-->
+</div><!--expander-->
+</div><!--sizer-->
+
+
+	<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+		<script type="text/javascript">
+	_uacct = "UA-302059-1";
+	urchinTracker();
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,1954 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+<head profile="http://gmpg.org/xfn/11">
+
+<title>Google Search syntax dissected - Night Dreaming (by Sudar)</title>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="http://sudarmuthu.com/wp/wp-content/themes/bright-light/style.css" type="text/css" media="screen" />
+
+
+<link rel="alternate" type="application/rss+xml" title="Night Dreaming (by Sudar) &raquo; Google Search syntax dissected Comments Feed" href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html/feed" />
+<link rel='stylesheet' id='wp_greet_box_style-css'  href='http://sudarmuthu.com/wp/wp-content/plugins/wp-greet-box/css/wp-greet-box.css?ver=2.9.1' type='text/css' media='all' />
+<link rel='stylesheet' id='openid-css'  href='http://sudarmuthu.com/wp/wp-content/plugins/openid/f/openid.css?ver=519' type='text/css' media='all' />
+<script type='text/javascript' src='http://sudarmuthu.com/wpfiles/wp-includes/js/jquery/jquery.js?ver=1.3.2'></script>
+<script type='text/javascript' src='http://sudarmuthu.com/wp/wp-content/plugins/openid/f/openid.js?ver=519'></script>
+<script type='text/javascript' src='http://sudarmuthu.com/?retweetjs&#038;ver=2.9.1'></script>
+<script type='text/javascript' src='http://sudarmuthu.com/wpfiles/wp-includes/js/comment-reply.js?ver=20090102'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://sudarmuthu.com/wpfiles/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://sudarmuthu.com/wpfiles/wp-includes/wlwmanifest.xml" /> 
+<link rel='index' title='Night Dreaming (by Sudar)' href='http://sudarmuthu.com' />
+<link rel='start' title='Unveil SQL Server Peak&#8217;s Performance' href='http://sudarmuthu.com/blog/2004/10/28/unveil-sql-server-peaks-performance.html' />
+<link rel='prev' title='First aid advice on your iPod' href='http://sudarmuthu.com/blog/2006/05/06/first-aid-advice-on-your-ipod.html' />
+<link rel='next' title='Copy files from iPod to any computer without iTunes' href='http://sudarmuthu.com/blog/2006/05/10/copy-files-from-ipod-to-any-computer-without-itunes.html' />
+<meta name="generator" content="WordPress 2.9.1" />
+
+<!-- All in One SEO Pack 1.6.10.2 by Michael Torbert of Semper Fi Web Design[230,267] -->
+<meta name="description" content="Here is my compilation of some of Google's advanced query syntax which you can use to get results quickly. Basic Boolean Whenever you search for more than one" />
+<link rel="canonical" href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html" />
+<!-- /all in one seo pack -->
+<link rel="stylesheet" href="http://sudarmuthu.com/wpfiles/6ac126d21c89b38a742e8fefa8703061.css?t=314710997" type="text/css" media="screen" /><link rel="shortlink" href="http://wp.me/p4WjA-24" /><style type="text/css" media="screen">
+
+/* Begin Contact Form CSS */
+.contactform {
+	position: static;
+	overflow: hidden;
+	width: 95%;
+}
+
+.contactleft {
+	width: 25%;
+	white-space: pre;
+	text-align: right;
+	clear: both;
+	float: left;
+	display: inline;
+	padding: 4px;
+	margin: 5px 0;
+}
+
+.contactright {
+	width: 70%;
+	text-align: left;
+	float: right;
+	display: inline;
+	padding: 4px;
+	margin: 5px 0;
+}
+
+.contacterror {
+	border: 1px solid #ff0000;
+}
+
+.contactsubmit {
+}
+/* End Contact Form CSS */
+
+	</style>
+
+
+<link rel="stylesheet" href="http://sudarmuthu.com/wp/wp-content/plugins/wp-syntax/wp-syntax.css" type="text/css" media="screen" />
+<meta http-equiv="X-XRDS-Location" content="http://sudarmuthu.com/?xrds" />
+<meta http-equiv="X-Yadis-Location" content="http://sudarmuthu.com/?xrds" />
+
+<link rel="alternate" type="application/rss+xml" href="http://sudarmuthu.com/feed" title="Night Dreaming (by Sudar) latest posts" />
+<link rel="alternate" type="application/rss+xml" href="http://sudarmuthu.com/comments/feed" title="Night Dreaming (by Sudar) latest comments" />
+<link rel="pingback" href="http://sudarmuthu.com/wpfiles/xmlrpc.php" />
+</head>
+
+<body class="single postid-128">
+<div id="header">
+
+  <div id="logo">
+    <h1 id="blogname">
+        <a href="http://sudarmuthu.com">
+            Night Dreaming (by Sudar)        </a>
+    </h1>
+
+    <div class="description">
+      Collection of Sudar&#039;s Night Dreamings&#8230;.    </div>
+  </div>
+
+    <p class="skip-link"><a href="#content" title="Skip to content">Skip to content</a></p>
+<div class="site-menu"><ul><li ><a href="http://sudarmuthu.com" title="Home"><span>Home</span></a></li><li class="page_item page-item-247"><a href="http://sudarmuthu.com/blog" title="Blog"><span>Blog</span></a></li><li class="page_item page-item-208"><a href="http://sudarmuthu.com/wordpress" title="WordPress"><span>WordPress</span></a></li><li class="page_item page-item-230"><a href="http://sudarmuthu.com/certifications" title="Certifications"><span>Certifications</span></a></li><li class="page_item page-item-231"><a href="http://sudarmuthu.com/pet-projects" title="My Pet Projects"><span>My Pet Projects</span></a></li><li class="page_item page-item-249"><a href="http://sudarmuthu.com/contact" title="Contact Me"><span>Contact Me</span></a></li><li class="page_item page-item-2"><a href="http://sudarmuthu.com/about" title="About Me"><span>About Me</span></a></li></ul></div>
+
+  <div id = "searchbox">
+    <form action="http://sudarmuthu.com/search/" method="get" onsubmit="location.href='http://sudarmuthu.com/search/' + encodeURIComponent(this.s.value).replace(/%20/g, '+'); return false;">
+        <input type="text" name="s" id="s" size="25" accesskey="s" />
+        <input type="submit" value="Search" />
+    </form>
+  </div>
+</div> <!-- header -->
+<div id="wrap" class ="hfeed">
+
+<div id="content">
+<p class="breadcrumbs">You are here: <a href="http://sudarmuthu.com">Home</a> &raquo; <a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html"></a> &raquo; <a href="http://sudarmuthu.com/blog">Blog</a> &raquo; <strong>Google Search syntax dissected</strong></p>
+
+  <div id="post-128" class="post-128 post hentry category-google-yahoo tag-google tag-search tag-searching tag-syntax">
+
+    <h2 class="entry-title">
+        <a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html" title="Permalink to Google Search syntax dissected" rel="bookmark">Google Search syntax dissected</a>
+    </h2>
+
+    <p class="entry-meta">
+        
+        <span class="meta-prep meta-prep-entry-date">Published </span>
+        <span class="entry-date"><abbr class="published" title="2006-05-07T14:16:55+0530">May 7, 2006</abbr></span>
+        <span class="meta-sep"> | </span>
+        <span>In <a href="http://sudarmuthu.com/blog/category/google-yahoo" title="View all posts in Google/Yahoo" rel="category tag">Google/Yahoo</a></span>
+
+            </p>
+
+    <div class="entry-content">
+        <div id="greet_block"><noscript><div class="greet_block wpgb_cornered"><div class="greet_text"><div class="greet_image"><a href="http://sudarmuthu.com/feed/"  rel="nofollow"><img src="http://sudarmuthu.com/wp/wp-content/plugins/wp-greet-box/images/rss_icon.png" alt="WP Greet Box icon"/></a></div>Hello there! If you are new here, you might want to <a href="http://sudarmuthu.com/feed/" rel="nofollow"><strong>subscribe to the RSS feed</strong></a> for updates on this topic.<div style="clear:both"></div></div></div></noscript></div><a href='http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html' class='retweet vert'  target = '_blank' >Google Search syntax dissected</a><p>Here is my compilation of some of Google&#8217;s advanced query syntax which you can use to get results quickly.</p>
+<h4>Basic Boolean</h4>
+<p>Whenever you search for more than one keyword at a time, Google will search for all of them. If you search for</p>
+<p><code><a href="http://google.com/search?q=XML%20Java%20%22web%20Services%22" onclick="javascript:pageTracker._trackPageview('/outbound/article/http://google.com/search?q=XML%20Java%20%22web%20Services%22');" target="_blank">XML Java "web Services"</a></code><br />
+Google will search for all the words. If you want to specify that either word is acceptable, you put an OR between each item</p>
+<p><code><a href="http://google.com/search?q=XML%20OR%20Java%20OR%20%22Web%20Services%22" onclick="javascript:pageTracker._trackPageview('/outbound/article/http://google.com/search?q=XML%20OR%20Java%20OR%20%22Web%20Services%22');" target="_blank">XML OR Java OR "Web Services"</a></code><br />
+If you want to have definitely one term and one of two or more other terms, you group them with parentheses, like this</p>
+<p><code><a href="http://google.com/search?q=XML%20%28Java%20OR%20%22Web%20Services%22%29" onclick="javascript:pageTracker._trackPageview('/outbound/article/http://google.com/search?q=XML%20%28Java%20OR%20%22Web%20Services%22%29');" target="_blank">XML (Java OR "Web Services")</a></code><br />
+This query searches for the word &#8220;Java&#8221; or phrase &#8220;Web Services&#8221; along with the word &#8220;XML.&#8221; A stand-in for OR borrowed from the computer programming realm is the | (pipe) character, as in</p>
+<p><code><a href="http://google.com/search?q=XML%20%28Java%20%7C%20%22Web%20Services%22%29" onclick="javascript:pageTracker._trackPageview('/outbound/article/http://google.com/search?q=XML%20%28Java%20%7C%20%22Web%20Services%22%29');" target="_blank">XML (Java | "Web Services")</a></code><br />
+If you want to specify that a query item must not appear in your results, use a -.(minus sign or dash).</p>
+<p><code><a href="http://google.com/search?q=XML%20Java%20-%22Web%20Services%22" onclick="javascript:pageTracker._trackPageview('/outbound/article/http://google.com/search?q=XML%20Java%20-%22Web%20Services%22');" target="_blank">XML Java -"Web Services"</a></code><br />
+This will search for pages that contain both the words &#8220;XML&#8221; and &#8220;Java&#8221; but not the phrase &#8220;Web Services.&#8221;</p>
+<h4>Operators</h4>
+<p>In addition to the basic AND, OR, and quoted strings, Google offers some rather extensive special syntaxes for honing your searches. Google being a full-text search engine, it indexes entire web pages instead of just titles and descriptions. Additional commands, called special syntaxes, let Google users search specific parts of web pages or specific types of information. Specifying that your query words must appear only in the title or URL of a returned web page is a great way to have your results get very specific without making your keywords themselves too specific.</p>
+<p>Here are some of the common keywords that you can add to your query in Google</p>
+<h4>intitle, allintitle</h4>
+<p>Restricts your search to the titles of web pages. The variation, allintitle: finds pages wherein all the words specified make up the title of the web page. It&#8217;s probably best to avoid the allintitle: variation, because it doesn&#8217;t mix well with some of the other syntaxes.</p>
+<p>Eg: <code><a href="http://google.com/search?q=intitle:%22george%20bush%22" onclick="javascript:pageTracker._trackPageview('/outbound/article/http://google.com/search?q=intitle:%22george%20bush%22');" target="_blank">intitle:"george bush"</a></code><br />
+<code><a href="http://google.com/search?q=allintitle:%22money%20supply%22%20economics" onclick="javascript:pageTracker._trackPageview('/outbound/article/http://google.com/search?q=allintitle:%22money%20supply%22%20economics');" target="_blank">allintitle:"money supply" economics</a></code></p>
+<h4>inurl, allinurl</h4>
+<p>Restricts your search to the URLs of web pages. This syntax tends to work well for finding search and help pages, because they tend to be rather regular in composition. An allinurl: variation finds all the words listed in a URL but doesn&#8217;t mix well with some other special syntaxes.</p>
+<p>Eg: <code><a href="http://google.com/search?q=inurl:help" onclick="javascript:pageTracker._trackPageview('/outbound/article/http://google.com/search?q=inurl:help');" target="_blank">inurl:help</a></code><br />
+<code><a href="http://google.com/search?q=allinurl:search%20help" onclick="javascript:pageTracker._trackPageview('/outbound/article/http://google.com/search?q=allinurl:search%20help');" target="_blank">allinurl:search help</a></code></p>
+<h4>intext, allintext</h4>
+<p>Searches only body text (i.e., ignores link text, URLs, and titles). There&#8217;s an allintext: variation, but again, this doesn&#8217;t play well with others. While its uses are limited, it&#8217;s perfect for finding query words that might be too common in URLs or link titles.</p>
+<p>Eg: <code><a href="http://google.com/search?q=intext:%22yahoo.com%22" onclick="javascript:pageTracker._trackPageview('/outbound/article/http://google.com/search?q=intext:%22yahoo.com%22');" target="_blank">intext:"yahoo.com"</a></code><br />
+<code><a href="http://google.com/search?q=allintext:html" onclick="javascript:pageTracker._trackPageview('/outbound/article/http://google.com/search?q=allintext:html');" target="_blank">allintext:html</a></code></p>
+<h4>inanchor</h4>
+<p>Searches for text in a page&#8217;s link anchors. A link anchor is the descriptive text of a link. For example, the link anchor in the HTML code   	<a href="http://www.oreilly.com" onclick="javascript:pageTracker._trackPageview('/outbound/article/http://www.oreilly.com');">O&#8217;Reilly and Associates</a> is &#8220;O&#8217;Reilly and Associates.&#8221;</p>
+<p>Eg: <code><a href="http://google.com/search?q=inanchor:%22tom%20peters%22" onclick="javascript:pageTracker._trackPageview('/outbound/article/http://google.com/search?q=inanchor:%22tom%20peters%22');" target="_blank">inanchor:"tom peters"</a></code></p>
+<h4>site</h4>
+<p>Allows you to narrow your search by either a site or a top-level domain. AltaVista, for example, has two syntaxes for this function (host: and domain:), but Google has only the one.</p>
+<p>Eg: <code><a href="http://google.com/search?q=site:loc.gov" onclick="javascript:pageTracker._trackPageview('/outbound/article/http://google.com/search?q=site:loc.gov');" target="_blank">site:loc.gov</a></code><br />
+<code><a href="http://google.com/search?q=site:thomas.loc.gov" onclick="javascript:pageTracker._trackPageview('/outbound/article/http://google.com/search?q=site:thomas.loc.gov');" target="_blank">site:thomas.loc.gov</a></code><br />
+<code><a href="http://google.com/search?q=site:edu" onclick="javascript:pageTracker._trackPageview('/outbound/article/http://google.com/search?q=site:edu');" target="_blank">site:edu</a></code><br />
+<code><a href="http://google.com/search?q=site:nc.us" onclick="javascript:pageTracker._trackPageview('/outbound/article/http://google.com/search?q=site:nc.us');" target="_blank">site:nc.us</a></code><br />
+You can also use site: operator to exclude certain domains from a search</p>
+<p>Eg: <code><a href="http://google.com/search?q=google%20-site:google.com" onclick="javascript:pageTracker._trackPageview('/outbound/article/http://google.com/search?q=google%20-site:google.com');" target="_blank">google -site:google.com</a></code><br />
+This is particularly useful for ego searches. You can find out all those sites which mention your name expect your site.</p>
+<p>Eg: <code><a href="http://google.com/search?q=bill%20gates%20-site:microsoft.com%20-site:wikipedia.org" onclick="javascript:pageTracker._trackPageview('/outbound/article/http://google.com/search?q=bill%20gates%20-site:microsoft.com%20-site:wikipedia.org');" target="_blank">bill gates -site:microsoft.com -site:wikipedia.org</a></code></p>
+<h4>link</h4>
+<p>Returns a list of pages linking to the specified URL. Enter link:www.google.com and you&#8217;ll be returned a list of pages that link to Google. Don&#8217;t worry about including the http:// bit; you don&#8217;t need it, and, indeed, Google appears to ignore it even if you do put it in. link: works just as well with &#8220;deep&#8221; URLs-http://www.raelity.org/apps/blosxom/ for instance-as with top-level URLs such as raelity.org.</p>
+<p>Eg: <code><a href="http://google.com/search?q=link:www.google.com" onclick="javascript:pageTracker._trackPageview('/outbound/article/http://google.com/search?q=link:www.google.com');" target="_blank">link:www.google.com</a></code></p>
+<h4>cache</h4>
+<p>Finds a copy of the page that Google indexed even if that page is no longer available at its original URL or has since changed its content completely. This is particularly useful for pages that change often. If Google returns a result that appears to have little to do with your query, you&#8217;re almost sure to find what you&#8217;re looking for in the latest cached version of the page at Google.</p>
+<p>Eg: <code><a href="http://google.com/search?q=cache:www.yahoo.com" onclick="javascript:pageTracker._trackPageview('/outbound/article/http://google.com/search?q=cache:www.yahoo.com');" target="_blank">cache:www.yahoo.com</a></code></p>
+<h4>filetype</h4>
+<p>Searches the suffixes or filename extensions. These are usually, but not necessarily, different file types. I like to make this distinction, because searching for filetype:htm and filetype:html will give you different result counts, even though they&#8217;re the same file type. You can even search for different page generators, such as ASP, PHP, CGI, and so forth-presuming the site isn&#8217;t hiding them behind redirection and proxying. Google indexes several different Microsoft formats, including: PowerPoint (PPT), Excel (XLS), and Word (DOC).</p>
+<p>Eg: <code><a href="http://google.com/search?q=homeschooling%20filetype:pdf" onclick="javascript:pageTracker._trackPageview('/outbound/article/http://google.com/search?q=homeschooling%20filetype:pdf');" target="_blank">homeschooling filetype:pdf</a></code><br />
+<code><a href="http://google.com/search?q=%22leading%20economic%20indicators%22%20filetype:ppt" onclick="javascript:pageTracker._trackPageview('/outbound/article/http://google.com/search?q=%22leading%20economic%20indicators%22%20filetype:ppt');" target="_blank">"leading economic indicators" filetype:ppt</a></code></p>
+<h4>related</h4>
+<p>Finds pages that are related to the specified page. Not all pages are related to other pages. This is a good way to find categories of pages; a search for related:google.com would return a variety of search engines, including HotBot, Yahoo!, and Northern Light.</p>
+<p>Eg: <code><a href="http://google.com/search?q=related:www.yahoo.com" onclick="javascript:pageTracker._trackPageview('/outbound/article/http://google.com/search?q=related:www.yahoo.com');" target="_blank">related:www.yahoo.com</a></code><br />
+<code><a href="http://google.com/search?q=related:www.cnn.com" onclick="javascript:pageTracker._trackPageview('/outbound/article/http://google.com/search?q=related:www.cnn.com');" target="_blank">related:www.cnn.com</a></code></p>
+<h4>info</h4>
+<p>Provides a page of links to more information about a specified URL. Information includes a link to the URL&#8217;s cache, a list of pages that link to that URL, pages that are related to that URL, and pages that contain that URL. Note that this information is dependent on whether Google has indexed that URL or not. If Google hasn&#8217;t indexed that URL, information will obviously be more limited.</p>
+<p>Eg: <code><a href="http://google.com/search?q=info:www.oreilly.com" onclick="javascript:pageTracker._trackPageview('/outbound/article/http://google.com/search?q=info:www.oreilly.com');" target="_blank">info:www.oreilly.com</a></code><br />
+<code><a href="http://google.com/search?q=info:www.nytimes.com/technology" onclick="javascript:pageTracker._trackPageview('/outbound/article/http://google.com/search?q=info:www.nytimes.com/technology');" target="_blank">info:www.nytimes.com/technology</a></code></p>
+<h4>define</h4>
+<p>Will get the definition of the term that you have entered. This syntax can be used to get the definitions of words, phrases, and acronyms</p>
+<p>Eg: <code><a href="http://google.com/search?q=define:dreaming" onclick="javascript:pageTracker._trackPageview('/outbound/article/http://google.com/search?q=define:dreaming');" target="_blank">define:dreaming</a></code><br />
+This query will get you the definition of the word dreaming</p>
+<h4>numrange</h4>
+<p>If you want to search for a range of numbers then you can use two dots (without spaces) to represent a range of numbers</p>
+<p>Eg: <code><a href="http://google.com/search?q=inventions%201850..1899" onclick="javascript:pageTracker._trackPageview('/outbound/article/http://google.com/search?q=inventions%201850..1899');" target="_blank">inventions 1850..1899</a></code><br />
+This query will get you all the inventions between 1850 and 1899</p>
+<h4>safesearch</h4>
+<p>If you include safesearch: in your query, Google will exclude adult-content.</p>
+<p>Eg:    <code><a href="http://google.com/search?q=safesearch:breasts" onclick="javascript:pageTracker._trackPageview('/outbound/article/http://google.com/search?q=safesearch:breasts');" target="_blank">safesearch:breasts</a></code><br />
+This will search for information on breasts without returning adult or pornographic sites.</p>
+<h4>stocks</h4>
+<p>If you start your query with <a href="http://www.thepennystocknewsletter.com" onclick="javascript:pageTracker._trackPageview('/outbound/article/http://www.thepennystocknewsletter.com');">stocks</a>:, Google will interpret the rest of the query terms as NYSE, NASDAQ, AMEX, or mutual fund stock ticker symbols, and will open a page showing stock information for the symbols you specify.</p>
+<p>Eg: <code><a href="http://google.com/search?q=stocks:goog" onclick="javascript:pageTracker._trackPageview('/outbound/article/http://google.com/search?q=stocks:goog');" target="_blank">stocks:goog</a></code><br />
+This will show information about Google&#8217;s stock. Specify ticker symbols not company names. If you enter an invalid ticker symbol, you&#8217;ll be told so and given a link to a page where you can look up a valid ticker symbol.</p>
+<h4>The Special Syntaxes</h4>
+<h4>Currency Conversion</h4>
+<p>Google makes it easy to calculate money conversions from one form of currency to another.</p>
+<p>Eg: <code><a href="http://google.com/search?q=$5%20in%20yen" onclick="javascript:pageTracker._trackPageview('/outbound/article/http://google.com/search?q=$5%20in%20yen');" target="_blank">$5 in yen</a></code>The above query will let you know that five dollars is worth about 566.599846 yen.</p>
+<p>If you&#8217;re not sure of the name of a currency, use nationality instead.</p>
+<p>Eg: <code><a href="http://google.com/search?q=25%20Australian%20money%20in%20Italian%20money" onclick="javascript:pageTracker._trackPageview('/outbound/article/http://google.com/search?q=25%20Australian%20money%20in%20Italian%20money');" target="_blank">25 Australian money in Italian money</a></code><br />
+This may sound awkward but it does the job.</p>
+<p>Eg: <code><a href="http://google.com/search?q=$5%20in%20indian%20money" onclick="javascript:pageTracker._trackPageview('/outbound/article/http://google.com/search?q=$5%20in%20indian%20money');" target="_blank">$5 in indian money</a></code><br />
+This will let you know that 5 US dollars is worth about 224.477976 Indian rupees</p>
+<p>You can even convert units in this fashion.</p>
+<p>Eg: <code><a href="http://google.com/search?q=$2.85%20per%20gallon%20in%20British%20money%20per%20liter" onclick="javascript:pageTracker._trackPageview('/outbound/article/http://google.com/search?q=$2.85%20per%20gallon%20in%20British%20money%20per%20liter');" target="_blank">$2.85 per gallon in British money per liter</a></code>This query will tell you that it is about 42 pence per liter and provides an international basis for discussing gas prices at the pump.</p>
+<h4>Check Airfares</h4>
+<p>When you google for the names of two major cities, Google automatically offers to search for flights.</p>
+<p>Eg: <code><a href="http://google.com/search?q=Denver%20Fort%20Lauderdale" onclick="javascript:pageTracker._trackPageview('/outbound/article/http://google.com/search?q=Denver%20Fort%20Lauderdale');" target="_blank">Denver Fort Lauderdale</a></code><br />
+In the form labeled &#8220;Flights from Denver, CO to Fort Lauderdale, FL&#8221;, enter a departure and return date and choose whether to search using Expedia, Hotwire or Orbitz. Do not use quotation marks in your initial search. Denver &#8220;Fort Lauderdale&#8221; will not bring up the flight search form.</p>
+<h4>Find Song Lyrics</h4>
+<p>If you are looking for the title or lyrics of a song then you can use Google search phrases and wildcards to find them.</p>
+<p>Eg: <code><a href="http://google.com/search?q=%22Friday%20I%20am%20in%20love%22%20lyrics" onclick="javascript:pageTracker._trackPageview('/outbound/article/http://google.com/search?q=%22Friday%20I%20am%20in%20love%22%20lyrics');" target="_blank">"Friday I am in love" lyrics</a></code><br />
+Or use the wildcard operator to get lyrics with certain words in them, like this</p>
+<p><code><a href="http://google.com/search?q=%22Friday%20*%20love%22%20lyrics" onclick="javascript:pageTracker._trackPageview('/outbound/article/http://google.com/search?q=%22Friday%20*%20love%22%20lyrics');" target="_blank">"Friday * love" lyrics</a></code></p>
+<p>This compilation is just a tip of the iceberg of the features available in Google&#8217;s search syntax. If you come across any other special syntax, then do let me know so that I can add it.</p>
+<p><strong>Update</strong>:  Some of the latest additions to Google Search Syntax can be found <a href="http://sudarmuthu.com/blog/2007/09/20/some-new-additions-to-google-search-syntax.html" >here</a>.</p>
+<p><strong>Update 2</strong>: You can also get the <a href="http://sudarmuthu.com/blog/2007/10/09/get-the-current-time-for-any-city-using-google.html" >current time of any city using Google Search query</a>.</p>
+<p><script type="text/javascript">// < ![CDATA[
+    if (typeof window.Delicious == "undefined") window.Delicious = {};
+    Delicious.BLOGBADGE_DEFAULT_CLASS = 'delicious-blogbadge-line';
+// ]]&gt;</script> <script src="http://static.delicious.com/js/blogbadge.js"></script></p>
+
+	<h3>Possibly Related posts</h3>
+	<ul class="st-related-posts">
+	<li><a href="http://sudarmuthu.com/blog/2007/10/09/get-the-current-time-for-any-city-using-google.html" title="Get the current time for any city using Google (Oct 9, 2007)">Get the current time for any city using Google</a> (Oct 9, 2007)</li>
+	<li><a href="http://sudarmuthu.com/blog/2005/09/27/happy-birthday-google.html" title="Happy Birthday Google (Sep 27, 2005)">Happy Birthday Google</a> (Sep 27, 2005)</li>
+	<li><a href="http://sudarmuthu.com/blog/2007/04/21/thanks-you-google-and-linux.html" title="Thank You Google and Linux (Apr 21, 2007)">Thank You Google and Linux</a> (Apr 21, 2007)</li>
+	<li><a href="http://sudarmuthu.com/blog/2006/06/07/suggest-me-some-features-to-compare-online-spreadsheets.html" title="Suggest me some features to compare online spreadsheets (Jun 7, 2006)">Suggest me some features to compare online spreadsheets</a> (Jun 7, 2006)</li>
+	<li><a href="http://sudarmuthu.com/blog/2005/04/06/some-useful-certification-groups.html" title="Some useful Certification Groups (Apr 6, 2005)">Some useful Certification Groups</a> (Apr 6, 2005)</li>
+</ul>
+
+            </div><!-- .entry-content -->
+
+    <p class="entry-utility">
+        Tags: <a href="http://sudarmuthu.com/blog/tag/google" rel="tag">Google</a>, <a href="http://sudarmuthu.com/blog/tag/search" rel="tag">Search</a>, <a href="http://sudarmuthu.com/blog/tag/searching" rel="tag">searching</a>, <a href="http://sudarmuthu.com/blog/tag/syntax" rel="tag">syntax</a>
+            </p><!-- .entry-utility -->
+
+            <h4>Share thy love</h4>
+        <p class="share-icons">
+                       <a rel ="nofollow" href ="http://del.icio.us/post?url=http%3A%2F%2Fsudarmuthu.com%2Fblog%2F2006%2F05%2F07%2Fgoogle-search-syntax-dissected.html&amp;title=Google Search syntax dissected" title="Bookmark in delicious">
+                           <img class="share-icon" alt="Delicious" src="http://sudarmuthu.com/wp/wp-content/themes/bright-light/images/icons/64/delicious.png" />
+                       </a>
+                                              <a rel="nofollow" href ="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fsudarmuthu.com%2Fblog%2F2006%2F05%2F07%2Fgoogle-search-syntax-dissected.html&amp;t=Google Search syntax dissected" title="Share in Facebook">
+                           <img class="share-icon" alt="Facebook" src="http://sudarmuthu.com/wp/wp-content/themes/bright-light/images/icons/64/facebook.png" />
+                       </a>
+                                              <a rel ="nofollow" href ="http://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Fsudarmuthu.com%2Fblog%2F2006%2F05%2F07%2Fgoogle-search-syntax-dissected.html&amp;title=Google Search syntax dissected" title="Share in Linkedin">
+                           <img class="share-icon" alt="Linkedin" src="http://sudarmuthu.com/wp/wp-content/themes/bright-light/images/icons/64/linkedin.png" />
+                       </a>
+                                              <a rel="nofollow" href ="http://reddit.com/submit?url=http%3A%2F%2Fsudarmuthu.com%2Fblog%2F2006%2F05%2F07%2Fgoogle-search-syntax-dissected.html&amp;title=Google Search syntax dissected" title="Bookmark in Reddit">
+                           <img class="share-icon" alt="Reddit" src="http://sudarmuthu.com/wp/wp-content/themes/bright-light/images/icons/64/reddit.png" />
+                       </a>
+                                              <a rel ="nofollow" href ="http://www.stumbleupon.com/submit?url=http%3A%2F%2Fsudarmuthu.com%2Fblog%2F2006%2F05%2F07%2Fgoogle-search-syntax-dissected.html&amp;title=Google Search syntax dissected" title="Bookmark in Stumbleupon">
+                           <img class="share-icon" alt="Stumbleupon" src="http://sudarmuthu.com/wp/wp-content/themes/bright-light/images/icons/64/stumble.png" />
+                       </a>
+                                              <a rel ="nofollow" href ="http://twitter.com/home?status=http%3A%2F%2Fsudarmuthu.com%2Fblog%2F2006%2F05%2F07%2Fgoogle-search-syntax-dissected.html" title="Share in Twitter">
+                           <img class="share-icon" alt="Twitter" src="http://sudarmuthu.com/wp/wp-content/themes/bright-light/images/icons/64/twitter.png" />
+                       </a>
+                                              <a rel="nofollow" href ="http://myweb2.search.yahoo.com/myresults/bookmarklet?u=http%3A%2F%2Fsudarmuthu.com%2Fblog%2F2006%2F05%2F07%2Fgoogle-search-syntax-dissected.html&amp;t=Google Search syntax dissected" title="Share in Yahoo">
+                           <img class="share-icon" alt="Yahoo" src="http://sudarmuthu.com/wp/wp-content/themes/bright-light/images/icons/64/yahoo.png" />
+                       </a>
+                               </p>
+    
+  </div><!-- #post-128 -->
+
+  <div class="navigation nav-below">
+    <div class="nav-previous"><a href="http://sudarmuthu.com/blog/2006/05/06/first-aid-advice-on-your-ipod.html" rel="prev"><span class="meta-nav">&laquo;</span> First aid advice on your iPod</a></div>
+    <div class="nav-next"><a href="http://sudarmuthu.com/blog/2006/05/10/copy-files-from-ipod-to-any-computer-without-itunes.html" rel="next">Copy files from iPod to any computer without iTunes <span class="meta-nav">&raquo;</span></a></div>
+  </div><!-- #nav-below -->
+  
+
+<div id="commentblock">
+  <!--comments area-->
+  <h4 id="comments">
+    88 Comments so far  </h4>
+
+  <p>
+                <a class="trackback-link" rel="trackback" href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html/trackback">Trackback URI</a>
+ | <a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html/feed" title="Comments RSS to Google Search syntax dissected" rel="alternate" type="application/rss+xml">Follow up comments through RSS Feed</a> | <a class="comment-link" href="#respond" title="Post a comment">Post a comment</a>  </p>
+
+            <ul class="commentlist">
+            		<li class="comment even thread-even depth-1" id="comment-849">
+				<div id="div-comment-849" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/5cb11c6d11db3f8e8e302e32ee0897c9?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href="http://yuvipanda.blogspot.com" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://yuvipanda.blogspot.com');"  rel='external nofollow' class='url'>Yuvi</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-849">May 10, 2006 at 2:54 pm</a></div>
+
+		<p>Cool. But, hey isn&#8217;t it the same one you showed me some time back ? Well, a long time back:D</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=849#respond' onclick='return addComment.moveForm("div-comment-849", "849", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment byuser comment-author-admin bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-855">
+				<div id="div-comment-855" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/18040800897df7eebd802fe40da96a2a?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href="http://SudarMuthu.com/blog/" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://SudarMuthu.com/blog/');"  rel='external nofollow' class='url'>Sudar</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-855">May 10, 2006 at 11:47 pm</a></div>
+
+		<p>Yeah, this one is based on that old article. But now I have updated it and the second part of this article is totally new.</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=855#respond' onclick='return addComment.moveForm("div-comment-855", "855", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-1367">
+				<div id="div-comment-1367" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/5bd1ca1dcc18e99a3aa20b00adfc39bf?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href="http://74medicalinsur.tripod.com/term-insurance/" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://74medicalinsur.tripod.com/term-insurance/');"  rel='external nofollow' class='url'>cayle</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-1367">Jun 12, 2006 at 5:22 pm</a></div>
+
+		<p>Very Very nice information here&#8230; Thanks</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=1367#respond' onclick='return addComment.moveForm("div-comment-1367", "1367", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment byuser comment-author-admin bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-1368">
+				<div id="div-comment-1368" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/18040800897df7eebd802fe40da96a2a?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href="http://SudarMuthu.com/blog/" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://SudarMuthu.com/blog/');"  rel='external nofollow' class='url'>Sudar</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-1368">Jun 12, 2006 at 9:41 pm</a></div>
+
+		<p>Hi Cayle,</p>
+<p>Nice to know that it was useful to you.</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=1368#respond' onclick='return addComment.moveForm("div-comment-1368", "1368", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-1424">
+				<div id="div-comment-1424" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/c3473779b6d90288ee9a4bb22807a7a9?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn">go ogle</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-1424">Jun 16, 2006 at 7:43 am</a></div>
+
+		<p>great list, is there a replacement for the &#8216;daterange:julian-julian&#8217; operator?</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=1424#respond' onclick='return addComment.moveForm("div-comment-1424", "1424", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment byuser comment-author-admin bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-1436">
+				<div id="div-comment-1436" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/18040800897df7eebd802fe40da96a2a?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href="http://SudarMuthu.com/blog/" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://SudarMuthu.com/blog/');"  rel='external nofollow' class='url'>Sudar</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-1436">Jun 16, 2006 at 9:30 pm</a></div>
+
+		<p>hmm.. I am not very sure. Will check up and let you know.</p>
+<p>Cheers<br />
+Sudar</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=1436#respond' onclick='return addComment.moveForm("div-comment-1436", "1436", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-2557">
+				<div id="div-comment-2557" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=32' class='avatar avatar-32 photo avatar-default' height='32' width='32' />		<cite class="fn"><a href="http://www.slashdot.org" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://www.slashdot.org');"  rel='external nofollow' class='url'>Joeups</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-2557">Aug 22, 2006 at 1:45 pm</a></div>
+
+		<p>Here is what I&#8217;ve found as far as the date range.</p>
+<p>Type in the searchbox:&gt; daterange:startdate-enddate. The catch is that the date must be expressed as a Julian date (see below). So, for example, July 8, 2002, is Julian date 2452463.5 and May 22, 1968, is 2439998.5. Furthermore, Google isn&#8217;t fond of decimals in its date range queries; use only integers: 2452463 or 2452464 (depending on whether you prefer to round up or down) in the previous example</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=2557#respond' onclick='return addComment.moveForm("div-comment-2557", "2557", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-2592">
+				<div id="div-comment-2592" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/212d34f63ec77daa7838400a3ad40be4?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href="http://www.philb.com" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://www.philb.com');"  rel='external nofollow' class='url'>Phil Bradley</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-2592">Aug 24, 2006 at 2:55 pm</a></div>
+
+		<p>You might want to say a few words about the * operator in a bit more detail, because it&#8217;s a useful function and worthy of a small section in its own right, IMO. Another really important one is the file format &#8211; I&#8217;ve written about this myself at <a href="http://www.philb.com/fileformat.htm" onclick="javascript:pageTracker._trackPageview('/outbound/comment/http://www.philb.com/fileformat.htm');" rel="nofollow">http://www.philb.com/fileformat.htm</a></p>
+<p>For dates I&#8217;d be inclined to use GooFresh at <a href="http://www.researchbuzz.org/2003/09/goofresh.shtml" onclick="javascript:pageTracker._trackPageview('/outbound/comment/http://www.researchbuzz.org/2003/09/goofresh.shtml');" rel="nofollow">http://www.researchbuzz.org/2003/09/goofresh.shtml</a> which makes searching for dates much easier. Although having said that, it&#8217;s broken at the moment.</p>
+<p>Phil.</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=2592#respond' onclick='return addComment.moveForm("div-comment-2592", "2592", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment byuser comment-author-admin bypostauthor even thread-even depth-1" id="comment-2621">
+				<div id="div-comment-2621" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/18040800897df7eebd802fe40da96a2a?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href="http://SudarMuthu.com/blog/" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://SudarMuthu.com/blog/');"  rel='external nofollow' class='url'>Sudar</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-2621">Aug 25, 2006 at 10:39 pm</a></div>
+
+		<p>@Joeups, @Phil</p>
+<p>Thanks for the information about data range.</p>
+<p>Cheers,<br />
+Sudar</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=2621#respond' onclick='return addComment.moveForm("div-comment-2621", "2621", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-3305">
+				<div id="div-comment-3305" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/1908e9da2843628353466a1bd57acd8c?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href="http://http3A2F2Fxanax2Dgndf.blogspot.com" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://http3A2F2Fxanax2Dgndf.blogspot.com');"  rel='external nofollow' class='url'>Sad</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-3305">Sep 27, 2006 at 8:58 am</a></div>
+
+		<p>xanax++B</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=3305#respond' onclick='return addComment.moveForm("div-comment-3305", "3305", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-4053">
+				<div id="div-comment-4053" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/206405a4dbdf4bd500b7691973c98b17?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn">Vinetta</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-4053">Nov 3, 2006 at 4:42 pm</a></div>
+
+		<p>Hi Sudar,</p>
+<p>This is very helpful as I am an undergraduate and needs to minimise the time I spend in searching the internet. </p>
+<p>Thanks a million.</p>
+<p>Vinetta</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=4053#respond' onclick='return addComment.moveForm("div-comment-4053", "4053", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment byuser comment-author-admin bypostauthor odd alt thread-odd thread-alt depth-1 parent" id="comment-4062">
+				<div id="div-comment-4062" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/18040800897df7eebd802fe40da96a2a?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href="http://SudarMuthu.com/blog/" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://SudarMuthu.com/blog/');"  rel='external nofollow' class='url'>Sudar</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-4062">Nov 3, 2006 at 8:35 pm</a></div>
+
+		<p>Hi Vinetta,</p>
+<p>Nice to know that my article was helpful to you. <img src='http://sudarmuthu.com/wpfiles/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' /> </p>
+<p>Cheers,<br />
+Sudar</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=4062#respond' onclick='return addComment.moveForm("div-comment-4062", "4062", "respond", "128")'>Reply</a>		</div>
+				</div>
+		<ul class='children'>
+		<li class="comment even depth-2" id="comment-567973">
+				<div id="div-comment-567973" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/206405a4dbdf4bd500b7691973c98b17?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn">Vinetta</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-567973">Nov 3, 2009 at 12:45 pm</a></div>
+
+		<p>Hi Sudar,</p>
+<p>I am still using your guide. Can you make the page minus comments printer friendly?</p>
+<p>Next point: How do we access a wide range of academic articles? I often put .ac in the search, but my belief is that there are academic ones which do not have .ac in the URL. Am I right? </p>
+<p>Let me hear from you soon.</p>
+<p>Best.</p>
+<p>Vinetta</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=567973#respond' onclick='return addComment.moveForm("div-comment-567973", "567973", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+</ul>
+</li>
+		<li class="comment odd alt thread-even depth-1" id="comment-10895">
+				<div id="div-comment-10895" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=32' class='avatar avatar-32 photo avatar-default' height='32' width='32' />		<cite class="fn">sharosh</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-10895">Jan 25, 2007 at 11:47 am</a></div>
+
+		<p>cool information ,very very useful</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=10895#respond' onclick='return addComment.moveForm("div-comment-10895", "10895", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-odd thread-alt depth-1" id="comment-11843">
+				<div id="div-comment-11843" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/21ae8c05a3eeec035943f4d4876312c3?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn">goverdhan redddy</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-11843">Jan 31, 2007 at 6:18 pm</a></div>
+
+		<p>nice very help full</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=11843#respond' onclick='return addComment.moveForm("div-comment-11843", "11843", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment byuser comment-author-admin bypostauthor odd alt thread-even depth-1" id="comment-11866">
+				<div id="div-comment-11866" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/18040800897df7eebd802fe40da96a2a?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href="http://SudarMuthu.com/" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://SudarMuthu.com/');"  rel='external nofollow' class='url'>Sudar</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-11866">Jan 31, 2007 at 10:04 pm</a></div>
+
+		<p>@Sharosh, Goverdhan</p>
+<p>Nice to know that you guys found this useful <img src='http://sudarmuthu.com/wpfiles/wp-includes/images/smilies/icon_smile.gif' alt=':-)' class='wp-smiley' /> </p>
+<p>Cheers,<br />
+Sudar</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=11866#respond' onclick='return addComment.moveForm("div-comment-11866", "11866", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-odd thread-alt depth-1" id="comment-13458">
+				<div id="div-comment-13458" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=32' class='avatar avatar-32 photo avatar-default' height='32' width='32' />		<cite class="fn">Prabeesh</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-13458">Feb 11, 2007 at 10:48 pm</a></div>
+
+		<p>hey sudar,<br />
+my friend said you can find it better than u usually do ,i was wondering how do i do tht </p>
+<p>this page has thought me how to</p>
+<p>will explore more and let you know if i have something new</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=13458#respond' onclick='return addComment.moveForm("div-comment-13458", "13458", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment byuser comment-author-admin bypostauthor odd alt thread-even depth-1" id="comment-13461">
+				<div id="div-comment-13461" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/18040800897df7eebd802fe40da96a2a?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href="http://SudarMuthu.com/" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://SudarMuthu.com/');"  rel='external nofollow' class='url'>Sudar</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-13461">Feb 11, 2007 at 10:59 pm</a></div>
+
+		<p>Hi Prabeesh,</p>
+<p>Nice to know that you found it useful. Happy Googling..</p>
+<p>Cheers,<br />
+Sudar</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=13461#respond' onclick='return addComment.moveForm("div-comment-13461", "13461", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-odd thread-alt depth-1" id="comment-22690">
+				<div id="div-comment-22690" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=32' class='avatar avatar-32 photo avatar-default' height='32' width='32' />		<cite class="fn">vinay</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-22690">Apr 7, 2007 at 10:02 am</a></div>
+
+		<p>hey its really good&#8230;. amazing google&#8230;.?????</p>
+<p>thanks for let me knowing the power of google.</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=22690#respond' onclick='return addComment.moveForm("div-comment-22690", "22690", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-even depth-1" id="comment-31050">
+				<div id="div-comment-31050" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/f43e1907ab4087a4db27fdf34caaa39c?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn">sandeep</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-31050">May 11, 2007 at 12:04 am</a></div>
+
+		<p>amazing &#8230;&#8230;. never knew google was so powerful.<br />
+thanks a lot..</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=31050#respond' onclick='return addComment.moveForm("div-comment-31050", "31050", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-odd thread-alt depth-1" id="comment-31269">
+				<div id="div-comment-31269" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/c64650387fa4e0935f58ac9d06f00a05?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn">Murali</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-31269">May 11, 2007 at 4:19 pm</a></div>
+
+		<p>Great work buddy!!!.<br />
+have learnt good stuff<br />
+Thanks for that and keep doing if u have time</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=31269#respond' onclick='return addComment.moveForm("div-comment-31269", "31269", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment byuser comment-author-admin bypostauthor odd alt thread-even depth-1" id="comment-31654">
+				<div id="div-comment-31654" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/18040800897df7eebd802fe40da96a2a?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href="http://SudarMuthu.com/" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://SudarMuthu.com/');"  rel='external nofollow' class='url'>Sudar</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-31654">May 13, 2007 at 1:19 pm</a></div>
+
+		<p>Hi Vinay, Sandeep, Murali,</p>
+<p>Nice to know that it was useful to you guys.  <img src='http://sudarmuthu.com/wpfiles/wp-includes/images/smilies/icon_lol.gif' alt=':lol:' class='wp-smiley' />  Happy Googling&#8230;</p>
+<p>Cheers,<br />
+Sudar</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=31654#respond' onclick='return addComment.moveForm("div-comment-31654", "31654", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-odd thread-alt depth-1" id="comment-54121">
+				<div id="div-comment-54121" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/06a3157e0890128a7a572e4c2374671d?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn">Satish</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-54121">Aug 14, 2007 at 3:14 pm</a></div>
+
+		<p>Good info gathered and well organized.</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=54121#respond' onclick='return addComment.moveForm("div-comment-54121", "54121", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-even depth-1" id="comment-60293">
+				<div id="div-comment-60293" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/c9f5163f8ca6d2977e3dcb405035358a?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href="http://language.0catch.com" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://language.0catch.com');"  rel='external nofollow' class='url'>Terry</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-60293">Sep 11, 2007 at 10:03 am</a></div>
+
+		<p>Its wonderful, Good!</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=60293#respond' onclick='return addComment.moveForm("div-comment-60293", "60293", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-odd thread-alt depth-1" id="comment-61818">
+				<div id="div-comment-61818" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/62673bf5f3beb6636c48ade0b60a5a76?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn">Vin</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-61818">Sep 17, 2007 at 3:40 pm</a></div>
+
+		<p>Rocks !!!!!!  <img src='http://sudarmuthu.com/wpfiles/wp-includes/images/smilies/icon_twisted.gif' alt=':twisted:' class='wp-smiley' />   i just completed my project on Google searching strategies, it really helps me alot ha ha !!!  <img src='http://sudarmuthu.com/wpfiles/wp-includes/images/smilies/icon_twisted.gif' alt=':twisted:' class='wp-smiley' /> </p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=61818#respond' onclick='return addComment.moveForm("div-comment-61818", "61818", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment byuser comment-author-admin bypostauthor odd alt thread-even depth-1" id="comment-61830">
+				<div id="div-comment-61830" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/18040800897df7eebd802fe40da96a2a?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href="http://SudarMuthu.com/" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://SudarMuthu.com/');"  rel='external nofollow' class='url'>Sudar</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-61830">Sep 17, 2007 at 4:32 pm</a></div>
+
+		<p>@Vin,</p>
+<p>Nice to this article was of help to you. </p>
+<p>&#8211;<br />
+Sudar</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=61830#respond' onclick='return addComment.moveForm("div-comment-61830", "61830", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-odd thread-alt depth-1" id="comment-64343">
+				<div id="div-comment-64343" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/386992e3eeb70dbad79d8d1b81b63b92?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn">Jimmy</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-64343">Sep 26, 2007 at 2:41 am</a></div>
+
+		<p> <img src='http://sudarmuthu.com/wpfiles/wp-includes/images/smilies/icon_mrgreen.gif' alt=':mrgreen:' class='wp-smiley' />   <img src='http://sudarmuthu.com/wpfiles/wp-includes/images/smilies/icon_neutral.gif' alt=':neutral:' class='wp-smiley' />   <img src='http://sudarmuthu.com/wpfiles/wp-includes/images/smilies/icon_twisted.gif' alt=':twisted:' class='wp-smiley' />   <img src='http://sudarmuthu.com/wpfiles/wp-includes/images/smilies/icon_arrow.gif' alt=':arrow:' class='wp-smiley' />   <img src='http://sudarmuthu.com/wpfiles/wp-includes/images/smilies/icon_eek.gif' alt=':shock:' class='wp-smiley' />   <img src='http://sudarmuthu.com/wpfiles/wp-includes/images/smilies/icon_smile.gif' alt=':smile:' class='wp-smiley' />   <img src='http://sudarmuthu.com/wpfiles/wp-includes/images/smilies/icon_confused.gif' alt=':???:' class='wp-smiley' />   <img src='http://sudarmuthu.com/wpfiles/wp-includes/images/smilies/icon_cool.gif' alt=':cool:' class='wp-smiley' />   <img src='http://sudarmuthu.com/wpfiles/wp-includes/images/smilies/icon_evil.gif' alt=':evil:' class='wp-smiley' />   <img src='http://sudarmuthu.com/wpfiles/wp-includes/images/smilies/icon_biggrin.gif' alt=':grin:' class='wp-smiley' />   <img src='http://sudarmuthu.com/wpfiles/wp-includes/images/smilies/icon_idea.gif' alt=':idea:' class='wp-smiley' />   <img src='http://sudarmuthu.com/wpfiles/wp-includes/images/smilies/icon_redface.gif' alt=':oops:' class='wp-smiley' />   <img src='http://sudarmuthu.com/wpfiles/wp-includes/images/smilies/icon_razz.gif' alt=':razz:' class='wp-smiley' />   <img src='http://sudarmuthu.com/wpfiles/wp-includes/images/smilies/icon_rolleyes.gif' alt=':roll:' class='wp-smiley' />   <img src='http://sudarmuthu.com/wpfiles/wp-includes/images/smilies/icon_wink.gif' alt=':wink:' class='wp-smiley' />   <img src='http://sudarmuthu.com/wpfiles/wp-includes/images/smilies/icon_cry.gif' alt=':cry:' class='wp-smiley' />   <img src='http://sudarmuthu.com/wpfiles/wp-includes/images/smilies/icon_surprised.gif' alt=':eek:' class='wp-smiley' />   <img src='http://sudarmuthu.com/wpfiles/wp-includes/images/smilies/icon_lol.gif' alt=':lol:' class='wp-smiley' />   <img src='http://sudarmuthu.com/wpfiles/wp-includes/images/smilies/icon_mad.gif' alt=':mad:' class='wp-smiley' />   <img src='http://sudarmuthu.com/wpfiles/wp-includes/images/smilies/icon_sad.gif' alt=':sad:' class='wp-smiley' />   <img src='http://sudarmuthu.com/wpfiles/wp-includes/images/smilies/icon_exclaim.gif' alt=':!:' class='wp-smiley' />   <img src='http://sudarmuthu.com/wpfiles/wp-includes/images/smilies/icon_question.gif' alt=':?:' class='wp-smiley' />  mixed emotions</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=64343#respond' onclick='return addComment.moveForm("div-comment-64343", "64343", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment byuser comment-author-admin bypostauthor odd alt thread-even depth-1" id="comment-64497">
+				<div id="div-comment-64497" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/18040800897df7eebd802fe40da96a2a?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href="http://SudarMuthu.com/" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://SudarMuthu.com/');"  rel='external nofollow' class='url'>Sudar</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-64497">Sep 26, 2007 at 5:16 pm</a></div>
+
+		<p>@ Jimmy  <img src='http://sudarmuthu.com/wpfiles/wp-includes/images/smilies/icon_lol.gif' alt=':lol:' class='wp-smiley' /> </p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=64497#respond' onclick='return addComment.moveForm("div-comment-64497", "64497", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-odd thread-alt depth-1" id="comment-74375">
+				<div id="div-comment-74375" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/984fe6506e37b216abc17b1b72d51cb6?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn">Kashif</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-74375">Oct 26, 2007 at 1:14 pm</a></div>
+
+		<p>well it seems very cool<br />
+but can u search $2 in Pak Rupee. It showing very non related output. It means still you don&#8217;t have deployed enough instances regarding to this.</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=74375#respond' onclick='return addComment.moveForm("div-comment-74375", "74375", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-even depth-1" id="comment-99510">
+				<div id="div-comment-99510" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/47160a80f17fa2618763fa167d59f585?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn">Manimegalai</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-99510">Jan 7, 2008 at 4:09 pm</a></div>
+
+		<p>I am very new to seo job. so kindly give me some reference site of search engine optimisation and  also give tips for how to search a keyword. This site is very useful for me to  find keywords . thank u</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=99510#respond' onclick='return addComment.moveForm("div-comment-99510", "99510", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment byuser comment-author-admin bypostauthor even thread-odd thread-alt depth-1" id="comment-99778">
+				<div id="div-comment-99778" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/18040800897df7eebd802fe40da96a2a?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href="http://SudarMuthu.com/" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://SudarMuthu.com/');"  rel='external nofollow' class='url'>Sudar</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-99778">Jan 9, 2008 at 1:53 pm</a></div>
+
+		<p>Hello Manimegalai,</p>
+<p>Check the SEO tool list by Joost at this url <a href="http://www.joostdevalk.nl/seo-tools/" onclick="javascript:pageTracker._trackPageview('/outbound/comment/http://www.joostdevalk.nl/seo-tools/');" rel="nofollow">http://www.joostdevalk.nl/seo-tools/</a></p>
+<p>Hope this helps.</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=99778#respond' onclick='return addComment.moveForm("div-comment-99778", "99778", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-even depth-1" id="comment-107852">
+				<div id="div-comment-107852" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/895f2139fd39c30be77d12e76995a55f?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn">kamal</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-107852">Jan 24, 2008 at 11:18 pm</a></div>
+
+		<p>Nice. these syntax would easy my search.<br />
+Thanks.</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=107852#respond' onclick='return addComment.moveForm("div-comment-107852", "107852", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment byuser comment-author-admin bypostauthor even thread-odd thread-alt depth-1" id="comment-108480">
+				<div id="div-comment-108480" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/18040800897df7eebd802fe40da96a2a?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href="http://SudarMuthu.com/" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://SudarMuthu.com/');"  rel='external nofollow' class='url'>Sudar</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-108480">Jan 25, 2008 at 11:09 pm</a></div>
+
+		<p>Hi Kamal,</p>
+<p>Nice to know that my guide will be of help to you. Happy Googling <img src='http://sudarmuthu.com/wpfiles/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' /> </p>
+<p>Cheers<br />
+Sudar</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=108480#respond' onclick='return addComment.moveForm("div-comment-108480", "108480", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-even depth-1" id="comment-142586">
+				<div id="div-comment-142586" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/a9953cb5a5a2b83e89da79bfc1857e0b?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn">tim</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-142586">Feb 25, 2008 at 8:39 pm</a></div>
+
+		<p>Sudar, thanks for all the useful info.  But I&#8217;ve been looking for a search technique that would allow me to find terms that were in close proximity to each other.   I know I could put the words or terms in double quotations, but that sometimes eliminates results that may be useful.   Isn&#8217;t there a search term like &#8220;near&#8221;, &#8220;within 10 words&#8221;, or something like those?</p>
+<p>thanks,</p>
+<p>tim</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=142586#respond' onclick='return addComment.moveForm("div-comment-142586", "142586", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-odd thread-alt depth-1" id="comment-162668">
+				<div id="div-comment-162668" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/96f5b4e39971ea7e6016f0d6a7a2bc62?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn">Andy Krafft</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-162668">Mar 13, 2008 at 10:34 pm</a></div>
+
+		<p>Sudar, using parentheses to group boolean expressions do not seem to work. Any ideas? </p>
+<p>Thanks. Andy</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=162668#respond' onclick='return addComment.moveForm("div-comment-162668", "162668", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-even depth-1" id="comment-168380">
+				<div id="div-comment-168380" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/f26f0e7b3e9c3247d655727656ebe64b?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href="http://www.nela.in/" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://www.nela.in/');"  rel='external nofollow' class='url'>moserw</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-168380">Mar 17, 2008 at 8:37 pm</a></div>
+
+		<p>Thanks for the info.</p>
+<p><a href="http://www.nela.in/" onclick="javascript:pageTracker._trackPageview('/outbound/comment/http://www.nela.in/');" rel="nofollow">http://www.nela.in/</a></p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=168380#respond' onclick='return addComment.moveForm("div-comment-168380", "168380", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-odd thread-alt depth-1" id="comment-177861">
+				<div id="div-comment-177861" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/2a554172c420b4817c267f8511ceef28?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href="http://scholargrants.info" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://scholargrants.info');"  rel='external nofollow' class='url'>SCHOLARSHIP</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-177861">Mar 24, 2008 at 5:48 pm</a></div>
+
+		<p>Thanks. Very useful for me.</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=177861#respond' onclick='return addComment.moveForm("div-comment-177861", "177861", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-even depth-1" id="comment-179071">
+				<div id="div-comment-179071" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/6252d8239f24ae26fff741117f3217f8?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn">BGR</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-179071">Mar 26, 2008 at 6:05 am</a></div>
+
+		<p>is there a command like </p>
+<p>link:google.com</p>
+<p>that allows one to search for how many times a &#8220;particular-term&#8221; or site was searched for on Google?</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=179071#respond' onclick='return addComment.moveForm("div-comment-179071", "179071", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-odd thread-alt depth-1" id="comment-184293">
+				<div id="div-comment-184293" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/5b3183ef966d591e0ccd693c4df268c6?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn">vallabh</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-184293">Apr 1, 2008 at 11:56 pm</a></div>
+
+		<p>Picked a few new tricks. good work. Thanks Sudar.</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=184293#respond' onclick='return addComment.moveForm("div-comment-184293", "184293", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment byuser comment-author-admin bypostauthor odd alt thread-even depth-1" id="comment-185219">
+				<div id="div-comment-185219" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/18040800897df7eebd802fe40da96a2a?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href="http://SudarMuthu.com/" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://SudarMuthu.com/');"  rel='external nofollow' class='url'>Sudar</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-185219">Apr 2, 2008 at 9:48 pm</a></div>
+
+		<p>Hi Vallabh,</p>
+<p>Nice to know it was helpful to you.</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=185219#respond' onclick='return addComment.moveForm("div-comment-185219", "185219", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-odd thread-alt depth-1" id="comment-218529">
+				<div id="div-comment-218529" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/7fe67809304d54768f76b13116a7dbb5?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href="http://www.chriswhatley.co.uk" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://www.chriswhatley.co.uk');"  rel='external nofollow' class='url'>Chris Whatley</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-218529">Apr 30, 2008 at 3:15 pm</a></div>
+
+		<p>Great article, really helpful information. Keep up the good work.</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=218529#respond' onclick='return addComment.moveForm("div-comment-218529", "218529", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment byuser comment-author-admin bypostauthor odd alt thread-even depth-1" id="comment-218743">
+				<div id="div-comment-218743" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/18040800897df7eebd802fe40da96a2a?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href="http://SudarMuthu.com/" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://SudarMuthu.com/');"  rel='external nofollow' class='url'>Sudar</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-218743">Apr 30, 2008 at 8:33 pm</a></div>
+
+		<p>@Chris,</p>
+<p>Nice to know that you find article useful.</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=218743#respond' onclick='return addComment.moveForm("div-comment-218743", "218743", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-odd thread-alt depth-1" id="comment-241362">
+				<div id="div-comment-241362" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/c4ba6d40d96d54dc098fc7a6559c62bd?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn">batmiah</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-241362">May 26, 2008 at 5:41 pm</a></div>
+
+		<p>Very very informative. Thanks a lot.</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=241362#respond' onclick='return addComment.moveForm("div-comment-241362", "241362", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-even depth-1" id="comment-241542">
+				<div id="div-comment-241542" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/92c5b62667be54333b7bbd370cf6c85c?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href="http://www.dnpeek.com" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://www.dnpeek.com');"  rel='external nofollow' class='url'>Weis</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-241542">May 26, 2008 at 10:40 pm</a></div>
+
+		<p>Really informative  article, it helped me a lot, had to come back a few times and readi it again. keep up the good work, thanks</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=241542#respond' onclick='return addComment.moveForm("div-comment-241542", "241542", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment byuser comment-author-admin bypostauthor even thread-odd thread-alt depth-1" id="comment-243801">
+				<div id="div-comment-243801" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/18040800897df7eebd802fe40da96a2a?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href="http://SudarMuthu.com/" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://SudarMuthu.com/');"  rel='external nofollow' class='url'>Sudar</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-243801">May 28, 2008 at 10:33 am</a></div>
+
+		<p>@Batmiah, @Weis</p>
+<p>Nice to know that my article was informative and helpful to you.</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=243801#respond' onclick='return addComment.moveForm("div-comment-243801", "243801", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-even depth-1" id="comment-247853">
+				<div id="div-comment-247853" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/cefc8c90373cf3b268046389939f999c?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href="http://link" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://link');"  rel='external nofollow' class='url'>Lewis</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-247853">May 30, 2008 at 6:46 pm</a></div>
+
+		<p>Very informative and well designed website. I&#8217;m sure, you will be successful with it, have a nice day!,</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=247853#respond' onclick='return addComment.moveForm("div-comment-247853", "247853", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment byuser comment-author-admin bypostauthor even thread-odd thread-alt depth-1" id="comment-247994">
+				<div id="div-comment-247994" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/18040800897df7eebd802fe40da96a2a?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href="http://SudarMuthu.com/" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://SudarMuthu.com/');"  rel='external nofollow' class='url'>Sudar</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-247994">May 30, 2008 at 9:51 pm</a></div>
+
+		<p>@Lewis,</p>
+<p>Thanks for the wishes and nice to know that you liked my article.</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=247994#respond' onclick='return addComment.moveForm("div-comment-247994", "247994", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-even depth-1" id="comment-263223">
+				<div id="div-comment-263223" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/d78a94416b627b80bc69f728d3697644?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn">Rob</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-263223">Jun 9, 2008 at 5:47 pm</a></div>
+
+		<p>Thank you for you&#8217;re work.  It&#8217;s in my favorites now.</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=263223#respond' onclick='return addComment.moveForm("div-comment-263223", "263223", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-odd thread-alt depth-1" id="comment-275690">
+				<div id="div-comment-275690" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/9ab4896269863214c98264787b45c86a?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href="http://none" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://none');"  rel='external nofollow' class='url'>kaleb</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-275690">Jun 18, 2008 at 11:52 am</a></div>
+
+		<p>question for you. Lets say I&#8217;m trying to search with in a word &#8211; is that possible for example lets say that am trying to find an email address at with the ending &#8220;@fun.com&#8221; is there a way to find emails with that ending? Thanks</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=275690#respond' onclick='return addComment.moveForm("div-comment-275690", "275690", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-even depth-1" id="comment-286692">
+				<div id="div-comment-286692" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/32ad3a6c3a15c81b0c61c1877fa58569?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn">alex</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-286692">Jun 26, 2008 at 6:02 pm</a></div>
+
+		<p>Thanks for the information, but i wan to now more and more about the google search terms, can you give the more information about the search terms.  Thanks: alex</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=286692#respond' onclick='return addComment.moveForm("div-comment-286692", "286692", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment byuser comment-author-admin bypostauthor even thread-odd thread-alt depth-1" id="comment-289781">
+				<div id="div-comment-289781" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/18040800897df7eebd802fe40da96a2a?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href="http://SudarMuthu.com/" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://SudarMuthu.com/');"  rel='external nofollow' class='url'>Sudar</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-289781">Jun 29, 2008 at 2:04 pm</a></div>
+
+		<p>@alex,</p>
+<p>If you want to track how a specific search terms is used, you can try <a href="http://www.google.com/trends" onclick="javascript:pageTracker._trackPageview('/outbound/comment/http://www.google.com/trends');" rel="nofollow">http://www.google.com/trends</a>.</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=289781#respond' onclick='return addComment.moveForm("div-comment-289781", "289781", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-even depth-1" id="comment-304375">
+				<div id="div-comment-304375" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/6b3d471ba4bf190a262751101677545c?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href="http://www.blognol.com/seo" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://www.blognol.com/seo');"  rel='external nofollow' class='url'>blognol</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-304375">Jul 10, 2008 at 2:56 pm</a></div>
+
+		<p>Hi, it&#8217;s really informative. To search how many links that our domain has can be find by searching site:yoursitename.com ( eg : site:blognol.com ). This will list the urls that crul by goolge in your site.<br />
+For more details : <a href='http://www.blognol.com' rel="nofollow">Click Here</a></p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=304375#respond' onclick='return addComment.moveForm("div-comment-304375", "304375", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-odd thread-alt depth-1" id="comment-313001">
+				<div id="div-comment-313001" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/fc8b2c36b6c0ec2d58e72f26e6f58444?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn">Ashish</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-313001">Jul 17, 2008 at 7:45 pm</a></div>
+
+		<p>Great work.. get sharing.. great help&#8230;</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=313001#respond' onclick='return addComment.moveForm("div-comment-313001", "313001", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-even depth-1" id="comment-314594">
+				<div id="div-comment-314594" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=32' class='avatar avatar-32 photo avatar-default' height='32' width='32' />		<cite class="fn">Anonymous</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-314594">Jul 19, 2008 at 5:52 am</a></div>
+
+		<p>thanks a lot , it is very useful.</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=314594#respond' onclick='return addComment.moveForm("div-comment-314594", "314594", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-odd thread-alt depth-1" id="comment-316025">
+				<div id="div-comment-316025" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/8361faaae8d5a847fb9240da96e8c6e8?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn">Shmuel</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-316025">Jul 20, 2008 at 12:30 pm</a></div>
+
+		<p>Hi,<br />
+Very cool!, and I found this list just today.(20/07/2008).<br />
+ But, what I&#8217;m looking for, is for a TRANSLATION OPERATOR, something like:<br />
+&#8221; &#8216;ORBAT&#8217;, in Spanish:&#8221;<br />
+or<br />
+&#8221;  &#8216;Common Tactical Picture&#8217;, in Spanish&#8221;,   etc.</p>
+<p>Is there anything like this? Or anything leading to the parallel terminology in a different (e.g.= Spanish) language?<br />
+Thanks, Shmuel.</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=316025#respond' onclick='return addComment.moveForm("div-comment-316025", "316025", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-even depth-1" id="comment-322030">
+				<div id="div-comment-322030" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/8ff327401041977f7fbca893f71cecb2?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn">Lawrence</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-322030">Jul 24, 2008 at 9:09 pm</a></div>
+
+		<p>Great site, thanks for writing and maintaining it.  Here are a few others.</p>
+<p>Google Local: Find products and services in a specific U.S. town or zip code.<br />
+Language: specify in which language you&#8217;d like your results.<br />
+Technology Search: find information related to Apple Macintosh, BSD Unix, Linux or Microsoft.<br />
+Date: restrict your results to the past three, six, or twelve month periods.<br />
+Occurrences: specify where your search terms occur on the page &#8211; anywhere on the page, in the title, or in the url.<br />
+~ the all important Synonym search</p>
+<p>If you want to search not only for your search term but also for its synonyms, place the tilde sign (&#8220;~&#8221;) immediately in front of your search term.</p>
+<p>For example, here&#8217;s how to search for food facts and nutrition and cooking information:<br />
+~food ~facts</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=322030#respond' onclick='return addComment.moveForm("div-comment-322030", "322030", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-odd thread-alt depth-1" id="comment-338918">
+				<div id="div-comment-338918" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=32' class='avatar avatar-32 photo avatar-default' height='32' width='32' />		<cite class="fn">Anonymous</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-338918">Aug 8, 2008 at 11:28 am</a></div>
+
+		<p>hi sudar,</p>
+<p>Thamk you very much.i was able to save a lot of time in searching.</p>
+<p>Tarun</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=338918#respond' onclick='return addComment.moveForm("div-comment-338918", "338918", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-even depth-1" id="comment-339317">
+				<div id="div-comment-339317" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/7dd69df98f7ee3a5a1b9516d619a3026?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn">ppk</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-339317">Aug 9, 2008 at 3:46 pm</a></div>
+
+		<p>hi there thanku v much 4 the information about google search.Now do u still think that I need to browse &#8216;google search &#8216; for any missing info? <img src='http://sudarmuthu.com/wpfiles/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' /> </p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=339317#respond' onclick='return addComment.moveForm("div-comment-339317", "339317", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-odd thread-alt depth-1" id="comment-347263">
+				<div id="div-comment-347263" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/8361faaae8d5a847fb9240da96e8c6e8?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn">Shmuel</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-347263">Aug 19, 2008 at 3:25 pm</a></div>
+
+		<p>Hi, Sudar,</p>
+<p>Almost exactly 1 (one) month ago, (on the 20th of July 2008) I left here a comment, praising the site, and also asking for some help in translation jobs.  I&#8217;m surprised that today, I haven&#8217;t seen any reply to my question, from you or from anybody else.  I still expect to get some reply, some assistance.<br />
+Shmuel<br />
+19 of Aug 2008</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=347263#respond' onclick='return addComment.moveForm("div-comment-347263", "347263", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-even depth-1" id="comment-361829">
+				<div id="div-comment-361829" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/063dcc8571bc1f95c15ded31a8386d68?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn">kamal</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-361829">Sep 16, 2008 at 12:22 pm</a></div>
+
+		<p>This give the great idea to perform the searching action.</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=361829#respond' onclick='return addComment.moveForm("div-comment-361829", "361829", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-odd thread-alt depth-1" id="comment-363018">
+				<div id="div-comment-363018" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/4bc7992c29c4cbaccdb354cf8576e36a?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn">vuhai</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-363018">Oct 2, 2008 at 7:26 pm</a></div>
+
+		<p>Thank you for this guidance!<br />
+I hope to read some more useful posts on your site.</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=363018#respond' onclick='return addComment.moveForm("div-comment-363018", "363018", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-even depth-1" id="comment-408068">
+				<div id="div-comment-408068" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/c384e5c2f9d752a92fa0495207a30183?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn">kathir</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-408068">Dec 16, 2008 at 4:09 pm</a></div>
+
+		<p>nice</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=408068#respond' onclick='return addComment.moveForm("div-comment-408068", "408068", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-odd thread-alt depth-1" id="comment-446424">
+				<div id="div-comment-446424" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/f608d26269ada710031fa807f521dc0d?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn">yahya algably</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-446424">Feb 6, 2009 at 9:04 pm</a></div>
+
+		<p>Thank you for this excellent information which i just found eventhough i ve been misguided for many years on the net with a lot of time wasting.I hope that i can learn more from this site.</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=446424#respond' onclick='return addComment.moveForm("div-comment-446424", "446424", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-even depth-1" id="comment-451117">
+				<div id="div-comment-451117" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/7083caad47ef2edd92d8d2025ac1ba52?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href="http://www.azhariqbal.com" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://www.azhariqbal.com');"  rel='external nofollow' class='url'>SEO Services Karachi Pakistan</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-451117">Feb 12, 2009 at 9:17 pm</a></div>
+
+		<p>I luv this resource.. saved in my favourites to use it anytime</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=451117#respond' onclick='return addComment.moveForm("div-comment-451117", "451117", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-odd thread-alt depth-1" id="comment-461130">
+				<div id="div-comment-461130" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/c1fc1359a0476a7587f980c9709e7fd2?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn">ali reza feizi</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-461130">Feb 28, 2009 at 3:22 am</a></div>
+
+		<p>thanks, it may be useful sometimes to know how to search.</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=461130#respond' onclick='return addComment.moveForm("div-comment-461130", "461130", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-even depth-1" id="comment-477737">
+				<div id="div-comment-477737" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=32' class='avatar avatar-32 photo avatar-default' height='32' width='32' />		<cite class="fn">Anonymous</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-477737">Mar 31, 2009 at 9:38 am</a></div>
+
+		<p>this is coollll&#8230;..<br />
+but how do u change the text on &#8216;my page&#8217;</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=477737#respond' onclick='return addComment.moveForm("div-comment-477737", "477737", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-odd thread-alt depth-1" id="comment-494452">
+				<div id="div-comment-494452" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/5fc706a77bcec1c350693b4cc8583cac?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href="http://www.wahidqazi.com/" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://www.wahidqazi.com/');"  rel='external nofollow' class='url'>SEO Consultant</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-494452">Apr 25, 2009 at 12:18 pm</a></div>
+
+		<p>could you please send me the google queries list</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=494452#respond' onclick='return addComment.moveForm("div-comment-494452", "494452", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-even depth-1" id="comment-496830">
+				<div id="div-comment-496830" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/b4438f88e934f23ca72adecb5738f530?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href="http://www.sirseo.com" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://www.sirseo.com');"  rel='external nofollow' class='url'>SEO Expert Karachi</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-496830">Apr 30, 2009 at 3:04 pm</a></div>
+
+		<p>thanks for sharing these tricks, but still need to know alot</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=496830#respond' onclick='return addComment.moveForm("div-comment-496830", "496830", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-odd thread-alt depth-1 parent" id="comment-503661">
+				<div id="div-comment-503661" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/2cdd8cd7e65be5566f4265c9fc5f2eb7?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href="http://www.edenzweb.com" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://www.edenzweb.com');"  rel='external nofollow' class='url'>Vineet Chawla</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-503661">May 22, 2009 at 9:50 am</a></div>
+
+		<p>Its a nice info although I am not able to find</p>
+<p>link:www.domainname.com if I am checking my website, any special reasons??? I m wondering why is it so <img src='http://sudarmuthu.com/wpfiles/wp-includes/images/smilies/icon_sad.gif' alt=':(' class='wp-smiley' /> </p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=503661#respond' onclick='return addComment.moveForm("div-comment-503661", "503661", "respond", "128")'>Reply</a>		</div>
+				</div>
+		<ul class='children'>
+		<li class="comment byuser comment-author-admin bypostauthor odd alt depth-2" id="comment-504058">
+				<div id="div-comment-504058" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/18040800897df7eebd802fe40da96a2a?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href="http://SudarMuthu.com/" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://SudarMuthu.com/');"  rel='external nofollow' class='url'>Sudar</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-504058">May 23, 2009 at 5:10 pm</a></div>
+
+		<p>@Vineet,</p>
+<p>Try the following query link:domainname.com by removing www from your domain name.</p>
+<p>Let me know if it works.</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=504058#respond' onclick='return addComment.moveForm("div-comment-504058", "504058", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+</ul>
+</li>
+		<li class="comment even thread-even depth-1" id="comment-523171">
+				<div id="div-comment-523171" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/47fc590382ed0db03043e9b3ce1266ca?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href="http://www.hashmk.page.tl" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://www.hashmk.page.tl');"  rel='external nofollow' class='url'>Hashim Kemal</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-523171">Jun 30, 2009 at 6:50 pm</a></div>
+
+		<p>Now I can use the google search really, mostly I don&#8217;t admire peopels but now I&#8217;m forced to say thanks!</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=523171#respond' onclick='return addComment.moveForm("div-comment-523171", "523171", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1 parent" id="comment-524858">
+				<div id="div-comment-524858" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/e4086e0bef499dce1c67a0a22a686584?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href="http://www.seobizlink.com" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://www.seobizlink.com');"  rel='external nofollow' class='url'>Affordable SEO Services</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-524858">Jul 3, 2009 at 11:00 pm</a></div>
+
+		<p>I m very thankful for the tips they have really improved my searching skills.nice post.</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=524858#respond' onclick='return addComment.moveForm("div-comment-524858", "524858", "respond", "128")'>Reply</a>		</div>
+				</div>
+		<ul class='children'>
+		<li class="comment byuser comment-author-admin bypostauthor even depth-2" id="comment-525181">
+				<div id="div-comment-525181" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/18040800897df7eebd802fe40da96a2a?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href="http://sudarmuthu.com"   rel='external nofollow' class='url'>Sudar</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-525181">Jul 4, 2009 at 11:21 am</a></div>
+
+		<p>Nice to know that my post was helpful to you.</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=525181#respond' onclick='return addComment.moveForm("div-comment-525181", "525181", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+</ul>
+</li>
+		<li class="comment odd alt thread-even depth-1" id="comment-537042">
+				<div id="div-comment-537042" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/b04f34f75dbea3f5e1faabea033f408d?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href="http://www.seo-shumail.blogspot.com" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://www.seo-shumail.blogspot.com');"  rel='external nofollow' class='url'>SEO Karachi</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-537042">Jul 24, 2009 at 12:12 pm</a></div>
+
+		<p>nice post but cache suntax did&#8217;ntnt work for my blog can u tell me y?</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=537042#respond' onclick='return addComment.moveForm("div-comment-537042", "537042", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-odd thread-alt depth-1 parent" id="comment-537043">
+				<div id="div-comment-537043" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/b04f34f75dbea3f5e1faabea033f408d?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href="http://www.seo-shumail.blogspot.com" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://www.seo-shumail.blogspot.com');"  rel='external nofollow' class='url'>SEO Karachi</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-537043">Jul 24, 2009 at 12:13 pm</a></div>
+
+		<p>nice post but cache syntax did&#8217;ntnt work for my blog can u tell me y?</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=537043#respond' onclick='return addComment.moveForm("div-comment-537043", "537043", "respond", "128")'>Reply</a>		</div>
+				</div>
+		<ul class='children'>
+		<li class="comment byuser comment-author-admin bypostauthor odd alt depth-2" id="comment-537250">
+				<div id="div-comment-537250" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/18040800897df7eebd802fe40da96a2a?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href="http://sudarmuthu.com"   rel='external nofollow' class='url'>Sudar</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-537250">Jul 24, 2009 at 9:35 pm</a></div>
+
+		<p>Are you sure your blog is indexed by Google? What is your blog url?</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=537250#respond' onclick='return addComment.moveForm("div-comment-537250", "537250", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+</ul>
+</li>
+		<li class="comment even thread-even depth-1 parent" id="comment-550119">
+				<div id="div-comment-550119" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/93ea107a1b5f6bf93d74230f6fc4357b?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href="http://www.bineetchaubey.wodpress.com" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://www.bineetchaubey.wodpress.com');"  rel='external nofollow' class='url'>bineet chaubey</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-550119">Aug 24, 2009 at 12:01 am</a></div>
+
+		<p>really this a nice article . i found this article through google search page . thank for provide most essential google search technique to needed people . thank Bro.</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=550119#respond' onclick='return addComment.moveForm("div-comment-550119", "550119", "respond", "128")'>Reply</a>		</div>
+				</div>
+		<ul class='children'>
+		<li class="comment byuser comment-author-admin bypostauthor odd alt depth-2" id="comment-550561">
+				<div id="div-comment-550561" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/18040800897df7eebd802fe40da96a2a?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href="http://sudarmuthu.com"   rel='external nofollow' class='url'>Sudar</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-550561">Aug 24, 2009 at 11:15 pm</a></div>
+
+		<p>@bineet,</p>
+<p>Nice to know that you liked the article <img src='http://sudarmuthu.com/wpfiles/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' /> </p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=550561#respond' onclick='return addComment.moveForm("div-comment-550561", "550561", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+</ul>
+</li>
+		<li class="comment even thread-odd thread-alt depth-1" id="comment-564899">
+				<div id="div-comment-564899" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=32' class='avatar avatar-32 photo avatar-default' height='32' width='32' />		<cite class="fn"><a href="http://dixiloan.com" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://dixiloan.com');"  rel='external nofollow' class='url'>Casper</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-564899">Oct 12, 2009 at 6:37 am</a></div>
+
+		<p>Nice post im still in learning process<br />
+but it help</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=564899#respond' onclick='return addComment.moveForm("div-comment-564899", "564899", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-even depth-1" id="comment-565950">
+				<div id="div-comment-565950" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/2b5fb5be7a06c99f496ddfa42bc25edc?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn">Anonymous</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-565950">Oct 19, 2009 at 1:05 pm</a></div>
+
+		<p>Thank you for you’re work. It’s in my favorites now.</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=565950#respond' onclick='return addComment.moveForm("div-comment-565950", "565950", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-odd thread-alt depth-1" id="comment-567476">
+				<div id="div-comment-567476" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/641805ebba25a64ae02e589c0d3c0724?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href="http://www.facebooklicious.com" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://www.facebooklicious.com');"  rel='external nofollow' class='url'>Facebook Application</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-567476">Oct 29, 2009 at 4:44 pm</a></div>
+
+		<p>Great info. I was really wanted to know this. Thanks for sharing</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=567476#respond' onclick='return addComment.moveForm("div-comment-567476", "567476", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-even depth-1" id="comment-567877">
+				<div id="div-comment-567877" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/91f617254e3d53c62099eddaccec1d5b?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href="http://www.facebookster.com" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://www.facebookster.com');"  rel='external nofollow' class='url'>Facebook Applications Developer</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-567877">Nov 2, 2009 at 3:50 pm</a></div>
+
+		<p>Really Really helpful. I was thinking to know that how we can search different things with different ways. Thanks <img src='http://sudarmuthu.com/wpfiles/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' /> </p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=567877#respond' onclick='return addComment.moveForm("div-comment-567877", "567877", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-odd thread-alt depth-1" id="comment-569425">
+				<div id="div-comment-569425" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=32' class='avatar avatar-32 photo avatar-default' height='32' width='32' />		<cite class="fn">Anonymous</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-569425">Nov 17, 2009 at 9:21 am</a></div>
+
+		<p>Voww.. this is awsome!</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=569425#respond' onclick='return addComment.moveForm("div-comment-569425", "569425", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-even depth-1" id="comment-570223">
+				<div id="div-comment-570223" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/c34ff747f9b08d15b6893d172c8d9c76?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href="http://www.calvert.ch" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://www.calvert.ch');"  rel='external nofollow' class='url'>Maurice</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-570223">Nov 22, 2009 at 11:16 pm</a></div>
+
+		<p>This addin for Internet Explorer allows you to permanently hide sites from your search engine results:</p>
+<p><a href="http://www.calvert.ch/affine" onclick="javascript:pageTracker._trackPageview('/outbound/comment/http://www.calvert.ch/affine');" rel="nofollow">http://www.calvert.ch/affine</a></p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=570223#respond' onclick='return addComment.moveForm("div-comment-570223", "570223", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-odd thread-alt depth-1" id="comment-572150">
+				<div id="div-comment-572150" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/79fb42f65e9171983e7b847fd928ea0f?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn">Manoj</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-572150">Dec 10, 2009 at 10:26 pm</a></div>
+
+		<p>Nice job. I am visiting this first time but i like all stuff.</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=572150#respond' onclick='return addComment.moveForm("div-comment-572150", "572150", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-even depth-1" id="comment-577186">
+				<div id="div-comment-577186" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/3907506b2a46c461d5c5e91cd02b5291?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn">jo</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-577186">Feb 7, 2010 at 6:12 am</a></div>
+
+		<p>$ sign doesn&#8217;t seem to work for me to represent USD.<br />
+I queried<br />
+<b>2.66 in American money per gallon in Polish money per liter</b><br />
+instead to compare oil prices.</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=577186#respond' onclick='return addComment.moveForm("div-comment-577186", "577186", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-odd thread-alt depth-1" id="comment-577324">
+				<div id="div-comment-577324" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/4050cdc583653112c279014b6b8beef9?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href="http://www.4rentgta.com" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://www.4rentgta.com');"  rel='external nofollow' class='url'>Toronto Apartments For Rent</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-577324">Feb 11, 2010 at 11:27 am</a></div>
+
+		<p>This will really help in search things in Google..Now we can find the relevant things without wasting any time</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=577324#respond' onclick='return addComment.moveForm("div-comment-577324", "577324", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-even depth-1" id="comment-578420">
+				<div id="div-comment-578420" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://www.gravatar.com/avatar/d50738723b23fef9a8a0a59fa1c90c2a?s=32&amp;d=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn">eonsaway</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-578420">Mar 2, 2010 at 7:36 am</a></div>
+
+		<p>I spend a lot of time searching and not getting the results because I am not searching correctly, this is very helpful, thanks.</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=578420#respond' onclick='return addComment.moveForm("div-comment-578420", "578420", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+        </ul>
+    
+          <h4 id="tweetbacks">3 Tweetbacks so far</h4>
+          <ul class="commentlist tweetbacks">
+              		<li class="tweetback even thread-even depth-1" id="comment-567420">
+				<div id="div-comment-567420" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn"><a href="http://twitter.com/eRychu/statuses/5238892675" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://twitter.com/eRychu/statuses/5238892675');"  rel='external nofollow' class='url'>eRychu (Ryszard Ryske)</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-567420">Oct 28, 2009 at 7:56 pm</a></div>
+
+		<p>Look what I googled! How to search in google <img src='http://sudarmuthu.com/wpfiles/wp-includes/images/smilies/icon_smile.gif' alt=':-)' class='wp-smiley' />  <a href="http://bit.ly/18C2Bp" onclick="javascript:pageTracker._trackPageview('/outbound/comment/http://bit.ly/18C2Bp');" rel="nofollow">http://bit.ly/18C2Bp</a></p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=567420#respond' onclick='return addComment.moveForm("div-comment-567420", "567420", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="tweetback odd alt thread-odd thread-alt depth-1" id="comment-571547">
+				<div id="div-comment-571547" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn"><a href="http://twitter.com/RecruitmentProf/statuses/6328661447" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://twitter.com/RecruitmentProf/statuses/6328661447');"  rel='external nofollow' class='url'>RecruitmentProf (Mariela Gagnon)</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-571547">Dec 4, 2009 at 5:35 am</a></div>
+
+		<p><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html"  rel="nofollow">http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html</a></p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=571547#respond' onclick='return addComment.moveForm("div-comment-571547", "571547", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="tweetback even thread-even depth-1" id="comment-575847">
+				<div id="div-comment-575847" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn"><a href="http://twitter.com/catch_down/statuses/7946267613" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://twitter.com/catch_down/statuses/7946267613');"  rel='external nofollow' class='url'>catch_down (catch_down)</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://sudarmuthu.com/blog/2006/05/07/google-search-syntax-dissected.html#comment-575847">Jan 19, 2010 at 2:06 pm</a></div>
+
+		<p><a href="http://tinyurl.com/om2l6" onclick="javascript:pageTracker._trackPageview('/outbound/comment/http://tinyurl.com/om2l6');" rel="nofollow">http://tinyurl.com/om2l6</a><br />
+Google Search syntax dissected &#8211; Night Dreaming (by Sudar)</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/blog/2006/05/07/google-search-syntax-dissected.html?replytocom=575847#respond' onclick='return addComment.moveForm("div-comment-575847", "575847", "respond", "128")'>Reply</a>		</div>
+				</div>
+		</li>
+          </ul>
+    
+          <h4 id="pings">30 Trackbacks/Pingbacks so far</h4>
+          <ul class="commentlist pingbacks">
+                <li id="comment-39573" class="pingback even thread-even depth-1">
+        <div class="comment-author">By <a href="http://www.hillary-clinton.for-president.us/20-tips-for-more-efficient-google-searches.html" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://www.hillary-clinton.for-president.us/20-tips-for-more-efficient-google-searches.html');"  rel='external nofollow' class='url'>Hillary Clinton for President &raquo; 20 Tips for More Efficient Google Searches</a> on Jun 8, 2007 at 12:13 pm</div>
+    </li>
+    <li id="comment-39583" class="pingback odd alt thread-odd thread-alt depth-1">
+        <div class="comment-author">By <a href="http://www.newsonnet.eu/2007/06/08/consigli-per-utilizzare-al-meglio-il-motore-di-ricerca-google/" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://www.newsonnet.eu/2007/06/08/consigli-per-utilizzare-al-meglio-il-motore-di-ricerca-google/');"  rel='external nofollow' class='url'>Consigli per utilizzare al meglio il motore di ricerca Google | News On Net</a> on Jun 8, 2007 at 1:28 pm</div>
+    </li>
+    <li id="comment-39615" class="pingback even thread-even depth-1">
+        <div class="comment-author">By <a href="http://www.lovin.mobi/2007/06/07/20-tips-for-more-efficient-google-searches/" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://www.lovin.mobi/2007/06/07/20-tips-for-more-efficient-google-searches/');"  rel='external nofollow' class='url'>Lovin.mobi &raquo; 20 Tips for More Efficient Google Searches</a> on Jun 8, 2007 at 5:11 pm</div>
+    </li>
+    <li id="comment-41574" class="pingback odd alt thread-odd thread-alt depth-1">
+        <div class="comment-author">By <a href="http://www.kchut.com/2007/06/how-to-find-things-not-in-google/" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://www.kchut.com/2007/06/how-to-find-things-not-in-google/');"  rel='external nofollow' class='url'>KC HUT- Make Money On the Internet &raquo; Blog Archive &raquo; How To Find Things Not In Google</a> on Jun 18, 2007 at 3:11 am</div>
+    </li>
+    <li id="comment-41713" class="pingback even thread-even depth-1">
+        <div class="comment-author">By <a href="http://www.go2alex.com/" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://www.go2alex.com/');"  rel='external nofollow' class='url'>Go2Alex.com</a> on Jun 18, 2007 at 6:53 pm</div>
+    </li>
+    <li id="comment-42583" class="pingback odd alt thread-odd thread-alt depth-1">
+        <div class="comment-author">By <a href="http://www.bspcn.com/2007/06/07/20-tips-for-more-efficient-google-searches/" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://www.bspcn.com/2007/06/07/20-tips-for-more-efficient-google-searches/');"  rel='external nofollow' class='url'>20 Tips for More Efficient Google Searches | The Best Article Every day</a> on Jun 23, 2007 at 12:19 am</div>
+    </li>
+    <li id="comment-44610" class="pingback even thread-even depth-1">
+        <div class="comment-author">By <a href="http://www.dev-toast.com/2007/06/30/20-tips-for-more-efficient-google-searches/" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://www.dev-toast.com/2007/06/30/20-tips-for-more-efficient-google-searches/');"  rel='external nofollow' class='url'>Dev-Toast &raquo; Blog Archive &raquo; 20 Tips for More Efficient Google Searches</a> on Jul 1, 2007 at 10:26 am</div>
+    </li>
+    <li id="comment-62811" class="pingback odd alt thread-odd thread-alt depth-1">
+        <div class="comment-author">By <a href="http://sudarmuthu.com/blog/2007/09/20/some-new-additions-to-google-search-syntax.html"   rel='external nofollow' class='url'>Night Dreaming (by Sudar) &raquo; Some new additions to Google Search Syntax</a> on Sep 20, 2007 at 7:44 pm</div>
+    </li>
+    <li id="comment-62812" class="pingback even thread-even depth-1">
+        <div class="comment-author">By <a href="http://sudarmuthu.com/blog/2007/09/20/some-new-additions-to-google-search-syntax.html"   rel='external nofollow' class='url'>Night Dreaming (by Sudar) &raquo; Some new additions to Google Search Syntax</a> on Sep 20, 2007 at 7:44 pm</div>
+    </li>
+    <li id="comment-92458" class="pingback odd alt thread-odd thread-alt depth-1">
+        <div class="comment-author">By <a href="http://www.paradigm.ru/2007/07/17/effective-googling/" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://www.paradigm.ru/2007/07/17/effective-googling/');"  rel='external nofollow' class='url'>24 ??????? ???????? ????????????? ?????? ? Google | Paradigm.ru</a> on Dec 16, 2007 at 5:56 am</div>
+    </li>
+    <li id="comment-161671" class="pingback even thread-even depth-1">
+        <div class="comment-author">By <a href="http://fabu-luxe.com/blog/2008/03/12/using-google-to-plan-your-wedding/" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://fabu-luxe.com/blog/2008/03/12/using-google-to-plan-your-wedding/');"  rel='external nofollow' class='url'>Using Google to Plan Your Wedding | Cocktails &amp; Details: The Wedding Planners' Fabuluxe Blog</a> on Mar 13, 2008 at 4:52 am</div>
+    </li>
+    <li id="comment-179262" class="pingback odd alt thread-odd thread-alt depth-1">
+        <div class="comment-author">By <a href="http://googleholic.kiev.ua/index.php/2007/06/18/20-sposobiv-pidvyschyty-efektyvnit-poshuku-v-google/" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://googleholic.kiev.ua/index.php/2007/06/18/20-sposobiv-pidvyschyty-efektyvnit-poshuku-v-google/');"  rel='external nofollow' class='url'>20 ???????? ????????? ???????????? ?????? ? Google</a> on Mar 26, 2008 at 11:33 am</div>
+    </li>
+    <li id="comment-294205" class="pingback even thread-even depth-1">
+        <div class="comment-author">By <a href="http://www.freelancewritinggigs.com/worst-case-survival-scenario-finding-work-fast/" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://www.freelancewritinggigs.com/worst-case-survival-scenario-finding-work-fast/');"  rel='external nofollow' class='url'>Worst-Case Survival Scenario: Finding Work Fast&nbsp;|&nbsp;Freelance Writing Jobs</a> on Jul 2, 2008 at 4:22 pm</div>
+    </li>
+    <li id="comment-319752" class="pingback odd alt thread-odd thread-alt depth-1">
+        <div class="comment-author">By <a href="http://softwarecreation.org/2008/how-to-use-search-skills-to-become-effective-programmer/" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://softwarecreation.org/2008/how-to-use-search-skills-to-become-effective-programmer/');"  rel='external nofollow' class='url'>Software Creation Mystery &raquo; How to use search skills to become effective programmer</a> on Jul 23, 2008 at 9:50 am</div>
+    </li>
+    <li id="comment-363079" class="pingback even thread-even depth-1">
+        <div class="comment-author">By <a href="http://musicbusinesspage.com/2008/10/03/using-advanced-google-search-techniques-to-make-job-searching-easy-a-video-tutorial/" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://musicbusinesspage.com/2008/10/03/using-advanced-google-search-techniques-to-make-job-searching-easy-a-video-tutorial/');"  rel='external nofollow' class='url'>Using advanced Google search techniques to make job searching easy: A video tutorial | Music Industry Jobs|Music Business Jobs|Music Internships</a> on Oct 4, 2008 at 1:41 am</div>
+    </li>
+    <li id="comment-363463" class="pingback odd alt thread-odd thread-alt depth-1">
+        <div class="comment-author">By <a href="http://phantomcto.com/blog/business-tech/bridging-the-knowledge-worker-divide/" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://phantomcto.com/blog/business-tech/bridging-the-knowledge-worker-divide/');"  rel='external nofollow' class='url'>Bridging the Knowledge Worker Divide | Phantom CTO</a> on Oct 12, 2008 at 3:44 am</div>
+    </li>
+    <li id="comment-383587" class="pingback even thread-even depth-1">
+        <div class="comment-author">By <a href="http://smallbizinternetsolutions.com/2008/11/20-tips-for-more-efficient-google-searches/" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://smallbizinternetsolutions.com/2008/11/20-tips-for-more-efficient-google-searches/');"  rel='external nofollow' class='url'>20 Tips for More Efficient Google Searches | Small Biz Internet Solutions</a> on Nov 12, 2008 at 10:45 am</div>
+    </li>
+    <li id="comment-395867" class="pingback odd alt thread-odd thread-alt depth-1">
+        <div class="comment-author">By <a href="http://mygogou.com/mm-590" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://mygogou.com/mm-590');"  rel='external nofollow' class='url'>20??Google???????? | ????JI</a> on Nov 29, 2008 at 8:10 am</div>
+    </li>
+    <li id="comment-407745" class="pingback even thread-even depth-1">
+        <div class="comment-author">By <a href="http://slipper.yo2.cn/articles/20%e6%9d%a1%e8%ae%a9google%e6%90%9c%e7%b4%a2%e6%9b%b4%e6%9c%89%e6%95%88%e7%9a%84%e6%8a%80%e5%b7%a7.html" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://slipper.yo2.cn/articles/20%e6%9d%a1%e8%ae%a9google%e6%90%9c%e7%b4%a2%e6%9b%b4%e6%9c%89%e6%95%88%e7%9a%84%e6%8a%80%e5%b7%a7.html');"  rel='external nofollow' class='url'>20??Google???????? | ???</a> on Dec 15, 2008 at 8:34 pm</div>
+    </li>
+    <li id="comment-410668" class="pingback odd alt thread-odd thread-alt depth-1">
+        <div class="comment-author">By <a href="http://phyonyein.co.cc/%e1%80%a1%e1%80%84%e1%80%b9%e1%80%90%e1%80%ac%e1%80%94%e1%80%80%e1%80%b9%e1%80%99%e1%80%bd-%e1%80%9b%e1%80%bd%e1%80%ac%e1%80%b1%e1%80%96%e1%80%bc%e1%80%94%e1%80%8a%e1%80%b9%e1%8" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://phyonyein.co.cc/%e1%80%a1%e1%80%84%e1%80%b9%e1%80%90%e1%80%ac%e1%80%94%e1%80%80%e1%80%b9%e1%80%99%e1%80%bd-%e1%80%9b%e1%80%bd%e1%80%ac%e1%80%b1%e1%80%96%e1%80%bc%e1%80%94%e1%80%8a%e1%80%b9%e1%8');"  rel='external nofollow' class='url'>?????????? ??????????????</a> on Dec 19, 2008 at 1:58 pm</div>
+    </li>
+    <li id="comment-412005" class="pingback even thread-even depth-1">
+        <div class="comment-author">By <a href="http://domando.yo2.cn/2008/12/21/google-%e6%90%9c%e7%b4%a2%e5%b8%b8%e7%94%a8%e6%8a%80%e5%b7%a7.html" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://domando.yo2.cn/2008/12/21/google-%e6%90%9c%e7%b4%a2%e5%b8%b8%e7%94%a8%e6%8a%80%e5%b7%a7.html');"  rel='external nofollow' class='url'>google ?????? | domando</a> on Dec 21, 2008 at 10:20 am</div>
+    </li>
+    <li id="comment-448591" class="pingback odd alt thread-odd thread-alt depth-1">
+        <div class="comment-author">By <a href="http://www.moneymakingstudent.co.uk/2009/02/08/how-to-search-google-effectively/" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://www.moneymakingstudent.co.uk/2009/02/08/how-to-search-google-effectively/');"  rel='external nofollow' class='url'>How to Search Google, Effectively | Money Making Student</a> on Feb 9, 2009 at 1:50 am</div>
+    </li>
+    <li id="comment-475189" class="pingback even thread-even depth-1">
+        <div class="comment-author">By <a href="http://www.baddogwebdesign.com/blog/?p=56" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://www.baddogwebdesign.com/blog/?p=56');"  rel='external nofollow' class='url'>Bad Dog Web Design » 20 Tips for More Efficient Google Searches</a> on Mar 26, 2009 at 3:21 pm</div>
+    </li>
+    <li id="comment-485541" class="pingback odd alt thread-odd thread-alt depth-1">
+        <div class="comment-author">By <a href="http://www.GenCoupe.com/off-topic/12653-how-use-search.html#post59289" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://www.GenCoupe.com/off-topic/12653-how-use-search.html#post59289');"  rel='external nofollow' class='url'>How to use SEARCH - GenCoupe.com Forums</a> on Apr 12, 2009 at 12:07 am</div>
+    </li>
+    <li id="comment-495399" class="pingback even thread-even depth-1">
+        <div class="comment-author">By <a href="http://sudarmuthu.com/blog/2009/04/27/everyday-learnings-as-a-web-developer.html"   rel='external nofollow' class='url'>Everyday learning&#8217;s as a web developer - Night Dreaming (by Sudar)</a> on Apr 28, 2009 at 12:41 am</div>
+    </li>
+    <li id="comment-563090" class="pingback odd alt thread-odd thread-alt depth-1">
+        <div class="comment-author">By <a href="http://moneydailyblog.com/20-tips-for-more-efficient-google-searches" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://moneydailyblog.com/20-tips-for-more-efficient-google-searches');"  rel='external nofollow' class='url'>20 Tips for More Efficient Google Searches | Money Daily Blog</a> on Oct 4, 2009 at 6:44 pm</div>
+    </li>
+    <li id="comment-563260" class="pingback even thread-even depth-1">
+        <div class="comment-author">By <a href="http://gizmodose.com/20-tips-for-more-efficient-google-searches/" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://gizmodose.com/20-tips-for-more-efficient-google-searches/');"  rel='external nofollow' class='url'>Review 20 Tips for More Efficient Google Searches Gadget Reviews</a> on Oct 5, 2009 at 4:31 am</div>
+    </li>
+    <li id="comment-565021" class="pingback odd alt thread-odd thread-alt depth-1">
+        <div class="comment-author">By <a href="http://www.creativewonk.com/2009/10/12/20-efficient-google-search-tips/" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://www.creativewonk.com/2009/10/12/20-efficient-google-search-tips/');"  rel='external nofollow' class='url'>20 Efficient Google Search Tips | Creative Wonk</a> on Oct 12, 2009 at 9:30 pm</div>
+    </li>
+    <li id="comment-574413" class="pingback even thread-even depth-1">
+        <div class="comment-author">By <a href="http://lifereflectionsblog.wordpress.com/2010/01/03/20-tips-for-more-efficient-google-searches/" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://lifereflectionsblog.wordpress.com/2010/01/03/20-tips-for-more-efficient-google-searches/');"  rel='external nofollow' class='url'>20 Tips for More Efficient Google Searches &laquo; Life Reflections</a> on Jan 3, 2010 at 9:21 pm</div>
+    </li>
+    <li id="comment-576898" class="pingback odd alt thread-odd thread-alt depth-1">
+        <div class="comment-author">By <a href="http://chrisbetcher.com/2010/01/five-simple-skills/" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/http://chrisbetcher.com/2010/01/five-simple-skills/');"  rel='external nofollow' class='url'>Five Simple Skills | Betchablog</a> on Jan 31, 2010 at 1:00 pm</div>
+    </li>
+          </ul>
+    
+    <div class="navigation">
+        <div class="alignleft"></div>
+        <div class="alignright"></div>
+    </div>
+
+
+  
+  <h4>Leave a Comment</h4>
+
+  <div id="respond">
+    <div id="cancel-comment-reply"><a rel="nofollow" id="cancel-comment-reply-link" href="/blog/2006/05/07/google-search-syntax-dissected.html#respond" style="display:none;">Click here to cancel reply.</a></div>
+
+    
+        <form id="commentform" action="http://sudarmuthu.com/wpfiles/wp-comments-post.php" method="post" >
+                        <p>
+                <input class="textbox" type="text" name="author" id="author" value="" size="30" tabindex="1" />
+                <label for="author">
+                        Name                                        </label>
+              </p>
+              <p>
+                <input class="textbox" type="text" name="email" id="email" value="" size="30" tabindex="2" />
+                <label for="email">
+                        Email                        (will not be shown                        )
+                </label>
+              </p>
+              <p>
+                <input class="textbox" type="text" name="url" id="url" value="" size="30" tabindex="3" />
+                <label for="url">
+                        Website                </label>
+              </p>
+                        <p>
+                <textarea name="comment" id="comment" cols="50" rows="10" tabindex="4"></textarea>
+              </p>
+
+              <p>
+                  <small>You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; &lt;pre lang=&quot;&quot; line=&quot;&quot; escaped=&quot;&quot;&gt; </small>
+              </p>
+
+              <p>
+                <input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+              </p>
+
+                <div id="loading" style="display: none;"></div>
+                <div id="errors"></div>
+
+          	<script type='text/javascript'>
+	<!--
+	ref = escape( document[ 'referrer' ] );
+	document.write("<input type='hidden' name='ref' value='"+ref+"'>");
+	// -->
+	</script>
+			<span id="openid_comment">
+			<label>
+				<input type="checkbox" id="login_with_openid" name="login_with_openid" checked="checked" />
+				Authenticate this comment using <span class="openid_link">OpenID</span>.			</label>
+		</span>
+		<script type="text/javascript">jQuery(function(){ add_openid_to_comment_form('http://sudarmuthu.com/wpfiles/index.php', '1747600444') })</script>
+
+
+	<p style="clear: both;" class="subscribe-to-comments">
+	<input type="checkbox" name="subscribe" id="subscribe" value="subscribe" style="width: auto;" />
+	<label for="subscribe">Notify me of followup comments via e-mail</label>
+	</p>
+
+
+          <input type='hidden' name='comment_post_ID' value='128' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+        </form>
+      </div>
+  </div>
+
+  <div class="navigation nav-below">
+    <div class="nav-previous"><a href="http://sudarmuthu.com/blog/2006/05/06/first-aid-advice-on-your-ipod.html" rel="prev"><span class="meta-nav">&laquo;</span> First aid advice on your iPod</a></div>
+    <div class="nav-next"><a href="http://sudarmuthu.com/blog/2006/05/10/copy-files-from-ipod-to-any-computer-without-itunes.html" rel="next">Copy files from iPod to any computer without iTunes <span class="meta-nav">&raquo;</span></a></div>
+  </div><!-- #nav-below -->
+</div>
+<!--content ends-->
+
+    <div id="sidebar" class="widget-area">
+        <ul class="xoxo">
+            <li id="text-6" class="widget-container widget_text">			<div class="textwidget"><p><a href="http://feeds.feedburner.com/SudarBlogs"><img src="http://feeds.feedburner.com/~fc/SudarBlogs?bg=94CC3D&amp;fg=000000&amp;anim=1" height="26" width="88" style="border:0" alt="" /></a></p></div>
+		</li><li id="categories-1" class="widget-container widget_categories"><h4 class="widget-title">Categories</h4>		<ul>
+	<li class="cat-item cat-item-754"><a href="http://sudarmuthu.com/blog/category/android" title="View all posts filed under Android">Android</a> (10)
+</li>
+	<li class="cat-item cat-item-19"><a href="http://sudarmuthu.com/blog/category/api" title="API&#039;s, Webservices, Mashups">API&#039;s/Webservices</a> (9)
+</li>
+	<li class="cat-item cat-item-610"><a href="http://sudarmuthu.com/blog/category/books" title="View all posts filed under Books">Books</a> (1)
+</li>
+	<li class="cat-item cat-item-6"><a href="http://sudarmuthu.com/blog/category/certifications" title="You know? I have taken up quite a few certifications as well">Certifications</a> (32)
+</li>
+	<li class="cat-item cat-item-7"><a href="http://sudarmuthu.com/blog/category/database" title="MySQL, Oracle, SQL Server">Database Programming</a> (11)
+</li>
+	<li class="cat-item cat-item-628"><a href="http://sudarmuthu.com/blog/category/events" title="The events which I have attended or helped to organize. Like pipesCamp, WebCamp etc.">Events/Camps</a> (21)
+</li>
+	<li class="cat-item cat-item-1"><a href="http://sudarmuthu.com/blog/category/gadget" title="I am a Gadget freak. ">Gadgets</a> (6)
+</li>
+	<li class="cat-item cat-item-755"><a href="http://sudarmuthu.com/blog/category/google-wave" title="I became a fan, the moment I saw the demo video. :)">Google Wave</a> (4)
+</li>
+	<li class="cat-item cat-item-8"><a href="http://sudarmuthu.com/blog/category/google-yahoo" title="My thoughts on search engine giants. I love both Google and Yahoo equally and I also hate them equally.">Google/Yahoo</a> (41)
+</li>
+	<li class="cat-item cat-item-14"><a href="http://sudarmuthu.com/blog/category/ipod" title="I own an iPod">iPod/iTunes</a> (11)
+</li>
+	<li class="cat-item cat-item-21"><a href="http://sudarmuthu.com/blog/category/unix" title="All Unix and server related stuff.">Linux/Unix</a> (6)
+</li>
+	<li class="cat-item cat-item-15"><a href="http://sudarmuthu.com/blog/category/photography" title="Like all geeks I have photography as my hobby.">Photography</a> (8)
+</li>
+	<li class="cat-item cat-item-2"><a href="http://sudarmuthu.com/blog/category/random" title="Random thoughts and rants">Random/Personal</a> (68)
+</li>
+	<li class="cat-item cat-item-795"><a href="http://sudarmuthu.com/blog/category/rolopress" title="View all posts filed under RoloPress">RoloPress</a> (4)
+</li>
+	<li class="cat-item cat-item-50"><a href="http://sudarmuthu.com/blog/category/security" title="View all posts filed under Security">Security</a> (1)
+</li>
+	<li class="cat-item cat-item-10"><a href="http://sudarmuthu.com/blog/category/web-programming" title="AJAX, JavaScript, PHP and all web related programming.">Web Programming</a> (37)
+</li>
+	<li class="cat-item cat-item-22"><a href="http://sudarmuthu.com/blog/category/windows" title="I also program in .NET.">Windows/.NET</a> (2)
+</li>
+	<li class="cat-item cat-item-11"><a href="http://sudarmuthu.com/blog/category/wordpress" title="All about my love for WordPress. BTW, I am self-claimed WordPress Super star.">WordPress</a> (83)
+</li>
+		</ul>
+</li><li id="simpletags-3" class="widget-container widget-simpletags"><h4 class="widget-title">Tag cloud</h4>
+<!-- Generated by Simple Tags 1.7.4.4 - http://wordpress.org/extend/plugins/simple-tags -->
+	<div class="st-tag-cloud">
+	<a href="http://sudarmuthu.com/blog/tag/post-to-friendfeed" id="tag-link-784" class="st-tags t1" title="5 topics" rel="tag" style="font-size:10pt; ">Post To FriendFeed</a>
+<a href="http://sudarmuthu.com/blog/tag/events" id="tag-link-628" class="st-tags t1" title="7 topics" rel="tag" style="font-size:10pt; ">Events/Camps</a>
+<a href="http://sudarmuthu.com/blog/tag/mcad" id="tag-link-109" class="st-tags t1" title="4 topics" rel="tag" style="font-size:10pt; ">MCAD</a>
+<a href="http://sudarmuthu.com/blog/tag/notes" id="tag-link-730" class="st-tags t1" title="7 topics" rel="tag" style="font-size:10pt; ">Notes</a>
+<a href="http://sudarmuthu.com/blog/tag/slicehost" id="tag-link-662" class="st-tags t1" title="6 topics" rel="tag" style="font-size:10pt; ">slicehost</a>
+<a href="http://sudarmuthu.com/blog/tag/blogger" id="tag-link-121" class="st-tags t1" title="4 topics" rel="tag" style="font-size:10pt; ">Blogger</a>
+<a href="http://sudarmuthu.com/blog/tag/wordpress-mu" id="tag-link-733" class="st-tags t1" title="5 topics" rel="tag" style="font-size:10pt; ">WordPress MU</a>
+<a href="http://sudarmuthu.com/blog/tag/rolopress" id="tag-link-795" class="st-tags t1" title="5 topics" rel="tag" style="font-size:10pt; ">RoloPress</a>
+<a href="http://sudarmuthu.com/blog/tag/birthday" id="tag-link-246" class="st-tags t1" title="7 topics" rel="tag" style="font-size:10pt; ">BirthDay</a>
+<a href="http://sudarmuthu.com/blog/tag/plugin" id="tag-link-466" class="st-tags t5" title="43 topics" rel="tag" style="font-size:16.22pt; ">Plugin</a>
+<a href="http://sudarmuthu.com/blog/tag/chennai" id="tag-link-346" class="st-tags t2" title="13 topics" rel="tag" style="font-size:11.56pt; ">Chennai</a>
+<a href="http://sudarmuthu.com/blog/tag/fun" id="tag-link-210" class="st-tags t1" title="5 topics" rel="tag" style="font-size:10pt; ">Fun</a>
+<a href="http://sudarmuthu.com/blog/tag/wordpress" id="tag-link-11" class="st-tags t10" title="83 topics" rel="tag" style="font-size:24pt; ">WordPress</a>
+<a href="http://sudarmuthu.com/blog/tag/php" id="tag-link-59" class="st-tags t1" title="5 topics" rel="tag" style="font-size:10pt; ">PHP</a>
+<a href="http://sudarmuthu.com/blog/tag/jquery" id="tag-link-685" class="st-tags t1" title="7 topics" rel="tag" style="font-size:10pt; ">jQuery</a>
+<a href="http://sudarmuthu.com/blog/tag/india" id="tag-link-193" class="st-tags t1" title="4 topics" rel="tag" style="font-size:10pt; ">India</a>
+<a href="http://sudarmuthu.com/blog/tag/photography" id="tag-link-15" class="st-tags t1" title="5 topics" rel="tag" style="font-size:10pt; ">Photography</a>
+<a href="http://sudarmuthu.com/blog/tag/yahoo" id="tag-link-53" class="st-tags t1" title="12 topics" rel="tag" style="font-size:10pt; ">Yahoo</a>
+<a href="http://sudarmuthu.com/blog/tag/ipod" id="tag-link-14" class="st-tags t1" title="8 topics" rel="tag" style="font-size:10pt; ">iPod/iTunes</a>
+<a href="http://sudarmuthu.com/blog/tag/posts-by-tag" id="tag-link-778" class="st-tags t1" title="4 topics" rel="tag" style="font-size:10pt; ">Posts By Tag</a>
+<a href="http://sudarmuthu.com/blog/tag/competition" id="tag-link-748" class="st-tags t1" title="5 topics" rel="tag" style="font-size:10pt; ">Competition</a>
+<a href="http://sudarmuthu.com/blog/tag/easy-retweet" id="tag-link-772" class="st-tags t1" title="5 topics" rel="tag" style="font-size:10pt; ">Easy Retweet</a>
+<a href="http://sudarmuthu.com/blog/tag/mcdba" id="tag-link-80" class="st-tags t1" title="6 topics" rel="tag" style="font-size:10pt; ">MCDBA</a>
+<a href="http://sudarmuthu.com/blog/tag/firefox" id="tag-link-139" class="st-tags t1" title="6 topics" rel="tag" style="font-size:10pt; ">Firefox</a>
+<a href="http://sudarmuthu.com/blog/tag/scjp" id="tag-link-116" class="st-tags t1" title="9 topics" rel="tag" style="font-size:10pt; ">SCJP</a>
+<a href="http://sudarmuthu.com/blog/tag/gmail" id="tag-link-46" class="st-tags t2" title="14 topics" rel="tag" style="font-size:11.56pt; ">Gmail</a>
+<a href="http://sudarmuthu.com/blog/tag/friendfeed" id="tag-link-703" class="st-tags t1" title="7 topics" rel="tag" style="font-size:10pt; ">FriendFeed</a>
+<a href="http://sudarmuthu.com/blog/tag/backup" id="tag-link-192" class="st-tags t1" title="5 topics" rel="tag" style="font-size:10pt; ">backup</a>
+<a href="http://sudarmuthu.com/blog/tag/invites" id="tag-link-48" class="st-tags t1" title="4 topics" rel="tag" style="font-size:10pt; ">Invites</a>
+<a href="http://sudarmuthu.com/blog/tag/photos" id="tag-link-148" class="st-tags t1" title="4 topics" rel="tag" style="font-size:10pt; ">Photos</a>
+<a href="http://sudarmuthu.com/blog/tag/microsoft" id="tag-link-163" class="st-tags t1" title="6 topics" rel="tag" style="font-size:10pt; ">Microsoft</a>
+<a href="http://sudarmuthu.com/blog/tag/java" id="tag-link-138" class="st-tags t1" title="12 topics" rel="tag" style="font-size:10pt; ">Java</a>
+<a href="http://sudarmuthu.com/blog/tag/free" id="tag-link-205" class="st-tags t1" title="4 topics" rel="tag" style="font-size:10pt; ">Free</a>
+<a href="http://sudarmuthu.com/blog/tag/podcast" id="tag-link-223" class="st-tags t1" title="5 topics" rel="tag" style="font-size:10pt; ">Podcast</a>
+<a href="http://sudarmuthu.com/blog/tag/wishes" id="tag-link-288" class="st-tags t1" title="4 topics" rel="tag" style="font-size:10pt; ">wishes</a>
+<a href="http://sudarmuthu.com/blog/tag/barcamp" id="tag-link-344" class="st-tags t1" title="5 topics" rel="tag" style="font-size:10pt; ">BarCamp</a>
+<a href="http://sudarmuthu.com/blog/tag/stats" id="tag-link-550" class="st-tags t1" title="9 topics" rel="tag" style="font-size:10pt; ">stats</a>
+<a href="http://sudarmuthu.com/blog/tag/ajax" id="tag-link-141" class="st-tags t1" title="4 topics" rel="tag" style="font-size:10pt; ">AJAX</a>
+<a href="http://sudarmuthu.com/blog/tag/css" id="tag-link-358" class="st-tags t1" title="5 topics" rel="tag" style="font-size:10pt; ">css</a>
+<a href="http://sudarmuthu.com/blog/tag/android" id="tag-link-754" class="st-tags t1" title="10 topics" rel="tag" style="font-size:10pt; ">Android</a>
+<a href="http://sudarmuthu.com/blog/tag/certification" id="tag-link-83" class="st-tags t2" title="20 topics" rel="tag" style="font-size:11.56pt; ">Certification</a>
+<a href="http://sudarmuthu.com/blog/tag/bulk-delete" id="tag-link-726" class="st-tags t1" title="5 topics" rel="tag" style="font-size:10pt; ">Bulk Delete</a>
+<a href="http://sudarmuthu.com/blog/tag/sqlserver" id="tag-link-24" class="st-tags t1" title="5 topics" rel="tag" style="font-size:10pt; ">SQLServer</a>
+<a href="http://sudarmuthu.com/blog/tag/javascript" id="tag-link-67" class="st-tags t1" title="8 topics" rel="tag" style="font-size:10pt; ">Javascript</a>
+<a href="http://sudarmuthu.com/blog/tag/google" id="tag-link-44" class="st-tags t2" title="21 topics" rel="tag" style="font-size:11.56pt; ">Google</a></div>
+
+</li><li id="archives-2" class="widget-container widget_archive"><h4 class="widget-title">Archives</h4>		<select name="archive-dropdown" onchange='document.location.href=this.options[this.selectedIndex].value;'> <option value="">Select Month</option> 	<option value='http://sudarmuthu.com/blog/2010/03'> March 2010 &nbsp;(2)</option>
+	<option value='http://sudarmuthu.com/blog/2010/02'> February 2010 &nbsp;(11)</option>
+	<option value='http://sudarmuthu.com/blog/2010/01'> January 2010 &nbsp;(6)</option>
+	<option value='http://sudarmuthu.com/blog/2009/12'> December 2009 &nbsp;(1)</option>
+	<option value='http://sudarmuthu.com/blog/2009/11'> November 2009 &nbsp;(3)</option>
+	<option value='http://sudarmuthu.com/blog/2009/10'> October 2009 &nbsp;(4)</option>
+	<option value='http://sudarmuthu.com/blog/2009/09'> September 2009 &nbsp;(7)</option>
+	<option value='http://sudarmuthu.com/blog/2009/08'> August 2009 &nbsp;(10)</option>
+	<option value='http://sudarmuthu.com/blog/2009/07'> July 2009 &nbsp;(16)</option>
+	<option value='http://sudarmuthu.com/blog/2009/06'> June 2009 &nbsp;(10)</option>
+	<option value='http://sudarmuthu.com/blog/2009/05'> May 2009 &nbsp;(9)</option>
+	<option value='http://sudarmuthu.com/blog/2009/04'> April 2009 &nbsp;(3)</option>
+	<option value='http://sudarmuthu.com/blog/2009/03'> March 2009 &nbsp;(4)</option>
+	<option value='http://sudarmuthu.com/blog/2009/02'> February 2009 &nbsp;(10)</option>
+	<option value='http://sudarmuthu.com/blog/2009/01'> January 2009 &nbsp;(2)</option>
+	<option value='http://sudarmuthu.com/blog/2008/12'> December 2008 &nbsp;(3)</option>
+	<option value='http://sudarmuthu.com/blog/2008/11'> November 2008 &nbsp;(2)</option>
+	<option value='http://sudarmuthu.com/blog/2008/10'> October 2008 &nbsp;(3)</option>
+	<option value='http://sudarmuthu.com/blog/2008/09'> September 2008 &nbsp;(1)</option>
+	<option value='http://sudarmuthu.com/blog/2008/08'> August 2008 &nbsp;(3)</option>
+	<option value='http://sudarmuthu.com/blog/2008/07'> July 2008 &nbsp;(3)</option>
+	<option value='http://sudarmuthu.com/blog/2008/06'> June 2008 &nbsp;(3)</option>
+	<option value='http://sudarmuthu.com/blog/2008/05'> May 2008 &nbsp;(1)</option>
+	<option value='http://sudarmuthu.com/blog/2008/04'> April 2008 &nbsp;(2)</option>
+	<option value='http://sudarmuthu.com/blog/2008/03'> March 2008 &nbsp;(7)</option>
+	<option value='http://sudarmuthu.com/blog/2008/02'> February 2008 &nbsp;(9)</option>
+	<option value='http://sudarmuthu.com/blog/2008/01'> January 2008 &nbsp;(7)</option>
+	<option value='http://sudarmuthu.com/blog/2007/12'> December 2007 &nbsp;(4)</option>
+	<option value='http://sudarmuthu.com/blog/2007/11'> November 2007 &nbsp;(2)</option>
+	<option value='http://sudarmuthu.com/blog/2007/10'> October 2007 &nbsp;(1)</option>
+	<option value='http://sudarmuthu.com/blog/2007/09'> September 2007 &nbsp;(4)</option>
+	<option value='http://sudarmuthu.com/blog/2007/08'> August 2007 &nbsp;(1)</option>
+	<option value='http://sudarmuthu.com/blog/2007/07'> July 2007 &nbsp;(1)</option>
+	<option value='http://sudarmuthu.com/blog/2007/06'> June 2007 &nbsp;(1)</option>
+	<option value='http://sudarmuthu.com/blog/2007/05'> May 2007 &nbsp;(4)</option>
+	<option value='http://sudarmuthu.com/blog/2007/04'> April 2007 &nbsp;(4)</option>
+	<option value='http://sudarmuthu.com/blog/2007/03'> March 2007 &nbsp;(2)</option>
+	<option value='http://sudarmuthu.com/blog/2007/02'> February 2007 &nbsp;(2)</option>
+	<option value='http://sudarmuthu.com/blog/2007/01'> January 2007 &nbsp;(7)</option>
+	<option value='http://sudarmuthu.com/blog/2006/12'> December 2006 &nbsp;(4)</option>
+	<option value='http://sudarmuthu.com/blog/2006/11'> November 2006 &nbsp;(3)</option>
+	<option value='http://sudarmuthu.com/blog/2006/10'> October 2006 &nbsp;(4)</option>
+	<option value='http://sudarmuthu.com/blog/2006/09'> September 2006 &nbsp;(3)</option>
+	<option value='http://sudarmuthu.com/blog/2006/08'> August 2006 &nbsp;(4)</option>
+	<option value='http://sudarmuthu.com/blog/2006/07'> July 2006 &nbsp;(5)</option>
+	<option value='http://sudarmuthu.com/blog/2006/06'> June 2006 &nbsp;(7)</option>
+	<option value='http://sudarmuthu.com/blog/2006/05'> May 2006 &nbsp;(6)</option>
+	<option value='http://sudarmuthu.com/blog/2006/04'> April 2006 &nbsp;(5)</option>
+	<option value='http://sudarmuthu.com/blog/2006/03'> March 2006 &nbsp;(11)</option>
+	<option value='http://sudarmuthu.com/blog/2006/02'> February 2006 &nbsp;(5)</option>
+	<option value='http://sudarmuthu.com/blog/2006/01'> January 2006 &nbsp;(6)</option>
+	<option value='http://sudarmuthu.com/blog/2005/12'> December 2005 &nbsp;(4)</option>
+	<option value='http://sudarmuthu.com/blog/2005/11'> November 2005 &nbsp;(3)</option>
+	<option value='http://sudarmuthu.com/blog/2005/10'> October 2005 &nbsp;(1)</option>
+	<option value='http://sudarmuthu.com/blog/2005/09'> September 2005 &nbsp;(8)</option>
+	<option value='http://sudarmuthu.com/blog/2005/08'> August 2005 &nbsp;(9)</option>
+	<option value='http://sudarmuthu.com/blog/2005/07'> July 2005 &nbsp;(8)</option>
+	<option value='http://sudarmuthu.com/blog/2005/06'> June 2005 &nbsp;(9)</option>
+	<option value='http://sudarmuthu.com/blog/2005/05'> May 2005 &nbsp;(5)</option>
+	<option value='http://sudarmuthu.com/blog/2005/04'> April 2005 &nbsp;(9)</option>
+	<option value='http://sudarmuthu.com/blog/2005/03'> March 2005 &nbsp;(9)</option>
+	<option value='http://sudarmuthu.com/blog/2004/11'> November 2004 &nbsp;(9)</option>
+	<option value='http://sudarmuthu.com/blog/2004/10'> October 2004 &nbsp;(8)</option>
+	<option value='http://sudarmuthu.com/blog/2004/05'> May 2004 &nbsp;(1)</option>
+ </select>
+</li>		<li id="recent-posts-4" class="widget-container widget_recent_entries">		<h4 class="widget-title">Recent Posts</h4>		<ul>
+				<li><a href="http://sudarmuthu.com/blog/2010/03/03/developing-android-applications-in-java-session-3-my-notes.html" title="Developing Android applications in Java &#8211; Session 3 &#8211; My notes">Developing Android applications in Java &#8211; Session 3 &#8211; My notes </a></li>
+				<li><a href="http://sudarmuthu.com/blog/2010/03/02/using-arrayadapter-and-listview-in-android-applications.html" title="Using ArrayAdapter and ListView in Android Applications">Using ArrayAdapter and ListView in Android Applications </a></li>
+				<li><a href="http://sudarmuthu.com/blog/2010/02/28/consolidated-all-my-code-in-github.html" title="Consolidated all my code in github">Consolidated all my code in github </a></li>
+				<li><a href="http://sudarmuthu.com/blog/2010/02/27/bulk-delete-can-now-move-posts-to-trash-instead-of-deleting.html" title="Bulk Delete can now move posts to trash instead of deleting">Bulk Delete can now move posts to trash instead of deleting </a></li>
+				<li><a href="http://sudarmuthu.com/blog/2010/02/25/developing-android-applications-in-java-session-2-my-notes.html" title="Developing Android applications in Java &#8211; Session 2 &#8211; My notes">Developing Android applications in Java &#8211; Session 2 &#8211; My notes </a></li>
+				</ul>
+		</li>        </ul>
+    </div><!-- #primary .widget-area -->
+</div>
+<!--Wrap end-->
+
+
+<div id="footer">
+  <p> Copyright &copy;&nbsp;2010 Night Dreaming (by Sudar)</p>
+  <p>Powered by WordPress and <a href="http://sudarmuthu.com/wordpress/bright-light" title="Bright Light Theme" target="_blank">Bright Light Theme</a></p>
+
+<!-- Google Analytics for WordPress | http://yoast.com/wordpress/google-analytics/ -->
+<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+	try {
+		var pageTracker = _gat._getTracker("UA-3084019-1");
+	} catch(err) {}
+</script>
+<script src="http://sudarmuthu.com/wp/wp-content/plugins/google-analytics-for-wordpress/custom_se.js" type="text/javascript"></script>
+<script type="text/javascript">
+	try {
+		// Cookied already: 
+		pageTracker._trackPageview();
+	} catch(err) {}
+</script>
+<!-- End of Google Analytics code -->
+<script type="text/javascript" src="http://sudarmuthu.com/wp/wp-content/plugins/wp-greet-box/js/functions.js"></script><script type="text/javascript" src="http://sudarmuthu.com/wp/wp-content/plugins/wp-greet-box/js/onload.js"></script><script type="text/javascript">
+     jQuery(document).ready(function () {
+         jQuery('li.page-item-247').addClass('current_page_item');
+     });
+</script>
+<script src="http://stats.wordpress.com/e-201010.js" type="text/javascript"></script>
+<script type="text/javascript">
+st_go({blog:'1177478',v:'ext',post:'128'});
+var load_cmc = function(){linktracker_init(1177478,128,2);};
+if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+else load_cmc();
+</script>
+</div>
+</body>
+</html>
+
+<!-- Dynamic page generated in 1.367 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2010-03-14 17:58:02 -->
+<!-- super cache -->

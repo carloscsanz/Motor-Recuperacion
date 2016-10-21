@@ -1,0 +1,744 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<title>AMD to Offer Triple-core Laptop Processors - Dig News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link href="http://static.oversources.com/v1.2/style/global.css" rel="stylesheet" />
+<link href="http://static.oversources.com/v1.2/dig/style/commons.css" rel="stylesheet" />
+<style type="text/css">
+<!--
+.product_image {
+  height: 120px;	width: 120px;
+}
+
+.product_image a {	
+  display: block;	
+  height: 120px;	width: 120px;
+  text-indent: -9999px;	
+}
+-->
+</style>
+<script language="javascript" src="http://static.oversources.com/v1.2/js/commons.js"></script> 
+<script language="javascript" src="http://static.oversources.com/v1.2/js/connection.js"></script> 
+<script language="javascript" src="http://static.oversources.com/v1.2/dig/js/category.js"></script> 
+<link href="http://static.oversources.com/v1.2/dig/style/commons.css" rel="stylesheet" />
+<link href="http://static.oversources.com/v1.2/dig/style/dig_view.css" rel="stylesheet" />
+<script language="javascript">
+<!--
+function postComment(){
+	var url="/dig/comment";
+	var form = GetE("commentform");
+	var newsId = form.newsId.value;
+	var content = form.content.value;
+	if (content.length<=0) {
+		GetE("submit_message").innerHTML='Oops, please enter a comment...';
+		return false;
+	}
+	var postData = "newsId=" + newsId + "&content=" + content;
+	var request = Connect.asyncRequest('POST', url, { success:successComment, failure:failureComment}, postData);
+	return false;
+}
+
+function successComment(o){
+	try {
+		var ul = GetE("comments_data");
+		ul.innerHTML = ul.innerHTML + o.responseText;
+		GetE("newcomment").style.display = "none";
+	} catch (ex) {
+		failureComment(o);
+    }
+}
+
+function failureComment(o){
+	window.location.reload();
+}
+
+function dig(newsId){
+	try	{
+		var url="/dig/dig";
+		var args = newsId;
+		var postData = "newsId=" + newsId;
+		var request = Connect.asyncRequest('POST', url, { success:successDig, failure:failureDig, argument: args }, postData);	
+		return false;
+	} catch (ex) {
+		return false;
+	}	
+}
+
+function successDig(o){
+	try {
+		var args = o.argument;
+		if(o.responseText == undefined) {
+			failureDig(o);
+			return;  
+		}
+		var rtn = parseInt(o.responseText);
+		if (rtn==-1) {
+			dignl(args);
+			return;
+		} else if (rtn==-2)	{
+			dignc(args);
+			return;
+		}
+		GetE("c"+args).innerHTML=rtn;
+		GetE("d"+args).innerHTML='<span class="dug">dug</span>';
+	} catch (ex) {
+		failureDig(o);
+    }
+}
+
+function failureDig(o){
+	window.location.reload();
+}
+
+function dignl(newsId) {
+	//删除现有的
+	closePopDiv();
+	//当前新闻div
+	var div = GetE("i"+newsId);
+	//popDiv
+	var popDiv = document.createElement("div");
+	popDiv.id = "popDiv";
+	div.appendChild(popDiv);
+
+	var popLogin = document.createElement("div");
+	popLogin.id = "popLogin";
+	popDiv.appendChild(popLogin);
+	popLogin.innerHTML='Make your vote count! To dig, <a href="http://www.oversources.com/account/login">login</a> or <a href="http://www.oversources.com/account/register?u=community">join</a> for free.<a href="javascript:closePopDiv()"><img height=22 alt=Close src=\"http://static.oversources.com/v1.2/dig/images/close.gif\" width=22></a>';
+	return false;
+}
+
+function undig(newsId){
+	try	{
+		var url="/dig/undig";
+		var args = newsId;
+		var postData = "newsId=" + newsId;
+		var request = Connect.asyncRequest('POST', url, { success:successUnDig, failure:failureUnDig, argument: args }, postData);	
+		return false;
+	} catch (ex) {
+		return false;
+	}	
+}
+
+function successUnDig(o){
+	try {
+		var args = o.argument;
+		if(o.responseText == undefined) {
+			failureDig(o);
+			return;  
+		}
+		var rtn = parseInt(o.responseText);
+		if (rtn==-1) {
+			dignl(args);
+			return;
+		} else if (rtn==-2)	{
+			dignc(args);
+			return;
+		}
+		
+		GetE("c"+args).innerHTML=rtn;
+		GetE("d"+args).innerHTML="<span class=\"dug\">undug</span>";
+	} catch (ex) {
+		failureDig(o);
+    }
+}
+
+function failureUnDig(o){
+	window.location.reload();
+}
+
+function dignc(newsId) {
+	//删除现有的
+	closePopDiv();
+	//当前新闻div
+	var div = GetE("i"+newsId);
+	//popDiv
+	var popDiv = document.createElement("div");
+	popDiv.id = "popDiv";
+	div.appendChild(popDiv);
+
+	var popLogin = document.createElement("div");
+	popLogin.id = "popLogin";
+	popDiv.appendChild(popLogin);
+
+	popLogin.innerHTML='Make your vote count! Please be <a href="http://www.oversources.com/account/community_options">community member</a> to dig.';
+	popLogin.innerHTML=popLogin.innerHTML + "<a href=\"javascript:closePopDiv()\"><img height=22 alt=Close src=\"http://static.oversources.com/v1.2/dig/images/close.gif\" width=22></a>";
+	return false;
+}
+
+function closePopDiv() {
+	var div = GetE("popDiv");
+	if (div!=null) {
+		div.parentNode.removeChild(div);
+	}
+}
+-->
+</script>
+</head>
+<body>
+    
+
+<script language="javascript">
+<!--
+var _currencies_rate = "0.14,US$#,3";
+function chgCurrency(el) {
+  try {
+	var surl = "http://www.oversources.com/product/rate";
+	var postData = "currency=" + el.value;
+	var request = Connect.asyncRequest('POST', surl, { success:successCurrency, failure:failureCurrency }, postData);
+	if (GetE("currency_prompt")) {
+		GetE("currency_prompt").focus();
+	} else if (GetE("paymentmethod")) {
+        GetE("paymentmethod").focus();
+	}
+  } catch (ex) {
+    failureCurrency();
+  }
+}
+
+function successCurrency(o) {
+  try {
+	if(o.responseText == undefined) {
+		failureCurrency(o);
+		return;  
+	}
+	var tmps = o.responseText.split(",");
+	if (tmps==null || tmps.length != 4) {
+        failureCurrency(o);
+		return;  
+	}
+
+	var rate = parseFloat(tmps[0]);
+	var displayName = tmps[1];
+	var bit = tmps[2];
+	var cartTotal = parseFloat(tmps[3]);
+
+    _currencies_rate = rate + "," + displayName + "," + bit;
+    if (cartTotal > 0) {
+		var formatCartTotal = formatPrice(cartTotal, bit);
+		if (GetE("shopping_cart_total")) {
+			GetE("shopping_cart_total").innerHTML = displayName.replace("#", formatCartTotal);
+		}
+		if (GetE("sub_total")) {			
+			GetE("sub_total").title = cartTotal;
+			GetE("sub_total").innerHTML = displayName.replace("#", formatCartTotal);
+		}
+	}
+
+
+    var spans = GetByTagName("span");
+	for (var i=0; i<spans.length; i++) {
+      parsePrice(spans[i], displayName, rate, bit);
+	}
+	for (var x=0; x<3; x++) {
+	  for (var i=0; i<spans.length; i++) {
+        priceHandle(spans[i], displayName, rate, bit, x*10);
+	  }
+	}
+  } catch (ex) {
+    failureCurrency();
+  }
+}
+
+function failureCurrency(o) {
+	window.location.reload();
+}
+
+function parsePrice(o, dspName, rate, bit) {
+	var name = o.className;
+	if (name=="default_currency") {
+	  var currency = GetE("currency");
+	  o.innerHTML=currency.options[currency.selectedIndex].text;
+	  return;
+	}
+    if (name!="currently_price" && name!="originally_price" && name!="discount_price" && name!="shipping_price") return;
+	var price = parseFloat(o.lang);
+	if (isNaN(price)) return;	
+	if (price < 0) return;	
+    o.innerHTML = dspName.replace("#", formatPrice(price * rate, bit));
+}
+
+function priceHandle(o, dspName, rate, bit, order) {
+    var name = o.className;
+    if (name!="currently_price" && name!="originally_price" && name!="discount_price" && name!="shipping_price") return;
+    var price = parseFloat(o.lang);
+    if (price>0) return;	
+	var formula = o.id;
+	if (price==(-1-order)) {
+		if (formula.indexOf("*") > 0) {
+			var fs = formula.split("*");
+			var tmpid = fs[0];
+			var tmpcount = parseInt(fs[1]);
+			var tmpprice = parseFloat(GetE(tmpid).title);
+			if (isNaN(perPrice)) {
+			  tmpprice = parseFloat(GetE(tmpid).lang);
+			  if (isNaN(tmpprice)) return;	
+			  if (tmpprice < 0) return;	
+			  tmpprice = parseFloat(getPrice(tmpprice * rate, bit))
+			}			
+            var formatTotal = formatPrice(tmpprice * tmpcount, bit);
+			o.innerHTML = dspName.replace("#", formatTotal);
+			o.title = getPrice(tmpprice * tmpcount, bit);			
+		}
+	} else if (price==(-2-order)) {
+		var total = 0;
+		if (formula.indexOf("+") > 0) {
+			var fs = formula.split("+");			
+			var perPrice = 0;
+			for (var i=0; i<fs.length; i++) {
+				if (GetE(fs[i])) {
+					perPrice = parseFloat(GetE(fs[i]).title);
+					if (isNaN(perPrice)) {
+						perPrice = parseFloat(GetE(fs[i]).lang);
+						if (isNaN(perPrice)) continue;	
+						if (perPrice < 0) continue;	
+						perPrice = getPrice(perPrice * rate, bit);
+					}
+					total += perPrice;
+				}
+			}
+		} else {
+			total = parseFloat(GetE(formula).title);
+		}
+		var formatTotal = formatPrice(total, bit);
+		o.title = getPrice(total, bit);
+		o.innerHTML = dspName.replace("#", formatTotal);
+	} else if (price==(-3-order)) {
+        if (formula.indexOf("/") > 0) {
+			var fs = formula.split("/");
+			var tmpid = fs[0];
+			var tmpcount = parseInt(fs[1]);
+			var tmpprice = parseFloat(GetE(tmpid).title);
+			if (isNaN(tmpprice)) {
+			  tmpprice = parseFloat(GetE(tmpid).lang);
+			  if (isNaN(tmpprice)) return;	
+			  if (tmpprice < 0) return;	
+			  tmpprice = parseFloat(getPrice(tmpprice * rate, bit))
+			}	
+			var formatTotal = formatPrice(tmpprice / tmpcount, bit);
+			o.innerHTML = dspName.replace("#", formatTotal);
+			o.title = getPrice(tmpprice / tmpcount, bit);
+		}
+	} 
+}
+
+function chgOtherBrand(el) {
+	GetE("brand").focus();
+	if (el.value=="") return;    
+	window.location = "http://www.oversources.com/browse/b." + el.value + "/";
+}
+
+var show_word = "Search the news...";
+
+function showSearch(obj){
+	if(obj.value=="") obj.value=show_word;
+	obj.style.color='gray';
+}
+
+function hideSearch(obj){
+    if(obj.value==show_word) obj.value="";
+	obj.style.color='#000';
+}
+
+function doSearch(obj) {
+	if(obj.q.value==show_word) obj.q.value="";
+}
+
+function chkLogin() {
+	GetE("signinsubmit").disabled = true;
+	return true;
+}
+
+function loginPage() {
+	try {
+		var loginform = document.loginform;
+		loginform.username.value = "";
+		loginform.password.value = "";
+		loginform.style.display = "";		
+		loginform.username.focus();
+		return false;
+	} catch (ex) {
+		return true;
+	}
+}
+
+function getPrice(price, bit) {
+  return Math.round(price * Math.pow(10, bit)) / Math.pow(10, bit);
+}
+
+function formatPrice(price, bit) {
+	var isNegative = false;
+	if (price < 0) {
+		isNegative = true;
+		price = -price;
+	}
+
+    if (bit < 1) {
+		var tmpPrice = Math.round(price) + "";
+		var temp = "";
+		while (tmpPrice.length > 3) {
+			temp = "," + tmpPrice.substring(tmpPrice.length - 3) + temp;
+			tmpPrice = tmpPrice.substring(0, tmpPrice.length - 3);
+		}
+		if (isNegative) return "-" + tmpPrice + temp;
+		return tmpPrice + temp;
+	}
+	var dspPrice = Math.round(price * Math.pow(10, bit)) + "";
+	if (dspPrice.isBlank()) {
+		if (isNegative) return "-0." + repeat("0", bit);
+		return "0." + repeat("0", bit);
+	}
+	var len = dspPrice.length;
+	if (len <= bit) {
+		if (isNegative) return "-0." + repeat("0", bit - len) + dspPrice;
+		return "0." + repeat("0", bit - len) + dspPrice;
+	}
+    
+    var index = len - bit;
+	var prePrice = dspPrice.substring(0, index);
+	var tmp = "";
+	while (prePrice.length > 3) {
+		tmp = "," + prePrice.substring(prePrice.length - 3) + tmp;
+		prePrice = prePrice.substring(0, prePrice.length - 3);
+	}
+	if (isNegative) return "-" + prePrice + tmp + "." + dspPrice.substring(index);
+	return prePrice + tmp + "." + dspPrice.substring(index);
+}
+
+function repeat(s, count) {
+    if (s==null) return null;
+	if (count < 1) return "";
+	var tmp = "";
+	for (var i=0; i<count; i++) {
+        tmp += s;
+	}
+	return tmp;
+}
+
+function showPrice(price, rate, displayName, bit) {
+    var dspPrice = displayName.replace("#", formatPrice(price * rate, bit));
+    return '<span lang="'+price+'" class="currently_price">'+dspPrice+'</span>';
+}
+
+function showShippingCost(price, rate, displayName, bit) {
+	if (price==0) {
+		return '<span class="unavailable">Unavailable</span>';
+	}
+    var dspPrice = displayName.replace("#", formatPrice(price * rate, bit));
+    return '<span lang="'+price+'" class="currently_price">'+dspPrice+'</span>';
+}
+-->
+</script>
+<table id="header" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="logo"><div id="websitelogo"><a href="http://www.oversources.com/">&nbsp;</a></div></td>
+    <td class="hbody">
+      <div class="account"><div class="side"><div class="side1">
+	    <ul>
+		
+		  <li><span class="icon">&#187;</span><a onclick="return loginPage();" href="http://www.oversources.com/account/login">Sign In</a></li>
+		  
+		  <li><span class="icon">&#187;</span><a href="http://www.oversources.com/account/register?u=base">Sign Up</a></li>
+		  
+		
+		  <li><a class="checkout" href="http://www.oversources.com/shopping/check_out">Check Out</a></li>
+		  <li><span class="icon">&#187;</span><a href="http://www.oversources.com/service/faqs/">FAQs</a></li>
+	   </ul>
+	   <ul class="clear"></ul>
+	  </div></div></div><div class="clear"></div>
+	  <h1>China Electronics Wholesaler</h1>
+	
+	  <form id="loginform" name="loginform" style="display: none;" onSubmit="return chkLogin();" action="http://www.oversources.com/account/login" method="post">
+		<div class="field">
+		  <dl>
+			<dt>E-mail:</dt>
+			<dd><input type="text" name="username" value="" /></dd>			 
+			<dt>Password:</dt>
+			<dd><input type="password" name="password" value="" /></dd>
+		  </dl>
+		</div>
+		<div class="submit">
+		  <button id="signinsubmit" type="submit">Sign In</button>
+		</div>
+	  </form>
+	  
+    </td>
+  </tr>
+  <tr>
+    <td rowspan="2" class="search">
+	  <div class="left"><img src="http://static.oversources.com/v1.2/images/search_left.jpg"/></div>
+	  <form id="searchform" onsubmit="doSearch(this)" action="/search/dig" method="get">
+	    <input id="search_query" name="q" type="text" size="15" onblur="showSearch(this)" onfocus="hideSearch(this)" autocomplete="off" value="Search the news..." />
+		<input id="search_submit" type="image" title="Submit" src="http://static.oversources.com/v1.2/images/search.gif"/>
+	  </form>
+	</td>
+	<td><div class="channel">
+      <ul>
+	    <li class="first"><a href="http://www.oversources.com/">SHOPPING</a></li>
+		<li class="focus"><a href="http://www.oversources.com/dig/">NEWS</a></li>
+	    <li><a href="http://www.oversources.com/tech/">KNOWLEDGE</a></li>
+		<li><a href="http://www.oversources.com/forums/">FROUM</a></li>
+	  </ul>
+	</div>
+
+	   <div class="mycart">
+		 <a class="shoppingcart" href="http://www.oversources.com/shopping/shopping_cart">0 Items(s)</a>(<span id="shopping_cart_total"><span lang="0.0" class="currently_price">US$0.000</span></span>)
+	   </div>
+  	
+	
+	</td>
+  </tr>
+  <tr>
+    <td class="currency"><select id="currency" name="currency" onchange="chgCurrency(this);"><option value="USD" selected = "selected" >USD</option><option value="AUD">Australian Dollar</option><option value="CNY">China Yuan</option><option value="SGD">Singapore Dollar</option><option value="JPY">Japanese Yen</option><option value="HKD">Hong Kong Dollar</option><option value="GBP">British Pound</option><option value="EUR">Euro</option><option value="CHF">Swiss Franc</option><option value="CAD">Canadian Dollar</option><option value="NZD">New Zealand Dollor</option></select></td>
+  </tr>
+</table>
+	
+
+
+
+<div id="navigation">
+<div id="cattop"><div class="side">
+  <ul>
+    <li><a href="/dig/news/">All Topics</a></li><li><span>&gt;&gt;</span></li><li class="focus"><a href="/dig/news/c.laptop_computers">Laptop Computers</a></li>
+	<li class="post"><a href="http://www.oversources.com/dig/submit">Submit a New Story</a></li>
+  </ul>
+</div>
+</div><div class="clear"></div>
+
+
+
+    <div class="bodyside"><div id="workbody">
+            <div class="newsbody" id="i01261bf93e261f5b">
+                <div class="dig">
+                    <ul>
+                        <li class="count"><a><span id="c01261bf93e261f5b">7</span></a></li>
+						<li class="digit" id="d01261bf93e261f5b"><a href="http://www.oversources.com/dig/" onclick="return dig('01261bf93e261f5b');">dig it</a></li>
+                    </ul>
+                </div>
+                <!--End dig-->
+                <div class="body">
+                    <h3>AMD to Offer Triple-core Laptop Processors</h3>
+                    <p><div class="articleBodyContent"><p><span class="image rtmd"><img src="http://images.pcworld.com/news/graphics/n_030906_amdLogo.gif" alt=""/></span>Advanced Micro Devices will put triple-core processors into laptops to fill a power and performance gap, the company said.</p><p>Laptops today contain either dual-core or quad-core processors, and offering a triple-core CPU could bring laptops that are faster than the dual-core chips but more power-efficient than quad-core processors, said Bob Grim, director of client product marketing, at an AMD event during the Consumer Electronics Show in Las Vegas. The chips will ship by the end of the first half.</p><p>AMD's offering would be the first triple-core processors available for laptops. AMD has been offering triple-core processors for desktops and offers only dual-core chips for laptops. Intel offers dual-core and quad-core chips for its laptops and desktops.</p><p>Laptops with dual-core processors offer good performance, but adding an extra core helps boost application performance, Grim said. For example, the third core can take on resource-heavy tasks like antivirus scanning while freeing up the other two cores. The chip could also be a power-efficient option to Intel's quad-core chips, which usually go into power-hungry enthusiast systems.</p><p>AMD is also offering triple-core processors to PC makers as a way to differentiate from the usual dual-and quad-core offerings, Grim said.</p><p>The chips will be offered as part of the next-generation laptop platform code-named Danube and manufactured using the 45-nanometer process, which helps the company achieve higher levels of integration. The platform will also include dual-core and quad-core chips.</p><p>Danube processors are designed to boost laptop battery life by more than an hour, Grim said. The company is also launching a new platform for ultrathin laptops called Nile. Danube chips will support the faster DDR3 form of memory.</p><p>The company displayed the first laptop with a Danube chip at the event. The chip offers an improvement in speed and graphics compared to the current Dragon platform, Grim said. AMD is upgrading the integrated graphics capabilities in the platform.</p><p>AMD also displayed a desktop running on the next-generation Leo platform. The platform, which is based on processors with up to six cores, will include new integrated graphics and a chipset.</p><p><strong>More:</strong><a href="http://www.pcworld.com/article/186309/intel_27_new_laptop_desktop_cpus_arrive_in_january.html" target="_blank">Intel: 27 New Laptop, Desktop CPUs Arrive in January</a></p><p>For more up-to-the-minute blogs, stories, photos, and video from the nation's largest consumer electronics show, check out <a href="http://www.pcworld.com/topics/tech_events/ces" target="_blank">PC World's complete coverage of CES 2010</a>.</p><p></p></div></p>
+                    <div class="details">
+                        <dl>
+                            <dt>Submitted:</dt>
+                            <dd>62 days ago
+							</dd>
+                            <dt>Submitter:</dt>
+                            <dd><a href="http://www.oversources.com/user/529175421a9c8d93011aa066463710ff/news_dug/">through the wall</a></dd>
+                            <dt>Topic:</dt>
+                            <dd class="topic"><a href="/dig/news/c.laptop_computers">Laptop Computers</a></dd>
+                         
+                            <dt>Source:</dt>
+                            <dd><a href="http://www.pcworld.com/article/186400/amd_to_offer_triplecore_laptop_processors.html">www.pcworld.com</a></dd>
+						 
+                        </dl>
+                    </div>
+				
+					<div id="news_next">
+					  <ul>
+					
+						<li><a href="http://www.oversources.com/dig/view/01261bf69a011f4e.shtml">Lenovo LePhone for European release?</a></li>
+					
+						<li><a href="http://www.oversources.com/dig/view/01261bf698c61f4b.shtml">Nokia SUPREME: Most expensive Nokia ever</a></li>
+					
+						<li><a href="http://www.oversources.com/dig/view/01261bf698841f48.shtml">Windows Mobile 7 currently in testing</a></li>
+					
+						<li><a href="http://www.oversources.com/dig/view/01261bf698411f45.shtml">Nokia to release new E-Series phone?</a></li>
+					
+						<li><a href="http://www.oversources.com/dig/view/01261bf696ee1f42.shtml">Hands On With the Litl Webbook</a></li>
+					
+						<li><a href="http://www.oversources.com/dig/view/01260d2e3c9b5bc3.shtml">Podcast: CES Highlights</a></li>
+					
+					  <ul>
+					</div>
+				
+                </div><!--End body-->
+            </div><!--End newsbody-->
+            <div id="newsad"> 
+			  
+				<div id="product_ads">
+				
+				<div class="product_ads_item">
+				<div class="product_image" title="3.2 Inch Touch Screen with Dual Core Dual SIM Dual Standby Mobile Phone, MAQB-A476" style="background: url(http://images.oversources.com/productimage/mobile_2s2s-phone_MAQB-A476-middle.jpg) no-repeat 50% 50%"><a href="http://www.oversources.com/display/3.2-inch-touch-screen-with-dual-core-dual-sim-dual-standby-mobile-phone,-maqb-a476.shtml">&nbsp;</a></div>	  
+				<div class="product_name"><a href="http://www.oversources.com/display/3.2-inch-touch-screen-with-dual-core-dual-sim-dual-standby-mobile-phone,-maqb-a476.shtml">3.2 Inch Touch Screen with Dual Core Dual SIM Dual Standby Mobile Phone, MAQB-A476</a></div>
+				<div class="product_price"><span class="sample_price">Sample Price:</span><span lang="850.0" class="currently_price">US$119.000</span></div>
+				</div>
+				
+				<div class="product_ads_item">
+				<div class="product_image" title="Angel Baby Pinocchio1.3 Mega USB Live Web Cam Camera" style="background: url(http://images.oversources.com/productimage/_wen_cameras_CHWC-130-003-middle.jpg) no-repeat 50% 50%"><a href="http://www.oversources.com/display/angel-baby-pinocchio1.3-mega-usb-live-web-cam-camera.shtml">&nbsp;</a></div>	  
+				<div class="product_name"><a href="http://www.oversources.com/display/angel-baby-pinocchio1.3-mega-usb-live-web-cam-camera.shtml">Angel Baby Pinocchio1.3 Mega USB Live Web Cam Camera</a></div>
+				<div class="product_price"><span class="sample_price">Sample Price:</span><span lang="80.0" class="currently_price">US$11.200</span></div>
+				</div>
+				
+				</div>
+			  
+			</div>
+            <div id="commentbody">
+			<fieldset class="body">
+				<legend>Comments (<span id="comment_count">0</span>) <a name="comments"></a></legend>
+				<div id="comments">
+					<ul id="comments_data">
+					
+					</ul>
+                    <ul id="newcomment">
+					  <li class="title"><span>Add Your Comment</span></li>
+					  
+                      <li class="prompt">
+					    <strong>Please <a href="http://www.oversources.com/account/login">login</a> or <a href="http://www.oversources.com/account/register?u=community">register</a> to submit your comment.</strong>
+						<div class="accountwhy"><ul><li class="label">What are the benefits of having a Dig account?</strong></li><li>Share your opinion by posting comments on the stories that interest you</li><li>Dig the stories that you like and help determine what should be popular on Digg</li><li>Create a network of friends, so you can help each other find interesting stories</li><li>Start building a history of content that you've Dugg, for easy reference later</li></ul></div>
+					  </li>
+					  
+					</ul>
+				</div><!--End comments-->
+				<div id="commentsad">
+				
+				<div id="product_ads">
+				   
+					<div class="product_ads_item">
+					<div class="product_image" title="USB 2.0 Robot 1.3MP PC Web Camera" style="background: url(http://images.oversources.com/productimage/_wen_cameras_CHWC-130-001-middle.jpg) no-repeat 50% 50%"><a href="http://www.oversources.com/display/usb-2.0-robot-1.3mp-pc-web-camera.shtml">&nbsp;</a></div>	  
+					<div class="product_name"><a href="http://www.oversources.com/display/usb-2.0-robot-1.3mp-pc-web-camera.shtml">USB 2.0 Robot 1.3MP PC Web Camera</a></div>
+					<div class="product_price"><span class="sample_price">Sample Price:</span><span lang="80.0" class="currently_price">US$11.200</span></div>
+					</div>
+					
+					<div class="product_ads_item">
+					<div class="product_image" title="USB 2.0 football kid 1.3MP PC web camera" style="background: url(http://images.oversources.com/productimage/_wen_cameras_CHWC-130-002-middle.jpg) no-repeat 50% 50%"><a href="http://www.oversources.com/display/usb-2.0-football-kid-1.3mp-pc-web-camera.shtml">&nbsp;</a></div>	  
+					<div class="product_name"><a href="http://www.oversources.com/display/usb-2.0-football-kid-1.3mp-pc-web-camera.shtml">USB 2.0 football kid 1.3MP PC web camera</a></div>
+					<div class="product_price"><span class="sample_price">Sample Price:</span><span lang="88.0" class="currently_price">US$12.320</span></div>
+					</div>
+					
+				</div>
+				
+				</div><!--commentsad-->
+			</fieldset>				
+            </div><!--End commentbody-->
+        </div>
+    </div>
+    <!--End digbody-->
+    
+<div class="clear"></div>
+
+<div id="footer">
+<div id="footlayer"><table width="100%" cellspacing="0" cellpadding="0" border="0">
+    <thead>
+        <tr>
+            <td width="20%">CUSTOMER SERVICE</td>
+            <td width="20%">SHOPPING HELP</td>
+            <td width="20%">MY ACCOUNT</td>
+            <td width="20%">COMPANY INFO</td>
+            <td width="20%">TOOLS & RESOURCES</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+            <div>
+            <ul>
+                <li><a href="http://www.oversources.com/static/contact_us.shtml">Contact Us</a> </li>
+                <li><a href="http://www.oversources.com/service/rma">RMA Request</a> </li>
+                <li><a href="http://www.oversources.com/service/customer_service/find_item">Looking for a item</a> </li>
+                <li><a href="http://www.oversources.com/service/customer_service">Send Us a Message</a> </li>
+            </ul>
+            </div>
+            </td>
+            <td>
+            <div>
+            <ul>
+                <li><a href="http://www.oversources.com/service/faq_display/5291754210da85370110dde2741401ab.shtml">Shopping Process</a> </li>
+                <li><a href="http://www.oversources.com/static/return_policy.shtml">Return Policy</a> </li>
+                <li><a href="http://www.oversources.com/service/faqs/">FAQs</a> </li>
+                <li><a href="http://www.oversources.com/tech/">Knowledge Base</a> </li>
+            </ul>
+            </div>
+            </td>
+            <td>
+            <div>
+            <ul>
+                <li><a href="http://www.oversources.com/account/login">Login/Register</a> </li>
+                <li><a href="http://www.oversources.com/account/index">My Account</a> </li>
+                <li><a href="http://www.oversources.com/account/my_order">Order History</a> </li>
+                <li><a href="http://www.oversources.com/shopping/wish_list">My Wish list</a> </li>
+            </ul>
+            </div>
+            </td>
+            <td>
+            <div>
+            <ul>
+                <li><a href="http://www.oversources.com/static/about_us.shtml">About Us</a> </li>
+                <li><a href="http://www.oversources.com/static/vip_club.shtml">The VIP Club</a> </li>
+                <li><a href="http://www.oversources.com/content/customer_comments/">Customer Comments</a> </li>
+                <li><a href="http://www.oversources.com/static/bank_information.shtml">Bank Account Info</a> </li>
+            </ul>
+            </div>
+            </td>
+            <td>
+            <div>
+            <ul>
+                <li><a href="http://www.oversources.com/service/sitemap/">Site Map</a> </li>
+                <li><a href="http://www.oversources.com/download/">Downloads</a> </li>
+                <li><a href="http://www.oversources.com/search/product">Search</a> </li>
+                <li><a href="http://www.oversources.com/content/links.shtml">Links</a> </li>
+            </ul>
+            </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p align="center"><img height="21" width="37" src="/resources/Image/Certificate/visa.gif" alt="visa" /><img height="21" width="37" src="/resources/Image/Certificate/mastercard.gif" alt="mastercard" /><img src="/resources/Image/Certificate/discover.gif" alt="discover" /><img height="21" width="37" src="/resources/Image/Certificate/echeck.gif" alt="echeck" /><img height="21" width="37" src="/resources/Image/Certificate/amex.gif" alt="amex" /><img height="21" width="57" src="/resources/Image/Certificate/paypal.gif" alt="paypal" /><a href="https://www.paypal.com/verified/pal=paypal%40chinabatterys.com"><img height="70" width="70" border="0" src="/resources/Image/Certificate/paypalverifyseal.gif" alt="PayPal Verified" /></a><a href="http://www.xe.com/"><img height="45" width="45" border="0" src="http://www.xe.com/gen/illegal2copy-w.gif" alt="UCC" style="width: 53px; height: 45px;" /></a></p></div>
+<div id="copyright">
+
+      
+	    <span class="footitem"><a href="http://www.oversources.com/static/vip_club.shtml">VIP Club</a></span>
+	  
+	    <span class="interval">|</span>
+
+      
+	    <span class="footitem"><a href="http://www.oversources.com/static/policies.shtml">Policies</a></span>
+	  
+	    <span class="interval">|</span>
+
+      
+	    <span class="footitem"><a href="http://www.oversources.com/static/privacy_notice.shtml">Privacy Notice</a></span>
+	  
+	    <span class="interval">|</span>
+
+   Copyright &copy; 2006 China Electronics Wholesaler Inc. All rights reserved. 
+</div>
+</div>
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-1041746-2");
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB" lang="en-GB">
+<head>
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=ISO-8859-1" />
+  <meta name="keywords" content="errors warnings problems" />
+  <meta name="description" content="Supported validation problems and their messages" />
+  <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon" />
+  <title>Validation Reference</title>
+  <meta name="author" content="Total Validator" />
+  <link rel="stylesheet" href="../../mainstyle.css" />
+</head>
+<body>
+<div class="main">
+
+<div class="pagehead">
+<h1><a href="../../index.html"><img src="../../images/tvheader2.gif" alt="Total Validator"/></a></h1>
+</div>
+
+<div class="topnavbar">
+<map id="navbar" title="Navigation Bar"><p><a href="../../index.html">Home</a> | <a href="../../validator/ValidatorForm">Validator</a> | <a href="../../tool/index.html">Downloads</a> | <span class="error">Support</span> | <a href="../../validator/FeedbackForm">Feedback</a> | <a href="../../blogs/blogger.html">Blog</a></p></map></div>
+
+<div class="lhbox">
+<div class="lhmenu">
+<map id="lhmenu" title="Sub Navigation Bar">
+  <div class="lhheader">Support</div>
+  <ul>
+    <li class="lhmenu"><a href="../index.html">General</a></li>
+    <li class="lhmenu"><a href="../results.html">Online results</a></li>
+    <li class="lhmenu"><a href="../options.html">Online options</a></li>
+    <li class="lhmenu"><a href="../extension.html">Extension options</a></li>
+    <li class="lhmenu"><a href="../issues.html">General issues</a></li>
+    <li class="lhmenu"><a href="../extension_issues.html">Extension issues</a></li>
+    <li class="lhmenu"><a href="../tool_issues.html">Desktop tool issues</a></li>
+    <li class="lhmenu"><a href="../doctypes.html">Valid doctypes</a></li>
+    <li class="lhmenu"><span class="current">Validation reference</span>
+      <ul class="lhitem">
+        <li class="lhitem"><a href="index.html">Introduction</a></li>
+        <li class="lhitem"><a href="index.html#none">No validation</a></li>
+        <li class="lhitem"><a href="parsing.html">Parsing</a></li>
+        <li class="lhitem"><a href="spelling.html">Spellcheck</a></li>
+        <li class="lhitem"><a href="links.html">Link problems</a></li>
+        <li class="lhitem"><span class="current">(X)HTML</span></li>
+        <li class="lhitem"><a href="wai1.html">Accessibility</a></li>
+        <li class="lhitem"><a href="wai2.html">WCAG v2</a></li>
+      </ul>
+    </li>
+    <li class="lhmenu"><a href="../logos.html">Icons/Logos</a></li>
+  </ul>
+</map>
+</div>
+</div>
+
+<div class="middle">
+<h2><a id="html" name="html"></a>(X)HTML problems</h2>
+<p>These problems are due to non-conformance with the chosen (X)HTML specification:
+</p>
+<table summary="(X)HTML messages" border="1" cellpadding="4" cellspacing="2">
+<thead><tr><th>Code</th><th>Summary</th><th>Details</th></tr></thead><tbody>
+<tr><td>E600</td><td class="middle">This element is not recognised</td><td>This error is often raised when a browser-specific tag has been used such as &lt;embed&gt;. Alternatively you may have misspelled the name or tried to use a tag that is not valid with the HTML specification you are validating against.</td></tr>
+<tr><td>E601</td><td>This tag should not be nested within any other tags</td><td>This error is normally due to other errors within the page, such as using a frame set with the wrong &lt;!DOCTYPE&gt; tag. You can find a list of the &lt;!DOCTYPE&gt; " recognises <a href="../doctypes.html">here</a>.</td></tr>
+<tr><td>E602</td><td>This should be the first HTML tag or content in the file</td><td>The &lt;!DOCTYPE&gt; tag should appear before all other HTML tags or non-whitespace content (with XHTML it may appear after the XML declaration).</td></tr>
+<tr><td>E603</td><td>An end tag is not allowed for this element</td><td>This error occurs when you use an end tag where no end tag is allowed according to the HTML specification being validated against. Correcting this error is normally a matter of deleting the end tag indicated.</td></tr>
+<tr><td>E604</td><td>The matching end tag appears to be missing</td><td>According to the HTML specification being validated against, the tag must have an end tag. Sometimes this error is caused by improperly nested tags where the end tag exists but cannot be matched with the corresponding start tag.</td></tr>
+<tr><td>E606</td><td>This tag or content must be nested within another tag</td><td>The tag or content appears at the top level, but it must be nested inside another tag. This error is typically caused by missing or misplaced &lt;html&gt;, &lt;head&gt; and &lt;body&gt; start and end tags. Although these three tags are actually optional in HTML, it is poor practice to miss them off and often causes problems for search engine robots.</td></tr>
+<tr><td>E607</td><td>This tag or content must be nested within another tag</td><td>The tag or content appears at the top level, but it must be nested inside another tag. This error is typically caused by missing or misplaced &lt;html&gt;, &lt;head&gt; and &lt;body&gt; start and end tags. Although these three tags are actually optional in HTML, it is poor practice to miss them off and often causes problems for search engine robots.</td></tr>
+<tr><td>E608</td><td>There must be a &lt;!DOCTYPE&gt; tag at the top of the page (if 'auto-detecting' then a best-fit &lt;!DOCTYPE&gt; will be used)</td><td>A &lt;!DOCTYPE&gt; tag should be placed before any other HTML tag or non-whitespace characters on the page. Sometimes the &lt;!DOCTYPE&gt; tag is in the wrong place, but is usually missing altogether in these cases. A correct &lt;!DOCTYPE&gt; tag is needed to ensure that the browser interprets the HTML correctly. You can find a list of the &lt;!DOCTYPE&gt; " recognises <a href="../doctypes.html">here</a>.</td></tr>
+<tr><td>E609</td><td>This tag or content is not allowed here. One of the following was expected: LIST OF VALID TAGS</td><td>If this error is preceded by an E604 error (missing end tag) then correcting the earlier E604 error may correct this one. Otherwise note that there are strict rules as to what tags may be nested within others, as well as the order and number of tags allowed. Try removing the item marked with this error or nesting it within one of the tags listed. Note that in rare cases it is possible that a tag in the list provided also may not be allowed, but a simple test should quickly resolve this.</td></tr>
+<tr><td>E610</td><td>One or more of the following tags are missing from within the enclosing tag: LIST OF MISSING TAGS</td><td>The HTML specification being tested against defines that the tag identified must have one or more specific tags nested within it. You should add one or more of the missing tag(s) as appropriate.</td></tr>
+<tr><td>E611</td><td>Only one of this type of tag should be used within the enclosing tag</td><td>This error occurs when the specification only allows one of a certain tag to be nested within the enclosing tag, and more than one tag was found.</td></tr>
+<tr><td>E612</td><td>This tag or content is not allowed here</td><td>Each tag is defined by the HTML specification as only being allowed to contain certain other items nested within it, and sometimes these nested items may only appear once or only in a certain order. A common problem is to use a tag where it may not be obvious that it is not allowed, and may be accepted by many browsers. Try removing the offending item or nesting it within one of the other tags listed.</td></tr>
+<tr><td>E614</td><td>The &lt;!DOCTYPE&gt; tag does not match the HTML specification being checked against</td><td>The &lt;!DOCTYPE&gt; tag should exactly match the one that uniquely identifies the specification being tested. You can find a list of the &lt;!DOCTYPE&gt; " recognises <a href="../doctypes.html">here</a>.</td></tr>
+<tr><td>E620</td><td>The 'ATTRIBUTE NAME' attribute is not valid for this tag</td><td>The most common reason for this error is the use of a browser-specific attribute (such as 'leftmargin' in the &lt;body&gt; tag), which is not part of the official HTML specification being tested against. If the attribute is for purely for layout then consider using CSS instead.</td></tr>
+<tr><td>E621</td><td>The 'ATTRIBUTE NAME' attribute for this tag is missing</td><td>The HTML specification being validated against requires that the attribute indicated always be used.</td></tr>
+<tr><td>E622</td><td>The 'ATTRIBUTE NAME' attribute does not have a valid value: LIST OF VALID VALUES</td><td>The HTML specification being validated against defines certain valid values for each attribute. Usually a list of valid values will be displayed when you see this message. Note that many values must be in lower case in XHTML, including the 'x' in numeric hex entity references. Note also that what values are allowed varies from standard to standard.</td></tr>
+<tr><td>E623</td><td>The values of all attributes must be enclosed by quotes</td><td>In XHTML all attribute values must be enclosed by quotes. See <a target="help" href="http://www.w3.org/TR/xhtml1/#h-4.4">http://www.w3.org/TR/xhtml1/#h-4.4</a> (displayed in new window). This error is sometimes caused by a misformatted tag possibly with single or double quotes in the wrong place or mismatched. Check that there are no extra or missing quote characters.</td></tr>
+<tr><td>E624</td><td>The 'content' attribute should have a value of 'application/xhtml+xml' for XHTML</td><td>Note that &lt;meta&gt; tags override HTTP headers and XHTML should be served with a content type of 'application/xhtml+xml', but the content type used was not recognised. See <a target="help" href="http://www.w3.org/TR/xhtml-media-types/#summary">http://www.w3.org/TR/xhtml-media-types/#summary</a> (displayed in new window).</td></tr>
+<tr><td>E625</td><td>The 'content' attribute should have a value of 'text/html' for HTML</td><td>Note that &lt;meta&gt; tags override HTTP headers and HTML should be served with a content type of 'text/html'. See <a target="help" href="http://www.w3.org/TR/xhtml-media-types/#summary">http://www.w3.org/TR/xhtml-media-types/#summary</a> (displayed in new window).</td></tr>
+<tr><td>E626</td><td>All element names must be in lower case</td><td>XML is case-sensitive and in XHTML all element names are defined as being in lower case. See <a target="help" href="http://www.w3.org/TR/xhtml1/#h-4.2">http://www.w3.org/TR/xhtml1/#h-4.2</a> (displayed in new window).</td></tr>
+<tr><td>E628</td><td>Self-closing tags are not allowed in HTML</td><td>With HTML you are not allowed to end a tag with the '/' character. This is only valid with XHTML documents.</td></tr>
+<tr><td>E629</td><td>No matching anchor name</td><td>A link was found to an anchor in the same page, but that anchor could could not be found. You need to either remove the link or add a matching anchor name.</td></tr>
+<tr><td>E630</td><td>The name and id attributes must have the same value</td><td>When id and name attributes appear in the same element they must have the same value. See <a target="help" href="http://www.w3.org/TR/html401/struct/links.html#h-12.2.3">http://www.w3.org/TR/html401/struct/links.html#h-12.2.3</a> (displayed in new window).</td></tr>
+<tr><td>E631</td><td>Anchor name and id attributes must be unique in the same document</td><td>All id and anchor name attributes in the same document must have unique values. See <a target="help" href="http://www.w3.org/TR/html401/struct/links.html#h-12.2.3">http://www.w3.org/TR/html401/struct/links.html#h-12.2.3</a> (displayed in new window).</td></tr>
+<tr><td>E632</td><td>No matching anchor name</td><td>A link was found in a redirect that points to an anchor in the same page, but that anchor could could not be found. You need to amend the redirect or add a matching anchor name.</td></tr>
+<tr><td>E633</td><td>The 'content-type' http header should have a value of 'application/xhtml+xml' for XHTML</td><td>XHTML should be served with a content type of 'application/xhtml+xml', but the content type used was not recognised. See <a target="help" href="http://www.w3.org/TR/xhtml-media-types/#summary">http://www.w3.org/TR/xhtml-media-types/#summary</a> (displayed in new window).</td></tr>
+<tr><td>E634</td><td>The 'content-type' http header should have a value of 'text/html' for HTML</td><td>HTML should be served with a content type of 'text/html'. See <a target="help" href="http://www.w3.org/TR/xhtml-media-types/#summary">http://www.w3.org/TR/xhtml-media-types/#summary</a> (displayed in new window).</td></tr>
+<tr><td>E635</td><td>The XML declaration must appear before any other content or tags</td><td>The XML declaration (if supplied) must be the first thing in the file, before any other content or tags.</td></tr>
+<tr><td>E636</td><td>Only one XML declaration is allowed</td><td>Only one XML declaration may be supplied and this must be the first thing in the file, before any other content or tags.</td></tr>
+<tr><td>E637</td><td>The XML declaration must contain a 'version' attribute</td><td>The XML declaration must contain a 'version' attribute. Check the spelling of any attributes supplied.</td></tr>
+<tr><td>E638</td><td>Invalid value for the 'version' attribute</td><td>The 'version' attribute must be set to the string '1.0'.</td></tr>
+<tr><td>E639</td><td>Invalid value for the 'encoding' attribute</td><td>The 'encoding' attribute must begin with a letter [a-zA-Z] and may be followed by any number of letters, digits [0-9], hyphens, underscores, and periods.</td></tr>
+<tr><td>E640</td><td>Invalid value for the 'standalone' attribute</td><td>The 'standalone' attribute must be set to either 'yes' or 'no'.</td></tr>
+<tr><td>E641</td><td>Unknown or invalid attribute</td><td>The XML declaration contains an unrecognised or invalid attribute. Check for spelling mistakes.</td></tr>
+<tr><td>E642</td><td>The root element name 'html' is missing from the &lt;!DOCTYPE&gt; tag</td><td>The root element name 'html' is either missing from the &lt;!DOCTYPE&gt; tag, misspelt, or the wrong root element name has been used. You can find a list of the &lt;!DOCTYPE&gt; tags that Total Validator recognises <a href="../doctypes.html">here</a>.</td></tr>
+<tr><td>E643</td><td>The keyword 'PUBLIC' is missing from the &lt;!DOCTYPE&gt; tag</td><td>The keyword 'PUBLIC' is either missing from the &lt;!DOCTYPE&gt; tag, or misspelt. You can find a list of the &lt;!DOCTYPE&gt; tags that Total Validator recognises <a href="../doctypes.html">here</a>.</td></tr>
+<tr><td>E644</td><td>The word '!DOCTYPE' must be in uppercase for XHTML documents</td><td>The name '!DOCTYPE' must be all in uppercase for XHTML documents. You can find a list of the &lt;!DOCTYPE&gt; tags that Total Validator recognises <a href="../doctypes.html">here</a>.</td></tr>
+<tr><td>E645</td><td>The keyword 'PUBLIC' must be in uppercase for XHTML documents</td><td>The keyword 'PUBLIC' must be all in uppercase for XHTML documents. You can find a list of the &lt;!DOCTYPE&gt; tags that Total Validator recognises <a href="../doctypes.html">here</a>.</td></tr>
+<tr><td>E646</td><td>The root element name 'html' must be in lowercase for XHTML documents</td><td>The root element name 'html' must be all in in lowercase for XHTML documents. You can find a list of the &lt;!DOCTYPE&gt; tags that Total Validator recognises <a href="../doctypes.html">here</a>.</td></tr>
+<tr><td>E647</td><td>The character set is not recognised</td><td>The character set specified is not recognised. This may be because it is misspelled.</td></tr>
+<tr><td>E649</td><td>The default scripting language must be specified for an intrinsic event</td><td>When intrinsic events (onclick, onmouseover etc) are specified the default scripting language should be specified using a Content-Script-Type HTTP header or &lt;meta&gt; tag. See <a target="help" href="http://www.w3.org/TR/html401/interact/scripts.html#h-18.2.2.1">http://www.w3.org/TR/html401/interact/scripts.html#h-18.2.2.1</a> (displayed in new window).</td></tr>
+<tr><td>E650</td><td>The default style sheet language must be specified when style attributes are used</td><td>When style attributes are used the default style sheet language should be specified using a Content-Style-Type HTTP header or &lt;meta&gt; tag. See <a target="help" href="http://www.w3.org/TR/html401/present/styles.html#h-14.2.1">http://www.w3.org/TR/html401/present/styles.html#h-14.2.1</a> (displayed in new window).</td></tr>
+<tr><td>E651</td><td>The value of the 'for' attribute must match the 'id' of the control element it refers to</td><td>When you include a 'for' attribute to associate a label with a control you must provide a control with a matching 'id' value in the same document. See <a target="help" href="http://www.w3.org/TR/html401/interact/forms.html#h-17.9.1">http://www.w3.org/TR/html401/interact/forms.html#h-17.9.1</a> (displayed in new window).</td></tr>
+<tr><td>E652</td><td>The values in the 'headers' attribute must have matching the table cell 'ids'</td><td>When you include a 'headers' attribute to associate one cell with another you must provide matching 'ids' in cells in the same table. See <a target="help" href="http://www.w3.org/TR/html401/struct/tables.html#edef-TD">http://www.w3.org/TR/html401/struct/tables.html#edef-TD</a> (displayed in new window).</td></tr>
+<tr><td>E653</td><td>The value of the 'usemap' attribute must match the 'id' or 'name' of the &lt;map&gt; it refers to</td><td>When you include a 'usemap' attribute for a client-side map you must provide a &lt;map&gt; with a matching 'id' or 'name'.</td></tr>
+<tr><td>E654</td><td>The keyword 'SYSTEM' is missing from the &lt;!DOCTYPE&gt; tag</td><td>The keyword 'SYSTEM' is either missing from the &lt;!DOCTYPE&gt; tag, or misspelt. You can find a list of the &lt;!DOCTYPE&gt; tags that Total Validator recognises <a href="../doctypes.html">here</a>.</td></tr>
+<tr><td>E655</td><td>The keyword 'SYSTEM' must be in uppercase for XHTML documents</td><td>The keyword 'SYSTEM' must be all in uppercase for XHTML documents. You can find a list of the &lt;!DOCTYPE&gt; tags that Total Validator recognises <a href="../doctypes.html">here</a>.</td></tr>
+<tr><td>E656</td><td>The 'ATTRIBUTE NAME' attribute does not have a valid name</td><td>The specification being validated against does not allow attribute names with certain characters in them.</td></tr>
+<tr><td>E657</td><td>The 'xml:lang' and 'lang' attributes must have the same value</td><td>When 'xml:lang' and 'lang' attributes appear in the same element they must have the same value.</td></tr>
+<tr><td>E658</td><td>The 'xml:lang' and 'lang' attributes must have the same value</td><td>When the 'xml:lang' attribute is used you must also add a 'lang' attribute to the same element. See <a target="help" href="http://www.w3.org/TR/html5/">http://www.w3.org/TR/html5/</a> (displayed in new window).</td></tr>
+<tr><td>E659</td><td>The values in the 'for' attribute must have matching ids</td><td>When you include a 'for' attribute each of the ids listed must match elements elsewhere in the document.</td></tr>
+<tr><td>E660</td><td>The value of the 'list' attribute must match the 'id' of the &lt;datalist&gt; it refers to</td><td>When you include a 'list' attribute you must provide a &lt;datalist&gt; with a matching 'id'.</td></tr>
+<tr><td>E661</td><td>The value of the 'contextmenu' attribute must match the 'id' of the &lt;menu&gt; it refers to</td><td>When you include a 'contextmenu' attribute you must provide a &lt;menu&gt; with a matching 'id'.</td></tr>
+<tr><td>E662</td><td>The value of the 'form' attribute must match the 'name' of the &lt;form&gt; it refers to</td><td>When you include a 'form' attribute you must provide a &lt;form&gt; with a matching 'name'.</td></tr>
+<tr><td>E663</td><td>The value of the 'refid' attribute must match the 'id' of the element it refers to</td><td>When you include a 'refid' attribute you must provide an element with a matching 'id'.</td></tr>
+
+<tr><td>W600</td><td>The 'ATTRIBUTE NAME' attribute has a boolean value, and this may be ignored or cause errors in older browsers/robots</td><td>Some older browsers and search engine robots do not recognise XHTML style boolean attributes such as selected="selected". For backwards compatibility just use the attribute without any value, e.g. 'selected'</td></tr>
+<tr><td>W601</td><td>The 'ATTRIBUTE NAME' attribute for this tag is recommended, but missing</td><td>Although this attribute is not required it is recommended that you add it for clarity.</td></tr>
+<tr><td>W602</td><td>The &lt;!DOCTYPE&gt; tag does not match the HTML specification being checked against</td><td>The &lt;!DOCTYPE&gt; tag should exactly match the one that uniquely identifies the specification being tested. You can find a list of the &lt;!DOCTYPE&gt; " recognises <a href="../doctypes.html">here</a>.</td></tr>
+<tr><td>W603</td><td>The system ID is missing from the &lt;!DOCTYPE&gt; tag</td><td>Although not a serious problem, the &lt;!DOCTYPE&gt; tag should exactly match the one that uniquely identifies the specification that the page follows. In this case the system ID is missing and should be added for completeness. This is a URL pointing to the DTD used to validate the page. You can find a list of the &lt;!DOCTYPE&gt; " recognises <a href="../doctypes.html">here</a>.</td></tr>
+<tr><td>W607</td><td>The 'content' attribute should have a value of 'application/xhtml+xml' for XHTML</td><td>Note that &lt;meta&gt; tags override HTTP headers and XHTML should be served with a content type of 'application/xhtml+xml'. See <a target="help" href="http://www.w3.org/TR/xhtml-media-types/#summary">http://www.w3.org/TR/xhtml-media-types/#summary</a> (displayed in new window).</td></tr>
+<tr><td>W608</td><td>The 'content-type' http header should have a value of 'application/xhtml+xml' for XHTML</td><td>XHTML should be served with a content type of 'application/xhtml+xml'. See <a target="help" href="http://www.w3.org/TR/xhtml-media-types/#summary">http://www.w3.org/TR/xhtml-media-types/#summary</a> (displayed in new window).</td></tr>
+<tr><td>W609</td><td>The 'content-type' HTTP header specifies a different character set</td><td>The 'content-type' HTTP header specifies a different character set to that specified in the tag. In this case the HTTP header takes precedence.</td></tr>
+<tr><td>W610</td><td>The BOM specifies a different character set</td><td>The BOM (Byte Order Mark) of the document specifies a different character set to that specified in the tag. In this case the BOM takes precedence.</td></tr>
+<tr><td>W611</td><td>No character set is specified in either the HTTP header, &lt;meta&gt; tag, or XML declaration</td><td>The character set (character encoding) should be specified in either a HTTP header or &lt;meta&gt; tag, or XML declaration for XHTML documents. If it isn't then the user agent may select an incorrect character set by mistake. See <a target="help" href="http://www.w3.org/TR/html401/charset.html#h-5.2.2">http://www.w3.org/TR/html401/charset.html#h-5.2.2</a> (displayed in new window).</td></tr>
+</tbody>
+</table>
+<p><a href="#"><img src="../../images/up.gif" alt=""/> top</a></p>
+</div>
+
+<div class="footer">
+<p class="footer"><a href="../../home/privacy.html">Privacy</a> | <a href="../../home/contact.html">Contact Us</a> | Copyright 2010 Total Validator. All rights reserved.</p>
+</div>
+
+</div>
+</body>
+</html>

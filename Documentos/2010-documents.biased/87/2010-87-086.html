@@ -1,0 +1,765 @@
+<!--DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Natural Language Processing Source Codes : QuickSelect, PHPTP - PHP Template Processor, Recurse, not divide, to conquer, TemplateThis ...</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <style type="text/css">
+/*<![CDATA[*/
+    @import url(/resources/style.css);
+    @import url(/resources/editor.css);
+    @import url(/resources/page_control.css);
+/*]]>*/
+    </style>
+</head>
+<body>
+<table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0" align="center" id="root">
+    <tr>
+        <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td width="205"><a href="http://www.vclcomponents.com/"><img src="/resources/logo.jpg" width="205" height="102" border="0" alt="VCL Components" /></a></td>
+                <td width="100%" background="/resources/top_bg.gif">
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr><td><img src="/resources/header.jpg" alt="COMPONENT LIBRARY FOR PROGRAMMING LANUGAGES" width="517" height="63" align="right" /></td></tr>
+                    <tr>
+                        <td width="100%">
+                            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td><img src="/resources/menu_l.gif" width="5" height="39" alt="" /></td>
+                                <td width="100%" background="/resources/menu_mbg.gif" id="topmenu">
+                                     &nbsp;&nbsp;<a href="http://www.vclcomponents.com">HOME</a>&nbsp;&nbsp;|
+                                     &nbsp;&nbsp;<a href="/new">NEW</a>&nbsp;&nbsp;|
+                                     &nbsp;&nbsp;<a href="/popular">POPULAR</a>&nbsp;&nbsp;|
+                                     &nbsp;&nbsp;<a href="/top">TOP&nbsp;RATED</a>&nbsp;&nbsp;|
+                                     &nbsp;&nbsp;<a href="/authors">AUTHORS</a>&nbsp;&nbsp;|
+                                     &nbsp;&nbsp;<a href="/contact">CONTACT US</a>&nbsp;&nbsp;|
+                                     &nbsp;&nbsp;<a href="/link_to_us">LINK TO US</a>&nbsp;&nbsp;|
+                                     &nbsp;&nbsp;<a href="/submit">SUBMIT</a>&nbsp;&nbsp;|
+                                     &nbsp;&nbsp;<a href="/">SEARCH</a>
+                                </td>
+                                <td><img src="/resources/menu_r.gif" width="22" height="39" alt="" /></td>
+                            </tr>   
+                            </table>
+                        </td>
+                    </tr>   
+                    </table>
+                </td>
+            </tr>   
+            </table>
+        </td>
+    </tr>
+<tr>
+	<td height="100%">
+		<table border="0" cellspacing="2" cellpadding="3" id="main" style="height:100%">
+		<tr>
+			<td valign="top" height="100%">
+				<table border="0" cellspacing="0" cellpadding="0" class="tbl" height="100%" width="192">
+<tr>
+	<td><img src="/resources/tbl_h_l.gif" width="23" height="37" alt="" /></td>
+	<td background="/resources/tbl_h_bg.gif" nowrap><h4>Languages</h4></td>
+	<td width="100%" background="/resources/tbl_hr_bg.jpg"><img src="/resources/tbl_hr_bg.jpg" width="2" height="37" alt="" /></td>
+	<td><img src="/resources/tbl_h_r.gif" width="9" height="37" alt="" /></td>
+</tr>
+<tr>
+	<td colspan="4" class="cont" height="100%" valign="top">
+		<ul id="lmenu">
+							<li><a href="/ASP/"><img src="/resources/point.gif">ASP</a></li>
+                                    
+							<li><a href="/ASP_NET/"><img src="/resources/point.gif">ASP.NET</a></li>
+                                    
+							<li><a href="/Assembler/"><img src="/resources/point.gif">Assembler</a></li>
+                                    
+							<li><a href="/Basic/"><img src="/resources/point.gif">Basic</a></li>
+                                    
+							<li><a href="/C_/"><img src="/resources/point.gif">C#</a></li>
+                                    
+							<li><a href="/C_C__/"><img src="/resources/point.gif">C/C++</a></li>
+                                    
+							<li><a href="/CFML/"><img src="/resources/point.gif">CFML</a></li>
+                                    
+							<li><a href="/CGI_PERL/"><img src="/resources/point.gif">CGI/PERL</a></li>
+                                    
+							<li><a href="/Delphi/"><img src="/resources/point.gif">Delphi</a></li>
+                                    
+							<li><a href="/Flash/"><img src="/resources/point.gif">Flash</a></li>
+                                    
+							<li><a href="/HTML/"><img src="/resources/point.gif">HTML</a></li>
+                                    
+							<li><a href="/Java/"><img src="/resources/point.gif">Java</a></li>
+                                    
+							<li><a href="/JavaScript/"><img src="/resources/point.gif">JavaScript</a></li>
+                                    
+							<li><a href="/LISP/"><img src="/resources/point.gif">LISP</a></li>
+                                    
+							<li><a href="/Pascal/"><img src="/resources/point.gif">Pascal</a></li>
+                                    
+							<li><a href="/PHP/"><img src="/resources/point.gif">PHP</a></li>
+                                    
+							<li><a href="/Python/"><img src="/resources/point.gif">Python</a></li>
+                                    
+							<li><a href="/SQL/"><img src="/resources/point.gif">SQL</a></li>
+                                    
+							<li><a href="/Visual_Basic___VB_NET/"><img src="/resources/point.gif">Visual Basic & VB.NET</a></li>
+                                    
+							<li><a href="/XML/"><img src="/resources/point.gif">XML</a></li>
+                                    
+				        
+		</ul>
+	</td>
+</tr>
+</table>			
+			</td>
+			<td valign="top" width="100%">
+				<table border="0" cellspacing="0" cellpadding="0" class="tbl" width="100%">
+<tr>
+    <td>
+        <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td><img src="/resources/tbl_h_l.gif" width="23" height="37" alt=""></td>
+            <td background="/resources/tbl_h_bg.gif" nowrap><h4>Search for Components, Scripts, Source Code</h4></td>
+            <td width="100%" background="/resources/tbl_hr_bg.jpg"><img src="/resources/tbl_hr_bg.jpg" width="2" height="37" alt=""></td>
+            <td><img src="/resources/tbl_h_r.gif" width="9" height="37" alt=""></td>
+        </tr>
+        </table>
+    </td>
+</tr>
+<tr>
+    <td class="cont" valign="top">
+        <form method="post" action="/s" style="padding: 10px;">
+        <table cellpadding="2" cellspacing="2" border="0">
+        <tr>
+            <td>Keyword:<br /></td>
+            <td><input name="edt_search_keyword" value="natural language processing source codes" maxlength="40" size="40" type="text" id="edt_search_keyword" /></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>  
+            <td>
+                <input name="rb_search_type" value="1" type="radio" id="rb_search_type" /><label> Free</label> 
+                <input name="rb_search_type" value="2" type="radio" id="rb_search_type" /><label> Shareware</label> 
+                <input name="rb_search_type" value="0" checked type="radio" id="rb_search_type" /><label> Any</label> 
+            </td>
+        </tr>
+        <tr>
+            <td>Search in: </td>
+            <td>                
+                <select name="cmb_search_dir" style="width:233px;">
+                <option value="">ALL Components &amp; Tools</option>
+<option value="1">ASP</option>
+<option value="179">ASP.NET</option>
+<option value="1539">Assembler</option>
+<option value="1588">Basic</option>
+<option value="1592">C#</option>
+<option value="307">C/C++</option>
+<option value="1446">CFML</option>
+<option value="389">CGI/PERL</option>
+<option value="1715">Delphi</option>
+<option value="659">Flash</option>
+<option value="1440">HTML</option>
+<option value="687">Java</option>
+<option value="1277">JavaScript</option>
+<option value="1699">LISP</option>
+<option value="1596">Pascal</option>
+<option value="891">PHP</option>
+<option value="1234">Python</option>
+<option value="1676">SQL</option>
+<option value="1623">Visual Basic & VB.NET</option>
+<option value="1500">XML</option>
+
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>  
+            <td><input name="cb_search_option" value="1" type="checkbox" id="cb_search_option" /> With source only<br /></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>   
+            <td colspan="2"><input type="image" src="/resources/search.jpg" name="btn_search" value="Search" /></td>
+        </tr>
+        </table>
+        </form>
+    </td>
+</tr>
+</table>
+        
+<div style="background-color:#003399;"><img src="/resources/spacer.gif" height="8" width="1" alt=""></div>
+<table border="0" cellspacing="0" cellpadding="0" class="tbl" width="100%" height="100%">
+<tr>
+    <td>
+        <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td><img src="/resources/tbl_h_l.gif" width="23" height="37" alt=""></td>
+            <td background="/resources/tbl_h_bg.gif" nowrap><h4>Natural Language Processing Source Codes</h4></td>
+            <td width="100%" background="/resources/tbl_hr_bg.jpg"><img src="/resources/tbl_hr_bg.jpg" width="2" height="37" alt=""></td>
+            <td><img src="/resources/tbl_h_r.gif" width="9" height="37" alt=""></td>
+        </tr>
+        </table>
+    </td>
+</tr>
+<tr>
+    <td class="cont" valign="top">
+        <div class="navy">
+<p><span class="pager">Records 1-25 of 125</span>&nbsp;&nbsp;|&nbsp;&nbsp;<span class="pager">Go to</span>&nbsp;<span class="pager">1</span>&nbsp;<a href="http://www.vclcomponents.com/s/0__/natural_language_processing_source_codes/index2.html" class="pager">2</a>&nbsp;<a href="http://www.vclcomponents.com/s/0__/natural_language_processing_source_codes/index3.html" class="pager">3</a>&nbsp;<a href="http://www.vclcomponents.com/s/0__/natural_language_processing_source_codes/index4.html" class="pager">4</a>&nbsp;<a href="http://www.vclcomponents.com/s/0__/natural_language_processing_source_codes/index5.html" class="pager">5</a>&nbsp;<a href="http://www.vclcomponents.com/s/0__/natural_language_processing_source_codes/index2.html" class="pager">Next &gt;&gt;</a>&nbsp;<span class="pager">page</span>&nbsp;</p> 
+</div>
+<div>
+<table border="0" cellpadding="3" cellspacing="3" id="LatestSoftware">
+<tr>
+	<td valign="top">
+		<h5><a href="/Delphi/DataBase___Misc_/QuickSelect-info.html">QuickSelect 1.5</a> - <a href="/Delphi/">Delphi</a> / <a href="/Delphi/DataBase___Misc_/">DataBase - Misc.</a></h5>
+		QuickSelect is a VCL component for visual creation of SQL queries. It uses natural language to facilitate easy an simple building of advanced SQL...
+
+
+			<br><br>
+
+  		             
+  <b>Sponsored Links: </b><br>
+<script type="text/javascript"><!--
+google_ad_client = "pub-3125178100691569";
+google_ad_width = 336;
+google_ad_height = 280;
+google_ad_format = "336x280_as";
+google_ad_type = "text_image";
+google_ad_channel ="6128251816";
+google_color_bg = "104DC3";
+google_color_border = "749EF2";
+google_color_link = "00FFFF";
+google_color_url = "FFFF00";
+google_color_text = "FFFFFF";
+google_alternate_color = "114FCC";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<br><br>
+
+
+
+       			
+
+
+	</td>
+	<td valign="top" nowrap="nowrap">826.0 KB</td>
+	<td valign="top" class="Shareware"><div>Shareware</div></td>
+</tr>
+<tr>
+	<td valign="top">
+		<h5><a href="/PHP/Development_Tools/Libraries_and_Classes/PHPTP___PHP_Template_Processor-info.html">PHPTP - PHP Template Processor 1.0beta1</a> - <a href="/PHP/">PHP</a> / <a href="/PHP/Development_Tools/">Development Tools</a> / <a href="/PHP/Development_Tools/Libraries_and_Classes/">Libraries and Classes</a></h5>
+		An open source library for processing templates.
+
+
+			<br><br>
+
+  		      
+
+
+	</td>
+	<td valign="top" nowrap="nowrap">12 B</td>
+	<td valign="top" class="Freeware"><div>Freeware</div></td>
+</tr>
+<tr>
+	<td valign="top">
+		<h5><a href="/XML/Tips_and_Tutorials/Development/Recurse__not_divide__to_conquer-info.html">Recurse, not divide, to conquer </a> - <a href="/XML/">XML</a> / <a href="/XML/Tips_and_Tutorials/">Tips and Tutorials</a> / <a href="/XML/Tips_and_Tutorials/Development/">Development</a></h5>
+		This article demonstrates how to to bridge processing of an HTML element over two XSLT templates, by shifting your thinking into the XSLT recursive...
+
+
+			<br><br>
+
+  		      
+
+
+	</td>
+	<td valign="top" nowrap="nowrap"></td>
+	<td valign="top" class="Freeware"><div>Freeware</div></td>
+</tr>
+<tr>
+	<td valign="top">
+		<h5><a href="/PHP/Content_Retrieval/TemplateThis-info.html">TemplateThis </a> - <a href="/PHP/">PHP</a> / <a href="/PHP/Content_Retrieval/">Content Retrieval</a></h5>
+		TemplateThis is an efficient template system built with PHP. You can use this program to isolate HTML codes from PHP source codes. This program is...
+
+
+			<br><br>
+
+  		      
+
+
+	</td>
+	<td valign="top" nowrap="nowrap"></td>
+	<td valign="top" class="Freeware"><div>Freeware</div></td>
+</tr>
+<tr>
+	<td valign="top">
+		<h5><a href="/CGI_PERL/Development_Tools/Libraries_and_Modules/Apache__ASP-info.html">Apache::ASP 2.III</a> - <a href="/CGI_PERL/">CGI/PERL</a> / <a href="/CGI_PERL/Development_Tools/">Development Tools</a> / <a href="/CGI_PERL/Development_Tools/Libraries_and_Modules/">Libraries and Modules</a></h5>
+		This module provides an active server pages port to the Apache Web Server that has perl as the host language. It also has a number of powerful...
+
+
+			<br><br>
+
+  		      
+
+
+	</td>
+	<td valign="top" nowrap="nowrap"></td>
+	<td valign="top" class="Freeware"><div>Freeware</div></td>
+</tr>
+<tr>
+	<td valign="top">
+		<h5><a href="/PHP/E_Commerce/Shopping_Cart_Software/STIVA_Shopping_Cart-info.html">STIVA Shopping Cart 1.1</a> - <a href="/PHP/">PHP</a> / <a href="/PHP/E_Commerce/">E-Commerce</a> / <a href="/PHP/E_Commerce/Shopping_Cart_Software/">Shopping Cart Software</a></h5>
+		STIVA Shopping Cart is an amazing product that can be used on any website requiring online product orders and payments.
+
+
+			<br><br>
+
+  		      
+
+
+	</td>
+	<td valign="top" nowrap="nowrap">100.0 KB</td>
+	<td valign="top" class="Shareware"><div>Shareware</div></td>
+</tr>
+<tr>
+	<td valign="top">
+		<h5><a href="/Delphi/Tools/VIRT_language_interpreter-info.html">VIRT language interpreter </a> - <a href="/Delphi/">Delphi</a> / <a href="/Delphi/Tools/">Tools</a></h5>
+		Interpreter of the VIRT programming language. VIRT is general purposesobject-oriented programming language which provides the new technology of the...
+
+
+			<br><br>
+
+  		      
+
+
+	</td>
+	<td valign="top" nowrap="nowrap">248.0 KB</td>
+	<td valign="top" class="Freeware"><div>Freeware</div></td>
+</tr>
+<tr>
+	<td valign="top">
+		<h5><a href="/Delphi/Tools/Fusion_Band_XP_Edition-info.html">Fusion Band XP Edition v1.2 XP Ed.</a> - <a href="/Delphi/">Delphi</a> / <a href="/Delphi/Tools/">Tools</a></h5>
+		Fusion Band is a natural extension to the Windows Start/Quicklaunch Bar; it enables more menus to be added to the Taskbar.New Features:Window XP...
+
+
+			<br><br>
+
+  		      
+
+
+	</td>
+	<td valign="top" nowrap="nowrap">1.4 MB</td>
+	<td valign="top" class="Freeware"><div>Freeware</div></td>
+</tr>
+<tr>
+	<td valign="top">
+		<h5><a href="/CGI_PERL/Books/Perl_5_Complete-info.html">Perl 5 Complete </a> - <a href="/CGI_PERL/">CGI/PERL</a> / <a href="/CGI_PERL/Books/">Books</a></h5>
+		The authors share this assessment of the Perl programming language by its founder, Larry Wall: Known as the "camel" language, "Perl may not look...
+
+
+			<br><br>
+
+  		      
+
+
+	</td>
+	<td valign="top" nowrap="nowrap"></td>
+	<td valign="top" class="Shareware"><div>Shareware</div></td>
+</tr>
+<tr>
+	<td valign="top">
+		<h5><a href="/Python/Tips_and_Tutorials/XML_and_Python/XML_Processing_with_Python-info.html">XML Processing with Python </a> - <a href="/Python/">Python</a> / <a href="/Python/Tips_and_Tutorials/">Tips and Tutorials</a> / <a href="/Python/Tips_and_Tutorials/XML_and_Python/">XML and Python</a></h5>
+		One language attracting a lot of attention at the moment is Python.  This article takes a high level look at Python.  It uses the time honored...
+
+
+			<br><br>
+
+  		      
+
+
+	</td>
+	<td valign="top" nowrap="nowrap"></td>
+	<td valign="top" class="Freeware"><div>Freeware</div></td>
+</tr>
+<tr>
+	<td valign="top">
+		<h5><a href="/Delphi/Project/Language_Illuminator-info.html">Language Illuminator 1.5.2</a> - <a href="/Delphi/">Delphi</a> / <a href="/Delphi/Project/">Project</a></h5>
+		Language Illuminator is a powerful new tool for editing and translating the language resources of Windows applications. It can do this without the...
+
+
+			<br><br>
+
+  		      
+
+
+	</td>
+	<td valign="top" nowrap="nowrap">2.1 MB</td>
+	<td valign="top" class="Shareware"><div>Shareware</div></td>
+</tr>
+<tr>
+	<td valign="top">
+		<h5><a href="/ASP_NET/Database_Tools/EasyQuery_NET_WebForms-info.html">EasyQuery.NET WebForms 1.6.1</a> - <a href="/ASP_NET/">ASP.NET</a> / <a href="/ASP_NET/Database_Tools/">Database Tools</a></h5>
+		EasyQuery.NET WebForms provides your ASP.NET web-site with user-friendly data searching and filtration interface and gives your users an ability to...
+
+
+			<br><br>
+
+  		      
+
+
+	</td>
+	<td valign="top" nowrap="nowrap">3 B</td>
+	<td valign="top" class="Freeware"><div>Freeware</div></td>
+</tr>
+<tr>
+	<td valign="top">
+		<h5><a href="/Delphi/Miscellaneous/Source_Code_Scanners-info.html">Source Code Scanners 4.0 Std</a> - <a href="/Delphi/">Delphi</a> / <a href="/Delphi/Miscellaneous/">Miscellaneous</a></h5>
+		Source Code Scanners is the high performance library of visual components for C++ Builder and Delphi intended for creating analyzers and parsers of...
+
+
+			<br><br>
+
+  		      
+
+
+	</td>
+	<td valign="top" nowrap="nowrap">1.2 MB</td>
+	<td valign="top" class="Shareware"><div>Shareware</div></td>
+</tr>
+<tr>
+	<td valign="top">
+		<h5><a href="/PHP/Community/Code_Repositories/PHP_Help_net___PHP_codes_and_examples-info.html">PHP-Help.net : PHP codes and examples </a> - <a href="/PHP/">PHP</a> / <a href="/PHP/Community/">Community</a> / <a href="/PHP/Community/Code_Repositories/">Code Repositories</a></h5>
+		PHP source codes and PHP snippets for developers.
+
+
+			<br><br>
+
+  		      
+
+
+	</td>
+	<td valign="top" nowrap="nowrap"></td>
+	<td valign="top" class="Freeware"><div>Freeware</div></td>
+</tr>
+<tr>
+	<td valign="top">
+		<h5><a href="/PHP/Content_Retrieval/Universal_Language_Tool_for_PHP-info.html">Universal Language Tool for PHP 0.3.9</a> - <a href="/PHP/">PHP</a> / <a href="/PHP/Content_Retrieval/">Content Retrieval</a></h5>
+		Universal Language Tool for PHP is a php based script that helps users to solve multi language problems. It has language definitions which...
+
+
+			<br><br>
+
+  		      
+
+
+	</td>
+	<td valign="top" nowrap="nowrap"></td>
+	<td valign="top" class="Freeware"><div>Freeware</div></td>
+</tr>
+<tr>
+	<td valign="top">
+		<h5><a href="/ASP_NET/Development_Tools/CSymphony-info.html">CSymphony 0.1</a> - <a href="/ASP_NET/">ASP.NET</a> / <a href="/ASP_NET/Development_Tools/">Development Tools</a></h5>
+		This is a .NET based code generator that can be utilized by the users to create codes with the help of any .NET language. This program will be...
+
+
+			<br><br>
+
+  		      
+
+
+	</td>
+	<td valign="top" nowrap="nowrap"></td>
+	<td valign="top" class="Freeware"><div>Freeware</div></td>
+</tr>
+<tr>
+	<td valign="top">
+		<h5><a href="/Java/Tips_and_Tutorials/Development/How_to_lock_down_your_Java_code-info.html">How to lock down your Java code </a> - <a href="/Java/">Java</a> / <a href="/Java/Tips_and_Tutorials/">Tips and Tutorials</a> / <a href="/Java/Tips_and_Tutorials/Development/">Development</a></h5>
+		When you have to use codes from a variety of open-source libraries you have to sort through a lot of codes, which were not written by you and which...
+
+
+			<br><br>
+
+  		      
+
+
+	</td>
+	<td valign="top" nowrap="nowrap"></td>
+	<td valign="top" class="Freeware"><div>Freeware</div></td>
+</tr>
+<tr>
+	<td valign="top">
+		<h5><a href="/ASP_NET/Tips_and_Tutorials/Web_Services/Creating_Web_Services_in__NET-info.html">Creating Web Services in .NET </a> - <a href="/ASP_NET/">ASP.NET</a> / <a href="/ASP_NET/Tips_and_Tutorials/">Tips and Tutorials</a> / <a href="/ASP_NET/Tips_and_Tutorials/Web_Services/">Web Services</a></h5>
+		This online tutorial expresses more about the use of web service and it describes how it works. This article helps the learners to develop their...
+
+
+			<br><br>
+
+  		      
+
+
+	</td>
+	<td valign="top" nowrap="nowrap"></td>
+	<td valign="top" class="Freeware"><div>Freeware</div></td>
+</tr>
+<tr>
+	<td valign="top">
+		<h5><a href="/Visual_Basic___VB_NET/_Net/Databases/EasyQuery_NET_WinForms-info.html">EasyQuery.NET WinForms 1.6.1</a> - <a href="/Visual_Basic___VB_NET/">Visual Basic & VB.NET</a> / <a href="/Visual_Basic___VB_NET/_Net/">.Net</a> / <a href="/Visual_Basic___VB_NET/_Net/Databases/">Databases</a></h5>
+		EasyQuery.NET is an unique set of .NET classes, components and controls that provides an ability to include end-user-oriented query builder into...
+
+
+			<br><br>
+
+  		      
+
+
+	</td>
+	<td valign="top" nowrap="nowrap">3 B</td>
+	<td valign="top" class="Shareware"><div>Shareware</div></td>
+</tr>
+<tr>
+	<td valign="top">
+		<h5><a href="/CGI_PERL/Development_Tools/Utilities/Stunnix_Perl_obfus-info.html">Stunnix Perl-obfus </a> - <a href="/CGI_PERL/">CGI/PERL</a> / <a href="/CGI_PERL/Development_Tools/">Development Tools</a> / <a href="/CGI_PERL/Development_Tools/Utilities/">Utilities</a></h5>
+		Stunnix Perl-obfus is a useful script that can be used to convert the source codes of Perl files like .pl and .pm into a format which is not easily...
+
+
+			<br><br>
+
+  		      
+
+
+	</td>
+	<td valign="top" nowrap="nowrap"></td>
+	<td valign="top" class="Shareware"><div>Shareware</div></td>
+</tr>
+<tr>
+	<td valign="top">
+		<h5><a href="/Delphi/Help_Tools/Source_Help_Builder-info.html">Source Help Builder </a> - <a href="/Delphi/">Delphi</a> / <a href="/Delphi/Help_Tools/">Help Tools</a></h5>
+		Create help files for components based on source code to integrate it with Delphi IDE help system. Help file can be generated as popular Help...
+
+
+			<br><br>
+
+  		      
+
+
+	</td>
+	<td valign="top" nowrap="nowrap">2.6 KB</td>
+	<td valign="top" class="Shareware"><div>Shareware</div></td>
+</tr>
+<tr>
+	<td valign="top">
+		<h5><a href="/PHP/Tips_and_Tutorials/Form_Processing/Simple_Image_Upload_Tutorial-info.html">Simple Image Upload Tutorial </a> - <a href="/PHP/">PHP</a> / <a href="/PHP/Tips_and_Tutorials/">Tips and Tutorials</a> / <a href="/PHP/Tips_and_Tutorials/Form_Processing/">Form Processing</a></h5>
+		From this tutorial you will come to know the procedures for uploading images online for your web applications. This article is intended to give a...
+
+
+			<br><br>
+
+  		      
+
+
+	</td>
+	<td valign="top" nowrap="nowrap"></td>
+	<td valign="top" class="Freeware"><div>Freeware</div></td>
+</tr>
+<tr>
+	<td valign="top">
+		<h5><a href="/ASP/Software/Source_Edit-info.html">Source Edit 4.0</a> - <a href="/ASP/">ASP</a> / <a href="/ASP/Software/">Software</a></h5>
+		Users can utilize this highly customizable program to obtain a source editor for editing code written in ASP language. This program can be also...
+
+
+			<br><br>
+
+  		      
+
+
+	</td>
+	<td valign="top" nowrap="nowrap"></td>
+	<td valign="top" class="Freeware"><div>Freeware</div></td>
+</tr>
+<tr>
+	<td valign="top">
+		<h5><a href="/Python/Books/Programming_Python__2nd_Edition_-info.html">Programming Python (2nd Edition) </a> - <a href="/Python/">Python</a> / <a href="/Python/Books/">Books</a></h5>
+		Completely revised and improved, the second edition of Programming Python is an excellent compendium of material geared toward the more...
+
+
+			<br><br>
+
+  		      
+
+
+	</td>
+	<td valign="top" nowrap="nowrap"></td>
+	<td valign="top" class="Shareware"><div>Shareware</div></td>
+</tr>
+<tr>
+	<td valign="top">
+		<h5><a href="/Java/Tips_and_Tutorials/Development/Diagnosing_Java_code__The_case_for_static_types-info.html">Diagnosing Java code: The case for static types </a> - <a href="/Java/">Java</a> / <a href="/Java/Tips_and_Tutorials/">Tips and Tutorials</a> / <a href="/Java/Tips_and_Tutorials/Development/">Development</a></h5>
+		This is an article that explains Static types, which makes the codes healthier. Except Java language all the other programming language are moving...
+
+
+			<br><br>
+
+  		      
+
+
+	</td>
+	<td valign="top" nowrap="nowrap"></td>
+	<td valign="top" class="Freeware"><div>Freeware</div></td>
+</tr>
+</table></div>
+<div class="navy">
+<p><span class="pager">Records 1-25 of 125</span>&nbsp;&nbsp;|&nbsp;&nbsp;<span class="pager">Go to</span>&nbsp;<span class="pager">1</span>&nbsp;<a href="http://www.vclcomponents.com/s/0__/natural_language_processing_source_codes/index2.html" class="pager">2</a>&nbsp;<a href="http://www.vclcomponents.com/s/0__/natural_language_processing_source_codes/index3.html" class="pager">3</a>&nbsp;<a href="http://www.vclcomponents.com/s/0__/natural_language_processing_source_codes/index4.html" class="pager">4</a>&nbsp;<a href="http://www.vclcomponents.com/s/0__/natural_language_processing_source_codes/index5.html" class="pager">5</a>&nbsp;<a href="http://www.vclcomponents.com/s/0__/natural_language_processing_source_codes/index2.html" class="pager">Next &gt;&gt;</a>&nbsp;<span class="pager">page</span>&nbsp;</p>
+</div>    </td>
+</tr>
+</table>
+
+
+			</td>
+			<td valign="top" height="100%">
+				<table border="0" cellspacing="0" cellpadding="0" class="tbl" width="100%" height="100%">        <tr>
+            <td valign="top">
+                <table border="0" cellspacing="0" cellpadding="0" style="width:155px">
+                <tr>
+                    <td><img src="/resources/tbl_h_l.gif" width="23" height="37" alt=""></td>
+                    <td background="/resources/tbl_h_bg.gif" nowrap><h4>Popular Search</h4></td>
+                    <td width="100%" background="/resources/tbl_hr_bg.jpg"><img src="/resources/tbl_hr_bg.jpg" width="2" height="37" alt=""></td>
+                    <td><img src="/resources/tbl_h_r.gif" width="9" height="37" alt=""></td>
+                </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top" class="cont" style="height:0px">
+                <ul class="right">
+                    <li><a href="/s/0__/free_download_gta_vicecity_games_on_pc">Free Download Gta Vicecity Games On Pc</a></li>
+                    <li><a href="/s/0__/cheat_engine_facebook_texas_holdem_poker">Cheat Engine Facebook Texas Holdem Poker</a></li>
+                    <li><a href="/s/0__/free_samsung_star_themes">Free Samsung Star Themes</a></li>
+                    <li><a href="/s/0__/samsung_star_touch_wallpaper">Samsung Star Touch Wallpaper</a></li>
+                    <li><a href="/s/0__/free_samsung_star_mobile_phone_themes">Free Samsung Star Mobile Phone Themes</a></li>
+                    <li><a href="/s/0__/free_lg_cookie_java_game_downloads">Free Lg Cookie Java Game Downloads</a></li>
+                    <li><a href="/s/0__/the_huns_yellow_pages">The Huns Yellow Pages</a></li>
+                    <li><a href="/s/0__/java_download_games_for_samsung_star">Java Download Games For Samsung Star</a></li>
+                    <li><a href="/s/0__/cheat_facebook__texas_holdem_poker_cheat">Cheat Facebook  Texas Holdem Poker Cheat</a></li>
+                    <li><a href="/s/0__/hack_facebook_poker_chips">Hack Facebook Poker Chips</a></li>
+                    <li><a href="/s/0__/samsung_corby_download_free_themes">Samsung Corby Download Free Themes</a></li>
+                    <li><a href="/s/0__/cheat_engine_bejeweled_blitz_on_facebook">Cheat Engine Bejeweled Blitz On Facebook</a></li>
+                    <li><a href="/s/0__/cheats_typing_maniac_on_facebook">Cheats Typing Maniac On Facebook</a></li>
+                    <li><a href="/s/0__/free_cricket_java_games_download">Free Cricket Java Games Download</a></li>
+                    <li><a href="/s/0__/download_samsung__jet_java_applications">Download Samsung  Jet Java Applications</a></li>
+                    <li><a href="/s/0__/samsung_star_widget_download">Samsung Star Widget Download</a></li>
+                    <li><a href="/s/0__/cheat_zynga_texas_holdem_poker_engine">Cheat Zynga Texas Holdem Poker Engine</a></li>
+                    <li><a href="/s/0__/free_download_cricket_games_on_pc">Free Download Cricket Games On Pc</a></li>
+                    <li><a href="/s/0__/free_download_gta_san_andreas_game_on_pc">Free Download Gta San Andreas Game On Pc</a></li>
+                    <li><a href="/s/0__/free_samsung_tocco_lite_applications">Free Samsung Tocco Lite Applications</a></li>
+                    <li><a href="/s/0__/cheat_zoo_world_on_face_book">Cheat Zoo World On Face Book</a></li>
+                    <li><a href="/s/0__/free_lg_arena_games_m_toy">Free Lg Arena Games M Toy</a></li>
+                    <li><a href="/s/0__/hack_facebook_free_poker_chips">Hack Facebook Free Poker Chips</a></li>
+                    <li><a href="/s/0__/samsung_omnia_games">Samsung Omnia Games</a></li>
+                    <li><a href="/s/0__/cheat_engine_facebook_typing_maniac">Cheat Engine Facebook Typing Maniac</a></li>
+                    <li><a href="/s/0__/htc_touch_hd_games">Htc Touch Hd Games</a></li>
+                    <li><a href="/s/0__/free_samsung_tocco_lite_themes">Free Samsung Tocco Lite Themes</a></li>
+                    <li><a href="/s/0__/insert_data_into_database_using_vb_net">Insert Data Into Database Using Vb Net</a></li>
+                    <li><a href="/s/0__/hack_facebook_poker_chips_zynga_hack">Hack Facebook Poker Chips Zynga Hack</a></li>
+                    <li><a href="/s/0__/cheat_engine_facebook_friends_for_sale">Cheat Engine Facebook Friends For Sale</a></li>
+                </ul>
+            </td>
+        </tr>        <tr>
+            <td valign="top">
+                <table border="0" cellspacing="0" cellpadding="0" style="width:155px">
+                <tr>
+                    <td><img src="/resources/tbl_h_l.gif" width="23" height="37" alt=""></td>
+                    <td background="/resources/tbl_h_bg.gif" nowrap><h4>Related Search</h4></td>
+                    <td width="100%" background="/resources/tbl_hr_bg.jpg"><img src="/resources/tbl_hr_bg.jpg" width="2" height="37" alt=""></td>
+                    <td><img src="/resources/tbl_h_r.gif" width="9" height="37" alt=""></td>
+                </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top" class="cont" style="height:0px">
+                <ul class="right">
+                    <li><a href="/s/0__/natural_language_processing">Natural Language Processing</a></li>
+                    <li><a href="/s/0__/natural_language_processing_vcl">Natural Language Processing Vcl</a></li>
+                    <li><a href="/s/0__/natural_language_processing_count_words">Natural Language Processing Count Words</a></li>
+                    <li><a href="/s/0__/source_codes_for_video_processing">Source Codes For Video Processing</a></li>
+                    <li><a href="/s/0__/matlab_source_codes_for_video_processing">Matlab Source Codes For Video Processing</a></li>
+                    <li><a href="/s/0__/natural_language">Natural Language</a></li>
+                    <li><a href="/s/0__/natural_language_procesing">Natural Language Procesing</a></li>
+                    <li><a href="/s/0__/natural_language_processi___">Natural Language Processi...</a></li>
+                    <li><a href="/s/0__/natural_language_processi">Natural Language Processi</a></li>
+                    <li><a href="/s/0__/search_engine_for_natural_language">Search Engine For Natural Language</a></li>
+                    <li><a href="/s/0__/c_language_source_codes_for_the_speck">C Language Source Codes For The Speck</a></li>
+                    <li><a href="/s/0__/language_processing_vcl">Language Processing Vcl</a></li>
+                    <li><a href="/s/0__/result_on_processing_on_c_language">Result On Processing On C Language</a></li>
+                    <li><a href="/s/0__/matlab_codes_for_video_processing">Matlab Codes For Video Processing</a></li>
+                    <li><a href="/s/0__/source_program_image_processing">Source Program Image Processing</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <table border="0" cellspacing="0" cellpadding="0" style="width:155px">
+                <tr>
+                    <td><img src="/resources/tbl_h_l.gif" width="23" height="37" alt=""></td>
+                    <td background="/resources/tbl_h_bg.gif" nowrap><h4>Latest Search</h4></td>
+                    <td width="100%" background="/resources/tbl_hr_bg.jpg"><img src="/resources/tbl_hr_bg.jpg" width="2" height="37" alt=""></td>
+                    <td><img src="/resources/tbl_h_r.gif" width="9" height="37" alt=""></td>
+                </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top" class="cont">
+                <ul class="right">
+                    <li><a href="/s/0__/natural_language_processing_source_codes">Natural Language Processing Source Codes</a></li>
+                    <li><a href="/s/0__/mindjolt_game_crazy_cabbie_cheats">Mindjolt Game Crazy Cabbie Cheats</a></li>
+                    <li><a href="/s/0__/samsung_corby_txt__google_talk_software">Samsung Corby Txt  Google Talk Software</a></li>
+                    <li><a href="/s/0__/zoo_world_on_facebook_animal_delete">Zoo World On Facebook Animal Delete</a></li>
+                    <li><a href="/s/0__/queue_linked_list_program">Queue Linked List Program</a></li>
+                    <li><a href="/s/0__/cab_file_vlc_video_player_mobile">Cab File Vlc Video Player Mobile</a></li>
+                    <li><a href="/s/0__/free_online_facebook_password__hack">Free Online Facebook Password  Hack</a></li>
+                    <li><a href="/s/0__/three_towers_solitaire_points_cheat">Three Towers Solitaire Points Cheat</a></li>
+                    <li><a href="/s/0__/write_data_into_txt_file_using_jsp">Write Data Into Txt File Using Jsp</a></li>
+                    <li><a href="/s/0__/dj_booking">Dj Booking</a></li>
+                    <li><a href="/s/0__/school_library_system_example">School Library System Example</a></li>
+                    <li><a href="/s/0__/vb_net_railway_ticket_reservation_system">Vb Net Railway Ticket Reservation System</a></li>
+                    <li><a href="/s/0__/uploading_photos_into_database_php">Uploading Photos Into Database Php</a></li>
+                    <li><a href="/s/0__/free_samsung_mobile_touchwiz_software">Free Samsung Mobile Touchwiz Software</a></li>
+                    <li><a href="/s/0__/internet_service">Internet Service</a></li>
+                    <li><a href="/s/0__/free_app_for_samsung_solstice">Free App For Samsung Solstice</a></li>
+                    <li><a href="/s/0__/free_antivirus_for_samsung_star">Free Antivirus For Samsung Star</a></li>
+                    <li><a href="/s/0__/free_samsung_star_themes">Free Samsung Star Themes</a></li>
+                    <li><a href="/s/0__/two_dimensional_array_addition_of___rows">Two Dimensional Array Addition Of   Rows</a></li>
+                    <li><a href="/s/0__/insert_combobox_content_into_database">Insert Combobox Content Into Database</a></li>
+                </ul>
+            </td>
+        </tr></table>
+			</td>	
+		</tr>
+		</table>
+	</td>
+</tr>
+
+
+<!--INFOLINKS_OFF--> 
+
+    <tr>
+        <td colspan="2">
+            <table border="0" cellspacing="0" cellpadding="0" width="99%" height="39" id="bottom" align="center">
+            <tr>
+                <td background="/resources/bottom_bg.jpg">&copy; Copyright 2000-2009 VCL Components</td>
+                <td background="/resources/bottom_bg.jpg" align="center">
+                    All trademarks are the sole property of their respective owners.<br />
+                    <a href="/usage_policy">Usage Policy</a>  <font color="#C0C0C0">-</font> <a href="/privacy_policy">Privacy Policy</a>       
+                     <font color="#C0C0C0">-</font> <a href="/link_to_us">Link To Us</a>
+                                    
+                </td>
+                <td background="/resources/bottom_bg.jpg" align="right">Contact: <script type="text/javascript">eval(unescape('%64%6f%63%75%6d%65%6e%74%2e%77%72%69%74%65%28%27%3c%61%20%68%72%65%66%3d%22%6d%61%69%6c%74%6f%3a%76%63%40%76%63%6c%63%6f%6d%70%6f%6e%65%6e%74%73%2e%63%6f%6d%22%20%3e%76%63%40%76%63%6c%63%6f%6d%70%6f%6e%65%6e%74%73%2e%63%6f%6d%3c%2f%61%3e%27%29%3b'))</script></td>
+            </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<script type="text/javascript">var infolink_pid = 21677;</script>
+<script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,163 @@
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Monitoring http using c#</title><meta name="Keywords" content="Monitoring http using c#"><meta name="description" content="What is the best way to monitor http traffic that goes out of (and comes into) the PC? S"><link href='../../css/style.css' rel='stylesheet' type='text/css' /></head><body><script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-3354863-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+
+<table width='98%' border='0' align='center' cellpadding='0' cellspacing='0'><tr><td valign=top class='leftBar' height='200'><table width='100%' border='0' align='center' cellpadding='0' cellspacing='0'><tr><td height='10'></td></tr><tr><td><img src='../../images/icon/curposition.gif' align='absmiddle'>&nbsp;<a href='../../index.shtml'>index</a> > <a href='../thread1.shtml'>Visual C# General</a> > Monitoring http using c#</td></tr><tr><td height='20'></td></tr><tr><td height=20><h1 class='threadTitle'>Monitoring http using c#</h1></td></tr><tr><td height=5><script type="text/javascript"><!--
+google_ad_client = "pub-9414400884285979";
+/* 728x90, create 08-11-19 */
+google_ad_slot = "9747523205";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></td></tr><tr><td class='postList' valign='top'><table width='100%' border='0' align='center' cellpadding='0' cellspacing='0'><tr><td class='postContent'><TABLE cellSpacing=0 cellPadding=0 align=left border=0>
+	<TBODY>
+		<TR>
+			<TD>
+<script type="text/javascript"><!--
+google_ad_client = "pub-9414400884285979";
+/* 300x250, create 09-1-6 */
+google_ad_slot = "1235734256";
+google_ad_width = 300;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+			</TD>
+		</TR>
+	</TBODY>
+</TABLE>
+What is the best way to monitor http traffic that goes out of (and comes into) the PC? Sniffing packets using raw sockets doesnt seem to serve the purpose since I'm more interested in the http data part (if I sniff each tcp packet, it looks like I need to aggregate them and try to figure out where the data is). <br><br>I came across this tool &quot;http analyzer std&quot; ( http://www.ieinspector.com/httpanalyzer/ ) which gives the complete http along with the process that sent/received this traffic. I'd like to know if this can be done using c#. <br></td></tr><tr><td align='right' height='25' class='postBar'>vkarthik</td></tr><tr><td class='postContent'><p>Hi</p>
+<p>There is no such utility avalible or atleast I don't know about any, but as I have done this you have to snif all the trafic and then you have to filter that accordingly, there will be Header, Contents, cockies, Query Strings and so on in that data you have to filter all these to extract the right data.</p></td></tr><tr><td align='right' height='25' class='postBar'>Akbar Khan</td></tr><tr><td class='postContent'>Well the available utility is the one I said in my prev mail. So do u mean, u just sniff all tcp packets with raw sockets, check the data portion, and search for strings with http header? What about tcp segmentation? The packets can come in fragments isnt it? How do u aggregate all that data and show as one http request/response?<br><br>The next best thing to have would be something like a proxy server. When my app runs, I need to be able to configure IE / Firefox to use my app as proxy, and then change back the settings when the app closes down. Any idea how to do this programmatically?<br></td></tr><tr><td align='right' height='25' class='postBar'>vkarthik</td></tr><tr><td class='postContent'><p>I have not ever created a sniffer myself but here's how it's done.</p>
+<p>You have to insert into the network via a socket in a mode called Promicuous mode.  This allows you to see all packets the flow across the wire.  If you don't insert promicusouly, you can only see the packets destined for your IP addr.  </p>
+<p> </p>
+<p>But if it is really packet sniffing that you want to do, why not try using Ethereal?  It's free and super easy to use.  You can set up the capture filter to only capture information you are interested in.  It is very, very powerful.</p></td></tr><tr><td align='right' height='25' class='postBar'>Jumpin JP</td></tr><tr><td class='postContent'>Hi,<br><br>Thanks for the reply. My question was not about writing a sniffer but how to read http data and aggregate it. I've created sniffers in the past, so thats not the issue. <br><br>Thanks<br>Karthik<br><br></td></tr><tr><td align='right' height='25' class='postBar'>vkarthik</td></tr><tr><td class='postContent'><p><font face="Courier New, Courier, Monospace" size=2>if i undersatnd your requierment correctly i think you need HttpProxy to inspect http headers,debug http etc</font></p>
+<p><font face="Courier New, Courier, Monospace" size=2>if this what you want ?</font></p>
+<p><font face="Courier New, Courier, Monospace" size=2>you can take a look at Fiddler http debug proxy it is from microsoft it is free but not open source you can find it  at </font><a title="https://www.fiddlertool.com/fiddler/" href="https://www.fiddlertool.com/fiddler/"><font face="Courier New, Courier, Monospace" size=2>https://www.fiddlertool.com/fiddler/</font></a></p>
+<p><font face="Courier New, Courier, Monospace" size=2>and there is an article </font><a title="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnwebgen/html/IE_IntroFiddler.asp" href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnwebgen/html/IE_IntroFiddler.asp"><font face="Courier New, Courier, Monospace" size=2>Fiddler PowerToy - Part 1: HTTP Debugging</font></a></p>
+<p><font face="Courier New, Courier, Monospace" size=2>another proxy but this time it is open source that you can use it as start is Proxy from </font><a title="http://www.mentalis.org/" href="http://www.mentalis.org/"><font face="Courier New, Courier, Monospace" size=2>http://www.mentalis.org/</font></a><font face="Courier New, Courier, Monospace" size=2> you can download it at </font><a title="http://www.mentalis.org/soft/projects/proxy/" href="http://www.mentalis.org/soft/projects/proxy/"><font face="Courier New, Courier, Monospace" size=2>http://www.mentalis.org/soft/projects/proxy/</font></a></p>
+<p><font face="Courier New, Courier, Monospace" size=2>and of course as you know .Net 2 have HttpListner class that alow you to build your http server,proxy </font><a class=l href="http://msdn2.microsoft.com/en-us/library/system.net.httplistener.aspx"><u><font color="#0000cc"><font size=2><font face="Courier New, Courier, Monospace"><b>HttpListener</b> Class (System.Net)</font></font></font></u></a></p>
+<p><font face="Courier New, Courier, Monospace" size=2>i hope this help</font></p>
+
+<br /><br /><hr size="1" align="left" width="25%">MCAD</td></tr><tr><td align='right' height='25' class='postBar'>Mohammad Al Husseiny</td></tr><tr><td class='postContent'>Thats good information, thank you.  I used the toy and found that its just a simple proxy server that works only for IE. It modifies the proxy entries under HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings<br><br>to 127.0.0.1:8888, so that IE sends all its traffic to fiddler. It doesnt monitor the traffic from other browsers, or from instant messengers (including MSN), unlike HTTP Analyzer. Thats fine, I just wanted to get an idea how this thing is done. <br><br>Thanks for pointing me to the httplistener class. I'll take a look at it.<br></td></tr><tr><td align='right' height='25' class='postBar'>vkarthik</td></tr><tr><td class='postContent'>And by the way, http analyzer uses something called InjectLibrary. I have no idea what it is but from the name, I gather that it attaches to the running processes like a debugger and monitors the http traffic. Just fyi.<br></td></tr><tr><td align='right' height='25' class='postBar'>vkarthik</td></tr></table></td></tr><tr><td height=10></td></tr><tr><td height='20'>reply <font color=red>8</font></td></tr><tr><td height=10></td></tr><tr><td height=20></td></tr><tr><td height=10></td></tr><tr><td><TABLE cellSpacing=0 cellPadding=0 align=left border=0>
+	<TBODY>
+<tr><td height="20"><h2>You can use google to search for other answers</h2></td></tr>		
+<TR>
+			<TD>
+<!-- SiteSearch Google -->
+<form method="get" action="http://www.google.com/custom" target="google_window">
+<table border="0" bgcolor="#ffffff">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+
+</td>
+<td nowrap="nowrap">
+<input type="hidden" name="domains" value="www.bokebb.com"></input>
+<label for="sbi" style="display: none">Enter your search terms</label>
+<input type="text" name="q" size="45" maxlength="255" value="" id="sbi"></input>
+<label for="sbb" style="display: none">Submit search form</label>
+<input type="submit" name="sa" value="Google Search" id="sbb"></input>
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td nowrap="nowrap">
+<table>
+<tr>
+<td>
+<input type="radio" name="sitesearch" value="" id="ss0"></input>
+<label for="ss0" title="Search the Web"><font size="-1" color="#000000">Web</font></label></td>
+<td>
+<input type="radio" name="sitesearch" value="www.bokebb.com" checked id="ss1"></input>
+<label for="ss1" title="Search www.bokebb.com"><font size="-1" color="#000000">www.bokebb.com</font></label></td>
+</tr>
+</table>
+<input type="hidden" name="client" value="pub-9414400884285979"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="channel" value="9247570639"></input>
+<input type="hidden" name="ie" value="UTF-8"></input>
+<input type="hidden" name="oe" value="UTF-8"></input>
+<input type="hidden" name="safe" value="active"></input>
+<input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:336699;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;FORID:1"></input>
+<input type="hidden" name="hl" value="en"></input>
+</td></tr></table>
+</form>
+<!-- SiteSearch Google -->
+			</TD>
+		</TR>
+	</TBODY>
+</TABLE>
+</td></tr><tr><td height='10'></td></tr><tr><td height='20'><h1 class='rightTitle'>More Articles</h1></td></tr><tr><td height='10'></td></tr><tr><td height='20' class='more'>&#149&nbsp;<a href='195749101.shtml' class='moreLink'>Is the Intermediate Language a security risk?</a></td></tr><tr><td height='20' class='more'>&#149&nbsp;<a href='195747843.shtml' class='moreLink'>How to add panel to a StatusStrip</a></td></tr><tr><td height='20' class='more'>&#149&nbsp;<a href='195749906.shtml' class='moreLink'>Sort using directives region</a></td></tr><tr><td height='20' class='more'>&#149&nbsp;<a href='195749578.shtml' class='moreLink'>C# List of All IntelliSense Items</a></td></tr><tr><td height='20' class='more'>&#149&nbsp;<a href='195745862.shtml' class='moreLink'>.NET error trapping classes</a></td></tr><tr><td height='20' class='more'>&#149&nbsp;<a href='195748869.shtml' class='moreLink'>How to Register dll's</a></td></tr><tr><td height='20' class='more'>&#149&nbsp;<a href='195748687.shtml' class='moreLink'>accent problems</a></td></tr><tr><td height='20' class='more'>&#149&nbsp;<a href='195745167.shtml' class='moreLink'>&quot;The parameter 'sectionGroupName' is invalid&quot;</a></td></tr><tr><td height='20' class='more'>&#149&nbsp;<a href='195743464.shtml' class='moreLink'>Best Practice: Ref Object</a></td></tr><tr><td height='20' class='more'>&#149&nbsp;<a href='195750582.shtml' class='moreLink'>windows users list</a></td></tr><tr><td height='20'></td></tr></table></td><td width='320' valign='top' class='rightBar'><table width='100%' border='0' align='center' cellpadding='0' cellspacing='0'><tr><td height='5'></td></tr><tr><td height='5' valign='top'><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+	
+	<tr><td align=right><!-- AddThis Button BEGIN -->
+<a class="addthis_button" href="http://www.addthis.com/bookmark.php?v=250&amp;pub=xichy"><img src="http://s7.addthis.com/static/btn/v2/lg-share-en.gif" width="125" height="16" alt="Bookmark and Share" style="border:0"/></a><script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pub=xichy"></script>
+<!-- AddThis Button END --></td></tr>
+	<tr><td height="10"></td></tr>
+<tr>
+		<td valign='top' colspan=2>	
+			<a href="http://www.bokebb.com/" target="_blank"><b><u>Welcome to Bokebb</u></b></a>&nbsp;&nbsp;
+			<a href="http://www.bokebb.com/dev/english/newupdate.shtml"><b><u>New Update</u></b></a>&nbsp;&nbsp;
+			
+
+
+		</td>
+	</tr>
+<tr><td height="10"></td></tr>
+	<tr><td>
+	<!-- SiteSearch Google -->
+<form method="get" action="http://www.google.com/custom" target="google_window">
+<table border="0" bgcolor="#ffffff">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+
+</td>
+<td nowrap="nowrap">
+<input type="hidden" name="domains" value="www.bokebb.com"></input>
+<label for="sbi" style="display: none">Enter your search terms</label>
+<input type="text" name="q" size="20" maxlength="255" value="" id="sbi"></input>
+<label for="sbb" style="display: none">Submit search form</label>
+<input type="submit" name="sa" value="Google Search" id="sbb"></input>
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td nowrap="nowrap">
+<table>
+<tr>
+<td>
+<input type="radio" name="sitesearch" value="" id="ss0"></input>
+<label for="ss0" title="Search the Web"><font size="-1" color="#000000">Web</font></label></td>
+<td>
+<input type="radio" name="sitesearch" value="www.bokebb.com" checked id="ss1"></input>
+<label for="ss1" title="Search www.bokebb.com"><font size="-1" color="#000000">www.bokebb.com</font></label></td>
+</tr>
+</table>
+<input type="hidden" name="client" value="pub-9414400884285979"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="channel" value="9675469165"></input>
+<input type="hidden" name="ie" value="UTF-8"></input>
+<input type="hidden" name="oe" value="UTF-8"></input>
+<input type="hidden" name="safe" value="active"></input>
+<input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:336699;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;FORID:1"></input>
+<input type="hidden" name="hl" value="en"></input>
+</td></tr></table>
+</form>
+<!-- SiteSearch Google -->
+
+	</td></tr>
+</table>
+
+</td></tr><tr><td height='10'></td></tr><tr><td height='20'><h1 class='rightTitle'>New Articles</h1></td></tr><tr><td valign='top'>&#149&nbsp;<a href="195748745.shtml" title='How to scroll RichTextBox control to a particular line and select...' target="_blank">How to scroll RichTextBox control to a p</a><br>&#149&nbsp;<a href="195750192.shtml" title='Exception handling shortcuts?' target="_blank">Exception handling shortcuts?</a><br>&#149&nbsp;<a href="195749813.shtml" title='Is it possible to implement Win32 interfaces in C#?' target="_blank">Is it possible to implement Win32 interf</a><br>&#149&nbsp;<a href="195749260.shtml" title='Regarding Popup Window' target="_blank">Regarding Popup Window</a><br>&#149&nbsp;<a href="195750544.shtml" title='MSDE and C#' target="_blank">MSDE and C#</a><br>&#149&nbsp;<a href="195750570.shtml" title='How to Check that a File is Open' target="_blank">How to Check that a File is Open</a><br>&#149&nbsp;<a href="195743164.shtml" title='New Project Wizard' target="_blank">New Project Wizard</a><br>&#149&nbsp;<a href="195750494.shtml" title='Hosted control crashes IE unexpectedly' target="_blank">Hosted control crashes IE unexpectedly</a><br>&#149&nbsp;<a href="195746272.shtml" title='BitVector32.Section should be int not bool' target="_blank">BitVector32.Section should be int not bool</a><br>&#149&nbsp;<a href="195742832.shtml" title='Writing to excel using C#' target="_blank">Writing to excel using C#</a><br>&#149&nbsp;<a href="195743102.shtml" title='how to disable the event of index_change of ComboBox' target="_blank">how to disable the event of index_change</a><br>&#149&nbsp;<a href="195748659.shtml" title='Is there any way to store Mathematical Equation in access databas...' target="_blank">Is there any way to store Mathematical E</a><br>&#149&nbsp;<a href="195745588.shtml" title='where is it? Microsoft.Office.Interop.Excel.Application' target="_blank">where is it? Microsoft.Office.Interop.Ex</a><br>&#149&nbsp;<a href="195743516.shtml" title='TextWriter vs. StreamWriter' target="_blank">TextWriter vs. StreamWriter</a><br>&#149&nbsp;<a href="195750638.shtml" title='Need help on basic operations with data from data sources' target="_blank">Need help on basic operations with data </a><br></td></tr><tr><td height='20'></td></tr><tr><td height='20'><h1 class='rightTitle'>Hot Articles</h1></td></tr><tr><td valign='top'>&#149&nbsp;<a href="195743382.shtml" title='How do I open a second form????' target="_blank">How do I open a second form????</a><br>&#149&nbsp;<a href="195744658.shtml" title='How to send an SMS through C#' target="_blank">How to send an SMS through C#</a><br>&#149&nbsp;<a href="195748867.shtml" title='In C# ,is there any similar to &quot;vbCrLf&quot; in visual basic...' target="_blank">In C# ,is there any similar to &quot;vbC</a><br>&#149&nbsp;<a href="195747799.shtml" title='Async' target="_blank">Async</a><br>&#149&nbsp;<a href="195743686.shtml" title='rownumber DataGridView' target="_blank">rownumber DataGridView</a><br>&#149&nbsp;<a href="195745743.shtml" title='Convert 8bpp .gif file to 24bppRgb Bitmap' target="_blank">Convert 8bpp .gif file to 24bppRgb Bitmap</a><br>&#149&nbsp;<a href="195750651.shtml" title='Zebra printer issue' target="_blank">Zebra printer issue</a><br>&#149&nbsp;<a href="195743028.shtml" title='Custom hotkey to interrupt an infinite while loop?' target="_blank">Custom hotkey to interrupt an infinite w</a><br>&#149&nbsp;<a href="195745113.shtml" title='install application in other PC' target="_blank">install application in other PC</a><br>&#149&nbsp;<a href="195743573.shtml" title='Which of these two methods are more efficient?' target="_blank">Which of these two methods are more effi</a><br>&#149&nbsp;<a href="195745059.shtml" title='Manually triggering events in a postback' target="_blank">Manually triggering events in a postback</a><br>&#149&nbsp;<a href="195742847.shtml" title='Converting Html tag Scripts to PDf' target="_blank">Converting Html tag Scripts to PDf</a><br>&#149&nbsp;<a href="195746422.shtml" title='Files, how to compare' target="_blank">Files, how to compare</a><br>&#149&nbsp;<a href="195749929.shtml" title='EventHandling question' target="_blank">EventHandling question</a><br>&#149&nbsp;<a href="195749877.shtml" title='Regex.replace problem' target="_blank">Regex.replace problem</a><br></td></tr><tr><td height='20'></td></tr><tr><td height='20'><h1 class='rightTitle'>Recommend Articles</h1></td></tr><tr><td valign='top'>&#149&nbsp;<a href="195743517.shtml" title='writing into *csv file: inconsistent result' target="_blank">writing into *csv file: inconsistent res</a><br>&#149&nbsp;<a href="195746803.shtml" title='Is there a way to exclude some codes being executed when switchin...' target="_blank">Is there a way to exclude some codes bei</a><br>&#149&nbsp;<a href="195748688.shtml" title='Event Timer' target="_blank">Event Timer</a><br>&#149&nbsp;<a href="195746232.shtml" title='Overlay Graphics on Direct3D' target="_blank">Overlay Graphics on Direct3D</a><br>&#149&nbsp;<a href="195749558.shtml" title='How do I call unmanaged function : func(char* format, ...) from C...' target="_blank">How do I call unmanaged function : func(</a><br>&#149&nbsp;<a href="195747712.shtml" title='locking write access to generic list' target="_blank">locking write access to generic list</a><br>&#149&nbsp;<a href="195744686.shtml" title='Howto see what files are changed?' target="_blank">Howto see what files are changed?</a><br>&#149&nbsp;<a href="195750310.shtml" title='Unmanaged Code (written in C++) Interop with C#' target="_blank">Unmanaged Code (written in C++) Interop </a><br>&#149&nbsp;<a href="195743479.shtml" title='Newline problem with running Cmd.exe in a process' target="_blank">Newline problem with running Cmd.exe in </a><br>&#149&nbsp;<a href="195748764.shtml" title='highlighting text displaying pdf' target="_blank">highlighting text displaying pdf</a><br>&#149&nbsp;<a href="195746690.shtml" title='Can I change The direction Of the form??' target="_blank">Can I change The direction Of the form??</a><br>&#149&nbsp;<a href="195749550.shtml" title='Query DataBase Pt. 2' target="_blank">Query DataBase Pt. 2</a><br>&#149&nbsp;<a href="195745156.shtml" title='XML &lt;include&gt; for documentation' target="_blank">XML &lt;include&gt; for documentation</a><br>&#149&nbsp;<a href="195746886.shtml" title='How to move the Cursor from a testbox control to the next one usi...' target="_blank">How to move the Cursor from a testbox co</a><br>&#149&nbsp;<a href="195743047.shtml" title='background drive format' target="_blank">background drive format</a><br></td></tr><tr><td height='20'></td></tr></table></td></tr></table><table width='100%' border='0' align='center' cellpadding='0' cellspacing='0'><tr><td><table width='100%' border='0' align='center' cellpadding='0' cellspacing='0'>
+	<tr><td height="1" bgcolor="#999999"></td></tr>
+	<tr><td height="10"></td></tr>
+	<tr><td align="left" class="footer"><a href="http://www.bokebb.com/dev/english/index.shtml" class="fontLink">index</a>&nbsp;| &nbsp;<a href="http://www.bokebb.com/dev/english/sitemap.shtml" class="fontLink">sitemap</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;<b><font color=red>P</font><font color=#000000>owered by xichy{at}163.com</font></b></td></tr>
+	<tr><td height="10"></td></tr>
+</table></td></tr></table></body></html>

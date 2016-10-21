@@ -1,0 +1,690 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta name="description" content="AWStats Official Web Site - Get advanced graphical web,ftp or mail statistics with a logfile analysis (For IIS, Apache,... distributed under GNU GPL)." />
+<meta name="keywords" content="awstats, awstat, log analyzer, log, file, analyzer, analyzers, analysis, web, ftp, mail, logfile, free, advanced, statistics, statistic, stats, analyze, apache, IIS, perl, cgi, software, tool, realtime, reports, counter, graphical, analyse, statistiques, freeware, gnu, gpl, project, windows, linux, mac" />
+<meta name="robots" content="index,follow" />
+<meta name="title" content="AWStats - Free advanced log file analyzer for web, ftp or mail statistics (GNU GPL)." />
+<meta name="verify-v1" content="/17oqMWN3cdI+hLUoKQbq4NlvPDfjSwWyiAngu/5/cg=" />
+<title>AWStats - Free log file analyzer for advanced statistics (GNU GPL).</title>
+<script language="JavaScript" type="text/javascript" src="js/check.js"></script>
+<script language="JavaScript" type="text/javascript" src="js/misc.js"></script>
+<link rel="stylesheet" href="docs/styles.css" type="text/css">
+</head>
+
+<body>
+
+
+<script language="JavaScript1.1" type="text/javascript">
+	window.defaultStatus=document.title;
+
+	function LaunchDownload(status)
+	{
+		if (status == "alpha")      { alert('Warning: This version is an alpha version. Code does not work correctly yet. Download last release instead if you\'re looking for a working and stable version.'); }
+		if (status == "beta")       { alert('Warning: This version is a beta version. It seems to be stable so you can use it if you\'re interesting in new features but if you\'re looking for a stable version, download last release.'); }
+		return(true);
+	}
+
+	function Submit_onClick()
+	{
+	if (CheckEmail(document.FormRegister.email.value)==false) {
+		alert('Invalid EMail address.');
+		document.FormRegister.email.focus();
+		return;}
+	document.FormRegister.submit();
+	}
+	function Submit_onClickBis()
+	{
+	if (CheckEmail(document.FormRegisterBis.email.value)==false) {
+		alert('Invalid EMail address.');
+		document.FormRegisterBis.email.focus();
+		return;}
+	document.FormRegisterBis.submit();
+	}
+
+	function information() {
+		return(confirm('Emails submited here ARE ALWAYS DELETED (with no answer) when sent\n1) For need of help or assistance,\n2) To report ideas/feedbacks,\n3) To report bugs.\nSee at the bottom of this page for this.\nOther topics are welcome...'));
+	}
+</script>
+
+
+<table style="font: 12px verdana,arial,helvetica" cellpadding=0 cellspacing=0 border=0 bgcolor=#FFFFFF>
+
+<!-- Large -->
+<tr style="font: 12pt verdana,arial,helvetica">
+<td class="CHead" align="center">
+<img src="docs/images/awstats_logo4.png">
+</td>
+<td class="CHead" align="center"> <br>
+<font style="font: 16pt arial,helvetica,sanserif" color="#EEEEFF"><b>AWStats official web site</b></font><br>
+<font style="font: 12px arial,helvetica,sanserif">Free real-time logfile analyzer to get advanced statistics (GNU GPL).</font><br>
+<br>
+</td>
+<td class="CHead" align="center">
+<A href="http://sourceforge.net/projects/awstats/"> 
+<img src="http://sourceforge.net/sflogo.php?group_id=13764&type=1" width="88" height="31" border="0" alt="SourceForge"></A>
+</td>
+</tr>
+
+<tr>
+
+<!-- Column -->
+<td valign="top" class="CHead">
+
+<!-- AWStats annoucements -->
+<center>
+<FORM name="FormRegister" Method=POST ACTION="http://lists.sourceforge.net/lists/subscribe/awstats-public" target=_newawstats>
+<table width="100%"><tr><td>
+<font style="font: 10px verdana,arial,helvetica; color: #553300">Receive AWStats release/updates annoucements...</font><br>
+<table width="100%" bgcolor="#CCCCEE"><tr><td align=center>
+<font style="font: 10px verdana,arial,helvetica">
+Your EMail:<br>
+<INPUT type="Text" name="email" size="18"><br>
+<INPUT type="hidden" name="pw" size="15" value="awstats">
+<INPUT type="hidden" name="pw-conf" size="15" value="awstats">
+<input type="hidden" name="digest" value="0" CHECKED>
+<br>
+<INPUT type="Submit" name="email-button" value="Subscribe" onClick="Submit_onClick(); return false;">
+</font>
+</td></tr></table>
+</td></tr></table>
+</FORM>
+</center>
+
+<br>
+
+<!-- Security Box -->
+<table width="100%"><tr><td>
+<font style="font: 10px verdana,arial,helvetica; color: #553300">For last security annoucements...</font><br>
+<table width="100%" bgcolor="#CCCCEE"><tr><td align=center>
+<font style="font: 10px verdana,arial,helvetica">
+<a href="http://awstats.sourceforge.net/awstats_security_news.php">Security announcements</a>
+</font>
+</td></tr></table>
+</td></tr></table>
+
+<br>
+
+<!-- Google  adds -->
+<table width="100%"><tr><td>
+<script type="text/javascript"><!--
+google_ad_client = "pub-1071905880519467";
+/* PUBMENUAWSTATS */
+google_ad_slot = "4536253093";
+google_ad_width = 160;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</td></tr></table>
+
+<br><br>
+
+<!-- Paypal Donation -->
+<center>
+<a href="http://sourceforge.net/donate/index.php?group_id=13764"><img src="http://images.sourceforge.net/images/project-support.jpg" width="88" height="32" border="0" alt="Support This Project" /></a>
+</center>
+<!--
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="eldy@destailleur.fr">
+<input type="hidden" name="item_name" value="AWStats donation">
+<input type="hidden" name="item_number" value="awstats">
+<input type="hidden" name="no_note" value="1">
+<input type="hidden" name="currency_code" value="EUR">
+<input type="hidden" name="tax" value="0">
+<input type="image" src="https://www.paypal.com/images/x-click-but04.gif" border="0" name="submit" alt="Make donation with PayPal - it's fast and secure!">
+</form>
+-->
+<br><br>
+
+<!-- SpreadFirefox -->
+<center>
+<p>
+<script type="text/javascript" src="http://sfx-images.mozilla.org/utw/switch.js"></script>
+<span class="sfx-affiliates-utw-button size-120x240">
+    <a class="ff35" style="display:none;" href="http://addons.mozilla.org" title="Try Add-ons!">
+        <img border="0" src="http://sfx-images.mozilla.org/utw/120x240_ff35.png" alt="You Rock.  Thanks for using Firefox. Try Add-ons!" />
+    </a>
+    <a class="ff" style="display:none;" href="http://www.mozilla.com/firefox/upgrade.html?from=sfx&amp;uid=283416&amp;t=478" title="Upgrade the Web to Firefox 3.5!">
+        <img border="0" src="http://sfx-images.mozilla.org/utw/120x240_ff.png" alt="Thanks for using Firefox.  Don't miss the upgrade.  Download Firefox 3.5!" />
+    </a>
+    <a class="ie" style="display: none;" href="http://www.mozilla.com/firefox/ie.html?from=sfx&amp;uid=283416&amp;t=480" title="Upgrade to Firefox 3.5!">
+        <img border="0" src="http://sfx-images.mozilla.org/utw/120x240_ie.png" alt="You don't use VHS...then why Internet Explorer?  Upgrade to Firefox 3.5!" />
+    </a>
+    <a class="other" href="http://www.mozilla.com/firefox/firefox.html?from=sfx&amp;uid=283416&amp;t=481" title="Upgrade to Firefox 3.5!">
+        <img border="0" src="http://sfx-images.mozilla.org/utw/120x240_other.png" alt="You're settling for good when there's awesome.  Upgrade to Firefox 3.5!" />
+    </a>
+</span>
+<script type="text/javascript">init_utw()</script>
+</p>
+</center>
+
+
+<br>
+
+
+
+<table width="100%"><tr><td>
+<font style="font: 10px verdana,arial,helvetica; color: #553300">Last Sourceforge AWStats News</font><br>
+<table width="100%" bgcolor="#CCCCEE"><tr><td>
+<font style="font: 11px arial,helvetica,verdana;"><br>
+<b>AWStats 6.9 released (Sun, 28 Dec 2008 15:17:19 GMT)
+			</b> <a href="http://sourceforge.net/project/shownotes.php?release_id=649937" target=_newawstats><img src="/images/forward.gif" border=0></a><br>Sun, 28 Dec 2008 15:17:19 
+			<br>
+<br>
+<b>AWStats 6.8 released (Sun, 20 Jul 2008 21:57:02 GMT)
+			</b> <a href="http://sourceforge.net/project/shownotes.php?release_id=614684" target=_newawstats><img src="/images/forward.gif" border=0></a><br>Sun, 20 Jul 2008 21:57:02 
+			<br>
+<br>
+<b>AWStats 6.7 released (Tue, 03 Jul 2007 11:08:03 GMT)
+			</b> <a href="http://sourceforge.net/project/shownotes.php?release_id=520388" target=_newawstats><img src="/images/forward.gif" border=0></a><br>Tue, 03 Jul 2007 11:08:03 
+			<br>
+<br>
+<b>AWStats 6.6 released (Sat, 23 Dec 2006 13:36:05 GMT)
+			</b> <a href="http://sourceforge.net/project/shownotes.php?release_id=473472" target=_newawstats><img src="/images/forward.gif" border=0></a><br>Sat, 23 Dec 2006 13:36:05 
+			<br>
+<br>
+<b>AWStats Webmin module 1.7 released (Sat, 23 Dec 2006 13:34:01 GMT)
+			</b> <a href="http://sourceforge.net/project/shownotes.php?release_id=473470" target=_newawstats><img src="/images/forward.gif" border=0></a><br>Sat, 23 Dec 2006 13:34:01 
+			<br>
+<br>
+</font>
+</td></tr></table>
+</td></tr></table>
+
+
+<br><br><br>
+
+<br>
+<center>
+<font style="font: 10px arial,helvetica,verdana;">Contacts to</font><br>
+<a href="mailto:eldy@users.sourceforge.net" style="font: 8pt arial,helvetica,verdana; color: #552233" onClick="return(information())">eldy@users.sourceforge.net</a><br>
+</center>
+<br>
+<br>
+
+
+</td>
+
+<!-- Column -->
+
+<td bgcolor="#FFFFFF" colspan="2"><table border=0 cellpadding=10 cellspacing=10 style="font: 8pt arial,helvetica,verdana"><tr><td>
+
+<center>
+<img src="docs/images/awstats_logo2.png"><br>
+<br>
+<a href="#WHAT">[What is AWStats]</a> &nbsp; 
+<a href="#DEMO">[Demo]</a> &nbsp;
+<a href="#FEATURES">[Features]</a> &nbsp; 
+<a href="#DOWNLOAD">[Download/Contribs]</a> &nbsp;
+<a href="#DOC">[Doc/FAQ]</a> &nbsp;
+<a href="docs/awstats_compare.html">[Comparison]</a> &nbsp;
+<a href="#WISH">[AWStats Project/Development]</a>
+<br>
+
+</center>
+<br>
+
+<!--
+<br>
+Please, take time to vote for AWStats at the Community Choice Award by clicking this logo in category Best tool for Sysadmins...<br>
+<a href="http://sourceforge.net/community/cca09/nominate/?project_name=AWStats&project_url=http://awstats.sourceforge.net/"><img src="http://sourceforge.net/images/cca/cca_nominate.png" border="0" width="80px"/></a><br>
+You can also vote for my other projet <a href="http://www.dolibarr.org">Dolibarr ERP/CRM</a> in category Best project for enterprises...<br>
+<a href="http://sourceforge.net/community/cca09/nominate/?project_name=Dolibarr ERP/CRM&project_url=http://www.dolibarr.org/"><img src="http://sourceforge.net/images/cca/cca_nominate.png" border="0" width="80px"/></a>
+<br>
+-->
+
+<a name="WHAT"></a><br>
+<font size=3 color=#665544><b>What is AWStats</b></font><br>
+<hr>
+<!--<table cellpadding=0 cellspacing=0><tr><td>-->
+AWStats is a <b>free powerful and featureful tool that generates advanced web, streaming, ftp or mail server statistics, graphically</b>.
+This <b>log analyzer</b> works as a <b>CGI or from command line</b>
+and shows you all possible information your log contains, in <b>few graphical web pages</b>.
+It uses a partial information file to be able to process large log files, often and quickly.
+It can analyze log files from all major server tools like Apache log files (NCSA combined/XLF/ELF log format or common/CLF log format),
+WebStar, IIS (W3C log format) and a lot of other web, proxy, wap, streaming servers, mail servers and some ftp servers.<br>
+Take a look at this <a href="/docs/awstats_compare.html">comparison table</a> for an idea on features and differences between most
+famous statistics tools (AWStats, Analog, Webalizer,...).<br>
+AWStats is a free software distributed under the <a href="http://www.gnu.org/copyleft/gpl.html" target=_gnugpl>GNU General Public License</a>. You can have a look at this <a href="docs/awstats_license.html">license chart</a> to know what you can/can't do.<br>
+As AWStats works from the command line but also as a CGI, it can work with all web hosting providers which allow Perl, CGI and log access.<br>
+<br>
+    
+<a name="DEMO"></a><br>
+<font size=3 color=#665544><b>Demo / Screenshots</b></font><br>
+<hr>
+You can browse AWStats demo (real-time update feature has been disabled)
+to see a sample of most important information AWStats shows you...<br>
+<!--</td><td valign="middle"><img src="/images/osi-certified-72x60.png" border=0></td></tr></table>-->
+
+<table width="100%" bgcolor="#FFFFFF" border=0 cellpadding=3 cellspacing=2><tr>
+<td bgcolor="#CCCCEE">
+<a href="http://www.nltechno.com/awstats/awstats.pl?config=destailleur.fr" target=_newawstats>Demo for web server log files</a><br>
+</td>
+<td bgcolor="#CCCCEE">
+<a href="awstats.ftp.html" target=_newawstats>Static demo for ftp log files</a><br>
+</td>
+<td bgcolor="#CCCCEE">
+<a href="awstats.mail.html" target=_newawstats>Static demo for mail log files</a><br>
+</td>
+</tr>
+<tr bgcolor="#EEEEEE">
+<td>
+<a href="http://www.nltechno.com/awstats/awstats.pl?config=destailleur.fr" target=_newawstats>
+<img src="docs/images/screen_shot_1.png" width=120 border=0 alt="AWStats web demo">
+<img src="docs/images/screen_shot_3.png" width=120 border=0 alt="AWStats web demo">
+</a>
+</td>
+<td>
+<a href="awstats.ftp.html" target=_newawstats>
+<img src="docs/images/screen_shot_4.png" width=120 border=0 alt="AWStats ftp demo">
+</a>
+</td>
+<td>
+<a href="awstats.mail.html" target=_newawstats>
+<img src="docs/images/screen_shot_2.png" width=120 border=0 alt="AWStats mail demo">
+</a>
+</td>
+</tr></table>
+<br>
+You can halso ave a look at some video tutorials provided by <a href="http://www.manualsfountain.com" target="_blank">Manuals Fountain</a> (some are free).
+Direct link for AWStats videos are <a href="http://www.manualsfountain.com/movies.php?id=34" target="_blank">here</a>.<br>
+
+<br>
+
+
+<br>
+<br><a name="FEATURES"></a><br>
+<font size=3 color=#665544><b>Features</b></font><br>
+<hr>
+	<b>A full log analysis enables AWStats to show you the following information</b>:<br>
+	* Number of <u>visits</u>, and number of <u>unique visitors</u>,<br>
+	* <u>Visits duration</u> and last visits,<br>
+	* <u>Authenticated users</u>, and last authenticated visits,<br>
+	* <u>Days of week</u> and <u>rush hours</u> (pages, hits, KB for each hour and day of week),<br>
+	* <u>Domains/countries</u> of hosts visitors (pages, hits, KB, <font color=#221188>269 domains/countries detected</font>, GeoIp detection),<br>
+	* <u>Hosts list</u>, last visits and unresolved IP addresses list,<br>
+	* <u>Most viewed</u>, <u>entry</u> and <u>exit</u> pages,<br>
+	* <u>Files type</u>,<br>
+	* <u>Web compression statistics</u> (for mod_gzip or mod_deflate),<br>
+	* <u>OS used</u> (pages, hits, KB for each OS, <font color=#221188>35 OS detected</font>),<br>
+	* <u>Browsers</u> used (pages, hits, KB for each browser, each version (Web, Wap, Media browsers: <font color=#221188>97 browsers</font>, more than 450 if using browsers_phone.pm library file),<br>
+	* <u>Visits of robots</u> (<font color=#221188>319 robots detected</font>),<br>
+	* <u>Worms attacks</u> (<font color=#221188>5 worm's families</font>),<br>
+	* <u>Search engines</u>, <u>keyphrases</u> and <u>keywords</u> used to find your site (<font color=#221188>The 115 most famous search engines are detected like yahoo, google, altavista, etc...</font>),<br>
+	* <u>HTTP errors</u> (Page Not Found with last referrer, ...),<br>
+	* <u>Other personalized reports</u> based on url, url parameters, referer field for miscellanous/marketing purpose,<br>
+	* Number of times your site is "added to favourites bookmarks".<br>
+	* <u>Screen size</u> (need to add some HTML tags in index page).<br>
+	* Ratio of Browsers with support of: <u>Java, Flash, RealG2 reader, Quicktime reader, WMA reader, PDF reader</u> (need to add some HTML tags in index page).<br>
+	* Cluster report for load balanced servers ratio.<br>
+<br>
+	<b>AWStats also supports the following features</b>:<br>
+	* Can analyze a lot of log formats: Apache NCSA combined log files (XLF/ELF) or common (CLF), IIS log files (W3C),
+	  WebStar native log files and other web, proxy, wap or streaming servers log files (but also ftp or mail log files). See <a href="docs/awstats_faq.html#LOGFORMAT">AWStats F.A.Q.</a> for examples.<br>
+	* Works from command line and from a browser as a CGI (with dynamic filters capabilities for some charts),<br>
+	* Update of statistics can be made from a web browser and not only from your scheduler,<br>
+	* Unlimited log file size, support split log files (load balancing system),<br>
+	* Support 'not correctly sorted' log files even for entry and exit pages,<br>
+	* Reverse DNS lookup before or during analysis, support DNS cache files,<br>
+	* Plugin for country detection from IP location (use <a href="http://www.maxmind.com/app/perl?rId=awstats" target=_new>geoip country</a> database or client domain name),<br>
+	* Plugin for city detection from IP location (use <a href="http://www.maxmind.com/app/perl?rId=awstats" target=_new>geoip city</a> database),<br>
+	* Plugins for US/Canadian Region , ISP and/or Organizations reports (require non free third product <a href="http://www.maxmind.com/app/perl?rId=awstats" target=_new>geoipregion</a>, <a href="http://www.maxmind.com/app/perl?rId=awstats" target=_new>geoipisp</a> and/or <a href="http://www.maxmind.com/app/perl?rId=awstats" target=_new>geoiporg</a> database)<br>
+	* WhoIS links,<br>
+	* A lot of options/filters and plugins can be used,<br>
+	* Multi-named web sites supported (virtual servers, great for web-hosting providers),<br>
+<!--	* Yearly, monthly and daily statistics,<br> -->
+	* Cross Site Scripting Attacks protection,<br>
+	* Several languages. See <a href="docs/awstats_faq.html#LANG">AWStats F.A.Q.</a> for full list.<br>
+	* No need of rare perl libraries. All basic perl interpreters can make AWStats working,<br>
+	* Dynamic reports as CGI output.<br>
+	* Static reports in one or framed HTML/XHTML pages, experimental PDF export,<br>
+	* Look and colors can match your site design, can use CSS,<br>
+	* Help and tooltips on HTML reported pages,<br>
+	* Easy to use (Just one configuration file to edit),<br>
+	* Analysis database can be stored in XML format for XSLT processing,<br>
+	* A Webmin module,<br>
+    * Absolutely free (even for web hosting providers), with sources (<a href="docs/awstats_license.html">GNU General Public License</a>),<br>
+	* Available on all platforms,<br>
+	* AWStats has a <a href="docs/pad_awstats.xml" target=_newawstats>XML Portable Application Description</a>.<br>
+<br>
+	<b>Requirements</b>:<br>
+	To use AWStats, you need the following requirements:<br>
+	* Your server must log web access in a log file you can read.<br>
+	* You must be able to run perl scripts (.pl files) from command line and/or as CGI (Perl 5.007003 or higher required to run AWStats 6.9 or higher).<br>
+	If not, you can solve this by downloading last Perl version at <a href="http://www.activestate.com/ActivePerl/">ActivePerl</a> (<font color=#221188>Win32</font>) or <a href="http://www.perl.com/pub/language/info/software.html">Perl.com</a> (<font color=#221188>Unix/Linux/Other</font>).<br>
+	See <a href="docs/awstats_faq.html#SERVERSOS">AWStats F.A.Q.</a> to have examples of supported OS and Web servers.<br>
+<br>
+
+
+
+<br><a name="DOWNLOAD"></a><br>
+<font size=3 color=#665544><b>Download</b></font><br>
+<hr>
+
+<table><tr style="font: 10pt arial,helvetica,verdana">
+<td align=left style="font: 10pt arial,helvetica,verdana" valign="middle">
+&nbsp;
+</td><td>
+
+</td>
+</tr></table>
+
+
+
+<table style="font: 8pt arial,helvetica,verdana" bgcolor="#FFFFFF" border=0 cellpadding=3 cellspacing=2 width="100%">
+<tr style="font: 12pt arial,helvetica,verdana"><td colspan=3 bgcolor="#CCCCEE"><b>AWStats</b></td></tr>
+
+<!-- Alpha/Beta version -->
+
+
+<!-- Last Stable -->
+
+<tr style="font: 10pt arial,helvetica,verdana"><td width="120"><b>Last stable</b></td>
+<td>
+<font style="font: 8pt arial,helvetica,verdana">
+Last stable version is <b>6.95</b> - 2009-10-25 11:56<br>
+Your Perl version must be at least 5.00503 (or higher) to use AWStats 6.x or higher.
+See <a href="docs/awstats_changelog.txt" style="font: 8pt arial,helvetica,verdana">ChangeLog</a> to know what's new and for information on compatibility with previous versions.<br>
+See <a href="#FEATURES" style="font: 8pt arial,helvetica,verdana">Features</a> for current features.<br>
+</font>
+</td>
+<td align=center width=180>
+<a href="http://prdownloads.sourceforge.net/awstats/awstats-6.95.zip" onclick="return(LaunchDownload('release'))" style="font: 8pt arial,helvetica,verdana">awstats-6.95.zip</a><br>
+<a href="http://prdownloads.sourceforge.net/awstats/awstats-6.95.exe" onclick="return(LaunchDownload('release'))" style="font: 8pt arial,helvetica,verdana">awstats-6.95.exe</a><br>
+<a href="http://prdownloads.sourceforge.net/awstats/awstats-6.95.tar.gz" onclick="return(LaunchDownload('release'))" style="font: 8pt arial,helvetica,verdana">awstats-6.95.tar.gz</a><br>
+<a href="http://prdownloads.sourceforge.net/awstats/awstats-6.95-1.noarch.rpm" onclick="return(LaunchDownload('release'))" style="font: 8pt arial,helvetica,verdana">awstats-6.95-1.noarch.rpm</a><br>
+</td>
+</tr>
+
+<!-- Old -->
+<tr style="font: 10pt arial,helvetica,verdana"><td bgcolor="#EEEEEE">Older release versions are</td>
+<td bgcolor="#EEEEEE">
+<font style="font: 8pt arial,helvetica,verdana">
+6.9 - 2008-12-28<br>
+6.8 - 2008-07-20<br>
+6.7 - 2007-07-07<br>
+6.6 - 2006-12-23<br>
+6.5 - 2005-12-24<br>
+6.4 - 2005-03-16<br>
+6.3 - 2005-01-28<br>
+6.2 - 2004-11-06<br>
+6.1 - 2004-05-15<br>
+6.0 - 2004-04-18<br>
+...<br>
+1.0 - 2000-05-02 (first version)<br>
+</font>
+</td>
+<td bgcolor="#EEEEEE" align=center>
+<a href="http://sourceforge.net/project/showfiles.php?group_id=13764" target=download style="font: 8pt arial,helvetica,verdana">Download</a>
+</td>
+</tr>
+
+<!-- spec -->
+<tr style="font: 10pt arial,helvetica,verdana"><td bgcolor="#EEEEEE">Some spec/build files used to build packages are here</td>
+<td bgcolor="#EEEEEE" colspan="2">
+<a href="files/awstats.spec" target=download style="font: 8pt arial,helvetica,verdana">awstats.spec</a><br>
+<a href="files/awstats.nsi" target=download style="font: 8pt arial,helvetica,verdana">awstats.nsi</a><br>
+</td>
+</tr>
+
+</table>
+<br>
+
+<!--  WEBMIN MODULE -->
+
+<table style="font: 8pt arial,helvetica,verdana" bgcolor="#FFFFFF" border=0 cellpadding=3 cellspacing=2 width="100%">
+<tr style="font: 12pt arial,helvetica,verdana"><td colspan=3 bgcolor="#CCCCEE"><b>AWStats Webmin module</b></td></tr>
+
+<!-- Alpha/Beta version -->
+
+<!-- Last Stable -->
+<tr style="font: 10pt arial,helvetica,verdana"><td width="120"><b>Last stable</b></td>
+<td>
+<font style="font: 8pt arial,helvetica,verdana">
+Last stable version is <b>1.8</b> - 2009-10-28 13:44<br>
+</font>
+</td>
+<td align=center width=180>
+<a href="http://prdownloads.sourceforge.net/awstats/awstats-1.8.wbm" onclick="return(LaunchDownload('release'))" style="font: 8pt arial,helvetica,verdana">awstats-1.8.wbm</a><br>
+</td>
+</tr>
+
+<!-- Old -->
+<tr style="font: 10pt arial,helvetica,verdana"><td bgcolor="#EEEEEE">Older release versions are</td>
+<td bgcolor="#EEEEEE">
+<font style="font: 8pt arial,helvetica,verdana">
+1.7 - 2006-12-23<br>
+1.6 - 2005-12-24<br>
+1.5 - 2005-01-28<br>
+1.4 - 2004-11-06<br>
+1.3 - 2004-03-22<br>
+1.21 - 2004-03-22<br>
+1.0  - 2003-09-14 (first version)<br>
+</font>
+</td>
+<td bgcolor="#EEEEEE" align=center>
+<a href="http://sourceforge.net/projects/awstats/files" target=download style="font: 8pt arial,helvetica,verdana">Download</a>
+</td>
+</tr>
+
+</table>
+
+
+<!--  DOLIBARR MODULE -->
+
+<table style="font: 8pt arial,helvetica,verdana" bgcolor="#FFFFFF" border=0 cellpadding=3 cellspacing=2 width="100%">
+<tr style="font: 12pt arial,helvetica,verdana"><td colspan=3 bgcolor="#CCCCEE"><b>AWStats Dolibarr module</b></td></tr>
+
+<!-- Last Stable -->
+<tr style="font: 10pt arial,helvetica,verdana"><td width="120" bgcolor="#EEEEEE" ><b>Last stable</b></td>
+<td bgcolor="#EEEEEE" >
+<font style="font: 8pt arial,helvetica,verdana">
+Last stable version of AWStats plugin for Dolibarr ERP/CRM is available on Dolibarr official web site.
+</font>
+</td>
+<td bgcolor="#EEEEEE" align=center width=180>
+<a href="http://www.dolibarr.org/" style="font: 8pt arial,helvetica,verdana">Dolibarr official web site</a>
+</td>
+</tr>
+
+</table>
+
+
+
+<br>
+<a name="CONTRIB"></a>
+
+<table style="font: 8pt arial,helvetica,verdana" bgcolor="#FFFFFF" border=0 cellpadding=3 cellspacing=2 width="100%">
+<tr style="font: 12pt arial,helvetica,verdana"><td colspan=3 bgcolor="#CCCCEE"><b>Other downloads (plugins/contrib/tools...)</b></td></tr>
+
+<tr><td colspan=3>
+You will find here several kinds of files :<br>
+- <a href="docs/awstats_contrib.html#PLUGINS">AWStats plugins</a><br>
+- <a href="docs/awstats_contrib.html#CONTRIB">Other AWStats contribs/tools/packages</a><br>
+- <a href="docs/awstats_contrib.html#RELATED">Other Non AWStats contribs/tools (not related to AWStats but related to statistics or log analysis)</a><br>
+- <a href="docs/awstats_contrib.html#DOC">Documents on AWStats or related to log analysis</a><br>
+- <a href="http://sourceforge.net/tracker2/?atid=313764&group_id=13764&func=browse" target=_newawstats>Some non official AWStats patches (hosted by sourceforge)</a><br>
+</td></tr>
+
+</table>
+<br>
+
+
+<br><a name="DOC"></a><br>
+<font size=3 color=#665544><b>Documentation / FAQ</b></font><br>
+<hr>
+<b>For last security annoucements</b>: click <a href="http://awstats.sourceforge.net/awstats_security_news.php">here</a>.<br>
+<b>For a quick preview in video of AWStats</b>:<br>
+- You can have a look at some video tutorials provided by <a href="http://www.manualsfountain.com" target="_blank">Manuals Fountain</a> (some are free).
+Direct link for AWStats videos are <a href="http://www.manualsfountain.com/movies.php?id=34" target="_blank">here</a>.<br>
+<b>If you need to know something about AWStats (features, setup, ...)</b>:<br>
+- Read seriously AWStats official documentation : <a href="docs/index.html">HTML On line</a> or <a href="docs/awstats.pdf">PDF file</a>&nbsp;(294KB)<br>
+<b>If you need help</b>:<br>
+- The first thing you have to do to solve a technical problem is to upgrade AWStats to last release version.<br>
+- Then you should read all the <a href="docs/awstats_faq.html">AWStats F.A.Q.</a>.<br>
+- If you still have problem, check on <a href="http://sourceforge.net/forum/forum.php?forum_id=43428" target=_newawstats>AWStats General FORUM (hosted by sourceforge)</a>.<br>
+- If you need more answers or support services, you can find individuals or commercial support on <a href="http://findopensourcesupport.com" target=_newawstats>findopensourcesupport.com</a>.<br>
+<!-- - If you still have your problem, you can submit a request to the AWStats support service (answer not guaranted).<br> -->
+<br>
+
+
+<br><a name="COMPARISON"></a><br>
+<font size=3 color=#665544><b>Comparison</b></font><br>
+<hr>
+<table style="font: 11px arial,helvetica,verdana" border=0 cellpadding=3 cellspacing=0 width="100%">
+
+<!-- Comparison -->
+<tr align=center bgcolor=#EEEEEE><td align=left><b>Features/Softwares</b></td><td><b>AWStats</b></td><td><b><a href="http://www.analog.cx">Analog</a></b></td><td><b><a href="http://www.mrunix.net/webalizer/">Webalizer</a></b></td><td><b><a href="http://www.hitbox.com">HitBox</a></b></td></tr>
+<tr align=center><td align=left>Version - Date</td><td>6.5 - December 2005</td><td>6.0 - December 2004</td><td>2.01-10 - April 2002</td><td>NA</td></tr>
+<tr align=center bgcolor=#EEEEEE><td align=center colspan="5">
+<a href="http://awstats.sourceforge.net/docs/awstats_compare.html">See the feature comparison page here...</a>
+</td></tr>
+</table>
+
+
+<br><a name="WISH"></a><br>
+<font size=3 color=#665544><b>Support AWStats / Donate</b></font><br>
+<hr>
+If you want to support AWStats development and encourage my work, you can:<br>
+
+<table cellpadding=0 cellspacing=0 border=0 width="100%">
+
+<tr><td>
+<font style="font: 8pt arial,helvetica,verdana">
+- Purchase something from <a href="http://www.amazon.com/exec/obidos/wishlist/3F19UHYYQRBPA">My Wish List at Amazon.com</a> where I selected some stuff that I would like to have.
+I'll appreciate a lot any gift from this list.<br>
+</font>
+</td></tr>
+
+<tr><td>
+<font style="font: 8pt arial,helvetica,verdana">
+- Make a donation via Paypal.<br>
+<a href="http://sourceforge.net/donate/index.php?group_id=13764"><img src="http://images.sourceforge.net/images/project-support.jpg" width="88" height="32" border="0" alt="Support This Project" /> </a>
+</font>
+</td></tr>
+
+</table><br>
+
+This is the best way if you want to send me something cool. Thank you!<br>
+This is a list of all <a href="awstats_supporters.php">donors that allows me to made them public</a>.
+<br>
+
+
+<br><a name="PROJECT"></a><br>
+<FORM name="FormRegisterBis" Method=POST ACTION="http://lists.sourceforge.net/lists/subscribe/awstats-public" target=_newawstats>
+<font size=3 color=#665544><b>AWStats Project and Development</b></font><br>
+<hr>
+<b>Project activity summary:</b><br>
+<table width="100%" border=1 cellpadding=2 cellspacing=0><tr><td>
+<font style="font: 12px arial,helvetica,verdana;">
+Developers on project: 4
+			 <a href="http://sourceforge.net/project/memberlist.php?group_id=13764" target=_newawstats>...</a><br>
+Activity percentile (last week): 99.92%
+			 <a href="http://sourceforge.net/project/stats/?group_id=13764&ugn=awstats" target=_newawstats>...</a><br>
+Mailing lists (public): 1
+			 <a href="http://sourceforge.net/mail/?group_id=13764" target=_newawstats>...</a><br>
+Discussion forums (public): 2, containing 25816 messages
+			 <a href="http://sourceforge.net/forum/?group_id=13764" target=_newawstats>...</a><br>
+Tracker: Bugs (56 open/792 total)
+			 <a href="http://sourceforge.net/tracker/?atid=113764&group_id=13764&func=browse" target=_newawstats>...</a><br>
+Tracker: Support Requests (108 open/1751 total)
+			 <a href="http://sourceforge.net/tracker/?atid=213764&group_id=13764&func=browse" target=_newawstats>...</a><br>
+Tracker: Patches (67 open/185 total)
+			 <a href="http://sourceforge.net/tracker/?atid=313764&group_id=13764&func=browse" target=_newawstats>...</a><br>
+Tracker: Feature Requests (573 open/839 total)
+			 <a href="http://sourceforge.net/tracker/?atid=363764&group_id=13764&func=browse" target=_newawstats>...</a><br>
+</font>
+</td></tr></table>
+
+<br>
+<b>If you want to read (and submit) feedbacks</b><br>
+Visit the <a href="http://sourceforge.net/forum/forum.php?forum_id=43430" target=_newawstats>AWStats Developer FORUM (for developers, hosted by sourceforge)</a>.<br>
+Visit the <a href="http://sourceforge.net/forum/forum.php?forum_id=43428" target=_newawstats>AWStats General FORUM (for other, hosted by sourceforge)</a>.<br>
+<!--
+<b>If you want to read (and submit) a support request</b><br>
+Visit the <a href="awstats_support.html" target=_newawstats>AWStats SUPPORT SERVICE</a> (Please, read <a href="docs/awstats_faq.html">F.A.Q.</a> first).<br>
+-->
+<b>If you want to submit new features</b><br>
+Visit the <a href="http://sourceforge.net/tracker2/?atid=363764&group_id=13764&func=browse" target=_newawstats>AWStats FEATURE TRACKER (hosted by sourceforge)</a>.<br>
+<b>If you want to see all new features planned for next versions (TODO list)</b><br>
+Visit the <a href="http://sourceforge.net/pm/task.php?group_project_id=5490&group_id=13764&func=browse">AWStats TASK TRACKER (hosted by sourceforge)</a>.<br>
+<b>If you found a bug or want to read known bugs.</b><br>
+You should use the <a href="http://sourceforge.net/tracker2/?group_id=13764&atid=113764&func=browse" target=_newawstats>AWStats BUG TRACKER (hosted by sourceforge)</a>.<br>
+<br>
+<b>If you want to be informed about new AWStats versions</b><br>
+You can register to the AWStats-public mailing list (new version announcements only).<br>
+EMail: <INPUT type="Text" name="email" size="18"> &nbsp;
+<!--<INPUT type="password" name="pw" value="awstats">
+<INPUT type="password" name="pw-conf" value="awstats">-->
+<INPUT type="hidden" name="pw" value="awstats">
+<INPUT type="hidden" name="pw-conf" value="awstats">
+<input type="hidden" name="digest" value="0">
+<INPUT type="Submit" name="email-button" value="Subscribe" onClick="Submit_onClickBis(); return false;">
+</FORM>
+
+<br>
+<b>For developer who wants to work on AWStats project</b><br>
+You can find current version of development for next version at the following CVS server:<br>
+CVSROOT <font size=2 color=#221188><i>:pserver:anonymous@awstats.cvs.sourceforge.net:/cvsroot/awstats</i></font><br>
+PROJECT <font size=2 color=#221188><i>awstats</i></font><br>
+For example, you can catch all sources on Linux running command:<br>
+<i>cvs -d :pserver:anonymous@awstats.cvs.sourceforge.net:/cvsroot/awstats co -r HEAD awstats</i>
+<br>
+This is a read-only server, so if you make changes on some files, send them to me by mail
+at <a href="mailto:eldy@users.sourceforge.net">eldy@users.sourceforge.net</a>.<br>
+You can view the <a href="http://www.nltechno.com/stats/awstats/cvschangelogbuilder_awstats.html">Graphical CVS activity report</a> built with CVSChangelogBuilder.<br>
+You can also read/download current development files from the <a href="http://awstats.cvs.sourceforge.net/awstats/" target="cvs">CVS web interface</a>.<br>
+<br>
+
+<br>
+<b>AWStats Vote/Awards</b><br>
+You can vote and see all AWStats awards/feedbacks in Internet world <a href="awstats_award.html">here</a>.<br>
+<br>
+
+<br>
+<b>AWStats PAD - Portable Application Description</b><br>
+<a name="PAD"></a>You can include AWStats download in your own ressource site. This is its <a href="docs/pad_awstats.xml" target=_newawstats>XML Portable Application Description</a>.<br>
+<br>
+
+
+<b>About my other Open-Source projects:</b><br>
+<a href="http://awbot.sourceforge.net">AWBot</a>, an easy to use Perl tool to test a web site.<br>
+AWStats, this one.<br>
+<a href="http://cvschangelogb.sourceforge.net">CVSChangelogBuilder</a>, a friendly CVS ChangeLog Builder with various outputs.<br>
+<a href="http://www.dolibarr.org">Dolibarr ERP/CRM</a>, a powerfull software for small and medium companies or foundations to manage your activity.<br>
+<br>
+<b>About me and my other Web sites:</b><br>
+<a href="http://www.destailleur.fr" target="new">Laurent Destailleur</a> (Me, Eldy)<br>
+<a href="http://www.nltechno.com" target="new" title="NLTechno">NLTechno</a> (My company)<br>
+<a href="http://www.chiensderace.com" target="new" title="Le chien, le forum canin avec ChiensDeRace.com">Chiens De Race .com</a><br>
+<a href="http://www.chatsderace.com" target="new" title="Le chat, le forum f�lin avec ChatsDeRace.com">Chats De Race .com</a><br>
+<a href="http://www.lesbonnesannonces.com" target="new" title="Le site des petites annonces gratuites LesBonnesAnnonces.com">LesBonnesAnnonces.com</a><br>
+<a href="http://www.pourmaplanete.com" target="new" title="Le site du d�veloppement durable PourMaPlanete.com">PourMaPlanete.com</a><br>
+<br>
+
+<br>
+<hr>
+
+<table cellpadding=0 cellspacing=3>
+<tr>
+<td>
+<IMG src="/docs/images/awstats_logo3.png" border="0" alt="AWStats">
+</td>
+<td valign="middle">
+<img src="/images/osi-certified-72x60.png" border=0>
+</td>
+</tr>
+</table>
+
+</td>
+</tr></table>
+
+</td></tr>
+</table>
+
+</body>
+</html>

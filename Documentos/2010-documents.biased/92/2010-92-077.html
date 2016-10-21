@@ -1,0 +1,299 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+  <head>
+    <title>The Stanford NLP (Natural Language Processing) Group</title>
+    <meta name="description" content="Stanford Natural Language
+    Processing and Computational Linguistics Group">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href="/nlp.css" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+    <table border="0" width="100%" cellpadding="5" cellspacing="0" class="navbar">
+      <tr>
+
+        <td width="100" height="100" align="center" valign="middle">
+	  <a href="/">
+	    <img src="/img/nlp-logo-navbar.jpg" border="0" align="middle" alt="Stanford NLP">
+	  </a>
+	</td>
+
+	<td width="*" align="left" valign="middle">
+          <table border="0" cellpadding="5" cellspacing="0">
+
+	    <tr>
+	      <td height="25">
+	        <p>&nbsp;</p>
+	      </td>
+	    </tr>
+
+	    <tr>
+	      <td align="left" valign="middle" height="50">
+	        <p class="title">
+	          The Stanford Natural Language Processing Group
+	        </p>
+	      </td>
+	    </tr>
+
+            <tr> 
+              <td align="left" valign="middle" height="25">
+                <p class="navbar">
+		  <!-- following hrefs need to be absolute! -->
+		  <a class="navbar" href="/index.shtml">home</a>
+		  &middot;
+		  <a class="navbar" href="/people.shtml">people</a>
+		  &middot;
+		  <a class="navbar" href="/teaching.shtml">teaching</a>
+		  &middot;
+		  <a class="navbar" href="/research.shtml">research</a>
+		  &middot;
+		  <a class="navbar" href="/publications.shtml">publications</a>
+		  &middot;
+		  <a class="navbar" href="/software/index.shtml">software</a>
+		  &middot;
+		  <a class="navbar" href="/events.shtml">events</a>
+		  &middot;
+		  <a class="navbar" href="/local/index.shtml">local</a> 
+                </p>
+              </td>
+            </tr>
+
+          </table>
+	</td>
+	
+      </tr>
+    </table>
+
+    <img src="/img/spacer.gif" width="10" height="10" alt="">
+
+
+<center>
+<h2><font color="#a40526">Stanford Log-linear Part-Of-Speech Tagger</font></h2> 
+</center>
+
+<center><p><font color="#a40526"><a href="#About">About</a> |
+<a href="#Questions">Questions</a> |
+<a href="#Mail">Mailing lists</a> |
+<a href="#Download">Download</a> |
+<a href="#History">Release history</a> |
+<a href="http://www.stanford.edu/~mjockers/cgi-bin/drupal/node/17">
+<!--
+<a href="http://www.stanford.edu/~mjockers/cgi-bin/digHum/tagging/postaggingxml.html">
+-->
+Tagging Tutorial</a> |
+<a href="pos-tagger-faq.shtml">FAQ</a>
+</font></p></center>
+
+<h3><a name="About">About</a></h3>
+
+<p>
+A Part-Of-Speech Tagger (POS Tagger) is a piece of software that reads
+text in some language and assigns parts of speech to each word (and
+other token), such as noun, verb, adjective, etc., although generally
+computational applications use more fine-grained POS tags like
+'noun-plural'. 
+This software is a Java implementation of the log-linear part-of-speech
+taggers described in: 
+<blockquote>
+ Kristina Toutanova and Christopher D. Manning. 2000.  
+ <a href="http://nlp.stanford.edu/~manning/papers/emnlp2000.pdf">Enriching the
+ Knowledge Sources Used in a Maximum Entropy Part-of-Speech Tagger</a>. In
+ <i>Proceedings of the Joint SIGDAT Conference on Empirical Methods in
+ Natural Language Processing and Very Large Corpora
+ (EMNLP/VLC-2000)</i>, pp. 63-70.
+</blockquote>
+
+<blockquote>
+ Kristina Toutanova, Dan Klein, Christopher Manning, and Yoram
+ Singer. 2003. 
+ <a href="http://nlp.stanford.edu/~manning/papers/tagging.pdf">Feature-Rich
+ Part-of-Speech Tagging with a Cyclic
+ Dependency Network</a>. In <i>Proceedings of HLT-NAACL 2003</i>, pp. 252-259. 
+</blockquote>
+<p>
+The tagger was originally written by Kristina Toutanova.  Since that
+time, Dan Klein, Christopher Manning, William Morgan, Anna Rafferty, and
+Michel Galley have improved its speed, performance, usability, and
+support for other languages.
+</p>
+<p>
+The system requires Java 1.5+ to be installed. Depending on whether
+you're running 32 or 64 bit Java and the complexity of the tagger model,
+you'll need somewhere between 60 and 200 MB of memory to run a trained
+tagger (i.e., you may need to give java an 
+option like <code>java -mx200m</code>). Plenty of memory is needed  
+to train a tagger. It again depends on the complexity of the model but at
+least 1GB is usually needed, often more.
+</p>
+
+<p>
+Several downloads are available.  The basic download contains two trained 
+tagger models for English.  The full download contains three trained English
+tagger models, an Arabic tagger model, a Chinese tagger model, and a 
+German tagger model.  Both versions include the same source and other
+required files. The tagger can be retrained on any language, given
+POS-annotated training text for the language. 
+</p>
+
+<p>
+<b>Part-of-speech name abbreviations:</b> The English taggers use
+the Penn Treebank tag set.  Here are some links to
+documentation of the Penn Treebank English POS tag set:
+<a href="http://acl.ldc.upenn.edu/J/J93/J93-2004.pdf">1993
+<i>Computational Linguistics</i> article in PDF</a>,
+<a href="http://www.comp.leeds.ac.uk/amalgam/tagsets/upenn.html">AMALGAM
+page</a>,
+<a href="http://www.computing.dcu.ie/~acahill/tagset.html">Aoife
+Cahill's list</a>.  
+See the included README-Models.txt in the models directory for more information
+about the tagsets for the other languages.
+</p>
+
+<h3><a name="Questions">Questions</a></h3>
+
+<p>
+For documentation, first take a look at the included <code>README.txt</code> and the javadocs,
+particularly the javadoc for MaxentTagger.  If you have more questions,
+Matthew Jockers has kindly produced 
+<!--
+Nate note: this was the real page that needed to be redirected.  Matthew might fix it in the future to work again.
+<a href="http://www.stanford.edu/~mjockers/cgi-bin/digHum/tagging/postaggingxml.html">
+-->
+<a href="http://www.stanford.edu/~mjockers/cgi-bin/drupal/node/17">
+an example and tutorial for running the tagger</a>.
+There is a brief <a href="http://nlp.stanford.edu/software/pos-tagger-faq.shtml">FAQ</a>.
+Additional questions, feedback, and bugs/bug-fixes) can be sent to our <a
+href="#Mail">mailing lists</a>.
+</p>
+
+<p>The tagger is licensed under the GNU GPL.  (Note that this is the
+      <i>full</i> 
+     GPL, which allows its use for research purposes, free
+      software projects, etc., but 
+      <i>does not</i> allow its incorporation into any type of distributed
+      <a href="http://www.gnu.org/licenses/gpl-faq.html#GPLInProprietarySystem">proprietary software</a>,
+      even in part or in translation.
+      Source is included.  The package
+      includes components for command-line invocation, running as a
+      server, and a Java API. 
+      <a href="http://otlportal.stanford.edu/techfinder/technology/ID=26062"><b>Commercial
+      licensing</b></a> of the POS tagger is also
+      available.</p>
+<BR>
+
+<h3><a name="Mail">Mailing Lists</a></h3>
+<p>
+We have 3 mailing lists for the Stanford POS Tagger, all of which are shared
+with other JavaNLP tools (with the exclusion of the parser). Each address is
+at <code>@lists.stanford.edu</code>:
+</p>
+<ol>
+<li><code>java-nlp-user</code> This is the best list to post to in order
+to ask questions, make announcements, or for discussion among JavaNLP
+users.  You have to subscribe to be able to use it.
+Join the list via <a href="https://mailman.stanford.edu/mailman/listinfo/java-nlp-user">this webpage</a> or by emailing
+<code>java-nlp-user-join@lists.stanford.edu</code>.   (Leave the
+subject and message body empty.)  You can also
+<a href="https://mailman.stanford.edu/pipermail/java-nlp-user/">look at
+the list archives</a>.
+<li><code>java-nlp-announce</code> This list will be used only to announce
+new versions of Stanford JavaNLP tools.  So it will be very low volume (expect 1-3
+message a year).  Join the list via via <a href="https://mailman.stanford.edu/mailman/listinfo/java-nlp-announce">this webpage</a> or by emailing
+<code>java-nlp-announce-join@lists.stanford.edu</code>.  (Leave the
+subject and message body empty.)
+<li><code>java-nlp-support</code> This list goes only to the software
+maintainers.  It's a good address for licensing questions, etc.  <b>For
+general use and support questions, please join and use
+<code>java-nlp-user</code>.</b>
+You cannot join <code>java-nlp-support</code>, but you can mail questions to
+<code>java-nlp-support@lists.stanford.edu</code>.
+</ol>
+<BR>
+<h3><a name="Download">Download</a></h3>
+<CENTER>
+
+<p><a href="stanford-postagger-2009-12-24.tgz">Download 
+          basic English Stanford Tagger version 2.0</a> [17 MB]</p>
+<p><a href="stanford-postagger-full-2009-12-24.tgz">Download
+          full Stanford Tagger version 2.0</a> [37 MB]</p>
+<br>
+<p><a href="stanford-postagger-2008-09-28.tar.gz">Download 
+          basic English Stanford Tagger version 1.6</a> [superseded]</p>
+<p><a href="stanford-postagger-full-2008-09-28.tar.gz">Download
+          full Stanford Tagger version 1.6</a> [superseded]</p>
+
+</CENTER>
+<br>
+<p>
+    The basic download is a 17 MB gzipped tar file with support for 
+    tagging English.  The full download is a 37 MB gzipped tar
+    file, which includes an additional English model and trained models
+    for Arabic, Chinese, and German. 
+    In both cases most of the file size is due to the trained model
+    files.  The only difference between the two downloads is the number 
+    of trained models included.
+    If you unpack the tar file, you should have everything
+    needed.  This software provides a GUI demo, a command-line interface,
+    and an API.  Simple scripts are included to invoke the tagger.
+    For more information on use, see the included README.txt.  
+</p>
+
+<BR>
+<h3><a name="History">Release History</a></h3>
+<br>
+<table cellspacing="5">
+<tr>
+<th align="left">Version</th><th align="left">Date</th><th align="left">Description</th>
+</tr>
+<tr valign="top">
+<td>2.0</td><td>2009-12-24</td>
+  <td>An order of magnitude faster, slightly more accurate best model,
+  more options for training and deployment.</td></tr>
+<tr valign="top">
+<td>1.6</td><td>2008-09-28</td>
+  <td>A fraction better, a fraction faster, more flexible model specification, and quite a few less bugs.</td></tr>
+<tr valign="top">
+<td>1.5.1</td><td>2008-06-06</td>
+  <td>Tagger properties are now saved with the tagger, making taggers more portable; tagger can be trained off of treebank data or tagged text; fixes classpath bugs in 2 June 2008 patch; new foreign language taggers released on 7 July 2008 and packaged with 1.5.1.</td></tr>
+<tr valign="top">
+<td>1.5</td><td>2008-05-19</td>
+  <td>Added international taggers, support for reading from and writing to XML, better support for 
+changing the encoding, distributional similarity options, and many more small changes; patched on 2 June 2008 to fix a bug with tagging pre-tokenized text.</td></tr>
+<tr valign="top"><td>1.0</td><td>2006-01-10</td>
+  <td>First cleaned-up release after Kristina graduated.</td></tr>
+<tr valign="top"><td>0.1</td><td>2004-08-16</td>
+  <td>First release.</td></tr>
+</table>
+
+
+
+    <br>
+    <table class="footer" border="0" width="100%" cellpadding="0">
+      <tr>
+        <td width="14"><p class="small">&nbsp;</p></td>
+        <td align="left">
+          <p class="small">
+	    Local links: &nbsp;
+	    <a href="/local/nlp_lunch.shtml">NLP lunch</a> &middot;
+	    <!-- <img src="/img/middot.gif" align="center"> -->
+	    <a href="http://pail.pbwiki.com/">PAIL lunch</a> &middot;
+            <a href="http://nlp.stanford.edu/read/">NLP Reading Group</a> &middot;
+	    <a href="/javanlp/">JavaNLP</a> 
+	    (<a href="/nlp/javadoc/javanlp/">javadocs</a>) &middot;
+	    <a href="/javanlp/scala/">ScalaNLP</a> &middot;
+	    <a href="/local/machines.shtml">machines</a> &middot;
+	    <a href="/nlpwiki/">Wiki</a> &middot;
+	    <a href="/local/calendar.shtml">Calendar</a>
+          </p>
+	</td>
+        <td align="right">
+          <p class="small">
+	    Site design by <a href="http://nlp.stanford.edu/~wcmac/">Bill MacCartney</a>
+          </p>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
+
+

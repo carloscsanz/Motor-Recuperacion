@@ -1,0 +1,2932 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<title>Avnet Electronics Marketing - Electronic Components Distributor Services, Datasheet PDF Download, Part Number Search 3 Million + Components - Avnet Express</title>
+		<meta name="description" content="Avnet Express is an electronic components distributor offering services, datasheet download and PDF s for over 3M+ part numbers. Order and search part numbers online with Same Day Shipping."/>
+		<meta name="keywords" content="avnet electronics marketing, datasheet download, datasheet search engine, datasheet pdf, electronic components distributor, electronic components services, part number search, components supplier, free datasheets, data sheets, electronic parts distributors, wholesale electronic parts, find part numbers search part number reference, avnet express"/>
+		<link rel="stylesheet" type="text/css" href="/wcsstore/emstore/css/eStore.css"/>
+
+
+<script language="javascript">
+
+/**
+ * The id is a string that corresponds to the table id and the DimVal id.
+ * This function should make an ajax call to get the table html with
+ * the additional rows for the second level refinements.
+ * We should only have to make the ajax call once.  Then the function
+ * hides or shows the middle table rows.
+ * i.e. check the number of rows == 2.
+ */
+function showRows(id) {
+  var table = document.getElementById(id);
+  if (table.rows.length == 2) {
+    getRows(id);
+  } else {
+    var linkObj = document.getElementById(id + "_link");
+    linkObj.href = "javascript:hideRows('" + id + "');";
+    linkObj.title = "Click to contract";
+    //var theImg = linkObj.getElementsByTagName("IMG");
+    //switchImgSrc(theImg[0]);
+    var item = document.getElementById(id + "_expandItem");
+  	item.innerHTML = "-";
+    // get the middle rows of the table
+    for(var x = 1; x < table.rows.length-1; x++) {
+      table.rows[x].style.display = "";
+    } 
+  } 
+}
+		
+function hideRows(id) {
+  var table = document.getElementById(id);
+  var linkObj = document.getElementById(id + "_link");
+  linkObj.href = "javascript:showRows('" + id + "');";
+  linkObj.title = "Click to expand";
+  //var theImg = linkObj.getElementsByTagName("IMG");
+  //switchImgSrc(theImg[0]);
+  var item = document.getElementById(id + "_expandItem");
+  item.innerHTML = "+";
+  // get the middle rows of the table
+  for(var x = 1; x < table.rows.length-1; x++) {
+    table.rows[x].style.display = "none";
+  }
+}
+
+function getRows(id) {
+  var table = document.getElementById(id);
+  table.rows[0].cells[0].innerHTML = table.rows[0].cells[0].innerHTML + '<span  style=\"zoom:100%;\"> &nbsp;...Please wait.</span>';
+  var url = '/store/em/EMController?langId=-1&storeId=500201&catalogId=500201&action=ajax_home_page_category_refinements&N=' + id + '&Ne=' + id ;
+  new Ajax.Updater(id + '_div', url, { method: 'get' });
+}
+
+/*
+function switchImgSrc(img) {
+  if(img.src.indexOf("plus") != -1) {
+    img.src = "/wcsstore/emstore/images/prodnav-minus.gif";
+  } else {
+    img.src = "/wcsstore/emstore/images/prodnav-plus.gif";
+  }
+}
+*/
+
+function refineManufacturers(id) {
+  var insertDiv = document.getElementById('manufacturers');
+  var url;
+  if (id == "all") {
+    url = "/store/em/EMController?langId=-1&storeId=500201&catalogId=500201&action=ajax_home_page_manufacturer&Ne=10013&N=0";
+  } else {
+    url = "/store/em/EMController?langId=-1&storeId=500201&catalogId=500201&action=ajax_home_page_manufacturer_sift&N=0&Ne=" + id;
+  }
+  new Ajax.Updater('manufacturers', url, { method: 'get' });
+}
+
+function loadDiv(theTab) {
+  //var divNm = "tab_"+nm;
+  for(var x=1;x<=3;x++) {
+    var divTest = "tab_"+x;
+    if(divTest == theTab) {
+      document.getElementById(divTest).style.display = "";
+    } else {
+      document.getElementById(divTest).style.display = "none";
+    }
+  }
+}
+
+function switchTabs(theTab) {
+  var t1Img = document.getElementById("tab1");
+  var t2Img = document.getElementById("tab2");
+  var t3Img = document.getElementById("tab3");
+  if(theTab == "tab_1") {
+    t1Img.className = "browseTabOn";
+    t2Img.className = "browseTabOff";
+    t3Img.className = "browseTabOff";
+  }
+  if(theTab == "tab_2") {
+    t1Img.className = "browseTabOff";
+    t2Img.className = "browseTabOn";
+    t3Img.className = "browseTabOff";
+  }
+  if(theTab == "tab_3") {
+    t1Img.className = "browseTabOff";
+    t2Img.className = "browseTabOff";
+    t3Img.className = "browseTabOn";
+  }
+  loadDiv(theTab);
+}
+
+function submitForm(){
+	if (validateTerm("term")==true){
+		document.SearchForm.submit();
+	}
+}
+</script>
+</head>
+<body class="noMargin" onload="fixMinWidthForIE();cartMergePopup();refineManufacturers('all');">
+<!-- Layout enclosing table -->
+<table style="width:100%;height:100%;" border="0" cellpadding="0" cellspacing="0">
+<tr>
+	<td style="vertical-align:top;">
+		<!-- EM header -->
+<script language="JavaScript" type="text/javascript"><!--
+
+if((window.location.hostname == 'avnetexpress.avnet.com')||(window.location.hostname == 'www.avnetexpress.avnet.com')){
+	{var s_account = "avnElectronicsMarketing,avnGlobalGroup";}
+}
+	
+
+
+//--></script>  
+
+<script language="JavaScript" type="text/javascript" src="//www.em.avnet.com//osc_common.js"></script>
+
+
+<script language="javascript">
+/** trackChatRequest function **/
+function trackChatRequest(obj) {
+	var s=s_gi('avnelectronicsmarketing');
+	s.trackingServer="metrics.avnet.com";
+	s.linkTrackVars='events';
+	s.linkTrackEvents='event3';
+	s.events='event3';
+	s.tl(obj,'o','Chat Request');
+}
+
+/** trackDownload function **/
+function trackDownload(lcval1, lcval2){
+	var s=s_gi(lcval1); s.trackingServer="metrics.avnet.com"; s.linkTrackVars='eVar7,events,prop8,prop9'; s.linkTrackEvents='event4'; s.events='event4'; s.eVar7=lcval2; s.prop8=s.pageName; s.prop7=s.eVar7; s.tl(this,'d',lcval2);	
+}
+// Removes leading whitespaces
+function LTrim( value ) {
+	var re = /\s*((\S+\s*)*)/;
+	return value.replace(re, "$1");
+}
+// Removes ending whitespaces
+function RTrim( value ) {
+	var re = /((\s*\S+)*)\s*/;
+	return value.replace(re, "$1");
+}
+// Removes leading and ending whitespaces
+function trim( value ) {
+	return LTrim(RTrim(value));
+}
+// logon form check for empty fields
+function logonCheck(frm)
+{
+	// trim leading and trailing spaces
+	IDval = trim(frm.logonId.value).toLowerCase();
+	frm.logonId.value = IDval;
+	PWval = trim(frm.logonPassword.value);
+	frm.logonPassword.value = PWval;
+	// check for blank
+	if(IDval == "")
+	{
+		alert("Type an email address in the Email Address field.");
+		frm.logonId.value="";
+		frm.logonId.focus();
+		return false;
+	}
+	if(PWval == "")
+	{
+		alert("Type your password in the Password field.");
+		frm.logonPassword.value = "";
+		frm.logonPassword.focus();
+		return false;
+	}
+	//frm.submit();
+}
+//Handles drop down hyperlinks worldwide
+function fctLinker(objDrop) {
+	var strRegion = objDrop[objDrop.selectedIndex].value;
+	//Create HBX Event
+	_hbLink('//RegionDropDown//' + strRegion);
+	//Redirect
+	if (strRegion == "None" || strRegion == "Americas") {
+		parent.document.location.href = "http://www.em.avnet.com/home";
+	} else if (strRegion == "Brazil") {
+		parent.document.location.href = "http://www.avnet.com.br";	
+	} else if (strRegion == "Europe") {
+		parent.document.location.href = "http://www.em.avnet.com/region/europe/";
+	} else if (strRegion == "Japan") {
+		parent.document.location.href = "http://avnet.co.jp";					
+	} else {
+		parent.document.location.href = "http://www.em.avnetasia.com";
+	}
+}
+
+// forgot password window
+function forgotPassword() {
+	window.open("//www.em.avnet.com/auth/forgotpasswordform/0,2290,,00.html", "ForgotPassword", "height=500,width=550,screenX=100,screenY=100,resizable=yes");
+ }
+ function toggleLogin(state){
+	if(state=='on'){
+		document.getElementById('loginDiv').style.display = "";
+		document.Logon.logonId.focus();
+	}else{
+		document.getElementById('loginDiv').style.display = "none";
+	}
+}
+// Added by Satheesh - Endeca shopping cart Merge Enhancement Defect Id 242 Start
+// This Method is called onbody load of home,product,part,compare pages to redirect.
+function cartMergePopup(){
+if(window.document.getElementById('isMerged').value=='true'){
+	if(confirm('The parts in your shopping cart have been combined with parts in a previously saved cart. Do you want to review your shopping cart now ?'))
+		document.location.href = '/store/em/OrderItemDisplay?langId=-1&storeId=500201&catalogId=500201';
+}
+}
+// Added by Satheesh - Endeca shopping cart Merge Enhancement Defect Id 242 End 
+</script>
+<!-- hidden div for login form -->
+<div id="loginDiv" class="loginForm" style=z-index:100;display:none;">
+	<div style="font-size:14px;font-family:Verdana,Helvetica,sans-serif;color:#000000;padding:3px 5px 3px 5px;text-align:center;font-weight:bold;">Login</div>
+	<div style="padding:5px 5px 5px 5px;">
+		<form action="/store/em/Logon" method="post" name="Logon" id="Logon" style="margin:0px;" onsubmit="return logonCheck(this);">
+		<input type="hidden" name="storeId" value="500201" />
+		<input type="hidden" name="catalogId" value="500201" />
+		<input type="hidden" name="langId" value="-1" />
+		<input type="hidden" name="URL" value="EMController/Memory/Memory-Module/_/N-100181" />
+		
+		<input type="hidden" name="An" value=""/>
+		<input type="hidden" name="A" value=""/>
+		<input type="hidden" name="R" value=""/> 
+		<input type="hidden" name="term" value="" />
+		<input type="hidden" name="N" value="0" />
+		
+		<!-- Endeca Defect No 237 End -->
+		<input type="hidden" name="tab" value="part-data" />
+		<input type="hidden" name="inStock" value=""/>
+		<input type="hidden" name="rohs" value="" />
+		<input type="hidden" name="proto" value="" />
+		<input type="hidden" name="cutTape" value="" />
+		<input type="hidden" name="topSellers" value="" />
+		<input type="hidden" name="endURL" value="" />
+		<input type="hidden" name="action" value="home" />
+		<input type="hidden" name="reLogonURL" value="LogonForm" />  
+		<input type="hidden" name="listIndex" value="" />
+		<input type="hidden" name="parametric" value="" />
+		<input type="hidden" name="moreMatchSearch" value="" />
+		<table border="0" cellpadding="1" cellspacing="0">
+			<tr>
+				<td style="white-space:nowrap;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label for="uid">Email</label>&nbsp;</td>
+				<td style="white-space:nowrap;"><input type="text" name="logonId" value="Enter email address" id="uid" size="20" class="textarea" onfocus="javascript:select()" /></td>
+			</tr>
+			<tr>
+				<td style="white-space:nowrap;text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label for="pwd">Password</label>&nbsp;</td>
+				<td><input type="password" name="logonPassword" id="pwd" size="20" class="textarea" value="" onfocus="javascript:select()" /></td>
+			</tr>
+		</table>
+		<table border="0" cellpadding="2" cellspacing="0">
+			<tr>
+				<td style="text-align:center;"><a href="/store/em/ResetPasswordForm?langId=-1&storeId=500201&catalogId=500201" class="medium">Forgot Password?</a></td>
+	    		<td style="text-align:center;"><a href="/store/em/LogonForm?URL=/store/em/EMController/Memory/Memory-Module/_/N-100181&action=home&amp;amp;hwPrefPart=&amp;amp;storeId=500201&amp;langId=-1&amp;amp;sel=C&amp;amp;cat=1&amp;amp;proto=&amp;amp;hwPrefSup=&amp;amp;action=products&amp;catalogId=500201&amp;amp;langId=-1&amp;amp;inStock=&amp;amp;rohs=&amp;amp;cutTape=&amp;amp;topSellers=&amp;storeId=500201&amp;Ns=Price|0&amp;amp;catalogId=500201" class="medium">New?  Register here</a></td>
+	    	</tr>
+	    	<tr>
+	    		<td style="white-space:nowrap;text-align:center;"><input type="submit" value="Login" class="buttonInvert" /></td>
+	    		<td style="white-space:nowrap;text-align:center;"><input type="button" value="Cancel" class="buttonInvert" onclick="javascript:toggleLogin()" /></td>
+			</tr>
+		</table>
+		</form>
+	</div>
+</div>
+
+<table border="0" cellspacing="0" cellpadding="0" style="width:100%;background:url(/wcsstore/emstore/images/header/bg-topheader-avnetem-new.jpg) repeat-y;">
+<tr> 
+	
+
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/yui/2.8.0r4/build/yahoo-dom-event/yahoo-dom-event.js"></script>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/yui/2.8.0r4/build/container/container_core-min.js"></script>  
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/yui/2.8.0r4/build/menu/menu-min.js"></script> 
+<script type="text/javascript">
+YAHOO.util.Event.onContentReady("languageDiv", function () {
+    var langMenuBar = new YAHOO.widget.MenuBar("languageDiv", { autosubmenudisplay: true, hidedelay: 750, lazyload: true });
+    langMenuBar.render();
+});
+
+YAHOO.util.Event.onContentReady("currencyDiv", function () {
+    var curMenuBar = new YAHOO.widget.MenuBar("currencyDiv", { autosubmenudisplay: true, hidedelay: 750, lazyload: true });
+    curMenuBar.render();
+});
+
+function changeLanguage(langCode, desc){
+	document.getElementById("selectedLanguage").innerHTML = desc;
+	var oldlangId = "langId="+-1;
+	var newlangId = "langId="+ langCode;
+	var oldURL = parent.document.location.href;
+	var newURL = oldURL.replace(oldlangId,newlangId);
+	if(newURL.indexOf("chLangId")==-1){
+		if(newURL.indexOf("?")==-1)
+			newURL = newURL + "?chLangId=" + langCode;
+		else
+			newURL = newURL + "&chLangId=" + langCode;
+	}
+	else{
+		var oldChLangId = "chLangId="+-1;
+		var newChLangId = "chLangId="+ langCode;
+		newURL = newURL.replace(oldChLangId,newChLangId);
+	}
+	location.href=newURL;
+}
+function changeCurrency(curCode, desc){
+	document.getElementById("selectedCurrency").innerHTML = desc;
+	var origURL = parent.document.location.href;
+	origURL = stripCurrencyParam(origURL);
+	origURL += "&currCode=" + curCode;
+	location.href = origURL;
+} 
+function stripCurrencyParam(URL) {
+	var returnURL = URL;
+	if (URL.indexOf("currCode") > -1) {
+		var beginIndex = URL.indexOf("currCode") - 1;
+		var endIndex = beginIndex + 13
+		returnURL = URL.substring(0, beginIndex);
+		if (endIndex < URL.length) {
+			returnURL += URL.substring(endIndex, URL.length);
+		}
+	}
+	return returnURL;
+}
+
+
+</script>
+
+<td style="width:250px;text-align:right;vertical-align:top;white-space:nowrap;padding:3px 0px 4px 0px;">
+	<span class="headerText">Language:</span>&nbsp;&nbsp;
+</td>
+<td style="width:150px;text-align:right;vertical-align:top;white-space:nowrap;padding:4px 0px 3px 0px;">
+	<!-- 10/01/09 marcel - hidden div for language drop down -->
+	<div id="languageDiv" class="yuimenubar yuimenubarnav">
+		<div class="bd">
+			<ul class="first-of-type">
+				<li class="yuimenubaritem first-of-type">
+					<a class="yuimenubaritemlabel" href="javascript:void(0)"><span id="selectedLanguage" class="headerText">English&nbsp;</span><span style="vertical-align:bottom"><img src="/wcsstore/emstore/images/header/white_triangle.gif" border="0"></span></a>
+					<div id="langauge" class="yuimenu">
+						<div class="bd">
+							<ul>
+								
+									<li class="yuimenuitem">
+										<a class="yuimenuitemlabel" href="javascript:changeLanguage('-1','English');">&nbsp;English</a>
+									</li>												
+								
+									<li class="yuimenuitem">
+										<a class="yuimenuitemlabel" href="javascript:changeLanguage('-3','Deutsch');">&nbsp;Deutsch</a>
+									</li>												
+								
+									<li class="yuimenuitem">
+										<a class="yuimenuitemlabel" href="javascript:changeLanguage('-5','Espanol (Europa)');">&nbsp;Espanol (Europa)</a>
+									</li>												
+								
+									<li class="yuimenuitem">
+										<a class="yuimenuitemlabel" href="javascript:changeLanguage('-331','Espanol (Latinoamêrica)');">&nbsp;Espanol (Latinoamêrica)</a>
+									</li>												
+								
+									<li class="yuimenuitem">
+										<a class="yuimenuitemlabel" href="javascript:changeLanguage('-2','Français');">&nbsp;Français</a>
+									</li>												
+								
+									<li class="yuimenuitem">
+										<a class="yuimenuitemlabel" href="javascript:changeLanguage('-4','Italiano');">&nbsp;Italiano</a>
+									</li>												
+								
+									<li class="yuimenuitem">
+										<a class="yuimenuitemlabel" href="javascript:changeLanguage('-6','Português do Brasil');">&nbsp;Português do Brasil</a>
+									</li>												
+								
+									<li class="yuimenuitem">
+										<a class="yuimenuitemlabel" href="javascript:changeLanguage('-7','简体中文');">&nbsp;简体中文</a>
+									</li>												
+								
+									<li class="yuimenuitem">
+										<a class="yuimenuitemlabel" href="javascript:changeLanguage('-10','日本語 ');">&nbsp;日本語 </a>
+									</li>												
+								
+							</ul>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>	
+</td>
+<td style="width:100px;text-align:right;vertical-align:top;white-space:nowrap;padding:3px 0px 4px 0px;">
+	<span class="headerText">Currency:</span>&nbsp;&nbsp;
+</td>
+<td style="width:150px;text-align:right;vertical-align:top;white-space:nowrap;padding:4px 0px 3px 0px;">
+	<!-- 10/01/09 marcel - hidden div for currency drop down -->
+	<div id="currencyDiv" class="yuimenubar yuimenubarnav">
+		<div class="bd">
+			<ul class="first-of-type">
+				<li class="yuimenubaritem first-of-type">
+					<a class="yuimenubaritemlabel" href="javascript:void(0)" title="Currency changes are for display purposes only based on today's rate of exchange. Sales on this website will take place in the currency displayed in the Shopping Cart."><span id="selectedCurrency" class="headerText">USD (US Dollar)</span><span style="vertical-align:bottom"><img src="/wcsstore/emstore/images/header/white_triangle.gif" border="0"></span></a>
+					<div id="currency" class="yuimenu">
+						<div class="bd">
+							<ul>	
+								
+									<li class="yuimenuitem">
+										<a class="yuimenuitemlabel" href="javascript:changeCurrency('CNY','Chinese Yuan Renminbi');">&nbsp;Chinese Yuan Renminbi&nbsp;(CNY)</a>
+									</li>
+								
+									<li class="yuimenuitem">
+										<a class="yuimenuitemlabel" href="javascript:changeCurrency('CNY','Chinese Yuan Renminbi');">&nbsp;Chinese Yuan Renminbi&nbsp;(CNY)</a>
+									</li>
+								
+									<li class="yuimenuitem">
+										<a class="yuimenuitemlabel" href="javascript:changeCurrency('ARS','Argentine Peso');">&nbsp;Argentine Peso&nbsp;(ARS)</a>
+									</li>
+								
+									<li class="yuimenuitem">
+										<a class="yuimenuitemlabel" href="javascript:changeCurrency('ARS','Argentine Peso');">&nbsp;Argentine Peso&nbsp;(ARS)</a>
+									</li>
+								
+									<li class="yuimenuitem">
+										<a class="yuimenuitemlabel" href="javascript:changeCurrency('BRL','Brazilian Real');">&nbsp;Brazilian Real&nbsp;(BRL)</a>
+									</li>
+								
+									<li class="yuimenuitem">
+										<a class="yuimenuitemlabel" href="javascript:changeCurrency('BRL','Brazilian Real');">&nbsp;Brazilian Real&nbsp;(BRL)</a>
+									</li>
+								
+									<li class="yuimenuitem">
+										<a class="yuimenuitemlabel" href="javascript:changeCurrency('CAD','Canadian Dollar');">&nbsp;Canadian Dollar&nbsp;(CAD)</a>
+									</li>
+								
+									<li class="yuimenuitem">
+										<a class="yuimenuitemlabel" href="javascript:changeCurrency('CAD','Canadian Dollar');">&nbsp;Canadian Dollar&nbsp;(CAD)</a>
+									</li>
+								
+									<li class="yuimenuitem">
+										<a class="yuimenuitemlabel" href="javascript:changeCurrency('GBP','British Pound');">&nbsp;British Pound&nbsp;(GBP)</a>
+									</li>
+								
+									<li class="yuimenuitem">
+										<a class="yuimenuitemlabel" href="javascript:changeCurrency('GBP','British Pound');">&nbsp;British Pound&nbsp;(GBP)</a>
+									</li>
+								
+									<li class="yuimenuitem">
+										<a class="yuimenuitemlabel" href="javascript:changeCurrency('HKD','Hong Kong Dollar');">&nbsp;Hong Kong Dollar&nbsp;(HKD)</a>
+									</li>
+								
+									<li class="yuimenuitem">
+										<a class="yuimenuitemlabel" href="javascript:changeCurrency('HKD','Hong Kong Dollar');">&nbsp;Hong Kong Dollar&nbsp;(HKD)</a>
+									</li>
+								
+									<li class="yuimenuitem">
+										<a class="yuimenuitemlabel" href="javascript:changeCurrency('SGD','Singapore Dollar');">&nbsp;Singapore Dollar&nbsp;(SGD)</a>
+									</li>
+								
+									<li class="yuimenuitem">
+										<a class="yuimenuitemlabel" href="javascript:changeCurrency('SGD','Singapore Dollar');">&nbsp;Singapore Dollar&nbsp;(SGD)</a>
+									</li>
+								
+									<li class="yuimenuitem">
+										<a class="yuimenuitemlabel" href="javascript:changeCurrency('TWD','Taiwan Dollar');">&nbsp;Taiwan Dollar&nbsp;(TWD)</a>
+									</li>
+								
+									<li class="yuimenuitem">
+										<a class="yuimenuitemlabel" href="javascript:changeCurrency('TWD','Taiwan Dollar');">&nbsp;Taiwan Dollar&nbsp;(TWD)</a>
+									</li>
+								
+									<li class="yuimenuitem">
+										<a class="yuimenuitemlabel" href="javascript:changeCurrency('USD','US Dollar');">&nbsp;US Dollar&nbsp;(USD)</a>
+									</li>
+								
+									<li class="yuimenuitem">
+										<a class="yuimenuitemlabel" href="javascript:changeCurrency('USD','US Dollar');">&nbsp;US Dollar&nbsp;(USD)</a>
+									</li>
+								
+									<li class="yuimenuitem">
+										<a class="yuimenuitemlabel" href="javascript:changeCurrency('CHF','Swiss Franc');">&nbsp;Swiss Franc&nbsp;(CHF)</a>
+									</li>
+								
+									<li class="yuimenuitem">
+										<a class="yuimenuitemlabel" href="javascript:changeCurrency('CHF','Swiss Franc');">&nbsp;Swiss Franc&nbsp;(CHF)</a>
+									</li>
+								
+									<li class="yuimenuitem">
+										<a class="yuimenuitemlabel" href="javascript:changeCurrency('CNY','Chinese Yuan Renminbi');">&nbsp;Chinese Yuan Renminbi&nbsp;(CNY)</a>
+									</li>
+								
+									<li class="yuimenuitem">
+										<a class="yuimenuitemlabel" href="javascript:changeCurrency('ARS','Argentine Peso');">&nbsp;Argentine Peso&nbsp;(ARS)</a>
+									</li>
+								
+									<li class="yuimenuitem">
+										<a class="yuimenuitemlabel" href="javascript:changeCurrency('BRL','Brazilian Real');">&nbsp;Brazilian Real&nbsp;(BRL)</a>
+									</li>
+								
+									<li class="yuimenuitem">
+										<a class="yuimenuitemlabel" href="javascript:changeCurrency('CAD','Canadian Dollar');">&nbsp;Canadian Dollar&nbsp;(CAD)</a>
+									</li>
+								
+									<li class="yuimenuitem">
+										<a class="yuimenuitemlabel" href="javascript:changeCurrency('GBP','British Pound');">&nbsp;British Pound&nbsp;(GBP)</a>
+									</li>
+								
+									<li class="yuimenuitem">
+										<a class="yuimenuitemlabel" href="javascript:changeCurrency('HKD','Hong Kong Dollar');">&nbsp;Hong Kong Dollar&nbsp;(HKD)</a>
+									</li>
+								
+									<li class="yuimenuitem">
+										<a class="yuimenuitemlabel" href="javascript:changeCurrency('SGD','Singapore Dollar');">&nbsp;Singapore Dollar&nbsp;(SGD)</a>
+									</li>
+								
+									<li class="yuimenuitem">
+										<a class="yuimenuitemlabel" href="javascript:changeCurrency('TWD','Taiwan Dollar');">&nbsp;Taiwan Dollar&nbsp;(TWD)</a>
+									</li>
+								
+									<li class="yuimenuitem">
+										<a class="yuimenuitemlabel" href="javascript:changeCurrency('USD','US Dollar');">&nbsp;US Dollar&nbsp;(USD)</a>
+									</li>
+								
+									<li class="yuimenuitem">
+										<a class="yuimenuitemlabel" href="javascript:changeCurrency('CHF','Swiss Franc');">&nbsp;Swiss Franc&nbsp;(CHF)</a>
+									</li>
+								
+									<li class="yuimenuitem">
+										<a class="yuimenuitemlabel" href="javascript:changeCurrency('EUR','Euro');">&nbsp;Euro&nbsp;(EUR)</a>
+									</li>
+								
+									<li class="yuimenuitem">
+										<a class="yuimenuitemlabel" href="javascript:changeCurrency('MXN','Mexican Peso');">&nbsp;Mexican Peso&nbsp;(MXN)</a>
+									</li>
+								
+									<li class="yuimenuitem">
+										<a class="yuimenuitemlabel" href="javascript:changeCurrency('EUR','Euro');">&nbsp;Euro&nbsp;(EUR)</a>
+									</li>
+								
+									<li class="yuimenuitem">
+										<a class="yuimenuitemlabel" href="javascript:changeCurrency('MXN','Mexican Peso');">&nbsp;Mexican Peso&nbsp;(MXN)</a>
+									</li>
+								
+									<li class="yuimenuitem">
+										<a class="yuimenuitemlabel" href="javascript:changeCurrency('EUR','Euro');">&nbsp;Euro&nbsp;(EUR)</a>
+									</li>
+								
+									<li class="yuimenuitem">
+										<a class="yuimenuitemlabel" href="javascript:changeCurrency('MXN','Mexican Peso');">&nbsp;Mexican Peso&nbsp;(MXN)</a>
+									</li>
+								
+							</ul>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>	
+</td>
+
+	<td style="width:320px;vertical-align:top;padding:3px 0px 4px 40px;white-space:nowrap;">
+		<!-- Organization Id (JSTL): parentOrg = -2000 -->
+		<!-- User not logged in, show the login link.  userType = G -->
+			<a href="javascript:void(0)" onclick="javascript:toggleLogin('on');" style="text-decoration:none;"><span class="headerText">Login/Register</span></a>
+			
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="/store/em/OrderItemDisplay?langId=-1&storeId=500201&catalogId=500201" style="text-decoration:none;"><span style="vertical-align:bottom"><img src="/wcsstore/emstore/images/header/white_cart.gif" border="0"></span><span class="headerText">&nbsp;&nbsp;Shopping Cart</span></a>	
+	</td>
+	<td style="margin:0px;background-color:#5d5b5c;border-top:solid 1px #000000;border-bottom:solid 1px #000000;padding:0px;"><img src="/wcsstore/emstore/images/header/spacer.gif" height="23" border="0"></td>	
+</tr>
+<tr>
+	<td colspan="4" style="width:650px;vertical-align:top;"><img src="/wcsstore/emstore/images/header/spacer.gif" width="650" border="0" height="50"></td>
+	<td style="width:320px;padding:0px 0px 0px 35px;">
+		<!-- User logged in, show welcome message and name -->
+	</td>
+	<td>&nbsp;</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0" style="width:100%;background:url(/wcsstore/emstore/images/header/bg-topheader-tabs.jpg) repeat-y;">
+<tr>
+	<!-- top tabs -->
+    <td style="vertical-align:bottom;width:800px;">
+    <!-- Changes to change Technologies to Design tab. Alt attribute has been changed from Products to Preview --><!-- 10/01/09 marcel - changed tabs from image map to table -->	
+		<table border="0" cellspacing="0" cellpadding="0" id="homeHeaderTabs">
+			<tr>
+				<td class="homeHeaderTabOn"><a href="/store/em/EMController?langId=-1&storeId=500201&catalogId=500201&action=home" >Home</a></td>
+				<td class="homeHeaderCornerOn">&nbsp;</td>
+				<td class="homeHeaderTabOff"><a href="//www.em.avnet.com/sta/home/0,1738,RID%253D%2526CID%253D0%2526CCD%253DUSA%2526SID%253D32214%2526DID%253DDF2%2526LID%253D0%2526PVW%253D%2526PNT%253D%2526BID%253DDF2%2526CTP%253DSTA,00.html" >Design</a></td>
+				<td class="homeHeaderCornerOff">&nbsp;</td>
+				<td class="homeHeaderTabOff"><a href="//www.em.avnet.com/sta/home/0,1738,RID%253D%2526CID%253D0%2526CCD%253DUSA%2526SID%253D32215%2526DID%253DDF2%2526LID%253D0%2526PVW%253D%2526PNT%253D%2526BID%253DDF2%2526CTP%253DSTA,00.html" >Services</a></td>
+				<td class="homeHeaderCornerOff">&nbsp;</td>
+				<td class="homeHeaderTabOff"><a href="//www.em.avnet.com/sts/home/0,2309,RID%253D%2526CID%253D0%2526CCD%253DUSA%2526SID%253D32213%2526DID%253DDF2%2526LID%253D0%2526PVW%253D%2526PNT%253D%2526BID%253DDF2%2526CTP%253DSTS,00.html" >My Account</a></td>
+				<td class="homeHeaderCornerOff">&nbsp;</td>
+				<td class="homeHeaderTabOff"><a href="//www.em.avnet.com/sta/home/0,1738,RID%253D%2526CID%253D0%2526CCD%253DUSA%2526SID%253D32216%2526DID%253DDF2%2526LID%253D0%2526PVW%253D%2526PNT%253D%2526BID%253DDF2%2526CTP%253DSTA,00.html" >About Avnet</a></td>
+				<td class="homeHeaderCornerOff">&nbsp;</td>
+			</tr>
+		</table>
+	</td>
+	<!-- top search box -->
+	<td style="text-align:left;padding:4px 0px 4px 0px;white-space:nowrap;">
+	<!--Defect #973 -->
+			<form name="topSearchForm"  method="get" style="margin:0px;white-space:nowrap;"  onSubmit="return validateSearchForm(this)">
+				
+				<input type="hidden" name="langId" value="-1" />
+				<input type="hidden" name="storeId" value="500201" />
+				<input type="hidden" name="catalogId" value="500201" />
+			<div style="display:inline;background:#EBECED;color:#000000;border:1px solid #990000;height:22px;padding:3px;">&nbsp;<strong>Search</strong>&nbsp;&nbsp;<input type="text" name="term" id="term" value="Keyword or part number" size="25" class="sku" style="font-family:Arial,Helvetica,sans-serif;" onfocus="javascript:select();" />&nbsp;
+			<input type="image" src="/wcsstore/emstore/images/button-search.gif" height="14" alt="" border="0" style="cursor:pointer;" />&nbsp;</div>
+			</form>
+		
+	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0" style="width:100%;">
+<tr>
+	<!-- subnavigation links begin -->
+	<td colspan="3" class="headerLink" style="background:url(/wcsstore/emstore/images/header/bg-midtopheader.gif);vertical-align:top;white-space:nowrap;">
+		<img src="/wcsstore/emstore/images/header/spacer.gif" height="18" width="4" />&nbsp;
+		<a href="/store/em/OrderStatus?langId=-1&storeId=500201&catalogId=500201" style="zoom:100%;">Order Status</a>
+		<span style="padding:0 15px 0 15px;zoom:100%;">|</span><a href="/store/em/OrderItemDisplay?langId=-1&storeId=500201&catalogId=500201" style="zoom:100%;">Shopping Cart</a>
+		<span style="padding:0 15px 0 15px;zoom:100%;">|</span><a href="/store/em/RequisitionListDisplay?langId=-1&storeId=500201&catalogId=500201" style="zoom:100%;">Build a BOM</a>
+		<span style="padding:0 15px 0 15px;zoom:100%;">|</span><a href="/store/em/RequestForQuote?langId=-1&storeId=500201&catalogId=500201" style="zoom:100%;">Request for Quote</a>
+		<span style="padding:0 15px 0 15px;zoom:100%;">|</span><a href="/store/em/OnlineHelpView?langId=-1&storeId=500201&catalogId=500201" style="zoom:100%;">Online Help</a>
+		<!-- 08/06/2009 marcel - added excess inventory link -->
+		<span style="padding:0 15px 0 15px;zoom:100%;">|</span><a href="/store/em/store/em/EMController?langId=-1&storeId=500201&catalogId=500201&N=0&action=excess_inventory&Nn=50" style="zoom:100%;">Excess Inventory</a>         
+	             
+	</td>
+	<!-- subnavigation links end -->
+</tr>
+<tr> 
+    <td colspan="3" class="headerLink" style="background:#CC3637;"><img src="/wcsstore/emstore/images/header/spacer.gif" height="3" width="1" /></td>
+</tr>
+<tr> 
+    <td colspan="3" style="background:#000000;"><img src="/wcsstore/emstore/images/header/spacer.gif" height="1" width="1" /></td>
+</tr>
+</table>
+<!-- Added by Satheesh - Endeca shopping cart Merge Enhancement Defect Id 242 Start -->
+<input type="hidden" id="isMerged" name="isMerged" value=""/>
+<!-- Added by Satheesh - Endeca shopping cart Merge Enhancement Defect Id 242 End --><!-- End of header -->
+
+<script language="javascript">
+	s.evar21='';
+</script>
+
+
+<script>
+
+var xposition=0;
+var yposition;
+
+function scrollToC() { 
+	window.scrollTo(xposition,null); 
+}
+
+function saveScrollC(urlString) {
+	yposition = 0;	
+    if (window.pageYOffset){
+        yposition = window.pageYOffset;
+    }
+	if( document.body && ( document.body.scrollLeft || document.body.scrollTop ) ) {
+	    //DOM compliant
+	    yposition = document.body.scrollTop;
+  	}
+  	if( document.documentElement && ( document.documentElement.scrollLeft || document.documentElement.scrollTop ) ) {
+	    //IE6 standards compliant mode
+	    yposition = document.documentElement.scrollTop;
+  	}
+
+    document.location.href = urlString+'&yposition='+yposition;
+}
+
+// these functions are special in that they call the request object, so they must be declared within a jsp page.
+
+/*** Search functions ***/
+function submitTopSearch(){
+	//form validation goes here
+	if (validateTerm('term')==true){
+		document.topSearchForm.submit();
+	}
+}
+
+function submitSearchSimilar() {
+  var form = document.parameterSearch;
+  // set N value
+  var Nvals = '';
+  var numchecked = 0;
+  var catId = document.getElementById('category').value;
+  
+  for(var i = 0; i < form.length; i++) {
+
+	var element = form.elements[i];
+
+		if (element.checked && numchecked > 0){
+			//alert("element is checked" + element.value);
+			Nvals = Nvals + '+' + element.value;
+			//alert("nvals " + Nvals);
+		}
+		else if (element.checked && numchecked == 0){
+			Nvals = element.value ;
+			numchecked = 1;
+		}
+  }
+  if(numchecked == 0){
+    alert("Please select at least one parametric value to search on and submit your request again");
+    return false;
+  }
+  document.location = '/store/em/EMController/Memory/Memory-Module/_/N-100181/_/N-'+ Nvals +'?action=products&catalogId=500201&storeId=500201&langId=-1';
+}
+/*
+ * These "insert" methods are used when the query string is built by the submission of a
+ * form, and state is maintained by inserting the parameters into form fields
+ */
+function insertFilterElements(form) {
+  var inStock = 'null';
+  var rohs = 'null';
+  var proto = 'null';
+  var cutTape = 'null';
+  var topSellers = 'null';
+
+  if (inStock != 'null') {
+    insertElement(form, 'inStock', inStock);
+  }
+  if (rohs != 'null') {
+    insertElement(form, 'rohs', rohs);
+  }
+  if (proto != 'null') {
+    insertElement(form, 'proto', proto);
+  }
+  if (cutTape != 'null') {
+    insertElement(form, 'cutTape', cutTape);
+  }
+  if (topSellers != 'null') {
+    insertElement(form, 'topSellers', topSellers);
+  }
+}
+function insertCatElement(form) {
+  var cat = 'null';
+  if (cat != 'null') {
+    insertElement(form, 'cat', cat);
+  }
+}
+function insertTermElement(form) {
+  //jhelper.getParameter("term")
+  var term = 'null';
+  if (term != 'null') {
+  	/**
+  	 * defect_id: 1597 update by 907729(nick_liu) on 12/27/2009 for release 2010_01_09
+  	 * reason: The search term isn't been encoded after it submitted to next page. 
+  	 *		Without encoded, after invokes getParamter(in QueryStringUtil.java line =15), 
+  	 *		the method return "" to RequestRender, and RequestRender will remove "term" in requestUrlState. 
+  	 *		So there is no search term in next page, and the search results page doesn't display.
+  	 */
+    //insertElement(form, 'term', term);
+    insertElement(form, 'term', (urlencode(transformTerm(term))).replaceAll("%20","+"));
+  }
+}
+function insertNumPerPageElements(form) {
+  var nn = 'null';
+  if (nn != 'null') {
+  	insertElement(form, 'Nn', nn);
+  }
+  var nan = 'null';
+  if (nan != 'null') {
+    insertElement(form, 'Nan', nan);
+  }
+}
+function insertElement(form, name, value) {
+	// insert elements before N parameter
+	var element = document.createElement('input');
+	element.type = 'hidden';
+	element.name = name;
+	element.value = value;
+  form.N.parentNode.insertBefore(element, form.N);
+}
+
+/*** Compare List functionality: begin ***/
+var activeTableIDs = new Array();
+var MAX_COMPARE_LIST_SIZE = 10;
+
+function addActiveTableID(tableID)
+{
+   activeTableIDs[activeTableIDs.length] = tableID;
+}
+
+function clearCompareList()
+{
+   //Remove all items from the compare list
+   saveCompareListAsCookie(new Array());
+}
+
+function removeItemFromCompareList(item)
+{
+   var itemRemoved = false;
+
+   //Get the compare list value from the cookie
+   var avnetCompareList = getCompareListFromCookie();
+   
+   //Remove the item from the compare list
+   for (i = 0; i < avnetCompareList.length; i++)
+   {
+      if (avnetCompareList[i] == item)
+      {
+		 avnetCompareList.splice(i,1);
+         itemRemoved = true;
+         break;
+      }
+   }
+   
+   //Store the compare list in the cookie if the item was removed
+   if (itemRemoved)
+   {
+      saveCompareListAsCookie(avnetCompareList);
+   }
+}
+
+function addSelectedToCompareList()
+{
+   var selectedItems = new Array();
+   var numSelected = 0;
+
+   //Iterate over each result table and process any selected items
+   for (tid = 0; tid < activeTableIDs.length; tid++)
+   {
+      for (i = 0; document.getElementById(activeTableIDs[tid] + '_catEntryId_' + i); i++)
+      {
+         var checkbox = document.getElementById(activeTableIDs[tid] + '_catEntryId_' + i);
+         if (checkbox.checked)
+         {
+            //Add value to the selectedItems array
+            selectedItems[numSelected] = checkbox.value;
+            numSelected++;
+         }
+      }
+   }
+        
+   //Verify that at least one item was selected
+   if (numSelected == 0)
+   {
+      alert("Please select one or more items to add to the compare list.");
+      return;
+   }
+
+   //Add the selected items to the compare list
+   appendItemsToCompareList(selectedItems);
+   
+   // 04/13/09 marcel - new omniture code
+   seteVar1(this,'avnelectronicsmarketing','addToComparePage');
+      
+   //Show the compare page
+   openComparePage();
+}
+
+function appendItemsToCompareList(newItems)
+{
+   //Get the compare list value from the cookie
+   var avnetCompareList = getCompareListFromCookie();
+
+   //Add the selected items to the compare list (ignoring duplicates)
+   for (i = 0; i < newItems.length; i++)
+   {
+      var isDuplicate = false;
+        
+      //Check for duplicate items
+      for (x = 0; x < avnetCompareList.length; x++)
+      {
+         if (avnetCompareList[x] == newItems[i])
+         {
+            isDuplicate = true;
+            break;
+         }
+      }
+           
+      //Add the item to the compare list
+      if (!isDuplicate)
+      {
+         avnetCompareList[avnetCompareList.length] = newItems[i];
+      }
+   }
+
+   //Store the compare list in the avnetCompareList cookie (up to the maximum allowed)
+   saveCompareListAsCookie(avnetCompareList);
+        
+   //Alert the user about any parts that cannot be added to the compare list
+   if (avnetCompareList.length > MAX_COMPARE_LIST_SIZE)
+   {
+      var excludedParts = "";
+      for (i = MAX_COMPARE_LIST_SIZE; i < avnetCompareList.length; i++)
+      {
+         (excludedParts.length == 0)? excludedParts += avnetCompareList[i] : excludedParts += ", " + avnetCompareList[i];
+      }
+      
+      alert("A maximum of" + MAX_COMPARE_LIST_SIZE + " " + "parts can be compared at one time. Please remove parts from the compare list and try your request again.");
+      
+   }
+}
+
+function getCompareListFromCookie()
+{
+   var avnetCompareList = getCookie("avnetCompareList");
+   if (avnetCompareList.length == 0)
+   {
+      avnetCompareList = new Array();
+   }
+   else
+   {
+      avnetCompareList = avnetCompareList.split("+");
+   }
+   
+   return avnetCompareList;
+}
+
+function saveCompareListAsCookie(compareList)
+{
+   //Store the compare list in the avnetCompareList cookie (up to the maximum allowed)
+   var cookieValue = getDelimitedCookieValue(compareList);
+   document.cookie = "avnetCompareList=" + escape(cookieValue) + "; domain=avnet.com; path=/";
+}
+
+function getDelimitedCookieValue(compareList)
+{
+   var cookieValue = "";
+   var maxItems = (compareList.length > MAX_COMPARE_LIST_SIZE)? MAX_COMPARE_LIST_SIZE : compareList.length;
+   for (i = 0; i < maxItems; i++)
+   {
+      if (compareList[i].length > 0)
+      {
+         (cookieValue.length == 0)? cookieValue = compareList[i] : cookieValue += ("+" + compareList[i]);
+      }
+   }
+   
+   return cookieValue;
+}
+
+/**
+ *  Opens the product compare page using the items stored in the cookie
+ *
+ */
+function openComparePage()
+{
+   var compareList = getCompareListFromCookie();
+   var navparam = "";
+
+   //this code adds an N value to be passed to compare.jsp
+   //the N value doesn't affect the record set on compare page
+   //but is used to maintain state. this allows the product link on the breadcrumb
+   //to work;
+   document.location = '/store/em/EMController/Memory/Memory-Module/_/N-100181?action=compare&R=' + getDelimitedCookieValue(compareList) + '&N=0&catalogId=500201&storeId=500201&langId=-1';
+}
+function getCompareLink(){
+	var compareLink = null;
+	var compareList = getCompareListFromCookie();
+	if(compareList.length > 0){
+		var navparam = "";
+	   //this code adds an N value to be passed to compare.jsp
+	   //the N value doesn't affect the record set on compare page
+	   //but is used to maintain state. this allows the product link on the breadcrumb
+	   //to work;
+	   compareLink = '/store/em/EMController/Memory/Memory-Module/_/N-100181?action=compare&R=' + getDelimitedCookieValue(compareList) + '&N=0&catalogId=500201&storeId=500201&langId=-1';
+	}
+	return compareLink;
+}
+/*** Compare List functionality: end ***/
+
+
+   /*** Functions for Add to cart: begin ***/
+   function isValidBuyQuantity(buyqty, min, mult)
+   {
+      //  A legal buy quantity satisfies this formula:
+      //  Qty = Min + (X * Mult), where X is an integer.
+      //  Solve for X, you have: (Qty - Min)/MULT = integer - meaning - no remainder.
+      //  ==============================================================================
+      //  Fixed bug 6705 - buy qty must be >= minumum buy - duh! Before, we just checked
+      //  that buy qty was > 0.
+      var diff = (buyqty - min);
+      var OK = ( diff >= 0 && ( 0 == ( diff % mult ) ) );
+      return OK;
+   }
+
+   function addItemToShoppingCartOrBOM(addToCart, sku, qty, min, mult, sMin, sMult, qas, pNumber, manufacturer, exInvFlag)
+   {
+      //Get the single item form
+      var singleItemForm = document.getElementById("SingleOrderItemAddForm");
+      if (singleItemForm != null)
+      {
+         //min
+         var singleItemMin = document.getElementById("singleOrderItem_min");
+         if (singleItemMin != null)
+         {
+            singleItemMin.value = min;
+         }
+
+         //mult
+         var singleItemMult = document.getElementById("singleOrderItem_mult");
+         if (singleItemMult != null)
+         {
+            singleItemMult.value = mult;
+         }
+
+         //pNumber
+         var singleItemPNumber = document.getElementById("singleOrderItem_pNumber");
+         if (singleItemPNumber != null)
+         {
+            singleItemPNumber.value = pNumber;
+         }
+
+		 if( sMin != null ) {
+		 
+			 //specMin
+	         var singleItemSpecMin = document.getElementById("singleOrderItem_sMin");
+	         if (singleItemSpecMin != null)
+	         {
+	            singleItemSpecMin.value = sMin;
+	         }
+	
+	         //specMult
+	         var singleItemSpecMult = document.getElementById("singleOrderItem_sMult");
+	         if (singleItemSpecMult != null)
+	         {
+	            singleItemSpecMult.value = sMult;
+	         }
+	
+	         //specQAS
+	         var singleItemQAS = document.getElementById("singleOrderItem_qas");
+	         if (singleItemQAS != null)
+	         {
+	            singleItemQAS.value = qas;
+	         }
+         }
+         
+         //catEntryId
+         var singleItemCatEntryId = document.getElementById("singleOrderItem_catEntryId");
+         if (singleItemCatEntryId != null)
+         {
+            singleItemCatEntryId.value = sku;
+         }
+
+         //quantity
+         var singleItemQuantity = document.getElementById("singleOrderItem_quantity");
+         if (singleItemQuantity != null)
+         {
+            singleItemQuantity.value = qty;
+         }
+
+         //*** Validate quantities: begin ***
+         // 08/10/2009 marcel - added excess inventory validation
+         var errorMessage = "";
+         if (exInvFlag == "Yes") {
+       		if ( qty > qas ) {
+ 				errorMessage += "Part Number: " + singleItemPNumber.value + ". " + "Discount pricing is limited to stock. Please reduce your Buy Qty amount. For additional quantities, select the Request for Quote link located in the header at the top of the page. " + "\n\n";
+    			alert(errorMessage);
+            	return;
+    		}
+    	 }		
+         
+         if (!isValidBuyQuantity(singleItemQuantity.value, singleItemMin.value, singleItemMult.value))
+	 	 {
+            if( sMin == null ) {
+            	
+            	errorMessage = "Part Number: " + singleItemPNumber.value + ", the quantity, " + qty + " is not valid. The minimum purchase quantity starts at " + singleItemMin.value + ", and should increase in increments of " + singleItemMult.value + ".\n\n";
+            	errorMessage += "Need more help? Click the '?' in the Buy Qty column.\n\n";
+            } else if (! isValidSpecialBuyQuantity(singleItemQuantity.value, singleItemMin.value, singleItemMult.value, singleItemSpecMin.value, singleItemSpecMult.value, singleItemQAS.value ) ) {
+            	
+            	errorMessage = "Part Number: " + singleItemPNumber.value + ", the quantity, " + qty + " is not valid.  You can order up to " + singleItemQAS.value + ", in min: " + singleItemMin.value + ", mult: " + singleItemMult.value + ", otherwise the minimum purchase quantity starts at " + singleItemMin.value + ", and should increase in increments of " + singleItemMult.value + ".\n\n";
+            	//msg += "Part Number: " + document.getElementById(resultsTableID + "_pNumber_" + i).value + ", the quantity, " + quantityField.value + " is not valid.  You can order up to " + qasField.value + ", in min: " + specMinField.value + ", mult: " + specMultField.value + ", otherwise the minimum purchase quantity starts at " + minField.value + ", and should increase in increments of " + multField.value + ".\n\n";
+         		errorMessage += "NOTE: You can take advantage of the special quantity offer by adding additional quantities to your order after the min/mult criteria are met.\n\n";
+             	errorMessage += "Need more help? Click the '?' in the Buy Qty column.\n\n";
+             }
+         }
+         if (errorMessage == "")
+         {
+            //sku
+            var singleItemSku = document.getElementById("singleOrderItem_sku");
+            if (singleItemSku != null)
+            {
+               singleItemSku.value = sku;
+            }
+
+            //qty
+            var singleItemQty = document.getElementById("singleOrderItem_qty");
+            if (singleItemQty != null)
+            {
+               singleItemQty.value = qty;
+            }
+         } else {
+         	alert(errorMessage);
+            return;
+         }       
+         //*** Validate quantities: end ***
+
+         if (addToCart)
+         {
+            //Set the cookie 
+            var reqParams = "?langId=-1&storeId=500201&catalogId=500201";
+            //var URList = "&URL='/store/EMController?action=home&amp;hwPrefPart=&amp;storeId=500201&langId=-1&amp;sel=C&amp;cat=1&amp;proto=&amp;hwPrefSup=&amp;action=products&catalogId=500201&amp;langId=-1&amp;inStock=&amp;rohs=&amp;cutTape=&amp;topSellers=&storeId=500201&Ns=Price|0&amp;catalogId=500201'";
+            var URList = "&URL=/store/em/OrderItemDisplay?orderId=*&orderItemId*=&quantity*=&sku*=&min*=&mult*=&pNumber*=&qty*=";
+            var catEntriesAndQuantities = "&catEntryId_0=" + sku + "&quantity_0=" + qty;
+            reqParams += catEntriesAndQuantities;
+            reqParams += URList;
+            var redirectURL = "langId=-1&storeId=500201&catalogId=500201" + "&URL=CatalogItemAdd" + escape(reqParams);
+            document.cookie="WCS.redirectURL=" + redirectURL +"; path=/";
+            //singleItemForm.URL.value = "EMController?action=home&amp;hwPrefPart=&amp;storeId=500201&langId=-1&amp;sel=C&amp;cat=1&amp;proto=&amp;hwPrefSup=&amp;action=products&catalogId=500201&amp;langId=-1&amp;inStock=&amp;rohs=&amp;cutTape=&amp;topSellers=&storeId=500201&Ns=Price|0&amp;catalogId=500201";
+            
+            // Omniture SiteCatalyst variables for adding to cart
+			setEvents(this,'avnelectronicsmarketing','addToShoppingCart','scAdd');
+			// End of Omniture SiteCatalyst variables
+			// 04/13/09 marcel - new omniture code
+       		seteVar1(this,'avnelectronicsmarketing','addToShoppingCart');
+         }
+         else if (false)
+         {
+             //Add to Working BOM
+	         var singleItemManufacturer = document.getElementById("singleOrderItem_manufacturer");
+	         if (singleItemManufacturer != null)
+	         {
+	            singleItemManufacturer.value = manufacturer;
+	         }
+         
+			singleItemForm.target="_self"; 
+	  		singleItemForm.action = "/store/em/ViewUpdateWorkingBOMCmd?action=products&bomUpdate=true&listIndex=-1&langId=-1&storeId=500201&catalogId=500201";
+	   		
+	  		singleItemForm.URL.value = '/store/em/ViewUpdateWorkingBOMCmd?action=products&bomUpdate=true&storeId=500201&langId=-1&catalogId=500201&listIndex=-1';
+	        // 04/13/09 marcel - new omniture code
+	    	seteVar1(this,'avnelectronicsmarketing','addToWorkingBOM');
+	        //document.location.href = "/store/em/ViewUpdateWorkingBOMCmd?action=products&bomUpdate=true&listIndex=-1&storeId=500201&catalogId=500201";         
+         }
+         else 
+         {
+            //Add to BOM
+            singleItemForm.target="_self";
+            var skus = "&sku=" + sku + "&qty=" + qty + "&partNumber=" + "&quantity=";
+            //singleItemForm.action = "/store/em/RequisitionListDisplay";
+            //singleItemForm.URL.value = "/store/em/RequisitionListDisplay?storeId=500201&catalogId=500201" + skus + "&qasFilter=FALSE";
+            singleItemForm.action ="/store/em/emstore/StoreBOMItemsToSession.jsp";	
+  			singleItemForm.URL.value = '/store/em/RequisitionListDisplay?storeId=500201&langId=-1&catalogId=500201'+skus+'&qasFilter=FALSE';
+ 			// Omniture SiteCatalyst variables for adding to cart
+			setEvents(this,'avnelectronicsmarketing','addToBom','event13');		
+			// End of Omniture SiteCatalyst variables
+			// 04/13/09 marcel - new omniture code
+    		seteVar1(this,'avnelectronicsmarketing','addToBOM');
+         }
+
+         //Submit the single item form
+         singleItemForm.submit();
+      }
+   }
+   /*** Functions for Add to cart: end ***/
+   
+//============== BOM Upload Scripts - Start =============	
+
+	function backToWorkingBOM(form) {
+		
+		form.target="_self";
+  		form.action = "/store/em/BomUploadControllerCmd?storeId=500201&langId=-1&catalogId=500201&action=WorkingBOM";
+  		form.URL.value = '/store/em/BomUploadControllerCmd?storeId=500201&langId=-1&catalogId=500201&action=WorkingBOM';
+  		// 04/13/09 marcel - new omniture code
+    	seteVar1(this,'avnelectronicsmarketing','backToWorkingBOM');
+  		document.location.href = "/store/em/BomUploadControllerCmd?storeId=500201&langId=-1&catalogId=500201&action=WorkingBOM&yposition=null";
+	}	
+	
+//============== BOM Upload Scripts - End =============	
+	
+   
+   //*** Cookie function(s): begin ***
+   function getCookie(name)
+   {
+      if (document.cookie.length > 0)
+      {
+         var start = document.cookie.indexOf(name + "=");
+         if (start != -1)
+         { 
+            start = start + name.length + 1; 
+            var end = document.cookie.indexOf(";", start);
+            if (end == -1)
+            {
+               end = document.cookie.length;
+            }
+            return unescape(document.cookie.substring(start, end));
+         }
+      }
+      return "";
+   }
+   //*** Cookie function(s): end ***
+</script>
+<!-- 04/10/09 marcel - new omniture code -->
+<script language="javascript">
+	function seteVar1(obj, suiteId, action) {
+		var s=s_gi(suiteId);
+		s.trackingServer="smetrics.avnet.com";
+		s.linkTrackVars='eVar1'; 
+		s.linkTrackEvents="event1";
+		s.eVar1 = action;
+		s.tl(obj,'o',action);	
+	}
+	function seteVar8(obj, suiteId, action) {
+		var s=s_gi(suiteId);
+		s.trackingServer="smetrics.avnet.com";
+		s.linkTrackVars='eVar8'; 
+		s.linkTrackEvents="event1";
+		s.eVar8 = action;
+		s.tl(obj,'o',action);	
+	}
+	function setEvents(obj, suiteId, action, events) {
+		var s=s_gi(suiteId);
+		s.trackingServer="smetrics.avnet.com";
+		s.linkTrackVars='events'; 
+		s.linkTrackEvents=events;
+		s.events = events;
+		s.tl(obj,'o',action);	
+	}
+</script>
+<script>
+/* 
+author: Rob Eberhardt
+desc: fix MinWidth for IE6 & IE7
+params: none
+returns: nothing
+notes: cannot yet fix childless elements like INPUT or SELECT
+history:
+   2006-11-20 revised for standards-mode compatibility
+   2006-11-17 first version
+*/
+function fixMinWidthForIE(){
+   try{
+      if(!document.body.currentStyle){return} //IE only
+   }catch(e){return}
+   var elems=document.getElementsByTagName("*");
+   for(e=0; e<elems.length; e++){
+      var eCurStyle = elems[e].currentStyle;
+      var l_minWidth = (eCurStyle.minWidth) ? eCurStyle.minWidth : eCurStyle.getAttribute("min-width"); //IE7 : IE6
+      if(l_minWidth && l_minWidth != 'auto'){
+         var shim = document.createElement("DIV");
+         shim.style.cssText = 'margin:0 !important; padding:0 !important; border:0 !important; line-height:0 !important; height:0 !important; background:white;';
+         shim.style.width = l_minWidth;
+         shim.appendChild(document.createElement("&nbsp;"));
+         if(elems[e].canHaveChildren){
+            elems[e].appendChild(shim);
+         }else{
+            //??
+         }
+      }
+   }
+}
+
+/*
+	replaceAll prototype for javascript strings
+*/
+
+// Replaces all instances of the given substring.
+String.prototype.replaceAll = function( 
+strTarget, // The substring you want to replace
+strSubString // The string you want to replace in.
+){
+var strText = this;
+var intIndexOfMatch = strText.indexOf( strTarget );
+ 
+
+// Keep looping while an instance of the target string
+// still exists in the string.
+while (intIndexOfMatch != -1){
+// Relace out the current instance.
+strText = strText.replace( strTarget, strSubString )
+ 
+
+// Get the index of any next matching substring.
+intIndexOfMatch = strText.indexOf( strTarget );
+}
+ 
+
+// Return the updated string with ALL the target strings
+// replaced out with the new substring.
+return( strText );
+}
+
+
+/*
+The isEmpty and isWhitespace functions were taken from Netscape's JavaScript development site, http://developer.netscape.com.
+*/
+// whitespace characters
+var whitespace = " \t\n\r";
+/****************************************************************/
+// Check whether string s is empty.
+function isEmpty(s) 
+{ 
+	return ((s == null) || (s.length == 0) || (s == "")) 
+}
+/****************************************************************/
+function isWhitespace(s)
+{
+	var i;
+	// Is s empty?
+	if (isEmpty(s)) return true;
+	// Search through string's characters one by one
+	// until we find a non-whitespace character.
+	// When we do, return false; if we don't, return true.
+	for (i = 0; i < s.length; i++)
+	{
+		// Check that current character isn't whitespace.
+		var c = s.charAt(i);
+ 		if (whitespace.indexOf(c) == -1) return false;
+	}
+	// All characters are whitespace.
+	return true;
+}
+
+
+var hidden_rows = new Array();
+var selected_rows = new Array();
+var no_qas_rows = new Array();
+var all_rows = new Array();
+
+function toggleFilter(num, level)
+{
+  var theFilter = document.getElementById("filterContent"+num);
+	var theImage = document.getElementById("filterImg"+num);
+	if(theFilter.style.display == "none"){
+		theFilter.style.display = "";
+		if(level < 2){
+			theImage.src = "/wcsstore/emstore/images/prodnav-minus-sm.gif";
+		} else {
+			theImage.src = "/wcsstore/emstore/images/prodnav-redarrowdown.gif";
+		}
+		theImage.title = "Click to contract";
+	} else {
+		theFilter.style.display = "none";
+		if(level < 2){
+			theImage.src = "/wcsstore/emstore/images/prodnav-plus-sm.gif";
+		} else {
+			theImage.src = "/wcsstore/emstore/images/prodnav-redarrowup.gif";
+		}
+		theImage.title = "Click to expand";
+	}
+}
+function returnBreakupLongText(theText, max)
+{
+	var newText = "";
+	var theChar = "";
+	if(theText.length > max)
+	{
+		var multiple = Math.round(theText.length/max);
+		var mCount = 1;
+		
+		for (x=0; x<theText.length; x++)
+		{
+			theChar = theText.charAt(x);
+			if((x == max*mCount - 1) && theChar != " "){
+				newText += " ";
+				newText += theChar;
+				if(mCount < multiple){
+					mCount = mCount+1;
+				}
+			}else{
+				newText += theChar;
+			}
+		}
+	theText = newText;
+	}
+	return theText;
+}
+
+function breakupLongText(theText, max) {
+	document.write(returnBreakupLongText(theText,max));
+}
+
+function toggleThis(theName,theToggle,onText,offText){
+	if(document.getElementById(theName).style.display == "none"){
+		document.getElementById(theName).style.display = "";
+		document.getElementById(theToggle).innerHTML = offText;
+	}else{
+		document.getElementById(theName).style.display = "none";
+		document.getElementById(theToggle).innerHTML = onText;
+	}
+}
+
+// For tabbed information display area
+function showContent(tab) {
+	var chosenTab = document.getElementById('div_'+tab);
+	var panelObject = document.getElementById('panel');
+	var testMe = panelObject.getElementsByTagName('DIV');
+	if(testMe.length > 0)
+	{
+		for (i=0; i < testMe.length; i++) {
+			if (testMe[i].id == tab+'_tab') {
+				testMe[i].className = 'tab_on';
+			} else {
+				testMe[i].className = 'tab';
+			}
+			tmpTab = document.getElementById('div_content_'+i);
+			if(tmpTab)
+			{
+				if(tmpTab.id == chosenTab.id){
+					tmpTab.className= 'c_show';
+				}else{
+					tmpTab.className= 'c_hide';
+				}
+			}
+		}
+	}
+}
+// end showContent
+
+// For tabbed information display area
+function hideFiltersExcept(tab) {
+	var ProductTab = "Products";
+	var ManufacturersTab = "Manufacturers";
+	var ApplicationsTab = "Applications";
+
+		
+	if (tab == ProductTab){
+					collapseFilter(ManufacturersTab,1);
+					collapseFilter(ManufacturersTab + "Home",1);
+					collapseFilter(ApplicationsTab,1);
+					collapseFilter(ApplicationsTab + "Home",1);
+					expandFilter(ProductTab,1);
+					expandFilter(ProductTab + "Home",1);
+	}
+
+	else if (tab == ManufacturersTab){ 
+					collapseFilter(ProductTab,1);
+					collapseFilter(ProductTab + "Home",1);
+					collapseFilter(ApplicationsTab,1);
+					collapseFilter(ApplicationsTab + "Home",1);
+					expandFilter(ManufacturersTab,1);
+					expandFilter(ManufacturersTab + "Home",1);
+
+	}
+	else if (tab == ApplicationsTab){  
+					collapseFilter(ManufacturersTab,1);
+					collapseFilter(ManufacturersTab + "Home",1);
+					collapseFilter(ProductTab,1);
+					collapseFilter(ProductTab + "Home",1);
+					expandFilter(ApplicationsTab,1);
+					expandFilter(ApplicationsTab + "Home",1);
+	}											
+
+}
+// end HideFiltersExcept
+
+// For tabbed information display area
+function collapseFilter(num, level)
+{
+	var theFilter = document.getElementById("filterContent"+num);
+	var theImage = document.getElementById("filterImg"+num);
+	theFilter.style.display = "none";
+	if(level < 2){
+		theImage.src = "/wcsstore/emstore/images/prodnav-plus-sm.gif";
+	} else {
+		theImage.src = "/wcsstore/emstore/images/prodnav-redarrowup.gif";
+	}
+	theImage.title = "Click to expand";
+}
+//end CollapseFilter
+
+// For tabbed information display area
+function expandFilter(num, level)
+{
+	var theFilter = document.getElementById("filterContent"+num);
+	var theImage = document.getElementById("filterImg"+num);
+	theFilter.style.display = "";
+	if(level < 2){
+		theImage.src = "/wcsstore/emstore/images/prodnav-minus-sm.gif";
+	} else {
+		theImage.src = "/wcsstore/emstore/images/prodnav-redarrowdown.gif";
+	}
+	theImage.title = "Click to contract";
+	
+}
+//end expandFilter
+
+// change side filters
+function changeFilters(tabNum){
+	for (var x=0; x<2; x++){
+		var fltrDivNm = "filterDiv"+x;
+		var fltrEl = document.getElementById(fltrDivNm);
+		if(fltrEl){
+			if(x == tabNum){
+					fltrEl.className = "filterBox c_show";
+			}else{
+					fltrEl.className = "filterBox c_hide";
+			}
+		}
+	}
+}
+// hide column function using col element id -- but it doesn't work in Firefox which doesn't recognize col or colgroup
+// see the next function
+function toggleColumns(theCol){
+	if(document.getElementById(theCol).style.display == "none"){
+		document.getElementById(theCol).style.display = "";
+	}else{
+		document.getElementById(theCol).style.display = "none";
+	}
+}
+// hide column function that works in Firefox -- but there can be no nested tables in the target table
+// to do: modify this function or find/create another function that works in all cases
+function hide_column(col_no, tblName, do_show) {
+	var stl;
+	if (do_show) {
+		stl = '';
+	}else{
+		stl = 'none';
+	}
+	var tbl  = document.getElementById(tblName);
+	for (var i = 0; i < tbl.rows.length; i++) {
+		if(tbl.rows[i].cells[col_no]) {
+			tbl.rows[i].cells[col_no].style.display=stl;
+		}
+	}
+	// Janel: added to toggle the button display
+	if(tblName.indexOf("search") > -1){
+		if(document.getElementById("showColsBtn")){
+			if(document.getElementById("showColsBtn").style.display == "none"){
+				document.getElementById("showColsBtn").style.display = "";
+			}
+		}
+	}
+	if(tblName.indexOf("result") > -1){
+		var btn1 = "showHiddenCols_"+tblName+"_top";
+		if(document.getElementById(btn1)){
+			if(document.getElementById(btn1).style.display == "none"){
+				document.getElementById(btn1).style.display = "";
+			}
+		}
+		var btn2 = "showHiddenCols_"+tblName+"_bottom";
+		if(document.getElementById(btn2)){
+			if(document.getElementById(btn2).style.display == "none"){
+				document.getElementById(btn2).style.display = "";
+			}
+		}
+	}
+}
+// RF- this function  is a version of hide_column that is modified to work with both ffx and ie
+// and also works with nested tables
+ function hide_column_nested(col_no, tblName, do_show) {
+    var stl;
+    if (do_show) {
+		stl = '';
+    }else{
+	   stl = 'none';
+	}
+
+	var cels = document.getElementsByTagName('td');
+
+	for(i=0; i < cels.length; i++){ 
+		if (cels[i].id == 'columnId_' + col_no){
+		cels[i].style.display=stl;
+		}
+	}
+ }
+
+function restoreColumns(tblName,num){
+	var tbl  = document.getElementById(tblName);
+	var rows = tbl.getElementsByTagName('tr');
+	for(x = 0; x < num; x++){
+	    for (var row=0; row<rows.length;row++) {
+	      var cels = rows[row].getElementsByTagName('td');
+	      cels[x].style.display="";
+	    }
+	}
+	//Janel: added to toggle the button display
+	if(document.getElementById("showColsBtn")){
+		if(document.getElementById("showColsBtn").style.display == ""){
+			document.getElementById("showColsBtn").style.display = "none";
+		}
+	}
+}
+//tf - is there any reason the restoreColumns method shouldn't restore ALL columns?
+function restoreAllColumns(tblId) {
+	var tbl  = document.getElementById(tblId);
+	var rows = tbl.getElementsByTagName('tr');
+	for (i = 0; i < rows.length; i++) {
+		for (j = 0; j < rows[i].cells.length; j++) {
+			rows[i].cells[j].style.display="";
+		}
+	}
+	//Janel: added to toggle the button display
+	var btn1 = "showHiddenCols_"+tblId+"_top";
+	var btn2 = "showHiddenCols_"+tblId+"_bottom";
+	if(document.getElementById(btn1)){
+		if(document.getElementById(btn1).style.display == ""){
+			document.getElementById(btn1).style.display = "none";
+		}
+	}
+	if(document.getElementById(btn2)){
+		if(document.getElementById(btn2).style.display == ""){
+			document.getElementById(btn2).style.display = "none";
+		}
+	}
+}
+
+function toggleDisplay(theName,theToggle){
+	var toggleText = document.getElementById(theToggle).innerHTML;
+	if(document.getElementById(theName).style.display == "none"){
+		document.getElementById(theName).style.display = "";
+		if(toggleText.indexOf("View more")>-1){
+			document.getElementById(theToggle).innerHTML = "View less";
+		}else if(toggleText.indexOf("alternatives")>-1){
+			document.getElementById(theToggle).innerHTML = "Hide alternatives";
+		}else{
+			document.getElementById(theToggle).innerHTML = "Hide section";
+		}
+	}else{
+		document.getElementById(theName).style.display = "none";
+		if(toggleText.indexOf("View less")>-1){
+			document.getElementById(theToggle).innerHTML = "View more";
+		}else if(toggleText.indexOf("alternatives")>-1){
+			document.getElementById(theToggle).innerHTML = "View alternatives";
+		}else{
+			document.getElementById(theToggle).innerHTML = "Show section";
+		}
+	}
+}
+function goBack()
+  {
+  window.history.back()
+  }
+// hide the X in the parametric columns when the user selects an option 
+function toggleX(i){
+	if(i != "all"){
+		var theId = "clp"+i;
+		if(document.getElementById(theId)){
+			if(document.getElementById(theId).innerHTML == "X"){
+				document.getElementById(theId).innerHTML = "";
+			}
+		}
+	}else{
+		var aList = document.getElementsByTagName('a');
+		for(x=0; x < aList.length; x++){ 
+			var theId = "clp"+x;
+			var selectBoxId = "parValues"+x;
+			if(document.getElementById(theId)){
+				if(!document.getElementById(selectBoxId).disabled){
+					document.getElementById(theId).innerHTML = "X";
+				}
+			}
+		}
+	}
+}
+
+function urlencode (clearString) {
+  //	alert("New urlencode called");
+  var output = '';
+  var x = 0;
+  clearString = clearString.toString();
+  var regex = /(^[a-zA-Z0-9_.]*)/;
+  while (x < clearString.length) {
+    var match = regex.exec(clearString.substr(x));
+    if (match != null && match.length > 1 && match[1] != '') {
+    	output += match[1];
+      x += match[1].length;
+    } else {
+      if (clearString[x] == ' ')
+        output += '+';
+      else {
+        var charCode = clearString.charCodeAt(x);
+        var hexVal = charCode.toString(16);
+        output += '%' + ( hexVal.length < 2 ? '0' : '' ) + hexVal.toUpperCase();
+      }
+      x++;
+    }
+  }
+  //	alert("New urlencode returning " + output);
+  return output;
+}
+
+
+function urldecode (encodedString) {
+
+  // alert("New urldecode called");
+  var output = encodedString;
+  var binVal, thisString;
+  var myregexp = /(%[^%]{2})/;
+  while ((match = myregexp.exec(output)) != null
+             && match.length > 1
+             && match[1] != '') {
+    binVal = parseInt(match[1].substr(1),16);
+    thisString = String.fromCharCode(binVal);
+    output = output.replace(match[1], thisString);
+  }
+	// alert("New urldecode returning " + output);
+
+  return output;
+}
+
+
+function annoyingHackToDealWithTooManyPeopleFixingFormValidation(searchTerm)
+{
+
+	var theTerm = cleanSearchTerm(searchTerm)
+
+	// add any additional client side validation here.
+	if ( theTerm.length < 2 )
+	{
+		alert("Please enter at least 2 characters in the Search text box");
+		return false;		
+	}
+	return true;
+	
+}
+
+//Check if no Term specified
+ function validateTerm(sElement){
+
+
+  	sVal = document.getElementById(sElement).value;
+  	return annoyingHackToDealWithTooManyPeopleFixingFormValidation(sVal);
+
+ } 
+ 
+// MP: Search box validation functions
+function validateSearchForm(form)
+{
+	var searchTerm = cleanSearchTerm(form.term.value);
+	var OK = annoyingHackToDealWithTooManyPeopleFixingFormValidation(searchTerm);
+	var actionString = "";
+	if (OK)
+	{
+		form.term.value=(urlencode( transformTerm( searchTerm ) )).replaceAll("%20","+");
+		actionString = "/store/em/EMController";
+		//actionString = "/store/em/EMController/_/N-0/term-" + form.term.value; //adds term to url path
+		form.action = actionString;
+		var nParam = document.createElement("input");
+  		nParam.id = "N";
+  		nParam.name = "N";
+  		nParam.type = "hidden"; 
+  		nParam.value = "0";
+  		form.appendChild(nParam);
+		var actionParam = document.createElement("input");
+  		actionParam.id = "action";
+  		actionParam.name = "action";
+  		actionParam.type = "hidden"; 
+  		actionParam.value = "products";
+  		form.appendChild(actionParam);
+		//form.term.parentNode.removeChild(form.term); //removes search term from querystring
+	}
+	return OK;
+}
+
+function transformTerm(searchTerm)
+{
+	return trim(searchTerm); 
+}
+
+
+function cleanSearchTerm(searchTerm)
+{
+
+	
+	var trimmedStr = transformTerm(searchTerm);
+
+	
+	trimmedStr = trimmedStr.replace(/^Keyword or part number/g, "");
+	trimmedStr = trimmedStr.replace(/^Enter part number or keyword/g, "");
+	
+	return trimmedStr;
+}
+
+
+function trim(stringToTrim) {
+	return stringToTrim.replace(/^\s+|\s+$/g,"");
+}  
+
+
+// end search box validation functions
+
+// Added by Satheesh - Endeca shopping cart Merge Enhancement Defect Id 242 Start
+// This Method is called onbody load of home,product,part,compare pages to redirect.
+function cartMergePopup(){
+if(window.document.getElementById('isMerged').value=='true'){
+	if(confirm("The parts in your shopping cart have been combined with parts in a previously saved cart. Do you want to review your shopping cart now ?"))
+		document.location.href = '/store/em/OrderItemDisplay?storeId=500201&catalogId=500201&langId=-1';
+}
+}
+// Added by Satheesh - Endeca shopping cart Merge Enhancement Defect Id 242 End 
+ 
+// ajax call for prev/next cart pages
+// added by Jason Karlin - ajaxify the current_order div
+function prevNextCartPage(ajaxURL) {
+	// create a working div on top of the current order
+	showCurrentOrderDivTransition('currentOrderDivContainer', 'currentOrderDiv');
+	
+	// Submit the form via ajax
+	var myAjax = new Ajax.Updater({success: 'currentOrderDiv'},
+					ajaxURL, {
+						method: 'post', 
+						onSuccess: prevNextCartPageSuccess,
+						evalScripts: true
+					});
+}	
+
+// if the ajax call succeeds, update the cart div
+function prevNextCartPageSuccess(request) {
+	clearLoaders();
+
+	// remove the height specified by the "slide down" logic below and let it be as tall as necessary
+	$('currentOrderDiv').style.height = "";
+}
+
+ // Adds the opacity layer to the results and adds the burst loading gif
+function showCurrentOrderDivTransition(containerId, divId) {
+	clearLoaders();
+
+	var miniCurrentOrderDivDimentions = Element.getDimensions($(divId));
+	
+	// add an opacity layer filter.
+	var opacity_layer = document.createElement('div');
+	opacity_layer.id = 'currentOrderDivLoading';
+	opacity_layer.style.width=miniCurrentOrderDivDimentions.width+'px';
+	opacity_layer.style.height=miniCurrentOrderDivDimentions.height+'px';
+	$(containerId).appendChild(opacity_layer);
+	Element.setOpacity(opacity_layer, .6);
+
+	// Add the animated burst.
+	var burst_load_div = document.createElement("div");
+	burst_load_div.id = "burstLoader";
+	MIN_HEIGHT_BURST = 300;
+	if (miniCurrentOrderDivDimentions.width.height > MIN_HEIGHT_BURST) {
+		burst_height = 150 + "px";
+	} else {
+		burst_height = 10 + "px";
+	}
+	burst_load_div.style.top = burst_height;
+	burst_load_div.style.left = Math.floor(miniCurrentOrderDivDimentions.width / 2) - 37 + "px"; //37 is half of the width of burst_loader_big.gif
+	$(divId).appendChild(burst_load_div);
+	$(divId).setStyle({height:'100%'});
+
+	imgSrc = '<img src="/wcsstore/emstore/images/avnet_gif_animated.gif" height="50px">';
+	burst_load_div.innerHTML = imgSrc;
+}
+
+function clearLoaders() {
+	$('burstLoader','currentOrderDivLoading').each(function(el){
+		if(el){el.remove();}
+	});
+};
+
+// Removes all characters which do NOT appear in string bag 
+// from string s.
+
+function stripCharsNotInBag(s, bag)
+
+{   var i;
+    var returnString = "";
+
+    // Search through string's characters one by one.
+    // If character is in bag, append to returnString.
+
+    for (i = 0; i < s.length; i++)
+    {   
+        // Check that current character isn't whitespace.
+        var c = s.charAt(i);
+        if (bag.indexOf(c) != -1) returnString += c;
+    }
+
+    return returnString;
+}
+</script> 
+<!-- end EM header -->
+	</td>
+</tr>
+<!-- content begins -->
+<tr>
+	<td style="width:100%;height:100%;vertical-align:top;background:#EBECED;">
+		<div class="outerWidth">
+		<div class="minwidth">
+		<div class="layout">
+		<div class="container">
+		<table border="0" cellspacing="8" cellpadding="0" style="width:100%;">
+		<!-- moved the outage eSpot here --><!-- outage notification espot --><!-- BEGIN HomePageAlertESpot.jsp --><!-- e-Marketing Spot Name: "HomePageAlert" -->
+<!-- END HomePageAlertESpot.jsp --><!-- outage notification espot end -->		
+		<tr>
+			<!-- what's new begin -->
+		    <td style="vertical-align:top;background:#FFFFFF;border:1px solid #BCC0CC;padding:8px 12px 12px 12px;width:34%;">
+				<div style="padding:0px 0px 0px 2px;color:#5B6584;font-size:18px;font-weight:bold;font-family:Verdana,sans-serif;">What's New</div>
+				<div class="spacerDiv"></div>
+				<!-- what's new begin --><!-- BEGIN HomePageWhatsNewESpot.jsp --><!-- e-Marketing Spot Name: "HomePageWhatsNew" -->
+
+		<table id="WC_eMarketingSpot_Table_0" style="background:#FFFFFF;width:100%;">
+			
+			<tr>
+				
+						<td colspan="2" class="portlet_content" id="WC_eMarketingSpot_Cell_1">
+							<!-- marcel 02/10/2009 - new text with download toolbar link -->
+<div style="padding:4px 0px 0px 0px;margin:0px;border:2px solid #990000;white-space:nowrap;vertical-align:middle;text-align:center;width:99%;">
+<a href="/store/em/ToolBarLandingView?langId=-1&storeId=500201&catalogId=500201" title="Download Avnet Express Toolbar" ><img src="/wcsstore/emstore/images/download_toolbar.gif" border="0" alt="Download Avnet Express Toolbar"/></a>
+</div>
+<div class="spacerDiv"></div>
+
+<!-- list item one  -->
+<p style="margin-bottom:9px;margin-top:0px;padding-top:0px;vertical-align:top;color:#990000;font-family:Verdana,sans-serif;font-size:9px;font-weight:bold;">
+<a href=" http://em.avnet.com/fea/home/0,4567,RID%253D0%2526CID%253D58428%2526CAT%253D58428%2526CCD%253DUSA%2526SID%253D0%2526DID%253DDF2%2526LID%253D0%2526PVW%253DY%2526BID%253DDF2%2526CTP%253Dfea,00.html?cmp=wn-fea-aclsmartfusion" target="_blank">NEW PRODUCT-</a>&nbsp; Get Smart! Tools and Training for Actel's SmartFusion Intelligent Mixed Signal FPGA!</p>
+
+<!-- list item two  -->
+<p style="margin-bottom:9px;margin-top:0px;padding-top:0px;vertical-align:top;color:#990000;font-family:Verdana,sans-serif;font-size:9px;font-weight:bold;">
+<a href=" http://www.em.avnet.com/evs/home/0,1707,RID%253D%2526CID%253D58252%2526CAT%253D%2526CCD%253DUSA%2526SID%253D32214%2526DID%253DDF2%2526LID%253D32233%2526PRT%253D0%2526EFL%253D%2526PVW%253D%2526PNT%253D%2526BID%253DDF2%2526CTP%253DEVS,00.html?cmp=wn-evs-cyppsoc3" target="_blank">REGISTER-</a>&nbsp; Introducing Cypress's PSoC® 3: March 17, 2010 - San Jose, CA </p>
+
+<!-- list item three  -->
+<p style="margin-bottom:9px;margin-top:0px;padding-top:0px;vertical-align:top;color:#990000;font-family:Verdana,sans-serif;font-size:9px;font-weight:bold;">
+<a href="http://www.em.avnet.com/evs/home/0,4582,CID%253D58324%2526CCD%253DUSA%2526SID%253D32214%2526DID%253DDF2%2526LID%253D32233%2526BID%253DDF2%2526CTP%253DEVS,00.html?cmp=wn-nscpowerwisetvlx150t" target="_blank">VIEW-</a>&nbsp; Avnet-designed Xilinx® Spartan®-6 LX150T Dev Kit on PowerWise Design TV </p>
+
+
+
+<!-- list item four -->
+<p style="margin-bottom:9px;margin-top:0px;padding-top:0px;vertical-align:top;color:#990000;font-family:Verdana,sans-serif;font-size:9px;font-weight:bold;">
+<a href="http://www.em.avnet.com/ain/home/0,1709,RID%253D0%2526CID%253D58641%2526CAT%253D0%2526CCD%253DUSA%2526SID%253D32216%2526DID%253DDF2%2526LID%253D32240%2526PRT%253D0%2526PVW%253D%2526intY%253D%2526PNT%253D%2526BID%253DDF2%2526CTP%253DAIN,00.html" target="_blank">NEW-</a>&nbsp; Avnet Electronics Marketing and Tyco Electronics Release Pluggable I/O Solutions Kit </p>
+
+
+
+
+<!-- list item five-->
+<p style="margin-bottom:9px;margin-top:0px;padding-top:0px;vertical-align:top;color:#990000;font-family:Verdana,sans-serif;font-size:9px;font-weight:bold;">
+<a href="http://www.avnetexpress.avnet.com/store/em/demo?langId=-1&storeId=500201&catalogId=500201 " target="_blank">VIEW-</a>&#160;&#160;
+AvnetExpress.com Demo.</a>
+<a href="http://survey01.avnet.com/Surveys/TakeSurvey.aspx?s=8AD6666CF84D4DA1AAE410B6B42A5FAF " target="_blank">Submit Website Suggestions.</a>
+</p>
+
+						</td>
+					
+			</tr>
+			
+		</table>
+		<!-- END HomePageWhatsNewESpot.jsp -->
+			</td>
+			<!-- what's new end --><!-- center box -->
+			<td style="vertical-align:top;background:#FFFFFF;border:1px solid #BCC0CC;padding:8px 12px 12px 12px;width:33%;">
+				<!-- Search form -->
+				<div style="padding:0px 0px 0px 2px;color:#5B6584;font-size:18px;font-weight:bold;font-family:Verdana,sans-serif;">Search</div>
+				<div class="spacerDiv"></div>
+				<form style="margin: 0px;" name="SearchForm" method="get"  onsubmit="seteVar8(this,'avnelectronicsmarketing','search');return validateSearchForm(this);">
+				<input type="hidden" name="langId" value="-1" />
+				<input type="hidden" name="storeId" value="500201" />
+				<input type="hidden" name="catalogId" value="500201" />
+		
+
+					<table cellspacing="0" cellpadding="0" border="0" style="width:99%;text-align:left;">
+						<tr>
+							<td style="background:#EBEBEB;padding:9px 5px 9px 5px;border:2px solid #990000;white-space:nowrap;vertical-align: middle;">
+								&nbsp;<input type="text" style="color: rgb(0, 0, 0); font-family: arial; font-size: 7.5pt;vertical-align: middle;" value="Enter part number or keyword" size="50" maxlength="50" id="term" name="term" onfocus="javascript:select();" />
+								&nbsp;<input type="image" style="cursor:pointer;vertical-align: middle;width: 43px;height: 18px;border-style: none;" src="/wcsstore/emstore/images/button-search.gif" />
+							</td>
+						</tr>
+						<tr>
+							<td>&nbsp;</td>
+						</tr>
+						<tr>
+							<!-- upload BOM link -->
+				     		<td style="padding:2px 0px 2px 0px;margin:0px;border:2px solid #990000;white-space:nowrap;">
+				       			<a rel="nofollow" style="vertical-align:middle;text-align:center;" href="/store/em/BomUploadControllerCmd?action=bomHome&catalogId=500201&langId=-1&storeId=500201" title="Upload Bill Of Materials" onclick="seteVar1(this,'avnelectronicsmarketing','Upload BOM Link');" onmouseover="window.status='Upload your BOM for immediate price and availability';return true;" onmouseout="window.status='';return true;">
+				       			<img src="/wcsstore/emstore/images/upload_bom.gif" border="0" alt="Upload Bill Of Materials"/></a>
+		               		</td>
+		           		</tr>
+		           		<tr>
+				     		<td style="vertical-align:middle;text-align:center;padding:12px 0px 0px 0px;"><img src="/wcsstore/emstore/images/logo-avnetexpress.gif" /></td>
+		           		</tr>
+						<tr>
+							<td style="vertical-align:middle;text-align:center;padding:5px 0px 0px 0px;"><img src="/wcsstore/emstore/images/phonenumber_new.gif" /></td>
+						</tr>
+					</table>
+				</form>
+			</td>
+			<!-- center box end --><!-- design center -->
+			<td style="vertical-align:top;white-space:nowrap;background:#FFFFFF;border:1px solid #BCC0CC;padding:8px 12px 12px 12px;">
+			    <div style="padding:0px 0px 0px 2px;color:#5B6584;font-size:18px;font-weight:bold;font-family:Verdana,sans-serif;">Design with Avnet</div>
+			    <div class="spacerDiv">
+			    <!-- 01/06/10 marcel - changed to eSpot --><!-- BEGIN HomePageDesignWithAvnetESpot.jsp --><!-- e-Marketing Spot Name: "HomePageDesignWithAvnet" -->
+
+		<table id="WC_eMarketingSpot_Table_0" style="background:#FFFFFF;width:100%;">
+			
+			<tr>
+				
+						<td colspan="2" class="portlet_content" id="WC_eMarketingSpot_Cell_1">
+							<img src="/wcsstore/emstore//images/designwithavnet.gif" width="292" height="222" border="0" usemap="#MKTGIMG" />
+<map name="MKTGIMG" id="MKTGIMG">
+<area shape="rect" coords="10,2,137,24" href="http://www.em.avnet.com/evk/home/0,1719,RID%3D%26CID%3D0%26CAT%3D%26CCD%3DUSA%26SID%3D32214%26DID%3DDF2%26LID%3D32232%26PVW%3D%26PNT%3D%26BID%3DDF2%26CTP%3DEVK,00.html?cmp=EMHOME-DRC" />
+<area shape="rect" coords="10,27,138,50" href="http://www.em.avnet.com/evs/home/0,1707,RID%253D%2526CID%253D0%2526CAT%253D0%2526CCD%253DUSA%2526SID%253D32214%2526DID%253DDF2%2526LID%253D32233%2526PVW%253D%2526PNT%253D%2526BID%253DDF2%2526CTP%253DEVS,00.html?cmp=EMHOME-EVS" />
+<area shape="rect" coords="10,53,138,76" href="http://community.em.avnet.com" />
+<area shape="rect" coords="10,80,138,102" href="http://www.em.avnet.com/spc/home/0,1727,RID%253D%2526CID%253D0%2526CAT%253D0%2526CCD%253DUSA%2526SID%253D32214%2526DID%253DDF2%2526LID%253D32234%2526PVW%253D%2526PNT%253D%2526BID%253DDF2%2526CTP%253DSPC,00.html?cmp=EMHOME-SPC" />
+<area shape="rect" coords="10,105,138,129" href="http://www.em.avnet.com/fea/home/0,1703,RID%253D%2526CID%253D0%2526CAT%253D0%2526CCD%253DUSA%2526SID%253D32214%2526DID%253DDF2%2526LID%253D32236%2526PVW%253D%2526PNT%253D%2526BID%253DDF2%2526CTP%253DFEA,00.html?cmp=EMHOME-FEA" />
+<area shape="rect" coords="10,131,138,155" href="http://www.em.avnet.com/aam/home/0,2039,RID%253D%2526CID%253D0%2526CAT%253D0%2526CCD%253DUSA%2526SID%253D32214%2526DID%253DDF2%2526LID%253D37586%2526PVW%253D%2526PNT%253D%2526BID%253DDF2%2526CTP%253DAAM,00.html?cmp=EMHOME-PUBS" />
+<area shape="rect" coords="10,158,138,182" href="http://www.em.avnet.com/lc2/home/0,1747,RID%253D%2526CID%253D0%2526CAT%253D0%2526CCD%253DUSA%2526SID%253D32214%2526DID%253DDF2%2526LID%253D32231%2526PVW%253D%2526PNT%253D%2526BID%253DDF2%2526CTP%253DLC2,00.html?cmp=EMHOME-LC" />
+<area shape="rect" coords="14,190,134,220" href="http://www.avnetondemand.com/components/channel/7/" />
+<area shape="rect" coords="178,144,280,177" href="http://www.em.avnet.com/sta/home/0,1738,RID%253D%2526CID%253D0%2526CCD%253DUSA%2526SID%253D32214%2526DID%253DDF2%2526LID%253D0%2526PVW%253D%2526PNT%253D%2526BID%253DDF2%2526CTP%253DSTA,00.html?cmp=EMHOME-DESIGN" />
+</map>
+						</td>
+					
+			</tr>
+			
+		</table>
+		<!-- END HomePageDesignWithAvnetESpot.jsp -->
+			</td>
+	    	<!-- design center end -->
+		</tr>
+		<tr>
+		<!-- browse -->
+			<td colspan="3" style="width:100%;background:#FFFFFF;border:1px solid #BCC0CC;padding:8px 12px 12px 12px;">
+	
+
+<script type="text/javascript">
+<!--
+function loadDiv(theTab) {
+  //var divNm = "tab_"+nm;
+  for(var x=1;x<=3;x++) {
+    var divTest = "tab_"+x;
+    if(divTest == theTab) {
+      document.getElementById(divTest).style.display = "";
+    } else {
+      document.getElementById(divTest).style.display = "none";
+    }
+  }
+}
+
+function switchTabs(theTab) {
+  var t1Tab = document.getElementById("tab1");
+  var t1Corner = document.getElementById("corner1");
+  var t2Tab = document.getElementById("tab2");
+  var t2Corner = document.getElementById("corner2");
+  var t3Tab = document.getElementById("tab3");
+  var t3Corner = document.getElementById("corner3");
+  if(theTab == "tab_1") {
+    t1Tab.className = "browseTabOn";
+    t1Corner.className = "browseCornerOn";
+    t2Tab.className = "browseTabOff";
+    t2Corner.className = "browseCornerOff";
+    t3Tab.className = "browseTabOff";
+    t3Corner.className = "browseCornerOff";
+  }
+  if(theTab == "tab_2") {
+    t1Tab.className = "browseTabOff";
+    t1Corner.className = "browseCornerOff";
+    t2Tab.className = "browseTabOn";
+    t2Corner.className = "browseCornerOn";
+    t3Tab.className = "browseTabOff";
+    t3Corner.className = "browseCornerOff";
+  }
+  if(theTab == "tab_3") {
+    t1Tab.className = "browseTabOff";
+    t1Corner.className = "browseCornerOff";
+    t2Tab.className = "browseTabOff";
+    t2Corner.className = "browseCornerOff";
+    t3Tab.className = "browseTabOn";
+    t3Corner.className = "browseCornerOn";
+  }
+  loadDiv(theTab);
+
+}
+
+/**
+ * The id is a string that corresponds to the table id and the DimVal id.
+ * This function should make an ajax call to get the table html with
+ * the additional rows for the second level refinements.
+ * We should only have to make the ajax call once.  Then the function
+ * hides or shows the middle table rows.
+ * i.e. check the number of rows == 2.
+ */
+function showRows(id) {
+	var table = document.getElementById(id);
+	if (table.rows.length == 2) {
+		getRows(id);
+	} else {
+		var linkObj = document.getElementById(id + "_link");
+		linkObj.href = "javascript:hideRows('" + id + "');";
+		linkObj.title = "Click to contract";
+		var item = document.getElementById(id + "_expandItem");
+		item.innerHTML = "-";
+		// get the middle rows of the table
+		for(var x = 1; x < table.rows.length-1; x++) {
+		table.rows[x].style.display = "";
+		} 
+	} 
+}
+
+function hideRows(id) {
+	var table = document.getElementById(id);
+	var linkObj = document.getElementById(id + "_link");
+	linkObj.href = "javascript:showRows('" + id + "');";
+	linkObj.title = "Click to expand";
+	var item = document.getElementById(id + "_expandItem");
+	item.innerHTML = "+";
+	// get the middle rows of the table
+	for(var x = 1; x < table.rows.length-1; x++) {
+		table.rows[x].style.display = "none";
+	}
+}
+
+function getRows(id) {
+	var table = document.getElementById(id);
+	table.rows[0].cells[0].innerHTML = table.rows[0].cells[0].innerHTML + '<span  style=\"zoom:100%;\"> &nbsp;...Please wait.</span>';
+	var url = '/store/em/EMController?langId=-1&storeId=500201&catalogId=500201&action=ajax_home_page_category_refinements&N=' + id + '&Ne=' + id ;
+	new Ajax.Updater(id + '_div', url, { method: 'get' });
+}
+
+//-->
+</script>
+			<table style="width:100%;" border="0">
+				<tr>
+					<td>
+						<div style="padding:0px 0px 0px 2px;color:#5B6584;font-size:18px;font-weight:bold;font-family:Verdana,sans-serif;">
+						Browse for Parts
+						</div>
+						<div class="spacerDiv"></div>
+					</td>
+					<td style="width:25%;">&nbsp;</td>
+					<td style="vertical-align:top;text-align:left;">
+						<!-- 04/01/2009 marcel - added new_idea.gif button per Susan Duncan. -->
+						<a href="http://www.avnet.com/sta/home/0,1932,RID%253D0%2526CID%253D0%2526CAT%253D%2526CCD%253DUSA%2526SID%253D10447%2526DID%253DDF3%2526LID%253D51319%2526PRT%253D%2526PVW%253D%2526BID%253DDF3%2526CTP%253DSTA,00.html" target="_blank">
+						<img src="/wcsstore/emstore/images/new_idea.gif" border="0"/></a>
+					</td>
+				</tr>
+		    	<tr>
+			      	<td style="vertical-align:top;" colspan="3">
+			      	
+				      	
+			      	
+						<table border="0" cellspacing="0" cellpadding="0" style="width:100%;">
+						<tr>
+							<!--[SN] Tab headers -->
+							<td style="vertical-align:bottom;white-space:nowrap;">
+								
+								<table border="0" cellspacing="0" cellpadding="0" id="browseTabs" style="width:100%;">
+									<tr>
+										<td class="browseTabOn" id="tab1"><a href="javascript:switchTabs('tab_1')">Products</a></td>
+										<td class="browseCornerOn" id="corner1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+										<td class="browseTabOff" id="tab2"><a href="javascript:switchTabs('tab_2')">Manufacturers</a></td>
+										<td class="browseCornerOff" id="corner2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+										<td class="browseTabOff" id="tab3"><a href="EMController/Military-Aerospace/_/N-10015?action=products&amp;catalogId=500201&amp;cutTape=&amp;inStock=&amp;langId=-1&amp;proto=&amp;rohs=&amp;storeId=500201&amp;topSellers=&amp;sel=A">Military/Aerospace</a></td>
+										<td class="browseCornerOff" id="corner3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+										<td class="browseTabOff" id="tab4" style="white-space:nowrap;"><a style="white-space:nowrap;" href="/store/em/EMController?langId=-1&storeId=500201&catalogId=500201&N=0&action=excess_inventory&Nn=50">&nbsp;Excess Inventory</a></td>
+										<td class="browseCornerOff" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+										<td class="browseText" style="display:inline;zoom:100%;">
+											<img src="/wcsstore/emstore/images/icon-pb-med.gif" />&nbsp;&nbsp;<b>Avnet PartBuilder&#174;</b>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						</table>
+						<!-- [SN] Begin Product tab -->
+						<div id="tab_1" >
+							<table cellspacing="0" cellpadding="0" style="width:100%;border:solid 1px #7A7A7A;">
+								<tr>
+						  			<td style="vertical-align:bottom; background:url(/wcsstore/emstore/images/bg-prodnav-mid.gif);width:100%;padding:3px;">&nbsp;</td>
+								</tr> 
+								<tr>
+									<td style="width:100%;">
+										<table style="width:100%;background:#EBEBEB;" border="0" cellpadding="0" cellspacing="0">
+											<tr>
+												<td><div style="font-size:1px;line-height:0;width:2;">&nbsp;</div></td>
+												<td rowspan='2' style="background:#FFFFFF;"><div style="font-size:1px;line-height:0;">&nbsp;&nbsp;</div></td>
+												<td><div style="font-size:1px;line-height:0;width:25%;">&nbsp;</div></td>
+												<td rowspan='2' style="background:#FFFFFF;"><div style="font-size:1px;line-height:0;">&nbsp;&nbsp;</div></td>
+												<td><div style="font-size:1px;line-height:0;width:25%;">&nbsp;</div></td>
+												<td rowspan='2' style="background:#FFFFFF;"><div style="font-size:1px;line-height:0;">&nbsp;&nbsp;</div></td>
+												<td><div style="font-size:1px;line-height:0;width:25%;">&nbsp;</div></td>
+											</tr>
+											<tr> 
+												<td style="padding:0px 0px 2px 6px;vertical-align:top;width:25%;">
+
+					<!-- Category with children --><!-- Anchor div for AJAX insertion -->
+													<div id="100001_div" style="margin:0px;padding:0px;">
+														<table style="width:90%;" id="100001" cellpadding="0" cellspacing="0" border="0">
+															<!-- Top level category name links to the product information page -->
+															<tr>
+							 									<td class="grayLink noWrap" style="background:#EBEBEB;padding:3px 0px 3px 0px;vertical-align:top;">
+							 
+																	<h2 style="margin:0px;padding:0px;color:#7A7A7A;text-decoration:none;font-size:9pt;font-weight:bold;">
+																	<a href="javascript:void(0);" title="Click to expand" name="&lid=Amplifiers" style="zoom:100%;" onclick="showRows('100001');seteVar8(this,'avnelectronicsmarketing','browse');">
+																  	<span id="100001_expandItem" style="padding:0px;color:#cc0000;font-weight:bold;font-size:11pt;vertical-align:middle;">+</span></a>&nbsp;&nbsp;<a href="EMController/Amplifiers/_/N-100001?action=products&amp;cat=1&amp;catalogId=500201&amp;cutTape=&amp;inStock=&amp;langId=-1&amp;proto=&amp;rohs=&amp;storeId=500201&amp;topSellers=" title="Link to product data" name="&lid=Amplifiers" style="zoom:100%;" onclick="">Amplifiers
+																	</a></h2>
+								  
+																</td>
+															</tr>
+														    <tr>
+  																<td style="margin:0px;border-top:1px dashed #B6B6B6;"><div style="font-size:1px;line-height:0">&nbsp;</div></td>
+															</tr>
+														</table>
+												  	</div>
+							<!-- Category with children --><!-- Anchor div for AJAX insertion -->
+													<div id="100009_div" style="margin:0px;padding:0px;">
+														<table style="width:90%;" id="100009" cellpadding="0" cellspacing="0" border="0">
+															<!-- Top level category name links to the product information page -->
+															<tr>
+							 									<td class="grayLink noWrap" style="background:#EBEBEB;padding:3px 0px 3px 0px;vertical-align:top;">
+							  
+																	<h2 style="margin:0px;padding:0px;color:#7A7A7A;text-decoration:none;font-size:9pt;font-weight:bold;">
+																	<a href="EMController/Analog-Switch-Multiplexer/_/N-100009?action=products&amp;cat=1&amp;catalogId=500201&amp;cutTape=&amp;inStock=&amp;langId=-1&amp;proto=&amp;rohs=&amp;storeId=500201&amp;topSellers=" title="Link to product data" name="&lid=Analog Switch Multiplexer" style="zoom:100%;" onclick="seteVar8(this,'avnelectronicsmarketing','browse');">
+																  	<span style="font-weight:bold;font-size:11pt;vertical-align:middle;">+</span>&nbsp;&nbsp;Analog Switch Multiplexer
+																	</a></h2>
+							 	  
+																</td>
+															</tr>
+														    <tr>
+  																<td style="margin:0px;border-top:1px dashed #B6B6B6;"><div style="font-size:1px;line-height:0">&nbsp;</div></td>
+															</tr>
+														</table>
+												  	</div>
+							<!-- Category with children --><!-- Anchor div for AJAX insertion -->
+													<div id="100010_div" style="margin:0px;padding:0px;">
+														<table style="width:90%;" id="100010" cellpadding="0" cellspacing="0" border="0">
+															<!-- Top level category name links to the product information page -->
+															<tr>
+							 									<td class="grayLink noWrap" style="background:#EBEBEB;padding:3px 0px 3px 0px;vertical-align:top;">
+							 
+																	<h2 style="margin:0px;padding:0px;color:#7A7A7A;text-decoration:none;font-size:9pt;font-weight:bold;">
+																	<a href="javascript:void(0);" title="Click to expand" name="&lid=Capacitor" style="zoom:100%;" onclick="showRows('100010');seteVar8(this,'avnelectronicsmarketing','browse');">
+																  	<span id="100010_expandItem" style="padding:0px;color:#cc0000;font-weight:bold;font-size:11pt;vertical-align:middle;">+</span></a>&nbsp;&nbsp;<a href="EMController/Capacitor/_/N-100010?action=products&amp;cat=1&amp;catalogId=500201&amp;cutTape=&amp;inStock=&amp;langId=-1&amp;proto=&amp;rohs=&amp;storeId=500201&amp;topSellers=" title="Link to product data" name="&lid=Capacitor" style="zoom:100%;" onclick="">Capacitor
+																	</a></h2>
+								  
+																</td>
+															</tr>
+														    <tr>
+  																<td style="margin:0px;border-top:1px dashed #B6B6B6;"><div style="font-size:1px;line-height:0">&nbsp;</div></td>
+															</tr>
+														</table>
+												  	</div>
+							<!-- Category with children --><!-- Anchor div for AJAX insertion -->
+													<div id="100023_div" style="margin:0px;padding:0px;">
+														<table style="width:90%;" id="100023" cellpadding="0" cellspacing="0" border="0">
+															<!-- Top level category name links to the product information page -->
+															<tr>
+							 									<td class="grayLink noWrap" style="background:#EBEBEB;padding:3px 0px 3px 0px;vertical-align:top;">
+							 
+																	<h2 style="margin:0px;padding:0px;color:#7A7A7A;text-decoration:none;font-size:9pt;font-weight:bold;">
+																	<a href="javascript:void(0);" title="Click to expand" name="&lid=Circuit Protection" style="zoom:100%;" onclick="showRows('100023');seteVar8(this,'avnelectronicsmarketing','browse');">
+																  	<span id="100023_expandItem" style="padding:0px;color:#cc0000;font-weight:bold;font-size:11pt;vertical-align:middle;">+</span></a>&nbsp;&nbsp;<a href="EMController/Circuit-Protection/_/N-100023?action=products&amp;cat=1&amp;catalogId=500201&amp;cutTape=&amp;inStock=&amp;langId=-1&amp;proto=&amp;rohs=&amp;storeId=500201&amp;topSellers=" title="Link to product data" name="&lid=Circuit Protection" style="zoom:100%;" onclick="">Circuit Protection
+																	</a></h2>
+								  
+																</td>
+															</tr>
+														    <tr>
+  																<td style="margin:0px;border-top:1px dashed #B6B6B6;"><div style="font-size:1px;line-height:0">&nbsp;</div></td>
+															</tr>
+														</table>
+												  	</div>
+							<!-- Category with children --><!-- Anchor div for AJAX insertion -->
+													<div id="100030_div" style="margin:0px;padding:0px;">
+														<table style="width:90%;" id="100030" cellpadding="0" cellspacing="0" border="0">
+															<!-- Top level category name links to the product information page -->
+															<tr>
+							 									<td class="grayLink noWrap" style="background:#EBEBEB;padding:3px 0px 3px 0px;vertical-align:top;">
+							 
+																	<h2 style="margin:0px;padding:0px;color:#7A7A7A;text-decoration:none;font-size:9pt;font-weight:bold;">
+																	<a href="javascript:void(0);" title="Click to expand" name="&lid=Communication" style="zoom:100%;" onclick="showRows('100030');seteVar8(this,'avnelectronicsmarketing','browse');">
+																  	<span id="100030_expandItem" style="padding:0px;color:#cc0000;font-weight:bold;font-size:11pt;vertical-align:middle;">+</span></a>&nbsp;&nbsp;<a href="EMController/Communication/_/N-100030?action=products&amp;cat=1&amp;catalogId=500201&amp;cutTape=&amp;inStock=&amp;langId=-1&amp;proto=&amp;rohs=&amp;storeId=500201&amp;topSellers=" title="Link to product data" name="&lid=Communication" style="zoom:100%;" onclick="">Communication
+																	</a></h2>
+								  
+																</td>
+															</tr>
+														    <tr>
+  																<td style="margin:0px;border-top:1px dashed #B6B6B6;"><div style="font-size:1px;line-height:0">&nbsp;</div></td>
+															</tr>
+														</table>
+												  	</div>
+							<!-- Category with children --><!-- Anchor div for AJAX insertion -->
+													<div id="100073_div" style="margin:0px;padding:0px;">
+														<table style="width:90%;" id="100073" cellpadding="0" cellspacing="0" border="0">
+															<!-- Top level category name links to the product information page -->
+															<tr>
+							 									<td class="grayLink noWrap" style="background:#EBEBEB;padding:3px 0px 3px 0px;vertical-align:top;">
+							 
+																	<h2 style="margin:0px;padding:0px;color:#7A7A7A;text-decoration:none;font-size:9pt;font-weight:bold;">
+																	<a href="javascript:void(0);" title="Click to expand" name="&lid=Data Conversion" style="zoom:100%;" onclick="showRows('100073');seteVar8(this,'avnelectronicsmarketing','browse');">
+																  	<span id="100073_expandItem" style="padding:0px;color:#cc0000;font-weight:bold;font-size:11pt;vertical-align:middle;">+</span></a>&nbsp;&nbsp;<a href="EMController/Data-Conversion/_/N-100073?action=products&amp;cat=1&amp;catalogId=500201&amp;cutTape=&amp;inStock=&amp;langId=-1&amp;proto=&amp;rohs=&amp;storeId=500201&amp;topSellers=" title="Link to product data" name="&lid=Data Conversion" style="zoom:100%;" onclick="">Data Conversion
+																	</a></h2>
+								  
+																</td>
+															</tr>
+														    <tr>
+  																<td style="margin:0px;border-top:1px dashed #B6B6B6;"><div style="font-size:1px;line-height:0">&nbsp;</div></td>
+															</tr>
+														</table>
+												  	</div>
+							<!-- Category with children --><!-- Anchor div for AJAX insertion -->
+													<div id="100519_div" style="margin:0px;padding:0px;">
+														<table style="width:90%;" id="100519" cellpadding="0" cellspacing="0" border="0">
+															<!-- Top level category name links to the product information page -->
+															<tr>
+							 									<td class="grayLink noWrap" style="background:#EBEBEB;padding:3px 0px 3px 0px;vertical-align:top;">
+							  
+																	<h2 style="margin:0px;padding:0px;color:#7A7A7A;text-decoration:none;font-size:9pt;font-weight:bold;">
+																	<a href="EMController/Development-Kits-and-Tools/_/N-100519?action=products&amp;cat=1&amp;catalogId=500201&amp;cutTape=&amp;inStock=&amp;langId=-1&amp;proto=&amp;rohs=&amp;storeId=500201&amp;topSellers=" title="Link to product data" name="&lid=Development Kits and Tools" style="zoom:100%;" onclick="seteVar8(this,'avnelectronicsmarketing','browse');">
+																  	<span style="font-weight:bold;font-size:11pt;vertical-align:middle;">+</span>&nbsp;&nbsp;Development Kits and Tools
+																	</a></h2>
+							 	  
+																</td>
+															</tr>
+														    <tr>
+  																<td style="margin:0px;border-top:1px dashed #B6B6B6;"><div style="font-size:1px;line-height:0">&nbsp;</div></td>
+															</tr>
+														</table>
+												  	</div>
+							
+												</td>
+												<td style="padding:0px 0px 2px 6px;vertical-align:top;width:25%;">
+							<!-- Category with children --><!-- Anchor div for AJAX insertion -->
+													<div id="100079_div" style="margin:0px;padding:0px;">
+														<table style="width:90%;" id="100079" cellpadding="0" cellspacing="0" border="0">
+															<!-- Top level category name links to the product information page -->
+															<tr>
+							 									<td class="grayLink noWrap" style="background:#EBEBEB;padding:3px 0px 3px 0px;vertical-align:top;">
+							 
+																	<h2 style="margin:0px;padding:0px;color:#7A7A7A;text-decoration:none;font-size:9pt;font-weight:bold;">
+																	<a href="javascript:void(0);" title="Click to expand" name="&lid=Discrete" style="zoom:100%;" onclick="showRows('100079');seteVar8(this,'avnelectronicsmarketing','browse');">
+																  	<span id="100079_expandItem" style="padding:0px;color:#cc0000;font-weight:bold;font-size:11pt;vertical-align:middle;">+</span></a>&nbsp;&nbsp;<a href="EMController/Discrete/_/N-100079?action=products&amp;cat=1&amp;catalogId=500201&amp;cutTape=&amp;inStock=&amp;langId=-1&amp;proto=&amp;rohs=&amp;storeId=500201&amp;topSellers=" title="Link to product data" name="&lid=Discrete" style="zoom:100%;" onclick="">Discrete
+																	</a></h2>
+								  
+																</td>
+															</tr>
+														    <tr>
+  																<td style="margin:0px;border-top:1px dashed #B6B6B6;"><div style="font-size:1px;line-height:0">&nbsp;</div></td>
+															</tr>
+														</table>
+												  	</div>
+							<!-- Category with children --><!-- Anchor div for AJAX insertion -->
+													<div id="100419_div" style="margin:0px;padding:0px;">
+														<table style="width:90%;" id="100419" cellpadding="0" cellspacing="0" border="0">
+															<!-- Top level category name links to the product information page -->
+															<tr>
+							 									<td class="grayLink noWrap" style="background:#EBEBEB;padding:3px 0px 3px 0px;vertical-align:top;">
+							 
+																	<h2 style="margin:0px;padding:0px;color:#7A7A7A;text-decoration:none;font-size:9pt;font-weight:bold;">
+																	<a href="javascript:void(0);" title="Click to expand" name="&lid=Displays" style="zoom:100%;" onclick="showRows('100419');seteVar8(this,'avnelectronicsmarketing','browse');">
+																  	<span id="100419_expandItem" style="padding:0px;color:#cc0000;font-weight:bold;font-size:11pt;vertical-align:middle;">+</span></a>&nbsp;&nbsp;<a href="EMController/Displays/_/N-100419?action=products&amp;cat=1&amp;catalogId=500201&amp;cutTape=&amp;inStock=&amp;langId=-1&amp;proto=&amp;rohs=&amp;storeId=500201&amp;topSellers=" title="Link to product data" name="&lid=Displays" style="zoom:100%;" onclick="">Displays
+																	</a></h2>
+								  
+																</td>
+															</tr>
+														    <tr>
+  																<td style="margin:0px;border-top:1px dashed #B6B6B6;"><div style="font-size:1px;line-height:0">&nbsp;</div></td>
+															</tr>
+														</table>
+												  	</div>
+							<!-- Category with children --><!-- Anchor div for AJAX insertion -->
+													<div id="100072_div" style="margin:0px;padding:0px;">
+														<table style="width:90%;" id="100072" cellpadding="0" cellspacing="0" border="0">
+															<!-- Top level category name links to the product information page -->
+															<tr>
+							 									<td class="grayLink noWrap" style="background:#EBEBEB;padding:3px 0px 3px 0px;vertical-align:top;">
+							  
+																	<h2 style="margin:0px;padding:0px;color:#7A7A7A;text-decoration:none;font-size:9pt;font-weight:bold;">
+																	<a href="EMController/DSP/_/N-100072?action=products&amp;cat=1&amp;catalogId=500201&amp;cutTape=&amp;inStock=&amp;langId=-1&amp;proto=&amp;rohs=&amp;storeId=500201&amp;topSellers=" title="Link to product data" name="&lid=DSP" style="zoom:100%;" onclick="seteVar8(this,'avnelectronicsmarketing','browse');">
+																  	<span style="font-weight:bold;font-size:11pt;vertical-align:middle;">+</span>&nbsp;&nbsp;DSP
+																	</a></h2>
+							 	  
+																</td>
+															</tr>
+														    <tr>
+  																<td style="margin:0px;border-top:1px dashed #B6B6B6;"><div style="font-size:1px;line-height:0">&nbsp;</div></td>
+															</tr>
+														</table>
+												  	</div>
+							<!-- Category with children --><!-- Anchor div for AJAX insertion -->
+													<div id="100100_div" style="margin:0px;padding:0px;">
+														<table style="width:90%;" id="100100" cellpadding="0" cellspacing="0" border="0">
+															<!-- Top level category name links to the product information page -->
+															<tr>
+							 									<td class="grayLink noWrap" style="background:#EBEBEB;padding:3px 0px 3px 0px;vertical-align:top;">
+							 
+																	<h2 style="margin:0px;padding:0px;color:#7A7A7A;text-decoration:none;font-size:9pt;font-weight:bold;">
+																	<a href="javascript:void(0);" title="Click to expand" name="&lid=Filter" style="zoom:100%;" onclick="showRows('100100');seteVar8(this,'avnelectronicsmarketing','browse');">
+																  	<span id="100100_expandItem" style="padding:0px;color:#cc0000;font-weight:bold;font-size:11pt;vertical-align:middle;">+</span></a>&nbsp;&nbsp;<a href="EMController/Filter/_/N-100100?action=products&amp;cat=1&amp;catalogId=500201&amp;cutTape=&amp;inStock=&amp;langId=-1&amp;proto=&amp;rohs=&amp;storeId=500201&amp;topSellers=" title="Link to product data" name="&lid=Filter" style="zoom:100%;" onclick="">Filter
+																	</a></h2>
+								  
+																</td>
+															</tr>
+														    <tr>
+  																<td style="margin:0px;border-top:1px dashed #B6B6B6;"><div style="font-size:1px;line-height:0">&nbsp;</div></td>
+															</tr>
+														</table>
+												  	</div>
+							<!-- Category with children --><!-- Anchor div for AJAX insertion -->
+													<div id="100104_div" style="margin:0px;padding:0px;">
+														<table style="width:90%;" id="100104" cellpadding="0" cellspacing="0" border="0">
+															<!-- Top level category name links to the product information page -->
+															<tr>
+							 									<td class="grayLink noWrap" style="background:#EBEBEB;padding:3px 0px 3px 0px;vertical-align:top;">
+							 
+																	<h2 style="margin:0px;padding:0px;color:#7A7A7A;text-decoration:none;font-size:9pt;font-weight:bold;">
+																	<a href="javascript:void(0);" title="Click to expand" name="&lid=Inductor" style="zoom:100%;" onclick="showRows('100104');seteVar8(this,'avnelectronicsmarketing','browse');">
+																  	<span id="100104_expandItem" style="padding:0px;color:#cc0000;font-weight:bold;font-size:11pt;vertical-align:middle;">+</span></a>&nbsp;&nbsp;<a href="EMController/Inductor/_/N-100104?action=products&amp;cat=1&amp;catalogId=500201&amp;cutTape=&amp;inStock=&amp;langId=-1&amp;proto=&amp;rohs=&amp;storeId=500201&amp;topSellers=" title="Link to product data" name="&lid=Inductor" style="zoom:100%;" onclick="">Inductor
+																	</a></h2>
+								  
+																</td>
+															</tr>
+														    <tr>
+  																<td style="margin:0px;border-top:1px dashed #B6B6B6;"><div style="font-size:1px;line-height:0">&nbsp;</div></td>
+															</tr>
+														</table>
+												  	</div>
+							<!-- Category with children --><!-- Anchor div for AJAX insertion -->
+													<div id="100107_div" style="margin:0px;padding:0px;">
+														<table style="width:90%;" id="100107" cellpadding="0" cellspacing="0" border="0">
+															<!-- Top level category name links to the product information page -->
+															<tr>
+							 									<td class="grayLink noWrap" style="background:#EBEBEB;padding:3px 0px 3px 0px;vertical-align:top;">
+							 
+																	<h2 style="margin:0px;padding:0px;color:#7A7A7A;text-decoration:none;font-size:9pt;font-weight:bold;">
+																	<a href="javascript:void(0);" title="Click to expand" name="&lid=Interconnect" style="zoom:100%;" onclick="showRows('100107');seteVar8(this,'avnelectronicsmarketing','browse');">
+																  	<span id="100107_expandItem" style="padding:0px;color:#cc0000;font-weight:bold;font-size:11pt;vertical-align:middle;">+</span></a>&nbsp;&nbsp;<a href="EMController/Interconnect/_/N-100107?action=products&amp;cat=1&amp;catalogId=500201&amp;cutTape=&amp;inStock=&amp;langId=-1&amp;proto=&amp;rohs=&amp;storeId=500201&amp;topSellers=" title="Link to product data" name="&lid=Interconnect" style="zoom:100%;" onclick="">Interconnect
+																	</a></h2>
+								  
+																</td>
+															</tr>
+														    <tr>
+  																<td style="margin:0px;border-top:1px dashed #B6B6B6;"><div style="font-size:1px;line-height:0">&nbsp;</div></td>
+															</tr>
+														</table>
+												  	</div>
+							<!-- Category with children --><!-- Anchor div for AJAX insertion -->
+													<div id="100130_div" style="margin:0px;padding:0px;">
+														<table style="width:90%;" id="100130" cellpadding="0" cellspacing="0" border="0">
+															<!-- Top level category name links to the product information page -->
+															<tr>
+							 									<td class="grayLink noWrap" style="background:#EBEBEB;padding:3px 0px 3px 0px;vertical-align:top;">
+							 
+																	<h2 style="margin:0px;padding:0px;color:#7A7A7A;text-decoration:none;font-size:9pt;font-weight:bold;">
+																	<a href="javascript:void(0);" title="Click to expand" name="&lid=Interface" style="zoom:100%;" onclick="showRows('100130');seteVar8(this,'avnelectronicsmarketing','browse');">
+																  	<span id="100130_expandItem" style="padding:0px;color:#cc0000;font-weight:bold;font-size:11pt;vertical-align:middle;">+</span></a>&nbsp;&nbsp;<a href="EMController/Interface/_/N-100130?action=products&amp;cat=1&amp;catalogId=500201&amp;cutTape=&amp;inStock=&amp;langId=-1&amp;proto=&amp;rohs=&amp;storeId=500201&amp;topSellers=" title="Link to product data" name="&lid=Interface" style="zoom:100%;" onclick="">Interface
+																	</a></h2>
+								  
+																</td>
+															</tr>
+														    <tr>
+  																<td style="margin:0px;border-top:1px dashed #B6B6B6;"><div style="font-size:1px;line-height:0">&nbsp;</div></td>
+															</tr>
+														</table>
+												  	</div>
+							
+												</td>
+												<td style="padding:0px 0px 2px 6px;vertical-align:top;width:25%;">
+							<!-- Category with children --><!-- Anchor div for AJAX insertion -->
+													<div id="100144_div" style="margin:0px;padding:0px;">
+														<table style="width:90%;" id="100144" cellpadding="0" cellspacing="0" border="0">
+															<!-- Top level category name links to the product information page -->
+															<tr>
+							 									<td class="grayLink noWrap" style="background:#EBEBEB;padding:3px 0px 3px 0px;vertical-align:top;">
+							 
+																	<h2 style="margin:0px;padding:0px;color:#7A7A7A;text-decoration:none;font-size:9pt;font-weight:bold;">
+																	<a href="javascript:void(0);" title="Click to expand" name="&lid=Logic and Timing" style="zoom:100%;" onclick="showRows('100144');seteVar8(this,'avnelectronicsmarketing','browse');">
+																  	<span id="100144_expandItem" style="padding:0px;color:#cc0000;font-weight:bold;font-size:11pt;vertical-align:middle;">+</span></a>&nbsp;&nbsp;<a href="EMController/Logic-and-Timing/_/N-100144?action=products&amp;cat=1&amp;catalogId=500201&amp;cutTape=&amp;inStock=&amp;langId=-1&amp;proto=&amp;rohs=&amp;storeId=500201&amp;topSellers=" title="Link to product data" name="&lid=Logic and Timing" style="zoom:100%;" onclick="">Logic and Timing
+																	</a></h2>
+								  
+																</td>
+															</tr>
+														    <tr>
+  																<td style="margin:0px;border-top:1px dashed #B6B6B6;"><div style="font-size:1px;line-height:0">&nbsp;</div></td>
+															</tr>
+														</table>
+												  	</div>
+							<!-- Category with children --><!-- Anchor div for AJAX insertion -->
+													<div id="100171_div" style="margin:0px;padding:0px;">
+														<table style="width:90%;" id="100171" cellpadding="0" cellspacing="0" border="0">
+															<!-- Top level category name links to the product information page -->
+															<tr>
+							 									<td class="grayLink noWrap" style="background:#EBEBEB;padding:3px 0px 3px 0px;vertical-align:top;">
+							 
+																	<h2 style="margin:0px;padding:0px;color:#7A7A7A;text-decoration:none;font-size:9pt;font-weight:bold;">
+																	<a href="javascript:void(0);" title="Click to expand" name="&lid=Memory" style="zoom:100%;" onclick="showRows('100171');seteVar8(this,'avnelectronicsmarketing','browse');">
+																  	<span id="100171_expandItem" style="padding:0px;color:#cc0000;font-weight:bold;font-size:11pt;vertical-align:middle;">+</span></a>&nbsp;&nbsp;<a href="EMController/Memory/_/N-100171?action=products&amp;cat=1&amp;catalogId=500201&amp;cutTape=&amp;inStock=&amp;langId=-1&amp;proto=&amp;rohs=&amp;storeId=500201&amp;topSellers=" title="Link to product data" name="&lid=Memory" style="zoom:100%;" onclick="">Memory
+																	</a></h2>
+								  
+																</td>
+															</tr>
+														    <tr>
+  																<td style="margin:0px;border-top:1px dashed #B6B6B6;"><div style="font-size:1px;line-height:0">&nbsp;</div></td>
+															</tr>
+														</table>
+												  	</div>
+							<!-- Category with children --><!-- Anchor div for AJAX insertion -->
+													<div id="100185_div" style="margin:0px;padding:0px;">
+														<table style="width:90%;" id="100185" cellpadding="0" cellspacing="0" border="0">
+															<!-- Top level category name links to the product information page -->
+															<tr>
+							 									<td class="grayLink noWrap" style="background:#EBEBEB;padding:3px 0px 3px 0px;vertical-align:top;">
+							  
+																	<h2 style="margin:0px;padding:0px;color:#7A7A7A;text-decoration:none;font-size:9pt;font-weight:bold;">
+																	<a href="EMController/Microcontroller/_/N-100185?action=products&amp;cat=1&amp;catalogId=500201&amp;cutTape=&amp;inStock=&amp;langId=-1&amp;proto=&amp;rohs=&amp;storeId=500201&amp;topSellers=" title="Link to product data" name="&lid=Microcontroller" style="zoom:100%;" onclick="seteVar8(this,'avnelectronicsmarketing','browse');">
+																  	<span style="font-weight:bold;font-size:11pt;vertical-align:middle;">+</span>&nbsp;&nbsp;Microcontroller
+																	</a></h2>
+							 	  
+																</td>
+															</tr>
+														    <tr>
+  																<td style="margin:0px;border-top:1px dashed #B6B6B6;"><div style="font-size:1px;line-height:0">&nbsp;</div></td>
+															</tr>
+														</table>
+												  	</div>
+							<!-- Category with children --><!-- Anchor div for AJAX insertion -->
+													<div id="100186_div" style="margin:0px;padding:0px;">
+														<table style="width:90%;" id="100186" cellpadding="0" cellspacing="0" border="0">
+															<!-- Top level category name links to the product information page -->
+															<tr>
+							 									<td class="grayLink noWrap" style="background:#EBEBEB;padding:3px 0px 3px 0px;vertical-align:top;">
+							 
+																	<h2 style="margin:0px;padding:0px;color:#7A7A7A;text-decoration:none;font-size:9pt;font-weight:bold;">
+																	<a href="javascript:void(0);" title="Click to expand" name="&lid=Optoelectronics" style="zoom:100%;" onclick="showRows('100186');seteVar8(this,'avnelectronicsmarketing','browse');">
+																  	<span id="100186_expandItem" style="padding:0px;color:#cc0000;font-weight:bold;font-size:11pt;vertical-align:middle;">+</span></a>&nbsp;&nbsp;<a href="EMController/Optoelectronics/_/N-100186?action=products&amp;cat=1&amp;catalogId=500201&amp;cutTape=&amp;inStock=&amp;langId=-1&amp;proto=&amp;rohs=&amp;storeId=500201&amp;topSellers=" title="Link to product data" name="&lid=Optoelectronics" style="zoom:100%;" onclick="">Optoelectronics
+																	</a></h2>
+								  
+																</td>
+															</tr>
+														    <tr>
+  																<td style="margin:0px;border-top:1px dashed #B6B6B6;"><div style="font-size:1px;line-height:0">&nbsp;</div></td>
+															</tr>
+														</table>
+												  	</div>
+							<!-- Category with children --><!-- Anchor div for AJAX insertion -->
+													<div id="100201_div" style="margin:0px;padding:0px;">
+														<table style="width:90%;" id="100201" cellpadding="0" cellspacing="0" border="0">
+															<!-- Top level category name links to the product information page -->
+															<tr>
+							 									<td class="grayLink noWrap" style="background:#EBEBEB;padding:3px 0px 3px 0px;vertical-align:top;">
+							 
+																	<h2 style="margin:0px;padding:0px;color:#7A7A7A;text-decoration:none;font-size:9pt;font-weight:bold;">
+																	<a href="javascript:void(0);" title="Click to expand" name="&lid=Power Management" style="zoom:100%;" onclick="showRows('100201');seteVar8(this,'avnelectronicsmarketing','browse');">
+																  	<span id="100201_expandItem" style="padding:0px;color:#cc0000;font-weight:bold;font-size:11pt;vertical-align:middle;">+</span></a>&nbsp;&nbsp;<a href="EMController/Power-Management/_/N-100201?action=products&amp;cat=1&amp;catalogId=500201&amp;cutTape=&amp;inStock=&amp;langId=-1&amp;proto=&amp;rohs=&amp;storeId=500201&amp;topSellers=" title="Link to product data" name="&lid=Power Management" style="zoom:100%;" onclick="">Power Management
+																	</a></h2>
+								  
+																</td>
+															</tr>
+														    <tr>
+  																<td style="margin:0px;border-top:1px dashed #B6B6B6;"><div style="font-size:1px;line-height:0">&nbsp;</div></td>
+															</tr>
+														</table>
+												  	</div>
+							<!-- Category with children --><!-- Anchor div for AJAX insertion -->
+													<div id="100224_div" style="margin:0px;padding:0px;">
+														<table style="width:90%;" id="100224" cellpadding="0" cellspacing="0" border="0">
+															<!-- Top level category name links to the product information page -->
+															<tr>
+							 									<td class="grayLink noWrap" style="background:#EBEBEB;padding:3px 0px 3px 0px;vertical-align:top;">
+							 
+																	<h2 style="margin:0px;padding:0px;color:#7A7A7A;text-decoration:none;font-size:9pt;font-weight:bold;">
+																	<a href="javascript:void(0);" title="Click to expand" name="&lid=Power Supplies" style="zoom:100%;" onclick="showRows('100224');seteVar8(this,'avnelectronicsmarketing','browse');">
+																  	<span id="100224_expandItem" style="padding:0px;color:#cc0000;font-weight:bold;font-size:11pt;vertical-align:middle;">+</span></a>&nbsp;&nbsp;<a href="EMController/Power-Supplies/_/N-100224?action=products&amp;cat=1&amp;catalogId=500201&amp;cutTape=&amp;inStock=&amp;langId=-1&amp;proto=&amp;rohs=&amp;storeId=500201&amp;topSellers=" title="Link to product data" name="&lid=Power Supplies" style="zoom:100%;" onclick="">Power Supplies
+																	</a></h2>
+								  
+																</td>
+															</tr>
+														    <tr>
+  																<td style="margin:0px;border-top:1px dashed #B6B6B6;"><div style="font-size:1px;line-height:0">&nbsp;</div></td>
+															</tr>
+														</table>
+												  	</div>
+							<!-- Category with children --><!-- Anchor div for AJAX insertion -->
+													<div id="100228_div" style="margin:0px;padding:0px;">
+														<table style="width:90%;" id="100228" cellpadding="0" cellspacing="0" border="0">
+															<!-- Top level category name links to the product information page -->
+															<tr>
+							 									<td class="grayLink noWrap" style="background:#EBEBEB;padding:3px 0px 3px 0px;vertical-align:top;">
+							 
+																	<h2 style="margin:0px;padding:0px;color:#7A7A7A;text-decoration:none;font-size:9pt;font-weight:bold;">
+																	<a href="javascript:void(0);" title="Click to expand" name="&lid=Processor" style="zoom:100%;" onclick="showRows('100228');seteVar8(this,'avnelectronicsmarketing','browse');">
+																  	<span id="100228_expandItem" style="padding:0px;color:#cc0000;font-weight:bold;font-size:11pt;vertical-align:middle;">+</span></a>&nbsp;&nbsp;<a href="EMController/Processor/_/N-100228?action=products&amp;cat=1&amp;catalogId=500201&amp;cutTape=&amp;inStock=&amp;langId=-1&amp;proto=&amp;rohs=&amp;storeId=500201&amp;topSellers=" title="Link to product data" name="&lid=Processor" style="zoom:100%;" onclick="">Processor
+																	</a></h2>
+								  
+																</td>
+															</tr>
+														    <tr>
+  																<td style="margin:0px;border-top:1px dashed #B6B6B6;"><div style="font-size:1px;line-height:0">&nbsp;</div></td>
+															</tr>
+														</table>
+												  	</div>
+							
+												</td>
+												<td style="padding:0px 0px 2px 6px;vertical-align:top;width:25%;">
+							<!-- Category with children --><!-- Anchor div for AJAX insertion -->
+													<div id="100233_div" style="margin:0px;padding:0px;">
+														<table style="width:90%;" id="100233" cellpadding="0" cellspacing="0" border="0">
+															<!-- Top level category name links to the product information page -->
+															<tr>
+							 									<td class="grayLink noWrap" style="background:#EBEBEB;padding:3px 0px 3px 0px;vertical-align:top;">
+							 
+																	<h2 style="margin:0px;padding:0px;color:#7A7A7A;text-decoration:none;font-size:9pt;font-weight:bold;">
+																	<a href="javascript:void(0);" title="Click to expand" name="&lid=Programmable Logic" style="zoom:100%;" onclick="showRows('100233');seteVar8(this,'avnelectronicsmarketing','browse');">
+																  	<span id="100233_expandItem" style="padding:0px;color:#cc0000;font-weight:bold;font-size:11pt;vertical-align:middle;">+</span></a>&nbsp;&nbsp;<a href="EMController/Programmable-Logic/_/N-100233?action=products&amp;cat=1&amp;catalogId=500201&amp;cutTape=&amp;inStock=&amp;langId=-1&amp;proto=&amp;rohs=&amp;storeId=500201&amp;topSellers=" title="Link to product data" name="&lid=Programmable Logic" style="zoom:100%;" onclick="">Programmable Logic
+																	</a></h2>
+								  
+																</td>
+															</tr>
+														    <tr>
+  																<td style="margin:0px;border-top:1px dashed #B6B6B6;"><div style="font-size:1px;line-height:0">&nbsp;</div></td>
+															</tr>
+														</table>
+												  	</div>
+							<!-- Category with children --><!-- Anchor div for AJAX insertion -->
+													<div id="100252_div" style="margin:0px;padding:0px;">
+														<table style="width:90%;" id="100252" cellpadding="0" cellspacing="0" border="0">
+															<!-- Top level category name links to the product information page -->
+															<tr>
+							 									<td class="grayLink noWrap" style="background:#EBEBEB;padding:3px 0px 3px 0px;vertical-align:top;">
+							 
+																	<h2 style="margin:0px;padding:0px;color:#7A7A7A;text-decoration:none;font-size:9pt;font-weight:bold;">
+																	<a href="javascript:void(0);" title="Click to expand" name="&lid=Resistor" style="zoom:100%;" onclick="showRows('100252');seteVar8(this,'avnelectronicsmarketing','browse');">
+																  	<span id="100252_expandItem" style="padding:0px;color:#cc0000;font-weight:bold;font-size:11pt;vertical-align:middle;">+</span></a>&nbsp;&nbsp;<a href="EMController/Resistor/_/N-100252?action=products&amp;cat=1&amp;catalogId=500201&amp;cutTape=&amp;inStock=&amp;langId=-1&amp;proto=&amp;rohs=&amp;storeId=500201&amp;topSellers=" title="Link to product data" name="&lid=Resistor" style="zoom:100%;" onclick="">Resistor
+																	</a></h2>
+								  
+																</td>
+															</tr>
+														    <tr>
+  																<td style="margin:0px;border-top:1px dashed #B6B6B6;"><div style="font-size:1px;line-height:0">&nbsp;</div></td>
+															</tr>
+														</table>
+												  	</div>
+							<!-- Category with children --><!-- Anchor div for AJAX insertion -->
+													<div id="100238_div" style="margin:0px;padding:0px;">
+														<table style="width:90%;" id="100238" cellpadding="0" cellspacing="0" border="0">
+															<!-- Top level category name links to the product information page -->
+															<tr>
+							 									<td class="grayLink noWrap" style="background:#EBEBEB;padding:3px 0px 3px 0px;vertical-align:top;">
+							 
+																	<h2 style="margin:0px;padding:0px;color:#7A7A7A;text-decoration:none;font-size:9pt;font-weight:bold;">
+																	<a href="javascript:void(0);" title="Click to expand" name="&lid=RF and Microwave" style="zoom:100%;" onclick="showRows('100238');seteVar8(this,'avnelectronicsmarketing','browse');">
+																  	<span id="100238_expandItem" style="padding:0px;color:#cc0000;font-weight:bold;font-size:11pt;vertical-align:middle;">+</span></a>&nbsp;&nbsp;<a href="EMController/RF-and-Microwave/_/N-100238?action=products&amp;cat=1&amp;catalogId=500201&amp;cutTape=&amp;inStock=&amp;langId=-1&amp;proto=&amp;rohs=&amp;storeId=500201&amp;topSellers=" title="Link to product data" name="&lid=RF and Microwave" style="zoom:100%;" onclick="">RF and Microwave
+																	</a></h2>
+								  
+																</td>
+															</tr>
+														    <tr>
+  																<td style="margin:0px;border-top:1px dashed #B6B6B6;"><div style="font-size:1px;line-height:0">&nbsp;</div></td>
+															</tr>
+														</table>
+												  	</div>
+							<!-- Category with children --><!-- Anchor div for AJAX insertion -->
+													<div id="100258_div" style="margin:0px;padding:0px;">
+														<table style="width:90%;" id="100258" cellpadding="0" cellspacing="0" border="0">
+															<!-- Top level category name links to the product information page -->
+															<tr>
+							 									<td class="grayLink noWrap" style="background:#EBEBEB;padding:3px 0px 3px 0px;vertical-align:top;">
+							 
+																	<h2 style="margin:0px;padding:0px;color:#7A7A7A;text-decoration:none;font-size:9pt;font-weight:bold;">
+																	<a href="javascript:void(0);" title="Click to expand" name="&lid=Sensors and Transducers" style="zoom:100%;" onclick="showRows('100258');seteVar8(this,'avnelectronicsmarketing','browse');">
+																  	<span id="100258_expandItem" style="padding:0px;color:#cc0000;font-weight:bold;font-size:11pt;vertical-align:middle;">+</span></a>&nbsp;&nbsp;<a href="EMController/Sensors-and-Transducers/_/N-100258?action=products&amp;cat=1&amp;catalogId=500201&amp;cutTape=&amp;inStock=&amp;langId=-1&amp;proto=&amp;rohs=&amp;storeId=500201&amp;topSellers=" title="Link to product data" name="&lid=Sensors and Transducers" style="zoom:100%;" onclick="">Sensors and Transducers
+																	</a></h2>
+								  
+																</td>
+															</tr>
+														    <tr>
+  																<td style="margin:0px;border-top:1px dashed #B6B6B6;"><div style="font-size:1px;line-height:0">&nbsp;</div></td>
+															</tr>
+														</table>
+												  	</div>
+							<!-- Category with children --><!-- Anchor div for AJAX insertion -->
+													<div id="100268_div" style="margin:0px;padding:0px;">
+														<table style="width:90%;" id="100268" cellpadding="0" cellspacing="0" border="0">
+															<!-- Top level category name links to the product information page -->
+															<tr>
+							 									<td class="grayLink noWrap" style="background:#EBEBEB;padding:3px 0px 3px 0px;vertical-align:top;">
+							 
+																	<h2 style="margin:0px;padding:0px;color:#7A7A7A;text-decoration:none;font-size:9pt;font-weight:bold;">
+																	<a href="javascript:void(0);" title="Click to expand" name="&lid=Switches and Relays" style="zoom:100%;" onclick="showRows('100268');seteVar8(this,'avnelectronicsmarketing','browse');">
+																  	<span id="100268_expandItem" style="padding:0px;color:#cc0000;font-weight:bold;font-size:11pt;vertical-align:middle;">+</span></a>&nbsp;&nbsp;<a href="EMController/Switches-and-Relays/_/N-100268?action=products&amp;cat=1&amp;catalogId=500201&amp;cutTape=&amp;inStock=&amp;langId=-1&amp;proto=&amp;rohs=&amp;storeId=500201&amp;topSellers=" title="Link to product data" name="&lid=Switches and Relays" style="zoom:100%;" onclick="">Switches and Relays
+																	</a></h2>
+								  
+																</td>
+															</tr>
+														    <tr>
+  																<td style="margin:0px;border-top:1px dashed #B6B6B6;"><div style="font-size:1px;line-height:0">&nbsp;</div></td>
+															</tr>
+														</table>
+												  	</div>
+							<!-- Category with children --><!-- Anchor div for AJAX insertion -->
+													<div id="100464_div" style="margin:0px;padding:0px;">
+														<table style="width:90%;" id="100464" cellpadding="0" cellspacing="0" border="0">
+															<!-- Top level category name links to the product information page -->
+															<tr>
+							 									<td class="grayLink noWrap" style="background:#EBEBEB;padding:3px 0px 3px 0px;vertical-align:top;">
+							 
+																	<h2 style="margin:0px;padding:0px;color:#7A7A7A;text-decoration:none;font-size:9pt;font-weight:bold;">
+																	<a href="javascript:void(0);" title="Click to expand" name="&lid=Thermal Management" style="zoom:100%;" onclick="showRows('100464');seteVar8(this,'avnelectronicsmarketing','browse');">
+																  	<span id="100464_expandItem" style="padding:0px;color:#cc0000;font-weight:bold;font-size:11pt;vertical-align:middle;">+</span></a>&nbsp;&nbsp;<a href="EMController/Thermal-Management/_/N-100464?action=products&amp;cat=1&amp;catalogId=500201&amp;cutTape=&amp;inStock=&amp;langId=-1&amp;proto=&amp;rohs=&amp;storeId=500201&amp;topSellers=" title="Link to product data" name="&lid=Thermal Management" style="zoom:100%;" onclick="">Thermal Management
+																	</a></h2>
+								  
+																</td>
+															</tr>
+														    <tr>
+  																<td style="margin:0px;border-top:1px dashed #B6B6B6;"><div style="font-size:1px;line-height:0">&nbsp;</div></td>
+															</tr>
+														</table>
+												  	</div>
+							<!-- Category with children --><!-- Anchor div for AJAX insertion -->
+													<div id="100284_div" style="margin:0px;padding:0px;">
+														<table style="width:90%;" id="100284" cellpadding="0" cellspacing="0" border="0">
+															<!-- Top level category name links to the product information page -->
+															<tr>
+							 									<td class="grayLink noWrap" style="background:#EBEBEB;padding:3px 0px 3px 0px;vertical-align:top;">
+							 
+																	<h2 style="margin:0px;padding:0px;color:#7A7A7A;text-decoration:none;font-size:9pt;font-weight:bold;">
+																	<a href="javascript:void(0);" title="Click to expand" name="&lid=Transformer" style="zoom:100%;" onclick="showRows('100284');seteVar8(this,'avnelectronicsmarketing','browse');">
+																  	<span id="100284_expandItem" style="padding:0px;color:#cc0000;font-weight:bold;font-size:11pt;vertical-align:middle;">+</span></a>&nbsp;&nbsp;<a href="EMController/Transformer/_/N-100284?action=products&amp;cat=1&amp;catalogId=500201&amp;cutTape=&amp;inStock=&amp;langId=-1&amp;proto=&amp;rohs=&amp;storeId=500201&amp;topSellers=" title="Link to product data" name="&lid=Transformer" style="zoom:100%;" onclick="">Transformer
+																	</a></h2>
+								  
+																</td>
+															</tr>
+														    <tr>
+  																<td style="margin:0px;border-top:1px dashed #B6B6B6;"><div style="font-size:1px;line-height:0">&nbsp;</div></td>
+															</tr>
+														</table>
+												  	</div>
+							
+												</td>
+												<td style="padding:0px 0px 2px 6px;vertical-align:top;width:25%;">
+							
+										
+												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<!-- [SN] end product tab --><!-- [SN] Begin manufacturer tab -->
+						<div id="tab_2" style="display:none;">
+							<table cellspacing="0" cellpadding="0" style="width:100%;border:solid 1px #7A7A7A;">
+								<tr>
+									<td class="roloLink" style="vertical-align:bottom;background:url(/wcsstore/emstore/images/bg-prodnav-mid.gif);width:100%;text-align:center;padding:3px 0px 2px 0px;">
+									
+		  			
+					  					&nbsp;&nbsp;<a href="javascript:void(0);" onclick="refineManufacturers('100309');seteVar8(this,'avnelectronicsmarketing','browse');">0 - 9</a>&nbsp;&nbsp;&nbsp;
+						
+					  					&nbsp;&nbsp;<a href="javascript:void(0);" onclick="refineManufacturers('100310');seteVar8(this,'avnelectronicsmarketing','browse');">A - F</a>&nbsp;&nbsp;&nbsp;
+						
+					  					&nbsp;&nbsp;<a href="javascript:void(0);" onclick="refineManufacturers('100311');seteVar8(this,'avnelectronicsmarketing','browse');">G - M</a>&nbsp;&nbsp;&nbsp;
+						
+					  					&nbsp;&nbsp;<a href="javascript:void(0);" onclick="refineManufacturers('100312');seteVar8(this,'avnelectronicsmarketing','browse');">N - S</a>&nbsp;&nbsp;&nbsp;
+						
+					  					&nbsp;&nbsp;<a href="javascript:void(0);" onclick="refineManufacturers('100313');seteVar8(this,'avnelectronicsmarketing','browse');">T - Z</a>&nbsp;&nbsp;&nbsp;
+						
+						  				&nbsp;&nbsp;<a href="javascript:void(0);" onclick="refineManufacturers('all');seteVar8(this,'avnelectronicsmarketing','browse');">All Manufacturers</a>&nbsp;&nbsp;
+					
+
+										<div style="padding-left:20px;display:inline;">&nbsp;</div><a href="http://www.em.avnet.com/lc2/home/0,1747,RID%253D%2526CID%253D0%2526CCD%253DUSA%2526SID%253D32214%2526DID%253DDF2%2526LID%253D32231%2526PVW%253D%2526BID%253DDF2%2526CTP%253DLC2,00.html?url=http://em.avnet.com/linecard" onclick="seteVar8(this,'avnelectronicsmarketing','browse');">&nbsp;Line Card&nbsp;&#187;</a>
+						  			</td>
+						  		</tr>
+								<tr>
+									<td style="width:100%;">
+										<!-- Anchor div for AJAX insertion -->
+										<div id="manufacturers">
+											<table style="width:100%;background:#EBEBEB;" border="0" cellpadding="0" cellspacing="0">
+												<tr>
+													<td><div style="font-size:1px;line-height:0;width:2;">&nbsp;</div></td>
+													<td rowspan='2' style="background:#FFFFFF;"><div style="font-size:1px;line-height:0;">&nbsp;&nbsp;</div></td>
+													<td><div style="font-size:1px;line-height:0;width:25%;">&nbsp;</div></td>
+													<td rowspan='2' style="background:#FFFFFF;"><div style="font-size:1px;line-height:0;">&nbsp;&nbsp;</div></td>
+													<td><div style="font-size:1px;line-height:0;width:25%;">&nbsp;</div></td>
+													<td rowspan='2' style="background:#FFFFFF;"><div style="font-size:1px;line-height:0;">&nbsp;&nbsp;</div></td>
+													<td><div style="font-size:1px;line-height:0;width:25%;">&nbsp;</div></td>
+												</tr>
+												<tr>
+													<td style="padding:0px 0px 2px 6px;vertical-align:top;width:25%;">
+					
+
+													</td>
+												</tr>
+											</table>
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<!-- [SN] end manufacturer tab -->
+
+
+						
+
+					</td>
+		        </tr>
+		      	</table>
+
+			</td>
+			<!-- browse ends -->
+		</tr>
+		</table>
+		</div>
+		</div>
+		</div>
+		</div>
+<!-- END ContentContainerBottom.jsp --><!-- /Content Container-->
+    </td>
+</tr>
+<tr>
+    <td style="vertical-align:top;">
+<!-- EM footer -->
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td style="padding-left:135px;vertical-align:middle;background:#CCCCCC;height:20px;">This site is governed by <a href="http://www.avnet.com/" target="_blank">Avnet, Inc</a>. <a href="http://www.avnet.com/lgl/home/0,6965,RID%253D0%2526CID%253D9881%2526CAT%253D%2526CCD%253DUSA%2526SID%253D0%2526DID%253DDF3%2526LID%253D0%2526PRT%253D%2526PVW%253DN%2526BID%253DDF3%2526FTR%253D3%2526CTP%253DLGL,00.html" target="_blank"> 
+			Terms &amp; Conditions</a>, <a href="http://www.avnet.com/lgl/home/0,6965,RID%253D0%2526CID%253D9881%2526CAT%253D%2526CCD%253DUSA%2526SID%253D0%2526DID%253DDF3%2526LID%253D9828%2526PRT%253D%2526PVW%253DN%2526BID%253DDF3%2526FTR%253D2%2526CTP%253DLGL,00.html" target="_blank">
+			Legal Notices</a> &amp; <a href="http://www.avnet.com/lgl/home/0,6965,RID%253D0%2526CID%253D9881%2526CAT%253D%2526CCD%253DUSA%2526SID%253D0%2526DID%253DDF3%2526LID%253D9828%2526PRT%253D%2526PVW%253DN%2526BID%253DDF3%2526FTR%253D1%2526CTP%253DLGL,00.html" target="_blank">Privacy Statements</a>.
+			&nbsp;&nbsp;&nbsp;&nbsp;Copyright &#169; 1995-2010Avnet, Inc.&nbsp; All rights reserved.
+		</td>
+	</tr>
+</table>
+
+
+
+
+	<script type="text/javascript">
+	function splitTitle(){
+		var str = document.title;	
+		var titleArray = str.split('-');
+		return titleArray[1];
+	}
+	</script>
+	
+<!-- set up HBX_AccountNumber based on prod or dev environment if it is not set before --><!-- decide to use hbx error code or standard code based on flag --><!--OMNITURE CODE HBX2.5 (Universal)--><!-- Copyright 1997 - 2008. Omniture, Inc. All Rights Reserved.  Omniture is a registered trademark of Omniture, Inc. in the United States, Canada, Japan, and the European Community. -->
+	    <script language="javascript">
+	    var _hbEC=0,_hbE=new Array;function _hbEvent(a,b){b=_hbE[_hbEC++]=new Object();b._N=a;b._C=0;return b;}
+	    var hbx=_hbEvent("pv");hbx.vpc="HBX0250u";hbx.gn="a.avnet.com";
+	    //ehg-memecinc.hitbox.com
+	    //BEGIN EDITABLE SECTION
+	    //CONFIGURATION VARIABLES
+	    hbx.acct="DM551006HAMC";//ACCOUNT NUMBER(S)
+	    
+                              
+                   hbx.pn= "PUT+PAGE+NAME+HERE";//PAGE NAME(S)
+                   hbx.pn= splitTitle();
+                
+                     
+		hbx.mlc="eCommerce";
+		hbx.pndef="title";//DEFAULT PAGE NAME
+	    hbx.ctdef="current";//DEFAULT CONTENT CATEGORY
+	    
+	    //OPTIONAL PAGE VARIABLES
+	    //ACTION SETTINGS
+	    hbx.lc="y";//DATA NORMALIZATION
+	    hbx.fv="";//FORM VALIDATION MINIMUM ELEMENTS OR SUBMIT FUNCTION NAME
+	    hbx.lt="auto";//LINK TRACKING
+	    hbx.dlf="!.pdf";//DOWNLOAD FILTER
+	    hbx.dft="n";//DOWNLOAD FILE NAMING
+	    hbx.elf="n";//EXIT LINK FILTER
+	    
+	    //SEGMENTS AND FUNNELS
+	    hbx.fnl="";//FUNNELS
+	    hbx.seg="1";//VISITOR SEGMENTATION
+	    
+	    //CAMPAIGNS
+	    hbx.cmp="";//CAMPAIGN ID
+	    hbx.cmpn="";//CAMPAIGN ID IN QUERY
+	    hbx.dcmp="";//DYNAMIC CAMPAIGN ID
+	    hbx.dcmpn="";//DYNAMIC CAMPAIGN ID IN QUERY
+	    hbx.dcmpe="";//DYNAMIC CAMPAIGN EXPIRATION
+	    hbx.dcmpre="";//DYNAMIC CAMPAIGN RESPONSE EXPIRATION
+	    hbx.hra="";//RESPONSE ATTRIBUTE
+	    hbx.hqsr="";//RESPONSE ATTRIBUTE IN REFERRAL QUERY
+	    hbx.hqsp="";//RESPONSE ATTRIBUTE IN QUERY
+	    hbx.hlt="";//LEAD TRACKING
+	    hbx.hla="";//LEAD ATTRIBUTE
+	    hbx.gp="";//CAMPAIGN GOAL
+	    hbx.gpn="";//CAMPAIGN GOAL IN QUERY
+	    hbx.hcn="";//CONVERSION ATTRIBUTE
+	    hbx.hcv="";//CONVERSION VALUE
+	    hbx.cp="null";//LEGACY CAMPAIGN
+	    hbx.cpd="";//CAMPAIGN DOMAIN
+	    
+	    //CUSTOM VARIABLES
+	    hbx.ci="";//CUSTOMER ID
+	    hbx.hc1="";//CUSTOM 1
+	    hbx.hc2="Anonymous";//CUSTOM 2
+	    hbx.hc3="";//CUSTOM 3
+	    hbx.hc4="";//CUSTOM 4
+	    hbx.hrf="_P::hrf";//CUSTOM REFERRER
+	    hbx.pec="";//ERROR CODES
+	    
+	    //INSERT CUSTOM EVENTS
+	    
+
+	    //END EDITABLE SECTION
+	    
+	    //REQUIRED SECTION. CHANGE "YOURSERVER" TO VALID LOCATION ON YOUR WEB SERVER (HTTPS IF FROM SECURE SERVER)
+	    </script>
+	    
+	    
+	    <script language="javascript1.1" src="/store/emstore/include/hbx.js" defer ></script>
+	    
+<!--END OMNITURE CODE--><!--  BEGIN OMNITURE SITECATALYST CODE -->
+<script language="javascript">
+s.prop14="Anonymous";
+s.prop15="";
+</script>
+<!--  END OMNITURE SITECATALYST CODE -->
+	<script language="JavaScript" type="text/javascript">
+		s.prop26="";
+	</script>
+<!-- end EM footer -->
+	</td>
+</tr>
+</table>
+<!-- /Layout enclosing table -->
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/prototype/1.6.0.3/prototype.js"></script>
+
+<!-- SiteCatalyst code version: H.17.
+Copyright 1997-2008 Omniture, Inc. More info available at
+http://www.omniture.com -->
+<script language="JavaScript" type="text/javascript"><!--
+s.pageName="em:us:avnet:home"
+s.channel="em:us:avnet"
+s.pageType=""
+s.prop1="em:us:avnet:home"
+s.prop12="en_US"
+s.prop13="em"
+s.prop16="home"
+s.prop22="USD"
+s.prop27=s.pageName+"_"
+/* Conversion Variables */
+s.campaign=""
+s.events=""
+s.eVar1=""
+s.eVar2=""
+s.eVar3=""
+s.eVar4=""
+s.eVar5=""
+/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+var s_code=s.t();if(s_code)document.write(s_code)//--></script>
+<!-- End SiteCatalyst code version: H.17. -->
+</body>
+</html>
+

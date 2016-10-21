@@ -1,0 +1,1347 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
+<head>
+
+   <meta name="Robots" content="index,follow" /> 
+  
+  
+  <!-- highscalability -->
+
+  <link rel="shortcut icon" href="/favicon.png" type="image/png" />
+
+  <link id="primaryStylesheet" rel="stylesheet" type="text/css" href="/display/common.css?styleId=512250&amp;RK=1259252671423&amp;CE=21"/>
+  
+  
+  
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/HighScalability" />
+  
+
+  <script type="text/javascript" src="/universal/yui/yahoo-dom-event/yahoo-dom-event.js?CE=21"></script>
+<script type="text/javascript" src="/universal/yui/animation/animation-min.js?CE=21"></script>
+<script type="text/javascript" src="/universal/scripts/global.js?CE=21"></script>
+<script type="text/javascript" src="/universal/scripts/lightbox.js?CE=21"></script>
+
+
+  <script type="text/javascript">
+  // <![CDATA[
+
+    Squarespace.Constants.SS_AUTHKEY = "MNBZFJDS";
+    Squarespace.Constants.WEBSITE_TITLE =  "High Scalability"; 
+    
+     Squarespace.Constants.CURRENT_MODULE_ID = "4867632"; 
+    
+    
+    
+    Squarespace.Constants.ADMINISTRATION_UI =  false; 
+    
+    
+     Squarespace.Constants.OBJECT_PERMALINK = "http://highscalability.com/blog/2009/8/24/how-google-serves-data-from-multiple-datacenters.html"; 
+
+    
+
+    
+
+  // ]]>
+  </script>
+
+      <title>High Scalability - High Scalability - How Google Serves Data from Multiple&nbsp;Datacenters</title>
+  
+
+  <!-- End Heading -->
+
+  <!-- PUT THIS TAG IN THE head SECTION -->
+<script type="text/javascript" src="http://partner.googleadservices.com/gampad/google_service.js">
+</script>
+<script type="text/javascript">
+  GS_googleAddAdSenseService("ca-pub-9451539202293335");
+  GS_googleEnableAllServices();
+</script>
+<script type="text/javascript">
+  GA_googleAddSlot("ca-pub-9451539202293335", "SS_HS_Ad1");
+  GA_googleAddSlot("ca-pub-9451539202293335", "SS_HS_Ad2");
+  GA_googleAddSlot("ca-pub-9451539202293335", "SS_HS_Ad3");
+  GA_googleAddSlot("ca-pub-9451539202293335", "SS_HS_Ad4");
+  GA_googleAddSlot("ca-pub-9451539202293335", "SS_HS_Ad5");
+  GA_googleAddSlot("ca-pub-9451539202293335", "SS_HS_Ad6");
+</script>
+<script type="text/javascript">
+  GA_googleFetchAds();
+</script>
+<meta name="google-site-verification" content="x_MfyyUSDcCHqucvw1VPsnXuw5k-hvI72Ce2LLEyrn8" />
+<!-- END OF TAG FOR head SECTION -->
+
+
+</head>
+
+<body  id="modulePage4867632"   class="objectId5337750"  >
+
+  <script type="text/javascript">
+  YAHOO.util.Event.onDOMReady(function() {
+    if (document.location.href.indexOf("SSLogoutOk=true") != -1) {
+      new Squarespace.FixedPositionTip("Logout Successful", "You have been successfully logged out.", { xMargin: 15, yMargin: 15, icon: "/universal/images/helptip-info.png", orientation: "upper-right", viewportFixed: true, autoHide: 1800 }).show();
+    }
+  });
+</script>
+
+    
+
+  <script type="text/javascript">
+    YAHOO.util.Event.addListener(document, "keyup", function (e) { if (!e) { e = event; } if (e.keyCode == 27) { document.location.href = "/login/?returnUrl=%2Fblog%2F2009%2F8%2F24%2Fhow-google-serves-data-from-multiple-datacenters.html"; } });
+  </script>
+
+
+
+
+  
+
+  <div id="canvasWrapper"><div id="canvas">
+  
+  
+
+  <div id="pageHeaderWrapper"><div id="pageHeader">
+
+      <div id="navigationTop"><div id="navigationTop-sectionContent2191792" class="horizontalNavigationBar"><ul class="content-navigation">
+    
+  <li class="module active-module  " id="navigationTop-moduleContentWrapper4867632">
+
+    <div id="navigationTop-moduleContent4867632">
+
+              <a id="navigationTop-moduleLink4867632" class=" " href="/" ><span>Home</span></a>
+      
+
+      
+
+    </div>
+
+  </li>
+
+
+  <li class="module   " id="navigationTop-moduleContentWrapper4850400">
+
+    <div id="navigationTop-moduleContent4850400">
+
+              <a id="navigationTop-moduleLink4850400" class=" " href="/start-here/" ><span>Start Here</span></a>
+      
+
+      
+
+    </div>
+
+  </li>
+
+
+  <li class="module   " id="navigationTop-moduleContentWrapper4850438">
+
+    <div id="navigationTop-moduleContent4850438">
+
+              <a id="navigationTop-moduleLink4850438" class=" " href="/blog/category/example" ><span>Real Life Architectures</span></a>
+      
+
+      
+
+    </div>
+
+  </li>
+
+
+  <li class="module   " id="navigationTop-moduleContentWrapper4847294">
+
+    <div id="navigationTop-moduleContent4847294">
+
+              <a id="navigationTop-moduleLink4847294" class=" " href="/all-posts/" ><span>All Posts</span></a>
+      
+
+      
+
+    </div>
+
+  </li>
+
+
+  <li class="module   " id="navigationTop-moduleContentWrapper4850431">
+
+    <div id="navigationTop-moduleContent4850431">
+
+              <a id="navigationTop-moduleLink4850431" class=" " href="/advertising/" ><span>Advertising</span></a>
+      
+
+      
+
+    </div>
+
+  </li>
+
+
+  <li class="module   " id="navigationTop-moduleContentWrapper4850388">
+
+    <div id="navigationTop-moduleContent4850388">
+
+              <a id="navigationTop-moduleLink4850388" class=" " href="/contact/" ><span>contact</span></a>
+      
+
+      
+
+    </div>
+
+  </li>
+
+
+  <li class="module   " id="navigationTop-moduleContentWrapper5498762">
+
+    <div id="navigationTop-moduleContent5498762">
+
+              <a id="navigationTop-moduleLink5498762" class=" " href="http://astore.amazon.com/possiboutpos-20" ><span>Book Store</span></a>
+      
+
+      
+
+    </div>
+
+  </li>
+
+
+  <li class="module   " id="navigationTop-moduleContentWrapper5861345">
+
+    <div id="navigationTop-moduleContent5861345">
+
+              <a id="navigationTop-moduleLink5861345" class=" " href="http://feeds.feedburner.com/HighScalability" ><span>RSS</span></a>
+      
+
+      
+
+    </div>
+
+  </li>
+
+
+  </ul><br class="clearer"/></div></div>
+
+    
+        
+      
+  
+      <div id="bannerAreaWrapper"><div id="bannerArea">
+
+        
+        <div id="bannerWrapper">
+          <a href="http://highscalability.com/"><img id="banner" src="/storage/HSBannerTrebuchet.jpg" alt="High Scalability" title="High Scalability"/></a>
+        </div>  
+
+      
+      
+      </div></div>
+    
+    
+    
+
+      <div id="navigationBottom"><div id="navigationBottom-sectionContent2191792" class="horizontalNavigationBar"><ul class="content-navigation">
+    
+  <li class="module active-module  " id="navigationBottom-moduleContentWrapper4867632">
+
+    <div id="navigationBottom-moduleContent4867632">
+
+              <a id="navigationBottom-moduleLink4867632" class=" " href="/" ><span>Home</span></a>
+      
+
+      
+
+    </div>
+
+  </li>
+
+
+  <li class="module   " id="navigationBottom-moduleContentWrapper4850400">
+
+    <div id="navigationBottom-moduleContent4850400">
+
+              <a id="navigationBottom-moduleLink4850400" class=" " href="/start-here/" ><span>Start Here</span></a>
+      
+
+      
+
+    </div>
+
+  </li>
+
+
+  <li class="module   " id="navigationBottom-moduleContentWrapper4850438">
+
+    <div id="navigationBottom-moduleContent4850438">
+
+              <a id="navigationBottom-moduleLink4850438" class=" " href="/blog/category/example" ><span>Real Life Architectures</span></a>
+      
+
+      
+
+    </div>
+
+  </li>
+
+
+  <li class="module   " id="navigationBottom-moduleContentWrapper4847294">
+
+    <div id="navigationBottom-moduleContent4847294">
+
+              <a id="navigationBottom-moduleLink4847294" class=" " href="/all-posts/" ><span>All Posts</span></a>
+      
+
+      
+
+    </div>
+
+  </li>
+
+
+  <li class="module   " id="navigationBottom-moduleContentWrapper4850431">
+
+    <div id="navigationBottom-moduleContent4850431">
+
+              <a id="navigationBottom-moduleLink4850431" class=" " href="/advertising/" ><span>Advertising</span></a>
+      
+
+      
+
+    </div>
+
+  </li>
+
+
+  <li class="module   " id="navigationBottom-moduleContentWrapper4850388">
+
+    <div id="navigationBottom-moduleContent4850388">
+
+              <a id="navigationBottom-moduleLink4850388" class=" " href="/contact/" ><span>contact</span></a>
+      
+
+      
+
+    </div>
+
+  </li>
+
+
+  <li class="module   " id="navigationBottom-moduleContentWrapper5498762">
+
+    <div id="navigationBottom-moduleContent5498762">
+
+              <a id="navigationBottom-moduleLink5498762" class=" " href="http://astore.amazon.com/possiboutpos-20" ><span>Book Store</span></a>
+      
+
+      
+
+    </div>
+
+  </li>
+
+
+  <li class="module   " id="navigationBottom-moduleContentWrapper5861345">
+
+    <div id="navigationBottom-moduleContent5861345">
+
+              <a id="navigationBottom-moduleLink5861345" class=" " href="http://feeds.feedburner.com/HighScalability" ><span>RSS</span></a>
+      
+
+      
+
+    </div>
+
+  </li>
+
+
+  </ul><br class="clearer"/></div></div>
+
+
+  </div></div>
+  
+  
+
+  
+
+  
+  <div id="pageBodyWrapper"><div id="pageBody">
+  
+  <div id="sidebar1Wrapper" class="verticalNavigationBarWrapper"><div class="iw-vnb1"><div class="iw-vnb2"><div class="iw-vnb3"><div class="iw-vnb4"><div id="sidebar1" class="verticalNavigationBar">
+
+  
+
+    <div id="sectionContent2191792" class="sectionWrapper promotedContainer "><div class="iw-s1"><div class="iw-s2"><div class="iw-s3"><div class="iw-s4"><div class="section">
+
+       <div class="caption">Top</div> 
+
+      
+        
+          <ul class="content-navigation">
+  <li class="module active-module  " id="moduleContentWrapper4867632">
+
+    <div id="moduleContent4867632">
+
+              <a id="moduleLink4867632" class=" " href="/" ><span>Home</span></a>
+      
+
+      
+
+    </div>
+
+  </li>
+
+
+  <li class="module   " id="moduleContentWrapper4850400">
+
+    <div id="moduleContent4850400">
+
+              <a id="moduleLink4850400" class=" " href="/start-here/" ><span>Start Here</span></a>
+      
+
+      
+
+    </div>
+
+  </li>
+
+
+  <li class="module   " id="moduleContentWrapper4850438">
+
+    <div id="moduleContent4850438">
+
+              <a id="moduleLink4850438" class=" " href="/blog/category/example" ><span>Real Life Architectures</span></a>
+      
+
+      
+
+    </div>
+
+  </li>
+
+
+  <li class="module   " id="moduleContentWrapper4847294">
+
+    <div id="moduleContent4847294">
+
+              <a id="moduleLink4847294" class=" " href="/all-posts/" ><span>All Posts</span></a>
+      
+
+      
+
+    </div>
+
+  </li>
+
+
+  <li class="module   " id="moduleContentWrapper4850431">
+
+    <div id="moduleContent4850431">
+
+              <a id="moduleLink4850431" class=" " href="/advertising/" ><span>Advertising</span></a>
+      
+
+      
+
+    </div>
+
+  </li>
+
+
+  <li class="module   " id="moduleContentWrapper4850388">
+
+    <div id="moduleContent4850388">
+
+              <a id="moduleLink4850388" class=" " href="/contact/" ><span>contact</span></a>
+      
+
+      
+
+    </div>
+
+  </li>
+
+
+  <li class="module   " id="moduleContentWrapper5498762">
+
+    <div id="moduleContent5498762">
+
+              <a id="moduleLink5498762" class=" " href="http://astore.amazon.com/possiboutpos-20" ><span>Book Store</span></a>
+      
+
+      
+
+    </div>
+
+  </li>
+
+
+  <li class="module   " id="moduleContentWrapper5861345">
+
+    <div id="moduleContent5861345">
+
+              <a id="moduleLink5861345" class=" " href="http://feeds.feedburner.com/HighScalability" ><span>RSS</span></a>
+      
+
+      
+
+    </div>
+
+  </li>
+
+</ul>
+
+        
+
+      
+  
+    </div></div></div></div></div></div>
+
+  
+
+    <div id="sectionContent2251797" class="sectionWrapper  "><div class="iw-s1"><div class="iw-s2"><div class="iw-s3"><div class="iw-s4"><div class="section">
+
+      
+
+      
+        
+          <div class="content-passthrough"><div id="moduleContentWrapper4876569" class="widget-wrapper  widget-type-search"><div id="moduleContent4876569">
+
+
+<form method="get" action="/display/Search">
+
+<div class="search-form-pt-wrapper">
+  <div class="search-form-pt">
+    <span class="queryFieldWrapper"><input type="text" class="text queryField" name="searchQuery" value=""/></span>
+    <span class="queryButtonWrapper"><input type="submit" class="button queryButton" value="&raquo;"/></span>
+    <input type="hidden" name="moduleId" value="4876569"/>
+    <br class="clearer"/>
+  </div>
+</div> 
+
+</form></div></div></div>
+
+        
+
+      
+  
+    </div></div></div></div></div></div>
+
+  
+
+    <div id="sectionContent2248744" class="sectionWrapper  "><div class="iw-s1"><div class="iw-s2"><div class="iw-s3"><div class="iw-s4"><div class="section">
+
+       <div class="caption">Recent Posts</div> 
+
+      
+        
+          <div class="content-passthrough"><div id="moduleContentWrapper4867742" class="widget-wrapper  widget-type-journalarchive"><div id="moduleContent4867742">
+
+
+
+
+
+
+
+  <ul class="archive-item-list-pt">
+     <li><a href="/blog/2010/3/11/what-would-you-like-to-ask-justintv.html">What would you like to ask Justin.tv?</a></li>  <li><a href="/blog/2010/3/10/saying-yes-to-nosql-going-steady-with-cassandra-at-digg.html">Saying Yes to NoSQL; Going Steady with Cassandra at Digg</a></li>  <li><a href="/blog/2010/3/10/how-farmville-scales-the-follow-up.html">How FarmVille Scales - The Follow-up</a></li>  <li><a href="/blog/2010/3/9/sponsored-post-job-openings-squarespace.html">Sponsored Post: Job Openings - Squarespace</a></li>  <li><a href="/blog/2010/3/9/applications-as-virtual-states.html">Applications as Virtual States</a></li>  <li><a href="/blog/2010/3/5/strategy-planning-for-a-power-outage-google-style.html">Strategy: Planning for a Power Outage Google Style</a></li>  <li><a href="/blog/2010/3/4/how-myspace-tested-their-live-site-with-1-million-concurrent.html">How MySpace Tested Their Live Site with 1 Million Concurrent Users</a></li>  <li><a href="/blog/2010/3/3/hot-scalability-links-for-march-3-2010.html">Hot Scalability Links for March 3, 2010</a></li>  <li><a href="/blog/2010/3/2/using-the-ambient-cloud-as-an-application-runtime.html">Using the Ambient Cloud as an Application Runtime</a></li>  <li><a href="/blog/2010/2/26/mysql-and-memcached-end-of-an-era.html">MySQL and Memcached: End of an Era?</a></li> 
+  </ul>
+
+
+
+</div></div></div>
+
+        
+
+      
+  
+    </div></div></div></div></div></div>
+
+  
+
+    <div id="sectionContent2248756" class="sectionWrapper  "><div class="iw-s1"><div class="iw-s2"><div class="iw-s3"><div class="iw-s4"><div class="section">
+
+       <div class="caption">All Time Favorites</div> 
+
+      
+        
+          <div class="content-passthrough"><div id="moduleContentWrapper4869720" class="widget-wrapper  widget-type-page"><div id="moduleContent4869720">
+
+
+
+
+
+  <p>&gt;&nbsp;<a href="http://highscalability.com/youtube-architecture">YouTube Architecture</a><br />&gt;&nbsp;<a href="http://highscalability.com/plentyoffish-architecture">Plenty Of Fish Architecture</a><br />&gt;&nbsp;<a href="http://highscalability.com/google-architecture">Google Architecture</a><br />&gt;&nbsp;<a href="http://highscalability.com/scaling-twitter-making-twitter-10000-percent-faster">Scaling Twitter: Making Twitter 10000 Percent Faster</a><br />&gt;&nbsp;<a href="http://highscalability.com/flickr-architecture">Flickr Architecture</a><br />&gt;&nbsp;<a href="http://highscalability.com/amazon-architecture">Amazon Architecture</a><br />&gt;&nbsp;<a href="http://highscalability.com/how-i-learned-stop-worrying-and-love-using-lot-disk-space-scale">How I Learned to Stop Worrying and Love Using a Lot of Disk Space to Scale</a><br />&gt;&nbsp;<a href="http://highscalability.com/blog/2009/8/5/stack-overflow-architecture.html">Stack Overflow Architecture</a> <br />&gt;&nbsp;<a href="http://highscalability.com/blog/category/facebook">Facebook</a><br /> &gt;&nbsp;<a href="http://highscalability.com/blog/2009/8/6/an-unorthodox-approach-to-database-design-the-coming-of-the.html">An Unorthodox Approach to Database Design : The Coming of the Shard</a>&nbsp;<br /> &gt; <a href="/blog/2009/12/16/building-super-scalable-systems-blade-runner-meets-autonomic.html">Building Super Scalable Systems: Blade Runner Meets Autonomic Computing in the Ambient&nbsp;Cloud</a></p>
+</div></div></div>
+
+        
+
+      
+  
+    </div></div></div></div></div></div>
+
+  
+
+    <div id="sectionContent2248734" class="sectionWrapper  "><div class="iw-s1"><div class="iw-s2"><div class="iw-s3"><div class="iw-s4"><div class="section">
+
+      
+
+      
+        
+          <div class="content-passthrough"><div id="moduleContentWrapper4867711" class="widget-wrapper  widget-type-rss-syndicate"><div id="moduleContent4867711">
+
+
+
+  <ul class="feed-list-inline">
+    
+          <li><a href="http://feeds.feedburner.com/HighScalability" class="feed-link">High Scalability RSS</a></li>
+        
+          <li><a href="http://highscalability.com/blog/rss-comments.xml" class="feed-link">High Scalability Comments RSS</a></li>
+        
+  </ul>
+
+</div></div></div>
+
+        
+
+      
+  
+    </div></div></div></div></div></div>
+
+  
+
+  
+
+</div></div></div></div></div></div>
+  <div id="sidebar2Wrapper" class="verticalNavigationBarWrapper"><div class="iw-vnb1"><div class="iw-vnb2"><div class="iw-vnb3"><div class="iw-vnb4"><div id="sidebar2" class="verticalNavigationBar">
+
+  
+
+    <div id="sectionContent2249261" class="sectionWrapper  "><div class="iw-s1"><div class="iw-s2"><div class="iw-s3"><div class="iw-s4"><div class="section">
+
+      
+
+      
+        
+          <div class="content-passthrough"><div id="moduleContentWrapper4869210" class="widget-wrapper  widget-type-page"><div id="moduleContent4869210">
+
+
+
+
+
+  <CENTER>
+  <script type="text/javascript">
+    GA_googleFillSlot("SS_HS_Ad1");
+  </script>
+  <script type="text/javascript">
+    GA_googleFillSlot("SS_HS_Ad2");
+  </script>
+  <script type="text/javascript">
+    GA_googleFillSlot("SS_HS_Ad3");
+  </script>
+  <script type="text/javascript">
+    GA_googleFillSlot("SS_HS_Ad4");
+  </script>
+  <script type="text/javascript">
+    GA_googleFillSlot("SS_HS_Ad5");
+  </script>
+  <script type="text/javascript">
+    GA_googleFillSlot("SS_HS_Ad6");
+  </script>
+  <center><a href="/advertising">advertise</A></center>
+  
+  </CENTER>
+</div></div></div>
+
+        
+
+      
+  
+    </div></div></div></div></div></div>
+
+  
+
+    <div id="sectionContent2191793" class="sectionWrapper  "><div class="iw-s1"><div class="iw-s2"><div class="iw-s3"><div class="iw-s4"><div class="section">
+
+      
+
+      
+        
+          <ul class="content-navigation">
+  <li class="module   " id="moduleContentWrapper4708561">
+
+    <div id="moduleContent4708561">
+
+              <a id="moduleLink4708561" class=" " href="/login/?returnUrl=%2Fblog%2F2009%2F8%2F24%2Fhow-google-serves-data-from-multiple-datacenters.html" ><span>Login</span></a>
+      
+
+      
+
+    </div>
+
+  </li>
+
+
+  <li class="module   " id="moduleContentWrapper4869034">
+
+    <div id="moduleContent4869034">
+
+              <a id="moduleLink4869034" class=" " href="/register/" ><span>Register</span></a>
+      
+
+      
+
+    </div>
+
+  </li>
+
+
+  <li class="module   " id="moduleContentWrapper4870172">
+
+    <div id="moduleContent4870172">
+
+              <a id="moduleLink4870172" class=" " href="http://highscalability.squarespace.com/blog/category/product" ><span>Useful Products</span></a>
+      
+
+      
+
+    </div>
+
+  </li>
+
+
+  <li class="module   " id="moduleContentWrapper4870194">
+
+    <div id="moduleContent4870194">
+
+              <a id="moduleLink4870194" class=" " href="http://highscalability.squarespace.com/blog/category/paper" ><span>Useful Papers</span></a>
+      
+
+      
+
+    </div>
+
+  </li>
+
+
+  <li class="module   " id="moduleContentWrapper4870201">
+
+    <div id="moduleContent4870201">
+
+              <a id="moduleLink4870201" class=" " href="http://highscalability.squarespace.com/blog/category/strategy" ><span>Useful Strategies</span></a>
+      
+
+      
+
+    </div>
+
+  </li>
+
+
+  <li class="module   " id="moduleContentWrapper4885586">
+
+    <div id="moduleContent4885586">
+
+              <a id="moduleLink4885586" class=" " href="/blog/category/blog" ><span>Useful Blogs</span></a>
+      
+
+      
+
+    </div>
+
+  </li>
+
+
+  <li class="module   " id="moduleContentWrapper4920227">
+
+    <div id="moduleContent4920227">
+
+              <a id="moduleLink4920227" class=" " href="http://highscalability.com/blog/category/book" ><span>Useful Books</span></a>
+      
+
+      
+
+    </div>
+
+  </li>
+
+
+  <li class="module   " id="moduleContentWrapper4878991">
+
+    <div id="moduleContent4878991">
+
+              <a id="moduleLink4878991" class="offsite-link " href="http://astore.amazon.com/possiboutpos-20" onclick="this.target='new';"><span>Book Store</span></a>
+      
+
+      
+
+    </div>
+
+  </li>
+
+</ul>
+
+        
+
+      
+  
+    </div></div></div></div></div></div>
+
+  
+
+  
+
+</div></div></div></div></div></div>
+  
+  
+
+  <div id="contentWrapper"><div id="content">
+    
+          
+    
+
+
+  
+
+ 
+      
+  <div class="journal-entry-navigation">
+
+    
+       <a href="/blog/2009/8/26/hot-links-for-2009-8-26.html">&laquo; Hot Links for 2009-8-26</a> | 
+      <a href="/blog/">Main</a>
+       | <a href="/blog/2009/8/20/vmware-to-bridge-a-dmz.html">VMware to bridge a DMZ.   &raquo;</a> 
+
+    
+
+  </div>
+
+
+  
+  
+  <div class="single-journal-entry-wrapper">
+    
+
+
+<div class="journal-entry-wrapper post-text authored-by-toddhoff category-example category-strategy category-distributed-systems">
+<div id="item5337750" class="journal-entry">
+
+  <div class="journal-entry-float-day"><span class="name">Monday</span></div><div class="journal-entry-float-date"><span class="month">24</span><span class="date">Aug</span><span class="year">2009</span></div>
+  
+  
+  
+  <div class="journal-entry-text">
+  
+      
+      <h2 class="title">
+    
+        
+    
+        <a href="/blog/2009/8/24/how-google-serves-data-from-multiple-datacenters.html">How Google Serves Data from Multiple&nbsp;Datacenters</a>  
+     
+         
+    
+      </h2>
+      
+       <div class="journal-entry-tag journal-entry-tag-post-title"><span class="posted-on">   <img title="Date" alt="Date" class="inline-icon date-icon" src="/universal/images/transparent.png" />Monday, August 24, 2009 at 1:54PM</span> </div> 
+
+    
+  
+      
+      <div class="body">
+  
+        
+        
+        
+          <p><strong>Update:</strong> <a href="http://devblog.streamy.com/2009/08/24/cap-theorem/#">Streamy Explains CAP and HBase's Approach to CAP</a>. <em>We plan to employ inter-cluster replication, with each cluster located in a single DC.  Remote replication will introduce some eventual consistency into the system, but each cluster will continue to be strongly consistent.</em><br /><br />Ryan Barrett, Google App Engine datastore lead, gave this talk <em><a href="http://code.google.com/events/io/sessions/TransactionsAcrossDatacenters.html">Transactions Across Datacenters (and Other Weekend Projects)</a></em> at the Google I/O 2009 conference. <br /><br />While the talk doesn't necessarily break new technical ground, Ryan does an excellent job explaining and evaluating the different options you have when architecting a system to work across multiple datacenters. This is called <strong>multihoming</strong>,  operating from multiple datacenters simultaneously.<br /><br />As multihoming is one of the most challenging tasks in all computing, Ryan's clear and thoughtful style comfortably leads you through the various options. On the trip you learn:</p>
+<li> The different <strong>multi-homing options</strong> are: Backups, Master-Slave, Multi-Master, 2PC, and Paxos. You'll also learn how they each fair on support for consistency, transactions, latency, throughput, data loss, and failover.</li>
+<li> Google App Engine <strong>uses master/slave replication</strong> between datacenters. They chose this approach in order to provide:<br />- lowish latency writes <br />- datacenter failure survival<br />- strong consistency guarantees. </li>
+<li> <strong>No solution is all win</strong>, so a compromise must be made depending on what you think is important. A major Google App Engine goal was to provide a strong consistency model for programmers. They also wanted to be able to survive datacenter failures. And they wanted write performance that wasn't too far behind a typical relational database. These priorities guided their architectural choices.</li>
+<li> In the future they hope to <strong>offer optional models</strong> so you can select Paxos, 2PC, etc for your particular problem requirements (Yahoo's PNUTS does something like this).<br /><br />There's still a lot more to learn. Here's my gloss on the talk:<br />
+<h2>Consistency - What happens happens after you read after a write?</h2>
+Read/write data is one of the hardest kinds of data to run across datacenters. Users a expect a certain level of reliability and consistency. <br /><br /></li>
+<li> <strong>Weak</strong> - it might be there, might not. Best effort. Like memcached. It's OK to drop for some applications like Voip, live video, and multiplayer games. You care more about where things are now, not where they where. For data this is not good.</li>
+<li> <strong>Eventual</strong> - You eventually see the stuff you wrote, just not right away. Email is a good example. You send it but it doesn't arrive right away, but it gets there, eventually. DNS change propagation, SMTP, Amazon S3, SimpleDB, search engine indexing are all of this type. There's a delay after a write when a read won't see what was written, but the writes eventually push through. Still not ideal for data.</li>
+<li> <strong>Strong</strong> - The ideal solution for a structured data system. You get what you put it in. Simplest to program against and think about. Any read after a write will return what was written. AppEngine, file systems, Microsoft Azure, and RDBMSes work this way.</li>
+<li> Once we move data across datacenters what consistency guarantees do we have? We can give up some guarantees, but we should know what we are getting.<br />
+<h2>Transactions - Extended form of consistency across multiple operations.</h2>
+</li>
+<li>Transaction Properties: Correctness, consistency, enforce variants, ACID.</li>
+<li>Example: bank transaction. Transfer money from A to B. Subtract money from A and add to B. These happen at different times. What happens if another transfer happens for A in-between? What happens if there's a failure? What happens of program reads from A or B? You want guarantees. On a crash will money added to B still be added to B? Will money taken from A still be taken from A? You don't want to lose or create money.</li>
+<li>When you start operating across datacenters it's even harder to enforce transactions because more things can go wrong and operations have high latency.<br />
+<h2>Why Operate in Multiple Datacenters?</h2>
+</li>
+<li> <strong>Sh*t happens</strong> - datacenters fail for any number of reasons.</li>
+<li> <strong>Performance</strong> - geolocality allows operations to be moved closer to the user. The speed of light limits limits how fast data can be transferred and becomes significant when operating across the world. Going through multiple router hops also slows traffic. So closer is better and you can only be closer if your data is near the user which requires operating in multiple datacenters. CDNs do this for you, especially for more static data. They put data everywhere.<br />
+<h2>Why Not Operate in Multiple Datacenters?</h2>
+</li>
+<li>Operating in a single datacenter is easy: Low cost bandwidth. Low latency. High bandwidth. Easy operations. Easier code.</li>
+<li>Operating in multiple datacenters is hard: high cost, high latency, low latency, difficult operations, harder code. </li>
+<li> It's especially hard if you have a read/write structured data system where you accept writes from more than one location. You have consistency problems. Maintaining consistency in the face of the distances and failures is non-trivial.<br />
+<h2>Your Different Architecture Options</h2>
+</li>
+<li> <strong>Single Datacenter</strong>. Don't bother operating in mutiple datacenters. This is the easiest option and is what most people do. But datacenters fail, you could lose data, and your site could go down.</li>
+<li> <strong>Bunkerize</strong>. Create a Maginot Line for the Ultimate Datacenter. Make sure your datacenter doesn't ever go down. SimpleDB and Azure use this strategy.</li>
+<li> <strong>Single Master</strong>. Pick a master datacenter that writes go to and other sites replicate to. The replicates sites off read-only services. <br />- Better, but not great. <br />- Data are usually replicated asynchronously so there's a window of vulnerability for loss.<br />- Data in your other datacenters may not be consistent on failure. <br />- Popular with financial institutions. <br />- You get geolocation to serve reads. Consistency depends on the technique. Writes are still limited to one datacenter.</li>
+<li> <strong>Multi-Master</strong>. True multihoming. The Holy Grail. All datacenters are serving reads and writes. All data is consistent. Transactions just work. This is really hard. <br />- So some choose to do it with just two datacenters. NASDAQ has two datacenters close together (low latency) and perform a two-phase commit on every transaction, but they have very strict latency requirements. <br />- Using more than two datacenters is fundamentally harder. You pay for it with queuing delays, routing delays, speed of light. You have to talk between datacenters. Just fundamentally slower with a smaller pipe. You may pay for with capacity and throughput, but you'll definitely pay in latency.<br />
+<h2>How Do You Actually Do This?</h2>
+What are the techniques and tradeoffs of different approaches? Here's the evaluation matrix: <br /><br /> 
+<table border="0">
+<tbody>
+<tr>
+<td>&nbsp;</td>
+<td>Backups</td>
+<td>M/S</td>
+<td>MM</td>
+<td>2PC</td>
+<td>Paxos</td>
+</tr>
+<tr>
+<td>Consistency</td>
+<td>Weak</td>
+<td>Eventual</td>
+<td>Eventual</td>
+<td>Strong</td>
+<td>Strong</td>
+</tr>
+<tr>
+<td>Transactions</td>
+<td>No</td>
+<td>Full</td>
+<td>Local</td>
+<td>Full</td>
+<td>Full</td>
+</tr>
+<tr>
+<td>Latency</td>
+<td>Low</td>
+<td>Low</td>
+<td>Low</td>
+<td>High</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Throughput</td>
+<td>High</td>
+<td>High</td>
+<td>High</td>
+<td>Low</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Data loss</td>
+<td>Lots</td>
+<td>Some</td>
+<td>Some</td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Failover</td>
+<td>Down</td>
+<td>Read-only</td>
+<td>Read/Write</td>
+<td>Read/Write</td>
+<td>Read/Write</td>
+</tr>
+</tbody>
+</table>
+<br /><br />- M/S = master/slave, MM - multi-master, 2PC - 2 Phase Commit<br />- What kind of consistency, transactions, latency throughput do we get for a particular approach? Will we lose data on failure? How much will we lose? When we failover for maintenance or we want to move things, say decommissioning a datacenter, how well do we do that, how well do the techniques support it?<br /><br /></li>
+<li><strong>Backups</strong> - Make a copy of your data that's secret and safe. Generally weak consistency. Usually no transactions. Used for the first internal datastore launch. Not good enough for a production system. Lose data since last backup. You are down while restoring a backup to another datacenter. <br /><br /></li>
+<li><strong>Master/Slave Replication</strong> - Writes to a master are also written to one or more slaves.<br />- Replication is asynchronous so good for latency and throughput. <br />- Weak/eventual consistency unless you are very careful. <br />- You have multiple copies in the datacenters, so you'll lose a little data on failure, but not much. Failover can go read-only until the master has been moved to another datacenter. <br />- Datastore currently uses this mechanism. Truly multihoming adds latency because you have to add the extra hop between datacenters. App Engine is already slow on writes so this extra hit would be painful. M/S gives you most of the benefits of better forms while still offering lower latency writes.<br /><br /></li>
+<li><strong>Multi-Master Replication</strong> - support writes from multiple datacenters simultaneously.<br />- You figure out how to merge all the writes later when there's a conflict. It's like asynchronous replication, but you are serving writes from multiple locations.<br />- Best you can do is Eventual Consistency. Writes don't immediately go everywhere. This is a paradigm shift here. We've assumed with a strongly consistent system that backup and M/S that they don't change anything. They are just techniques to help us multihome. Here it literally changes how the system runs because the multiple writes must be merged.<br />- To do the merging you must find away to serialize, impose an ordering on all your writes. There is no global clock. Things happen in parallel. You can't ever know what happens first. So you make it up using timestamps, local timetamps + skew, local version numbers, distributed consensus protocol. This is the magic and there are a number of ways to do it.<br />- There's no way to do a global transaction. With multiple simultaneous writes you can't guarantee transactions. So you have to figure out what to do afterward.<br />- AppEngine wants strong consistency to make building applications easier, so they didn't consider this option.<br />- Failover is easy because each datacenter can handle writes.<br /><br /></li>
+<li> <strong>Two Phase Commit (2PC)</strong> - protocol for setting up transactions between distributed systems.<br />- Semi-distributed because there's always a master coordinator for a given 2PC transaction. Because there are so few datacenters you tend to go through the same set of  master coordinators.<br />- It's synchronous. All transactions are serialized through that master which kills your throughput and increases latency. <br />- Never serious considered this option because write throughput is very important to them. No single point of failure or serialization point would work for them. Latency is high because of the extra coordination. Writes can be in the 200msec area.<br />- This option does work though. You write to all datacenters or nothing. You get strong consistency and transactions. <br />- Need N+1 datacenters. If you take one down then you still have N to handle your load.<br /><br /></li>
+<li> <strong>Paxos</strong> - A consensus protocol where a group of independent nodes reach a majority consensus on a decision.<br />- Protocol: there's a propose step and then an agree step. You only need a majority of nodes to agree to say something is persisted for it to be considered persisted.<br />- Unlike 2PC it is fully distributed. There's no single master coordinator.<br />- Multiple transactions can be run in parallel. There's less serialization.<br />- Writes are high latency because of the 2 extra round coordination trips required in the protocol.<br />- Wanted to do this, but the they didn't want to pay the 150msec latency hit to writes, especially when competing against 5msec writes for RDBMSes. <br />- They tried using physcially close datacenters but the built-in multi-datacenter overhead (routers, etc) was too high. Even in the same datacenter was too slow.<br />- Paxos is still used a ton within Google. Especially for lock servers. For coordinating anything they do across datacenters. Especially when state is moved between datacenters. If your app is serving data in one datacenter and it should be moved to another that coordination is done through Paxos. It's used also in managing memcache and offline processing. <br />
+<h2>Miscellaneous</h2>
+</li>
+<li> Entity Groups are the unit of consistency in AppEngine. Operations are serialized on Entity Groups. The log for each commit to an entity group is replicated. This maintains consistency and provides transactions. Entity Groups are essentially shards. Sharding enables scaling because it allows you to handle a lot of writes. Datastore shards in entity group size chunks. BuddyPoke has 40 million users, each of which has an entity group. That's 40 million different shards.</li>
+<li> Eating your own dog food is a strategy used a lot at Google. Iterate and make people use new features internally. Using a ton of stuff that's very early. You can iterated many many times so that improves it before you are ready to launch.</li>
+<li>They see relational databases in the datacenter as their competition as much as Azure and SimpleDB. Inserts into RDBMS are in low milliseconds. Writes into AppEngine are 30-40 msecs. Reads are fast. They like this trade-off because on the web reads vastly out number writes. <br />
+<h2>Discussion</h2>
+A few things I wondered through the talk. Did they ever consider a distributed MVCC approach? That might be interesting and wasn't addressed as an option. Clearly at Google scale an in-memory data grid isn't yet appropriate.<br /><br />A preference for the strong consistency model was repeatedly specified as a major design goal because this makes the job of the programmer easier. A counter to this is that the programming model for Google App Engine is already very difficult. The limits and the lack of traditional relational database programming features put a lot of responsibility back on the programmer to write a scalable app. I wonder if giving up strong consistency would have been such a big deal in comparison?<br /><br />I really appreciated the evaluation matrix and the discussion of why Google App Engine made the choices they did. Since writes are already slow on Google App Engine they didn't have a lot of headroom to absorb more layers of coordination. These are the kinds of things developers talk about in design meetings, but they usually don't make it outside the cubicle or conference room walls. I can just hear Ryan, with voiced raised, saying "Why can't we have it all!" But it never seems we can have everything. Many thanks to Ryan for sharing.<br />
+<h2>Related Articles</h2>
+</li>
+<li><a href="http://snarfed.org/space/transactions_across_datacenters_io.html">Slides for the Talk</a></li>
+<li><a href="http://highscalability.com/zookeeper-reliable-scalable-distributed-coordination-system">ZooKeeper - A Reliable, Scalable Distributed Coordination System</a></li>
+<li><a href="http://highscalability.com/yahoo-s-pnuts-database-too-hot-too-cold-or-just-right">Yahoo!'s PNUTS Database: Too Hot, Too Cold or Just Right?</a></li>
+<li><a href="http://highscalability.com/paper-consensus-protocols-paxos">Paper: Consensus Protocols: Paxos</a> by Henry Robinson</li>
+<li><a href="http://highscalability.com/paper-consensus-protocols-two-phase-commit">Paper: Consensus Protocols: Two-Phase Commit</a> by Henry Robinson</li>
+<li><a href="http://highscalability.com/paper-dynamo-amazon-s-highly-available-key-value-store">Paper: Dynamo: Amazon&rsquo;s Highly Available Key-value Store</a></li>
+<li><a href="http://highscalability.com/are-cloud-based-memory-architectures-next-big-thing">Are Cloud Based Memory Architectures the Next Big Thing?</a></li>
+
+        
+  
+          
+  
+         
+  
+      </div>
+
+    
+
+  </div>
+
+      <div class="journal-entry-tag journal-entry-tag-post-body">
+      <div class="journal-entry-tag-post-body-line1"><span class="posted-by">  <a href="/blog/author/toddhoff"> <img title="Author" alt="Author" class="inline-icon user-registered-icon" src="/universal/images/transparent.png" />Todd Hoff</a></span> |  <span class="post-comments"><a href="/blog/2009/8/24/how-google-serves-data-from-multiple-datacenters.html#comments"> <img title="Comment" alt="Comment" class="inline-icon comment-icon" src="/universal/images/transparent.png" />4 Comments</a></span> |  <span class="permalink-item"><a class="permalink" href="/blog/2009/8/24/how-google-serves-data-from-multiple-datacenters.html"> <img title="Permalink" alt="Permalink" class="inline-icon permalink-icon" src="/universal/images/transparent.png" />Permalink </a></span> |  <span class="share-item"><a href="javascript:noop();" onclick="Squarespace.Interaction.shareLink(this,'%2Fblog%2F2009%2F8%2F24%2Fhow-google-serves-data-from-multiple-datacenters.html','How%20Google%20Serves%20Data%20from%20Multiple%20Datacenters');"> <img title="Share Article" alt="Share Article" class="inline-icon share-icon" src="/universal/images/transparent.png" />Share Article </a></span> <span class="print-item"><a href="/blog/2009/8/24/how-google-serves-data-from-multiple-datacenters.html?printerFriendly=true"> <img title="Print Article" alt="Print Article" class="inline-icon print-icon" src="/universal/images/transparent.png" />Print Article </a></span> <span class="email-item"><a href="/blog/recommend/5337750"> <img title="Email Article" alt="Email Article" class="inline-icon email-icon" src="/universal/images/transparent.png" />Email Article </a></span> </div>
+      <div class="journal-entry-tag-post-body-line2"><span class="posted-in">in <span class="tag-element"><a rel="tag" href="/blog/category/example"> <img title="Category" alt="Category" class="inline-icon category-icon" src="/universal/images/transparent.png" />Example</a></span>, <span class="tag-element"><a rel="tag" href="/blog/category/strategy"> <img title="Category" alt="Category" class="inline-icon category-icon" src="/universal/images/transparent.png" />Strategy</a></span>, <span class="tag-element"><a rel="tag" href="/blog/category/distributed-systems"> <img title="Category" alt="Category" class="inline-icon category-icon" src="/universal/images/transparent.png" />distributed systems</a></span></span>  </div>
+      <div class="journal-entry-tag-post-body-line3"></div>
+    </div>
+  
+  
+  <div class="clearer"></div>
+
+</div>
+</div>
+
+
+
+
+
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="journal-comment-area-wrapper">
+    <div id="comments" class="journal-comment-area">
+
+      <h3 class="caption">Reader Comments  (4) </h3>
+
+      
+        
+  <div class="comment-wrapper authored-by-None">
+  <div class="comment" id="comment5664921">
+
+    <div id="item5664921" class="body">
+
+      <p>Extensive use of the word multihoming with a definition I've never heard before...  Multihoming traditionally means to connect to more than one upstream network as is typically the case with ISPs and Hosting companies using BGP to connect to multiple IP traffic providers to improve performance and reliability.</p>
+
+    </div>
+    <div class="signature">
+
+      November 29, 1990 | 
+  <a href="/contributor/6616153" title="Unregistered Commenter">
+  <img title="Unregistered Commenter" alt="Unregistered Commenter" class="inline-icon" src="/universal/images/core-resources/icons/smalllight/user-unregistered.png"/>Scott Mueller
+  
+  </a>
+
+
+
+      
+        
+
+        
+
+      
+
+    </div>
+
+  </div>
+  </div>
+
+
+  <div class="comment-wrapper authored-by-None">
+  <div class="comment" id="comment5664922">
+
+    <div id="item5664922" class="body">
+
+      <p>multihoming is not limited to the scope of connecting to the internet via multiple NSP/ISP's<br/>multihoming can be defined simply by saying an element has multiple connections to 2 disparate resources.<br/>thus, a server can be multihomed to 2 network(s)/switches via 2 nics</p><p>now, i wouldn't necessarily have used the term multihoming in the context used above, i think "distributed" would be a better choice of words...</p><p></p>
+
+    </div>
+    <div class="signature">
+
+      November 29, 1990 | 
+  <a href="/contributor/6616154" title="Unregistered Commenter">
+  <img title="Unregistered Commenter" alt="Unregistered Commenter" class="inline-icon" src="/universal/images/core-resources/icons/smalllight/user-unregistered.png"/>Anonymous
+  
+  </a>
+
+
+
+      
+        
+
+        
+
+      
+
+    </div>
+
+  </div>
+  </div>
+
+
+  <div class="comment-wrapper authored-by-None">
+  <div class="comment" id="comment5664923">
+
+    <div id="item5664923" class="body">
+
+      <p>Great post and great video! I usually find short videos and general information, but 1 post like this and 1 hour of information is fantastic!</p>
+
+    </div>
+    <div class="signature">
+
+      November 29, 1990 | 
+  <a href="/contributor/6616155" title="Unregistered Commenter">
+  <img title="Unregistered Commenter" alt="Unregistered Commenter" class="inline-icon" src="/universal/images/core-resources/icons/smalllight/user-unregistered.png"/>caminandosolo
+  
+  </a>
+
+
+
+      
+        
+
+        
+
+      
+
+    </div>
+
+  </div>
+  </div>
+
+
+  <div class="comment-wrapper authored-by-None">
+  <div class="comment" id="comment6897282">
+
+    <div id="item6897282" class="body">
+
+      <p>Important to mention that use of multiple data centers have basically 2 different purposes: throughput and backup. And I believe are inversely proportional.</p><p>In this article, the two goals were not distinguished.</p><p>For example, there are banks or financial institutions (such as Nasdaq) that build datacenters to 4 miles apart from each other to meet the Basel Accord (only for backup purposes), and all the data needs to be replicated synchronously. However google mainly focuses on throughput.</p><p>I believe it is important to focus on one main objective (backup | | throughput) to begin to build a distributed architecture in multiple datacenters.</p><p></p><p></p><p></p><p><i> <br/>Portuguese Version:<br/>Importante citar que utilização de multiplos datacenters tem basicamente 2 finalidades diferentes: throughput e backup. E acredito que são inversamente proporcionais. </p><p>Nesse artigo, os dois objetivos não foram distinguidos. </p><p>Por exemplo, existem bancos ou instituicoes financeiras (como Nasdaq) que constrõem datacenters a 4 milhas de distancia um do outro para cumprir o acordo de Basileia (somente para fins de backup), e todos os dados precisam ser replicados de forma sincrona. Entretanto o google foca em throughput essencialmente. </p><p>Acredito que é importante focar em um objetivo principal (backup || throughput) para começar a construir uma arquitetura distribuida em multiplos datacenters.</p><p><br/></i></p>
+
+    </div>
+    <div class="signature">
+
+      January 12, 2010 | 
+  <a href="/contributor/7869838" title="Unregistered Commenter">
+  <img title="Unregistered Commenter" alt="Unregistered Commenter" class="inline-icon" src="/universal/images/core-resources/icons/smalllight/user-unregistered.png"/>fulvius
+  
+  </a>
+
+
+
+      
+        
+
+        
+
+      
+
+    </div>
+
+  </div>
+  </div>
+
+
+
+        
+
+      
+
+    </div>
+    </div>
+
+    
+      <div class="journal-add-comment-area-wrapper">
+  
+          
+            
+            
+  <script type="text/javascript">
+  // <![CDATA[
+
+    var isAddCommentsVisible = true;
+
+    function toggleReferenceMode() {
+      if (isAddCommentsVisible) {
+        hideObject(document.getElementById("add-comment-area"));
+        showObject(document.getElementById("add-reference-area"));
+      } else {
+        showObject(document.getElementById("add-comment-area"));
+        hideObject(document.getElementById("add-reference-area"));
+      }
+      isAddCommentsVisible = !isAddCommentsVisible;
+    }
+
+  // ]]>
+  </script>
+
+  <form method="post" style="margin: 0; padding: 0;" name="postform" id="postform" action="/process/CreateJournalEntryComment?moduleId=4867632&amp;entryId=5337750">
+
+     <input type="hidden" name="currentPage" value="1"/> 
+ 
+    <div class="notice-box" style="margin-top: 2em;" id="add-comment-area">
+
+      
+                              <h3 class="caption"><img title="Post" alt="Post" class="inline-icon" src="/universal/images/core-resources/icons/smalllight/comment.png"/>Post a New Comment</h3>
+          
+        
+
+        <div class="caption-text">
+
+          Enter your information below to add a new comment.
+
+          
+
+        </div>
+
+        
+
+        <script type="text/javascript" src="/universal/scripts/storable-fields.js?CE=21"></script>
+
+        
+          <div class="input-field">
+            
+            <div id="authorName_title" class="title">
+               Author: 
+
+              &nbsp;<a id="storedFieldControls" style="display: none; font-size: 9px;" href="javascript:forgetSavedFields();">(forget stored information)</a>
+            </div>
+            <input class="text" type="text" style="width: 200px;" name="authorName" id="authorName" value="" maxlength="50" tabindex="2"/>
+          </div>
+
+          <div class="input-field">
+            
+            <div id="authorEmail_title" class="title"> Author Email (optional): 
+</div>
+            <input class="text" type="text" style="width: 200px;" name="authorEmail" id="authorEmail" value="" maxlength="255" tabindex="3"/>
+          </div>
+
+          <div class="input-field">
+            
+            <div id="authorUrl_title" class="title"> Author URL (optional): 
+</div>
+            <input class="text" type="text" style="width: 200px;" name="authorUrl" id="authorUrl" value="" maxlength="255" tabindex="4"/>
+          </div>
+
+          <script type="text/javascript">
+
+            YAHOO.util.Event.addListener(window, "load", function() {
+
+              document.getElementById("storedFieldControls").style.display = (Squarespace.StorableFields.isDataSaved("authorName", "authorEmail", "authorUrl") ? "inline" : "none");
+              Squarespace.StorableFields.recall("authorName", "authorEmail", "authorUrl");
+
+            });
+
+            function forgetSavedFields() {
+
+              Squarespace.StorableFields.forget("authorName", "authorEmail", "authorUrl");
+              document.getElementById("storedFieldControls").style.display = "none";
+
+            }
+
+          </script>
+
+        
+
+        <script type="text/javascript">
+          function expandBody() { b = document.getElementById("body"); b.style.height = (b.offsetHeight + 40) + "px"; }
+          function shrinkBody() { b = document.getElementById("body"); b.style.height = (b.offsetHeight - 40) + "px"; }
+        </script>
+
+        
+        <div id="body_title" style="padding-bottom: 5px; float: left;"> Post: 
+</div>
+        <div style="padding-bottom: 5px; float: right;"><a title="Increase the size of the comment area." href="javascript:expandBody();">&#8595;</a> | <a title="Decrease the size of the comment area." href="javascript:shrinkBody();">&#8593;</a></div>
+        <div class="clearer">&nbsp;</div>
+        <div style="padding-bottom: 5px;"><textarea rows="15" cols="60" name="body" id="body" tabindex="5"></textarea></div>
+        <div style="padding-bottom: 5px;">Some HTML allowed: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;code&gt; &lt;em&gt; &lt;i&gt; &lt;strike&gt; &lt;strong&gt;</div>
+
+        
+
+        <div class="footer">
+
+                      <div class="notice-box-alert">
+              <div class="icon"><img title="Alert" alt="Alert" class="inline-icon" src="/universal/images/core-resources/icons/smalllight/alert.png"/></div>
+              <div class="text">
+                <strong>Comment Moderation Enabled</strong><br/>
+                Your comment will not appear until it has been cleared by a website editor.
+              </div>
+            </div>
+          
+
+          
+
+          <input type="hidden" name="finalize" id="finalize" value="false"/>
+
+          <input style="width: 150px;" tabindex="6" class="button" type="button" name="createPostButton"  id="createPostButton"  value="Create Post"  onclick="submitContent(true);"/> &nbsp;&nbsp;
+          <input style="width: 150px;" tabindex="7" class="button" type="button" name="previewPostButton" id="previewPostButton" value="Preview Post" onclick="submitContent(false);"/>
+
+        </div>
+
+      
+
+    </div>
+
+  </form>
+
+  <script type="text/javascript">
+  // <![CDATA[
+
+    function submitContent(isFinal) {
+      if (isFinal) {
+        document.getElementById("finalize").value = "true";
+        Squarespace.StorableFields.save("authorName", "authorEmail", "authorUrl");
+      }
+      Squarespace.Form.smartSubmit("postform");
+    }
+
+  // ]]>
+  </script>
+
+  
+
+
+  
+            
+  
+          
+  
+        
+  
+      
+
+    </div>
+  
+  
+  
+
+  
+
+
+  
+
+  
+
+  
+  
+
+</div></div> <!-- Content -->
+  
+    
+  
+    </div></div> <!-- Page Body -->
+
+    
+    
+    <div id="pageFooterWrapper"><div id="pageFooter">
+  
+              
+Copyright &copy; 2009, Possibility Outpost.  All rights reserved.
+      
+  
+      
+  
+    </div></div>
+  
+  </div></div> <!-- Canvas -->
+  
+   
+
+
+  <div class="clearer" id="bodyClearer"></div>
+
+  
+</body>
+</html>

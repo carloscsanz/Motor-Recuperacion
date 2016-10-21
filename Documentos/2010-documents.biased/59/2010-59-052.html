@@ -1,0 +1,768 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Natural Language Processing | Bukisa Topics</title>
+  <meta name="description" content="Natural Language Processing - Natural language processing (NLP) is a field of computer science and linguistics concerned with the interactions between computers and human..." />
+  <meta name="keywords" content="natural language processing,natural language processing,markov models,statistical natural language,natural language understanding,natural language generation,natural language generation systems,statistical nlp,fields of artificial intelligence" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Language" content="en" />
+  <link rel="stylesheet" type="text/css" href="http://trigger.bukisa.com/trigger/fetch_css/?f=reset|en_main|plugins/alerts|plugins/shadowbox|buttons|plugins/validator|topics" media="all" />
+    <!--[if IE 7]><link rel="stylesheet" type="text/css" href="http://trigger.bukisa.com/trigger/fetch_css/?f=ie/ie7" media="all" />
+<![endif]-->
+  <!--[if IE 8]><link rel="stylesheet" type="text/css" href="http://trigger.bukisa.com/trigger/fetch_css/?f=ie/ie8" media="all" />
+<![endif]-->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  <script type="text/javascript" charset="utf-8">
+  // chartbeat
+  var _sf_startpt=(new Date()).getTime();
+  // GA Async Version
+  var _gaq = _gaq || [];
+  _gaq.push(
+    ['_setAccount', 'UA-3657490-1'],
+            ['_setCustomVar', 1, 'User Type', 'Visitor', 2],
+        ['_trackPageview']
+  );
+  </script>
+   
+  <script type="text/javascript" src="http://trigger.bukisa.com/trigger/fetch_javascript/?f=core|buttons|plugins/alerts|plugins/qtip|plugins/shadowbox|interface/effects|swfobject-1.5|engine|plugins/validator/validator|plugins/validator/en|validate|plugins/autogrow|topics"></script>
+ 
+    <link rel="search" type="application/opensearchdescription+xml" href="http://www.bukisa.com/bukisa.xml" title="Bukisa.com search" />
+</head>
+<body style="background: url(http://assets.bukisa.com/img/topics/pg_bg.gif) repeat-x top;">
+
+
+<div id="wrapper">
+  <div id="header">
+    <div class="logo">
+      <a href="/"><img src="http://assets.bukisa.com/img/topics/bukisa-logo.png" width="186" height="55" alt="Share your Knowledge" class="png" /></a>
+      <span>Share your Knowledge</span>
+    </div>
+    <div class="header_section">
+      <div class="row">
+                                <div class="top_link no_bg">
+          Hi, please 
+          <a onclick="_gaq.push(['_trackEvent', 'General', 'Login']);" title="Hello, Please Login Below" href="http://www.bukisa.com/login/popup?back=%2Ftopics%2Fnatural-language-processing" rel="shadowbox;height=320;width=610">Sign In</a> or
+          <a onclick="_gaq.push(['_trackEvent', 'General', 'FB Connect Header']);" href="http://www.bukisa.com/auth/with/facebook" title="Log in with Facebook" id="login_with_facebook">Log in via <img src="http://assets.bukisa.com/img/social_icons/facebook_16.png" width="16" height="16" alt="Log in with Facebook" class="png" /></a> 
+          or
+          <a onclick="_gaq.push(['_trackEvent', 'Campaigns', 'Internal', 'Join Header']);" href="http://www.bukisa.com/join">Join</a> now
+        </div>
+              </div>
+      <div class="big_tab_left"></div>
+      <div class="big_tab">
+        <div class="big_tab_bx">
+          <div class="search_box">
+            <form action="/search">
+            <input name="search_btn" type="submit" value="search" class="search_btn buttons" />
+            <input name="q" type="text" value="Learn something new, Search Bukisa..." onclick="clickclear(this, 'Learn something new, Search Bukisa...')" onblur="clickrecall(this,'Learn something new, Search Bukisa...')" maxlength="200" size="30" class="search_txt" />
+            </form>
+          </div>
+                    <div class="tab_link publish"><a href="/login">Publish</a></div>
+          <div class="tab_link quick_tour"><a href="/tour">Quick Tour</a></div>
+          <div class="tab_link featured"><a href="/featured">Featured</a></div>
+          <div class="tab_link topics"><a href="http://www.bukisa.com/topics">Topics</a></div>
+        </div>
+      </div>
+      <div class="big_tab_right"></div>
+    </div>
+    <div id="top_navi">
+      <div class="cat_title">Categories</div>
+<ul class="top_navigation"> 
+      <li><a href="http://www.bukisa.com/channels/art-entertainment">Art &amp; Entertainment</a></li>
+    <li><a href="http://www.bukisa.com/channels/business-finance">Business &amp; Finance</a></li>
+    <li><a href="http://www.bukisa.com/channels/culture-society">Culture &amp; Society</a></li>
+    <li><a href="http://www.bukisa.com/channels/events-holidays">Events &amp; Holidays</a></li>
+    <li><a href="http://www.bukisa.com/channels/fashion-beauty">Fashion &amp; Beauty</a></li>
+    <li><a href="http://www.bukisa.com/channels/health-nutrition">Health &amp; Nutrition</a></li>
+            
+   
+  <li id="navi-more"><a href="#">More</a>
+    <ul>
+            <li><a href="http://www.bukisa.com/channels/automotive">Automotive</a></li>
+            <li><a href="http://www.bukisa.com/channels/education">Education</a></li>
+            <li><a href="http://www.bukisa.com/channels/family">Family</a></li>
+            <li><a href="http://www.bukisa.com/channels/food">Food &amp; Drinks</a></li>
+            <li><a href="http://www.bukisa.com/channels/hobbies-crafts">Hobbies &amp; Crafts</a></li>
+            <li><a href="http://www.bukisa.com/channels/home-garden">Home &amp; Garden</a></li>
+            <li><a href="http://www.bukisa.com/channels/internet">Internet</a></li>
+            <li><a href="http://www.bukisa.com/channels/pets">Pets</a></li>
+            <li><a href="http://www.bukisa.com/channels/relationships">Relationships</a></li>
+            <li><a href="http://www.bukisa.com/channels/religion-spirituality">Religion &amp; Spirituality</a></li>
+            <li><a href="http://www.bukisa.com/channels/reviews">Reviews</a></li>
+            <li><a href="http://www.bukisa.com/channels/science-technology">Science &amp; Technology</a></li>
+            <li><a href="http://www.bukisa.com/channels/self-improvement">Self Improvement</a></li>
+            <li><a href="http://www.bukisa.com/channels/sports-fitness">Sports &amp; Fitness</a></li>
+            <li><a href="http://www.bukisa.com/channels/travel">Travel</a></li>
+          </ul>
+  </li>
+  </ul>          </div>
+  </div>
+  <div id="tp_content">
+  <div class="breadcrumbs">You are in: 
+    <a href="http://www.bukisa.com/" title="Home">Home</a> &rsaquo;
+        <a href="http://www.bukisa.com/topics" title="Topics">Topics</a> &rsaquo;
+    Natural Language Processing</div>
+ 
+
+
+<div id="tp_column_left">
+ 
+  <h1>Natural Language Processing</h1>
+
+    <div class="tp_grey_box">
+  	    <div class="tp_top">
+      <div class="tp_bottom">
+                <p>Natural language processing (NLP) is a field of computer science and linguistics concerned with the interactions between computers and human (natural) languages. Natural language generation systems convert information from computer databases into readable human language. Natural language understanding systems convert samples of human language into more formal representations such as parse trees or first-order logic structures that are easier for computer programs to manipulate. Many problems within NLP apply to both generation and understanding; for example, a computer must be able to model morphology (the structure of words) in order to understand an English sentence, and a model of morphology is also needed for producing a grammatically correct English sentence. (Wikipedia)</p>
+      </div>
+    </div>
+  </div>
+    
+    
+<h2 class="tp_latest_data">
+  <span>Natural Language Processing Related Content From Bukisa</span>
+  </h2>
+
+<div class="tp_latest_data_box">
+  <div class="tp_box_top">
+        <div class="tp_box_row">
+      <div class="tp_listing_img">
+        <img src="http://assets.bukisa.com/img/ctype_1.gif" width="70" height="70" />
+              </div>
+      <div class="tp_listing_text">
+        <h3><a href="http://www.bukisa.com/articles/108792_programming-language">Programming Language</a></h3>
+        <p>Programming language is the combination of symbols, words and codes that are used to create a program. A program is an organized instruction written with programming language to control or to execute any action or direct the computer to perform certain task.</p>
+      </div>
+    </div>    
+        <div class="tp_box_row">
+      <div class="tp_listing_img">
+        <img src="http://assets.bukisa.com/img/ctype_1.gif" width="70" height="70" />
+              </div>
+      <div class="tp_listing_text">
+        <h3><a href="http://www.bukisa.com/articles/15315_learn-almost-any-language">Learn Almost any Language</a></h3>
+        <p>A dewscription of a language learning method that is simple fun and easy.</p>
+      </div>
+    </div>    
+        <div class="tp_box_row tp_last_row">
+      <div class="tp_listing_img">
+        <img src="http://assets.bukisa.com/img/ctype_1.gif" width="70" height="70" />
+              </div>
+      <div class="tp_listing_text">
+        <h3><a href="http://www.bukisa.com/articles/91442_parallel-processing-and-distributed-knowledge-part-1-of-3">Parallel Processing and Distributed Knowledge: Part 1 of 3</a></h3>
+        <p>Read about Parallel Processing and Distributed Knowledge in psychology.</p>
+      </div>
+    </div>    
+      </div>
+  <div class="tp_box_bottom">
+        <div id="bl-load-more-target" class="tp_icon_show_more">
+    	<a href="javascript:void(0);" onclick="_gaq.push(['_trackEvent', 'Show More', 'Bukisa Content']);Load.bukisa_latest('Natural+Language+Processing', 3);">Show more</a>
+  	</div>
+  </div>
+</div>
+
+  
+  
+  
+<h2 class="tp_related">Related Natural Language Processing Terms </h2>
+
+<div class="tp_related_box">
+  <div class="tp_box_top">
+         
+    <div class="tp_box_row">
+            <div class="tp_listing_img">
+        <span></span>
+        <img src="http://c0499862.cdn.cloudfiles.rackspacecloud.com/Honda_ASIMO_Walking_Stairs-1164.JPG" alt="Artificial Intelligence" />
+      </div>
+            <div class="tp_listing_text">
+        <h3><a onclick="Shadowbox.open({content:'/topics/terms/Artificial_intelligence',player:'iframe',width:800,height:600});" href="javascript:void(0);" title="Artificial Intelligence (Source: Wikipedia)">Artificial Intelligence</a></h3>
+        <p>Artificial intelligence (AI) is the intelligence of machines and the branch of computer science which aims to create it. Textbooks define the field as "the study and design of intelligent agents, "<br /><br />where an intelligent agent is a system that perceives its environment and takes actions which maximize its chances of success. (<a onclick="Shadowbox.open({content:'/topics/terms/Artificial_intelligence',player:'iframe',width:800,height:600});" href="javascript:void(0);" title="Artificial Intelligence (Source: Wikipedia)">read more</a>)</p>
+      </div>
+    </div>
+         
+    <div class="tp_box_row">
+            <div class="tp_listing_img">
+        <span></span>
+        <img src="http://c0499862.cdn.cloudfiles.rackspacecloud.com/Festival_TTS_Telugu-42799.jpg" alt="Speech Synthesis" />
+      </div>
+            <div class="tp_listing_text">
+        <h3><a onclick="Shadowbox.open({content:'/topics/terms/Speech_synthesis',player:'iframe',width:800,height:600});" href="javascript:void(0);" title="Speech Synthesis (Source: Wikipedia)">Speech Synthesis</a></h3>
+        <p>Speech synthesis is the artificial production of human speech. A computer system used for this purpose is called a speech synthesizer, and can be implemented in software or hardware. A text-to-speech (TTS) system converts normal language text into speech; other systems render symbolic linguistic representations like phonetic transcriptions into speech. (<a onclick="Shadowbox.open({content:'/topics/terms/Speech_synthesis',player:'iframe',width:800,height:600});" href="javascript:void(0);" title="Speech Synthesis (Source: Wikipedia)">read more</a>)</p>
+      </div>
+    </div>
+         
+    <div class="tp_box_row tp_last_row">
+            <div class="tp_listing_text">
+        <h3><a onclick="Shadowbox.open({content:'/topics/terms/Natural_language',player:'iframe',width:800,height:600});" href="javascript:void(0);" title="Natural Language (Source: Wikipedia)">Natural Language</a></h3>
+        <p>In the philosophy of language, a natural language (or ordinary language) is any language which arises in an unpremeditated fashion as the result of the innate facility for language possessed by the human intellect. A natural language is typically used for communication, and may be spoken, signed, or written. Natural language is distinguished from constructed languages and formal languages such as computer-programming languages or the "languages" used in the study of formal logic, especially mathematical logic. (<a onclick="Shadowbox.open({content:'/topics/terms/Natural_language',player:'iframe',width:800,height:600});" href="javascript:void(0);" title="Natural Language (Source: Wikipedia)">read more</a>)</p>
+      </div>
+    </div>
+      </div>
+  <div class="tp_box_bottom">
+        <div id="wt-load-more-target" class="tp_icon_related">
+    	    	<a href="javascript:void(0);" onclick="Load.wiki_terms('Natural Language Processing', 4);">Show more</a>
+  	</div>
+  	  </div>
+</div>
+
+
+  <h2 class="tp_flickr">
+	<span>Natural Language Processing Photos</span> 
+	</h2>
+
+<div class="tp_flickr">
+  <div id="f_left_arrow">
+    &nbsp;
+  </div>
+  <div id="f_placement">
+        <div class="tp_flickr_thumb">
+      <a onclick="_gaq.push(['_trackPageview']);Shadowbox.open({content:'http://www.flickr.com/photos/93452909@N00/show/with/2302808158/',player:'iframe',width:720,height:540});" href="javascript:void(0);" rel="nofollow">
+      					<img alt="Will narrow-AI Natural language processing (NLP) software ever correctly interpet this paragraph?" width="100" height="68" border="0" src="http://farm4.static.flickr.com/3267/2302808158_a126befa41_t.jpg" />
+      </a>
+    </div>
+        <div class="tp_flickr_thumb">
+      <a onclick="_gaq.push(['_trackPageview']);Shadowbox.open({content:'http://www.flickr.com/photos/40995569@N05/show/with/3856948421/',player:'iframe',width:720,height:540});" href="javascript:void(0);" rel="nofollow">
+      					<img alt="Enronic" width="100" height="68" border="0" src="http://farm4.static.flickr.com/3494/3856948421_589ca1bf87_t.jpg" />
+      </a>
+    </div>
+        <div class="tp_flickr_thumb">
+      <a onclick="_gaq.push(['_trackPageview']);Shadowbox.open({content:'http://www.flickr.com/photos/42229135@N00/show/with/3857733952/',player:'iframe',width:720,height:540});" href="javascript:void(0);" rel="nofollow">
+      					<img alt="My Online Persona" width="100" height="68" border="0" src="http://farm3.static.flickr.com/2587/3857733952_0c21dcda18_t.jpg" />
+      </a>
+    </div>
+        <div class="tp_flickr_thumb">
+      <a onclick="_gaq.push(['_trackPageview']);Shadowbox.open({content:'http://www.flickr.com/photos/97421203@N00/show/with/52445175/',player:'iframe',width:720,height:540});" href="javascript:void(0);" rel="nofollow">
+      					<img alt="Natural Language Processing" width="100" height="68" border="0" src="http://farm1.static.flickr.com/28/52445175_9e8f745ee2_t.jpg" />
+      </a>
+    </div>
+        <div class="tp_flickr_thumb">
+      <a onclick="_gaq.push(['_trackPageview']);Shadowbox.open({content:'http://www.flickr.com/photos/40959921@N00/show/with/3112741423/',player:'iframe',width:720,height:540});" href="javascript:void(0);" rel="nofollow">
+      					<img alt="" width="100" height="68" border="0" src="http://farm4.static.flickr.com/3161/3112741423_5ffcc96fba_t.jpg" />
+      </a>
+    </div>
+      </div>
+  <div id="f_right_arrow">
+    <a href="javascript:void(0);" onclick="Flickr.load('Natural Language Processing', 5);"><img src="http://assets.bukisa.com/img/topics/flickr_right_arrow.gif" alt="" class="tp_next_imgs" /></a>
+  </div>
+  <div class="tp_flickr_bottom clearfix">
+    <span>Powered by</span><a rel="nofollow" href="http://www.flickr.com/"><img src="http://assets.bukisa.com/img/topics/flickr_logo.gif" alt="flickr" title="flickr" /></a>
+  </div>
+</div>
+
+  
+  <div class="ad_verti">
+        <script type="text/javascript"><!--
+    google_ad_client = "pub-8380061879300117";
+    /* Bukisa Topics, 160x600, Left */
+    google_ad_slot = "9831713333";
+    google_ad_width = 160;
+    google_ad_height = 600;
+    //-->
+    </script>
+    <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+  </div>
+
+  <div class="tp_sub_column">
+    <h2 class="tp_powered_google">Latest News About Natural Language Processing</h2>
+<div class="tp_powered_by_google"><a rel="nofollow" href="http://www.google.com/">(powered by google)</a></div>
+
+<div class="tp_google_data_box" id="tp_google_news">
+  <div class="tp_box_top">  
+            <div class="tp_box_row">
+            <div class="tp_listing_text">
+        <h3><a onclick="_gaq.push(['_trackEvent', 'Topics Exit', 'Google News']);" rel="nofollow" target="_blank" href="http://www.cmio.net/index.php?option=com_articles&view=article&id=21107&division=cmio">HIMSS: Nuance rolls out mobile apps, NLP</a></h3>
+        <p>Nuance Communications unveiled its advancements in <b>natural language processing</b> (NLP) and its medical mobile apps for smartphones at HIMSS10 last week in <b>...</b></p>
+      </div>    
+    </div>
+        <div class="tp_box_row">
+            <div class="tp_listing_text">
+        <h3><a onclick="_gaq.push(['_trackEvent', 'Topics Exit', 'Google News']);" rel="nofollow" target="_blank" href="http://www.eweek.com/c/a/Health-Care-IT/Nuance-Introds-Variety-of-Mobile-Dragon-Solutions-for-Health-Care-118530/">Nuance Intros Variety of Mobile Dragon Solutions for Health Care</a></h3>
+        <p>Separately, the company also introduced a clinical documentation solution based on its NLP (<b>Natural Language Processing</b>) technology. <b>...</b></p>
+      </div>    
+    </div>
+        <div class="tp_box_row tp_last_row">
+            <div class="tp_listing_img">
+        <img src="http://www.nhandan.com.vn/english/life/130310/images/image003.jpg" style="width:80px;height:auto;" />
+      </div>
+            <div class="tp_listing_text">
+        <h3><a onclick="_gaq.push(['_trackEvent', 'Topics Exit', 'Google News']);" rel="nofollow" target="_blank" href="http://www.nhandan.com.vn/english/life/130310/life_f.htm">Female scientists hailed for applied research</a></h3>
+        <p>Dr. Phan Thi Tuoi, former rector of the Ho Chi Minh City University of Technology, is a pioneer in Vietnam in research into <b>natural language processing</b>, <b>...</b></p>
+      </div>    
+    </div>
+          </div>
+  <div class="tp_box_bottom">
+    <div id="gn-load-more-target" class="tp_icon_show_more">
+    	<a href="javascript:void(0);" onclick="_gaq.push(['_trackEvent', 'Show More', 'Google News']);Load.google_news('Natural+Language+Processing', 3);">Show more</a>
+  	</div>
+  </div>
+</div>  
+
+    <h2 class="tp_powered_google">Natural Language Processing search results</h2>
+<div class="tp_powered_by_google"><a rel="nofollow" href="http://www.google.com/">(powered by google)</a></div>
+
+<div class="tp_google_data_box" id="tp_google_search">
+  <div class="tp_box_top">
+            <div class="tp_box_row">
+      <div class="tp_listing_text">
+        <h3><a onclick="_gaq.push(['_trackEvent', 'Topics Exit', 'Google Search']);" rel="nofollow" target="_blank" href="http://research.microsoft.com/en-us/groups/nlp/">Natural Language Processing - Microsoft Research</a></h3>
+        <p>Building a computer system that will analyze, understand, and generate <b>natural</b>   languages.</p>        
+      </div>
+    </div>
+        <div class="tp_box_row">
+      <div class="tp_listing_text">
+        <h3><a onclick="_gaq.push(['_trackEvent', 'Topics Exit', 'Google Search']);" rel="nofollow" target="_blank" href="http://www.aaai.org/aitopics/html/natlang.html">AITopics / NaturalLanguage</a></h3>
+        <p>What is <b>NLP</b>. From the <b>Natural Language Processing</b> Research Group at the   University of Sheffield Department of Computer Science. <b>...</b></p>        
+      </div>
+    </div>
+        <div class="tp_box_row tp_last_row">
+      <div class="tp_listing_text">
+        <h3><a onclick="_gaq.push(['_trackEvent', 'Topics Exit', 'Google Search']);" rel="nofollow" target="_blank" href="http://nlp.stanford.edu/">The Stanford NLP (Natural Language Processing) Group</a></h3>
+        <p>Stanford <b>Natural Language Processing</b> and Computational Linguistics Group.</p>        
+      </div>
+    </div>
+          </div>
+  <div class="tp_box_bottom">
+  	<div id="gs-load-more-target" class="tp_icon_show_more">
+    	<a href="javascript:void(0);" onclick="_gaq.push(['_trackEvent', 'Show More', 'Google Search']);Load.google_search('Natural+Language+Processing', 3);">Show more</a>
+  	</div>
+  </div>
+</div>
+
+  </div>
+  
+  <a name="submit_comment"></a>
+<h2 class="tp_comments add">Add new comment</h2>
+<div class="tp_comments">
+    <ul id="c_tabs">
+        <li><a href="javascript:void(0);" id="tab-visitor" class="selected">Comment as a visitor</a></li>    
+    <li><a href="http://www.bukisa.com/login/popup?back=%2Ftopics%2Fnatural-language-processing%23submit_comment" id="tab-bukisa" rel="shadowbox;height=320;width=610">Login via Bukisa</a></li>
+    <li><a href="http://www.bukisa.com/auth/with/facebook?back=%2Ftopics%2Fnatural-language-processing%23submit_comment" id="tab-facebook">Connect via Facebook</a></li>    
+  </ul>
+    
+  <form action="http://www.bukisa.com/topics/comments/submit" method="post">
+        <p>
+      <label>Name</label>
+      <input type="text" name="name" id="name" class="input validate[required]" />
+      <span class="exp">(required)</span>
+    </p>
+    <p>
+      <label>Email</label>
+      <input type="text" name="email" id="email" class="input validate[required,custom[email]]" />
+      <span class="exp">(required)</span>
+    </p>
+        <p>
+      <label class="no-width">Your comment <span class="silver">(required)</span></label>
+      <textarea name="comment" id="comment" class="textarea validate[required]" rows="5" cols="5"></textarea>
+    </p>
+    <p class="captcha">
+          
+      <label class="no-width">"Human" verification. We love people, hate spam bots.</label><br class="clear" />
+      <label>8 + 1 = ?</label>
+      <input type="text" name="cptchfy" id="cptchfy" class="input validate[required,ajax[check_captcha]]" />          
+          
+      <button type="submit" name="submit" class="button submit" value="submit" style="background-color:#e8f0f6;float:right;margin-top:15px;"></button>
+      <input type="hidden" name="topic_id" value="1924" />
+      <input type="hidden" name="topic_uri" value="natural-language-processing" />
+      <input type="hidden" name="topic_title" value="" />
+    </p>
+  </form>
+</div>
+<a name="comments"></a>
+<h2 class="tp_comments label">Comments </h2>
+<div class="tp_comments">  
+    <div class="message" id="info">
+    Be the first to comment on this topic.
+  </div>
+  </div>
+</div>
+
+<div id="tp_column_right">
+    <div class="tp_manager_box">
+    <div class="tp_top">
+      <div class="tp_bottom">
+                <div class="tp_manager_details">
+          <div class="tp_avatar">
+            <img src="http://c0190771.cdn.cloudfiles.rackspacecloud.com/41581_bXmxn_50.png" alt="Bukisa.Staff" />
+          </div>
+          <p>Natural Language Processing is managed by <a href="/people/Bukisa.Staff">Bukisa.Staff</a></p>
+        </div>
+                <ul class="tp_manager_options">
+                    <li class="tp_divider"><a rel="nofollow" href="http://www.addthis.com/bookmark.php?v=250&amp;username=bukisa" class="tp_icon_share_topic addthis_button">Share this Topic</a></li>
+          <li><a href="http://www.bukisa.com/report/topic?id=1924" rel="shadowbox;height=320;width=450" class="tp_icon_report_topic">Report Topic</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="tp_banner_img">
+  <script type="text/javascript"><!--
+  google_ad_client = "pub-8380061879300117";
+  /* Bukisa Topics 300x250 Right */
+  google_ad_slot = "1630785259";
+  google_ad_width = 300;
+  google_ad_height = 250;
+  //-->
+  </script>
+  <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>  
+  </div>
+
+                    
+
+<h2>
+	<span class="float_left">Natural Language Processing Videos</span> 
+	</h2>
+
+<div class="tp_video_box">
+  <div class="tp_box_top">
+            <div class="tp_box_row">
+      <div class="tp_listing_img tp_video_img">
+        <a onclick="_gaq.push(['_trackPageview']);" href="http://www.youtube.com/v/Sx3Fpw0XCXk" rel="shadowbox;width=480;height=360 nofollow" title="Play Google Wave: Natural Language Processing"><img class="yv_thumb" src="http://i.ytimg.com/vi/Sx3Fpw0XCXk/default.jpg" alt="" border="0" /></a>
+        <a onclick="_gaq.push(['_trackPageview']);" href="http://www.youtube.com/v/Sx3Fpw0XCXk" rel="shadowbox;width=480;height=360 nofollow" title="Play Google Wave: Natural Language Processing"><img src="http://assets.bukisa.com/img/topics/play_btn.png" alt="Play" class="tp_play_btn png" /></a>
+      </div>
+      <div class="tp_listing_text">
+                <h3><a onclick="_gaq.push(['_trackPageview']);" href="http://www.youtube.com/v/Sx3Fpw0XCXk" rel="shadowbox;width=480;height=360 nofollow" title="Play Google Wave: Natural Language Processing">Google Wave: Natural Language Processing</a></h3>
+        <span>5:05 minutes</span>
+      </div>
+    </div>
+            <div class="tp_box_row">
+      <div class="tp_listing_img tp_video_img">
+        <a onclick="_gaq.push(['_trackPageview']);" href="http://www.youtube.com/v/GiBG9_6w3hw" rel="shadowbox;width=480;height=360 nofollow" title="Play Lecture - 40 Natural Language Processing II"><img class="yv_thumb" src="http://i.ytimg.com/vi/GiBG9_6w3hw/default.jpg" alt="" border="0" /></a>
+        <a onclick="_gaq.push(['_trackPageview']);" href="http://www.youtube.com/v/GiBG9_6w3hw" rel="shadowbox;width=480;height=360 nofollow" title="Play Lecture - 40 Natural Language Processing II"><img src="http://assets.bukisa.com/img/topics/play_btn.png" alt="Play" class="tp_play_btn png" /></a>
+      </div>
+      <div class="tp_listing_text">
+                <h3><a onclick="_gaq.push(['_trackPageview']);" href="http://www.youtube.com/v/GiBG9_6w3hw" rel="shadowbox;width=480;height=360 nofollow" title="Play Lecture - 40 Natural Language Processing II">Lecture - 40 Natural Language Processing II</a></h3>
+        <span>56:25 minutes</span>
+      </div>
+    </div>
+            <div class="tp_box_row">
+      <div class="tp_listing_img tp_video_img">
+        <a onclick="_gaq.push(['_trackPageview']);" href="http://www.youtube.com/v/bDPULOFFlaI" rel="shadowbox;width=480;height=360 nofollow" title="Play Lecture - 39 Natural Language Processing - I"><img class="yv_thumb" src="http://i.ytimg.com/vi/bDPULOFFlaI/default.jpg" alt="" border="0" /></a>
+        <a onclick="_gaq.push(['_trackPageview']);" href="http://www.youtube.com/v/bDPULOFFlaI" rel="shadowbox;width=480;height=360 nofollow" title="Play Lecture - 39 Natural Language Processing - I"><img src="http://assets.bukisa.com/img/topics/play_btn.png" alt="Play" class="tp_play_btn png" /></a>
+      </div>
+      <div class="tp_listing_text">
+                <h3><a onclick="_gaq.push(['_trackPageview']);" href="http://www.youtube.com/v/bDPULOFFlaI" rel="shadowbox;width=480;height=360 nofollow" title="Play Lecture - 39 Natural Language Processing - I">Lecture - 39 Natural Language Processing - I</a></h3>
+        <span>57:29 minutes</span>
+      </div>
+    </div>
+            <div class="tp_box_row">
+      <div class="tp_listing_img tp_video_img">
+        <a onclick="_gaq.push(['_trackPageview']);" href="http://www.youtube.com/v/dysOKPXUrGk" rel="shadowbox;width=480;height=360 nofollow" title="Play Practical Applications of Natural Language Processing in Assistive Technology"><img class="yv_thumb" src="http://i.ytimg.com/vi/dysOKPXUrGk/default.jpg" alt="" border="0" /></a>
+        <a onclick="_gaq.push(['_trackPageview']);" href="http://www.youtube.com/v/dysOKPXUrGk" rel="shadowbox;width=480;height=360 nofollow" title="Play Practical Applications of Natural Language Processing in Assistive Technology"><img src="http://assets.bukisa.com/img/topics/play_btn.png" alt="Play" class="tp_play_btn png" /></a>
+      </div>
+      <div class="tp_listing_text">
+                <h3><a onclick="_gaq.push(['_trackPageview']);" href="http://www.youtube.com/v/dysOKPXUrGk" rel="shadowbox;width=480;height=360 nofollow" title="Play Practical Applications of Natural Language Processing in Assistiv...">Practical Applications of Natural Language Processing in Assistiv...</a></h3>
+        <span>57:21 minutes</span>
+      </div>
+    </div>
+            <div class="tp_box_row tp_last_row">
+      <div class="tp_listing_img tp_video_img">
+        <a onclick="_gaq.push(['_trackPageview']);" href="http://www.youtube.com/v/FHFuxcOgJUI" rel="shadowbox;width=480;height=360 nofollow" title="Play An Interview with Stephanie Haas"><img class="yv_thumb" src="http://i.ytimg.com/vi/FHFuxcOgJUI/default.jpg" alt="" border="0" /></a>
+        <a onclick="_gaq.push(['_trackPageview']);" href="http://www.youtube.com/v/FHFuxcOgJUI" rel="shadowbox;width=480;height=360 nofollow" title="Play An Interview with Stephanie Haas"><img src="http://assets.bukisa.com/img/topics/play_btn.png" alt="Play" class="tp_play_btn png" /></a>
+      </div>
+      <div class="tp_listing_text">
+                <h3><a onclick="_gaq.push(['_trackPageview']);" href="http://www.youtube.com/v/FHFuxcOgJUI" rel="shadowbox;width=480;height=360 nofollow" title="Play An Interview with Stephanie Haas">An Interview with Stephanie Haas</a></h3>
+        <span>28:55 minutes</span>
+      </div>
+    </div>
+      </div>
+  <div class="tp_box_bottom">
+    <div id="yt-load-more-target"><a href="javascript:void(0);" onclick="_gaq.push(['_trackEvent', 'Show More', 'Videos']);Load.youtube('Natural+Language+Processing', 4);">Show more</a></div>
+    <a id="powered_youtube" rel="nofollow" href="http://www.youtube.com/">Powered by</a>
+  </div>
+</div>
+
+    <h2>Natural Language Processing Tweets</h2>
+  
+<div class="tp_members_box">
+  <div class="tp_box_top">
+        <div class="tp_box_row">
+      <div class="tp_listing_img">
+        <img src="http://a1.twimg.com/profile_images/362436542/SMA_profile_normal.png" width="48" height="48" />
+      </div>
+      <div class="tp_listing_text">
+        <p>
+          <a onclick="_gaq.push(['_trackEvent', 'Topics Exit', 'Twitter']);" rel="nofollow" href="http://twitter.com/SMAnalysis">SMAnalysis</a>: 
+          Review: Radian6 Sentiment Analysis Review - Does Natural Language Processing Work? <a onclick="_gaq.push(['_trackEvent', 'Topics Exit', 'Twitter']);" rel="nofollow" href="http://bit.ly/cH7Fkc" target="_blank" >http://bit.ly/cH7Fkc</a>          <span style='color:#9c9c9c;'>51 Minutes ago</span>
+        </p>
+      </div>
+    </div>  
+        <div class="tp_box_row">
+      <div class="tp_listing_img">
+        <img src="http://s.twimg.com/a/1268437273/images/default_profile_0_normal.png" width="48" height="48" />
+      </div>
+      <div class="tp_listing_text">
+        <p>
+          <a onclick="_gaq.push(['_trackEvent', 'Topics Exit', 'Twitter']);" rel="nofollow" href="http://twitter.com/hadoopdirectory">hadoopdirectory</a>: 
+          Senior Hadoop Software Developer with Data mining or natural language processing .. <a onclick="_gaq.push(['_trackEvent', 'Topics Exit', 'Twitter']);" rel="nofollow" href="http://bit.ly/cY5Zkw" target="_blank" >http://bit.ly/cY5Zkw</a>          <span style='color:#9c9c9c;'>8 Hours ago</span>
+        </p>
+      </div>
+    </div>  
+        <div class="tp_box_row">
+      <div class="tp_listing_img">
+        <img src="http://s.twimg.com/a/1268437273/images/default_profile_0_normal.png" width="48" height="48" />
+      </div>
+      <div class="tp_listing_text">
+        <p>
+          <a onclick="_gaq.push(['_trackEvent', 'Topics Exit', 'Twitter']);" rel="nofollow" href="http://twitter.com/hadoopdirectory">hadoopdirectory</a>: 
+          Senior Hadoop Software Developer with Data mining or natural language processing .. <a onclick="_gaq.push(['_trackEvent', 'Topics Exit', 'Twitter']);" rel="nofollow" href="http://bit.ly/dD4Tma" target="_blank" >http://bit.ly/dD4Tma</a>          <span style='color:#9c9c9c;'>8 Hours ago</span>
+        </p>
+      </div>
+    </div>  
+        <div class="tp_box_row">
+      <div class="tp_listing_img">
+        <img src="http://s.twimg.com/a/1268437273/images/default_profile_0_normal.png" width="48" height="48" />
+      </div>
+      <div class="tp_listing_text">
+        <p>
+          <a onclick="_gaq.push(['_trackEvent', 'Topics Exit', 'Twitter']);" rel="nofollow" href="http://twitter.com/hadoopdirectory">hadoopdirectory</a>: 
+          Senior Hadoop Software Developer with Data mining or natural language processing .. <a onclick="_gaq.push(['_trackEvent', 'Topics Exit', 'Twitter']);" rel="nofollow" href="http://bit.ly/97Gar5" target="_blank" >http://bit.ly/97Gar5</a>          <span style='color:#9c9c9c;'>8 Hours ago</span>
+        </p>
+      </div>
+    </div>  
+        <div class="tp_box_row tp_last_row">
+      <div class="tp_listing_img">
+        <img src="http://a1.twimg.com/profile_images/639245668/New_Books_normal.png" width="48" height="48" />
+      </div>
+      <div class="tp_listing_text">
+        <p>
+          <a onclick="_gaq.push(['_trackEvent', 'Topics Exit', 'Twitter']);" rel="nofollow" href="http://twitter.com/new_release">new_release</a>: 
+          <a onclick="_gaq.push(['_trackEvent', 'Topics Exit', 'Twitter']);" rel="nofollow" href="http://bit.ly/9cY5lt" target="_blank" >http://bit.ly/9cY5lt</a> Handbook of Natural Language Processing, Second Edition (Chapman          <span style='color:#9c9c9c;'>13 Hours ago</span>
+        </p>
+      </div>
+    </div>  
+      </div>
+  <div class="tp_box_bottom">
+    <div id="tw-load-more-target"><a href="javascript:void(0);" onclick="_gaq.push(['_trackEvent', 'Show More', 'Tweets']);Load.twitter('Natural+Language+Processing', '2');">Show more</a></div>
+    <div style="background:none;">Powered by <a rel="nofollow" href="http://www.twitter.com/"><img src="http://assets.bukisa.com/img/topics/twit_logo.gif" alt="Twitter" title="Twitter" /></a></div>
+  </div>
+</div>
+
+        
+<h2>Natural Language Processing Tags</h2>
+
+<div class="tp_tags">  
+  &middot; 
+    <a href="/tags/natural-language-processing" class="font_14_blue">natural language processing</a> &middot; 
+    <a href="/tags/markov-models" class="font_14_blue">markov models</a> &middot; 
+    <a href="/tags/statistical-natural-language" class="font_14_blue">statistical natural language</a> &middot; 
+    <a href="/tags/natural-language-understanding" class="font_14_blue">natural language understanding</a> &middot; 
+    <a href="/tags/natural-language-generation" class="font_14_blue">natural language generation</a> &middot; 
+    <a href="/tags/natural-language-generation-systems" class="font_14_blue">natural language generation systems</a> &middot; 
+    <a href="/tags/statistical-nlp" class="font_14_blue">statistical nlp</a> &middot; 
+    <a href="/tags/fields-of-artificial-intelligence" class="font_14_blue">fields of artificial intelligence</a> &middot; 
+  </div>
+
+      <h2>Definitions</h2>
+  <div class="tp_definitions">
+        <h3>Terms</h3>
+    <p>natural language processing, NLP, human language technology.</p>
+            <h3>Definition</h3>
+    <p>The branch of information science that deals with natural language information.</p>
+                <h3>Part of Speech</h3>
+    <p>noun.</p>
+            <h3>Synonyms</h3>
+    <p>natural language processing,human language technology.</p>
+      </div>
+
+      
+  
+    <h2>References</h2>  
+  <div class="tp_reference">
+    <ol>
+        <li><a onclick="_gaq.push(['_trackEvent', 'Topics Exit', 'Reference']);" href="http://en.wikipedia.org/wiki/Natural_language_processing" rel="nofollow" target="_blank">Wikipedia - 'Natural Language Processing'</a></li>
+            <li>Definitions by: <a onclick="_gaq.push(['_trackEvent', 'Topics Exit', 'Reference']);" href="http://www.definitions.net/" rel="nofollow" target="_blank">Definitions.net</a></li>
+        </ol>
+  </div>  
+    
+
+  <div style="float:left;margin-top:15px;margin-bottom:10px;">
+    <script type="text/javascript">
+    document.write(unescape("%3Cscript src='http://ignitad.com/Adserver/Serve.aspx?aid=91' type='text/javascript'%3E%3C/script%3E"));  
+    </script>
+  </div>
+
+</div>        
+
+    </div>
+</div>
+  
+<div id="footer" class="clearfix">
+  <div class="footer_width">
+    <ul class="footer_links">
+            <li><a href="/login">Publish</a></li>
+      <li><a href="/tour">Quick Tour</a></li>
+      <li><a href="/featured">Featured</a></li>
+      <li class="last"><a href="/faq">FAQ</a></li>
+          </ul>
+    <div class="search_box_footer">
+      <form action="/search"> 
+      <div class="search_txt_footer">
+        <input name="q" type="text" value="Learn something new, Search Bukisa..." onclick="clickclear(this, 'Learn something new, Search Bukisa...')" onblur="clickrecall(this,'Learn something new, Search Bukisa...')" maxlength="200" size="25" />
+      </div>
+            <div class="select_cat">
+        <select name="cat_id">
+          <option value="0">All Categories</option>          
+           
+          <option value="57">Art &amp; Entertainment</option>
+           
+          <option value="2">Automotive</option>
+           
+          <option value="66">Business &amp; Finance</option>
+           
+          <option value="125">Culture &amp; Society</option>
+           
+          <option value="27">Education</option>
+           
+          <option value="142">Events &amp; Holidays</option>
+           
+          <option value="15">Family</option>
+           
+          <option value="25">Fashion &amp; Beauty</option>
+           
+          <option value="16">Food &amp; Drinks</option>
+           
+          <option value="17">Health &amp; Nutrition</option>
+           
+          <option value="1">Hobbies &amp; Crafts</option>
+           
+          <option value="92">Home &amp; Garden</option>
+           
+          <option value="5">Internet</option>
+           
+          <option value="11">Pets</option>
+           
+          <option value="36">Relationships</option>
+           
+          <option value="18">Religion &amp; Spirituality</option>
+           
+          <option value="9">Reviews</option>
+           
+          <option value="12">Science &amp; Technology</option>
+           
+          <option value="26">Self Improvement</option>
+           
+          <option value="46">Sports &amp; Fitness</option>
+           
+          <option value="39">Travel</option>
+                    
+        </select>
+      </div>
+            <input type="hidden" name="where" value="0">
+      <input name="search" type="submit" value="search" class="search_btn_f buttons" />
+      </form>
+    </div>
+    <div class="bottom_links">
+      <div class="column column_first">
+        <div>Bukisa</div>
+        <ul>
+          <li><a href="http://blog.bukisa.com/">Blog</a></li>
+          <li><a href="http://www.bukisa.com/info/about-bukisa">About Us</a></li>
+          <li><a href="http://www.bukisa.com/contact">Contact Us</a></li>
+          <li><a href="http://www.bukisa.com/rss/latest">RSS Feed</a></li>
+        </ul>
+      </div>
+      <div class="column">
+        <div>Site Links</div>
+        <ul>
+										<li><a href="http://www.bukisa.com/join">Join</a></li>
+          <li><a href="http://www.bukisa.com/login">Login</a></li>
+										<li><a href="http://www.bukisa.com/latest">Recently Added</a></li>
+					<li><a href="http://www.bukisa.com/search">Advanced Search</a></li>
+        </ul>
+      </div>
+      <div class="column">
+        <div>Help &amp; Tools</div>
+        <ul>
+          <li><a title="Community Support" target="_blank" href="http://getsatisfaction.com/bukisa">Community Support</a></li>
+          <li><a href="http://www.bukisa.com/info/learn-more">Learn More</a></li>
+					          <li><a href="http://www.bukisa.com/twitter-users">Twitter Users</a></li>
+					<li><a href="http://jobs.bukisa.com/wlSearch.jsp?q=article+writing" title="Article Writing Freelance Jobs">Freelance Jobs</a></li>
+                    <li><a href="javascript:void(0);" onclick="pageTracker._trackPageview('/outgoing/install-open-search');window.external.AddSearchProvider('http://www.bukisa.com/bukisa.xml')">Search Plugin</a></li>
+        </ul>
+      </div>
+      <div class="column">
+        <div>Sitemaps</div>
+        <ul>
+          <li><a href="/how-to-articles">How To Articles</a></li>
+          <li><a href="/how-to-videos">How To Videos</a></li>
+          <li><a href="/how-to-slides">How To Presentations</a></li>
+          <li><a href="/how-to-audio">How To Audio</a></li>
+          <li><a href="http://www.bukisa.com/sitemap">General Sitemap</a></li>
+        </ul>
+      </div>
+      <div class="column">
+        <div>Follow Us</div>
+        <ul id="follow_list">
+          <li id="f-facebook"><a href="http://www.facebook.com/Bukisa" rel="nofollow" target="_blank" title="Bukisa on Facebook">On Facebook</a></li>
+          <li id="f-twitter"><a href="http://twitter.com/Bukisa" rel="nofollow" target="_blank" title="Bukisa on Twitter">On Twitter</a></li>
+          <li id="f-newsletter"><a href="/newsletter/popup" rel="shadowbox;width=340;height=380" title="Sign up to the Bukisa Newsletter">Bukisa Newsletter</a></li>
+        </ul>
+      </div>
+      <div class="column column_last">
+        <div>Powered By</div>
+        <ul>
+          <li><a rel="nofollow" href="http://www.rackspacecloud.com/407-0-1-11.html"><img alt="Powered by Rackspace Cloud Computing" src="http://cdn.cloudfiles.mosso.com/c110782/the-rackspace-cloud-dark-125-wide.png" border="0" /></a></li>
+          <li><a rel="nofollow" href="http://www.rackspacecloud.com/407-0-1-11.html">Rackspace Cloud Computing</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+    	Please read our <a href="/info/tos">Terms of Use</a> and <a href="/info/privacy-policy">Privacy Policy</a> | User published content is licensed under a <a href="http://creativecommons.org/licenses/by-nd/3.0/" rel="nofollow">Creative Commons License</a> <u>except where otherwise noted</u>.<br />
+    	&copy; Copyright 2008 - 2010 Webika Ltd. All Rights Reserved.
+       v. 2.0.1 / 20100309      (w1)      <br />
+    </div>
+  </div>
+</div>
+
+<br />
+<script type="text/javascript">
+  // GA
+  (function() {
+    var ga = document.createElement('script');
+    ga.src = ('https:' == document.location.protocol ?
+    'https://ssl' : 'http://www') +
+    '.google-analytics.com/ga.js';
+    ga.setAttribute('async', 'true');
+    document.documentElement.firstChild.appendChild(ga);
+  })();
+  // addthis
+  var addthis_config = {
+     ui_cobrand: "Bukisa",
+     ui_header_color: "#000000",
+     ui_header_background: "#B3D4ED"
+  }
+  // external
+  document.write(unescape("%3Cscript src='http://s7.addthis.com/js/250/addthis_widget.js#username=bukisa' type='text/javascript'%3E%3C/script%3E"));  
+</script>
+<script type="text/javascript" charset="utf-8">
+  var is_ssl = ("https:" == document.location.protocol);
+  var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
+  document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript" charset="utf-8">
+  var feedback_widget_options = {};
+  feedback_widget_options.display = "overlay";  
+  feedback_widget_options.company = "bukisa";
+  feedback_widget_options.placement = "right";
+  feedback_widget_options.color = "#0099ff";
+  feedback_widget_options.style = "question";
+  var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
+</script>
+<script type="text/javascript">
+var _sf_async_config={uid:3158,domain:"bukisa.com"};
+(function(){
+  function loadChartbeat() {
+    window._sf_endpt=(new Date()).getTime();
+    var e = document.createElement('script');
+    e.setAttribute('language', 'javascript');
+    e.setAttribute('type', 'text/javascript');
+    e.setAttribute('src',
+       (("https:" == document.location.protocol) ? "https://s3.amazonaws.com/" : "http://") +
+       "static.chartbeat.com/js/chartbeat.js");
+    document.body.appendChild(e);
+  }
+  var oldonload = window.onload;
+  window.onload = (typeof window.onload != 'function') ?
+     loadChartbeat : function() { oldonload(); loadChartbeat(); };
+})();
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-stylesheet type="text/css" href="../default.css" alternate="no"
+  media="screen"
+  title="Ugly"
+  ?>
+<?xml-stylesheet type="text/css" href="../printer.css" alternate="no"
+  media="print"
+  title="Ugly"
+  ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- xhtml.xhtml,v 1.5 2003/09/17 03:41:01 caskey Exp -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>XHTML Details</title>
+</head>
+<body>
+<h1>XHTML Details</h1>
+<p>XHTML is an official recommendation of the w3c, published in 2000, and revised
+in August of 2002.  The official copy and most recently revised copy  is always
+at <a href="http://www.w3c.org/TR/xhtml1/">http://www.w3.org/TR/xhtml1/</a>
+and this document discusses XHTML 1.0.  XHTML
+is the technology that brings the power of XML to the web and represents the
+current standard for how the Internet is intended to operate.  As with all
+Internet standards, there is no enforcement of this standard. Rather it is enforced
+informally by the
+collective will of all those who participate in the Internet to ensure the
+interoperability and accessibility that has established it as the economic and
+social force that it is.
+</p>
+<h2>What is XHTML?</h2>
+<p>Simply, XHTML is the HTML 4.01 standard, updated and slightly reformulated
+to fit in with the syntax and sematics of XML document construction.  In large part,
+these differences are covered in the standard which reads something like "XHTML
+is HTML4.01 with the deprecated tags removed".  This document focuses upon the
+<em>XHTML 1.0 Strict</em> standard, however XHTML 1.0 does define two others,
+<em>XHTML 1.0 Transitional</em> and <em>XHTML 1.0 Frameset</em>.  These exist
+in order to provide backward support for older browsers and to enable frames respectively--frames being so strongly deprecated that an entirely different standard was established
+to cover documents that make use of them rather than pollute the designated backward
+compatible version of the standard (Transitional).
+</p>
+<p>That there exists backwards compatible versions of XHTML that enable you to
+make use of features that are deprecated and outright wrong (e.g. <code>bgcolor</code>
+and <code>frameset</code>) is not to invite one to create new content with them,
+rather they exist to aid existing sites and services to transition to the new
+technology.  Therefore, unless you are editing an existing web page too complicated
+to simply rewrite, or targeting a closed, captive audience with administrative policies
+that preclude viewing XHTML, there is no legitimate reason to make use of the 
+Transitional or Frameset versions of the standard.
+</p>
+<h3>Document basics</h3>
+<p>The most basic and smallest legal XHTML document contains the xml header,
+the document type declaration, and only the required tags.  This file is
+shown below.  If displayed in a browser, a blank page would appear with
+only the title in the title bar, or whatever mechanism the browser uses
+to display the title.
+</p>
+<blockquote>
+<pre>01: &lt;?xml version="1.0" encoding="UTF-8" standalone="no"?>
+02: &lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+03:   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+04: &lt;html xmlns="http://www.w3.org/1999/xhtml">
+05: &lt;head>
+06:   &lt;title>A minimal XHTML file&lt;/title>
+07: &lt;/head>
+08: &lt;body>
+09: &lt;/body>
+10: &lt;/html>
+</pre>
+</blockquote>
+<p>The &lt;body> portion of the document would be populated with the actual
+content of the page, but as the XHTML standard shows, there is no <em>required</em>
+content for a page, only a title.
+</p>
+<h3>Entities</h3>
+<p>An XHTML document, as well as XML documents in general, consist of a series
+of nested entities.  An entity is the most basic object in an XHTML document
+and consists of a start-tag, an end-tag, all of the content between them
+and the attributes in the start-tag.</p>
+<h3>Tags</h3>
+<p>XHTML tags consist of a word (comprised of any alphanumeric character and
+a select few punctuation characters) wrapping other content.  This word
+appears as a start-tag and an end-tag.  The start tag is &lt;tag> and the end
+tag is &lt;/tag>.  Everything between a matched pair of tags is the content
+of that tag.  Tags may have other tags nested within them.
+</p>
+<h3>Attributes</h3>
+<p>Entities also have attributes that appear in the start-tag as a series
+of key-value pairs.  The syntax is <code>key="value"</code> and the name of
+a key can be any valid XML name (again alphanumeric characters and a few punctuation
+characters).
+</p>
+<h3>References</h3>
+<p>These documents define what XHTML is and how it operates.  Reading them
+is a required part of understanding XHTML.</p>
+<dl>
+<dt>HTML 4.01 Standard</dt>
+<dd><a href="http://www.w3.org/TR/html4/">http://www.w3.org/TR/html4/</a></dd>
+<dt>XHTML 1.0 Standard</dt>
+<dd><a href="http://www.w3.org/TR/xhtml1/">http://www.w3.org/TR/xhtml1/</a></dd>
+</dl>
+
+<h2>Common Attributes</h2>
+<p>There are several attributes which are common to nearly every tag
+in the XHTML DTD.</p>
+
+<table>
+  <tr><th><tt>id</tt></th><td>document-wide unique id</td></tr>
+  <tr><th><tt>class</tt></th><td>space separated list of classes                                        style    associated style info</td></tr>
+  <tr><th><tt>title</tt></th><td>advisory title/amplification</td></tr>
+</table>
+<h3>Internationalization (%i18n;)</h3>
+<table>
+  <tr><th><tt>lang</tt></th><td>language code (backwards compatible)</td></tr>
+  <tr><th><tt>xml:lang</tt></th><td>language code (as per XML 1.0 spec)</td></tr>
+  <tr><th><tt>dir</tt></th><td>direction for weak/neutral text</td></tr>
+</table>
+<h3>Scripting event attributes (%events;)</h3>
+<table>
+  <tr><th><tt>onclick</tt></th><td>a pointer button was clicked</td></tr>
+  <tr><th><tt>ondblclick</tt></th><td>a pointer button was double clicked</td></tr>
+  <tr><th><tt>onmousedown</tt></th><td>a pointer button was pressed down</td></tr>
+  <tr><th><tt>onmouseup</tt></th><td>a pointer button was released                                       onmousemove a pointer was moved onto the element</td></tr>
+  <tr><th><tt>onmouseout</tt></th><td>a pointer was moved away from the element</td></tr>
+  <tr><th><tt>onkeypress</tt></th><td>a key was pressed and released</td></tr>
+  <tr><th><tt>onkeydown</tt></th><td>a key was pressed down</td></tr>
+  <tr><th><tt>onkeyup</tt></th><td>a key was released</td></tr>
+</table>
+<h2>Structural Tags</h2>
+<p>The structural tags are generally invisible to the end user, with the notable
+exception of &lt;title>, and serve to guide the web browser in its overall interpretation
+of the page.
+</p>
+<table>
+<tr> <th>tag</th><th>description</th><th>attributes</th></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_body">body</a>></tt></th><td>document body</td><td>all common attributes plus: <tt>onload, onunload</tt></td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_head">head</a>></tt></th><td>document head</td><td><tt>%i18n;, id, profile</tt></td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_html">html</a>></tt></th><td>document root element</td><td><tt>%i18n;, id, xmlns</tt></td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_meta">meta</a>></tt></th><td>generic meta information</td><td><tt>%i18n;, id, http-equiv, name, content, scheme</tt></td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_title">title</a>></tt></th><td>document title</td><td><tt>%i18n;, id</tt></td></tr>
+</table>
+<h2>Inline Elements</h2>
+<p>The content of inline tags are (generally) rendered without changing the layout of
+the text around it.  A simple example of an inline tag is the anchor (&lt;a>) tag. When
+the clickable text for an anchor is rendered, it is rendered <em>in line</em> with 
+the text around it.  Inline elements exist in contrast to block elements.
+</p>
+<table>
+<tr> <th>Tag</th><th>description</th> </tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_span">span</a>></tt></th><td>generic language/style container</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_a">a</a>></tt></th><td>anchor</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_abbr">abbr</a>></tt></th><td>abbreviated form (e.g., WWW, HTTP, etc.)</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_acronym">acronym</a>></tt></th><td>an acronym</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_b">b</a>></tt></th><td>bold text style</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_bdo">bdo</a>></tt></th><td>I18N BiDi override</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_big">big</a>></tt></th><td>large text style</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_br">br</a>></tt></th><td>forced line break</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_cite">cite</a>></tt></th><td>citation</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_code">code</a>></tt></th><td>computer code fragment</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_dfn">dfn</a>></tt></th><td>instance definition</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_em">em</a>></tt></th><td>emphasis</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_i">i</a>></tt></th><td>italic text style</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_kbd">kbd</a>></tt></th><td>text to be entered by the user</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_q">q</a>></tt></th><td>short inline quotation</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_samp">samp</a>></tt></th><td>sample program output, scripts, etc.</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_strong">strong</a>></tt></th><td>strong emphasis</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_sub">sub</a>></tt></th><td>subscript</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_sup">sup</a>></tt></th><td>superscript</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_tt">tt</a>></tt></th><td>teletype or monospaced text style</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_var">var</a>></tt></th><td>instance of a variable or program argument</td></tr>
+</table>
+<h2>Block Elements</h2>
+<p>Block tags are (generally) rendered by starting a new line and adding a little
+space above and below the contents of the tag.  The simplest example of a block-level
+tag, is the paragraph (&lt;p>) tag.  Each paragraph is rendered as its own block of
+content.  Block elements exist in contrast to inline elements.</p>
+<table>
+<tr> <th>Tag</th><th>description</th> </tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_div">div</a>></tt></th><td>generic language/style container</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_address">address</a>></tt></th><td>information on author</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_blockquote">blockquote</a>></tt></th><td>long quotation</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_body">body</a>></tt></th><td>document body</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_dd">dd</a>></tt></th><td>definition description</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_dl">dl</a>></tt></th><td>definition list</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_dt">dt</a>></tt></th><td>definition term</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_h1">h1</a>></tt></th><td>heading</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_h2">h2</a>></tt></th><td>heading</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_h3">h3</a>></tt></th><td>heading</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_h4">h4</a>></tt></th><td>heading</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_h5">h5</a>></tt></th><td>heading</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_h6">h6</a>></tt></th><td>heading</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_hr">hr</a>></tt></th><td>horizontal rule</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_object">object</a>></tt></th><td>generic embedded object</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_ol">ol</a>></tt></th><td>ordered list</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_p">p</a>></tt></th><td>paragraph</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_pre">pre</a>></tt></th><td>preformatted text</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_ul">ul</a>></tt></th><td>unordered list</td></tr>
+</table>
+<h2>Embedded Media</h2>
+<p>Embedded media consist of external content that the user agent
+incorporates into the XHTML presentation.  The most common type of
+embedded media is an image.  Through various browser extensions,
+the actual nature of embedded media can vary from novel forms of
+image compression, to fully interactive multimedia content, to
+full embedded applications.</p>
+<table>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_img">img</a>></tt></th><td>Embedded image</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_hr">hr</a>></tt></th><td>horizontal rule</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_object">object</a>></tt></th><td>generic embedded object</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_param">param</a>></tt></th><td>named property value</td></tr>
+</table>
+<h2>Linking and Imagemaps</h2>
+<p></p>
+<table>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_a">a</a>></tt></th><td>anchor</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_area">area</a>></tt></th><td>client-side image map area</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_map">map</a>></tt></th><td>client-side image map</td></tr>
+</table>
+<h2>Form Elements</h2>
+<table>
+<tr> <th>Tag</th><th>description</th> </tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_form">form</a>></tt></th><td>interactive form</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_label">label</a>></tt></th><td>form field label text</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_input">input</a>></tt></th><td>form control</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_select">select</a>></tt></th><td>option selector</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_optgroup">optgroup</a>></tt></th><td>option group</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_option">option</a>></tt></th><td>selectable choice</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_textarea">textarea</a>></tt></th><td>multi-line text field</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_fieldset">fieldset</a>></tt></th><td>form control group</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_legend">legend</a>></tt></th><td>fieldset legend</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_button">button</a>></tt></th><td>push button</td></tr>
+</table>
+<h2>Deprecated Elements</h2>
+<p>The following elements have been deprecated.  Deprecation serves as
+a means to ease existing users of a standard into a new version, offering
+them a transition period where old, formerly conforming material still
+conforms while discouraging new use.  Needless to say, these entities
+do not appear in the
+XHTML 1.0 Strict DTD, and you should not use them in new content without
+a full understanding of the ramifications.</p>
+<table>
+<tr> <th>Tag</th><th>description</th><th>Replacement technology</th></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-transitional.dtd_applet">applet</a>></tt></th><td>Java applet</td><td>&lt;object></td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-transitional.dtd_basefont">basefont</a>></tt></th><td>base font size</td><td>CSS</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-transitional.dtd_center">center</a>></tt></th><td>shorthand for DIV align=center</td><td>CSS + &lt;div></td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-transitional.dtd_dir">dir</a>></tt></th><td>directory list</td><td>CSS</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-transitional.dtd_font">font</a>></tt></th><td>local change to font</td><td>CSS + &lt;span></td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-transitional.dtd_isindex">isindex</a>></tt></th><td>single line prompt</td><td>&lt;form></td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-transitional.dtd_menu">menu</a>></tt></th><td>menu list</td><td>CSS</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-transitional.dtd_s">s</a>></tt></th><td>strike-through text style</td><td>CSS + &lt;span></td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-transitional.dtd_strike">strike</a>></tt></th><td>strike-through text</td><td>CSS + &lt;span></td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-transitional.dtd_u">u</a>></tt></th><td>underlined text style</td><td>CSS + &lt;span></td></tr>
+</table>
+<h2>All Valid Elements</h2>
+<table>
+<tr> <th>Tag</th><th>description</th> </tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_a">a</a>></tt></th><td>anchor</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_abbr">abbr</a>></tt></th><td>abbreviated form (e.g., WWW, HTTP, etc.)</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_acronym">acronym</a>></tt></th><td></td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_address">address</a>></tt></th><td>information on author</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_area">area</a>></tt></th><td>client-side image map area</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_b">b</a>></tt></th><td>bold text style</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_base">base</a>></tt></th><td>document base URI</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_bdo">bdo</a>></tt></th><td>I18N BiDi override</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_big">big</a>></tt></th><td>large text style</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_blockquote">blockquote</a>></tt></th><td>long quotation</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_body">body</a>></tt></th><td>document body</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_br">br</a>></tt></th><td>forced line break</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_button">button</a>></tt></th><td>push button</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_caption">caption</a>></tt></th><td>table caption</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_cite">cite</a>></tt></th><td>citation</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_code">code</a>></tt></th><td>computer code fragment</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_col">col</a>></tt></th><td>table column</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_colgroup">colgroup</a>></tt></th><td>table column group</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_dd">dd</a>></tt></th><td>definition description</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_del">del</a>></tt></th><td>deleted text</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_dfn">dfn</a>></tt></th><td>instance definition</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_div">div</a>></tt></th><td>generic language/style container</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_dl">dl</a>></tt></th><td>definition list</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_dt">dt</a>></tt></th><td>definition term</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_em">em</a>></tt></th><td>emphasis</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_fieldset">fieldset</a>></tt></th><td>form control group</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_form">form</a>></tt></th><td>interactive form</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_frame">frame</a>></tt></th><td>F subwindow</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_frameset">frameset</a>></tt></th><td>F window subdivision</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_h1">h1</a>></tt></th><td>heading</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_h2">h2</a>></tt></th><td>heading</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_h3">h3</a>></tt></th><td>heading</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_h4">h4</a>></tt></th><td>heading</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_h5">h5</a>></tt></th><td>heading</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_h6">h6</a>></tt></th><td>heading</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_head">head</a>></tt></th><td>document head</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_hr">hr</a>></tt></th><td>horizontal rule</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_html">html</a>></tt></th><td>document root element</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_i">i</a>></tt></th><td>italic text style</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_iframe">iframe</a>></tt></th><td>L inline subwindow</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_img">img</a>></tt></th><td>Embedded image</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_input">input</a>></tt></th><td>form control</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_ins">ins</a>></tt></th><td>inserted text</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_kbd">kbd</a>></tt></th><td>text to be entered by the user</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_label">label</a>></tt></th><td>form field label text</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_legend">legend</a>></tt></th><td>fieldset legend</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_li">li</a>></tt></th><td>list item</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_link">link</a>></tt></th><td>a media-independent link</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_map">map</a>></tt></th><td>client-side image map</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_meta">meta</a>></tt></th><td>generic metainformation</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_noframes">noframes</a>></tt></th><td>F alternate content container for non frame-based rendering</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_noscript">noscript</a>></tt></th><td>alternate content container for non script-based rendering</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_object">object</a>></tt></th><td>generic embedded object</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_ol">ol</a>></tt></th><td>ordered list</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_optgroup">optgroup</a>></tt></th><td>option group</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_option">option</a>></tt></th><td>selectable choice</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_p">p</a>></tt></th><td>paragraph</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_param">param</a>></tt></th><td>named property value</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_pre">pre</a>></tt></th><td>preformatted text</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_q">q</a>></tt></th><td>short inline quotation</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_samp">samp</a>></tt></th><td>sample program output, scripts, etc.</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_script">script</a>></tt></th><td>script statements</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_select">select</a>></tt></th><td>option selector</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_small">small</a>></tt></th><td>small text style</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_span">span</a>></tt></th><td>generic language/style container</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_strong">strong</a>></tt></th><td>strong emphasis</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_style">style</a>></tt></th><td>style info</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_sub">sub</a>></tt></th><td>subscript</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_sup">sup</a>></tt></th><td>superscript</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_table">table</a>></tt></th><td></td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_tbody">tbody</a>></tt></th><td>table body</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_td">td</a>></tt></th><td>table data cell</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_textarea">textarea</a>></tt></th><td>multi-line text field</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_tfoot">tfoot</a>></tt></th><td>table footer</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_th">th</a>></tt></th><td>table header cell</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_thead">thead</a>></tt></th><td>table header</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_title">title</a>></tt></th><td>document title</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_tr">tr</a>></tt></th><td>table row</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_tt">tt</a>></tt></th><td>teletype or monospaced text style</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_ul">ul</a>></tt></th><td>unordered list</td></tr>
+  <tr><th><tt>&lt;<a href="http://www.w3.org/TR/xhtml1/dtds.html#dtdentry_xhtml1-strict.dtd_var">var</a>></tt></th><td>instance of a variable or program argument</td></tr>
+</table>
+
+<div class="screen-only">
+<p>
+  <a href="http://validator.w3.org/check/referer"><img
+     style="border:0;width:88px;height:31px"
+     src="http://www.w3.org/Icons/valid-xhtml10"
+     alt="Valid XHTML 1.0!" /></a>
+  <a href="http://jigsaw.w3.org/css-validator/check/referer"><img
+     style="border:0;width:88px;height:31px"
+     src="http://jigsaw.w3.org/css-validator/images/vcss" 
+     alt="Valid CSS!" /></a>
+</p>
+</div>
+
+</body>
+</html>

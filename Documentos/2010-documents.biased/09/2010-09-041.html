@@ -1,0 +1,84 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><META name="MS.LOCALE" content="en-us"><title>Microsoft Windows XP - Create, open, or save a WordPad document</title><meta name="description" content="You can create, open, and save WordPad documents by clicking the File menu, and then clicking New, Open, or Save. Create a new document On the File menu, click New. Click the document type you want to create, click OK, and then begin typing."><meta name="search.mnp.template" content="MNP2.GenericArticle"><link type="text/css" rel="Stylesheet" href="/resources/mnp_utility.mspx/templatecss?template=%2flibrary%2fgallery%2ftemplates%2fMNP2.GenericArticle&amp;shell=%2fresources%2fdocumentation%2fWindows%2fXP%2fall%2fproddocs%2fen-us%2fconfiguration.xml&amp;locale=en-us">
+<link type='text/css' rel='Stylesheet' href='/library/mnp/2/aspx/css.aspx?locale=en-us&amp;static=Page' />
+<script type='text/javascript' language='Javascript' src='/library/mnp/2/aspx/js.aspx?&amp;path=/library/gallery/components/ratingcontrol/ratingcontrol.js'></script>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"><link rel='stylesheet' type='text/css' href='/library/toolbar/3.0/css.aspx?c=/resources/documentation/Windows/XP/all/proddocs/en-us/configuration.xml'/><script language='JavaScript'>var doImage=doImage;var TType=TType;var defaultSearchLable;
+function mhHover(tbl,idx,cls){var t,d;if(document.getElementById)t=document.getElementById(tbl);else t=document.all(tbl);if(t==null)return;if(t.getElementsByTagName)d=t.getElementsByTagName("TD");else d=t.all.tags("TD");if(d==null)return;if(d.length<=idx)return;d[idx].className=cls;}
+function footerjs(doc){if(doImage==null){var tt=TType==null?"PV":TType;doc.write('<layer visibility="hide"><div style="display:none"><img src="http://c.microsoft.com/trans_pixel.asp?source=www&TYPE=' + tt + '&p=resources_documentation_windows_xp_all_proddocs_en-us_wordpad_create_save&URI=%2fresources%2fdocumentation%2fwindows%2fxp%2fall%2fproddocs%2fen-us%2fwordpad_create_save_open.mspx&GUID=1F4FC18C-F71E-47FB-8FC9-612F8EE59C61&lc=en-us" width=0 height=0 hspace=0 vspace=0 border=0 alt=""/></div></layer>');}}
+var rsltextbox = 'msviLSBtbox'; var wtflag = false;
+function stripSymbols () { var objrslttextbox = getObjectById(rsltextbox); if (objrslttextbox) { var form = objrslttextbox.form; var s = objrslttextbox.value; filteredValues = "<>!@^*"; var i; var returnString = ""; for (i = 0; i < s.length; i++) { var c = s.charAt(i); if (filteredValues.indexOf(c) == -1) { returnString += c; } else { returnString += " "; } } objrslttextbox.value = returnString; } if(!wtflag) { trackLSB("Site"); } } 
+function addSubmitEvent() { defaultSearchLable=document.getElementById("msviLSBtbox").value;var objrslttextbox = getObjectById(rsltextbox); if (objrslttextbox) { var form = objrslttextbox.form; if (window.attachEvent) { form.attachEvent("onsubmit",stripSymbols); } else { form.addEventListener("submit",stripSymbols,false); } } } 
+function getObjectById(elid) { if (document.getElementById) { return document.getElementById(elid); } else if (document.all) { return document.all[elid]; } else if (document.layers) { return document.layers[elid]; } } 
+if (window.attachEvent) { window.attachEvent("onload",addSubmitEvent); } else { window.addEventListener("load",addSubmitEvent,false); } 
+function trackLSB(type) { clearDefaultSearchLable();if (typeof dcsMultiTrack == "function") { var qu = document.getElementById("msviLSBtbox").value; var dcsuri = "results.aspx"; var dcssip, ti; if (type == "Site") { dcssip = "search.microsoft.com"; ti = "SearchButton: OnSite"; } else if (type == "Web") { dcssip = "bing.com"; ti = "SearchButton: Web"; } dcsMultiTrack("DCS.dcsuri", dcsuri, "DCS.dcssip", dcssip, "WT.ti", ti, "WT.dl", "2", "WT.z_srch_t", qu, "DCS.dcsqry", "", "WT.ad", "", "WT.mc_id", ""); wtflag = true; DCS.dcsuri=DCS.dcssip=DCS.dcsqry=WT.ti=WT.z_srch_t="";} }
+
+var isInputqu = false;
+var searchBoxWidthWithKievLogo = 0;
+var searchBoxWidthWithoutKievLogo = 0;
+function clearDefaultSearchLable()
+{var searchBox = document.getElementById("msviLSBtbox");
+if(!isInputqu){searchBox.value = "";}}
+var kievImageWidth = 0;
+
+function searchBoxFocused(defaultSearchLabel)
+{
+    var searchBoxInput = document.getElementById("msviLSBtbox");
+    var kievImage = document.getElementById("msviLSBlogo");
+    if(searchBoxInput.value == defaultSearchLabel)
+    {
+        searchBoxInput.value = '';
+        if(kievImageWidth == 0)
+        {
+            kievImageWidth = kievImage.clientWidth;
+        }
+        searchBoxInput.style.fontStyle = '';
+        searchBoxInput.style.color='#000000';
+        kievImage.style.width = '1px';
+        if(searchBoxWidthWithKievLogo == 0)
+        {
+            searchBoxWidthWithKievLogo = searchBoxInput.style.width;
+            searchBoxWidthWithoutKievLogo = searchBoxInput.clientWidth + (kievImageWidth - 1);
+        }
+        searchBoxInput.style.width = searchBoxWidthWithoutKievLogo;
+    }
+}
+
+function searchBoxBlur(defaultSearchLabel)
+{
+    var searchBoxInput = document.getElementById("msviLSBtbox");
+    var kievImage = document.getElementById("msviLSBlogo");
+    if(searchBoxInput.value.replace(/(^\s*)|(\s*$)/g, '')=='') 
+    {
+        searchBoxInput.value=defaultSearchLabel;searchBoxInput.style.fontStyle ='Italic';
+        searchBoxInput.style.color = "#a1a1a1";
+        kievImage.style.width = kievImageWidth;
+        
+        searchBoxInput.style.width = searchBoxWidthWithKievLogo;
+        isInputqu = false;
+     }
+     else
+     {
+        isInputqu = true;
+     }
+}</script><meta name="WT.sp" content="_resources_" /><script language='JavaScript' src='http://js.microsoft.com/library/svy/broker.js'></script><script>
+				function synctoc()
+				{
+					if (top.MNPMenuFrame)
+					{
+						if (top.MNPMenuFrame.synctoc)
+						{
+							top.MNPMenuFrame.synctoc();
+						}
+					}
+				}
+				</script></head><body bgcolor="#FFFFFF" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" onLoad="synctoc()" dir="LTR"><!--NOINDEX_START--><a name="top"></a><div id="MNP_showtoc" style="height: 23px; font: 11px Verdana; padding-left: 15px; padding-top: 10px; padding-bottom: 15px; display: none"><span style="cursor: hand" onclick="top.MNPSearchFrame.showtoc()"><img src="/library/mnp/2/gif/showtoc.gif" width="16" height="16" align="absmiddle" border="0" style="margin-right: 3px" alt="show toc">show toc</span></div><!--NOINDEX_STOP--><table><tr><td>
+<div style="padding: 0px 15px 0px 20px"><h1>To create, open, or save a WordPad document</h1><div style="height: 18px"></div><p>You can create, open, and save WordPad documents by clicking the <b>File</b> menu, and then clicking <b>New</b>, <b>Open</b>, or <b>Save</b>.</p><p>Create a new document</p><p>On the <b>File</b> menu, click <b>New</b>. Click the document type you want to create, click <b>OK</b>, and then begin typing. You can also insert the current date and time into your document. Click where you want the date and time to appear. Then, on the <b>Insert</b> menu, click <b>Date and Time</b>. Click the format you want.</p><p>Open a document</p><p>On the <b>File</b> menu, click <b>Open</b>. In <b>Look in</b>, click the drive that contains the document you want to open. Locate the document, click it, and then click <b>Open</b>. If you do not see the document you want, you can click a different file type in <b>Files of type</b>. For example, click <b>Unicode Text Documents</b> to see only Unicode files on the list. Or you can open a document you opened recently by clicking its name on the <b>File</b> menu.</p><p>Save changes to a document</p><p>On the <b>File</b> menu, click <b>Save</b>. To save the file with a new name, on the <b>File</b> menu, click <b>Save As</b>, type a different name in <b>File name</b>, and then click <b>Save</b>. Documents that use multiple languages should be saved as rich text files.</p><p>WordPad automatically saves documents as rich text files, but you can change the default file type at any time. On the <b>File</b> menu, click <b>Save As</b>. In <b>Save as type</b>, select the document format you want to set as the default. For example, to always save documents as text files, click <b>Text Document</b>. Select the <b>Save in this format by default</b> check box, and then click <b>Save</b>. This saves the current document in the selected file format and sets the default file format for future documents until you change it again.</p><p><a href="/resources/documentation/windows/xp/all/proddocs/en-us/wripad_print.mspx">Print a WordPad document</a></p><p><a href="/resources/documentation/windows/xp/all/proddocs/en-us/wordpad_notepad_editors.mspx">Choosing a program to write a document</a></p><br clear="all" style="font-size: 0pt"><div style="margin-top: 16px; margin-bottom: 20px; width: 100%"><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td><a href="#top"><img width="7" height="9" border="0" src="/library/gallery/templates/MNP2.GenericArticle/../MNP2.Common/images/arrow_px_up.gif" alt="Top of page"></a><a class="topOfPage" href="#top">Top of page</a></td></tr></table></div></div></td></tr></table><!--NOINDEX_START--><script language="javascript">
+              var framesValid = false;
+              if (window.name == "MNPMainFrame")
+              { var menuFrame = parent.frames["MNPMenuFrame"]; if (menuFrame) { framesValid = true; } }
+              if (!framesValid) location.replace("/resources/documentation/windows/xp/all/proddocs/en-us/wordpad_create_save_open.mspx?mfr=true");
+              
+                else document.write('<layer visibility="hide"><div style="display:none"><img alt="" width="0" height="0" border="0" hspace="0" vspace="0" src="http://c.microsoft.com/trans_pixel.asp?source=www&amp;TYPE=PV&amp;p=resources_documentation_windows_xp_all_proddocs_en-us_wordpad_create_save&amp;URI=%2fresources%2fdocumentation%2fwindows%2fxp%2fall%2fproddocs%2fen-us%2fwordpad_create_save_open.mspx&amp;GUID=1F4FC18C-F71E-47FB-8FC9-612F8EE59C61&amp;lc=en-us"></div></layer>');
+              
+              top.document.title = self.document.title;
+            </script><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr valign="bottom"><td><iframe src="/library/gallery/components/ratingControl/ratings.aspx?rurl=http%3a%2f%2fwww.microsoft.com%2fresources%2fdocumentation%2fwindows%2fxp%2fall%2fproddocs%2fen-us%2fwordpad_create_save_open.mspx&amp;l=en-us&amp;frm=True&amp;d=LTR&amp;t=To+create%2c+open%2c+or+save+a+WordPad+document" id="footerId" name="footerId" frameborder="0" scrolling="no" width="100%" marginWidth="0" marginHeight="0" height="300"></iframe></td></tr></table><br clear="all" style="line-height: 1px; overflow: hidden"><table id="msviFooter" width="100%" cellpadding="0" cellspacing="0"><tr valign="bottom"><td id="msviFooter2" style="filter:progid:DXImageTransform.Microsoft.Gradient(startColorStr='#FFFFFF', endColorStr='#3F8CDA', gradientType='1')"><div id="msviLocalFooter"><nobr><a href="http://go.microsoft.com/?linkid=317027" target="_top">Manage Your Profile</a> |</nobr><wbr></wbr><nobr><a href="/isapi/gomscom.asp?target=/legal/" target="_parent">Legal</a> |</nobr><wbr></wbr><nobr><a href="http://register.microsoft.com/contactus30/contactus.asp?domain=technet" target="_parent">Contact Us</a></nobr></div><div id="msviGlobalFooter"><span dir="ltr">&#169; 2010 Microsoft Corporation. All rights reserved.&nbsp;</span><nobr><a href="http://support.microsoft.com/contactus/?ws=mscom" target="_parent">Contact Us</a> |</nobr><wbr></wbr><nobr><a href="http://go.microsoft.com/?linkid=4412892" target="_parent">Terms of Use</a> |</nobr><wbr></wbr><nobr><a href="http://go.microsoft.com/?linkid=4412893" target="_parent">Trademarks</a> |</nobr><wbr></wbr><nobr><a href="http://go.microsoft.com/?linkid=4412894" target="_parent">Privacy Statement</a></nobr></div></td></tr></table><div style="display:none"><script type="text/javascript">var gDomain="m.webtrends.com";var gDcsId="dcsjwb9vb00000c932fd0rjc7_5p3t";var gTrackEvents="1";var gFpc="WT_FPC";if(document.cookie.indexOf(gFpc+"=")==-1){document.write("<SCR"+"IPT TYPE='text/javascript' SRC='"+"http"+(window.location.protocol.indexOf('https:')==0?'s':'')+"://"+gDomain+"/"+gDcsId+"/wtid.js"+"'><\/SCR"+"IPT>");}</script><script src="http://js.microsoft.com/library/mnp/2/wt/js/wt.js" type="text/javascript"></script><noscript><img border="0" name="DCSIMG" width="1" height="1" src="http://m.webtrends.com/dcsjwb9vb00000c932fd0rjc7_5p3t/njs.gif?dcsuri=/nojavascript&WT.js=No"/></noscript></div></body></html>

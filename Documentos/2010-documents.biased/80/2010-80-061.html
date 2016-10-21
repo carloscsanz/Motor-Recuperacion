@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Using Web Standards: XHTML</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+<div id="whole-page">
+
+	<div id="header">
+		<h1>Using Web Standards</h1>
+	</div>
+	
+	
+	<div id="nav">
+		<ol>
+		  <li><a href="../index.html">introduction</a></li>
+		  <li><a href="../writing/index.html">writing</a></li>
+		  <li class="navcurrent"><a href="index.html">web standards</a>
+			<ul>
+			  <li><a href="index.html">about</a></li>
+			  <li class="navcurrent"><a href="xhtml.html">xhtml</a></li>
+			  <li><a href="css.html">css</a></li>
+			  <li><a href="accessibility.html">accessibility</a></li>
+			  <li><a href="conclusion.html">conclusion</a></li>
+			</ul></li>
+		  <li><a href="../examples.html">examples</a></li>
+		  <li><a href="../conclusion.html">conclusion</a></li>
+		</ol>	
+	</div>
+	
+	
+	<div id="main">
+		<h2><acronym title="Extensible HyperText Markup Language">XHTML</acronym>: The Lowdown on Structural Markup </h2>
+		<p>If you want to write pages that are easier to code and update, then <acronym title="Extensible HyperText Markup Language">XHTML</acronym> is the way to go. With <acronym title="Extensible HyperText Markup Language">XHTML</acronym>, your markup is structural. This means that if something is a list, you use a list tag (&lt;ul&gt; or &lt;ol&gt;) for it, rather than just hitting return after every line or putting all the items into a table. In fact, the only thing that tables are used for in <acronym title="Extensible HyperText Markup Language">XHTML</acronym> is presenting tabular data, like a calendar or spreadsheet. Tables are never used for page layout. Moreover, with <acronym title="Extensible HyperText Markup Language">XHTML</acronym><strong> you don't include any code that specifies how the page should look</strong>.</p>
+		<p>So how do you write <acronym title="Extensible HyperText Markup Language">XHTML</acronym>? Well, <acronym title="Extensible HyperText Markup Language">XHTML</acronym> is a version of <acronym title="HyperText Markup Language">HTML</acronym> that has been modified to be valid <acronym title="eXtensible Markup Language">XML</acronym>. The result is that <acronym title="Extensible HyperText Markup Language">XHTML</acronym> is very similar to <acronym title="HyperText Markup Language">HTML</acronym> but has slightly stricter rules. Mostly what this means is that you have to close every tag. Make sure you put a &lt;/p&gt; at the end of every &lt;p&gt;. And tags that don't have a separate closing tag, like &lt;img&gt; or &lt;br&gt; look like this in <acronym title="Extensible HyperText Markup Language">XHTML</acronym>: &lt;img /&gt; &lt;br /&gt;.</p>
+		<h3>A Closer Look: <acronym title="Extensible HyperText Markup Language">XHTML</acronym> Tags </h3>
+		<p>So let's talk about actual tags. Remember, if we tell you not to worry about how something looks it just means that you shouldn't worry about it while writing your markup. You will specify how things look in the next section of this tutorial which deals with <acronym title="Cascading Style Sheets">CSS</acronym>. </p>
+		<p>As usual, you will start with the &lt;body&gt; tag. Leave out presentational attributes like bgcolor or vlink. </p>
+		<p>You can expect to use the header tags &lt;h1&gt; through &lt;h6&gt; often (make sure that you use them properly - h1 is for the most important headings, h6 is for the least important headings.) A good rule of thumb is that your page should never use an h3 unless you already have an h1 and an h2 somewhere above it. In other words, the header tags describe an outline of your page.</p>
+		<p>When you are writing text for your page, it should go in paragraph (&lt;p&gt;) tags. Make sure you close your &lt;p&gt; tags, and don't use &lt;br /&gt; when you mean &lt;p&gt;.</p>
+		<p>You can make bold text with &lt;strong&gt; and italic text with &lt;em&gt; (em is short for emphasis). Using these tags rather than &lt;b&gt; and &lt;i&gt; means that your page is describing the text as being important, instead of just saying that it should look wider or more slanted.</p>
+		<p>To make lists, use the &lt;ul&gt; tag for unordered lists or the &lt;ol&gt; tag for ordered lists. Use the &lt;li&gt; tag for items in your list. Don't worry about bullet points or numbers.</p>
+		<p>Hopefully these tags have all been somewhat familiar. However, after reading this far you may be scratching your head about how you make things look interesting. So next we're going to introduce a couple of tags you may be less familiar with that help you do just that. </p>
+		<h3>Div and Span</h3>
+		<p>In <acronym title="Extensible HyperText Markup Language">XHTML</acronym>, not only do you lose the ability to use tables for page layout, you also lose the &lt;font&gt; tag for text sizing and coloring. Fortunately, you get two even more powerful tools in return: the &lt;div&gt; and &lt;span&gt; tags. </p>
+		<p>The &lt;div&gt; tag divides your page into structural sections. For example, if you look at the source code of this page, you will see that the first line in the body is: &lt;div id=&quot;whole-page&quot;&gt;, and within that div you have four more divs: header, nav, main, and footer.</p>
+		<p>The &lt;span&gt; tag replaces the &lt;font&gt; tag, but is much more flexible. Use span when you want to achieve a purely visual effect (otherwise use a tag such as &lt;h1&gt;, &lt;strong&gt;, &lt;em&gt;, etc.)</p>
+		<h3>Classes and IDs</h3>
+		<p>A class is an attribute that any tag can have. The exciting part is that you get to make up your own class names. For example, you could write &lt;a class=&quot;navigation&quot;&gt; or &lt;span class=&quot;booktitle&quot;&gt;. Classes are reusable, so if you have some another navigation link or book title, you can apply your navigation class or your booktitle class again. This way you can easily make them all look consistent. </p>
+		<p>An ID is similar to a class, but is unique. Therefore IDs are good for marking off unique areas of your page. You will often use divs with different IDs to control the position and appearance of different sections of your page.</p>
+		<h3>A Few More Boring Rules </h3>
+		<p>We mentioned earlier that you must close every tag in <acronym title="Extensible HyperText Markup Language">XHTML</acronym>, unlike <acronym title="HyperText Markup Language">HTML</acronym>. There are a few more rules that have changed from <acronym title="HyperText Markup Language">HTML</acronym>, as we can see in the following example:</p>
+		<p class="example">&lt;!-- Valid <acronym title="HyperText Markup Language">HTML</acronym> (but invalid <acronym title="Extensible HyperText Markup Language">XHTML</acronym>) --&gt;<br />
+&lt;!------------------------------------&gt;<br />
+&lt;A HREF=&quot;index.php?page=10&amp;display=5&quot;&gt;<br />
+&lt;IMG SRC=&quot;MyPicture.jpg&quot;WIDTH=50 HEIGHT=30&gt;<br />
+&lt;/A&gt;</p>
+		<p class="example">&lt;!-- Valid <acronym title="Extensible HyperText Markup Language">XHTML</acronym> (also valid <acronym title="HyperText Markup Language">HTML</acronym>) --&gt;<br />
+&lt;!--===============================--&gt;<br />
+&lt;a href=&quot;index.php?page=10&amp;amp;display=5&quot;&gt;<br />
+&lt;img src=&quot;MyPicture.jpg&quot; width=&quot;50&quot; height=&quot;30&quot; /&gt;<br />
+&lt;/a&gt;</p>
+		<p>Here is a short list of the important differences:</p>
+		<ul>
+		  <li><acronym title="Extensible Markup Language">XML</acronym> is case-sensitive, so you must write all tag names (e.g. img, a, p) in lowercase, and you must write all attributes (e.g. href, src, width, height) in lowercase as well.</li>
+	      <li>Put quotes around all attribute values (e.g. width=&quot;50&quot;, not width=50).</li>
+	      <li>Include a space between each attribute (e.g. width=&quot;50&quot; height=&quot;30&quot;, not width=&quot;50&quot;height=&quot;30&quot;).</li>
+	      <li>Double dashes (--) are not allowed within comments.</li>
+	      <li>Close all tags, including &lt;p&gt; and &lt;img /&gt; tags.</li>
+	      <li>Always use &amp;amp; when you want an ampersand (even in hyperlinks, as in the example above), and always use &amp;lt; and &amp;gt; when you want less-than and greater-than symbols in your text.</li>
+      </ul>
+		<p>This stuff is boring, but if you want to write valid code you have to follow the rules. Enough said, now let's move on to more interesting topics.</p>
+		<p class="continue"><a href="css.html">&gt;&gt;&gt; Continue to <acronym title="Cascading Style Sheets">CSS</acronym> &gt;&gt;&gt; </a> </p>
+	</div>
+	
+	
+	<div id="footer">
+		<div id="cc">
+			<p>
+				<!-- Creative Commons License -->
+				<a rel="license" href="http://creativecommons.org/licenses/by-nc/2.0/">
+					<img src="images/somerights20.gif" alt="Creative Commons License" width="88" height="31" />
+				</a>
+				<!-- /Creative Commons License -->
+				
+				<!-- ignore all the junk in this next comment -->
+				<!--
+				
+				<rdf:RDF xmlns="http://web.resource.org/cc/"
+					xmlns:dc="http://purl.org/dc/elements/1.1/"
+					xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+				<Work rdf:about="">
+				   <dc:creator><Agent>
+					  <dc:title>Owen Strain</dc:title>
+				   </Agent></dc:creator>
+				   <dc:rights><Agent>
+					  <dc:title>Owen Strain</dc:title>
+				   </Agent></dc:rights>
+				   <license rdf:resource="http://creativecommons.org/licenses/by-nc/2.0/" />
+				</Work>
+				
+				<License rdf:about="http://creativecommons.org/licenses/by-nc/2.0/">
+				   <permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+				   <permits rdf:resource="http://web.resource.org/cc/Distribution" />
+				   <requires rdf:resource="http://web.resource.org/cc/Notice" />
+				   <requires rdf:resource="http://web.resource.org/cc/Attribution" />
+				   <prohibits rdf:resource="http://web.resource.org/cc/CommercialUse" />
+				   <permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+				</License>
+				
+				</rdf:RDF>
+				
+				-->
+				&copy;2005 Owen Strain, some rights reserved. This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/2.0/">Creative Commons License</a>. You are free to copy, modify, and redistribute parts of this site for noncommercial purposes.
+			</p>
+		</div>
+		
+		<div id="w3">
+			<p>
+				<a href="http://validator.w3.org/check?uri=referer"><img
+				src="http://www.w3.org/Icons/valid-xhtml10"
+				alt="Valid XHTML 1.0!" height="31" width="88" /></a>
+				<a href="http://jigsaw.w3.org/css-validator"><img
+				src="http://jigsaw.w3.org/css-validator/images/vcss"
+				alt="Valid CSS!" height="31" width="88" /></a>
+				
+				This website supports <a href="http://www.webstandards.org/about/" title="The Web Standards Project">web standards</a>.
+			</p>
+		</div>
+		
+		<div id="cs">
+			<p>
+				<a href="http://www.cyberartsweb.org/cpace/"><img
+				src="images/cyberspaceweb_badge.gif"
+				alt="The Cyberspace Web" height="31" width="88" /></a>
+				
+				Go back to the Cyberspace Web. <br />
+				<a href="http://www.cyberartsweb.org/cpace/" title="The Cyberspace Web">http://www.cyberartsweb.org/cpace/</a>
+			</p>
+		</div>
+	
+	</div>
+
+</div>
+
+</body>
+</html>

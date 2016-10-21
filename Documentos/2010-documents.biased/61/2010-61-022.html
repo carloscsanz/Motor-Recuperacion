@@ -1,0 +1,166 @@
+<!doctype html><link rel=canonical href=http://dotnetperls.com/datagridview-tips><link rel="shortcut icon" href=http://d142qn1ou6ht8n.cloudfront.net/1><title>C# DataGridView Tips and Secrets</title><style>body,img,iframe{border:0;margin:0;padding:0}body{font:14px/1.45 verdana,sans-serif;position:relative;background:#fff}h1{font:27px/1.2 verdana,sans-serif;padding:20px 0 0;margin:0 300px 0 0;font-weight:700}h2{font-size:18px;margin:0 10px}#e{border-bottom:solid 1px #919191;background:#fff;padding:0 0 40px;min-height:800px}#t{font-size:13px;position:absolute;top:0;right:0;background:#40627c;padding:7px 9px;color:#fff}#t a{color:#fff}#a{font-size:11px;margin:0 0 13px;padding:0 0 6px 10px;background:#fffae4}#r{font-size:11px;bottom:0;padding:0 300px 30px 10px;position:absolute}p,#e img{margin:0 10px 12px;display:block}img{vertical-align:middle}.l{font-size:13px;margin-top:-12px;font-weight:700}.l a{text-decoration:none}.l a:hover{text-decoration:underline}::selection{background:#afeeee}::-moz-selection{background:#afeeee}pre{font-size:13px;margin:0 10px 12px;padding:6px 0;line-height:normal}pre i{color:green;font-style:normal}</style><div id=e><div id=a><h1>C# DataGridView Tips and Secrets</h1>by Sam Allen - Updated January 8, 2010</div><div style=margin-right:300px><img src=2m width=250 height=274 alt="DataGridView example screenshot" style=float:right><p>You want to improve the <b>DataGridView</b> in your Windows Forms application. These improvements can solve usability or aesthetic problems in your DataGridView program. Here we explore DataGridView usage and enhancements in Windows Forms, using the C# programming language.<h2>Using DataGridView</h2><p>First, you should use DataGridView when you need to display information that is easily broken up into columns. This will include numbers, names, IDs, and other attributes stored in a database. You can use the <b>DataSource</b> property to hook your DataGridView up to a database, or even an object collection.<pre><b style=background:gold>=== Code that sets DataSource (C#) ===</b>
+
+<i>/// &lt;summary&gt;
+/// Used to set up the data table when the user types a query.
+/// &lt;/summary&gt;</i>
+void BuildDataGrid()
+{
+    <b>dataGridView1.DataSource = GetSearchResults(queryStr);</b>
+}
+
+<i>/// &lt;summary&gt;
+/// Connect to the database and then use an adapter to
+/// fill a DataTable.
+/// &lt;/summary&gt;
+/// &lt;param name="queryStr"&gt;The query supplied by the user.&lt;/param&gt;
+/// &lt;returns&gt;The results in a table.&lt;/returns&gt;</i>
+DataTable GetSearchResults(string queryStr)
+{
+    <i>//
+    // Make a new DataTable.
+    //</i>
+    DataTable table = new DataTable();
+    <i>//
+    // You will want to declare a new DataAdapter, and then call its fill method
+    // on the DataTable.
+    //</i>
+    return table;
+}</pre><p><b>Description of DataSource example.</b> After BuildDataGrid is called, the above code sets the DataSource property to the results of another function, GetSearchResults. Next, it performs a custom search. This is custom code that will query a database such as a full-text database for results.<p><b>Description of DataTable.</b> It fills a new DataTable. We can use a SqlDataAdapter to fill this DataTable object which we return. Finally, the results appear in your DataGridView.</p><p class=l><a href=sqldataadapter-adonet>(See SqlDataAdapter Example.)</a><h2>Using DataAdapters</h2><p>In the .NET Framework, a DataAdapater class is an object that uses internal logic to take data from a database and into an object. You will need to add that and the SQL statements as well, which depend on what database you are using. This topic is more in the ADO.NET realm, but these are extremely useful in many programs that use DataGridView.<h2>Using objects</h2><p>Here we use a collection with an implementation of IList, which is an interface shared by Lists and arrays. One great feature is that .NET will read the property names of your collection objects automatically. Simply create a new List or array of objects, and set the DataSource to this.</p><img src=xy width=297 height=130 alt=DataGridView><pre><b style=background:#b0e0e6>~~~ Code that uses object collection (C#) ~~~</b>
+
+<i>/// &lt;summary&gt;
+/// The test class for our example.
+/// &lt;/summary&gt;</i>
+class TestObject
+{
+    public int OneValue { get; set; }
+    public int TwoValue { get; set; }
+}
+
+void M()
+{
+    TestObject test1 = new TestObject()
+    {
+        OneValue = 2,
+        TwoValue = 3
+    };
+    <b>List&lt;TestObject&gt; list = new List&lt;TestObject&gt;();</b>
+    list.Add(test1);
+    list.Add(test2); <i>// Not shown in code</i>
+
+    <b>dataGridView1.DataSource = list;</b>
+}</pre><img src=7q alt=DataGridView width=228 height=291 style=float:right><h2>Hiding row headers</h2><p>You can hide row headers in the DataGridView control by using the RowHeadersVisible property. When you create a new DataGridView, there will be ugly row headers with arrows in the left-most column. These aren't useful for many kinds of applications. Disable row headers by setting RowHeadersVisible to false. This will provide the appearance in the screenshots, which is more streamlined.<h2>Tabbing improvements</h2><p>You can make tabbing work in your DataGridView control by modifying the StandardTab property in the Visual Studio designer view. This property lets you make sure that when your user tabs around your window, the tabbing events don't get stuck in the DataGridView. Use StandardTab in the designer to make the tab key move out of the DataGridView and to the next control.<h2>Adding rows</h2><p>Here we see how you can add rows to the DataGridView by using the instance Add method in C# code. This method adds rows to the DataGridView <b>programmatically</b>. There is a collection called Rows on the DataGridView. On the rows collection, there is a method called Add. It is usually better to modify the DataSource, but sometimes this approach is useful.<pre><b style=background:#fafad2>--- Code that adds rows (C#) ---</b>
+
+<i>/// &lt;summary&gt;
+/// Shows example usage of Add method on Rows.
+/// &lt;/summary&gt;</i>
+void M()
+{
+    <i>//
+    // n is the new index. The cells must also be accessed by an index.
+    // In this example, there are four cells in each row.
+    //</i>
+    <b>int n = dataGridView1.Rows.Add();</b>
+
+    dataGridView1.Rows[n].Cells[0].Value = title;
+    dataGridView1.Rows[n].Cells[1].Value = dateTimeNow;
+
+    <i>//
+    // The second cell is a date cell, use typeof(DateTime).
+    //</i>
+    dataGridView1.Rows[n].Cells[1].ValueType = typeof(DateTime);
+    dataGridView1.Rows[n].Cells[2].Value = wordCount;
+}</pre><p><b>Description of Add method.</b> The code example calls Add on Rows. The DataGridView has a Rows collection, which is simply a list of rows in the data grid. Add is an instance method on this collection. It returns an index of the newly added row. The code modifies the new row. Add will give us the index of the new row, so we can modify that row in-place using the regular syntax.<p><b>Using ValueType.</b> The code example sets ValueType on cells. Every cell in the data grid has a ValueType property. Usually, you don't need to worry about this. But if you want to specify a DateTime column, you can change it by assigning it to a type, using typeof.</p><p class=l><a href=datetime-1>(See DateTime Examples.)</a><h2>Configuring columns</h2><p>You will find that Visual Studio provides dialogs that allow you to configure the columns in your DataGridView. Columns are used as templates for how your DataGridView renders <b>columnar data</b>. They do not actually contain the data, just the rules for rendering it to the screen. More information, including a screenshot, is available on this site.</p><p class=l><a href=datagridview-columns>(See DataGridView Columns, Edit Columns Dialog.)</a><h2>Locating current cell</h2><p>Here we see how you can locate the current cell in your DataGridView by using the CurrentCellAddress property. It returns the <b>cell coordinates</b>, which are also called its location or Point. You can specify X or Y or both, but in this following example, we only take the Y coordinate of the current cell. The current cell is also the selected cell, which usually has a blue highlight.<pre><b style=background:#dcdcdc>~~~ Code that gets current cell (C#) ~~~</b>
+
+<i>/// &lt;summary&gt;
+/// Shows example usage of how to get the current cell.
+/// &lt;/summary&gt;</i>
+void M()
+{
+    <i>//
+    // Go from Y coordinate to a selected cell's value.
+    // DateTime is just for this example, and the Cells[1] part just
+    // takes the second cell for this example.
+    //</i>
+    <b>int yCoord = dataGridView1.CurrentCellAddress.Y;</b> <i>// You can get X if you need it.</i>
+    DateTime thisDate = (DateTime)dataGridView1.Rows[yCoord].Cells[1].Value;
+}</pre><h2>Double-clicks</h2><p>Here we can use the <b>CellDoubleClick</b> event and check RowIndex. In the event handler for CellDoubleClick, call the function you use for when an item is to be used. Note that you must check for e.RowIndex equals -1, which indicates that the column headers were double-clicked and not a regular cell.<pre><b style=background:#ffe4e1>--- Code that handles double-clicking (C#) ---</b>
+
+void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+{
+    <i>//
+    // Do something on double click, except when on the header.
+    //</i>
+    if (e.RowIndex == -1)
+    {
+        return;
+    }
+    ProceedOpen();
+}</pre><p><b>Events in Visual Studio.</b> As a reminder, click on the DataGridView in the designer, and then look at the Property pane, which is on the right bottom corner usually. Then click on the lightning bolt and scroll down to the CellDoubleClick entry. That's all you have to do to make the event here.<h2>Using SelectionChanged</h2><p>You can update your program's buttons instantly when the user selects a cell in the DataGridView. He we need to listen for <b>SelectionChanged</b> and change controls based on the selection. In the functions called in your SelectionChanged code, check for CurrentCellAddress to figure out what was selected and where the selection moved.<pre><b style=background:khaki>~~~ Code that uses SelectionChanged (C#) ~~~</b>
+
+void dataGridView1_SelectionChanged(object sender, EventArgs e)
+{
+    <i>//
+    // When our selection changes, call the function SetupButtons
+    // to make sure "openButton" is always in a valid state.
+    //</i>
+    SetupButtons();
+}
+
+<i>/// &lt;summary&gt;
+/// Custom method that sets the Enabled property of a button.
+/// &lt;/summary&gt;</i>
+void SetupButtons()
+{
+    <i>//
+    // Disable openButton when there are no items shown.
+    //</i>
+    <b>openButton.Enabled = (dataGridView1.RowCount &gt; 0);</b>
+}</pre><p><b>SelectionChanged event handler.</b> The code uses an event handler. This is triggered whenever the selection changes in the DataGridView. This is convenient because you will want to change the display when the selection is moved.<p><b>Using RowCount expression.</b> The code checks RowCount. When RowCount is zero, then nothing is selected, and our user probably can't proceed in your window. This allows us to disable or enable buttons based on what is selected. The user interface will respond instantly when selection is changed. People love it when their programs work better than they have come to expect.<h2>Expanding columns</h2><p>You can specify that the columns in your DataGridView should expand by setting Columns.AutoSizeMode to Fill. This causes the cells to expand to fill the horizontal area. Then, in the designer, set some cells to fixed or percentage width. Just allow one column to fill up the remainder. You will need to do a bit of manual tweaking.<h2>Appearance on Vista</h2><p>Here we see how you can improve the appearance of DataGridView on Windows Vista with some custom conditional code. Windows Vista's DataGridView looks best when it has no border, but Windows XP's looks best with a border. The code returns the appropriate border attributes based on what operating system is running.<pre><b style=background:#f4a460>~~~ Code that improves Vista appearance (C#) ~~~</b>
+
+public partial class Form1 : Form
+{
+    public Form1()
+    {
+        InitializeComponent();
+        <b>dataGridView1.ColumnHeadersBorderStyle = ProperColumnHeadersBorderStyle;</b>
+    }
+
+    <i>/// &lt;summary&gt;
+    /// Remove the column header border in the Aero theme in Vista,
+    /// but keep it for other themes such as standard and classic.
+    /// &lt;/summary&gt;</i>
+    static DataGridViewHeaderBorderStyle ProperColumnHeadersBorderStyle
+    {
+        get
+        {
+            return (SystemFonts.MessageBoxFont.Name == "Segoe UI") ?
+                DataGridViewHeaderBorderStyle.None :
+                DataGridViewHeaderBorderStyle.Raised;
+        }
+    }
+}</pre><img src=su width=557 height=359 alt="DataGridView example"><h2>Properties</h2><p>Here we note that the DataGridView control has hundreds of complex properties. This site has more information on some of these properties in a separate article, although much of the information is not commonly useful.</p><p class=l><a href=datagridview-property>(See DataGridView Property Notes.)</a><h2>PreviewKeyDown event</h2><p>Here we look at what the PreviewKeyDown event on the DataGridView control can be used for. When your DataGridView handles events such as KeyDown, the PreviewKeyDown event can be used to filter some of these events, preventing incorrect behavior. This solves complex problems related to key input.</p><p class=l><a href=previewkeydown>(See PreviewKeyDown Event.)</a><h2>VB.NET</h2><p>Here we remember that the VB.NET programming language can use the DataGridView control in the same way as the C# language. The main difference is that the event handlers in the source code have different declarations and VB.NET programs use different default identifiers for Windows Forms controls. This site has a complete tutorial on DataGridView in VB.NET.</p><p class=l><a href=datagridview-vbnet>(See DataGridView Usage.)</a><h2>More hints</h2><p>In this section, we look at some miscellaneous tips related to the DataGridView control in Windows Forms and the C# language. These properties and approaches here were useful to the author at some point, but are not really important or may not be the best way to do something. If something is really interesting or popular, the author will try to expand it.</p><p class=l><a href=excel-interop>(See Excel Interop Use.)</a></p><p class=l><a href=sqlclient-tutorial>(See SqlClient Tutorial.)</a><pre><b style=background:#dcdcdc>dataGridView1.Columns[0].HeaderCell.SortGlyphDirection</b>
+You can use this to draw that glyph array image.
+Remember to remove the glyph arrow in ColumnHeaderMouseClick.
+
+<b style=background:#dcdcdc>BackgroundColor</b>
+Setting this to 'Window' often looks best.
+Looks professional when you adjust this.
+
+<b style=background:#dcdcdc>SelectionMode</b>
+FullRowSelect enum value looks the best when you are displaying
+simple result rows.
+
+<b style=background:#dcdcdc>ColumnHeaderMouseClick</b>
+This event is used to capture when a header is clicked.
+Sometimes you may need to modify the direction that the
+sort glyph is pointing in the column squares.
+You can check e.ColumnIndex on the event parameter to
+find out which of the column headers was clicked.
+
+<b style=background:#dcdcdc>Using Excel</b>
+You can use your DataGridView with Microsoft Excel.
+You need to add Excel Interop C# code.
+
+<b style=background:#dcdcdc>Using SqlClient</b>
+For more information on the general usage of ADO.NET and
+System.Data.SqlClient, please see the specific article.</pre><h2>Tutorial</h2><p>Here we note a related tutorial located on this web site. If you are confused by some aspects of DataGridView that aren't shown here, such as the Columns collections, how to make alternating row colors, or how to use SqlDataAdapter and similar objects, try the DataGridView tutorial.</p><p class=l><a href=datagridview-tutorial>(See DataGridView Tutorial.)</a><h2>Summary</h2><p>Here we saw how you can improve the usability and appearance of the <b>DataGridView</b> in your program with these methods. No one loves developing with DataGridView, but a good one can really make your program shine. DataGridView is ideal in .NET and the C# language for viewing information from databases or object collections.</p><p class=l><a href=copyright>(Do not copy this page.)</a></div></div><div style=height:440px></div><div id=r><a href=.><b>Dot Net Perls</b></a> | <a href=http://www.google.com/search?sitesearch=dotnetperls.com&q=*>Search</a><br><a href=datagridview><b>DataGridView</b></a> | <a href=datagridview-columns>DataGridView Columns, Edit Columns Dialog</a> | <a href=datagridview-property>DataGridView Property Notes</a> | <a href=datagridview-tutorial>DataGridView Tutorial</a> | <a href=datagridview-vbnet>DataGridView Usage</a> | <a href=previewkeydown>PreviewKeyDown Event</a><br>C# | <a href=decrement>Decrement Int</a> | <a href=html-brackets>HTML Brackets</a> | <a href=parameter-optimization>Parameter Optimization Tip</a> | <a href=savefiledialog>SaveFileDialog Tutorial</a></div><div style=position:absolute;font-size:10px;right:10px;bottom:4px>&copy; 2010 Sam Allen. All rights reserved.</div><div id=t><a href=.><b>Dot Net Perls</b></a> | <a href=about>Sam Allen</a><img src=http://d142qn1ou6ht8n.cloudfront.net/2 width=50 height=50 style="margin:-7px -9px -7px 9px;opacity:0.9"></div><div style=position:absolute;top:61px;right:0><script>lqm_channel=1;lqm_publisher=323;lqm_zone=1;lqm_format=6;</script><script src=http://a.lakequincy.com/s.js></script></div><div style=position:absolute;top:320px;right:0;background:#fff><script>lqm_channel=1;lqm_publisher=323;lqm_zone=1;lqm_format=6;</script><script src=http://a.lakequincy.com/s.js></script><br><br><div style=width:250px;font-size:10px;line-height:normal><script>lqm_channel=1;lqm_publisher=323;lqm_zone=1;lqm_format=3;</script><script src=http://a.lakequincy.com/s.js></script><br><br><script>lqm_channel=1;lqm_publisher=323;lqm_zone=1;lqm_format=3;</script><script src=http://a.lakequincy.com/s.js></script></div></div><div style=position:absolute;bottom:148px><script>lqm_channel=1;lqm_publisher=323;lqm_zone=1;lqm_format=7;</script><script src=http://a.lakequincy.com/s.js></script></div><div style=position:absolute;bottom:148px;left:350px><script>lqm_channel=1;lqm_publisher=323;lqm_zone=1;lqm_format=7;</script><script src=http://a.lakequincy.com/s.js></script></div>

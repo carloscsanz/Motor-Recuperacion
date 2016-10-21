@@ -1,0 +1,1317 @@
+<html>
+<head>
+<title>Fun With C# and HP Laserjets</title>
+<META NAME="KEYWORDS" CONTENT="Using,sockets,and,C,you,can,customize,the,display,of,a,networked,HP,Printer, Asp.Net,.Net,C#,SQL,Microsoft,OdeToCode,Poonam Lall,K. Scott Allen"/>
+<META NAME="DESCRIPTION" CONTENT="Using sockets and C#, you can customize the display of a networked HP Printer."/>
+<META NAME="PAGETYPE" CONTENT="ASPNET.StarterKit.Communities.Articles.Article"/>
+<link href="/Communities/Common/Themes/OTC/Styles/Default.css" type="text/css" rel="stylesheet"/>
+</head>
+<body marginheight="0" marginwidth="0" leftmargin="0" rightmargin="0" class="pageBody">
+<form name="PageForm" method="post" action="68.aspx" id="PageForm">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUENTM4MQ9kFgICAQ9kFgJmD2QWAgICD2QWAmYPZBYCZg9kFgQCDw8QDxYCHgdDaGVja2VkaGRkZGQCEQ9kFgJmD2QWAmYPZBYEAgEPEA8WBB4MQXV0b1Bvc3RCYWNrZx4LXyFEYXRhQm91bmRnZGQWAWZkAgMPEA8WBB8BZx8CZ2RkFgFmZGSi3O/Rv86N1BmrB3L9xoySMl214g==" />
+
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWBwKSipLJCQKLg+aHAQKUg+aHAQKVg+aHAQKWg+aHAQK7hpq4CwKkhpq4C+VLEiCAXplhs7CpFkIw/2ftmTJS" />
+
+<link href='/Communities/Common/Themes/OTC/skins/pageskins/Layout.css' type=text/css 
+rel=stylesheet>
+
+<table cellSpacing=0 cellPadding=0 border=0>
+  <tr>
+    <td class=banner vAlign=middle align=left>
+                    <!--Logo Start-->
+      <table height=70 cellSpacing=0 cellPadding=0 width="100%" border=0 
+      >
+        <tr>
+          <td vAlign=middle align=left height=20 valign=bottom><img src="/odetocode.jpg" /></TD></TR></TABLE></TD>
+    <td class=banner vAlign=top align=right></TD></TR>
+  <tr>
+    <td height=38>
+      <table cellSpacing=0 cellPadding=0 width="100%" border=0>
+         <tr>
+            <td class=StaticNav align=left><span id="_ctl0_Sectionmenu1" class="StaticNav">
+    <span style="white-space: nowrap"><a id="_ctl0_Sectionmenu1__ctl0_Sections__ctl0_lnkSection" class="StaticNav" href="/default.aspx">Home</a></span>
+  
+    &#160; |&#160;
+  
+    <span style="white-space: nowrap"><a id="_ctl0_Sectionmenu1__ctl0_Sections__ctl2_lnkSection" class="StaticNav" href="/Articles/default.aspx">Articles</a></span>
+  
+    &#160; |&#160;
+  
+    <span style="white-space: nowrap"><a id="_ctl0_Sectionmenu1__ctl0_Sections__ctl4_lnkSection" class="StaticNav" href="/Resources/default.aspx">Resources</a></span>
+  
+    &#160; |&#160;
+  
+    <span style="white-space: nowrap"><a id="_ctl0_Sectionmenu1__ctl0_Sections__ctl6_lnkSection" class="StaticNav" href="/Humor/default.aspx">Humor</a></span>
+  
+    &#160; |&#160;
+  
+    <span style="white-space: nowrap"><a id="_ctl0_Sectionmenu1__ctl0_Sections__ctl8_lnkSection" class="StaticNav" href="/Feedback/default.aspx">Feedback</a></span>
+  
+</span>
+            </TD>
+            
+    
+    <td class=StaticNav align=right height=38><A href="mailto:admin@OdeToCode.com" ><img 
+      src='/Communities/Common/Images/email.gif' border=0 
+      ></A>&nbsp; <a 
+      href='/Articles/rss.aspx'><img 
+      src='/Communities/Common/Images/rss.gif' border=0 
+      ></A>&nbsp; <a 
+      href='/GoogleSearch.aspx'><img 
+      src='/Communities/Common/Images/OdeToCodeSearch.gif' 
+      border=0></A>&nbsp;&nbsp;</TD></TR>
+  <tr>
+    <td vAlign=middle align=left bgColor=maroon colSpan=2 height=4 
+    ></TD></TR>
+  <tr>
+    <td colSpan=2>
+      <table cellSpacing=0 cellPadding=0 width="100%" border=0 
+      >
+        <tr>
+          <td vAlign=top align=center width="16%"><br 
+            >
+            <table cellSpacing=1 cellPadding=1>
+              <tr>
+                <td><span id="_ctl0_Userlogin1"><div id="_ctl0_Userlogin1__ctl0_pnlLogin" class="OTCLogin">
+	&nbsp;
+<a id="_ctl0_Userlogin1__ctl0_lnkLogin" href="/Humor/Users_Login.aspx?ReturnUrl=%2fHumor%2f68.aspx">Login</a>
+&nbsp;
+<a id="_ctl0_Userlogin1__ctl0_lnkRegister" href="/Humor/Users_Register.aspx">Register</a>&nbsp;
+
+</div>
+</span></TD></TR></TABLE><br>
+
+<div id="lqdmad">
+<div id="lqdmrd"><a href="http://lakequincy.com/devmavens">Microsoft Advertising</a> loading...</div>
+<p class="dmAdText">
+    <a href="http://lakequincy.com/devmavens">Ads Via Dev<b>Mavens</b></a>
+<script type="text/javascript"> 
+<!-- 
+lqm_channel=1;
+lqm_publisher=142;
+lqm_zone=1;
+lqm_format=20;
+//-->
+</script>
+<script type="text/javascript" src="http://a.lakequincy.com/s.js"></script>
+</p>
+</div>
+                
+            <br></TD>
+          <td vAlign=top width="68%">
+            <table>
+              <tr>
+                <td><span>
+
+<table width="100%" cellspacing="0" cellpadding="11" class="Article_Table">
+<tr>
+<td class="Article_IntroCell">
+<div align="right">
+
+</div>
+<span class="Article_Title">Fun With C# and HP Laserjets</span>
+<br>
+<br>
+Posted by
+<a href="Users_ShowProfile.aspx?user=scott" class="Article_AuthorLink">scott</a>
+on
+<span class="dateCreated">Sunday, December 28, 2003</span>
+<br>
+<br>
+<span class="Article_BriefDescription">Using sockets and C#, you can customize the display of a networked HP Printer.</span>
+</td>
+</tr>
+<tr>
+<td class="Article_BodyCell">
+<span class="Article_FullDescription">I wasn’t sure if I should put this article under “Code” or “Humor”, since it contains both. Ultimately it is much funnier than technical, but full source is included for you to use in your own environment. 
+<P>I was studying the C# language one day and thought back to earlier in my career. Back then I was learning the assembly language for a little 8 bit Hitachi CPU (the 6303) in order to control a small thermal printer. With the right control codes you could get the printer to display a custom message on the LCD. Then I was walking by the HP Laser printer in the office and wondered if I could do the same here. Once I uncovered the <A href="http://h200001.www2.hp.com/bc/docs/support/SupportManual/bpl13205/bpl13205.pdf">Printer Job Language Reference</A> from HP, I realized this could be fun. After all, who would not get a kick out of a printer with the message “TOUCH ME” on the LCD? </P>
+<P>So I wrote some C# and had everything working. I put a list of messages together for the program to display at random and setup a scheduled task to execute the assembly every hour. It didn’t take long for people to notice and start commenting. Some people would check the printer for a new message on every trip. I remained completely silent as to my knowledge of the origin of these messages.</P>
+<P>At one point I disabled my scheduled task because our chief network admin had made it his mission to stop the printer hacking. After locking down everything on the printer he possibly could, the messages still got through, but I figured the joke had run it’s course. Then, when everyone realized we were going out of business, I turned it back on for a little bit of amusement everyday.</P>
+<P>After the company was sold and I did some consulting for the buyer, I setup the program in their office too. I had it hit an HP printer nearest the engineering cubicles, where at least one guy I know slept behind his high cubicle walls every afternoon for an hour. It never raised many eyebrows that I know of while I was there, but afterwards someone told me they knew one lady who stopped at the printer every day “because it says such nice things to me”. If I can brighten one person's day, every day, my mission is accomplished. </P>
+<P>The following listing is the code to pull it off. I think the selection of random messages is quite funny to see on a printer, but feel free to modify these to match your own sense of humor. To use the program just add the IP address of the printer and a message in quotes, or type "random" for the message to select from the random message list.</P><BR>
+<P><PRE>namespace hphack
+{
+  using System;
+  using System.Text;
+  using System.Net;
+  using System.Net.Sockets;
+
+  public class PrnHack
+  {
+    public static int Main(string[] args)
+    {
+      if(!ParseArgs(args))
+      {
+        return -1;
+      }
+            
+      Console.WriteLine("\nHP Display Hack");
+      Console.WriteLine("Host: {0}", args[0]);
+      Console.WriteLine("Message: {0}\n", message);
+            
+      IPEndPoint ipEndPoint;
+      ipEndPoint = new IPEndPoint( Dns.Resolve(args[0]).AddressList[0], PJL_PORT);
+
+      Console.WriteLine("Host is {0}", ipEndPoint.ToString());
+
+      Socket socket;
+      socket = new Socket(
+                        AddressFamily.InterNetwork,  
+                        SocketType.Stream, 
+                        ProtocolType.Tcp
+                     );
+
+      socket.Connect(ipEndPoint);
+
+      byte [] sendData;
+      string sendString;
+
+      sendString = String.Format(
+                "\x1B%-12345X@PJL RDYMSG DISPLAY = \"{0}\"\r\n\x1B%-12345X\r\n", 
+                message
+           );
+
+      sendData = Encoding.ASCII.GetBytes(sendString);
+                
+      int result;
+      result = socket.Send(sendData, sendData.Length, 0);
+
+      if(result == 0)
+      {
+        Console.WriteLine("Could not send on socket");
+      }
+        
+      socket.Close();
+        
+      Console.WriteLine("Finished\n\n");
+      return 0;
+    }
+
+ 
+
+    protected static bool ParseArgs(string[] args)
+    {
+      if(args.Length != 2)
+      {
+        Console.WriteLine(
+                  "HP Display Hack: " + 
+                  "hphack printername \"message\" "
+            );
+        return false;
+      }
+
+      if(args[1].Length &gt; 16)
+      {
+        Console.WriteLine("Message must be &lt;= 16 characters");
+        return false;
+      }
+        
+      if(args[1].CompareTo("random") == 0)
+      {
+        message = GetRandomMessage();
+      }
+      else
+      {
+        message = args[1];
+      }
+
+      return true;
+    }
+
+
+    public static string GetRandomMessage()
+    {
+      string [] Messages = { 
+                             "BUZZ OFF", 
+                             "TOUCH ME",
+                             "STEP AWAY",
+                             "SET TO STUN",
+                             "SCORE = 3413",
+                             "PAT EATS MICE",
+                             "FEED ME",
+                             "GO AWAY",
+                             "NEED MORE SPACE",
+                             "POUR ME A DRINK",
+                             "IN DISTRESS",
+                             "NICE SHIRT",
+                             "GO AWAY",
+                             "NO PRINT FOR YOU",
+                             "RADIATION LEAK",
+                             "HANDS UP",
+                             "PRESS MY BUTTON",
+                             "TAKE ME HOME",
+                             "LOOKS LIKE RAIN",
+                             "HELLO WORLD",
+                             "NICE HAIR",
+                             "NEED A MINT?",
+                             "BE GENTLE",
+                             "BE KIND",
+                             "INSERT DISK",
+                             "BUY ME LUNCH",
+                             "DONT STOP",
+                             "COME CLOSER",
+                             "TAKE A BREAK",
+                             "INSERT QUARTER",
+                             "BLACK SABBATH"
+      };
+
+
+      Random r = new Random();
+      return Messages[r.Next() % Messages.Length];
+    }
+
+    protected const int PJL_PORT = 9100;
+    protected static string message = "NO MESSAGE";
+        
+  }
+}
+
+
+</PRE>
+<P></P></span>
+</td>
+</tr>
+<tr>
+<td class="Article_BodyCell">
+<br>
+
+</td>
+</tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr>
+<td>
+<span class="Content">
+
+<p>
+<span><div id="_ctl0__ctl0__ctl0__ctl8__ctl0_pnlComments">
+	
+  <p>
+  <table width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><span class="Content_SubTitleRow">Comments:</td>
+    <td align="right">
+    <select name="_ctl0:_ctl0:_ctl0:_ctl8:_ctl0:CommentView" id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentView">
+		<option selected="selected" value="0">Flat</option>
+		<option value="1">Nested</option>
+		<option value="2">Threaded</option>
+		<option value="3">Embedded</option>
+
+	</select>
+    </td>
+    <td align="right">
+    <select name="_ctl0:_ctl0:_ctl0:_ctl8:_ctl0:OrderBy" id="_ctl0__ctl0__ctl0__ctl8__ctl0_OrderBy">
+		<option selected="selected" value="0">Oldest First</option>
+		<option value="1">Newest First</option>
+
+	</select>
+    </td>
+  </tr>
+  </table>
+  <br>
+  <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList">
+<table width="100%" cellspacing=0 cellpadding=5 class="Comments_ListTable">
+<tr>
+    <td class="Comments_ListItem">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl1__ctl0_lblTitle" class="Comments_ListTitle">Printer prints instead of displaying on LCD</span>
+        <br>By <a href="Users_ShowProfile.aspx?user=mortenharket" id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl1__ctl0_lnkAuthor" class="Comments_ListAuthorLink">mortenharket</a>
+        on 
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl1__ctl0_lblDateCreated" class="Comments_ListDateCreated">3/10/2004</span>
+            
+    </td>
+</tr>
+<tr>
+    <td class="Comments_ListItem2">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl1__ctl0_lblCommentText" class="Comments_ListBriefDescription">I am a VB.NET developer and was browsing some stuff on ASP.NET here and happened to read this article.  We have a HP Color LaserJet 4600dn.  I tried this code out and ran it as suggested.  However, on this printer, it prints out the random messages on paper instead of displaying them on LCD.  This is what it prints out:<br>@PJLRDYMSG = &quot;INSERT QUARTER&quot;.<br><br>I wish I could do the display thing.  Am I missing anything?  <br><br>Thanks.  <br><br>Morten<br>(ssc8e@umkc.edu)</span>            
+        <p>
+        
+        
+    </td>
+</tr>
+</table>
+
+<p>
+
+<table width="100%" cellspacing=0 cellpadding=5 class="Comments_ListTable">
+<tr>
+    <td class="Comments_ListItem">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl3__ctl0_lblTitle" class="Comments_ListTitle">Got it running</span>
+        <br>By <a href="Users_ShowProfile.aspx?user=mortenharket" id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl3__ctl0_lnkAuthor" class="Comments_ListAuthorLink">mortenharket</a>
+        on 
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl3__ctl0_lblDateCreated" class="Comments_ListDateCreated">3/10/2004</span>
+            
+    </td>
+</tr>
+<tr>
+    <td class="Comments_ListItem2">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl3__ctl0_lblCommentText" class="Comments_ListBriefDescription">Nevermind that.  I got it running finally :-)<br><br>There's a small typo in the code.  It should say:<br>...<br>&quot;\x1B%-12345X@PJL RDYMSG DISPLAY = \&quot;{0}\&quot;\r\n\x1B%-12345X\r\n&quot;,<br>...<br><br>That is, PJL RDYMSG DISPLAY and not PJLRDYMSG DISPLAY.  The latter makes it print the message.<br><br>This is quite fun :-), though most of my colleagues already know about it.</span>            
+        <p>
+        
+        
+    </td>
+</tr>
+</table>
+
+<p>
+
+<table width="100%" cellspacing=0 cellpadding=5 class="Comments_ListTable">
+<tr>
+    <td class="Comments_ListItem">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl5__ctl0_lblTitle" class="Comments_ListTitle">Oops!</span>
+        <br>By <a href="Users_ShowProfile.aspx?user=scott" id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl5__ctl0_lnkAuthor" class="Comments_ListAuthorLink">scott</a>
+        on 
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl5__ctl0_lblDateCreated" class="Comments_ListDateCreated">3/10/2004</span>
+            
+    </td>
+</tr>
+<tr>
+    <td class="Comments_ListItem2">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl5__ctl0_lblCommentText" class="Comments_ListBriefDescription">Thanks for catching the typo (and debugging). I updated the code in the article.</span>            
+        <p>
+        
+        
+    </td>
+</tr>
+</table>
+
+<p>
+
+<table width="100%" cellspacing=0 cellpadding=5 class="Comments_ListTable">
+<tr>
+    <td class="Comments_ListItem">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl7__ctl0_lblTitle" class="Comments_ListTitle">slightly stupid question</span>
+        <br>By <a href="Users_ShowProfile.aspx?user=bb" id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl7__ctl0_lnkAuthor" class="Comments_ListAuthorLink">bb</a>
+        on 
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl7__ctl0_lblDateCreated" class="Comments_ListDateCreated">7/6/2004</span>
+            
+    </td>
+</tr>
+<tr>
+    <td class="Comments_ListItem2">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl7__ctl0_lblCommentText" class="Comments_ListBriefDescription">how do you determine the 'hostname' for the printer when on a windows network?</span>            
+        <p>
+        
+        
+    </td>
+</tr>
+</table>
+
+<p>
+
+<table width="100%" cellspacing=0 cellpadding=5 class="Comments_ListTable">
+<tr>
+    <td class="Comments_ListItem">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl9__ctl0_lblTitle" class="Comments_ListTitle">re: hostname</span>
+        <br>By <a href="Users_ShowProfile.aspx?user=scott" id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl9__ctl0_lnkAuthor" class="Comments_ListAuthorLink">scott</a>
+        on 
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl9__ctl0_lblDateCreated" class="Comments_ListDateCreated">7/7/2004</span>
+            
+    </td>
+</tr>
+<tr>
+    <td class="Comments_ListItem2">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl9__ctl0_lblCommentText" class="Comments_ListBriefDescription">The printer needs to be a TCP/IP printer. You should be able to find networked printers with windows explorer.</span>            
+        <p>
+        
+        
+    </td>
+</tr>
+</table>
+
+<p>
+
+<table width="100%" cellspacing=0 cellpadding=5 class="Comments_ListTable">
+<tr>
+    <td class="Comments_ListItem">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl11__ctl0_lblTitle" class="Comments_ListTitle">Works on one, not on another</span>
+        <br>By <a href="Users_ShowProfile.aspx?user=mattsmith321" id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl11__ctl0_lnkAuthor" class="Comments_ListAuthorLink">mattsmith321</a>
+        on 
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl11__ctl0_lblDateCreated" class="Comments_ListDateCreated">7/23/2004</span>
+            
+    </td>
+</tr>
+<tr>
+    <td class="Comments_ListItem2">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl11__ctl0_lblCommentText" class="Comments_ListBriefDescription">It works on a secondary printer near me, but not on my primary target printer. It is throwing the following exception:<br><br>Unhandled Exception: System.Net.Sockets.SocketException: An existing connection was forcibly closed by the remote host<br>   at System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)<br>   at System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 size, SocketFlags socketFlags)<br>   at hphack.PrnHack.Main(String[] args) in d:\tmhp\hphack\hphack.cs:line 46<br><br>Any thoughts on what would cause this?<br><br>Thanks,<br>Matt</span>            
+        <p>
+        
+        
+    </td>
+</tr>
+</table>
+
+<p>
+
+<table width="100%" cellspacing=0 cellpadding=5 class="Comments_ListTable">
+<tr>
+    <td class="Comments_ListItem">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl13__ctl0_lblTitle" class="Comments_ListTitle">PJL Problem</span>
+        <br>By <a href="Users_ShowProfile.aspx?user=wonie" id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl13__ctl0_lnkAuthor" class="Comments_ListAuthorLink">wonie</a>
+        on 
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl13__ctl0_lblDateCreated" class="Comments_ListDateCreated">7/24/2004</span>
+            
+    </td>
+</tr>
+<tr>
+    <td class="Comments_ListItem2">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl13__ctl0_lblCommentText" class="Comments_ListBriefDescription">Hi,<br><br>I am developing a Program that reads the Display messages from all HP Printers in the Network. I am having problems getting the right Display Message. <br><br>Can you give some assissatance ?<br><br>Thanks<br>wniefert@niefert.com</span>            
+        <p>
+        
+        
+    </td>
+</tr>
+</table>
+
+<p>
+
+<table width="100%" cellspacing=0 cellpadding=5 class="Comments_ListTable">
+<tr>
+    <td class="Comments_ListItem">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl15__ctl0_lblTitle" class="Comments_ListTitle">re: Works on one...</span>
+        <br>By <a href="Users_ShowProfile.aspx?user=scott" id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl15__ctl0_lnkAuthor" class="Comments_ListAuthorLink">scott</a>
+        on 
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl15__ctl0_lblDateCreated" class="Comments_ListDateCreated">7/24/2004</span>
+            
+    </td>
+</tr>
+<tr>
+    <td class="Comments_ListItem2">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl15__ctl0_lblCommentText" class="Comments_ListBriefDescription">Matt, Wonie:<br><br>I'm no expert on the printer job language, so I can't offer too much insight for either of you. It could be that the commands have changed over the years, though I would think the codes remain backward compatible..</span>            
+        <p>
+        
+        
+    </td>
+</tr>
+</table>
+
+<p>
+
+<table width="100%" cellspacing=0 cellpadding=5 class="Comments_ListTable">
+<tr>
+    <td class="Comments_ListItem">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl17__ctl0_lblTitle" class="Comments_ListTitle">Having fun</span>
+        <br>By <a href="Users_ShowProfile.aspx?user=mattsmith321" id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl17__ctl0_lnkAuthor" class="Comments_ListAuthorLink">mattsmith321</a>
+        on 
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl17__ctl0_lblDateCreated" class="Comments_ListDateCreated">7/26/2004</span>
+            
+    </td>
+</tr>
+<tr>
+    <td class="Comments_ListItem2">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl17__ctl0_lblCommentText" class="Comments_ListBriefDescription">Actually hitting the secondary printer has been more fun since it is the main one that our boss uses. She immediately noticed it and of course pointed it out to everyone. Of course, I am a &quot;person of interest&quot; at the moment so we will see how long I can get away with it.</span>            
+        <p>
+        
+        
+    </td>
+</tr>
+</table>
+
+<p>
+
+<table width="100%" cellspacing=0 cellpadding=5 class="Comments_ListTable">
+<tr>
+    <td class="Comments_ListItem">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl19__ctl0_lblTitle" class="Comments_ListTitle">F#cking Hilarious!</span>
+        <br>By <a href="Users_ShowProfile.aspx?user=Andy" id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl19__ctl0_lnkAuthor" class="Comments_ListAuthorLink">Andy</a>
+        on 
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl19__ctl0_lblDateCreated" class="Comments_ListDateCreated">8/9/2004</span>
+            
+    </td>
+</tr>
+<tr>
+    <td class="Comments_ListItem2">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl19__ctl0_lblCommentText" class="Comments_ListBriefDescription">That's awesome! I just tested it on the printer behind me and it works like a charm!</span>            
+        <p>
+        
+        
+    </td>
+</tr>
+</table>
+
+<p>
+
+<table width="100%" cellspacing=0 cellpadding=5 class="Comments_ListTable">
+<tr>
+    <td class="Comments_ListItem">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl21__ctl0_lblTitle" class="Comments_ListTitle">Neet-o-keen</span>
+        <br>By <a href="Users_ShowProfile.aspx?user=Timberwolf0122" id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl21__ctl0_lnkAuthor" class="Comments_ListAuthorLink">Timberwolf0122</a>
+        on 
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl21__ctl0_lblDateCreated" class="Comments_ListDateCreated">8/24/2004</span>
+            
+    </td>
+</tr>
+<tr>
+    <td class="Comments_ListItem2">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl21__ctl0_lblCommentText" class="Comments_ListBriefDescription">I'm going to knock out aq scrolly-text edition to get round the infurating 16 char limmit. Also does anyone else know say Xerox/Epson printer codes?</span>            
+        <p>
+        
+        
+    </td>
+</tr>
+</table>
+
+<p>
+
+<table width="100%" cellspacing=0 cellpadding=5 class="Comments_ListTable">
+<tr>
+    <td class="Comments_ListItem">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl23__ctl0_lblTitle" class="Comments_ListTitle">monitoring a network printer </span>
+        <br>By <a href="Users_ShowProfile.aspx?user=Yohan229" id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl23__ctl0_lnkAuthor" class="Comments_ListAuthorLink">Yohan229</a>
+        on 
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl23__ctl0_lblDateCreated" class="Comments_ListDateCreated">9/13/2004</span>
+            
+    </td>
+</tr>
+<tr>
+    <td class="Comments_ListItem2">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl23__ctl0_lblCommentText" class="Comments_ListBriefDescription">Has anyone been successful in reading data back from the printer through the socket?  Stuff like printer status, PJL ECHO commands, etc...?</span>            
+        <p>
+        
+        
+    </td>
+</tr>
+</table>
+
+<p>
+
+<table width="100%" cellspacing=0 cellpadding=5 class="Comments_ListTable">
+<tr>
+    <td class="Comments_ListItem">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl25__ctl0_lblTitle" class="Comments_ListTitle">I could not run the program</span>
+        <br>By <a href="Users_ShowProfile.aspx?user=shoree" id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl25__ctl0_lnkAuthor" class="Comments_ListAuthorLink">shoree</a>
+        on 
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl25__ctl0_lblDateCreated" class="Comments_ListDateCreated">9/27/2004</span>
+            
+    </td>
+</tr>
+<tr>
+    <td class="Comments_ListItem2">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl25__ctl0_lblCommentText" class="Comments_ListBriefDescription">I made a new project in C# - console based application.<br><br>But when I run the program the args array as length = 0, so the program does not execute at all.<br><br>Where am I going wrong!<br><br>SS</span>            
+        <p>
+        
+        
+    </td>
+</tr>
+</table>
+
+<p>
+
+<table width="100%" cellspacing=0 cellpadding=5 class="Comments_ListTable">
+<tr>
+    <td class="Comments_ListItem">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl27__ctl0_lblTitle" class="Comments_ListTitle">Practical jokes</span>
+        <br>By <a href="Users_ShowProfile.aspx?user=ForToday" id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl27__ctl0_lnkAuthor" class="Comments_ListAuthorLink">ForToday</a>
+        on 
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl27__ctl0_lblDateCreated" class="Comments_ListDateCreated">9/29/2004</span>
+            
+    </td>
+</tr>
+<tr>
+    <td class="Comments_ListItem2">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl27__ctl0_lblCommentText" class="Comments_ListBriefDescription">My coworkers and I where talking about practical jokes in the office.  I told them that the best practical jokes are the ones you can enjoy a good laugh without too much embarassment and that will not disrupt the work day too much.  In other words you should not loose work over the joke!  They asked me for an example... and a about a month later I found this article.  So Much Fun!  I set up a schedule and just left it to run at diffrent hours of the day and just wait to see what happened.  I didn't know that the day before the printer was repaired.  Poor tech. was blamed for all the fun (I had already told my boss the real culprit so it didn't get out of hand)... finally my boss let it slip by accident that I was playing with their minds!  Fun!  Thanks for the perfect example of a good practical joke!</span>            
+        <p>
+        
+        
+    </td>
+</tr>
+</table>
+
+<p>
+
+<table width="100%" cellspacing=0 cellpadding=5 class="Comments_ListTable">
+<tr>
+    <td class="Comments_ListItem">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl29__ctl0_lblTitle" class="Comments_ListTitle">Code to get status</span>
+        <br>By <a href="Users_ShowProfile.aspx?user=raydog153" id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl29__ctl0_lnkAuthor" class="Comments_ListAuthorLink">raydog153</a>
+        on 
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl29__ctl0_lblDateCreated" class="Comments_ListDateCreated">3/10/2005</span>
+            
+    </td>
+</tr>
+<tr>
+    <td class="Comments_ListItem2">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl29__ctl0_lblCommentText" class="Comments_ListBriefDescription">In case anyone was interested, here is the code to get the status. New send string:<br>sendString = String.Format(&quot;\x1B%-12345X@PJL INFO STATUS\r\n\x1B%-12345X\r\n&quot;, message);<br><br>Then after sending read the data:<br>                byte [] receiveData = new Byte[64];<br>                string receiveString;<br>                result = socket.Receive(receiveData);<br>                if(result == 0)<br>                {<br>                    Console.WriteLine(&quot;Could not receieve on socket&quot;);<br>                }<br>                else<br>                {<br>                    receiveString = Encoding.ASCII.GetString(receiveData);<br>                    Console.WriteLine(&quot;Display: {0}&quot;, receiveString);<br>                }<br><br>Output will be:<br>Display: @PJL INFO STATUS<br>CODE=10001<br>DISPLAY=&quot;RADIATION LEAK&quot;<br>ONLINE=T<br>Finished<br><br></span>            
+        <p>
+        
+        
+    </td>
+</tr>
+</table>
+
+<p>
+
+<table width="100%" cellspacing=0 cellpadding=5 class="Comments_ListTable">
+<tr>
+    <td class="Comments_ListItem">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl31__ctl0_lblTitle" class="Comments_ListTitle">Can someone please help a newbie?</span>
+        <br>By <a href="Users_ShowProfile.aspx?user=anananomous" id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl31__ctl0_lnkAuthor" class="Comments_ListAuthorLink">anananomous</a>
+        on 
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl31__ctl0_lblDateCreated" class="Comments_ListDateCreated">3/27/2005</span>
+            
+    </td>
+</tr>
+<tr>
+    <td class="Comments_ListItem2">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl31__ctl0_lblCommentText" class="Comments_ListBriefDescription">I don't know much about C# but I have a networked laserjet and I've compiled this code and made a .exe file. I believe that I am inserting the IP address of my printer in the wrong places in the code. Can someone please tell me where exactly I have to change the code, and how to compile it properly.</span>            
+        <p>
+        
+        
+    </td>
+</tr>
+</table>
+
+<p>
+
+<table width="100%" cellspacing=0 cellpadding=5 class="Comments_ListTable">
+<tr>
+    <td class="Comments_ListItem">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl33__ctl0_lblTitle" class="Comments_ListTitle">re: help</span>
+        <br>By <a href="Users_ShowProfile.aspx?user=scott" id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl33__ctl0_lnkAuthor" class="Comments_ListAuthorLink">scott</a>
+        on 
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl33__ctl0_lblDateCreated" class="Comments_ListDateCreated">3/27/2005</span>
+            
+    </td>
+</tr>
+<tr>
+    <td class="Comments_ListItem2">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl33__ctl0_lblCommentText" class="Comments_ListBriefDescription">The way the program is written you can pass the host name as the first argument of the program. </span>            
+        <p>
+        
+        
+    </td>
+</tr>
+</table>
+
+<p>
+
+<table width="100%" cellspacing=0 cellpadding=5 class="Comments_ListTable">
+<tr>
+    <td class="Comments_ListItem">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl35__ctl0_lblTitle" class="Comments_ListTitle">Still Lost</span>
+        <br>By <a href="Users_ShowProfile.aspx?user=anananomous" id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl35__ctl0_lnkAuthor" class="Comments_ListAuthorLink">anananomous</a>
+        on 
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl35__ctl0_lblDateCreated" class="Comments_ListDateCreated">3/27/2005</span>
+            
+    </td>
+</tr>
+<tr>
+    <td class="Comments_ListItem2">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl35__ctl0_lblCommentText" class="Comments_ListBriefDescription">I dont know any progamming, so could you simplify it to just telling me what to replace with what?<br><br>Thanks</span>            
+        <p>
+        
+        
+    </td>
+</tr>
+</table>
+
+<p>
+
+<table width="100%" cellspacing=0 cellpadding=5 class="Comments_ListTable">
+<tr>
+    <td class="Comments_ListItem">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl37__ctl0_lblTitle" class="Comments_ListTitle">Couple of questions...</span>
+        <br>By <a href="Users_ShowProfile.aspx?user=fiercekitty" id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl37__ctl0_lnkAuthor" class="Comments_ListAuthorLink">fiercekitty</a>
+        on 
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl37__ctl0_lblDateCreated" class="Comments_ListDateCreated">3/28/2005</span>
+            
+    </td>
+</tr>
+<tr>
+    <td class="Comments_ListItem2">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl37__ctl0_lblCommentText" class="Comments_ListBriefDescription">I see a comment was posted yesterday so I don't feel so bad about asking...<br><br>1. Will this work for shared printers on the network or only printers that connect directly &amp; have their own IP address, i.e. with a Jet card? Or can I do IP address of the host computer \ name of shared printer? (i.e. 192.168.1.250\hp)?<br><br>2. I briefly tried to compile under Visual Studio 6.0 but it seems the program tries to make it into a C++ file and thus doesn't compile properly. What compiler should I use?<br><br>Thanks in advance for any help offered!</span>            
+        <p>
+        
+        
+    </td>
+</tr>
+</table>
+
+<p>
+
+<table width="100%" cellspacing=0 cellpadding=5 class="Comments_ListTable">
+<tr>
+    <td class="Comments_ListItem">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl39__ctl0_lblTitle" class="Comments_ListTitle">Oops</span>
+        <br>By <a href="Users_ShowProfile.aspx?user=fiercekitty" id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl39__ctl0_lnkAuthor" class="Comments_ListAuthorLink">fiercekitty</a>
+        on 
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl39__ctl0_lblDateCreated" class="Comments_ListDateCreated">3/28/2005</span>
+            
+    </td>
+</tr>
+<tr>
+    <td class="Comments_ListItem2">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl39__ctl0_lblCommentText" class="Comments_ListBriefDescription">I see now that it's a C# snippet - silly me. Got it compiled and now am just trying to work out some of the problems (I'm new to this whole code thing). Sorry to bother you!</span>            
+        <p>
+        
+        
+    </td>
+</tr>
+</table>
+
+<p>
+
+<table width="100%" cellspacing=0 cellpadding=5 class="Comments_ListTable">
+<tr>
+    <td class="Comments_ListItem">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl41__ctl0_lblTitle" class="Comments_ListTitle">any chance...</span>
+        <br>By <a href="Users_ShowProfile.aspx?user=amlitnod" id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl41__ctl0_lnkAuthor" class="Comments_ListAuthorLink">amlitnod</a>
+        on 
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl41__ctl0_lblDateCreated" class="Comments_ListDateCreated">5/3/2005</span>
+            
+    </td>
+</tr>
+<tr>
+    <td class="Comments_ListItem2">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl41__ctl0_lblCommentText" class="Comments_ListBriefDescription">On having the the .exe emailed.  I haven't installed any dev software on my laptop yet, and the way it looks, it won't be soon.<br><br>hope you can help, thanks<br><br>amlitnod@yahoo.com</span>            
+        <p>
+        
+        
+    </td>
+</tr>
+</table>
+
+<p>
+
+<table width="100%" cellspacing=0 cellpadding=5 class="Comments_ListTable">
+<tr>
+    <td class="Comments_ListItem">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl43__ctl0_lblTitle" class="Comments_ListTitle">AddressFamily.Ieee12844</span>
+        <br>By <a href="Users_ShowProfile.aspx?user=plattpou" id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl43__ctl0_lnkAuthor" class="Comments_ListAuthorLink">plattpou</a>
+        on 
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl43__ctl0_lblDateCreated" class="Comments_ListDateCreated">6/6/2005</span>
+            
+    </td>
+</tr>
+<tr>
+    <td class="Comments_ListItem2">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl43__ctl0_lblCommentText" class="Comments_ListBriefDescription">Hi everyone.. I have mine connected thru the Dot4_001 usb port, which i think its the AddressFamily.Ieee12844..<br><br>Anyway as far as i tried, i couldnt get connected to the device, did anyone knows how to do this?.. I really need to get the printer status.<br><br></span>            
+        <p>
+        
+        
+    </td>
+</tr>
+</table>
+
+<p>
+
+<table width="100%" cellspacing=0 cellpadding=5 class="Comments_ListTable">
+<tr>
+    <td class="Comments_ListItem">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl45__ctl0_lblTitle" class="Comments_ListTitle">exe with interface</span>
+        <br>By <a href="Users_ShowProfile.aspx?user=mk14" id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl45__ctl0_lnkAuthor" class="Comments_ListAuthorLink">mk14</a>
+        on 
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl45__ctl0_lblDateCreated" class="Comments_ListDateCreated">7/21/2005</span>
+            
+    </td>
+</tr>
+<tr>
+    <td class="Comments_ListItem2">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl45__ctl0_lblCommentText" class="Comments_ListBriefDescription">Could anyone here compile an exe-program of the code with a little interface (asking for IP and MESSAGE and an OK-button)?<br>I don't have any experience with C#, nor do I have a compiler :( .<br><br>mk14<br></span>            
+        <p>
+        
+        
+    </td>
+</tr>
+</table>
+
+<p>
+
+<table width="100%" cellspacing=0 cellpadding=5 class="Comments_ListTable">
+<tr>
+    <td class="Comments_ListItem">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl47__ctl0_lblTitle" class="Comments_ListTitle">Also works with Lexmark printers</span>
+        <br>By <a href="Users_ShowProfile.aspx?user=mk14" id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl47__ctl0_lnkAuthor" class="Comments_ListAuthorLink">mk14</a>
+        on 
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl47__ctl0_lblDateCreated" class="Comments_ListDateCreated">7/29/2005</span>
+            
+    </td>
+</tr>
+<tr>
+    <td class="Comments_ListItem2">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl47__ctl0_lblCommentText" class="Comments_ListBriefDescription">I just tried this on my Dell 1700n Laser Printer:<br>Telnet onto port 9100, type @PJL RDYMSG DISPLAY=&quot;MESSAGE&quot;.<br>The printer does not have a front panel display, but the message shows up in the &quot;virtual front panel&quot; on the printer's webpage.</span>            
+        <p>
+        
+        
+    </td>
+</tr>
+</table>
+
+<p>
+
+<table width="100%" cellspacing=0 cellpadding=5 class="Comments_ListTable">
+<tr>
+    <td class="Comments_ListItem">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl49__ctl0_lblTitle" class="Comments_ListTitle">Status in Parallel printer</span>
+        <br>By <a href="Users_ShowProfile.aspx?user=plattpou" id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl49__ctl0_lnkAuthor" class="Comments_ListAuthorLink">plattpou</a>
+        on 
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl49__ctl0_lblDateCreated" class="Comments_ListDateCreated">10/13/2005</span>
+            
+    </td>
+</tr>
+<tr>
+    <td class="Comments_ListItem2">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl49__ctl0_lblCommentText" class="Comments_ListBriefDescription">Did anyone know how to retrieve the status data, from a Parallel port connected PCL printer.<br><br>I have successfully sent pcl commands, but i have no clue where can i find the status response.<br></span>            
+        <p>
+        
+        
+    </td>
+</tr>
+</table>
+
+<p>
+
+<table width="100%" cellspacing=0 cellpadding=5 class="Comments_ListTable">
+<tr>
+    <td class="Comments_ListItem">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl51__ctl0_lblTitle" class="Comments_ListTitle">GUI Program</span>
+        <br>By <a href="Users_ShowProfile.aspx?user=bullshitcrapbutt" id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl51__ctl0_lnkAuthor" class="Comments_ListAuthorLink">bullshitcrapbutt</a>
+        on 
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl51__ctl0_lblDateCreated" class="Comments_ListDateCreated">11/28/2005</span>
+            
+    </td>
+</tr>
+<tr>
+    <td class="Comments_ListItem2">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl51__ctl0_lblCommentText" class="Comments_ListBriefDescription">Here's a program that will allow you to send a message to a HP JetDirect printer. It doesn't allow random messages, but it gets the job done.<br><br>http://www.irongeek.com/i.php?page=security/jetdirecthack</span>            
+        <p>
+        
+        
+    </td>
+</tr>
+</table>
+
+<p>
+
+<table width="100%" cellspacing=0 cellpadding=5 class="Comments_ListTable">
+<tr>
+    <td class="Comments_ListItem">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl53__ctl0_lblTitle" class="Comments_ListTitle">Retrieving display messages...</span>
+        <br>By <a href="Users_ShowProfile.aspx?user=drakaan" id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl53__ctl0_lnkAuthor" class="Comments_ListAuthorLink">drakaan</a>
+        on 
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl53__ctl0_lblDateCreated" class="Comments_ListDateCreated">11/29/2005</span>
+            
+    </td>
+</tr>
+<tr>
+    <td class="Comments_ListItem2">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl53__ctl0_lblCommentText" class="Comments_ListBriefDescription">If you want to pull the messages back off of the printer, it's easiest to do it with SNMP (assuming it's enabled on the printer in question).<br><br>The OID (do some looking into SNMP if you don't know what that means) for HP printers active status message is:<br><br>1.3.6.1.4.11.2.3.9.1.1.3.0<br><br>I used this and a dll I found ages ago (pw_snmp.dll) to get the status messages from the printers so the receptionist could look and see when any of them needed toner, had paper jams, etc.</span>            
+        <p>
+        
+        
+    </td>
+</tr>
+</table>
+
+<p>
+
+<table width="100%" cellspacing=0 cellpadding=5 class="Comments_ListTable">
+<tr>
+    <td class="Comments_ListItem">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl55__ctl0_lblTitle" class="Comments_ListTitle">I found one issue......</span>
+        <br>By <a href="Users_ShowProfile.aspx?user=jielias" id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl55__ctl0_lnkAuthor" class="Comments_ListAuthorLink">jielias</a>
+        on 
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl55__ctl0_lblDateCreated" class="Comments_ListDateCreated">11/29/2005</span>
+            
+    </td>
+</tr>
+<tr>
+    <td class="Comments_ListItem2">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl55__ctl0_lblCommentText" class="Comments_ListBriefDescription">I had to change Dns.Resolve to Dns.GetHostEntry in line 22 and then it compiled.</span>            
+        <p>
+        
+        
+    </td>
+</tr>
+</table>
+
+<p>
+
+<table width="100%" cellspacing=0 cellpadding=5 class="Comments_ListTable">
+<tr>
+    <td class="Comments_ListItem">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl57__ctl0_lblTitle" class="Comments_ListTitle">I expanded the code a bit...</span>
+        <br>By <a href="Users_ShowProfile.aspx?user=pdavis" id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl57__ctl0_lnkAuthor" class="Comments_ListAuthorLink">pdavis</a>
+        on 
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl57__ctl0_lblDateCreated" class="Comments_ListDateCreated">11/29/2005</span>
+            
+    </td>
+</tr>
+<tr>
+    <td class="Comments_ListItem2">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl57__ctl0_lblCommentText" class="Comments_ListBriefDescription">I found this pretty neat and decided to expand on it some. My app will also retrieve the status of the printer and scroll long text messages. Still lots that could be done with it though. Source code is available here...<br><br>http://tinyurl.com/cvwoz</span>            
+        <p>
+        
+        
+    </td>
+</tr>
+</table>
+
+<p>
+
+<table width="100%" cellspacing=0 cellpadding=5 class="Comments_ListTable">
+<tr>
+    <td class="Comments_ListItem">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl59__ctl0_lblTitle" class="Comments_ListTitle">Perl version</span>
+        <br>By <a href="Users_ShowProfile.aspx?user=singe" id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl59__ctl0_lnkAuthor" class="Comments_ListAuthorLink">singe</a>
+        on 
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl59__ctl0_lblDateCreated" class="Comments_ListDateCreated">11/30/2005</span>
+            
+    </td>
+</tr>
+<tr>
+    <td class="Comments_ListItem2">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl59__ctl0_lblCommentText" class="Comments_ListBriefDescription">I was playing with this a few years ago and found this Perl version that does the same thing:<br><br>#!/usr/bin/perl<br>#<br># Printer Fun :-)<br># by Laurens (laurens@netric.org)<br>#<br># little perl script to change the &quot;ready message&quot;<br># on printers that support PJL commands.<br>#<br># tested on a HP 4000/4100<br>#<br><br>use strict;<br>use IO::Socket;<br>use Getopt::Std;<br><br>my %opt;<br>my $data;<br>my $socket;<br><br>print &quot;\nPrinter Fun :-)\n&quot;;<br>print &quot;by Laurens (laurens\@netric.org)\n\n&quot;;<br><br>getopts(&quot;r:t:h&quot;, \%opt);<br>usage() if not %opt or $opt{h};<br><br>if ($opt{t} and $opt{r}) {<br>        print &quot;[+] Setting the printer ready message\n&quot;;<br><br>        $data =<br>        &quot;\033%-12345X\@PJL $opt{r}\n&quot;.<br>        &quot;\033%-12345X\n&quot;;<br><br>        $socket = IO::Socket::INET-&gt;new(<br>                PeerAddr=&gt;$opt{t},<br>                PeerPort=&gt;9100,<br>                Proto   =&gt;'tcp')<br>        or die &quot;[-] Couldn't connect to $opt{t}:9100 : $!\n\n&quot;;<br><br>        print $socket $data;<br>        close ($socket);<br><br>        print &quot;[+] DONE!\n\n&quot;;<br>} else {<br>        print &quot;\n[-] Specify -r and -t!\n\n&quot;;<br>}<br><br>sub usage {<br>        print &quot;usage: $0 [-r &lt;message&gt;] [-t &lt;hostname/ip&gt;] [-h]\n&quot;;<br>        print &quot;-r : ready message display\n&quot;;<br>        print &quot;-t : target\n&quot;;<br>        print &quot;-h : help/usage\n&quot;;<br>        print &quot;example: $0 -r \&quot;netric.org\&quot; -t 192.168.1.123\n\n&quot;;<br>        exit;<br>}</span>            
+        <p>
+        
+        
+    </td>
+</tr>
+</table>
+
+<p>
+
+<table width="100%" cellspacing=0 cellpadding=5 class="Comments_ListTable">
+<tr>
+    <td class="Comments_ListItem">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl61__ctl0_lblTitle" class="Comments_ListTitle">Password protected?</span>
+        <br>By <a href="Users_ShowProfile.aspx?user=fredmsun" id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl61__ctl0_lnkAuthor" class="Comments_ListAuthorLink">fredmsun</a>
+        on 
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl61__ctl0_lblDateCreated" class="Comments_ListDateCreated">11/30/2005</span>
+            
+    </td>
+</tr>
+<tr>
+    <td class="Comments_ListItem2">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl61__ctl0_lblCommentText" class="Comments_ListBriefDescription">I've had a number of problems getting this to work on our company network.  I think the JetDirect cards are password protected, as I don't seem to be able to Telnet to any of the printers.<br>If I know the password does anyone know how to pass it to the printer port?<br>My printer name are in the following format:<br>\\hostname\printername<br><br>Many thanks,<br>Fred...</span>            
+        <p>
+        
+        
+    </td>
+</tr>
+</table>
+
+<p>
+
+<table width="100%" cellspacing=0 cellpadding=5 class="Comments_ListTable">
+<tr>
+    <td class="Comments_ListItem">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl63__ctl0_lblTitle" class="Comments_ListTitle">Network Printer</span>
+        <br>By <a href="Users_ShowProfile.aspx?user=ajai_np" id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl63__ctl0_lnkAuthor" class="Comments_ListAuthorLink">ajai_np</a>
+        on 
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl63__ctl0_lblDateCreated" class="Comments_ListDateCreated">12/4/2005</span>
+            
+    </td>
+</tr>
+<tr>
+    <td class="Comments_ListItem2">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl63__ctl0_lblCommentText" class="Comments_ListBriefDescription">Hi ,<br>I am using Network Printer &quot;\\HostName\printer name&quot;<br>I tried .. It gives exception that Host not found... while executing the line Dns.Resolve(string hostname)<br><br>Please help me......</span>            
+        <p>
+        
+        
+    </td>
+</tr>
+</table>
+
+<p>
+
+<table width="100%" cellspacing=0 cellpadding=5 class="Comments_ListTable">
+<tr>
+    <td class="Comments_ListItem">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl65__ctl0_lblTitle" class="Comments_ListTitle">Compiled and GUI interface</span>
+        <br>By <a href="Users_ShowProfile.aspx?user=MetalliMyers" id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl65__ctl0_lnkAuthor" class="Comments_ListAuthorLink">MetalliMyers</a>
+        on 
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl65__ctl0_lblDateCreated" class="Comments_ListDateCreated">12/16/2005</span>
+            
+    </td>
+</tr>
+<tr>
+    <td class="Comments_ListItem2">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl65__ctl0_lblCommentText" class="Comments_ListBriefDescription">Hey fellas,<br><br>I made a gui interface for this, so it takes an IP and a message.  Not very sophisticated, but cool non-the-less.<br><br>http://home.comcast.net/~justinwmyers/files/PrinterHack<br><br>Just rename the file with the extension .exe</span>            
+        <p>
+        
+        
+    </td>
+</tr>
+</table>
+
+<p>
+
+<table width="100%" cellspacing=0 cellpadding=5 class="Comments_ListTable">
+<tr>
+    <td class="Comments_ListItem">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl67__ctl0_lblTitle" class="Comments_ListTitle">Works on my HP 4550</span>
+        <br>By <a href="Users_ShowProfile.aspx?user=phord" id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl67__ctl0_lnkAuthor" class="Comments_ListAuthorLink">phord</a>
+        on 
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl67__ctl0_lblDateCreated" class="Comments_ListDateCreated">12/21/2005</span>
+            
+    </td>
+</tr>
+<tr>
+    <td class="Comments_ListItem2">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl67__ctl0_lblCommentText" class="Comments_ListBriefDescription">We have an HP 4550 Color Laserjet here.  It is served by a Windows Print Server somewhere on the corporate LAN, so I normally wouldn't know its IP address.  But I went to the printer itself, navigated through the menus to &quot;Print Configuration&quot;, and got a printout of all its settings -- including its IP address!<br><br>Then, I went to my PC and did this:<br><br>X:\&gt; telnet 172.18.159.15 9100<br>Trying 172.18.159.15...<br>Connected to 172.18.159.15.<br>Escape character is '^]'.<br>@PJL RDYMSG DISPLAY=&quot;YOU HAVE PRETTY EYES.&quot;<br>?   &lt; PRESSED Ctrl-] &gt;<br>telnet&gt; quit<br>Connection closed.<br><br>I checked the virtual front panel display on the web page (http://172.18.159.15) but it changed from &quot;Ready&quot; to blank.  When I looked at the real printer, though, it showed my message in 16x2 glory!<br><br>Now to script this puppy.  Thanks for the hack!</span>            
+        <p>
+        
+        
+    </td>
+</tr>
+</table>
+
+<p>
+
+<table width="100%" cellspacing=0 cellpadding=5 class="Comments_ListTable">
+<tr>
+    <td class="Comments_ListItem">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl69__ctl0_lblTitle" class="Comments_ListTitle">Perl bug</span>
+        <br>By <a href="Users_ShowProfile.aspx?user=phord" id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl69__ctl0_lnkAuthor" class="Comments_ListAuthorLink">phord</a>
+        on 
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl69__ctl0_lblDateCreated" class="Comments_ListDateCreated">12/21/2005</span>
+            
+    </td>
+</tr>
+<tr>
+    <td class="Comments_ListItem2">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl69__ctl0_lblCommentText" class="Comments_ListBriefDescription">The $data line is wrong in the perl script as shown.  Fix is below.  I also modified it to show the text as it appears on the printer display (16x2):<br><br>print &quot;[+] Setting the printer ready message:\n&quot;;<br>print &quot;    &quot; . substr($opt{r}, 0,16) . &quot;\n&quot;;<br>print &quot;    &quot; . substr($opt{r}, 16,16) . &quot;\n&quot;;<br><br>$data = &quot;\033%-12345X&quot; .<br>  &quot;\@PJL RDYMSG DISPLAY=\&quot;&quot; .<br>  &quot;$opt{r}\&quot;\r\n\033%-12345X\r\n&quot;;<br><br><br>I tested it on a bank of HP printers:<br>C8500A<br>5si<br>8150<br>4550<br><br>Worked great on all of them!  </span>            
+        <p>
+        
+        
+    </td>
+</tr>
+</table>
+
+<p>
+
+<table width="100%" cellspacing=0 cellpadding=5 class="Comments_ListTable">
+<tr>
+    <td class="Comments_ListItem">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl71__ctl0_lblTitle" class="Comments_ListTitle">Cool snippet...here's the VB</span>
+        <br>By <a href="Users_ShowProfile.aspx?user=stschatz" id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl71__ctl0_lnkAuthor" class="Comments_ListAuthorLink">stschatz</a>
+        on 
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl71__ctl0_lblDateCreated" class="Comments_ListDateCreated">12/29/2005</span>
+            
+    </td>
+</tr>
+<tr>
+    <td class="Comments_ListItem2">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl71__ctl0_lblCommentText" class="Comments_ListBriefDescription">Imports System<br>Imports System.Text<br>Imports System.Net<br>Imports System.Net.Sockets<br><br>Namespace HPHack<br><br>    Public Class PrnHack<br><br>        Shared Sub Main(ByVal args() As String)<br><br>            If ParseArgs(args) Then<br><br>                Console.WriteLine(&quot;HP Display Hack&quot;)<br>                Console.WriteLine(&quot;Host: {0}&quot;, args(0))<br>                Console.WriteLine(&quot;Message: {0}&quot;, message)<br><br>                Dim ipEndPoint As IPEndPoint<br>                ipEndPoint = New IPEndPoint(Dns.Resolve(args(0)).AddressList(0), PJL_PORT)<br><br>                Console.WriteLine(&quot;Host is {0}&quot;, ipEndPoint.ToString())<br><br>                Dim socket As Socket<br>                socket = New Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp)<br><br>                socket.Connect(ipEndPoint)<br><br>                Dim sendData() As Byte<br>                Dim sendString As String<br><br>                sendString = [String].Format(ChrW(27) + &quot;%-12345X@PJL RDYMSG DISPLAY = &quot; + ChrW(34) + &quot;{0}&quot; + ChrW(34) + ControlChars.Cr + ControlChars.Lf + ChrW(27) + &quot;%-12345X&quot; + ControlChars.Cr + ControlChars.Lf, message)<br><br>                sendData = Encoding.ASCII.GetBytes(sendString)<br><br>                Dim result As Integer<br>                result = socket.Send(sendData, sendData.Length, 0)<br><br>                If result = 0 Then<br>                    Console.WriteLine(&quot;Could not send on socket&quot;)<br>                End If<br><br>                socket.Close()<br><br>                Console.WriteLine(&quot;Finished&quot;)<br>            End If<br>        End Sub<br><br><br><br>        Shared Function ParseArgs(ByVal args() As String) As Boolean<br><br>            If args.Length &lt;&gt; 2 Then<br>                Console.WriteLine(&quot;HP Display Hack: hphack printername &quot;&quot;message&quot;&quot;&quot;)<br>                Return False<br>            End If<br><br>            If args(1).Length &gt; 16 Then<br>                Console.WriteLine(&quot;Message must be &lt;= 16 characters&quot;)<br>                Return False<br>            End If<br><br>            If args(1).CompareTo(&quot;random&quot;) = 0 Then<br>                message = GetRandomMessage()<br>            Else<br>                message = args(1)<br>            End If<br><br>            Return True<br>        End Function<br><br><br>        Shared Function GetRandomMessage() As String<br>            Dim Messages() As String = { _<br>                                   &quot;BUZZ OFF&quot;, _<br>                                   &quot;TOUCH ME&quot;, _<br>                                   &quot;STEP AWAY&quot;, _<br>                                   &quot;SET TO STUN&quot;, _<br>                                   &quot;SCORE = 3413&quot;, _<br>                                   &quot;PAT EATS MICE&quot;, _<br>                                   &quot;FEED ME&quot;, _<br>                                   &quot;GO AWAY&quot;, _<br>                                   &quot;NEED MORE SPACE&quot;, _<br>                                   &quot;POUR ME A DRINK&quot;, _<br>                                   &quot;IN DISTRESS&quot;, _<br>                                   &quot;NICE SHIRT&quot;, _<br>                                   &quot;GO AWAY&quot;, _<br>                                   &quot;NO PRINT FOR YOU&quot;, _<br>                                   &quot;RADIATION LEAK&quot;, _<br>                                   &quot;HANDS UP&quot;, _<br>                                   &quot;PRESS MY BUTTON&quot;, _<br>                                   &quot;TAKE ME HOME&quot;, _<br>                                   &quot;LOOKS LIKE RAIN&quot;, _<br>                                   &quot;HELLO WORLD&quot;, _<br>                                   &quot;NICE HAIR&quot;, _<br>                                   &quot;NEED A MINT?&quot;, _<br>                                   &quot;BE GENTLE&quot;, _<br>                                   &quot;BE KIND&quot;, _<br>                                   &quot;INSERT DISK&quot;, _<br>                                   &quot;BUY ME LUNCH&quot;, _<br>                                   &quot;DONT STOP&quot;, _<br>                                   &quot;COME CLOSER&quot;, _<br>                                   &quot;TAKE A BREAK&quot;, _<br>                                   &quot;INSERT QUARTER&quot;, _<br>                                   &quot;BLACK SABBATH&quot; _<br>            }<br><br><br>            Dim r As Random = New Random<br>            Return Messages(Decimal.Remainder(r.Next(), Messages.Length))<br>        End Function<br><br>        Shared PJL_PORT As Integer = 9100<br>        Shared message As String = &quot;NO MESSAGE&quot;<br><br>    End Class<br>end namespace</span>            
+        <p>
+        
+        
+    </td>
+</tr>
+</table>
+
+<p>
+
+<table width="100%" cellspacing=0 cellpadding=5 class="Comments_ListTable">
+<tr>
+    <td class="Comments_ListItem">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl73__ctl0_lblTitle" class="Comments_ListTitle">.NET 2.0 GUI Printer Hack</span>
+        <br>By <a href="Users_ShowProfile.aspx?user=bigronaldo" id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl73__ctl0_lnkAuthor" class="Comments_ListAuthorLink">bigronaldo</a>
+        on 
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl73__ctl0_lblDateCreated" class="Comments_ListDateCreated">3/2/2006</span>
+            
+    </td>
+</tr>
+<tr>
+    <td class="Comments_ListItem2">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl73__ctl0_lblCommentText" class="Comments_ListBriefDescription">Hey! Here's a .NET 2.0 GUI version of this HP Printer Hack tool from Tekdev Open Source Development. It comes with a predefined list of messages to send to the printer ;-). <br><br>http://www.tekdev.com/downloads/printerhack/</span>            
+        <p>
+        
+        
+    </td>
+</tr>
+</table>
+
+<p>
+
+<table width="100%" cellspacing=0 cellpadding=5 class="Comments_ListTable">
+<tr>
+    <td class="Comments_ListItem">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl75__ctl0_lblTitle" class="Comments_ListTitle">Works as a print job on non-networked printers</span>
+        <br>By <a href="Users_ShowProfile.aspx?user=Stijntje" id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl75__ctl0_lnkAuthor" class="Comments_ListAuthorLink">Stijntje</a>
+        on 
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl75__ctl0_lblDateCreated" class="Comments_ListDateCreated">5/25/2006</span>
+            
+    </td>
+</tr>
+<tr>
+    <td class="Comments_ListItem2">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl75__ctl0_lblCommentText" class="Comments_ListBriefDescription">If your printer is not networked, or is networked through a parallel port print server, you can compose the encoded text as a print job and send it to the printer.  It worked on my venerable HP Laserjet 5si.</span>            
+        <p>
+        
+        
+    </td>
+</tr>
+</table>
+
+<p>
+
+<table width="100%" cellspacing=0 cellpadding=5 class="Comments_ListTable">
+<tr>
+    <td class="Comments_ListItem">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl77__ctl0_lblTitle" class="Comments_ListTitle">Now in Ruby</span>
+        <br>By <a href="Users_ShowProfile.aspx?user=%3f" id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl77__ctl0_lnkAuthor" class="Comments_ListAuthorLink">?</a>
+        on 
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl77__ctl0_lblDateCreated" class="Comments_ListDateCreated">6/9/2006</span>
+            
+    </td>
+</tr>
+<tr>
+    <td class="Comments_ListItem2">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl77__ctl0_lblCommentText" class="Comments_ListBriefDescription">All you need is ruby, ruby's all ya need.<br><pre><br>#!/usr/bin/env ruby<br># Simple HP Printer Hacker<br># Written in Ruby by Erik Gregg<br># 6/9/06<br># Status Usage: hp-message.rb &lt;host&gt; status<br># Message Usage: hp-message.rb &lt;host&gt; message &quot;&lt;message&gt;&quot;<br>require 'net/telnet'<br>  begin<br>  if ARGV[0].nil?<br>   puts &quot;Read the script.<br>Status Usage: hp-message.rb &lt;host&gt; status<br>Message Usage: hp-message.rb &lt;host&gt; message \&quot;&lt;message&gt;\&quot;&quot;<br>   exit<br>  end<br>  host = Net::Telnet::new(&quot;Host&quot; =&gt; ARGV[0],<br>                          &quot;Port&quot; =&gt; 9100,<br>                          &quot;Timeout&quot; =&gt; 5,<br>                          &quot;Prompt&quot; =&gt; /\b/n)<br>if ARGV[1] == &quot;status&quot;<br>  host.cmd(&quot;@PJL INFO STATUS&quot;) { |c| print c }<br>elsif ARGV[1] == &quot;message&quot;<br>  host.cmd(&quot;@PJL RDYMSG DISPLAY=\&quot;&quot;+ARGV[2]+&quot;\&quot;&quot;)<br>else<br>  puts &quot;Oh Cmon.  Look at the syntax inside me.&quot;<br>  exit<br>end<br>  host.close<br><br>  rescue Timeout::Error<br>        puts &quot;Time to go now!&quot;<br>        exit 1<br>  end<br></pre></span>            
+        <p>
+        
+        
+    </td>
+</tr>
+</table>
+
+<p>
+
+<table width="100%" cellspacing=0 cellpadding=5 class="Comments_ListTable">
+<tr>
+    <td class="Comments_ListItem">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl79__ctl0_lblTitle" class="Comments_ListTitle">More Info</span>
+        <br>By <a href="Users_ShowProfile.aspx?user=%3f" id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl79__ctl0_lnkAuthor" class="Comments_ListAuthorLink">?</a>
+        on 
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl79__ctl0_lblDateCreated" class="Comments_ListDateCreated">6/9/2006</span>
+            
+    </td>
+</tr>
+<tr>
+    <td class="Comments_ListItem2">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl79__ctl0_lblCommentText" class="Comments_ListBriefDescription">http://ralree.info/articles/2006/06/09/hp-printer-messager-in-ruby<br>Here's the page in my blog dedicated to it.</span>            
+        <p>
+        
+        
+    </td>
+</tr>
+</table>
+
+<p>
+
+<table width="100%" cellspacing=0 cellpadding=5 class="Comments_ListTable">
+<tr>
+    <td class="Comments_ListItem">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl81__ctl0_lblTitle" class="Comments_ListTitle">printer fun</span>
+        <br>By <a href="Users_ShowProfile.aspx?user=chacha" id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl81__ctl0_lnkAuthor" class="Comments_ListAuthorLink">chacha</a>
+        on 
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl81__ctl0_lblDateCreated" class="Comments_ListDateCreated">6/28/2006</span>
+            
+    </td>
+</tr>
+<tr>
+    <td class="Comments_ListItem2">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl81__ctl0_lblCommentText" class="Comments_ListBriefDescription">thats really cool but how exactly do u impliment the code i've done programing but i dont know how to get it to run properly or were to run the program at<br>chacha.benny@gmail.com if u can point me in the right direction</span>            
+        <p>
+        
+        
+    </td>
+</tr>
+</table>
+
+<p>
+
+<table width="100%" cellspacing=0 cellpadding=5 class="Comments_ListTable">
+<tr>
+    <td class="Comments_ListItem">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl83__ctl0_lblTitle" class="Comments_ListTitle">test</span>
+        <br>By <a href="Users_ShowProfile.aspx?user=mistamaasta" id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl83__ctl0_lnkAuthor" class="Comments_ListAuthorLink">mistamaasta</a>
+        on 
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl83__ctl0_lblDateCreated" class="Comments_ListDateCreated">1/13/2007</span>
+            
+    </td>
+</tr>
+<tr>
+    <td class="Comments_ListItem2">
+        <span id="_ctl0__ctl0__ctl0__ctl8__ctl0_CommentList__ctl83__ctl0_lblCommentText" class="Comments_ListBriefDescription">love it!</span>            
+        <p>
+        
+        
+    </td>
+</tr>
+</table>
+</span>
+  </p>
+
+</div>
+</span>
+<p>
+
+</span>
+</td>
+</tr>
+</table>
+</span>
+                  <center>
+                  <div class=FooterText align=center 
+                  >Copyright 2004 OdeToCode.com&nbsp;</DIV></CENTER><br 
+                  >
+                  <center></CENTER></TD></TR></TABLE>
+            <table align=center>
+              <tr>
+                <td>
+                <!-- ad -->
+                </TD></TR></TABLE></TD>
+          <td vAlign=top align=center width="16%"><br 
+            >
+                                <!--Web Box Start--><span id="_ctl0_Webboxlist1"><table id="_ctl0_Webboxlist1__ctl0_dlstWebBoxes" cellspacing="0" border="0" width="90%">
+	<tr>
+		<td>
+    <table cellpadding="3" cellspacing="0" class="WebBox_ListTable">
+    <tr>
+        <td class="WebBox_ListItem">
+          
+<span class="Quotes" ><span id="_ctl0_Webboxlist1__ctl0_dlstWebBoxes__ctl0__ctl0_lblQuote">Assumption is the mother of all screw-ups.</span></span>
+<br>--<span class="Quotes_Author"><span id="_ctl0_Webboxlist1__ctl0_dlstWebBoxes__ctl0__ctl0_lblAuthor">Wethern's Law</span>
+</span>
+
+        </td>
+    </tr>
+    </table>
+</td>
+	</tr><tr>
+		<td>
+<!--  <p>&nbsp;</p>-->
+</td>
+	</tr><tr>
+		<td>
+    <table cellpadding="3" cellspacing="0" class="WebBox_ListTable">
+    <tr>
+        <td class="WebBox_ListItem">
+          
+<span class="WebBox_TitleText">The Blogs</span>
+<br>
+<a href="http://feeds.feedburner.com/OdeToCode">Subscribe</a> to the OdeToCode <a href="http://odetocode.com/blogs/scott/">blogs</a>  
+for the latest news, downloads, new articles, and quirky commentary. 
+        </td>
+    </tr>
+    </table>
+</td>
+	</tr><tr>
+		<td>
+<!--  <p>&nbsp;</p>-->
+</td>
+	</tr><tr>
+		<td>
+    <table cellpadding="3" cellspacing="0" class="WebBox_ListTable">
+    <tr>
+        <td class="WebBox_ListItem">
+          
+<span class="WebBox_TitleText"><A href="http://odetocode.com/Feedback/Contribute/default.aspx">Contribute Code</A></span><br>
+<span class="WebBox_TitleText"><A href="http://odetocode.com/Feedback/Privacy/default.aspx">Privacy</A></span><br>
+<!--span class="WebBox_TitleText"><A href="http://odetocode.com/Advertise.aspx">Advertise</A></span><br-->
+<span class="WebBox_TitleText"><A href="http://odetocode.com/Feedback/Consultancy/default.aspx">Consultancy</A></span><br>
+
+        </td>
+    </tr>
+    </table>
+</td>
+	</tr>
+</table>
+</span><br 
+            ><br></TD></TR></TABLE></TD></TR></TABLE>
+
+</form>
+</body>
+</html>

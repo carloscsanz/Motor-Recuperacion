@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+
+  <title>CIT597 XHTML Guidelines</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="../style.css" type="text/css" />
+</head>
+
+<body>
+  <p class="mainHeader"><span class="head">CIT 597 Guidelines for Writing <em>Good</em> XHTML</span><br />
+  <span class="subhead">Fall 2008, David Matuszek</span></p>
+  
+  <p>This page is about writing <em>good</em> XHTML, not about writing
+  <em>legal</em> XHTML. For the latter, see the
+  <a href="http://www.modularmedia.com/xhtml_standards/xhtmlbasics.html">
+  XHTML basics</a> page. There is one addition that needs to be made:
+  In addition to the Document Type Definitions listed on the XHTML basics
+  page, there is now a DTD for XHTML 1.1, as follows:</p>
+  
+  <p class="indent">
+  <code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"&gt;</code></p>
+  
+  <p>If you are familiar with HTML, here's the main thing to remember about
+  XHTML: Anything you want to do to control how your page <em>looks</em>
+  should be done in CSS, not in XTML.</p>
+  
+  <h1>Where to put CSS</h1>
+  
+  <p>CSS styles should be put in a separate file (typically named
+  <code>style.css</code>) and used by all the closely related documents in
+  your web site. This gives you a consistent theme, so that your pages all
+  look like they belong together.</p>
+  
+  <p>If, for a certain page, you want to tweak the style just a little bit,
+  you can put your changes within the document's <code>&lt;head&gt;</code>.
+  But try to avoid doing this; often, you can put your tweaks as a new
+  <code>class</code> in your CSS file.</p>
+  
+  <p>If you want to change the appearance of just one element in a page,
+  it is possible to add the <code>style</code> attribute to its tag.
+  This means that your XHTML now contains appearance information, and
+  that is exactly what we are trying to avoid.</p>
+  
+  <h1>Headers</h1>
+  
+  <p>Headers are used to break your document up into sections and subsections.</p>
+  
+  <p>In HTML, the choice of a header <code>&lt;h1&gt;</code> (largest) through
+  <code>&lt;h6&gt;</code> (smallest) is often made to get a header that looks
+  the "right size." In XHTML these should always be properly nested: 
+  <code>&lt;h2&gt;</code> headers should only be used within <code>&lt;h1&gt;</code>
+  headers, <code>&lt;h3&gt;</code> headers should only be used within
+  <code>&lt;h2&gt;</code> headers, etc. You can use the CSS to adjust the
+  size and other appearance factors of headers.</p>
+  
+  <h1>Images</h1>
+  
+  <p>All <code>&lt;img&gt;</code> tags should have an <code>alt</code> attribute.
+  When the page is read aloud (as is necessary for vision-impaired users),
+  the contents of the <code>alt</code> attribute will be read aloud, in place of
+  the image. Hence, <code>alt</code> should describe the image, for example,
+  <code>alt="cover of the textbook"</code>.</p>
+  
+  <p>For purely decorative images, for example using colored balls in
+  place of bullets, use <code>alt=""</code>.</p>
+  
+  <h1>Tables</h1>
+  
+  <p>Tables are used for two different purposes: "Real" tables, presenting
+  tabular information, such as</p>
+  
+  <table border="1" summary="A table listing the characteristics of different browsers">
+    <caption><strong>Characteristics of different browsers</strong></caption>
+    <thead>
+      <tr>
+        <th id="br">Browser</th>
+        <th id="pin">Platform independent</th>
+        <th id="scom">Standards compliant</th>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+        <td colspan="3" align="center">Compiled by David Matuszek</td>
+      </tr>
+    </tfoot>
+    <tbody>
+      <tr>
+        <td headers="br">Firefox 3</td>
+        <td headers="pin">Yes</td>
+        <td headers="scom">Yes</td>
+      </tr>
+      <tr>
+        <td headers="br">Opera 9</td>
+        <td headers="pin">Yes</td>
+        <td headers="scom">Yes</td>
+      </tr>
+      <tr>
+        <td headers="br">Safari</td>
+        <td headers="pin">No</td>
+        <td headers="scom">Yes</td>
+      </tr>
+      <tr>
+        <td headers="br">Internet Explorer 8</td>
+        <td headers="pin">No</td>
+        <td headers="scom">No</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <p />
+  
+  <table class="layout">
+    <tr>
+      <td class="layout">and tables used only to lay out sections of a page.
+      For example, here is some text laid out in two columns.</td>
+      <td class="layout">Strictly speaking, this is an appearance consideration,
+      and should not be done at all in XHTML.</td>
+    </tr>
+  </table>
+  
+  <p>A table used only for layout purposes should use only <code>&lt;table&gt;</code>,
+  <code>&lt;tr&gt;</code>, and <code>&lt;td&gt;</code> tags.</p>
+  
+  <p>A table used for tabular information should use:</p>
+  
+  <ul>
+    <li>A <code>&lt;table&gt;</code> tag containing a <code>summary</code>
+        attribute that describes what the table is about.</li>
+    <li>An optional <code>&lt;caption&gt;</code> tag to label the table
+        as a whole.</li>
+    <li>A <code>&lt;thead&gt;</code> tag, to contain the <code>&lt;tr&gt;</code>
+        and <code>&lt;th&gt;</code> tags that label the columns of the table.
+        Each <code>&lt;th&gt;</code> tag should have an <code>id</code>
+        attribute that uniquely identifies it.</li>
+    <li>An optional <code>&lt;tfoot&gt;</code> element to hold the footer of
+        the table.</li>
+    <li>A <code>&lt;tbody&gt;</code> tag, to contain the <code>&lt;tr&gt;</code>
+        and <code>&lt;td&gt;</code> tags that comprise the data in the table.
+        Each <code>&lt;td&gt;</code> tag should have a <code>headers</code>
+        attribute whose value is the <code>id</code> of the corresponding
+        <code>&lt;th&gt;</code>.</li>
+  </ul>
+  
+  <h1>Miscellaneous</h1>
+  
+  <ul>
+    <li>Don't use <code>&lt;blockquote&gt;</code> to indent paragraphs (unless
+        you are actually quoting somebody). Instead, use something like
+        <code>p.indent { margin-left: 40px; }</code> in your CSS.</li>
+    <li>Don't use illegal characters. (This usually happens when you are
+        copying and pasting text from a word processor.)</li>
+    <li>WYSIWYG editors sometimes produce empty elements, such as
+        <code>&lt;b&gt;</code><code>&lt;/b&gt;</code>. These should be eliminated.</li>
+    <li>Don't use proprietary markup. (Microsoft Word is infamous for inserting
+        all sorts of garbage when you save a file as HTML.)</li>
+    <li>Don't use <code>&lt;i&gt;</code> (italic) tags; use <code>&lt;em&gt;</code>
+        (emphasis) instead.</li>
+    <li>Don't use <code>&lt;b&gt;</code> (boldface) tags; use <code>&lt;strong&gt;</code>
+        (strong emphasis) instead.</li>
+    <li><strong><em>Never</em></strong> use color, font, size, or other strictly visual
+        formatting information as the <em>only</em> way to convey meaning.</li>
+  </ul>
+
+</body>
+</html>

@@ -1,0 +1,555 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+
+<head>
+    <link rel="shortcut icon" href="/favicon.ico?200809111205" />
+    <title>Google and its related data centers</title>
+<meta http-equiv="Content-Language" content="en" /><meta name="description" content="The data centers and google: A data center commonly known as server farm, is a facility housing computer systems a (telecommunications and storage systems). It generally provide backup and security featuress, redundant data communications..." /><script src="http://static.commentcamarche.net/www.commentcamarche.net/_skin/_common/js/js.php?201003051103" type="text/javascript"></script><link href="http://static.commentcamarche.net/en.kioskea.net/_skin/_common/css/css.php?201003052155" rel="stylesheet" type="text/css" media="screen" /><link href="http://static.commentcamarche.net/en.kioskea.net/_skin/_common/css/cssmodule.php?m=faq&amp;201003052155" rel="stylesheet" type="text/css" media="screen" /><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en" />
+<link rel="alternate" type="application/rss+xml" title="Kioskea: News" href="http://en.kioskea.net/rss/actualite.php3" />
+</head>
+
+<body id="" class="faq">
+    <div id="tt" style="display:none">
+        <div id="tttop"></div><div id="ttcont"></div><div id="ttbot"></div>
+    </div>
+    <span class="tooltips" style="display:none">
+        <span>Test de message en infos bulle</span>
+        <span class="arrowDown"></span>
+    </span>
+<div id="header">    <div id="top">
+        
+        <h1>
+            <a href="/" name="top" title="Kioskea.net"><img src="http://static.commentcamarche.net/en.kioskea.net/_skin/_local/img/logo.png"  alt="Kioskea.net" /></a>
+        </h1>
+        <form action="/search/search.php3" method="get" class="headerFooter">
+            <fieldset>
+                <legend>Recherche</legend>
+                <input type="text" id="searchform_input" name="Mot" class="search" value="Search" onfocus="if($('searchform_focused').value==0){ $('searchform_input').value=''; $('searchform_focused').value=1; };" />
+                <input type="hidden" id="searchform_focused" name="already_focused" value="0" />
+                <input type="submit" class="submit" value="OK" />
+            </fieldset>
+        </form><script type="text/javascript">
+//<![CDATA[
+q = refk();
+if($('searchform_input')&&q&&q!=' ') {
+     $('searchform_input').value=q;
+     $('searchform_focused').value=1;
+}
+//]]>
+</script><ul id="topNav">
+        <li>
+        <a class="userName" href="/communaute/inscription.php3">Sign up for free</a>
+    </li>
+        
+
+    <li><a href="/plan/">Site map</a></li>
+        <li id="language">
+        <a href="/communaute/lang.php3" class="boxButton">Language</a>
+        <div class="boxHover">
+            <ul>
+                                        <li><a href="http://www.commentcamarche.net" lang="fr">French</a></li>
+                                            <li><a href="http://de.kioskea.net" lang="de">German</a></li>
+                                            <li><a href="http://en.kioskea.net" lang="en">English</a></li>
+                                            <li><a href="http://es.kioskea.net" lang="es">Spanish</a></li>
+                                            <li><a href="http://it.kioskea.net" lang="it">Italian</a></li>
+                                            <li><a href="http://pt.kioskea.net" lang="pt">Portuguese</a></li>
+                                        </ul>
+        </div>
+    </li>
+                <li id="rss">
+        <a href="#" class="boxButton">RSS</a>
+        <div class="boxHover">
+            <ul>
+                                <li><a href="/rss/actualite.php3">News</a></li>
+                                    <li><a href="/rss/rss_faq_last.php3">FAQ</a></li>
+                                <li><a href="/rss/rss_download_last.php3">Software</a></li>
+                <li><a href="/rss/rss_download_updates.php3">Software - Mises &agrave; jour</a></li>
+                                                </ul>
+        </div>
+    </li>
+        <li id="identification">
+        <a href="/communaute/" class="boxButton" id="a_boxbutton">
+                Login        </a>
+        <div class="boxHover" id="div_boxhover">
+            <form action="/faq/1302-google-and-its-related-data-centers" method="post">
+                <fieldset>
+                    <legend>Identification</legend>
+                                            <label>Username</label>
+                    <input tabindex="1" type="text" name="login" value="" onfocus="$('identification').className='focused';select();return true;" onblur="$('identification').className='';return true;" />
+                    <label>Password</label> ( <a tabindex="3" href="/communaute/motdepasse.php3" class="passLost">forgot?</a> )
+                    <input tabindex="2" type="password" name="pass" value="" onfocus="$('identification').className='focused';select();return true;" onblur="$('identification').className='';return true;" />
+                    <input type="submit" name="log_in" class="submit" onfocus="$('identification').className='focused';return true;" onblur="$('identification').className='';return true;" value="Login" />
+                </fieldset>
+            </form>
+        </div>
+    </li>
+        </ul>
+    </div>
+
+    <!-- MAIN NAVIGATION -->
+
+    <div id="nav">
+	<div class="content">
+	    <ul id="mmenu_ul_id" onmouseout="mmenu.tempo();">
+            <li onmouseover="mmenu.select(this)"><a href="/">Home</a></li>
+            <li onmouseover="mmenu.select(this)">
+                <a href="/forum/">Forum</a>
+            </li>
+            <li class="selected current" onmouseover="mmenu.select(this)">
+                <a href="/faq/">FAQ</a>
+            </li>
+            <li onmouseover="mmenu.select(this)">
+                <a href="/telecharger/">Download</a>
+            </li>
+            <li onmouseover="mmenu.select(this)">
+                <a href="/news/">News</a>
+            </li>
+            <li onmouseover="mmenu.select(this)">
+                <a href="/contents/">Reviews</a>
+            </li>
+            <li onmouseover="mmenu.select(this)">
+                <a href="/guide/">Buying guide</a>
+            </li>
+	    </ul>
+	</div>
+	<div class="bgShadow"></div>
+    </div>
+</div>
+    <div id="section">
+        <div id="topContent">
+<div id="ad_top">
+    <script type="text/javascript">
+<!--
+sas_pageid='10991/82115';
+sas_formatid=4785;
+sas_target='';
+SmartAdServer(sas_pageid,sas_formatid,sas_target);
+//-->
+    </script>
+</div>
+&nbsp;    	</div>
+        <div id="content">
+            <div id="tpl_2cols">
+<div class="topCol">
+    <!-- FIL ARIANE -->
+    <ul id="breadScrumb">
+        <li class="home"><a class="linkC" href="/" title="Home">Home</a> &rsaquo;</li>
+        <li><a class="linkC" href="/faq/" title="Tips">Tips</a> &rsaquo;</li>
+        <li><a class="linkC" href="/faq/webmaster-9" title="Webmaster">Webmaster</a> &rsaquo;</li>
+        <li><a class="linkC" href="/faq/web-hosting-175" title="Web Hosting">Web Hosting</a> &rsaquo;</li>
+        <li class="selected"><a class="linkC" href="/faq/1302-google-and-its-related-data-centers" title="Google and its related data centers">Google and its related data centers</a></li>
+    </ul>
+    <!-- LIENS OPTIONS -->
+    <ul id="toolsLinks">
+    </ul>
+     <div class="clear"></div>
+</div>
+<div class="colMiddle">
+    <div>
+<a name="topedit" style="float:left;visibility:hidden;"></a>
+
+<h1 id="art_title" class="ftSize24 ftBold marT15 marB5">Google and its related data centers</h1>
+<div class="ftGrey marB15">Published by <a href="/communaute/profil-jak58" class="ftBold">jak58</a> - Last update on August  1, 2009 12:42 PM by <a href="/communaute/profil-jak58" class="ftBold">jak58</a></div>
+
+<div class="contentTemplate" id="article_ctn">
+    <div id="overlay" style="display:none" class="loaderAjax"></div>
+    <div class="container" id="article_cnt">
+
+<br /><a name='google-and-its-related-data-centers'></a><h1>Google and its related data centers</h1>
+<br /><div id='toc' class='toc'>
+<br /></div>
+<br />
+<br />
+<br /><center><img src='http://static.commentcamarche.net/en.kioskea.net/faq/images/0-MhBVdiAU-untitled4566-s-.png' alt='' width='400' height='300' border='0'/></center>
+<br /><b>The data centers and google: </b>
+<br />
+<br /><b>A data center</b> commonly known as server farm, is a facility housing computer systems a (telecommunications and storage systems). It generally provide backup and security featuress, redundant data communications connections...etc
+<br />Here is the list of datas centers directly attached to Google . Host your web site on one of these of these engines and perhaps that your site will end up soon in the another one.
+
+<ul><li>A9 (Amazon search)
+</li><li>Alexa
+</li><li>AOL
+</li><li>AOL Australia
+</li><li>AOL Canada
+</li><li>AOL Germany
+</li><li>AOL Japan
+</li><li>AOL Latin America
+</li><li>AOL UK
+</li><li>ATT search
+</li><li>CNet search (Meta)
+</li><li>Compuserv e
+</li><li>Earthlink
+</li><li>Eniro (Denmark)
+</li><li>Euroseek
+</li><li>Ev reka (Sweden)
+</li><li>FindFast (Meta)
+</li><li>Goo, Japan
+</li><li>Google
+</li><li>Google Anguilla
+</li><li>Google Antigua and Barbuda
+</li><li>Google Arab Emirates
+</li><li>Google Argentina
+</li><li>Google Australia
+</li><li>Google Austria
+</li><li>Google Azerbaijan
+</li><li>Google Belgium
+</li><li>Google Brazil
+</li><li>Google British Virgin Islands
+</li><li>Google Burundi
+</li><li>Google Canada
+</li><li>Google Chile
+</li><li>Google China
+</li><li>Google Columbia
+</li><li>Google Cuba
+</li><li>Google Czech Republic
+</li><li>Google Denmark
+</li><li>Google Djibouti
+</li><li>Google Dominican Republic
+</li><li>Google Ecuador
+</li><li>Google El Salv ador
+</li><li>Google Estonia
+</li><li>Google Fiji
+</li><li>Google Finland
+</li><li>Google France
+</li><li>Google Gambia
+</li><li>Google Germany
+</li><li>Google Gibraltar
+</li><li>Google Greece
+</li><li>Google Greenland
+</li><li>Google Guernsey
+</li><li>Google Honduras
+</li><li>Google Hong Kong
+</li><li>Google Hungary
+</li><li>Google India
+</li><li>Google Ireland
+</li><li>Google Israel
+</li><li>Google Italy
+</li><li>Google Iv ory Coast
+</li><li>Google Japan
+</li><li>Google Jersey
+</li><li>Google Kazakhstan
+</li><li>Google Korea
+</li><li>Google Latv ia
+</li><li>Google Lesotho
+</li><li>Google Liby a
+</li><li>Google Lichtenstein
+</li><li>Google Lithuania
+</li><li>Google Luxemburg
+</li><li>Google Malawi
+</li><li>Google Malay sia
+</li><li>Google Malta
+</li><li>Google Mauritius
+</li><li>Google Mexico
+</li><li>Google Micronesia
+</li><li>Google Montserrat
+</li><li>Google Namibia
+</li><li>Google Nepal
+</li><li>Google Netherlands
+</li><li>Google New Zealand
+</li><li>Google Nicaragua
+</li><li>Google Norf olk Island
+</li><li>Google Pakistan
+</li><li>Google Panama
+</li><li>Google Paraguay
+</li><li>Google Peru
+</li><li>Google Philippines
+</li><li>Google Pitcairn Islands
+</li><li>Google Poland
+</li><li>Google Portugal
+</li><li>Google Puerto Rico
+</li><li>Google Republic of Congo
+</li><li>Google Romania
+</li><li>Google Russia
+</li><li>Google Rwanda
+</li><li>Google S.Vincent
+</li><li>Google Saint Helena
+</li><li>Google San Marino
+</li><li>Google Sey chelles
+</li><li>Google Singapore
+</li><li>Google Slov ak Republic
+</li><li>Google Spain
+</li><li>Google Sweden
+</li><li>Google Switzerland
+</li><li>Google Taiwan
+</li><li>Google Tchad
+</li><li>Google Thailand
+</li><li>Google Trinidad and Tobago
+</li><li>Google Turkey
+</li><li>Google UK
+</li><li>Google Ukraine
+</li><li>Google Uruguay
+</li><li>Google Uzbekistan
+</li><li>Google Venezuela
+</li><li>Google Vietnam
+</li><li>ICQ search
+</li><li>IOL (Italy )
+</li><li>iWon
+</li><li>Jumpy (Italy )
+</li><li>Kv asir (Norway )
+</li><li>Netscape
+</li><li>Netscape France
+</li><li>Netscape UK
+</li><li>Suomi24 (Finland)
+</li><li>Superev a (Italy )
+</li><li>Worldtribune
+</li><li>For futher links: <a href='http://www.webmasterworld.com/forum30/34828-3-30.htm' target='_blank'>http://www.webmasterworld.com/forum30/34828-3-30.htm</a></li></ul>        </div>
+        <div class="clear"></div>  
+             
+</div>
+
+
+<div class="pagination">
+    <a href="/faq/1291-hosting-virtual-machines" class="previousPage" style="max-width:150px"><span></span>Hosting Virtual machines</a>
+    <div style="width:250px;margin:auto;">
+        <a href="/faq/246-should-you-pay-for-web-hosting">1 </a>
+        <a href="/faq/262-choose-the-right-blog-hosting-service-and-create-your-own-blog">2 </a>
+        <a href="/faq/1291-hosting-virtual-machines">3 </a>
+        <a href="/faq/1302-google-and-its-related-data-centers" class="selected">page 4 </a>
+    </div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="bottomAd">
+    <script type="text/javascript">
+        sas_pageid='10991/82115';	// Page : commentcamarche/ope_spe
+        sas_formatid=5145;		// Format : 468x180 Big Box 468x180
+        sas_target='';			// Targeting
+        SmartAdServer(sas_pageid,sas_formatid,sas_target);
+    </script>
+    <noscript>
+        <a href="http://www3.smartadserver.com/call/pubjumpi/10987/86487/5145/S/[timestamp]/?">
+            <img src="http://www3.smartadserver.com/call/pubi/10987/86487/5145/S/[timestamp]/?" border="0" alt="" />
+        </a>
+    </noscript>
+</div>
+<div class="clear"></div>
+<div class="adsense"><script type="text/javascript"><!--
+	google_ad_client = "pub-3295671961621260";
+	google_language = "en";
+	var ccm_language = "en";
+	google_ad_type = "text";
+	google_ad_channel ="";
+        var google_adnum = 0;
+        google_ad_output = "js";
+        google_max_num_ads = "4";
+        google_feedback = 'on';
+        google_skip = google_adnum;
+	//-->
+	</script>
+	<script type="text/javascript"
+	src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+	</script></div>
+</div>
+<div class="colRight">
+    <div id="shortcuts"></div>
+<div class="bloc_11">
+<script type="text/javascript">
+<!--
+var plus ='<span>More</span>';
+var moins ='<span>Less</span>';
+//-->
+</script>
+
+<div class="asideBox">
+    <div class="boxTitle">
+        See also    </div>
+
+    <div class="clear"></div>
+
+<!-- <div class="widget"> -->
+    <div id="similishowhide" class="hide">
+        <div class="results" id="simili_container">
+            <ul><li class="last guide"><a href="/guide/details/710434853-power4laptops-fujitsu-siemens-amilo-l6820-compatible-laptop-power-ac-adapter-charger-adp40" class="img"><img src="/img/pixeltransparent.gif?200909" width="16" height="16" title="Amilo l 6820 technical data" alt="Amilo l 6820 technical data"/></a> <a href="/s/amilo-l-6820-technical-data" rel="nofollow"><span>Amilo l 6820 technical data</span></a></li> <li class="last forum"><a href="/forum/affich-61898-how-to-make-database-connectivity-in-asp-net" class="img"><img src="/img/pixeltransparent.gif?200909" width="16" height="16" title="Asp.net select data from database" alt="Asp.net select data from database"/></a> <a href="/s/asp-net-select-data-from-database" rel="nofollow"><span>Asp.net select data from database</span></a></li> <li class="last forum"><a href="/forum/affich-71955-ie-8-cannot-access-any-internet-web-pages" class="img"><img src="/img/pixeltransparent.gif?200909" width="16" height="16" title="Browse only google connection" alt="Browse only google connection"/></a> <a href="/s/browse-only-google-connection" rel="nofollow"><span>Browse only google connection</span></a></li> <li class="last forum"><a href="/forum/affich-10590-partition-and-formatting" class="img"><img src="/img/pixeltransparent.gif?200909" width="16" height="16" title="Can i partition my drive with data" alt="Can i partition my drive with data"/></a> <a href="/s/can-i-partition-my-drive-with-data" rel="nofollow"><span>Can i partition my drive with data</span></a></li> <li class="last forum"><a href="/forum/affich-199528-internet-explorer-cannot-display-the-webpage" class="img"><img src="/img/pixeltransparent.gif?200909" width="16" height="16" title="Can not open google's webpage" alt="Can not open google's webpage"/></a> <a href="/s/can-not-open-google-s-webpage" rel="nofollow"><span>Can not open google's webpage</span></a></li> <li class="last forum"><a href="/forum/affich-57159-how-to-set-my-name-in-place-of-google-search" class="img"><img src="/img/pixeltransparent.gif?200909" width="16" height="16" title="Change google to my name" alt="Change google to my name"/></a> <a href="/s/change-google-to-my-name" rel="nofollow"><span>Change google to my name</span></a></li> <li class=" content"><a href="/contents/transmission/transmode.php3" class="img"><img src="/img/pixeltransparent.gif?200909" width="16" height="16" title="Data transmission modes" alt="Data transmission modes"/></a> <a href="/s/data-transmission-modes" rel="nofollow"><span>Data transmission modes</span></a></li> <li class="last forum"><a href="/forum/affich-106912-free-call-to-dubai" class="img"><img src="/img/pixeltransparent.gif?200909" width="16" height="16" title="Free calls to saudi mobile from google" alt="Free calls to saudi mobile from google"/></a> <a href="/s/free-calls-to-saudi-mobile-from-google" rel="nofollow"><span>Free calls to saudi mobile from google</span></a></li> <li class="last forum"><a href="/forum/affich-232048-help-need-files-of-my-broken-phone" class="img"><img src="/img/pixeltransparent.gif?200909" width="16" height="16" title="Get data off broken phone" alt="Get data off broken phone"/></a> <a href="/s/get-data-off-broken-phone" rel="nofollow"><span>Get data off broken phone</span></a></li> <li class=" download"><a href="/telecharger/telecharger-1455-google-chrome" class="img"><img src="/img/pixeltransparent.gif?200909" width="16" height="16" title="Google chrome free download" alt="Google chrome free download"/></a> <a href="/s/google-chrome-free-download" rel="nofollow"><span>Google chrome free download</span></a></li> <li class=" download"><a href="/telecharger/telecharger-1169-google-earth" class="img"><img src="/img/pixeltransparent.gif?200909" width="16" height="16" title="Google earth download free 2009" alt="Google earth download free 2009"/></a> <a href="/s/google-earth-download-free-2009" rel="nofollow"><span>Google earth download free 2009</span></a></li> <li class=" forum"><a href="/forum/affich-55955-latest-free-download-of-google-earth" class="img"><img src="/img/pixeltransparent.gif?200909" width="16" height="16" title="Google earth download latest version" alt="Google earth download latest version"/></a> <a href="/s/google-earth-download-latest-version" rel="nofollow"><span>Google earth download latest version</span></a></li> <li class="last forum"><a href="/forum/affich-9313-i-cant-see-my-files-wich-is-not-hidden" class="img"><img src="/img/pixeltransparent.gif?200909" width="16" height="16" title="I cant see data on hard drive" alt="I cant see data on hard drive"/></a> <a href="/s/i-cant-see-data-on-hard-drive" rel="nofollow"><span>I cant see data on hard drive</span></a></li> <li class=" forum"><a href="/forum/affich-31876-external-hd-no-longer-works-with-computer" class="img"><img src="/img/pixeltransparent.gif?200909" width="16" height="16" title="My external harddrive wants to format but i dont want to loose my data" alt="My external harddrive wants to format but i dont want to loose my data"/></a> <a href="/s/my-external-harddrive-wants-to-format-but-i-dont-want-to-loose-my-data" rel="nofollow"><span>My external harddrive wants to format but i dont want to loose my data</span></a></li> <li class="last forum"><a href="/forum/affich-35141-lost-my-doc-media-files-after-system-restore" class="img"><img src="/img/pixeltransparent.gif?200909" width="16" height="16" title="System restore do i need to restore all data at once" alt="System restore do i need to restore all data at once"/></a> <a href="/s/system-restore-do-i-need-to-restore-all-data-at-once" rel="nofollow"><span>System restore do i need to restore all data at once</span></a></li> <li class="last forum"><a href="/forum/affich-11528-transferring-a-file-from-one-pc-to-another" class="img"><img src="/img/pixeltransparent.gif?200909" width="16" height="16" title="Transferring data &quot;computer to computer&quot; linux" alt="Transferring data &quot;computer to computer&quot; linux"/></a> <a href="/s/transferring-data-computer-to-computer-linux" rel="nofollow"><span>Transferring data &quot;computer to computer&quot; linux</span></a></li> <li class="last forum"><a href="/forum/affich-6288-windows-shut-down-restart-attempt-fails" class="img"><img src="/img/pixeltransparent.gif?200909" width="16" height="16" title="Why my sony flash memory cant save my data, how can i fix it" alt="Why my sony flash memory cant save my data, how can i fix it"/></a> <a href="/s/why-my-sony-flash-memory-cant-save-my-data-how-can-i-fix-it" rel="nofollow"><span>Why my sony flash memory cant save my data, how can i fix it</span></a></li> <li class=" download"><a href="/telecharger/telecharger-409-windows-mobile-device-center" class="img"><img src="/img/pixeltransparent.gif?200909" width="16" height="16" title="Windows movile data center for xp" alt="Windows movile data center for xp"/></a> <a href="/s/windows-movile-data-center-for-xp" rel="nofollow"><span>Windows movile data center for xp</span></a></li></ul>
+        </div>
+        <a href="#" onclick="if($('similishowhide').className=='hide'){ $('similishowhide').className='show';$('similishowhidelink').innerHTML=moins;}
+            else{ $('similishowhide').className='hide';$('similishowhidelink').innerHTML=plus;} return false"
+            id="similishowhidelink" title="More / Less">
+            <span>More</span>
+        </a>
+    </div>
+</div>
+<div id="simili_placeholder"></div>
+<script type="text/javascript">
+//<![CDATA[
+q=refk();if(q==''){
+q = "Google and its related data centers";
+}
+if($('simili_container')&&q&&q!=' ') {
+a = document.createElement('a');
+a.setAttribute('href','/s/'+escape(q));
+a.className='fake';
+a.innerHTML = q.charAt(0).toUpperCase() + q.substr(1);
+$('simili_container').insertBefore(a,$('simili_container').firstChild);
+}
+h_j(q,$('similishowhide'));
+//]]>
+</script>
+</div>
+<div class="ad_right" id="bloc_middle">
+    <script type="text/javascript">
+    <!--
+    sas_pageid='10991/82115';
+    sas_formatid=4784;
+    sas_target='';
+    SmartAdServer(sas_pageid,sas_formatid,sas_target);
+    //-->
+    </script>
+</div>
+<div class="asideBox" id="needhelpbox">
+    <div class="boxTitle">
+        <a href="#" class="title" actid="hidelink">
+            <span class="arrowDown"></span>
+            They need your help        </a>
+        <a href="#" class="ico option" title="Options" actid="optlink"></a>
+        <a href="/rss/rss_forum_sans_reponses.php3" class="ico newRss" title="Flux RSS"></a>
+    </div>
+    <div id="nh_options" class="options" style="display:none;"></div>
+    <div class="content" id="nh_content">
+<ul>
+
+    <li>
+        <h3><a href="/forum/affich-280931-computer-doesn-t-boot-up-anymore">Computer doesn&#039;t boot up anymore</a></h3>
+        <a href="/forum/forum-2-hardware" class="linkH">Hardware</a>
+        <span class="postInfos">
+            &agrave; 07/03        </span>
+    </li>
+
+    <li>
+        <h3><a href="/forum/affich-280928-bad-company-2-xbox-live-profile-not-set">Bad Company 2: XBOX Live Profile Not...</a></h3>
+        <a href="/forum/forum-19-video-games" class="linkH">Video games</a>
+        <span class="postInfos">
+            &agrave; 07/03        </span>
+    </li>
+
+    <li>
+        <h3><a href="/forum/affich-280832-networking">Networking</a></h3>
+        <a href="/forum/forum-5-network" class="linkH">Network</a>
+        <span class="postInfos">
+            &agrave; 07/03        </span>
+    </li>
+
+    <li>
+        <h3><a href="/forum/affich-280824-doug-knox-thing">Doug Knox thing</a></h3>
+        <a href="/forum/forum-7-viruses-security" class="linkH">Viruses/security</a>
+        <span class="postInfos">
+            &agrave; 07/03        </span>
+    </li>
+</ul>
+<a href="/forum/sans-reponses?" title="All unanswered messages" class="buttonAsideBox">
+    All unanswered messages<span>&nbsp;</span>
+</a>
+
+<div class="clear"></div>
+    </div>
+</div>
+<script type="text/javascript">
+<!--
+ccmboxes.boxes.needhelp = new ccmboxes.box(
+    'needhelpbox',
+    {options: 'nh_options', content: 'nh_content'},
+    {url: '/xhr/needhelp.php', reload: true}
+);
+//-->
+</script>
+<div class="bloc_09" style="margin-bottom:10px">
+    <a target="_blank" rel="nofollow" href="http://www3.smartadserver.com/call/cliccommand/2420026/[timestamp]?">
+        <img src="http://static.commentcamarche.net/en.kioskea.net/_skin/_local/img/regie/supinfo.gif?1" alt="supinfo" />
+    </a>
+    <img src="http://www3.smartadserver.com/call/pubimppixel/2424537/[timestamp]?" border="0" width="1" height="1" alt=""/>
+</div><div class="ad_right" id="bloc_sponsor">
+    <script type="text/javascript">
+    sas_pageid='10991/82115';
+    sas_formatid=4787;
+    sas_target='';
+    SmartAdServer(sas_pageid,sas_formatid,sas_target);
+    </script>
+</div><!-- en.kioskea.net --></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+<div id="footer">
+    <div id="bottom">
+        <ul class="noBorder">
+            <li>Kioskea Network                <ul>
+                                        <li><a href="http://www.commentcamarche.net" lang="fr">www.commentcamarche.net</a></li>
+                                                    <li><a href="http://de.kioskea.net" lang="de">de.kioskea.net</a></li>
+                                                    <li><a href="http://en.kioskea.net" lang="en">en.kioskea.net</a></li>
+                                                    <li><a href="http://es.kioskea.net" lang="es">es.kioskea.net</a></li>
+                                                    <li><a href="http://it.kioskea.net" lang="it">it.kioskea.net</a></li>
+                                                    <li><a href="http://pt.kioskea.net" lang="pt">pt.kioskea.net</a></li>
+                                                    <li><a href="http://salud.kioskea.net" lang="es">salud.kioskea.net</a></li>
+                                        <li><a href="http://www.supinfo.com" rel="nofollow">SUPINFO, &eacute;cole d'ing&eacute;nieurs</a></li>
+                                    </ul>
+            </li>
+        </ul>
+        <ul class="footerBorder">
+            <li>Shortcuts                <ul>
+                    <li><a href="/contents/ccmguide/cgu-conditions-generales.php3">Terms of Use</a></li>
+                    <li><a href="/contents/ccmguide/ccmintro.php3">About us</a></li>
+                    <li><a href="/contact/">Contact</a></li>
+                    <li><a href="/contents/ccmguide/ccmcharte.php3">Charter</a></li>
+                    <li><a href="/telecharger/?top=50">Top 50</a></li>                </ul>
+            </li>
+        </ul>
+        <ul class="footerBorder">
+            <li>
+                Glossary                <div id="glossary">
+                    <a href="/index/a">A</a>
+                    <a href="/index/b">B</a>
+                    <a href="/index/c">C</a>
+                    <a href="/index/d">D</a>
+                    <a href="/index/e">E</a>
+                    <a href="/index/f">F</a>
+                    <a href="/index/g">G</a>
+                    <a href="/index/h">H</a>
+                    <a href="/index/i">I</a>
+                    <a href="/index/j">J</a>
+                    <a href="/index/k">K</a>
+                    <a href="/index/l">L</a>
+                    <a href="/index/m">M</a>
+                    <a href="/index/n">N</a>
+                    <a href="/index/o">O</a>
+                    <a href="/index/p">P</a>
+                    <a href="/index/q">Q</a>
+                    <a href="/index/r">R</a>
+                    <a href="/index/s">S</a>
+                    <a href="/index/t">T</a>
+                    <a href="/index/u">U</a>
+                    <a href="/index/v">V</a>
+                    <a href="/index/w">W</a>
+                    <a href="/index/x">X</a>
+                    <a href="/index/y">Y</a>
+                    <a href="/index/z">Z</a>
+                    <a href="/index/0" class="buttonLarge">0-9</a>
+                </div>
+            </li>
+        </ul>
+        <div class="footerBorder">
+                        <form action="/communaute/inscription.php3" class="headerFooter">
+                <fieldset>
+                    <legend>Join now for free</legend>
+                    <input type="text" class="search" name="email" value="email" onfocus="select()" />
+                    <input type="button" class="submit" value="OK" />
+                </fieldset>
+            </form>
+                </div>
+        <div class="spacer">&nbsp;</div>
+    </div>
+</div><script type="text/javascript">
+<!--
+xtnv = document;
+xtsd = "http://logc15";
+xtsite = "254140";
+xtn2 = "4";
+xtpage = "faq::1302-google-and-its-related-data-centers";
+xtdmc = ".commentcamarche.net";
+xtprm = "";
+//-->
+</script>
+<script type="text/javascript" src="/remote/xiti.js"></script>
+<noscript>
+    <img width="1" height="1" src="http://logc15.xiti.com/hit.xiti?s=254140&amp;s2=4&amp;p=faq%3A%3A1302-google-and-its-related-data-centers" alt="" />
+</noscript></body>
+</html>

@@ -1,0 +1,1476 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head profile="http://gmpg.org/xfn/11">
+<title>HOME | The National Summit</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="/misc/favicon.ico" type="image/x-icon" />
+<link type="text/css" rel="stylesheet" media="all" href="/modules/aggregator/aggregator.css?9" />
+<link type="text/css" rel="stylesheet" media="all" href="/modules/nice_menus/nice_menus.css?9" />
+<link type="text/css" rel="stylesheet" media="all" href="/modules/nice_menus/nice_menus_default.css?9" />
+<link type="text/css" rel="stylesheet" media="all" href="/modules/node/node.css?9" />
+<link type="text/css" rel="stylesheet" media="all" href="/modules/system/defaults.css?9" />
+<link type="text/css" rel="stylesheet" media="all" href="/modules/system/system.css?9" />
+<link type="text/css" rel="stylesheet" media="all" href="/modules/system/system-menus.css?9" />
+<link type="text/css" rel="stylesheet" media="all" href="/modules/user/user.css?9" />
+<link type="text/css" rel="stylesheet" media="all" href="/themes/barlow-home/typography.css?9" />
+<link type="text/css" rel="stylesheet" media="all" href="/themes/barlow-home/layout.css?9" />
+<link type="text/css" rel="stylesheet" media="all" href="/themes/barlow-home/style.css?9" />
+<script type="text/javascript" src="/misc/jquery.js?9"></script>
+<script type="text/javascript" src="/misc/drupal.js?9"></script>
+<script type="text/javascript" src="/modules/insertFrame/insertFrame.js?9"></script>
+<script type="text/javascript" src="/modules/nice_menus/nice_menus.js?9"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/" });
+//--><!]]>
+</script>
+<script language="javascript">AC_FL_RunContent = 0;</script>
+<script src="http://www.nationalsummit.org/AC_RunActiveContent.js" language="javascript"></script>
+
+   <style type="text/css">
+      @import "http://www.nationalsummit.org/domnews.css";
+    </style>
+   <script type="text/javascript" src="http://www.nationalsummit.org/domnews.js"></script>
+
+<script type="text/javascript">
+
+
+var fadeimages=new Array()
+//SET IMAGE PATHS. Extend or contract array as needed
+fadeimages[0]=["http://www.nationalsummit.org/themes/barlow-home/sponsor-urc.jpg", "", ""] //plain image syntax
+fadeimages[1]=["http://www.nationalsummit.org/themes/barlow-home/sponsor-chrysler.jpg", "", ""] //image with link syntax
+fadeimages[2]=["http://www.nationalsummit.org/themes/barlow-home/sponsor-compuware.jpg", "", ""] //image with link and target syntax
+fadeimages[3]=["http://www.nationalsummit.org/themes/barlow-home/sponsor-deloitte.jpg", "", ""] //image with link and target syntax
+fadeimages[4]=["http://www.nationalsummit.org/themes/barlow-home/sponsor-dow.jpg", "", ""] //image with link and target syntax
+fadeimages[5]=["http://www.nationalsummit.org/themes/barlow-home/sponsor-dte.jpg", "", ""] //image with link and target syntax
+fadeimages[6]=["http://www.nationalsummit.org/themes/barlow-home/sponsor-ford.jpg", "", ""] //image with link and target syntax
+fadeimages[7]=["http://www.nationalsummit.org/themes/barlow-home/sponsor-gm.jpg", "", ""] //image with link and target syntax
+fadeimages[8]=["http://www.nationalsummit.org/themes/barlow-home/sponsor-masco.jpg", "", ""] //image with link and target syntax
+fadeimages[9]=["http://www.nationalsummit.org/themes/barlow-home/sponsor-medc.jpg", "", ""] //image with link and target syntax
+fadeimages[10]=["http://www.nationalsummit.org/themes/barlow-home/sponsor-pwc.jpg", "", ""] //image with link and target syntax
+fadeimages[11]=["http://www.nationalsummit.org/themes/barlow-home/sponsor-careerbuilder.jpg", "", ""] //image with link and target syntax
+fadeimages[12]=["http://www.nationalsummit.org/themes/barlow-home/sponsor-ibm.jpg", "", ""] //image with link and target syntax
+fadeimages[13]=["http://www.nationalsummit.org/themes/barlow-home/sponsor-ey.jpg", "", ""] //image with link and target syntax
+fadeimages[14]=["http://www.nationalsummit.org/themes/barlow-home/sponsor-microsoft.jpg", "", ""] //image with link and target syntax
+fadeimages[15]=["http://www.nationalsummit.org/themes/barlow-home/sponsor-tardec.jpg", "", ""] //image with link and target syntax
+fadeimages[16]=["http://www.nationalsummit.org/themes/barlow-home/sponsor-motorola.jpg", "", ""] //image with link and target syntax
+fadeimages[17]=["http://www.nationalsummit.org/themes/barlow-home/sponsor-wayne.jpg", "", ""] //image with link and target syntax
+fadeimages[18]=["http://www.nationalsummit.org/themes/barlow-home/sponsor-fordfund.jpg", "", ""] //image with link and target syntax
+fadeimages[19]=["http://www.nationalsummit.org/themes/barlow-home/sponsor-mckinsey.jpg", "", ""] //image with link and target syntax
+fadeimages[20]=["http://www.nationalsummit.org/themes/barlow-home/sponsor-crains.jpg", "", ""] //image with link and target syntax
+
+
+var fadebgcolor="#f2f2f2"
+
+////NO need to edit beyond here/////////////
+
+var fadearray=new Array() //array to cache fadeshow instances
+var fadeclear=new Array() //array to cache corresponding clearinterval pointers
+
+var dom=(document.getElementById) //modern dom browsers
+var iebrowser=document.all
+
+function fadeshow(theimages, fadewidth, fadeheight, borderwidth, delay, pause, displayorder){
+this.pausecheck=pause
+this.mouseovercheck=0
+this.delay=delay
+this.degree=10 //initial opacity degree (10%)
+this.curimageindex=0
+this.nextimageindex=1
+fadearray[fadearray.length]=this
+this.slideshowid=fadearray.length-1
+this.canvasbase="canvas"+this.slideshowid
+this.curcanvas=this.canvasbase+"_0"
+if (typeof displayorder!="undefined")
+theimages.sort(function() {return 0.5 - Math.random();}) //thanks to Mike (aka Mwinter) :)
+this.theimages=theimages
+this.imageborder=parseInt(borderwidth)
+this.postimages=new Array() //preload images
+for (p=0;p<theimages.length;p++){
+this.postimages[p]=new Image()
+this.postimages[p].src=theimages[p][0]
+}
+
+var fadewidth=fadewidth+this.imageborder*2
+var fadeheight=fadeheight+this.imageborder*2
+
+if (iebrowser&&dom||dom) //if IE5+ or modern browsers (ie: Firefox)
+document.write('<div id="master'+this.slideshowid+'" style="position:relative;width:'+fadewidth+'px;height:'+fadeheight+'px;overflow:hidden;"><div id="'+this.canvasbase+'_0" style="position:absolute;width:'+fadewidth+'px;height:'+fadeheight+'px;top:0;left:0;filter:progid:DXImageTransform.Microsoft.alpha(opacity=10);opacity:0.1;-moz-opacity:0.1;-khtml-opacity:0.1;background-color:'+fadebgcolor+'"></div><div id="'+this.canvasbase+'_1" style="position:absolute;width:'+fadewidth+'px;height:'+fadeheight+'px;top:0;left:0;filter:progid:DXImageTransform.Microsoft.alpha(opacity=10);opacity:0.1;-moz-opacity:0.1;-khtml-opacity:0.1;background-color:'+fadebgcolor+'"></div></div>')
+else
+document.write('<div><img name="defaultslide'+this.slideshowid+'" src="'+this.postimages[0].src+'"></div>')
+
+if (iebrowser&&dom||dom) //if IE5+ or modern browsers such as Firefox
+this.startit()
+else{
+this.curimageindex++
+setInterval("fadearray["+this.slideshowid+"].rotateimage()", this.delay)
+}
+}
+
+function fadepic(obj){
+if (obj.degree<100){
+obj.degree+=10
+if (obj.tempobj.filters&&obj.tempobj.filters[0]){
+if (typeof obj.tempobj.filters[0].opacity=="number") //if IE6+
+obj.tempobj.filters[0].opacity=obj.degree
+else //else if IE5.5-
+obj.tempobj.style.filter="alpha(opacity="+obj.degree+")"
+}
+else if (obj.tempobj.style.MozOpacity)
+obj.tempobj.style.MozOpacity=obj.degree/101
+else if (obj.tempobj.style.KhtmlOpacity)
+obj.tempobj.style.KhtmlOpacity=obj.degree/100
+else if (obj.tempobj.style.opacity&&!obj.tempobj.filters)
+obj.tempobj.style.opacity=obj.degree/101
+}
+else{
+clearInterval(fadeclear[obj.slideshowid])
+obj.nextcanvas=(obj.curcanvas==obj.canvasbase+"_0")? obj.canvasbase+"_0" : obj.canvasbase+"_1"
+obj.tempobj=iebrowser? iebrowser[obj.nextcanvas] : document.getElementById(obj.nextcanvas)
+obj.populateslide(obj.tempobj, obj.nextimageindex)
+obj.nextimageindex=(obj.nextimageindex<obj.postimages.length-1)? obj.nextimageindex+1 : 0
+setTimeout("fadearray["+obj.slideshowid+"].rotateimage()", obj.delay)
+}
+}
+
+fadeshow.prototype.populateslide=function(picobj, picindex){
+var slideHTML=""
+if (this.theimages[picindex][1]!="") //if associated link exists for image
+slideHTML='<a href="'+this.theimages[picindex][1]+'" target="'+this.theimages[picindex][2]+'">'
+slideHTML+='<img src="'+this.postimages[picindex].src+'" border="'+this.imageborder+'px">'
+if (this.theimages[picindex][1]!="") //if associated link exists for image
+slideHTML+='</a>'
+picobj.innerHTML=slideHTML
+}
+
+
+fadeshow.prototype.rotateimage=function(){
+if (this.pausecheck==1) //if pause onMouseover enabled, cache object
+var cacheobj=this
+if (this.mouseovercheck==1)
+setTimeout(function(){cacheobj.rotateimage()}, 100)
+else if (iebrowser&&dom||dom){
+this.resetit()
+var crossobj=this.tempobj=iebrowser? iebrowser[this.curcanvas] : document.getElementById(this.curcanvas)
+crossobj.style.zIndex++
+fadeclear[this.slideshowid]=setInterval("fadepic(fadearray["+this.slideshowid+"])",50)
+this.curcanvas=(this.curcanvas==this.canvasbase+"_0")? this.canvasbase+"_1" : this.canvasbase+"_0"
+}
+else{
+var ns4imgobj=document.images['defaultslide'+this.slideshowid]
+ns4imgobj.src=this.postimages[this.curimageindex].src
+}
+this.curimageindex=(this.curimageindex<this.postimages.length-1)? this.curimageindex+1 : 0
+}
+
+fadeshow.prototype.resetit=function(){
+this.degree=10
+var crossobj=iebrowser? iebrowser[this.curcanvas] : document.getElementById(this.curcanvas)
+if (crossobj.filters&&crossobj.filters[0]){
+if (typeof crossobj.filters[0].opacity=="number") //if IE6+
+crossobj.filters(0).opacity=this.degree
+else //else if IE5.5-
+crossobj.style.filter="alpha(opacity="+this.degree+")"
+}
+else if (crossobj.style.MozOpacity)
+crossobj.style.MozOpacity=this.degree/101
+else if (crossobj.style.KhtmlOpacity)
+crossobj.style.KhtmlOpacity=this.degree/100
+else if (crossobj.style.opacity&&!crossobj.filters)
+crossobj.style.opacity=this.degree/101
+}
+
+
+fadeshow.prototype.startit=function(){
+var crossobj=iebrowser? iebrowser[this.curcanvas] : document.getElementById(this.curcanvas)
+this.populateslide(crossobj, this.curimageindex)
+if (this.pausecheck==1){ //IF SLIDESHOW SHOULD PAUSE ONMOUSEOVER
+var cacheobj=this
+var crossobjcontainer=iebrowser? iebrowser["master"+this.slideshowid] : document.getElementById("master"+this.slideshowid)
+crossobjcontainer.onmouseover=function(){cacheobj.mouseovercheck=1}
+crossobjcontainer.onmouseout=function(){cacheobj.mouseovercheck=0}
+}
+this.rotateimage()
+}
+
+</script>
+
+
+<script type="text/javascript">
+
+/* Modified to support Opera */
+function bookmarksite(title,url){
+if (window.sidebar) // firefox
+   window.sidebar.addPanel(title, url, "");
+else if(window.opera && window.print){ // opera
+   var elem = document.createElement('a');
+   elem.setAttribute('href',url);
+   elem.setAttribute('title',title);
+   elem.setAttribute('rel','sidebar');
+   elem.click();
+}
+else if(document.all)// ie
+   window.external.AddFavorite(url, title);
+}
+</script>
+</head>
+
+<body class="front not-logged-in page-node node-type-page one-sidebar sidebar-left">
+<div id="wrapper2">
+<div id="wrapper">
+
+<div id="header" class="p2">
+<div style="margin-left: 24px;">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="50%"><div style="margin-left: 24px;">
+<a href="http://www.nationalsummit.org/"><img src="http://www.nationalsummit.org/files/spacer.gif" width="297" height="107"></a>
+</div></td>
+    <td width="50%" valign="top">
+<div style="margin-right: 27px;">
+        <div align="right"><br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          </div>
+      </div></td>
+  </tr>
+</table>
+</div>
+  <div id="branding">
+        </div>
+
+  
+  
+  <div id="menu">
+      <ul class="links primary_menu"><li class="menu-153 first"><a href="/overview" title="SUMMIT OVERVIEW">OVERVIEW</a></li>
+<li class="menu-294"><a href="/speakers" title="SPEAKERS">SPEAKERS</a></li>
+<li class="menu-162"><a href="/agenda" title="AGENDA">AGENDA</a></li>
+<li class="menu-164"><a href="/sponsors" title="SPONSORS">SPONSORS</a></li>
+<li class="menu-165"><a href="/exhibitor-opportunities" title="EXHIBITOR OPPORTUNITIES">INNOVATION EXPO</a></li>
+<li class="menu-314"><a href="/students" title="STUDENTS">FUTURE LEADERS</a></li>
+<li class="menu-166"><a href="/media-center" title="MEDIA CENTER">MEDIA CENTER</a></li>
+<li class="menu-167 last"><a href="/faq" title="FAQ">FAQ</a></li>
+</ul>    <!--    <ul class="links secondary_menu"><li class="menu-300 first"><a href="/speaker-anderson" title="RICHARD H. ANDERSON">RICHARD H. ANDERSON</a></li>
+<li class="menu-396"><a href="/speaker-bochenek" title="DR. GRACE M. BOCHENEK">DR. GRACE M. BOCHENEK</a></li>
+<li class="menu-355"><a href="/student-faq" title="STUDENT FAQ">STUDENT FAQ</a></li>
+<li class="menu-351"><a href="/media-center/video2" title="Beth Chappell on &#039;Am I Right?&#039;">&#039;Am I Right?&#039; on Detroit Public Television</a></li>
+<li class="menu-199"><a href="/agenda-day1" title="Agenda - Day 1">Agenda - Day 1</a></li>
+<li class="menu-200"><a href="/agenda-day2" title="Agenda - Day 2">Agenda - Day 2</a></li>
+<li class="menu-201"><a href="/agenda-day3" title="Agenda - Day 3">Agenda - Day 3</a></li>
+<li class="menu-218"><a href="/contact-us" title="CONTACT US">Contact Us</a></li>
+<li class="menu-195"><a href="/full-schedule" title="FULL SCHEDULE">FULL SCHEDULE</a></li>
+<li class="menu-175"><a href="/graphics" title="GRAPHICS">GRAPHICS</a></li>
+<li class="menu-178"><a href="/registration2" title="REGISTRATION2">REGISTRATION</a></li>
+<li class="menu-235"><a href="/speaker-nardelli" title="ROBERT L. NARDELLI">ROBERT L. NARDELLI</a></li>
+<li class="menu-325"><a href="/school-participation-request" title="School Participation Request">SCHOOL PARTICIPATION REQUEST</a></li>
+<li class="menu-198"><a href="/sponsorship-opportunities" title="SPONSORSHIP OPPORTUNITIES">SPONSORSHIP OPPORTUNITIES</a></li>
+<li class="menu-345"><a href="/test" title="test">test</a></li>
+<li class="menu-194"><a href="/events" title="EVENTS">EVENTS</a></li>
+<li class="menu-252"><a href="/speaker-nicholson" title="JAMES B. NICHOLSON">JAMES B. NICHOLSON</a></li>
+<li class="menu-439"><a href="/other-multimedia" title="OTHER MULTIMEDIA">OTHER MULTIMEDIA</a></li>
+<li class="menu-176"><a href="/photos" title="PHOTOS">PHOTOS</a></li>
+<li class="menu-190"><a href="/official-hotels" title="OFFICIAL HOTEL">OFFICIAL HOTEL</a></li>
+<li class="menu-423"><a href="/marriott" title="MARRIOTT RENAISSANCE CENTER">MARRIOTT RENAISSANCE CENTER</a></li>
+<li class="menu-377"><a href="/volunteer" title="BECOME A VOLUNTEER">BECOME A VOLUNTEER</a></li>
+<li class="menu-296"><a href="/speaker-fiorina" title="CARLY FIORINA">CARLY FIORINA</a></li>
+<li class="menu-174"><a href="/ford-field" title="FORD FIELD">FORD FIELD</a></li>
+<li class="menu-163"><a href="/registration" title="REGISTRATION">REGISTER</a></li>
+<li class="menu-316"><a href="/speaker-ilitch" title="CHRISTOPHER ILITCH">CHRISTOPHER ILITCH</a></li>
+<li class="menu-173"><a href="/detroit-city-guide" title="DETROIT CITY GUIDE">DETROIT CITY GUIDE</a></li>
+<li class="menu-239"><a href="/speaker-tersigni" title="DR. ANTHONY R. TERSIGNI">DR. ANTHONY R. TERSIGNI</a></li>
+<li class="menu-242 last"><a href="/speaker-wagoner" title="G. RICHARD WAGONER, JR.">G. RICHARD WAGONER, JR.</a></li>
+</ul>  -->
+  </div>
+</div>
+
+<div id="content">
+<table width="940" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="496" valign="top" style="padding: 13px 0px 0px 15px;">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td valign="top"><img src="http://www.nationalsummit.org/themes/barlow-home/main4.jpg" width="476" height="344" style="padding-bottom:9px"/></td>
+        </tr>
+      </table>
+    </td>
+    <td width="444" valign="top" style="padding: 13px 0px 0px 0px;"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+                <td>
+                  <div align="center"><img src="http://www.nationalsummit.org/themes/barlow-home/home-right.jpg" width="422" height="284" style="padding: 0px 10px 7px 0px;"><br>
+                    <span style="font-size:90%"><i>William Clay Ford, Jr., Executive Chairman, Ford Motor Company<br>
+                     and Co-Chair of The National Summit, with U.S. Commerce Secretary<br>
+Gary F. Locke, announcing America's To-Do List in Washington, D.C.<br>
+on December 14, 2009.</i></span> </div>
+                </td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+
+<table width="940" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td><img src="files/spacer.gif" width="1" height="9" /></td>
+  </tr>
+</table>
+<table width="940" border="0" align="center" cellpadding="0" cellspacing="0" style="background: url(http://www.nationalsummit.org/themes/barlow-home/home-background.gif) top center no-repeat ">
+      <tr>
+        <td width="240" style="padding: 0 9px 0 26px;">&nbsp;</td>
+        <td width="372" style="padding: 0 9px 0 9px;">&nbsp;</td>
+        <td width="240" style="padding: 0 26px 0 9px;">&nbsp;</td>
+      </tr>
+      <tr>
+
+    <td width="240" valign="top" style="padding: 4px 9px 0px 26px;">
+      <img src="http://www.nationalsummit.org/themes/barlow-home/home-side-line.gif" style="padding:0px 0 9px 0"/><br />
+      <img src="http://www.nationalsummit.org/themes/barlow-home/home-speakers.gif" width="137" height="24" style="padding-bottom:10px;"/><br />
+
+      <table border="0" width="100%" cellpadding="0" cellspacing="0">
+        <tbody>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td valign="top" style="padding: 0 0 0 0;">
+  <div id="sidebar-left" class="sidebar">
+  <div class="block block-block" id="block-block-6">
+  <div class="content"><div id="news">
+<ul>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-ford-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td width="78%" valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>WILLIAM CLAY FORD, JR.</strong><br />
+              <em>Executive Chairman</em><br />
+              Ford Motor Co.</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-liveris-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>ANDREW N. LIVERIS</strong><br />
+                              <em>Chairman &amp; CEO</em><br />
+                              The Dow Chemical Co.</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-anderson-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>RICHARD H. ANDERSON</strong><br />
+                              Chief Executive Officer<br />
+                              Delta Air Lines, Inc.</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-ballmer-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>STEVEN A. BALLMER</strong><br />
+                              Chief Executive Officer<br />
+                              Microsoft Corp.</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-balsillie-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>JIM BALSILLIE</strong><br />
+                              Co-Chief Executive Officer<br />
+                              Research in Motion</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-baruah-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>THE HONORABLE SANDY K. BARUAH</strong><br />
+                              Senior Fellow<br />
+                              The Council on Competitiveness</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-beatty-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>THE HONOURABLE PERRIN BEATTY</strong><br />
+                              President &amp; CEO<br />
+                              The Canadian Chamber of Commerce</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-blood-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>DAVID BLOOD</strong><br />
+                              Co-Founder &amp; Senior Partner<br />
+                              Generation Investment Management LLP</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-bremmer-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>IAN BREMMER</strong><br />
+                              President<br />
+                              Eurasia Group</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-briscoe-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>JOHN BRISCOE</strong><br />
+                              Gordon McKay Professor of the Practice of Environmental Engineering<br />
+                              Harvard University</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-chappell-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>BETH CHAPPELL</strong><br />
+                              President &amp; CEO<br />
+                              Detroit Economic Club</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-chen-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>EVA CHEN</strong><br />
+                              Co-founder &amp; CEO<br />
+                              Trend Micro, Inc.</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-chopra-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>THE HONORABLE ANEESH P. CHOPRA</strong><br />
+                              Chief Technology Officer<br />
+                              The United States of America</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-coleman-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>DR. MARY SUE COLEMAN</strong><br />
+                              President<br />
+                              University of Michigan</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-daquino-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>THOMAS PAUL D'AQUINO</strong><br />
+                              President &amp; CEO<br />
+                              Canadian Council of Chief Executives</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-dauch-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>RICHARD E. DAUCH</strong><br />
+                              Co-Founder, Chairman &amp; CEO<br />
+                              American Axle &amp; Manufacturing, Inc.</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-davis-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>D. SCOTT DAVIS</strong><br />
+                              Chairman &amp; CEO<br />
+                              United Parcel Service, Inc.</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-derocco-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>EMILY STOVER DEROCCO</strong><br />
+                              President<br />
+                              The Manufacturing Institute<br />
+                              Senior Vice President<br />
+                              National Association of Manufacturers</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-dipiazza-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>SAMUEL A. DIPIAZZA, JR.</strong><br />
+                              Chief Executive Officer<br />
+                              PricewaterhouseCoopers International Ltd.</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-dolan-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>MICHAEL J. DOLAN</strong><br />
+                              Senior Vice President<br />
+                              Exxon Mobil Corp.</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-dumaine-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>BRIAN DUMAINE</strong><br />
+                              Global Editor &amp; Assistant Managing Editor<br />
+                              Fortune Magazine</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-dyson-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>ESTHER DYSON</strong><br />
+                              Chairman<br />
+                              EDventure Holdings Inc.</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-early-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>ANTHONY F. EARLEY, JR.</strong><br />
+                              Chairman &amp; CEO<br />
+                              DTE Energy Co.</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-engler-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>THE HONORABLE JOHN M. ENGLER</strong><br />
+                              President &amp; CEO<br />
+                              National Association of Manufacturers</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-etheridge-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>DAVID G. ETHERIDGE</strong><br />
+                              U.S. Utilities Leader<br />
+                              PricewaterhouseCoopers LLP</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-ferguson-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>MATTHEW W. FERGUSON</strong><br />
+                              President &amp; CEO<br />
+                              CareerBuilder.com</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-fertel-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>MARVIN S. FERTEL</strong><br />
+                              President &amp; CEO<br />
+                              Nuclear Energy Institute Ltd.</td>
+
+                        </tr></table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-fyrwald-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>J. ERIK FYRWALD</strong><br />
+                              Chairman, President &amp; CEO<br />
+                              Nalco Co.</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-giffi-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>CRAIG GIFFI</strong><br />
+                              Vice Chairman<br />
+                              Deloitte LLP</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-glick-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>ALEXIS GLICK</strong><br />
+                              Vice President &amp; Anchor<br />
+                              Fox Business Network</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-goldsberry-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>DR. RONALD E. GOLDSBERRY</strong><br />
+                              Advisor<br />
+                              Deloitte Consulting LLP</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-granholm-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>THE HONORABLE JENNIFER M. GRANHOLM</strong><br />
+                              Governor<br />
+                              State of Michigan</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-grillos-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>JOHN M. GRILLOS</strong><br />
+                              Director<br />
+                              Curriki</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-gupta-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>ASHOK GUPTA</strong><br />
+                              Air &amp; Energy Program Director<br />
+                              Natural Resource Defense Council</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-gustafsson-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>ANDERS GUSTAFSSON</strong><br />
+                              Chief Executive Officer<br />
+                              Zebra Technologies Corp.</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-harber-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>JONATHAN D. HARBER</strong><br />
+                              Co-Founder &amp; CEO<br />
+                              SchoolNet, Inc.</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-hasenfratz-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>LINDA HASENFRATZ</strong><br />
+                              Chief Executive Officer<br />
+                              Linamar Corp.</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-henderson-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>FREDERICK (FRITZ) A. HENDERSON</strong><br />
+                              President &amp; CEO<br />
+                              General Motors Corp.</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-heywood-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>BENJAMIN HEYWOOD</strong><br />
+                              Co-Founder &amp; President<br />
+                              PatientsLikeMe, Inc.</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-johnston-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>ROBERT JOHNSTON</strong><br />
+                              Director, Global Energy &amp; Natural Resources<br />
+                              Eurasia Group</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-jones-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>VAN JONES</strong><br />
+                              Founder<br />
+                              Green For America</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-kamen-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>DEAN KAMEN</strong><br />
+                              President<br />
+                              DEKA Research &amp; Development Corp.</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-kao-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>DR. JOHN KAO</strong><br />
+                              Founder &amp; Chairman<br />
+                              Institute for Large Scale Innovation</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-kearney-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>CHRISTOPHER J. KEARNEY</strong><br />
+                              Chairman, President &amp; CEO<br />
+                              SPX Corp.</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-kirkland-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>RIK KIRKLAND</strong><br />
+                              Director of Publishing<br />
+                              McKinsey &amp; Co.</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-klein-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>MICHAEL KLEIN</strong><br />
+                              Former Vice-Chairman<br />
+                              Citigroup, Inc.</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-koffel-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>MARTIN M. KOFFEL</strong><br />
+                              Chairman, President &amp; CEO<br />
+                              URS Corp.</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-lebeau-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>PHILIP J. LEBEAU</strong><br />
+                              Auto and Airline Industry Reporter<br />
+                              CNBC</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-lechner-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>RICHARD LECHNER</strong><br />
+                              Vice President, Energy &amp; Environment<br />
+                              IBM Corp.</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-leuliette-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>TIMOTHY D. LEULIETTE</strong><br />
+                              Chairman, President &amp; CEO<br />
+                              DURA Automotive Systems, Inc.</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-levin-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>THE HONORABLE CARL M. LEVIN</strong><br />
+                              U.S. Senator<br />
+                              State of Michigan</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-locke-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>THE HONORABLE GARY F. LOCKE</strong><br />
+                              Secretary<br />
+                              U.S. Department of Commerce</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-lu-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>EDWARD LU</strong><br />
+                              Program Manager in Advanced Projects<br />
+                              Google, Inc.</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-lyon-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>THOMAS LYON</strong><br />
+                              Professor &amp; Director, Erb Institute for Global Sustainable Enterprise<br />
+                              University of Michigan</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-manganello-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>TIMOTHY M. MANGANELLO</strong><br />
+                              Chairman &amp; CEO<br />
+                              BorgWarner, Inc.</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-marks-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>PETER J. MARKS</strong><br />
+                              Chairman, President &amp; CEO<br />
+                              Robert Bosch LLC</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-mccallister-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>MICHAEL B. MCCALLISTER</strong><br />
+                              President &amp; CEO<br />
+                              Humana Inc.</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-mcclure-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>CHARLES G. MCCLURE</strong><br />
+                              Chairman, President &amp; CEO<br />
+                              ArvinMeritor, Inc.</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-mcgraw-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>HAROLD W. MCGRAW III</strong><br />
+                              Chairman, President &amp; CEO<br />
+                              The McGraw-Hill Cos.</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-mendonca-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>LEONARD T. MENDONCA</strong><br />
+                              Chairman<br />
+                              McKinsey Global Institute</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-mulally-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>ALAN R. MULALLY</strong><br />
+                              President &amp; CEO<br />
+                              Ford Motor Co.</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-mulva-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>JAMES J. MULVA</strong><br />
+                              Chairman &amp; CEO<br />
+                              ConocoPhillips Co.</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-muscat-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>JOSEPH A. MUSCAT</strong><br />
+                              Partner &amp; Director, Americas Cleantech Network<br />
+                              Ernst &amp; Young LLP</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-myers-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>DR. JAYSON MYERS</strong><br />
+                              President<br />
+                              Canadian Manufacturers &amp; Exporters</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-neusner-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>NOAM NEUSNER</strong><br />
+                              Principal<br />
+                              30 Point Strategies</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-noren-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>DR. JAY NOREN</strong><br />
+                              President<br />
+                              Wayne State University</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-nosbusch-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>KEITH D. NOSBUSCH</strong><br />
+                              Chairman &amp; CEO<br />
+                              Rockwell Automation, Inc.</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-odland-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>STEVE ODLAND</strong><br />
+                              Chairman &amp; CEO<br />
+                              Office Depot, Inc.</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-pandit-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>VIKRAM S. PANDIT</strong><br />
+                              Chief Executive Officer<br />
+                              Citigroup, Inc.</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-parker-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>W. DOUGLAS PARKER</strong><br />
+                              Chairman &amp; CEO <br />
+                              US Airways Group, Inc.</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-paterson-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>RICHARD D. PATERSON</strong><br />
+                              Global Energy, Utilities &amp; Mining Leader and US Energy Leader<br />
+                              PricewaterhouseCoopers LLP</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-peterson-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>G.P. "BUD" PETERSON</strong><br />
+                              President<br />
+                              Georgia Institute of Technology</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-quick-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>BECKY QUICK</strong><br />
+                              Co-Anchor, "Squawk Box"<br />
+                              CNBC</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-quigley-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>JAMES H. QUIGLEY</strong><br />
+                              Global CEO<br />
+                              Deloitte Touche Tohmatsu</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-rashkin-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>SAM RASHKIN</strong><br />
+                              National Director, ENERGY STAR for Homes<br />
+                              U.S. EPA</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/Robert-Reiss-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>ROBERT REISS</strong><br />
+                              Host<br />
+                              The CEO Show</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-rose-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>MATTHEW K. ROSE</strong><br />
+                              Chairman, President &amp; CEO<br />
+                              BNSF Railway Co.</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-shelton-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>THE HONORABLE DAVID SANDALOW</strong><br />
+                              Assistant Secretary for Policy &amp; International Affairs<br />
+                              U.S. Department of Energy</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-rowe-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>JOHN W. ROWE</strong><br />
+                              Chairman &amp; CEO<br />
+                              Exelon Corp.</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-schaum-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>RICHARD O. SCHAUM</strong><br />
+                              General Manager<br />
+                              3rd Horizon Associates LLC </td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-schmitt-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>TOM SCHMITT</strong><br />
+                              President &amp; CEO<br />
+                              FedEx Global Supply Chain Services<br />
+                              Senior Vice President<br />
+                              FedEx Solutions</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-schurenberg-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>ERIC SCHURENBERG</strong><br />
+                              Managing Editor<br />
+                              CBS MoneyWatch</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-shaw-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>DR. ALAN SHAW</strong><br />
+                              President &amp; CEO<br />
+                              Codexis, Inc.</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-shelton-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>THE HONORABLE JAMES H. SHELTON III</strong><br />
+                              Assistant Deputy Secretary, Innovation &amp; Improvement<br />
+                              U.S. Department of Education</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-shill-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>WALTER E. SHILL</strong><br />
+                              North American Managing Director, Management Consulting<br />
+                              Accenture</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-simon-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>DR. LOU ANNA K. SIMON</strong><br />
+                              President<br />
+                              Michigan State University</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-stabenow-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>THE HONORABLE DEBBIE A. STABENOW</strong><br />
+                              U.S. Senator<br />
+                              State of Michigan</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-steiner-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>DAVID P. STEINER</strong><br />
+                              Chief Executive Officer<br />
+                              Waste Management, Inc.</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-thaman-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>MICHAEL H. THAMAN</strong><br />
+                              Chairman &amp; CEO<br />
+                              Owens Corning</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-turley-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>JAMES S. TURLEY</strong><br />
+                              Chairman &amp; CEO<br />
+                              Ernst &amp; Young LLP</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-uphoff-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>TONY UPHOFF</strong><br />
+                              Chief Executive Officer<br />
+                              TechWeb</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-wadhams-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>TIMOTHY WADHAMS</strong><br />
+                              President &amp; CEO<br />
+                              Masco Corp.</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-walker-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>DONALD J. WALKER</strong><br />
+                              Co-Chief Executive Officer<br />
+                              Magna International Inc.</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-walsh-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>TOM WALSH</strong><br />
+                              Columnist<br />
+                              Detroit Free Press</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-welch-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>JOSEPH L. WELCH</strong><br />
+                              Chairman, President &amp; CEO<br />
+                              ITC Holdings Corp.</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-williams-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>RONALD A. WILLIAMS</strong><br />
+                              Chairman &amp; CEO<br />
+                              Aetna Inc.</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-smith-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>DEBORAH L. WINCE-SMITH</strong><br />
+                              President<br />
+                              The Council on Competitiveness</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-winkenwerder-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>DR. WILLIAM WINKENWERDER, JR. </strong><br />
+                              Chairman<br />
+                              The Winkenwerder Company LLC</td>
+</tr>
+</table>
+</li>
+<li>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="22%" valign="top" style="padding: 0 0 5px 0;"><img src="http://www.nationalsummit.org/files/speaker-youngjohns-small.jpg" width="54" height="54"  style="padding-right:8px;" /></td>
+<td valign="top" style="padding: 0 0 5px 0; font-size:11px;line-height: 11px;"><strong>ROBERT YOUNGJOHNS</strong><br />
+                              President of North American Sales &amp; Marketing<br />Corporate Vice President<br />
+                              Microsoft Corp.</td>
+</tr>
+</table>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+  </div>
+
+                  </td>
+              </tr>
+              <tr>
+                <td valign="top" style="padding: 0 0 2px 0;">
+                  <font color="#ab8d00"><b>: </b></font><a href="speakers" class="homeside">See All Speakers</a>
+                </td>
+              </tr>
+            </table>
+
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </td>
+        <td width="372" valign="top" style="padding: 4px 9px 0px 9px;"><img src="http://www.nationalsummit.org/themes/barlow-home/home-middle-line.gif" style="padding-bottom:9px"/><br /><div class="content"><div id="node-21" class="node  page">
+<div class="content"><p><span style="font-size: medium;"><b>The National Summit Unveils America's <br />To-Do List<br /></b></span></p>
+<p>The organizers of The National Summit met with Secretary of Commerce Gary Locke in Washington on December 14 to discuss and unveil America’s To-Do List.  The ten strategic initiatives on the list are a summary of the consensus recommendations made at The National Summit last June.  The Book of Proceedings, a more detailed and comprehensive account of the 45 hours of discussions that took place at The National Summit, will be available soon. To see America’s To-Do List, <a target="_blank" href="/files/TheNationalSummit.AmericaToDoList.pdf">click here. </a>  </p>
+<hr />
+<p><b><span style="font-size: medium;">Recent News:</span></b></p>
+<div style="border: 2px solid #d8d8d8; padding: 4px; background: #f6f6f6 none repeat scroll 0% 0%; overflow: auto; width: 360px; color: #666666; height: 150px;"><a target="_blank" title="The National Summit ranked #7 in The World's Top Executive Gatherings, Forbes.com, February 10, 2010" href="http://www.forbes.com/2010/01/25/top-executive-gatherings-leadership-citizenship-davos_slide.html">The National Summit ranked #7 in The World's Top Executive Gatherings, Forbes.com, February 10, 2010</a>
+<hr />
+<a target="_blank" href="/files/TheNationalSummitUnveilsAmericasToDoList.pdf">The National Summit Unveils America's To-Do List, December 14, 2009</a>
+<hr />
+<a target="_blank" title="View the Photo Gallery" href="http://thenationalsummitphotogallery.shutterfly.com/">View the Photo Gallery from The National Summit</a>
+<hr />
+<a target="_blank" href="/files/ClosingPressReleaseJune17.2009.pdf">The National Summit Sparks Discussion of America's Economy: “Major Paradigm Shift” Emerges at Three-day Gathering, June 17, 2009</a>
+<hr />
+<a target="_blank" href="/files/ceo_release_06042009.pdf">Fritz Henderson and Aneesh Chopra to Address The National Summit, June 4, 2009</a>
+<hr />
+<a target="_blank" href="/files/student_participation_release_05282009.pdf">Student Participation a Key Element of The National Summit, May 28, 2009</a>
+<hr />
+<a target="_blank" href="/files/New_Speaker_Release_05212009.pdf">Secretary of Commerce to Address The National Summit, May 21, 2009</a>
+<hr />
+<a target="_blank" href="/files/New_Speakers_May_Release_05202009.pdf">Citigroup CEO to Address The National Summit, May 20, 2009</a>
+<hr />
+<a target="_blank" href="/files/Agenda_Release_05142009.pdf">The National Summit Posts Meeting Agenda, May 14, 2009</a>
+<hr />
+<a target="_blank" href="/files/InnovationExpoRelease05042009.pdf">Innovation Expo will Spotlight and Promote New Ideas, May 5, 2009</a>
+<hr />
+<a target="_blank" href="/files/TNSVenueChange042209.pdf">The National Summit Announces New Venue, April 21, 2009</a>
+<hr />
+<a target="_blank" href="/files/TheNationalSummitAWMA041509.pdf">The National Summit Partners with A&amp;WMA Annual Conference &amp; Exhibition, April 15, 2009</a>
+<hr />
+<a target="_blank" href="/files/DetroitFreePress_CallForObama_032709.pdf">Mr. President: Say yes, March 27, 2009</a>
+<hr />
+<a target="_blank" href="/files/CrainsDetroit_MSUSurvey_032509.pdf">National Summit, MSU team up on poll of economic issues, March 25, 2009</a>
+<hr />
+<a target="_blank" href="/files/detroitfreepress_morespeakers_032409.pdf">Economic forum lands Ballmer as a speaker, March 24, 2009</a>
+<hr />
+<a target="_blank" href="/files/CrainsDetroit_EventAmbassadors_032309.pdf">National Summit looks for event 'ambassadors', March 23, 2009</a>
+<hr />
+<a target="_blank" href="/files/DetroitNews_SummitSPOTLIGHTONNEWS_032109.pdf">National Summit in Detroit topic of 'Spotlight on the News', March 21, 2009</a>
+<hr />
+<a target="_blank" href="/files/NewWebEfforts03182009.pdf">New Web Efforts Engage Public in The National Summit, March 18, 2009</a>
+<hr />
+<a target="_blank" href="/files/PressRelease03112009.pdf">More Speakers Commit to The National Summit, March 11, 2009</a>
+<hr />
+<a target="_blank" href="/files/PressRelease03042009.pdf">The National Summit Poised to Hold Crucial Discussion on Future of American Economy, March 4, 2009</a>
+<hr />
+<a target="_blank" href="/files/DetroitFreePress_EconSummitLastingImpression_030409.pdf">Economic Summit bids for lasting impression, Detroit Free Press, March 4, 2009</a>
+<hr />
+<a target="_blank" href="http://reissource.com/Reissource/BethChappell.html">The CEO Show: Robert Reiss, host of The CEO Show, Interviews Beth Chappell, February 15, 2009</a>
+<hr />
+<a target="_blank" href="/files/Freep.com_EditorialObama_011509.pdf">Begin building national recovery here in Detroit, Detroit Free Press, January 15, 2009</a>
+<hr />
+</div>
+<p> </p>
+</div>
+<!--  <div class="meta">
+    </div>
+ -->
+</div>
+</div>
+        <br />
+        <img src="http://www.nationalsummit.org/themes/barlow-home/home-middle-line.gif" /><br />
+        <br />
+        <br /></td>
+
+    <td width="240" valign="top" style="padding: 4px 26px 0px 9px;"><img src="http://www.nationalsummit.org/themes/barlow-home/home-side-line.gif" style="padding:0px 0 9px 0"/><br />
+      <table border="0" width="200" cellpadding="0" cellspacing="0">
+        <tbody>
+        <tr>
+          <td width="18"><a href="javascript:bookmarksite('The National Summit', 'http://www.nationalsummit.org')"><img src="http://www.nationalsummit.org/themes/barlow-home/icon-bookmark.gif" width="15" height="13" /></a></td>
+          <td width="182"><a href="javascript:bookmarksite('The National Summit', 'http://www.nationalsummit.org')" class="homeside">Bookmark
+            this page</a></td>
+        </tr>
+        <tr>
+          <td width="18"><a href="mailto:?Subject=Information about The National Summit&amp;body=A friend has requested that you take a look at The National Summit website -- http://www.nationalsummit.org/."><img src="http://www.nationalsummit.org/themes/barlow-home/icon-friend.gif" width="16" height="14" /></a></td>
+          <td width="182"><a href="mailto:?Subject=Information about The National Summit&amp;body=A friend has requested that you take a look at The National Summit website -- http://www.nationalsummit.org/" class="homeside">Send
+            to a friend</a></td>
+        </tr>
+        </tbody>
+      </table>
+    </td>
+      </tr>
+      <tr>
+
+    <td height="144" colspan="3" valign="top" style="background: url(http://www.nationalsummit.org/themes/barlow-home/footer-top.gif) top center no-repeat ">
+      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr valign="top">
+          <td width="640"><a href="http://www.econclub.org" target="_blank"><img src="http://www.nationalsummit.org/themes/barlow-home/spacer.gif" width="112" height="123" border="0" style="margin: 14px 0 0 23px;"/></a></td>
+          <td width="300"><div style="margin-top: 35px;"><script type="text/javascript">
+new fadeshow(fadeimages, 258, 106, 0, 3000, 0, "R")
+
+</script></div></td>
+        </tr>
+      </table>
+    </td>
+      </tr>
+      <tr>
+        <td colspan="3" valign="top"  style="background: url(http://www.nationalsummit.org/themes/barlow-home/footer-spacer.gif) top center repeat-y; padding-right: 30px; "><div align="right"><p style="font-size: 85%;">The National Summit<sup style="font-size: 75%;">TM</sup> &copy; Copyright 2008.&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="contact-us"><font color="#666666"><u>Contact  Us</u></font></a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="http://www.nationalsummit.org/"><font color="#666666"><u>Home</u></font></a></p></div></td>
+      </tr>
+      <tr>
+        <td colspan="3" valign="top"  style="background: url(http://www.nationalsummit.org/themes/barlow-home/footer-bottom.jpg) top center no-repeat; ">&nbsp;</td>
+      </tr>
+</table>
+
+
+</div>
+</div>
+</div>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-7944503-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+</html>

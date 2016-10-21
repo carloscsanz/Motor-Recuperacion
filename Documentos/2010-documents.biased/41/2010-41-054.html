@@ -1,0 +1,2296 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head id="ctl00_ctl00_ctl00"><meta name="GENERATOR" content="CommunityServer 2007 SP1 (Build: 20510.895)" />
+<link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
+<link rel="alternate" type="application/rss+xml" title="Forums RSS (RSS 2.0)" href="http://forums.asp.net/aggregaterss.aspx?Mode=0"  />
+<link rel="alternate" type="application/rss+xml" title="Master Pages, Themes and Navigation Controls (RSS 2.0)" href="http://forums.asp.net/rss.aspx?ForumID=139&amp;Mode=0"  />
+<link rel="alternate" type="application/rss+xml" title="C# TreeView How to Programmatically change the Text displayed by TreeViewNodes? (RSS 2.0)" href="http://forums.asp.net/rss.aspx?ForumID=139&amp;PostID=3556526"  />
+
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <meta http-equiv="X-UA-Compatible" content="IE=7" /> 
+            
+                <link rel="stylesheet" href="http://i2.asp.net/common/forums-css/common.css?cdn_id=01112010_2" media="all" type="text/css" />      
+                <link rel="stylesheet" href="http://i1.asp.net/common/forums-css/common_print.css?cdn_id=01112010_2" media="print" type="text/css" />      
+                <link rel="stylesheet" href="http://i2.asp.net/common/forums-css/fan.css?cdn_id=01112010_2" media="screen" type="text/css" />      
+                <link rel="stylesheet" href="http://i3.asp.net/common/forums-css/fan_print.css?cdn_id=01112010_2" media="print" type="text/css" />      
+                <link rel="shortcut icon" href="http://i1.asp.net/common/www-css/i/favicon.ico?cdn_id=01112010_2" /> 
+                
+                <script type="text/javascript" src="http://i2.asp.net/script/forums.asp.net/forums-all.js?cdn_id=01112010_2" ></script>
+                <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery/jquery-1.3.2.min.js" ></script>
+                
+           
+            
+            
+    
+    
+       
+        
+    <!--[if lte IE 7]> <script language="javascript"> function fixIEPaintBug(){ var c = document.getElementById('CommonContent');  if (c) { c.style.height = "1%";} } attachEvent("onload", fixIEPaintBug); </script> <![endif]--> 
+        
+    <title>
+	C# TreeView How to Programmatically change the Text displayed by TreeViewNodes? - ASP.NET Forums
+</title></head>    
+    
+	<body class="forum" >
+
+		<form name="aspnetForm" method="post" action="/p/1502231/3556526.aspx" id="aspnetForm">
+<div>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+
+<script src="/ScriptResource.axd?d=ujewXb1RkafGS8O5TIHXVcen1z7-c0eWoNMedUZc88nOY90xB3eDTFG5UouValtp-6Qu91Xec9dyOE_VMFiyB9-2K65Oqy-p5f0nucazwHQ1&amp;t=ffffffffa74340d0" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=ujewXb1RkafGS8O5TIHXVcen1z7-c0eWoNMedUZc88nOY90xB3eDTFG5UouValtp-6Qu91Xec9dBAi2uytwiw8kryRY0aejq0&amp;t=ffffffffa74340d0" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=HGB68otmMsAAmCzWoiidtHi3s9stakylnHh3fhr284MATMxUGzpDZAOlL_F-YzrZ_rpHRDg8VuRQ6qKBNAtfpVF_qDpeHQhB4OdfxTlXSSIWNEwLeLuV9GThtfPWWsxt0&amp;t=ffffffffb3b706d0" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=ujewXb1RkafGS8O5TIHXVcen1z7-c0eWoNMedUZc88nOY90xB3eDTFG5UouValtp-6Qu91Xec9ckNGoXOqsIPmjTU3qw29pMyLZfWkflQaE1&amp;t=ffffffffa74340d0" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=ujewXb1RkafGS8O5TIHXVcen1z7-c0eWoNMedUZc88nOY90xB3eDTFG5UouValtp-6Qu91Xec9ckNGoXOqsIPlJbu_9HFyHIov02M6QbbUc1&amp;t=ffffffffa74340d0" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=ujewXb1RkafGS8O5TIHXVcen1z7-c0eWoNMedUZc88nOY90xB3eDTFG5UouValtp-6Qu91Xec9d8z_DooPRVmVo_4mxq003L5q-IT-ROgb41&amp;t=ffffffffa74340d0" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=HCJUnBhvHpDajYT6Ana6x3k3FfaTGaRGrPd3Ou3bRLV30vlFuGrMWusd2b8oBVfGmZpfOcFSUWJRimUSR52SeILSiItL3De80&amp;t=2857260e" type="text/javascript"></script>
+			
+			
+			
+
+            <div class="content_container">
+		        
+					<div class="header_container">  
+                    
+                        <div class="header_top">
+                            <div class="header_top_right"></div>
+                        </div>
+                        <div class="header_content mix10">
+                            <div class="header_content_right">
+                            
+                            <!--Mixx-->
+                                <style>
+                                    .mix10 .logo {left:5px; position:absolute; top:-4px; z-index:20;}
+                                    .logo_mix_2010 {left:7px; position:absolute; top:-3px; z-index:20;}
+                                    .mix10 .header_content_right {background-position:right -28px; min-height:56px; padding:0 0 0 175px;}
+                                    .mix10 ul.nav_main {bottom:-5px; left:194px; margin:0; padding:0; position:absolute;}
+                                </style>
+								<a id="LogoLink" title="Home Page" href="http://asp.net/"><img class="logo" src="http://i1.asp.net/common/www-css/i/logo_mix.png?cdn_id=01112010_2" alt="Microsoft ASP.net" /></a>
+        <a href="http://live.visitmix.com/" title="Mix 2010"><img src="http://i1.asp.net/common/www-css/i/logo_mix_2010.png?cdn_id=01112010_2" alt="Mix 2010" class="logo_mix_2010" /></a>
+
+
+                                <ul class="nav_main">
+                                    <li class="first"><a href="http://www.asp.net">Home</a></li>
+                                    <li><a href="http://www.asp.net/get-started/">Get Started</a></li>
+                                    <li><a href="http://www.asp.net/downloads/">Downloads</a></li>
+                                    <li><a href="http://www.asp.net/web-forms/">Web Forms</a></li>
+					                <li><a href="http://www.asp.net/mvc/">MVC</a></li>
+					                <li><a href="http://www.asp.net/ajax/">AJAX</a></li>
+                                    <li><a href="http://www.asp.net/community/">Community</a></li>
+                                    <li><a href="http://wiki.asp.net/">Wiki</a></li>
+                                    <li class="active"><a href="http://forums.asp.net">Forums</a></li>
+                                    <li class="search">                                            
+                                            <div id="SearchBoxWrapper">
+                                                <input name="ctl00$ctl00$bhcr$SearchForm1$ctl00$TitleBarSearchText" type="text" maxlength="64" id="ctl00_ctl00_bhcr_SearchForm1_ctl00_TitleBarSearchText" class="search_box" onclick="if(this.defaultValue==this.value) this.value='';" onblur="if(this.value=='') this.value=this.defaultValue;" onkeydown="if( typeof(KeyDownHandlerctl00_ctl00_bhcr_SearchForm1_ctl00_TitleBarSearchButton) == 'undefined' || KeyDownHandlerctl00_ctl00_bhcr_SearchForm1_ctl00_TitleBarSearchButton == null) return false; else return KeyDownHandlerctl00_ctl00_bhcr_SearchForm1_ctl00_TitleBarSearchButton(event);" />
+                                            </div>                                            
+                                            <input type="submit" name="ctl00$ctl00$bhcr$SearchForm1$ctl00$TitleBarSearchButton" value="Search" id="ctl00_ctl00_bhcr_SearchForm1_ctl00_TitleBarSearchButton" class="search_button" />
+                                        </li>                                    
+                                </ul>                       
+                                <div class="nav_login_user">                                
+                                     
+        <p>
+            <a href="/login.aspx?ReturnUrl=%2fp%2f1502231%2f3556526.aspx">Sign in </a>
+             | <a href="/user/CreateUser.aspx?ReturnUrl=">Join</a>
+         </p>
+     
+
+
+
+		                        </div>
+		                    </div>
+                        </div>
+                        <div class="header_breadcrumb_top">
+                            <div class="header_breadcrumb_top_right"></div>
+                        </div>
+                        <div class="header_breadcrumb_content">
+                            <div class="header_breadcrumb_content_right"><a href="http://www.asp.net">Home</a> &#8250; 
+                                
+    
+    <div class="CommonBreadCrumbArea"><div class="Common"><a href="/">ASP.NET Forums</a> &raquo; <a href="/default.aspx?GroupID=7">General ASP.NET</a> &raquo; <a href="/139.aspx">Master Pages, Themes and Navigation Controls</a> &raquo; <a href="/t/1502231.aspx">C# TreeView How to Programmatically change the Text displayed by TreeViewNodes?</a></div></div>
+
+                      
+                            </div>
+                        </div>
+                        <div class="header_breadcrumb_bottom">
+                            <div class="header_breadcrumb_bottom_right"></div>
+                        </div>                       
+                    </div>
+                    <!-- END HEADER & BREADCRUMB -->   
+		        
+		        <div class="advertisement">
+		            
+    <div class="adRegionSelector" align="center" style="padding-top:5px;padding-bottom:5px;height:90px;" adurl="http://forums.asp.net/a/CSFeaturedAd.ashx?ZoneID=6" adwidth="728" adheight="90">
+    </div>
+
+
+
+
+
+
+
+
+		        </div>
+                            
+		        <div id="CommonSidebarRight">
+		            
+    
+<div class="CommonSidebar">
+    
+
+
+
+
+
+
+    <div class="adRegionSelector" align="center" style="padding-top:5px;padding-bottom:5px;height:285px;" adurl="http://forums.asp.net/a/CSFeaturedAd.ashx?ZoneID=353" adwidth="300" adheight="285">
+    </div>
+
+
+    
+    <br />
+	    
+	            <div class="CommonSidebarArea">
+	                <div class="CommonSidebarRoundTop"><div class="r1"></div><div class="r2"></div><div class="r3"></div><div class="r4"></div></div>
+	                <div class="CommonSidebarInnerArea">
+			            <h4 class="CommonSidebarHeader">Shortcuts</h4>
+			            <div class="CommonSidebarContent">
+			                <ul class="CommonSidebarList">
+			                    
+			                
+			                    <li><a href="../../../TopicsActive.aspx" id="ctl00_ctl00_rcr_rcr_PlaceHolder6_ctl00_A1">Active Posts</a></li>
+			                    <li><a href="../../../TopicsNotAnswered.aspx" id="ctl00_ctl00_rcr_rcr_PlaceHolder6_ctl00_A2">Unanswered Posts</a></li>
+                                    
+                                        
+			                    <li><a href="/user/ViewOnline.aspx">Who is Online</a></li>
+			                    <li><a href="http://www.asp.net/resources/support/default.aspx?tabid=41">Support Options</a></li>
+			                    <li><a href="../../../search/" id="ctl00_ctl00_rcr_rcr_PlaceHolder6_ctl00_A3">Advanced Search</a></li>
+                            </ul>
+			            </div>
+			        </div>
+		            <div class="CommonSidebarRoundBottom"><div class="r1"></div><div class="r2"></div><div class="r3"></div><div class="r4"></div></div>
+                </div>
+            
+</div>
+
+
+		        </div>
+		        
+		        <div id="CommonSidebarLeft">
+			        
+			    </div>
+		        
+		        <div id="CommonContent">
+		            <div id="CommonContentInner">
+                        <div class="CommonContentArea">
+		                    
+    
+    
+
+
+<div class="CommonContentArea">
+
+
+	<div class="CommonContent">
+	
+	    <div style="text-align: right; font-size: 70%">
+	        <a class="CommonImageTextButton" href="/ThreadNavigation.aspx?PostID=3556526&amp;NavType=Previous"><span class="CommonPreviousButton">Previous</span></a>
+	        <a class="CommonImageTextButton" href="/ThreadNavigation.aspx?PostID=3556526&amp;NavType=Next"><span class="CommonNextButton">Next</span></a>
+	    </div>
+	
+        <div class="CommonInlineMessageTitle">
+            <div class="CommonInlineMessageTitleRight"></div>
+            <h2>C# TreeView How to Programmatically change the Text displayed by TreeViewNodes?</h2>
+        </div>	
+	    <div class="CommonInlineMessageArea">
+            <div class="CommonInlineMessageTop"><span></span></div>
+            <div class="CommonInlineMessageContent">
+                <p style="float: right;">
+                    
+                </p>
+                <p>Last post 12-12-2009 6:19 AM by <a href="/members/iturune.aspx">iturune</a>. 19 replies.</p>
+                <p>
+                    
+		            
+                    
+		                    Sort Posts:
+		                    <select name="ctl00$ctl00$bcr$bcr$ctl00$ctl05$ctl00$SortOrder" id="ctl00_ctl00_bcr_bcr_ctl00_ctl05_ctl00_SortOrder" onchange="window.setTimeout('__doPostBack(\'ctl00$ctl00$bcr$bcr$ctl00$ctl05\',\'\')',0)">
+	<option selected="selected" value="0">Oldest to newest</option>
+	<option value="1">Newest to oldest</option>
+
+</select>
+		                
+		        </p>
+            </div>
+            <div class="CommonInlineMessageBottom"><span></span></div>
+        </div>
+        
+        <ul class="ForumPostList">
+			    <li>
+			        <a name="3556526"></a>
+			        <div class="ForumPostHeader">
+                        <div class="ForumPostHeaderRight"></div>
+                        <h2> C# TreeView How to Programmatically change the Text displayed by TreeViewNodes?</h2><div style="clear: both" />                     
+                        <table width="100%" class="ForumPostHeaderAction" cellpadding="5" cellspacing="0">
+                            <tr>
+                                <td width="20%" style="padding-left: 8px;" valign="top" nowrap="nowrap">
+                                    12-09-2009, 11:51 AM                                
+        						    
+                                    
+                                </td>
+                                
+                                <td width="80%" align="right" valign="middle">
+
+                                    
+                                    
+                                    
+                                    
+				                                                        
+                                
+				                    
+			                                <div style="float: right; height: 27px; padding-right:5px  ">        
+			                            <a class="CommonImageTextButton" onclick="return window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01_ClientPopulatedPopupMenu.LoadMenu(this,event,['895357','iturune','0','1','','','','/search/SearchResults.aspx?q=userid%3a895357&amp;o=DateDescending'],null);" href="#"><span class="CommonContactButton">Contact</span></a>
+                                            </div>				                            
+			                            
+                                                                
+                                    
+				                                                        
+			                        
+                                
+ 
+			                       
+
+				                    
+
+                                                                    
+                                    
+		                                    <div style="float: right; height: 27px;  padding-right:5px ">        
+		                                <a class="CommonImageTextButton" href="/AddPost.aspx?ReplyToPostID=3556526&amp;Quote=False">
+				                            <span class="CommonReplyButton">Reply</span>
+			                            </a>
+                                            </div>				                            
+		                                
+    
+    
+				                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>	
+                    
+				    <div class="ForumPostArea" style="margin-top: 0px; background-color: white">
+					    <table id="tbl0" cellspacing="0" cellpadding="0" border="0" width="100%">
+						    <tr valign=top>
+							    <td rowspan="2" class="ForumPostUserArea">
+								    <div class="ForumPostUserContent">
+								    <ul class="ForumPostUserPropertyList">
+									    <li class="ForumPostUserAvatar"><img src="http://i1.asp.net/avatar/iturune.jpg?forceidenticon=False&amp;dt=634041588000000000&amp;cdn_id=01112010_2" alt="" style="border-width:0px;" /></li>
+								        <li class="ForumPostUserAttribute">
+									        <div class="reputation-user-level"><img alt="Member" src="http://i3.asp.net/asp.net/images/rs/level-Member.gif?cdn_id=01112010_2"/></div>
+									        <div class="reputation-user-points">45 point <b>Member</b></div>
+        								</li>
+									    <li class="ForumPostUserName">
+									        
+									                
+									            
+									        <a href="/members/iturune.aspx">iturune</a>
+									    </li>
+									    
+								                <li class="ForumPostUserAttribute">Member since 10-06-2009, 10:18 AM</li>
+								                <li class="ForumPostUserAttribute">Copenhagen, Denmark</li>
+								                <li class="ForumPostUserAttribute">Posts <a href="/search/SearchResults.aspx?q=userid%3a895357&amp;o=DateDescending">171</a></li>
+								                
+                                                
+                                            
+								    </ul>
+								    </div>
+							    </td>
+							    <td class="ForumPostContentArea">
+    							    <table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" style="table-layout: fixed;">
+									    <tr>
+									        <td>
+									            <div class="ForumPostBodyArea">
+									                <div class="ForumPostContentText">
+										                <p>Hi</p>
+<p>I&nbsp;have a TreeView placed in a LoginView on my MasterPage. The TreeView is connected to a Web.sitemap file which generates the Text displayed by the TreeView MenuItems. I <strong>would like to be able to programmatically change the Text displayed by the TreeView MenuItems</strong>. Can that easily be done? My TreeView looks like this:</p><pre class="c-sharp" name="code">&lt;asp:TreeView ID=&quot;masterTreeView&quot; runat=&quot;server&quot; DataSourceID=&quot;SiteMapDataSource1&quot;
+                            NodeIndent=&quot;0&quot;&gt;
+                        &lt;/asp:TreeView&gt;
+                        &lt;asp:SiteMapDataSource ID=&quot;SiteMapDataSource1&quot; runat=&quot;server&quot; /&gt;</pre>
+<p><br />&nbsp;</p>
+<p>My Web.sitemap looks like this:</p><pre class="c-sharp" name="code">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+&lt;siteMap xmlns=&quot;http://schemas.microsoft.com/AspNet/SiteMap-File-1.0&quot; &gt;
+  &lt;siteMapNode url=&quot;Member.aspx?home=&quot; title=&quot;Home&quot;  description=&quot;Start Page&quot;&gt;
+    &lt;siteMapNode url=&quot;Search.aspx&quot; title=&quot;Search&quot;  description=&quot;Search Page&quot; /&gt;
+    &lt;siteMapNode url=&quot;MessageIn.aspx&quot; title=&quot;Messages Inbox&quot;  description=&quot;Messages Inbox&quot; /&gt;
+    &lt;siteMapNode url=&quot;MessageOut.aspx&quot; title=&quot;Messages Outbox&quot;  description=&quot;Messages Outbox&quot; /&gt;
+    &lt;siteMapNode url=&quot;FriendRequest.aspx&quot; title=&quot;Friend Requests&quot;  description=&quot;Friend Requests&quot; /&gt;
+    &lt;siteMapNode url=&quot;Friend.aspx&quot; title=&quot;Friends&quot;  description=&quot;Friends&quot; /&gt;
+    &lt;siteMapNode url=&quot;AccountInfo.aspx&quot; title=&quot;Edit Profile&quot;  description=&quot;Account Info&quot; /&gt;
+    &lt;siteMapNode url=&quot;ShowMessage.aspx?admin=&quot; title=&quot;Contact Admin&quot;  description=&quot;Contact Admin&quot; /&gt;
+  &lt;/siteMapNode&gt;
+&lt;/siteMap&gt;</pre>
+<p>The thing I would like to do is quite common, the siteMapNode &quot;Messages Inbox&quot; is the message inbox of my system, in case of that there is unread messages I would like that to show in the TreeView. I don&#39;t know how to do it. Is it perhaps the siteMapNode of the Web.sitemap which should be accessed instead of the TreeViewNodes???<br /></p>
+										                <span class="ForumPostContentScrollbarCorrector"></span>
+										                
+            									    </div>
+			            						    <div class="ForumPostSignature">Regards<br /><br />Rune</div>
+						        			    </div>
+									        </td>
+									    </tr>
+								    </table>
+							    </td>
+						    </tr>
+						    <tr valign="bottom">
+							    <td class="ForumPostFooterArea">	
+								    <div><span id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl01"></span><input type="hidden" name="ctl00$ctl00$bcr$bcr$ctl00$PostList$ctl02$ctl07$ctl01" id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl01_State" value="nochange" /></div>
+								    <ul class="ForumPostStatistics CommonPrintHidden" style="clear: both;">
+								        <li></li>
+								        
+									    
+									    
+									    
+								    </ul>
+							    </td>
+						    </tr>
+					    </table>
+				    </div>
+			    </li>
+            
+			    <li>
+			        <a name="3558188"></a>
+			        <div class="ForumPostHeader">
+                        <div class="ForumPostHeaderRight"></div>
+                        <h2> Re: C# TreeView How to Programmatically change the Text displayed by TreeViewNodes?</h2><div style="clear: both" />                     
+                        <table width="100%" class="ForumPostHeaderAction" cellpadding="5" cellspacing="0">
+                            <tr>
+                                <td width="20%" style="padding-left: 8px;" valign="top" nowrap="nowrap">
+                                    12-10-2009, 7:52 AM                                
+        						    
+                                    
+                                </td>
+                                
+                                <td width="80%" align="right" valign="middle">
+
+                                    
+                                    
+                                    
+                                    
+				                                                        
+                                
+				                    
+			                                <div style="float: right; height: 27px; padding-right:5px  ">        
+			                            <a class="CommonImageTextButton" onclick="return window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01_ClientPopulatedPopupMenu.LoadMenu(this,event,['902471','Aquaren','0','1','','http://zendeveloper.blogspot.com/','','/search/SearchResults.aspx?q=userid%3a902471&amp;o=DateDescending'],null);" href="#"><span class="CommonContactButton">Contact</span></a>
+                                            </div>				                            
+			                            
+                                                                
+                                    
+				                                                        
+			                        
+                                
+ 
+			                       
+
+				                    
+
+                                                                    
+                                    
+		                                    <div style="float: right; height: 27px;  padding-right:5px ">        
+		                                <a class="CommonImageTextButton" href="/AddPost.aspx?ReplyToPostID=3558188&amp;Quote=False">
+				                            <span class="CommonReplyButton">Reply</span>
+			                            </a>
+                                            </div>				                            
+		                                
+    
+    
+				                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>	
+                    
+				    <div class="ForumPostArea" style="margin-top: 0px; background-color: white">
+					    <table id="tbl1" cellspacing="0" cellpadding="0" border="0" width="100%">
+						    <tr valign=top>
+							    <td rowspan="2" class="ForumPostUserArea">
+								    <div class="ForumPostUserContent">
+								    <ul class="ForumPostUserPropertyList">
+									    <li class="ForumPostUserAvatar"><img src="http://i1.asp.net/avatar/Aquaren.jpg?forceidenticon=True&amp;dt=634041588000000000&amp;cdn_id=01112010_2" alt="" style="border-width:0px;" /></li>
+								        <li class="ForumPostUserAttribute">
+									        <div class="reputation-user-level"><img alt="Participant" src="http://i3.asp.net/asp.net/images/rs/level-Participant.gif?cdn_id=01112010_2"/></div>
+									        <div class="reputation-user-points">1,910 point <b>Participant</b></div>
+        								</li>
+									    <li class="ForumPostUserName">
+									        
+									                
+									            
+									        <a href="/members/Aquaren.aspx">Aquaren</a>
+									    </li>
+									    
+								                <li class="ForumPostUserAttribute">Member since 11-21-2009, 12:37 PM</li>
+								                
+								                <li class="ForumPostUserAttribute">Posts <a href="/search/SearchResults.aspx?q=userid%3a902471&amp;o=DateDescending">356</a></li>
+								                
+                                                
+                                            
+								    </ul>
+								    </div>
+							    </td>
+							    <td class="ForumPostContentArea">
+    							    <table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" style="table-layout: fixed;">
+									    <tr>
+									        <td>
+									            <div class="ForumPostBodyArea">
+									                <div class="ForumPostContentText">
+										                <p>If you have PopulateOnDemand=true, You can write code for the TreeNodePopulate event and append the number of unread messages to the tree node text:</p><p><br /></p><pre name="code" class="c-sharp">    protected void TreeView1_TreeNodePopulate(object sender, TreeNodeEventArgs e)
+    {
+        if (e.Node.Text == &quot;In-Box&quot;)
+        {
+            e.Node.Text = string.Format(&quot;In-Box ({0})&quot;, unreadMessageCount);
+        }
+    }
+</pre><p>Otherwise, you will have to handle the Databound event and update the node in there.<br /><br /></p><p></p>
+										                <span class="ForumPostContentScrollbarCorrector"></span>
+										                
+            									    </div>
+			            						    <div class="ForumPostSignature">Explore <a href="http://zendeveloper.blogspot.com/" target="_blank">Zen Coding</a></div>
+						        			    </div>
+									        </td>
+									    </tr>
+								    </table>
+							    </td>
+						    </tr>
+						    <tr valign="bottom">
+							    <td class="ForumPostFooterArea">	
+								    <div><span id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl03_ctl07_ctl01"></span><input type="hidden" name="ctl00$ctl00$bcr$bcr$ctl00$PostList$ctl03$ctl07$ctl01" id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl03_ctl07_ctl01_State" value="nochange" /></div>
+								    <ul class="ForumPostStatistics CommonPrintHidden" style="clear: both;">
+								        <li></li>
+								        
+									    
+									    
+									    
+								    </ul>
+							    </td>
+						    </tr>
+					    </table>
+				    </div>
+			    </li>
+            
+			    <li>
+			        <a name="3558240"></a>
+			        <div class="ForumPostHeader">
+                        <div class="ForumPostHeaderRight"></div>
+                        <h2> Re: C# TreeView How to Programmatically change the Text displayed by TreeViewNodes?</h2><div style="clear: both" />                     
+                        <table width="100%" class="ForumPostHeaderAction" cellpadding="5" cellspacing="0">
+                            <tr>
+                                <td width="20%" style="padding-left: 8px;" valign="top" nowrap="nowrap">
+                                    12-10-2009, 8:31 AM                                
+        						    
+                                    
+                                </td>
+                                
+                                <td width="80%" align="right" valign="middle">
+
+                                    
+                                    
+                                    
+                                    
+				                                                        
+                                
+				                    
+			                                <div style="float: right; height: 27px; padding-right:5px  ">        
+			                            <a class="CommonImageTextButton" onclick="return window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01_ClientPopulatedPopupMenu.LoadMenu(this,event,['895357','iturune','0','1','','','','/search/SearchResults.aspx?q=userid%3a895357&amp;o=DateDescending'],null);" href="#"><span class="CommonContactButton">Contact</span></a>
+                                            </div>				                            
+			                            
+                                                                
+                                    
+				                                                        
+			                        
+                                
+ 
+			                       
+
+				                    
+
+                                                                    
+                                    
+		                                    <div style="float: right; height: 27px;  padding-right:5px ">        
+		                                <a class="CommonImageTextButton" href="/AddPost.aspx?ReplyToPostID=3558240&amp;Quote=False">
+				                            <span class="CommonReplyButton">Reply</span>
+			                            </a>
+                                            </div>				                            
+		                                
+    
+    
+				                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>	
+                    
+				    <div class="ForumPostArea" style="margin-top: 0px; background-color: white">
+					    <table id="tbl2" cellspacing="0" cellpadding="0" border="0" width="100%">
+						    <tr valign=top>
+							    <td rowspan="2" class="ForumPostUserArea">
+								    <div class="ForumPostUserContent">
+								    <ul class="ForumPostUserPropertyList">
+									    <li class="ForumPostUserAvatar"><img src="http://i1.asp.net/avatar/iturune.jpg?forceidenticon=False&amp;dt=634041588000000000&amp;cdn_id=01112010_2" alt="" style="border-width:0px;" /></li>
+								        <li class="ForumPostUserAttribute">
+									        <div class="reputation-user-level"><img alt="Member" src="http://i3.asp.net/asp.net/images/rs/level-Member.gif?cdn_id=01112010_2"/></div>
+									        <div class="reputation-user-points">45 point <b>Member</b></div>
+        								</li>
+									    <li class="ForumPostUserName">
+									        
+									                
+									            
+									        <a href="/members/iturune.aspx">iturune</a>
+									    </li>
+									    
+								                <li class="ForumPostUserAttribute">Member since 10-06-2009, 10:18 AM</li>
+								                <li class="ForumPostUserAttribute">Copenhagen, Denmark</li>
+								                <li class="ForumPostUserAttribute">Posts <a href="/search/SearchResults.aspx?q=userid%3a895357&amp;o=DateDescending">171</a></li>
+								                
+                                                
+                                            
+								    </ul>
+								    </div>
+							    </td>
+							    <td class="ForumPostContentArea">
+    							    <table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" style="table-layout: fixed;">
+									    <tr>
+									        <td>
+									            <div class="ForumPostBodyArea">
+									                <div class="ForumPostContentText">
+										                <p>Hi Aquaren</p>
+<p>Thank you for your respons, so the TreeNodePopulate event handler should be placed in the Page_Load method of the MasterPage?</p>
+<p>Hm... as I wrote in my initial post my TreeView is connected to a Web.sitemap. When I look at the properties for the TreeView I don&#39;t see any PopulateOnDemand attribute. When I look in the MasterPage.master file I only see the TreeView and no nodes, because I guess the TreeView is kind of databound to the Web.sitemap.</p>
+										                <span class="ForumPostContentScrollbarCorrector"></span>
+										                
+            									    </div>
+			            						    <div class="ForumPostSignature">Regards<br /><br />Rune</div>
+						        			    </div>
+									        </td>
+									    </tr>
+								    </table>
+							    </td>
+						    </tr>
+						    <tr valign="bottom">
+							    <td class="ForumPostFooterArea">	
+								    <div><span id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl04_ctl07_ctl01"></span><input type="hidden" name="ctl00$ctl00$bcr$bcr$ctl00$PostList$ctl04$ctl07$ctl01" id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl04_ctl07_ctl01_State" value="nochange" /></div>
+								    <ul class="ForumPostStatistics CommonPrintHidden" style="clear: both;">
+								        <li></li>
+								        
+									    
+									    
+									    
+								    </ul>
+							    </td>
+						    </tr>
+					    </table>
+				    </div>
+			    </li>
+            
+			    <li>
+			        <a name="3558244"></a>
+			        <div class="ForumPostHeader">
+                        <div class="ForumPostHeaderRight"></div>
+                        <h2> Re: C# TreeView How to Programmatically change the Text displayed by TreeViewNodes?</h2><div style="clear: both" />                     
+                        <table width="100%" class="ForumPostHeaderAction" cellpadding="5" cellspacing="0">
+                            <tr>
+                                <td width="20%" style="padding-left: 8px;" valign="top" nowrap="nowrap">
+                                    12-10-2009, 8:34 AM                                
+        						    
+                                    
+                                </td>
+                                
+                                <td width="80%" align="right" valign="middle">
+
+                                    
+                                    
+                                    
+                                    
+				                                                        
+                                
+				                    
+			                                <div style="float: right; height: 27px; padding-right:5px  ">        
+			                            <a class="CommonImageTextButton" onclick="return window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01_ClientPopulatedPopupMenu.LoadMenu(this,event,['902471','Aquaren','0','1','','http://zendeveloper.blogspot.com/','','/search/SearchResults.aspx?q=userid%3a902471&amp;o=DateDescending'],null);" href="#"><span class="CommonContactButton">Contact</span></a>
+                                            </div>				                            
+			                            
+                                                                
+                                    
+				                                                        
+			                        
+                                
+ 
+			                       
+
+				                    
+
+                                                                    
+                                    
+		                                    <div style="float: right; height: 27px;  padding-right:5px ">        
+		                                <a class="CommonImageTextButton" href="/AddPost.aspx?ReplyToPostID=3558244&amp;Quote=False">
+				                            <span class="CommonReplyButton">Reply</span>
+			                            </a>
+                                            </div>				                            
+		                                
+    
+    
+				                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>	
+                    
+				    <div class="ForumPostArea" style="margin-top: 0px; background-color: white">
+					    <table id="tbl3" cellspacing="0" cellpadding="0" border="0" width="100%">
+						    <tr valign=top>
+							    <td rowspan="2" class="ForumPostUserArea">
+								    <div class="ForumPostUserContent">
+								    <ul class="ForumPostUserPropertyList">
+									    <li class="ForumPostUserAvatar"><img src="http://i1.asp.net/avatar/Aquaren.jpg?forceidenticon=True&amp;dt=634041588000000000&amp;cdn_id=01112010_2" alt="" style="border-width:0px;" /></li>
+								        <li class="ForumPostUserAttribute">
+									        <div class="reputation-user-level"><img alt="Participant" src="http://i3.asp.net/asp.net/images/rs/level-Participant.gif?cdn_id=01112010_2"/></div>
+									        <div class="reputation-user-points">1,910 point <b>Participant</b></div>
+        								</li>
+									    <li class="ForumPostUserName">
+									        
+									                
+									            
+									        <a href="/members/Aquaren.aspx">Aquaren</a>
+									    </li>
+									    
+								                <li class="ForumPostUserAttribute">Member since 11-21-2009, 12:37 PM</li>
+								                
+								                <li class="ForumPostUserAttribute">Posts <a href="/search/SearchResults.aspx?q=userid%3a902471&amp;o=DateDescending">356</a></li>
+								                
+                                                
+                                            
+								    </ul>
+								    </div>
+							    </td>
+							    <td class="ForumPostContentArea">
+    							    <table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" style="table-layout: fixed;">
+									    <tr>
+									        <td>
+									            <div class="ForumPostBodyArea">
+									                <div class="ForumPostContentText">
+										                <p>TreeNodePopulate (or OnTreeNodePopulate)&nbsp;is not a property of the tree view, it is an event fired by the tree view.</p>
+										                <span class="ForumPostContentScrollbarCorrector"></span>
+										                
+            									    </div>
+			            						    <div class="ForumPostSignature">Explore <a href="http://zendeveloper.blogspot.com/" target="_blank">Zen Coding</a></div>
+						        			    </div>
+									        </td>
+									    </tr>
+								    </table>
+							    </td>
+						    </tr>
+						    <tr valign="bottom">
+							    <td class="ForumPostFooterArea">	
+								    <div><span id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl05_ctl07_ctl01"></span><input type="hidden" name="ctl00$ctl00$bcr$bcr$ctl00$PostList$ctl05$ctl07$ctl01" id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl05_ctl07_ctl01_State" value="nochange" /></div>
+								    <ul class="ForumPostStatistics CommonPrintHidden" style="clear: both;">
+								        <li></li>
+								        
+									    
+									    
+									    
+								    </ul>
+							    </td>
+						    </tr>
+					    </table>
+				    </div>
+			    </li>
+            
+			    <li>
+			        <a name="3558246"></a>
+			        <div class="ForumPostHeader">
+                        <div class="ForumPostHeaderRight"></div>
+                        <h2> Re: C# TreeView How to Programmatically change the Text displayed by TreeViewNodes?</h2><div style="clear: both" />                     
+                        <table width="100%" class="ForumPostHeaderAction" cellpadding="5" cellspacing="0">
+                            <tr>
+                                <td width="20%" style="padding-left: 8px;" valign="top" nowrap="nowrap">
+                                    12-10-2009, 8:34 AM                                
+        						    
+                                    
+                                </td>
+                                
+                                <td width="80%" align="right" valign="middle">
+
+                                    
+                                    
+                                    
+                                    
+				                                                        
+                                
+				                    
+			                                <div style="float: right; height: 27px; padding-right:5px  ">        
+			                            <a class="CommonImageTextButton" onclick="return window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01_ClientPopulatedPopupMenu.LoadMenu(this,event,['877001','anooj','0','1','','','','/search/SearchResults.aspx?q=userid%3a877001&amp;o=DateDescending'],null);" href="#"><span class="CommonContactButton">Contact</span></a>
+                                            </div>				                            
+			                            
+                                                                
+                                    
+				                                                        
+			                        
+		                                    <div style="float: right; height: 27px;  padding-right:5px ">        
+		                                
+		                                    <span class="CommonAnsweredButton" style="">Answer</span>
+		                                
+                                            </div>				                            
+	                                    
+                                
+ 
+			                       
+
+				                    
+
+                                                                    
+                                    
+		                                    <div style="float: right; height: 27px;  padding-right:5px ">        
+		                                <a class="CommonImageTextButton" href="/AddPost.aspx?ReplyToPostID=3558246&amp;Quote=False">
+				                            <span class="CommonReplyButton">Reply</span>
+			                            </a>
+                                            </div>				                            
+		                                
+    
+    
+				                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>	
+                    
+				    <div class="ForumPostArea" style="margin-top: 0px; background-color: white">
+					    <table id="tbl4" cellspacing="0" cellpadding="0" border="0" width="100%">
+						    <tr valign=top>
+							    <td rowspan="2" class="ForumPostUserArea">
+								    <div class="ForumPostUserContent">
+								    <ul class="ForumPostUserPropertyList">
+									    <li class="ForumPostUserAvatar"><img src="http://i1.asp.net/avatar/anooj.jpg?forceidenticon=True&amp;dt=634041588000000000&amp;cdn_id=01112010_2" alt="" style="border-width:0px;" /></li>
+								        <li class="ForumPostUserAttribute">
+									        <div class="reputation-user-level"><img alt="Participant" src="http://i3.asp.net/asp.net/images/rs/level-Participant.gif?cdn_id=01112010_2"/></div>
+									        <div class="reputation-user-points">1,734 point <b>Participant</b></div>
+        								</li>
+									    <li class="ForumPostUserName">
+									        
+									                
+									            
+									        <a href="/members/anooj.aspx">anooj</a>
+									    </li>
+									    
+								                <li class="ForumPostUserAttribute">Member since 06-23-2009, 10:04 AM</li>
+								                
+								                <li class="ForumPostUserAttribute">Posts <a href="/search/SearchResults.aspx?q=userid%3a877001&amp;o=DateDescending">368</a></li>
+								                
+                                                
+                                            
+								    </ul>
+								    </div>
+							    </td>
+							    <td class="ForumPostContentArea">
+    							    <table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" style="table-layout: fixed;">
+									    <tr>
+									        <td>
+									            <div class="ForumPostBodyArea">
+									                <div class="ForumPostContentText">
+										                <p>Hi,</p>
+<p>You have to React to Treeview&#39;s&nbsp;&nbsp;TreeNodeDataBound Event.</p>
+<p><strong><span style="COLOR:blue;">&lt;</span><font color="#0000ff">asp:TreeView OnTreeNodeDataBound=&quot;Data_Bound&quot; <span style="COLOR:blue;">/&gt;</span></font></strong></p>
+<p><font color="#0000ff"><span style="COLOR:blue;"><strong>This will be called when a data item is bound to a node in the&nbsp;TreeView control.</strong></span></font></p>
+<p><font color="#0000ff"><span style="COLOR:blue;"><strong>Then in that Event,you can check your condition,and change the NodeText.</strong></span></font></p>
+<p><font color="#0000ff"><b><span style="COLOR:blue;"><pre class="c-sharp" name="code">void Data_Bound(Object sender, TreeNodeEventArgs e)
+  {
+
+ 
+    if(e.Node.Text == &quot;Chapter 2&quot;)
+    {
+      e.Node.Text=&quot;Custom&quot;;
+    }
+
+  }
+</pre>
+<p>Also refer :-</p></p>
+<p><a href="http://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.treeview.treenodedatabound.aspx">http://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.treeview.treenodedatabound.aspx</a></p>
+<p>I hope this helps...</p>
+<p>Enjoy..<br /></p></span></b></font>
+<p>&nbsp;</p>
+<p><font color="#0000ff"><b><span style="COLOR:blue;"></span></b></font>&nbsp;</p>
+										                <span class="ForumPostContentScrollbarCorrector"></span>
+										                
+            									    </div>
+			            						    
+						        			    </div>
+									        </td>
+									    </tr>
+								    </table>
+							    </td>
+						    </tr>
+						    <tr valign="bottom">
+							    <td class="ForumPostFooterArea">	
+								    <div><span id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl06_ctl07_ctl01"></span><input type="hidden" name="ctl00$ctl00$bcr$bcr$ctl00$PostList$ctl06$ctl07$ctl01" id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl06_ctl07_ctl01_State" value="nochange" /></div>
+								    <ul class="ForumPostStatistics CommonPrintHidden" style="clear: both;">
+								        <li></li>
+								        
+									    
+									    
+									    
+								    </ul>
+							    </td>
+						    </tr>
+					    </table>
+				    </div>
+			    </li>
+            
+			    <li>
+			        <a name="3558262"></a>
+			        <div class="ForumPostHeader">
+                        <div class="ForumPostHeaderRight"></div>
+                        <h2> Re: C# TreeView How to Programmatically change the Text displayed by TreeViewNodes?</h2><div style="clear: both" />                     
+                        <table width="100%" class="ForumPostHeaderAction" cellpadding="5" cellspacing="0">
+                            <tr>
+                                <td width="20%" style="padding-left: 8px;" valign="top" nowrap="nowrap">
+                                    12-10-2009, 8:44 AM                                
+        						    
+                                    
+                                </td>
+                                
+                                <td width="80%" align="right" valign="middle">
+
+                                    
+                                    
+                                    
+                                    
+				                                                        
+                                
+				                    
+			                                <div style="float: right; height: 27px; padding-right:5px  ">        
+			                            <a class="CommonImageTextButton" onclick="return window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01_ClientPopulatedPopupMenu.LoadMenu(this,event,['895357','iturune','0','1','','','','/search/SearchResults.aspx?q=userid%3a895357&amp;o=DateDescending'],null);" href="#"><span class="CommonContactButton">Contact</span></a>
+                                            </div>				                            
+			                            
+                                                                
+                                    
+				                                                        
+			                        
+                                
+ 
+			                       
+
+				                    
+
+                                                                    
+                                    
+		                                    <div style="float: right; height: 27px;  padding-right:5px ">        
+		                                <a class="CommonImageTextButton" href="/AddPost.aspx?ReplyToPostID=3558262&amp;Quote=False">
+				                            <span class="CommonReplyButton">Reply</span>
+			                            </a>
+                                            </div>				                            
+		                                
+    
+    
+				                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>	
+                    
+				    <div class="ForumPostArea" style="margin-top: 0px; background-color: white">
+					    <table id="tbl5" cellspacing="0" cellpadding="0" border="0" width="100%">
+						    <tr valign=top>
+							    <td rowspan="2" class="ForumPostUserArea">
+								    <div class="ForumPostUserContent">
+								    <ul class="ForumPostUserPropertyList">
+									    <li class="ForumPostUserAvatar"><img src="http://i1.asp.net/avatar/iturune.jpg?forceidenticon=False&amp;dt=634041588000000000&amp;cdn_id=01112010_2" alt="" style="border-width:0px;" /></li>
+								        <li class="ForumPostUserAttribute">
+									        <div class="reputation-user-level"><img alt="Member" src="http://i3.asp.net/asp.net/images/rs/level-Member.gif?cdn_id=01112010_2"/></div>
+									        <div class="reputation-user-points">45 point <b>Member</b></div>
+        								</li>
+									    <li class="ForumPostUserName">
+									        
+									                
+									            
+									        <a href="/members/iturune.aspx">iturune</a>
+									    </li>
+									    
+								                <li class="ForumPostUserAttribute">Member since 10-06-2009, 10:18 AM</li>
+								                <li class="ForumPostUserAttribute">Copenhagen, Denmark</li>
+								                <li class="ForumPostUserAttribute">Posts <a href="/search/SearchResults.aspx?q=userid%3a895357&amp;o=DateDescending">171</a></li>
+								                
+                                                
+                                            
+								    </ul>
+								    </div>
+							    </td>
+							    <td class="ForumPostContentArea">
+    							    <table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" style="table-layout: fixed;">
+									    <tr>
+									        <td>
+									            <div class="ForumPostBodyArea">
+									                <div class="ForumPostContentText">
+										                <p>Hi Anooj</p>
+<p>So where should I place that Data_Bound method? In the MasterPage.master.cs?&nbsp;</p>
+										                <span class="ForumPostContentScrollbarCorrector"></span>
+										                
+            									    </div>
+			            						    <div class="ForumPostSignature">Regards<br /><br />Rune</div>
+						        			    </div>
+									        </td>
+									    </tr>
+								    </table>
+							    </td>
+						    </tr>
+						    <tr valign="bottom">
+							    <td class="ForumPostFooterArea">	
+								    <div><span id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl07_ctl07_ctl01"></span><input type="hidden" name="ctl00$ctl00$bcr$bcr$ctl00$PostList$ctl07$ctl07$ctl01" id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl07_ctl07_ctl01_State" value="nochange" /></div>
+								    <ul class="ForumPostStatistics CommonPrintHidden" style="clear: both;">
+								        <li></li>
+								        
+									    
+									    
+									    
+								    </ul>
+							    </td>
+						    </tr>
+					    </table>
+				    </div>
+			    </li>
+            
+			    <li>
+			        <a name="3558266"></a>
+			        <div class="ForumPostHeader">
+                        <div class="ForumPostHeaderRight"></div>
+                        <h2> Re: C# TreeView How to Programmatically change the Text displayed by TreeViewNodes?</h2><div style="clear: both" />                     
+                        <table width="100%" class="ForumPostHeaderAction" cellpadding="5" cellspacing="0">
+                            <tr>
+                                <td width="20%" style="padding-left: 8px;" valign="top" nowrap="nowrap">
+                                    12-10-2009, 8:49 AM                                
+        						    
+                                    
+                                </td>
+                                
+                                <td width="80%" align="right" valign="middle">
+
+                                    
+                                    
+                                    
+                                    
+				                                                        
+                                
+				                    
+			                                <div style="float: right; height: 27px; padding-right:5px  ">        
+			                            <a class="CommonImageTextButton" onclick="return window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01_ClientPopulatedPopupMenu.LoadMenu(this,event,['895357','iturune','0','1','','','','/search/SearchResults.aspx?q=userid%3a895357&amp;o=DateDescending'],null);" href="#"><span class="CommonContactButton">Contact</span></a>
+                                            </div>				                            
+			                            
+                                                                
+                                    
+				                                                        
+			                        
+                                
+ 
+			                       
+
+				                    
+
+                                                                    
+                                    
+		                                    <div style="float: right; height: 27px;  padding-right:5px ">        
+		                                <a class="CommonImageTextButton" href="/AddPost.aspx?ReplyToPostID=3558266&amp;Quote=False">
+				                            <span class="CommonReplyButton">Reply</span>
+			                            </a>
+                                            </div>				                            
+		                                
+    
+    
+				                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>	
+                    
+				    <div class="ForumPostArea" style="margin-top: 0px; background-color: white">
+					    <table id="tbl6" cellspacing="0" cellpadding="0" border="0" width="100%">
+						    <tr valign=top>
+							    <td rowspan="2" class="ForumPostUserArea">
+								    <div class="ForumPostUserContent">
+								    <ul class="ForumPostUserPropertyList">
+									    <li class="ForumPostUserAvatar"><img src="http://i1.asp.net/avatar/iturune.jpg?forceidenticon=False&amp;dt=634041588000000000&amp;cdn_id=01112010_2" alt="" style="border-width:0px;" /></li>
+								        <li class="ForumPostUserAttribute">
+									        <div class="reputation-user-level"><img alt="Member" src="http://i3.asp.net/asp.net/images/rs/level-Member.gif?cdn_id=01112010_2"/></div>
+									        <div class="reputation-user-points">45 point <b>Member</b></div>
+        								</li>
+									    <li class="ForumPostUserName">
+									        
+									                
+									            
+									        <a href="/members/iturune.aspx">iturune</a>
+									    </li>
+									    
+								                <li class="ForumPostUserAttribute">Member since 10-06-2009, 10:18 AM</li>
+								                <li class="ForumPostUserAttribute">Copenhagen, Denmark</li>
+								                <li class="ForumPostUserAttribute">Posts <a href="/search/SearchResults.aspx?q=userid%3a895357&amp;o=DateDescending">171</a></li>
+								                
+                                                
+                                            
+								    </ul>
+								    </div>
+							    </td>
+							    <td class="ForumPostContentArea">
+    							    <table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" style="table-layout: fixed;">
+									    <tr>
+									        <td>
+									            <div class="ForumPostBodyArea">
+									                <div class="ForumPostContentText">
+										                <p>Hi Aquaren</p>
+<p>So where do I set PopulateOnDemand=true?</p>
+<p>The TreeNodePopulate event handler should be placed in the MasterPage.master.cs file?&nbsp;</p>
+										                <span class="ForumPostContentScrollbarCorrector"></span>
+										                
+            									    </div>
+			            						    <div class="ForumPostSignature">Regards<br /><br />Rune</div>
+						        			    </div>
+									        </td>
+									    </tr>
+								    </table>
+							    </td>
+						    </tr>
+						    <tr valign="bottom">
+							    <td class="ForumPostFooterArea">	
+								    <div><span id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl08_ctl07_ctl01"></span><input type="hidden" name="ctl00$ctl00$bcr$bcr$ctl00$PostList$ctl08$ctl07$ctl01" id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl08_ctl07_ctl01_State" value="nochange" /></div>
+								    <ul class="ForumPostStatistics CommonPrintHidden" style="clear: both;">
+								        <li></li>
+								        
+									    
+									    
+									    
+								    </ul>
+							    </td>
+						    </tr>
+					    </table>
+				    </div>
+			    </li>
+            
+			    <li>
+			        <a name="3558681"></a>
+			        <div class="ForumPostHeader">
+                        <div class="ForumPostHeaderRight"></div>
+                        <h2> Re: C# TreeView How to Programmatically change the Text displayed by TreeViewNodes?</h2><div style="clear: both" />                     
+                        <table width="100%" class="ForumPostHeaderAction" cellpadding="5" cellspacing="0">
+                            <tr>
+                                <td width="20%" style="padding-left: 8px;" valign="top" nowrap="nowrap">
+                                    12-10-2009, 12:48 PM                                
+        						    
+                                    
+                                </td>
+                                
+                                <td width="80%" align="right" valign="middle">
+
+                                    
+                                    
+                                    
+                                    
+				                                                        
+                                
+				                    
+			                                <div style="float: right; height: 27px; padding-right:5px  ">        
+			                            <a class="CommonImageTextButton" onclick="return window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01_ClientPopulatedPopupMenu.LoadMenu(this,event,['902471','Aquaren','0','1','','http://zendeveloper.blogspot.com/','','/search/SearchResults.aspx?q=userid%3a902471&amp;o=DateDescending'],null);" href="#"><span class="CommonContactButton">Contact</span></a>
+                                            </div>				                            
+			                            
+                                                                
+                                    
+				                                                        
+			                        
+                                
+ 
+			                       
+
+				                    
+
+                                                                    
+                                    
+		                                    <div style="float: right; height: 27px;  padding-right:5px ">        
+		                                <a class="CommonImageTextButton" href="/AddPost.aspx?ReplyToPostID=3558681&amp;Quote=False">
+				                            <span class="CommonReplyButton">Reply</span>
+			                            </a>
+                                            </div>				                            
+		                                
+    
+    
+				                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>	
+                    
+				    <div class="ForumPostArea" style="margin-top: 0px; background-color: white">
+					    <table id="tbl7" cellspacing="0" cellpadding="0" border="0" width="100%">
+						    <tr valign=top>
+							    <td rowspan="2" class="ForumPostUserArea">
+								    <div class="ForumPostUserContent">
+								    <ul class="ForumPostUserPropertyList">
+									    <li class="ForumPostUserAvatar"><img src="http://i1.asp.net/avatar/Aquaren.jpg?forceidenticon=True&amp;dt=634041588000000000&amp;cdn_id=01112010_2" alt="" style="border-width:0px;" /></li>
+								        <li class="ForumPostUserAttribute">
+									        <div class="reputation-user-level"><img alt="Participant" src="http://i3.asp.net/asp.net/images/rs/level-Participant.gif?cdn_id=01112010_2"/></div>
+									        <div class="reputation-user-points">1,910 point <b>Participant</b></div>
+        								</li>
+									    <li class="ForumPostUserName">
+									        
+									                
+									            
+									        <a href="/members/Aquaren.aspx">Aquaren</a>
+									    </li>
+									    
+								                <li class="ForumPostUserAttribute">Member since 11-21-2009, 12:37 PM</li>
+								                
+								                <li class="ForumPostUserAttribute">Posts <a href="/search/SearchResults.aspx?q=userid%3a902471&amp;o=DateDescending">356</a></li>
+								                
+                                                
+                                            
+								    </ul>
+								    </div>
+							    </td>
+							    <td class="ForumPostContentArea">
+    							    <table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" style="table-layout: fixed;">
+									    <tr>
+									        <td>
+									            <div class="ForumPostBodyArea">
+									                <div class="ForumPostContentText">
+										                <p>PopulateOnDemand is a property of the TreeView control so you can either set it in the markup</p><p>&lt;asp:TreeViiew ID=&quot;TreeView1&quot; runat=&quot;server&quot; PopulateOnDemand = &quot;true&quot;...</p><p>or in the Page_Load event of your master page</p><p>TreeView1.PopulateOnDemand = true</p><p><BLOCKQUOTE><div><img src="/Themes/fan/images/icon-quote.gif"> <strong>iturune:</strong></div><div>The TreeNodePopulate event handler should be placed in the MasterPage.master.cs file?&nbsp;</div></BLOCKQUOTE></p><p>yes</p>
+										                <span class="ForumPostContentScrollbarCorrector"></span>
+										                
+            									    </div>
+			            						    <div class="ForumPostSignature">Explore <a href="http://zendeveloper.blogspot.com/" target="_blank">Zen Coding</a></div>
+						        			    </div>
+									        </td>
+									    </tr>
+								    </table>
+							    </td>
+						    </tr>
+						    <tr valign="bottom">
+							    <td class="ForumPostFooterArea">	
+								    <div><span id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl09_ctl07_ctl01"></span><input type="hidden" name="ctl00$ctl00$bcr$bcr$ctl00$PostList$ctl09$ctl07$ctl01" id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl09_ctl07_ctl01_State" value="nochange" /></div>
+								    <ul class="ForumPostStatistics CommonPrintHidden" style="clear: both;">
+								        <li></li>
+								        
+									    
+									    
+									    
+								    </ul>
+							    </td>
+						    </tr>
+					    </table>
+				    </div>
+			    </li>
+            
+			    <li>
+			        <a name="3560106"></a>
+			        <div class="ForumPostHeader">
+                        <div class="ForumPostHeaderRight"></div>
+                        <h2> PopulateOnDemand is not in intellisense</h2><div style="clear: both" />                     
+                        <table width="100%" class="ForumPostHeaderAction" cellpadding="5" cellspacing="0">
+                            <tr>
+                                <td width="20%" style="padding-left: 8px;" valign="top" nowrap="nowrap">
+                                    12-11-2009, 7:10 AM                                
+        						    
+                                    
+                                </td>
+                                
+                                <td width="80%" align="right" valign="middle">
+
+                                    
+                                    
+                                    
+                                    
+				                                                        
+                                
+				                    
+			                                <div style="float: right; height: 27px; padding-right:5px  ">        
+			                            <a class="CommonImageTextButton" onclick="return window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01_ClientPopulatedPopupMenu.LoadMenu(this,event,['895357','iturune','0','1','','','','/search/SearchResults.aspx?q=userid%3a895357&amp;o=DateDescending'],null);" href="#"><span class="CommonContactButton">Contact</span></a>
+                                            </div>				                            
+			                            
+                                                                
+                                    
+				                                                        
+			                        
+                                
+ 
+			                       
+
+				                    
+
+                                                                    
+                                    
+		                                    <div style="float: right; height: 27px;  padding-right:5px ">        
+		                                <a class="CommonImageTextButton" href="/AddPost.aspx?ReplyToPostID=3560106&amp;Quote=False">
+				                            <span class="CommonReplyButton">Reply</span>
+			                            </a>
+                                            </div>				                            
+		                                
+    
+    
+				                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>	
+                    
+				    <div class="ForumPostArea" style="margin-top: 0px; background-color: white">
+					    <table id="tbl8" cellspacing="0" cellpadding="0" border="0" width="100%">
+						    <tr valign=top>
+							    <td rowspan="2" class="ForumPostUserArea">
+								    <div class="ForumPostUserContent">
+								    <ul class="ForumPostUserPropertyList">
+									    <li class="ForumPostUserAvatar"><img src="http://i1.asp.net/avatar/iturune.jpg?forceidenticon=False&amp;dt=634041588000000000&amp;cdn_id=01112010_2" alt="" style="border-width:0px;" /></li>
+								        <li class="ForumPostUserAttribute">
+									        <div class="reputation-user-level"><img alt="Member" src="http://i3.asp.net/asp.net/images/rs/level-Member.gif?cdn_id=01112010_2"/></div>
+									        <div class="reputation-user-points">45 point <b>Member</b></div>
+        								</li>
+									    <li class="ForumPostUserName">
+									        
+									                
+									            
+									        <a href="/members/iturune.aspx">iturune</a>
+									    </li>
+									    
+								                <li class="ForumPostUserAttribute">Member since 10-06-2009, 10:18 AM</li>
+								                <li class="ForumPostUserAttribute">Copenhagen, Denmark</li>
+								                <li class="ForumPostUserAttribute">Posts <a href="/search/SearchResults.aspx?q=userid%3a895357&amp;o=DateDescending">171</a></li>
+								                
+                                                
+                                            
+								    </ul>
+								    </div>
+							    </td>
+							    <td class="ForumPostContentArea">
+    							    <table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" style="table-layout: fixed;">
+									    <tr>
+									        <td>
+									            <div class="ForumPostBodyArea">
+									                <div class="ForumPostContentText">
+										                <p>Hi Aquaren</p>
+<p>Thank you for your respons.</p>
+<p>But PopulateOnDemand does not exist in intellisense for my TreeView. I tried to write:</p><pre class="c-sharp" name="code">protected void Page_Load(object sender, EventArgs e)
+{
+        TreeView masterTreeView = (TreeView)masterLoginView.FindControl(&quot;masterTreeView&quot;);
+        masterTreeView.PopulateNodesFromClient = true;
+}</pre>
+<p>But I got the error: &quot;NullReferenceException was unhandled by user code&quot; Object reference not set to an instance of an object.&nbsp;</p>
+										                <span class="ForumPostContentScrollbarCorrector"></span>
+										                
+            									    </div>
+			            						    <div class="ForumPostSignature">Regards<br /><br />Rune</div>
+						        			    </div>
+									        </td>
+									    </tr>
+								    </table>
+							    </td>
+						    </tr>
+						    <tr valign="bottom">
+							    <td class="ForumPostFooterArea">	
+								    <div><span id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl10_ctl07_ctl01"></span><input type="hidden" name="ctl00$ctl00$bcr$bcr$ctl00$PostList$ctl10$ctl07$ctl01" id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl10_ctl07_ctl01_State" value="nochange" /></div>
+								    <ul class="ForumPostStatistics CommonPrintHidden" style="clear: both;">
+								        <li></li>
+								        
+									    
+									    
+									    
+								    </ul>
+							    </td>
+						    </tr>
+					    </table>
+				    </div>
+			    </li>
+            
+			    <li>
+			        <a name="3560172"></a>
+			        <div class="ForumPostHeader">
+                        <div class="ForumPostHeaderRight"></div>
+                        <h2> Re: PopulateOnDemand is not in intellisense</h2><div style="clear: both" />                     
+                        <table width="100%" class="ForumPostHeaderAction" cellpadding="5" cellspacing="0">
+                            <tr>
+                                <td width="20%" style="padding-left: 8px;" valign="top" nowrap="nowrap">
+                                    12-11-2009, 7:50 AM                                
+        						    
+                                    
+                                </td>
+                                
+                                <td width="80%" align="right" valign="middle">
+
+                                    
+                                    
+                                    
+                                    
+				                                                        
+                                
+				                    
+			                                <div style="float: right; height: 27px; padding-right:5px  ">        
+			                            <a class="CommonImageTextButton" onclick="return window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01_ClientPopulatedPopupMenu.LoadMenu(this,event,['902471','Aquaren','0','1','','http://zendeveloper.blogspot.com/','','/search/SearchResults.aspx?q=userid%3a902471&amp;o=DateDescending'],null);" href="#"><span class="CommonContactButton">Contact</span></a>
+                                            </div>				                            
+			                            
+                                                                
+                                    
+				                                                        
+			                        
+                                
+ 
+			                       
+
+				                    
+
+                                                                    
+                                    
+		                                    <div style="float: right; height: 27px;  padding-right:5px ">        
+		                                <a class="CommonImageTextButton" href="/AddPost.aspx?ReplyToPostID=3560172&amp;Quote=False">
+				                            <span class="CommonReplyButton">Reply</span>
+			                            </a>
+                                            </div>				                            
+		                                
+    
+    
+				                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>	
+                    
+				    <div class="ForumPostArea" style="margin-top: 0px; background-color: white">
+					    <table id="tbl9" cellspacing="0" cellpadding="0" border="0" width="100%">
+						    <tr valign=top>
+							    <td rowspan="2" class="ForumPostUserArea">
+								    <div class="ForumPostUserContent">
+								    <ul class="ForumPostUserPropertyList">
+									    <li class="ForumPostUserAvatar"><img src="http://i1.asp.net/avatar/Aquaren.jpg?forceidenticon=True&amp;dt=634041588000000000&amp;cdn_id=01112010_2" alt="" style="border-width:0px;" /></li>
+								        <li class="ForumPostUserAttribute">
+									        <div class="reputation-user-level"><img alt="Participant" src="http://i3.asp.net/asp.net/images/rs/level-Participant.gif?cdn_id=01112010_2"/></div>
+									        <div class="reputation-user-points">1,910 point <b>Participant</b></div>
+        								</li>
+									    <li class="ForumPostUserName">
+									        
+									                
+									            
+									        <a href="/members/Aquaren.aspx">Aquaren</a>
+									    </li>
+									    
+								                <li class="ForumPostUserAttribute">Member since 11-21-2009, 12:37 PM</li>
+								                
+								                <li class="ForumPostUserAttribute">Posts <a href="/search/SearchResults.aspx?q=userid%3a902471&amp;o=DateDescending">356</a></li>
+								                
+                                                
+                                            
+								    </ul>
+								    </div>
+							    </td>
+							    <td class="ForumPostContentArea">
+    							    <table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" style="table-layout: fixed;">
+									    <tr>
+									        <td>
+									            <div class="ForumPostBodyArea">
+									                <div class="ForumPostContentText">
+										                <p>If you are getting a NullReferenceException, that is probably because the masterLoginView.FindControl method cannot find the treeview you are looking for. </p><p>Check to see if masterTreeView is null:</p><pre name="code" class="c-sharp">protected void Page_Load(object sender, EventArgs e)  
+{  
+        TreeView masterTreeView = (TreeView)masterLoginView.FindControl(&quot;masterTreeView&quot;);  
+        if (masterTreeView != null)
+            masterTreeView.PopulateNodesFromClient = true;  
+}</pre><p>This will determine if the problem is with your masterLoginView or not.<br /><br /></p><p><br /></p>
+										                <span class="ForumPostContentScrollbarCorrector"></span>
+										                
+            									    </div>
+			            						    <div class="ForumPostSignature">Explore <a href="http://zendeveloper.blogspot.com/" target="_blank">Zen Coding</a></div>
+						        			    </div>
+									        </td>
+									    </tr>
+								    </table>
+							    </td>
+						    </tr>
+						    <tr valign="bottom">
+							    <td class="ForumPostFooterArea">	
+								    <div><span id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl11_ctl07_ctl01"></span><input type="hidden" name="ctl00$ctl00$bcr$bcr$ctl00$PostList$ctl11$ctl07$ctl01" id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl11_ctl07_ctl01_State" value="nochange" /></div>
+								    <ul class="ForumPostStatistics CommonPrintHidden" style="clear: both;">
+								        <li></li>
+								        
+									    
+									    
+									    
+								    </ul>
+							    </td>
+						    </tr>
+					    </table>
+				    </div>
+			    </li>
+            
+			    <li>
+			        <a name="3560193"></a>
+			        <div class="ForumPostHeader">
+                        <div class="ForumPostHeaderRight"></div>
+                        <h2> Re: PopulateOnDemand is not in intellisense</h2><div style="clear: both" />                     
+                        <table width="100%" class="ForumPostHeaderAction" cellpadding="5" cellspacing="0">
+                            <tr>
+                                <td width="20%" style="padding-left: 8px;" valign="top" nowrap="nowrap">
+                                    12-11-2009, 8:04 AM                                
+        						    
+                                    
+                                </td>
+                                
+                                <td width="80%" align="right" valign="middle">
+
+                                    
+                                    
+                                    
+                                    
+				                                                        
+                                
+				                    
+			                                <div style="float: right; height: 27px; padding-right:5px  ">        
+			                            <a class="CommonImageTextButton" onclick="return window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01_ClientPopulatedPopupMenu.LoadMenu(this,event,['895357','iturune','0','1','','','','/search/SearchResults.aspx?q=userid%3a895357&amp;o=DateDescending'],null);" href="#"><span class="CommonContactButton">Contact</span></a>
+                                            </div>				                            
+			                            
+                                                                
+                                    
+				                                                        
+			                        
+                                
+ 
+			                       
+
+				                    
+
+                                                                    
+                                    
+		                                    <div style="float: right; height: 27px;  padding-right:5px ">        
+		                                <a class="CommonImageTextButton" href="/AddPost.aspx?ReplyToPostID=3560193&amp;Quote=False">
+				                            <span class="CommonReplyButton">Reply</span>
+			                            </a>
+                                            </div>				                            
+		                                
+    
+    
+				                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>	
+                    
+				    <div class="ForumPostArea" style="margin-top: 0px; background-color: white">
+					    <table id="tbl10" cellspacing="0" cellpadding="0" border="0" width="100%">
+						    <tr valign=top>
+							    <td rowspan="2" class="ForumPostUserArea">
+								    <div class="ForumPostUserContent">
+								    <ul class="ForumPostUserPropertyList">
+									    <li class="ForumPostUserAvatar"><img src="http://i1.asp.net/avatar/iturune.jpg?forceidenticon=False&amp;dt=634041588000000000&amp;cdn_id=01112010_2" alt="" style="border-width:0px;" /></li>
+								        <li class="ForumPostUserAttribute">
+									        <div class="reputation-user-level"><img alt="Member" src="http://i3.asp.net/asp.net/images/rs/level-Member.gif?cdn_id=01112010_2"/></div>
+									        <div class="reputation-user-points">45 point <b>Member</b></div>
+        								</li>
+									    <li class="ForumPostUserName">
+									        
+									                
+									            
+									        <a href="/members/iturune.aspx">iturune</a>
+									    </li>
+									    
+								                <li class="ForumPostUserAttribute">Member since 10-06-2009, 10:18 AM</li>
+								                <li class="ForumPostUserAttribute">Copenhagen, Denmark</li>
+								                <li class="ForumPostUserAttribute">Posts <a href="/search/SearchResults.aspx?q=userid%3a895357&amp;o=DateDescending">171</a></li>
+								                
+                                                
+                                            
+								    </ul>
+								    </div>
+							    </td>
+							    <td class="ForumPostContentArea">
+    							    <table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" style="table-layout: fixed;">
+									    <tr>
+									        <td>
+									            <div class="ForumPostBodyArea">
+									                <div class="ForumPostContentText">
+										                <p>Hi Aquaren</p>
+<p>I now tried to write:</p><pre class="c-sharp" name="code">protected void Page_Load(object sender, EventArgs e)
+{
+        //TreeView masterTreeView = (TreeView)masterLoginView.FindControl(&quot;masterTreeView&quot;);
+        //masterTreeView.PopulateNodesFromClient = true;
+
+
+        TreeView masterTreeView = (TreeView)masterLoginView.FindControl(&quot;masterTreeView&quot;);
+        if (masterTreeView != null)
+            masterTreeView.PopulateNodesFromClient = true;
+}
+
+protected void masterTreeView_TreeNodePopulate(object sender, TreeNodeEventArgs e)
+    {
+        if (e.Node.Text == &quot;Messages Inbox&quot;)
+        {
+            e.Node.Text = &quot;hi&quot;; </pre><pre class="c-sharp" name="code">        }
+    }</pre>
+<p>The thing run with no errors, but simply nothing happens.<br />&nbsp;</p>
+										                <span class="ForumPostContentScrollbarCorrector"></span>
+										                
+            									    </div>
+			            						    <div class="ForumPostSignature">Regards<br /><br />Rune</div>
+						        			    </div>
+									        </td>
+									    </tr>
+								    </table>
+							    </td>
+						    </tr>
+						    <tr valign="bottom">
+							    <td class="ForumPostFooterArea">	
+								    <div><span id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl12_ctl07_ctl01"></span><input type="hidden" name="ctl00$ctl00$bcr$bcr$ctl00$PostList$ctl12$ctl07$ctl01" id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl12_ctl07_ctl01_State" value="nochange" /></div>
+								    <ul class="ForumPostStatistics CommonPrintHidden" style="clear: both;">
+								        <li></li>
+								        
+									    
+									    
+									    
+								    </ul>
+							    </td>
+						    </tr>
+					    </table>
+				    </div>
+			    </li>
+            
+			    <li>
+			        <a name="3560195"></a>
+			        <div class="ForumPostHeader">
+                        <div class="ForumPostHeaderRight"></div>
+                        <h2> Re: C# TreeView How to Programmatically change the Text displayed by TreeViewNodes?</h2><div style="clear: both" />                     
+                        <table width="100%" class="ForumPostHeaderAction" cellpadding="5" cellspacing="0">
+                            <tr>
+                                <td width="20%" style="padding-left: 8px;" valign="top" nowrap="nowrap">
+                                    12-11-2009, 8:04 AM                                
+        						    
+                                    
+                                </td>
+                                
+                                <td width="80%" align="right" valign="middle">
+
+                                    
+                                    
+                                    
+                                    
+				                                                        
+                                
+				                    
+			                                <div style="float: right; height: 27px; padding-right:5px  ">        
+			                            <a class="CommonImageTextButton" onclick="return window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01_ClientPopulatedPopupMenu.LoadMenu(this,event,['877001','anooj','0','1','','','','/search/SearchResults.aspx?q=userid%3a877001&amp;o=DateDescending'],null);" href="#"><span class="CommonContactButton">Contact</span></a>
+                                            </div>				                            
+			                            
+                                                                
+                                    
+				                                                        
+			                        
+		                                    <div style="float: right; height: 27px;  padding-right:5px ">        
+		                                
+		                                    <span class="CommonAnsweredButton" style="">Answer</span>
+		                                
+                                            </div>				                            
+	                                    
+                                
+ 
+			                       
+
+				                    
+
+                                                                    
+                                    
+		                                    <div style="float: right; height: 27px;  padding-right:5px ">        
+		                                <a class="CommonImageTextButton" href="/AddPost.aspx?ReplyToPostID=3560195&amp;Quote=False">
+				                            <span class="CommonReplyButton">Reply</span>
+			                            </a>
+                                            </div>				                            
+		                                
+    
+    
+				                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>	
+                    
+				    <div class="ForumPostArea" style="margin-top: 0px; background-color: white">
+					    <table id="tbl11" cellspacing="0" cellpadding="0" border="0" width="100%">
+						    <tr valign=top>
+							    <td rowspan="2" class="ForumPostUserArea">
+								    <div class="ForumPostUserContent">
+								    <ul class="ForumPostUserPropertyList">
+									    <li class="ForumPostUserAvatar"><img src="http://i1.asp.net/avatar/anooj.jpg?forceidenticon=True&amp;dt=634041588000000000&amp;cdn_id=01112010_2" alt="" style="border-width:0px;" /></li>
+								        <li class="ForumPostUserAttribute">
+									        <div class="reputation-user-level"><img alt="Participant" src="http://i3.asp.net/asp.net/images/rs/level-Participant.gif?cdn_id=01112010_2"/></div>
+									        <div class="reputation-user-points">1,734 point <b>Participant</b></div>
+        								</li>
+									    <li class="ForumPostUserName">
+									        
+									                
+									            
+									        <a href="/members/anooj.aspx">anooj</a>
+									    </li>
+									    
+								                <li class="ForumPostUserAttribute">Member since 06-23-2009, 10:04 AM</li>
+								                
+								                <li class="ForumPostUserAttribute">Posts <a href="/search/SearchResults.aspx?q=userid%3a877001&amp;o=DateDescending">368</a></li>
+								                
+                                                
+                                            
+								    </ul>
+								    </div>
+							    </td>
+							    <td class="ForumPostContentArea">
+    							    <table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" style="table-layout: fixed;">
+									    <tr>
+									        <td>
+									            <div class="ForumPostBodyArea">
+									                <div class="ForumPostContentText">
+										                <p>Ya,if the TreeView is in Master Page ,you should have Data_Bound event in Master&nbsp;Page.&nbsp;</p>
+										                <span class="ForumPostContentScrollbarCorrector"></span>
+										                
+            									    </div>
+			            						    
+						        			    </div>
+									        </td>
+									    </tr>
+								    </table>
+							    </td>
+						    </tr>
+						    <tr valign="bottom">
+							    <td class="ForumPostFooterArea">	
+								    <div><span id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl13_ctl07_ctl01"></span><input type="hidden" name="ctl00$ctl00$bcr$bcr$ctl00$PostList$ctl13$ctl07$ctl01" id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl13_ctl07_ctl01_State" value="nochange" /></div>
+								    <ul class="ForumPostStatistics CommonPrintHidden" style="clear: both;">
+								        <li></li>
+								        
+									    
+									    
+									    
+								    </ul>
+							    </td>
+						    </tr>
+					    </table>
+				    </div>
+			    </li>
+            
+			    <li>
+			        <a name="3560200"></a>
+			        <div class="ForumPostHeader">
+                        <div class="ForumPostHeaderRight"></div>
+                        <h2> Re: PopulateOnDemand is not in intellisense</h2><div style="clear: both" />                     
+                        <table width="100%" class="ForumPostHeaderAction" cellpadding="5" cellspacing="0">
+                            <tr>
+                                <td width="20%" style="padding-left: 8px;" valign="top" nowrap="nowrap">
+                                    12-11-2009, 8:06 AM                                
+        						    
+                                    
+                                </td>
+                                
+                                <td width="80%" align="right" valign="middle">
+
+                                    
+                                    
+                                    
+                                    
+				                                                        
+                                
+				                    
+			                                <div style="float: right; height: 27px; padding-right:5px  ">        
+			                            <a class="CommonImageTextButton" onclick="return window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01_ClientPopulatedPopupMenu.LoadMenu(this,event,['902471','Aquaren','0','1','','http://zendeveloper.blogspot.com/','','/search/SearchResults.aspx?q=userid%3a902471&amp;o=DateDescending'],null);" href="#"><span class="CommonContactButton">Contact</span></a>
+                                            </div>				                            
+			                            
+                                                                
+                                    
+				                                                        
+			                        
+                                
+ 
+			                       
+
+				                    
+
+                                                                    
+                                    
+		                                    <div style="float: right; height: 27px;  padding-right:5px ">        
+		                                <a class="CommonImageTextButton" href="/AddPost.aspx?ReplyToPostID=3560200&amp;Quote=False">
+				                            <span class="CommonReplyButton">Reply</span>
+			                            </a>
+                                            </div>				                            
+		                                
+    
+    
+				                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>	
+                    
+				    <div class="ForumPostArea" style="margin-top: 0px; background-color: white">
+					    <table id="tbl12" cellspacing="0" cellpadding="0" border="0" width="100%">
+						    <tr valign=top>
+							    <td rowspan="2" class="ForumPostUserArea">
+								    <div class="ForumPostUserContent">
+								    <ul class="ForumPostUserPropertyList">
+									    <li class="ForumPostUserAvatar"><img src="http://i1.asp.net/avatar/Aquaren.jpg?forceidenticon=True&amp;dt=634041588000000000&amp;cdn_id=01112010_2" alt="" style="border-width:0px;" /></li>
+								        <li class="ForumPostUserAttribute">
+									        <div class="reputation-user-level"><img alt="Participant" src="http://i3.asp.net/asp.net/images/rs/level-Participant.gif?cdn_id=01112010_2"/></div>
+									        <div class="reputation-user-points">1,910 point <b>Participant</b></div>
+        								</li>
+									    <li class="ForumPostUserName">
+									        
+									                
+									            
+									        <a href="/members/Aquaren.aspx">Aquaren</a>
+									    </li>
+									    
+								                <li class="ForumPostUserAttribute">Member since 11-21-2009, 12:37 PM</li>
+								                
+								                <li class="ForumPostUserAttribute">Posts <a href="/search/SearchResults.aspx?q=userid%3a902471&amp;o=DateDescending">356</a></li>
+								                
+                                                
+                                            
+								    </ul>
+								    </div>
+							    </td>
+							    <td class="ForumPostContentArea">
+    							    <table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" style="table-layout: fixed;">
+									    <tr>
+									        <td>
+									            <div class="ForumPostBodyArea">
+									                <div class="ForumPostContentText">
+										                <p>Is the masterTreeView variable null?</p>
+										                <span class="ForumPostContentScrollbarCorrector"></span>
+										                
+            									    </div>
+			            						    <div class="ForumPostSignature">Explore <a href="http://zendeveloper.blogspot.com/" target="_blank">Zen Coding</a></div>
+						        			    </div>
+									        </td>
+									    </tr>
+								    </table>
+							    </td>
+						    </tr>
+						    <tr valign="bottom">
+							    <td class="ForumPostFooterArea">	
+								    <div><span id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl14_ctl07_ctl01"></span><input type="hidden" name="ctl00$ctl00$bcr$bcr$ctl00$PostList$ctl14$ctl07$ctl01" id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl14_ctl07_ctl01_State" value="nochange" /></div>
+								    <ul class="ForumPostStatistics CommonPrintHidden" style="clear: both;">
+								        <li></li>
+								        
+									    
+									    
+									    
+								    </ul>
+							    </td>
+						    </tr>
+					    </table>
+				    </div>
+			    </li>
+            
+			    <li>
+			        <a name="3560212"></a>
+			        <div class="ForumPostHeader">
+                        <div class="ForumPostHeaderRight"></div>
+                        <h2> Re: PopulateOnDemand is not in intellisense</h2><div style="clear: both" />                     
+                        <table width="100%" class="ForumPostHeaderAction" cellpadding="5" cellspacing="0">
+                            <tr>
+                                <td width="20%" style="padding-left: 8px;" valign="top" nowrap="nowrap">
+                                    12-11-2009, 8:15 AM                                
+        						    
+                                    
+                                </td>
+                                
+                                <td width="80%" align="right" valign="middle">
+
+                                    
+                                    
+                                    
+                                    
+				                                                        
+                                
+				                    
+			                                <div style="float: right; height: 27px; padding-right:5px  ">        
+			                            <a class="CommonImageTextButton" onclick="return window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01_ClientPopulatedPopupMenu.LoadMenu(this,event,['895357','iturune','0','1','','','','/search/SearchResults.aspx?q=userid%3a895357&amp;o=DateDescending'],null);" href="#"><span class="CommonContactButton">Contact</span></a>
+                                            </div>				                            
+			                            
+                                                                
+                                    
+				                                                        
+			                        
+                                
+ 
+			                       
+
+				                    
+
+                                                                    
+                                    
+		                                    <div style="float: right; height: 27px;  padding-right:5px ">        
+		                                <a class="CommonImageTextButton" href="/AddPost.aspx?ReplyToPostID=3560212&amp;Quote=False">
+				                            <span class="CommonReplyButton">Reply</span>
+			                            </a>
+                                            </div>				                            
+		                                
+    
+    
+				                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>	
+                    
+				    <div class="ForumPostArea" style="margin-top: 0px; background-color: white">
+					    <table id="tbl13" cellspacing="0" cellpadding="0" border="0" width="100%">
+						    <tr valign=top>
+							    <td rowspan="2" class="ForumPostUserArea">
+								    <div class="ForumPostUserContent">
+								    <ul class="ForumPostUserPropertyList">
+									    <li class="ForumPostUserAvatar"><img src="http://i1.asp.net/avatar/iturune.jpg?forceidenticon=False&amp;dt=634041588000000000&amp;cdn_id=01112010_2" alt="" style="border-width:0px;" /></li>
+								        <li class="ForumPostUserAttribute">
+									        <div class="reputation-user-level"><img alt="Member" src="http://i3.asp.net/asp.net/images/rs/level-Member.gif?cdn_id=01112010_2"/></div>
+									        <div class="reputation-user-points">45 point <b>Member</b></div>
+        								</li>
+									    <li class="ForumPostUserName">
+									        
+									                
+									            
+									        <a href="/members/iturune.aspx">iturune</a>
+									    </li>
+									    
+								                <li class="ForumPostUserAttribute">Member since 10-06-2009, 10:18 AM</li>
+								                <li class="ForumPostUserAttribute">Copenhagen, Denmark</li>
+								                <li class="ForumPostUserAttribute">Posts <a href="/search/SearchResults.aspx?q=userid%3a895357&amp;o=DateDescending">171</a></li>
+								                
+                                                
+                                            
+								    </ul>
+								    </div>
+							    </td>
+							    <td class="ForumPostContentArea">
+    							    <table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" style="table-layout: fixed;">
+									    <tr>
+									        <td>
+									            <div class="ForumPostBodyArea">
+									                <div class="ForumPostContentText">
+										                <p>Yes I think that the problem is getting in touch with the TreeView,&nbsp;maybe it&#39;s to do with that it is placed in a LoginView. My initial post shows the anatomy of my MasterPage.&nbsp;</p>
+										                <span class="ForumPostContentScrollbarCorrector"></span>
+										                
+            									    </div>
+			            						    <div class="ForumPostSignature">Regards<br /><br />Rune</div>
+						        			    </div>
+									        </td>
+									    </tr>
+								    </table>
+							    </td>
+						    </tr>
+						    <tr valign="bottom">
+							    <td class="ForumPostFooterArea">	
+								    <div><span id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl15_ctl07_ctl01"></span><input type="hidden" name="ctl00$ctl00$bcr$bcr$ctl00$PostList$ctl15$ctl07$ctl01" id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl15_ctl07_ctl01_State" value="nochange" /></div>
+								    <ul class="ForumPostStatistics CommonPrintHidden" style="clear: both;">
+								        <li></li>
+								        
+									    
+									    
+									    
+								    </ul>
+							    </td>
+						    </tr>
+					    </table>
+				    </div>
+			    </li>
+            
+			    <li>
+			        <a name="3560215"></a>
+			        <div class="ForumPostHeader">
+                        <div class="ForumPostHeaderRight"></div>
+                        <h2> Re: PopulateOnDemand is not in intellisense</h2><div style="clear: both" />                     
+                        <table width="100%" class="ForumPostHeaderAction" cellpadding="5" cellspacing="0">
+                            <tr>
+                                <td width="20%" style="padding-left: 8px;" valign="top" nowrap="nowrap">
+                                    12-11-2009, 8:19 AM                                
+        						    
+                                    
+                                </td>
+                                
+                                <td width="80%" align="right" valign="middle">
+
+                                    
+                                    
+                                    
+                                    
+				                                                        
+                                
+				                    
+			                                <div style="float: right; height: 27px; padding-right:5px  ">        
+			                            <a class="CommonImageTextButton" onclick="return window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01_ClientPopulatedPopupMenu.LoadMenu(this,event,['895357','iturune','0','1','','','','/search/SearchResults.aspx?q=userid%3a895357&amp;o=DateDescending'],null);" href="#"><span class="CommonContactButton">Contact</span></a>
+                                            </div>				                            
+			                            
+                                                                
+                                    
+				                                                        
+			                        
+                                
+ 
+			                       
+
+				                    
+
+                                                                    
+                                    
+		                                    <div style="float: right; height: 27px;  padding-right:5px ">        
+		                                <a class="CommonImageTextButton" href="/AddPost.aspx?ReplyToPostID=3560215&amp;Quote=False">
+				                            <span class="CommonReplyButton">Reply</span>
+			                            </a>
+                                            </div>				                            
+		                                
+    
+    
+				                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>	
+                    
+				    <div class="ForumPostArea" style="margin-top: 0px; background-color: white">
+					    <table id="tbl14" cellspacing="0" cellpadding="0" border="0" width="100%">
+						    <tr valign=top>
+							    <td rowspan="2" class="ForumPostUserArea">
+								    <div class="ForumPostUserContent">
+								    <ul class="ForumPostUserPropertyList">
+									    <li class="ForumPostUserAvatar"><img src="http://i1.asp.net/avatar/iturune.jpg?forceidenticon=False&amp;dt=634041588000000000&amp;cdn_id=01112010_2" alt="" style="border-width:0px;" /></li>
+								        <li class="ForumPostUserAttribute">
+									        <div class="reputation-user-level"><img alt="Member" src="http://i3.asp.net/asp.net/images/rs/level-Member.gif?cdn_id=01112010_2"/></div>
+									        <div class="reputation-user-points">45 point <b>Member</b></div>
+        								</li>
+									    <li class="ForumPostUserName">
+									        
+									                
+									            
+									        <a href="/members/iturune.aspx">iturune</a>
+									    </li>
+									    
+								                <li class="ForumPostUserAttribute">Member since 10-06-2009, 10:18 AM</li>
+								                <li class="ForumPostUserAttribute">Copenhagen, Denmark</li>
+								                <li class="ForumPostUserAttribute">Posts <a href="/search/SearchResults.aspx?q=userid%3a895357&amp;o=DateDescending">171</a></li>
+								                
+                                                
+                                            
+								    </ul>
+								    </div>
+							    </td>
+							    <td class="ForumPostContentArea">
+    							    <table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" style="table-layout: fixed;">
+									    <tr>
+									        <td>
+									            <div class="ForumPostBodyArea">
+									                <div class="ForumPostContentText">
+										                <p>Ah Sorry here you can see my MasterPage:</p><pre class="c-sharp" name="code">&lt;%@ Master Language=&quot;C#&quot; AutoEventWireup=&quot;true&quot; CodeFile=&quot;MasterPage.master.cs&quot; Inherits=&quot;MasterPage&quot; %&gt;
+
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+&lt;head runat=&quot;server&quot;&gt;
+    &lt;title&gt;Untitled Page&lt;/title&gt;
+    &lt;link href=&quot;Styles/StyleSheet.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;form id=&quot;form1&quot; runat=&quot;server&quot;&gt;
+    &lt;table border=&quot;0&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; style=&quot;width: 100%; height: 100%&quot;&gt;
+        &lt;tr&gt;
+            &lt;td valign=&quot;top&quot; colspan=&quot;1&quot; style=&quot;height: 80px;&quot; class=&quot;headerLeft&quot;&gt;
+                &lt;h1&gt;
+                    EBUBOO&lt;/h1&gt;
+            &lt;/td&gt;
+            &lt;td valign=&quot;middle&quot; colspan=&quot;2&quot; style=&quot;height: 80px;&quot;&gt;
+                &lt;h2&gt;
+                    &lt;asp:Label ID=&quot;messageLabel&quot; runat=&quot;server&quot; Text=&quot;&quot;&gt;&lt;/asp:Label&gt;&lt;/h2&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td style=&quot;width: 110px; height: 430px;&quot; valign=&quot;top&quot; align=&quot;left&quot;&gt;
+                &lt;asp:LoginView ID=&quot;masterLoginView&quot; runat=&quot;server&quot;&gt;
+                    &lt;LoggedInTemplate&gt;
+                        &lt;table width=&quot;110&quot;&gt;
+                            &lt;tr&gt;
+                                &lt;td&gt;
+                                    &lt;asp:LoginName ID=&quot;masterLoginName&quot; runat=&quot;server&quot; FormatString=&quot;Welcome {0}&quot; /&gt;
+                                &lt;/td&gt;
+                            &lt;/tr&gt;
+                            &lt;tr&gt;
+                                &lt;td&gt;
+                                    &lt;asp:LoginStatus ID=&quot;loggedInMasterLoginStatus&quot; runat=&quot;server&quot; LogoutPageUrl=&quot;Login.aspx&quot;
+                                        LogoutAction=&quot;RedirectToLoginPage&quot; /&gt;
+                                        &lt;asp:Label ID=&quot;messageLabel2&quot; runat=&quot;server&quot; Text=&quot;&quot;&gt;&lt;/asp:Label&gt;
+                                &lt;/td&gt;
+                            &lt;/tr&gt;
+                        &lt;/table&gt;
+                        &lt;asp:TreeView ID=&quot;masterTreeView&quot; runat=&quot;server&quot; DataSourceID=&quot;SiteMapDataSource1&quot;
+                            NodeIndent=&quot;0&quot;&gt;
+                        &lt;/asp:TreeView&gt;
+                        &lt;asp:SiteMapDataSource ID=&quot;SiteMapDataSource1&quot; runat=&quot;server&quot; /&gt;
+                        &lt;table&gt;
+                            &lt;tr&gt;
+                                &lt;td&gt;
+                                    &lt;b&gt;
+                                        &lt;asp:Label ID=&quot;newMessageLabel&quot; runat=&quot;server&quot; Text=&quot;&quot;&gt;&lt;/asp:Label&gt;&lt;/b&gt;
+                                &lt;/td&gt;
+                            &lt;/tr&gt;
+                            &lt;tr&gt;
+                                &lt;td&gt;
+                                    &lt;b&gt;
+                                        &lt;asp:Label ID=&quot;newFriendRequestLabel&quot; runat=&quot;server&quot; Text=&quot;&quot;&gt;&lt;/asp:Label&gt;&lt;/b&gt;
+                                &lt;/td&gt;
+                            &lt;/tr&gt;
+                        &lt;/table&gt;
+                    &lt;/LoggedInTemplate&gt;
+                    &lt;AnonymousTemplate&gt;
+                        &lt;table&gt;
+                            &lt;tr&gt;
+                                &lt;td&gt;
+                                    &lt;asp:HyperLink ID=&quot;RegisterHyperLink&quot; runat=&quot;server&quot; NavigateUrl=&quot;~/AccountInfo.aspx&quot;&gt;Register&lt;/asp:HyperLink&gt;
+                                &lt;/td&gt;
+                            &lt;/tr&gt;
+                            &lt;tr&gt;
+                                &lt;td&gt;
+                                    &lt;asp:HyperLink ID=&quot;SearchHyperLink&quot; runat=&quot;server&quot; NavigateUrl=&quot;~/Search.aspx&quot;&gt;Search&lt;/asp:HyperLink&gt;
+                                &lt;/td&gt;
+                            &lt;/tr&gt;
+                            &lt;tr&gt;
+                                &lt;td&gt;
+                                    &lt;asp:HyperLink ID=&quot;lostPasswordHyperLink&quot; runat=&quot;server&quot; NavigateUrl=&quot;~/LostPassword.aspx&quot;&gt;Lost Password&lt;/asp:HyperLink&gt;
+                                &lt;/td&gt;
+                            &lt;/tr&gt;
+                            &lt;tr&gt;
+                                &lt;td&gt;
+                                    &lt;asp:LoginStatus ID=&quot;anonymousMasterLoginStatus&quot; runat=&quot;server&quot; LogoutPageUrl=&quot;Login.aspx&quot;
+                                        LogoutAction=&quot;RedirectToLoginPage&quot; /&gt;
+                                &lt;/td&gt;
+                            &lt;/tr&gt;
+                        &lt;/table&gt;
+                    &lt;/AnonymousTemplate&gt;
+                &lt;/asp:LoginView&gt;
+            &lt;/td&gt;
+            &lt;td valign=&quot;top&quot; align=&quot;left&quot;&gt;
+                &lt;asp:ContentPlaceHolder ID=&quot;MainContentPlaceHolder&quot; runat=&quot;server&quot;&gt;
+                &lt;/asp:ContentPlaceHolder&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td valign=&quot;top&quot; colspan=&quot;3&quot; style=&quot;height: 30px;&quot;&gt;
+                &lt;hr /&gt;
+                &lt;center&gt;
+                    EBUBOO 2009 info@ebuboo.dk&lt;/center&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/table&gt;
+    &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p><br />&nbsp;</p>
+										                <span class="ForumPostContentScrollbarCorrector"></span>
+										                
+            									    </div>
+			            						    <div class="ForumPostSignature">Regards<br /><br />Rune</div>
+						        			    </div>
+									        </td>
+									    </tr>
+								    </table>
+							    </td>
+						    </tr>
+						    <tr valign="bottom">
+							    <td class="ForumPostFooterArea">	
+								    <div><span id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl16_ctl07_ctl01"></span><input type="hidden" name="ctl00$ctl00$bcr$bcr$ctl00$PostList$ctl16$ctl07$ctl01" id="ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl16_ctl07_ctl01_State" value="nochange" /></div>
+								    <ul class="ForumPostStatistics CommonPrintHidden" style="clear: both;">
+								        <li></li>
+								        
+									    
+									    
+									    
+								    </ul>
+							    </td>
+						    </tr>
+					    </table>
+				    </div>
+			    </li>
+            
+		        </ul>
+		    
+        
+        <table cellpadding="0" cellspacing="0" width="100%" border="0">
+		    <tr>
+			    <td valign="top" align="left">
+			    </td>	
+			    <td valign="top">
+				    
+                     <div class="CommonPagingArea" align="right">Page 1 of 2 (20 items) 1 <a href="/t/1502231.aspx?PageIndex=2">2</a>&nbsp;<a href="/t/1502231.aspx?PageIndex=2">Next ></a></div>
+			    </td> 
+		    </tr>
+	    </table>
+        
+               
+        
+                <div class="CommonFeedArea" align="right">
+            <a class="rssplain" href="/rss.aspx?ForumID=139&amp;PostID=3556526"><img src="/utility/images/feedicon.png" alt="" style="border-width:0px;" /> RSS Available</a>
+                </div>
+            						
+	
+	</div>
+
+</div>
+
+<link rel="stylesheet" href="http://i1.asp.net/common/forums-css/SyntaxHighlighter.css?cdn_id=01112010_2" media="all" type="text/css" />     
+<script language="javascript" src="/script.ashx?resource=js-shCombined"></script>
+
+
+
+
+
+                        </div>
+		            </div>
+		        </div>
+		        
+		        <div class="advertisement">
+		            
+
+
+
+
+    <div class="adRegionSelector" align="center" style="padding-top:5px;padding-bottom:5px;" adurl="http://forums.asp.net/a/CSFeaturedAd.ashx?ZoneID=388" adwidth="728" adheight="90">
+    </div>
+
+
+
+
+		        </div>
+
+		        <div style="clear:both;"><!-- clear --></div>
+		        <div style="clear:both;"><!-- clear --></div>
+                    
+                
+                <div class="footer_container">
+                    <div class="footer_content">
+                    <p class="footer_links">
+                        <a href="http://www.asp.net/feedback/">Contact</a> | 
+                        <a href="http://www.neudesicmediagroup.com/Advertising.aspx">Advertise</a> | 
+                        
+                        <a href="http://www.axosoft.com">Issue Management by Axosoft's OnTime</a> | 
+                        <a href="http://www.iis.net/">Running IIS7</a><br />
+                        All Rights Reserved. | 
+                        <a href="http://www.asp.net/Terms-Of-Use">Terms of Use</a> | 
+                        <a href="http://www.microsoft.com/library/toolbar/3.0/trademarks/en-us.mspx">Trademarks</a> | 
+                        <a href="http://www.asp.net/privacy/">Privacy Statement</a><br />
+                        &copy; 2010 Microsoft Corporation.
+                    </p>
+                    <ul class="footer_site_logos">
+                        <li class="footer_site_logos"><a href="http://www.asp.net/"  class="footer_site_logos logo-footer-asp" ></a></li>
+                        <li class="footer_site_logos"><a href="http://www.silverlight.net/"  class="footer_site_logos logo-footer-silverlight" ></a></li>
+                        <li class="footer_site_logos"><a href="http://channel9.msdn.com/"  class="footer_site_logos logo-footer-ch9" ></a></li>
+                        <li class="footer_site_logos"><a href="http://edge.technet.com/"  class="footer_site_logos logo-footer-technet" ></a></li>
+                        <li class="footer_site_logos"><a href="http://www.iis.net/"  class="footer_site_logos logo-footer-iis" ></a></li>
+                        <li class="footer_site_logos"><a href="http://visitmix.com/"  class="footer_site_logos logo-footer-mix" ></a></li>
+                        <li class="footer_site_logos"><a href="http://msdn.microsoft.com/"  class="footer_site_logos logo-footer-msdn" ></a></li>           
+                        <li class="footer_site_logos"><a href="http://windowsclient.net/"  class="footer_site_logos logo-footer-wc" ></a></li>                    
+                    </ul>
+                  </div>
+                </div>
+            </div>
+            
+            
+            <script type="text/javascript">try { $(document).ready(function() { ShowAds(); }); } catch (ex) { } </script>
+            
+            <script type="text/javascript" src="http://i1.asp.net/script/omniture/omniture_all.js?cdn_id=01112010_2"></script>
+            <noscript><a href="http://www.omniture.com" title="Web Analytics"><img
+            src="http://msstonojsaspnet.112.2O7.net/b/ss/msstonojsaspnet/1/H.20.2--NS/0"
+            height="1" width="1" border="0" alt="" /></a></noscript>
+            
+            
+		
+<script type="text/javascript">
+// <![CDATA[
+Telligent_Modal.Configure('/utility/loading.htm',['CommonModal','CommonModal1','CommonModal2','CommonModal3','CommonModal4','CommonModal5'],['CommonModalTitle'],['CommonModalClose'],['CommonModalContent'],['CommonModalFooter'],['CommonModalResize'],['CommonModalMask'],100);
+// ]]>
+</script><script type="text/javascript">
+<!--
+function KeyDownHandlerctl00_ctl00_bhcr_SearchForm1_ctl00_TitleBarSearchButton(event)
+{
+	if (event.keyCode == 13)
+	{
+		event.returnValue = false;
+		event.cancel = true;
+     __doPostBack('ctl00$ctl00$bhcr$SearchForm1$ctl00$TitleBarSearchButton','')
+   return false;
+	}
+}
+
+//-->
+</script>
+<script type="text/javascript">
+// <![CDATA[
+window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01_ClientPopulatedPopupMenu = new ClientPopulatedPopupMenu('ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01_ClientPopulatedPopupMenu','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01','CommonImageTextButton','CommonImageTextButtonHighlight',[[new Function('parms', 'return parms[4];'),'View {1}\'s home page','/Themes/fan/images/common/homepage.gif','{4}','_blank',null],[new Function('parms', 'return parms[5];'),'View {1}\'s weblog','/Themes/fan/images/common/weblog.gif','{5}','_blank',null],[new Function('parms', 'return parms[6];'),'View {1}\'s gallery','/Themes/fan/images/common/webgallery.gif','{6}','_blank',null],[new Function('parms', 'return true;'),'View {1}\'s profile','/Themes/fan/images/common/profile.gif','/user/Profile.aspx?UserID={0}',null,null],[new Function('parms', 'return true;'),'Find posts by {1}','/Themes/fan/images/common/search.gif','{7}',null,null]]);
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl01 = new Telligent_InlineEditorPanel('ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl01_State','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl00',false,null,null,null);
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl03_ctl07_ctl01 = new Telligent_InlineEditorPanel('ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl03_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl03_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl03_ctl07_ctl01_State','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl00',false,null,null,null);
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl04_ctl07_ctl01 = new Telligent_InlineEditorPanel('ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl04_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl04_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl04_ctl07_ctl01_State','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl00',false,null,null,null);
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl05_ctl07_ctl01 = new Telligent_InlineEditorPanel('ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl05_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl05_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl05_ctl07_ctl01_State','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl00',false,null,null,null);
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl06_ctl07_ctl01 = new Telligent_InlineEditorPanel('ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl06_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl06_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl06_ctl07_ctl01_State','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl00',false,null,null,null);
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl07_ctl07_ctl01 = new Telligent_InlineEditorPanel('ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl07_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl07_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl07_ctl07_ctl01_State','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl00',false,null,null,null);
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl08_ctl07_ctl01 = new Telligent_InlineEditorPanel('ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl08_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl08_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl08_ctl07_ctl01_State','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl00',false,null,null,null);
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl09_ctl07_ctl01 = new Telligent_InlineEditorPanel('ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl09_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl09_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl09_ctl07_ctl01_State','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl00',false,null,null,null);
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl10_ctl07_ctl01 = new Telligent_InlineEditorPanel('ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl10_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl10_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl10_ctl07_ctl01_State','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl00',false,null,null,null);
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl11_ctl07_ctl01 = new Telligent_InlineEditorPanel('ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl11_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl11_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl11_ctl07_ctl01_State','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl00',false,null,null,null);
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl12_ctl07_ctl01 = new Telligent_InlineEditorPanel('ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl12_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl12_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl12_ctl07_ctl01_State','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl00',false,null,null,null);
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl13_ctl07_ctl01 = new Telligent_InlineEditorPanel('ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl13_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl13_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl13_ctl07_ctl01_State','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl00',false,null,null,null);
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl14_ctl07_ctl01 = new Telligent_InlineEditorPanel('ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl14_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl14_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl14_ctl07_ctl01_State','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl00',false,null,null,null);
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl15_ctl07_ctl01 = new Telligent_InlineEditorPanel('ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl15_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl15_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl15_ctl07_ctl01_State','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl00',false,null,null,null);
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl16_ctl07_ctl01 = new Telligent_InlineEditorPanel('ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl16_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl16_ctl07_ctl01','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl16_ctl07_ctl01_State','ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_ctl07_ctl00',false,null,null,null);
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01 = new Telligent_PopupMenu('ctl00_ctl00_bcr_bcr_ctl00_PostList_ctl02_UserContactPopupMenu1_ctl01','CommonContextMenuGroup','CommonContextMenuItem','CommonContextMenuItemHover','CommonContextMenuItemExpanded','',0,0,20,14,'updown',0,null,null,null,[],false);
+// ]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+Sys.Application.initialize();
+//]]>
+</script>
+</form>
+		
+		
+	</body>
+</html>

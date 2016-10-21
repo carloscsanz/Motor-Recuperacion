@@ -1,0 +1,1016 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head> 
+<link type="text/css" rel="StyleSheet" href="http://www.bigresource.com/css/style.css" />
+<meta content="text/html; charset=windows-1252" http-equiv="Content-Type" />
+<meta name="audience" content="all" />
+<meta name="medium" content="www" />
+<meta name="classification" content="Reference" />
+<meta name="distribution" content="Global" />
+<meta name="robots" content="INDEX,FOLLOW,ALL" />
+	<title>ASP :: Get Username From HTTP Header</title>
+</head>
+
+<body>
+<table width="875" border="0" align="center" cellpadding="0" cellspacing="0">
+
+  <tr>
+    <td height="90" colspan="3">
+<!--Logo-->
+<table border="0" width="100%" height="85">
+
+    <tr>
+      <td width="40%" height="85"><img border="0" src="http://www.bigresource.com/images/logo.jpg" alt="Tracking Forums, Newsgroups, Maling Lists"></td>
+      <td width="60%" height="85">
+      
+
+<!-- ValueClick Media 468x60 Banner v1.4 for bigresource.com -->
+<script language="Javascript"><!--
+var i=j=p=t=u=x=z=dc='';var id=f=0;var f=Math.floor(Math.random()*7777);
+id=50094; dc=document;u='ht'+'tp://media.fastclick.net/w'; x='/get.media?t=n';
+z=' width=468 height=60 border=0 ';t=z+'marginheight=0 marginwidth=';
+i=u+x+'&sid='+id+'&m=1&tp=1&f=b&v=1.4&c='+f+'&r='+escape(dc.referrer);
+u='<a  hr'+'ef="'+u+'/click.here?sid='+id+'&m=1&c='+f+'"  target="_blank">';
+dc.writeln('<ifr'+'ame src="'+i+'&d=f"'+t+'0 hspace=0 vspace=0 frameborder=0 scrolling=no>');
+if(navigator.appName.indexOf('Mic')<=0){dc.writeln(u+'<img src="'+i+'&d=n"'+z+'></a>');}
+dc.writeln('</iframe>'); // --></script><noscript>
+<a href="http://media.fastclick.net/w/click.here?sid=50094&m=1&c=1"  target="_blank">
+<img src="http://media.fastclick.net/w/get.media?sid=50094&m=1&tp=1&d=s&c=1&f=b&v=1.4"
+width=468 height=60 border=1></a></noscript>
+<!-- ValueClick Media 468x60 Banner v1.4 for bigresource.com -->      </td>
+    </tr>
+  </table>
+<!--End Logo-->
+
+</td>
+  </tr>
+  <tr>
+    <td height="25" colspan="3">
+     <a href="http://www.bigresource.com" class="Menu">Home</a>
+    <a href="http://www.bigresource.com/scripts/" class="Menu">Scripts</a>
+    <a href="http://www.bigresource.com/tutorials/" class="Menu">Tutorials</a>
+    <a href="http://www.bigresource.com/tracker.html" class="Menu2">Tracker</a>
+    <a href="http://www.bigresource.com/forums/" class="Menu">Forums</a>
+    
+    </td>
+  </tr>
+  <tr>
+    <td width="10"><img src="http://www.bigresource.com/images/left.jpg" width="10" height="61" /></td>
+    <td width="855" valign="top" background="http://www.bigresource.com/images/bg-hd.jpg">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+
+      <tr>
+        <td height="27" colspan="3" align="center">
+        
+        <!--Menu Text-->
+        <script src="http://www.bigresource.com/js/menu_text/tracker.js"></script>
+        <!--End Menu Text-->
+        
+        </td>
+        </tr>
+      <tr>
+<!--Search Form -->
+        <form action="http://www.google.com/cse" id="cse-search-box">
+        <td width="200" height="33">&nbsp;</td>
+        <td width=250 align="right">
+    <input type="hidden" name="cx" value="008153531842497818697:yxghdvx-uji" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input style="width:250px;" type="text" name="q" size="50" />
+
+	</td>
+        <td align=left><input type="submit" name="sa" class="submit" value="Search" />
+<a class="as" href="http://www.bigresource.com/search.html">Advanced Search</a>
+</td>
+      </form>  
+      <script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=cse-search-box&lang=en"></script>
+<!--End Form -->
+      </tr>
+    </table></td>
+    <td width="10"><img src="http://www.bigresource.com/images/right.jpg" width="10" height="61" /></td>
+  </tr>
+  <tr>
+    <td height="25"colspan="3">
+    
+    <!--Directory-->
+&nbsp;
+ <a class="directory" href="http://www.bigresource.com">HOME</a>
+&nbsp;<img border="0" src="http://www.bigresource.com/images/nav.gif">&nbsp;
+<a class="directory" href="http://www.bigresource.com/tracker.html">TRACKER</a>
+&nbsp;<img border="0" src="http://www.bigresource.com/images/nav.gif">&nbsp;
+<a class="directory" href="">ASP</a>
+
+<!--End Directory-->
+    
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3">
+<table width="875" border="0" cellspacing="0" cellpadding="0">
+
+
+      <tr>
+        <td width="250" align="left" valign="top">
+        
+        <!--Left Side-->
+
+        <table width="98%" border="0" cellpadding="0" cellspacing="0" bordercolor="#CCCCCC" style="border-collapse:collapse;">
+
+          <tr>
+            <td valign=top align=center>
+<br />
+<div style="margin-left: 50px">
+<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style">
+<a href="http://www.addthis.com/bookmark.php?v=250&amp;pub=bigresource" class="addthis_button_compact"></a>
+<a class="addthis_button_facebook"></a>
+<a class="addthis_button_myspace"></a>
+<a class="addthis_button_google"></a>
+<a class="addthis_button_twitter"></a>
+</div>
+<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pub=bigresource"></script>
+<!-- AddThis Button END -->
+<br />
+</div><script type="text/javascript"><!--
+	e9 = new Object();
+    e9.size = "160x600";
+    e9.noAd = 1;
+//--></script>
+<script type="text/javascript" src="http://tags.expo9.exponential.com/tags/BigResourcecom/ROS/tags.js"></script>
+ 
+<br /> <br /><script type="text/javascript"><!--
+google_ad_client = "pub-3989012142716975";
+/* 200x90, Tracker Text */
+google_ad_slot = "7517990174";
+google_ad_width = 200;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<br />
+<br />
+<div style="align:center;width:200px;font-family:Arial;font-size:11px;">
+SuperbHosting.net have generously
+sponsored
+<a href=http://www.superbhosting.net>dedicated servers</a> to ensure
+a reliable and scalable dedicated hosting
+solution for BigResource.com. <br /><br />
+</div>
+<!-- ValueClick Media 120x600 and 160x600 SkyScraper CODE for bigresource.com -->
+<script language="javascript" src="http://media.fastclick.net/w/get.media?sid=50094&m=3&tp=7&d=j&t=n"></script>
+<noscript><a href="http://media.fastclick.net/w/click.here?sid=50094&m=3&c=1" target="_blank">
+<img src="http://media.fastclick.net/w/get.media?sid=50094&m=3&tp=7&d=s&c=1"
+width=160 height=600 border=1></a></noscript>
+<!-- ValueClick Media 120x600 and 160x600 SkyScraper CODE for bigresource.com -->
+
+<br /> <br />
+<script type="text/javascript"><!--
+	e9 = new Object();
+    e9.size = "120x600";
+//--></script>
+<script type="text/javascript" src="http://tags.expo9.exponential.com/tags/BigResourcecom/ROS/tags.js"></script>
+
+<br /><br />
+<script type="text/javascript"><!--
+google_ad_client = "pub-3989012142716975";
+/* 160x600, created 10/12/09 */
+google_ad_slot = "4557478063";
+google_ad_width = 160;
+google_ad_height = 600;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</td>
+          </tr>
+        </table>
+
+        <!--End Left Side-->
+        
+        </td>
+        <td align="right" valign="top">
+        
+        <!--Right Side-->
+
+        <table width="99%" border="1" cellpadding="5" cellspacing="0" bordercolor="#CCCCCC" style="table-layout:fixed">
+
+
+          <tr>
+            <td valign=top align=left>
+<!--Content-->
+
+
+	<h1>Get Username From HTTP Header</h1>
+	<br />
+	<h2>i have heard that when you login from an NT login box the username gets passed on in the HTTP header. If so how can I get that information?</h2><br />
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-3989012142716975";
+/* 234x60, 1/26/09 */
+google_ad_slot = "9174533834";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<br /><br />
+<a rel="nofollow" class="navbutton" href="#" onclick="javascript:window.open('http://www.bigresource.com/Tracker/Track-asp-n9y94J8a/' , '_blank');">View Complete Forum Thread with Replies</a>
+
+	<hr width=100%>
+	<a name="related"></a>
+	<font face="Verdana" size="2">
+	<b>Sponsored Links:</b></font>
+	<hr width=100%>	
+	<script type="text/javascript"><!--
+google_ad_client = "pub-3989012142716975";
+/* 336x280, BigResource/ MTStars Archives */
+google_ad_slot = "6298619289";
+google_ad_width = 336;
+google_ad_height = 280;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<hr width=100%>
+	<font face="Verdana" size="2">
+	<b>Related Messages:</b></font>
+	<hr width=100%>
+</script>
+	<ul class="divided">
+<li><a href="#eOk4DgNK">Add Http Header</a></li>
+
+<li><a href="#HbhyUeag">Custom HTTP Header</a></li>
+
+<li><a href="#ShNSe39X">Session Cookie In HTTP Header</a></li>
+
+<li><a href="#hiPo3rSz">Disabling Referer HTTP Header In IE / IIS 5 / ASP</a></li>
+
+<li><a href="#RG65nr6N">HTTP Header Difference From Two Sites</a></li>
+
+<li><a href="#PT2o01em">HTTP Header Being Displayed At Top Of HTML</a></li>
+
+<li><a href="#43wPEhAY">HTTP Header Modifications Must Be Made Before Writing Page Content</a></li>
+
+<li><a href="#sS9zFXch">JPG Header And Flash Header</a></li>
+
+<li><a href="#o7P0Emln">Error ASp .NET WEb Service : URL:'http://localhost/WebService1. HTTP/1.1 302 Found&quot;</a></li>
+
+<li><a href="#jA9WWs5L">Header For ASP</a></li>
+
+<li><a href="#mTxFHZNA">CDO In Header?</a></li>
+
+<li><a href="#0P55fDlu">Remove Header</a></li>
+
+<li><a href="#VTHp4lhj">Static Header</a></li>
+
+<li><a href="#TPrdKjBz">Header Error</a></li>
+
+<li><a href="#RxypjPpf">X-Forwarded-For Header</a></li>
+
+<li><a href="#e64AYoz8">Header Problems</a></li>
+
+<li><a href="#Q3QSmiVA">Adding Header</a></li>
+
+<li><a href="#QgCHWWia">Response.header</a></li>
+
+<li><a href="#WejbB8RP">Including A Header</a></li>
+
+<li><a href="#kuillBMc">Header Error</a></li>
+
+<li><a href="#89LKduwC">Insert A Header</a></li>
+
+<li><a href="#4t98zczu">Header Injection</a></li>
+
+<li><a href="#8vpFLq9s">Flash In Header</a></li>
+
+<li><a href="#B6CRnUv7">Header Footer</a></li>
+
+<li><a href="#5neM9bMl">Header Links</a></li>
+
+<li><a href="#hYyjwMPZ">Locking Header Row</a></li>
+
+<li><a href="#WRs4w1lt">Header Error</a></li>
+
+<li><a href="#4dt0ke42">Repeat Header Row</a></li>
+
+<li><a href="#X5EYviBL">Add Header/Footer</a></li>
+
+<li><a href="#4vaPxbbz">Disable IE Header</a></li>
+
+<li><a href="#afWdMKqx">Report Header</a></li>
+
+<li><a href="#PJ4XlJ6g">Web Page Header</a></li>
+
+<li><a href="#eeLXhsuZ">Email Header Injection</a></li>
+
+<li><a href="#57vbbVRA">Getting Header Post Values</a></li>
+
+<li><a href="#HeVg72il">Header Reloading Every Page</a></li>
+
+<li><a href="#1rZZ5RWn">Read TheResponse Header</a></li>
+
+<li><a href="#xTxh2C9z">Asp To Put Header/footer In Excell</a></li>
+
+<li><a href="#sAz7hoU5">Header Sorting Direction</a></li>
+
+<li><a href="#SDhoPmzr">Getting Rid Of The Header And Footer When Printing</a></li>
+
+<li><a href="#DBrwsSvz">Problem In Header Sections</a></li>
+
+<li><a href="#2ArfQp8J">Authenticate Header Field.</a></li>
+
+<li><a href="#RW2IgGTL">Authorization Request-header</a></li>
+
+<li><a href="#m87XtWCm">Change The Header And Footer</a></li>
+
+<li><a href="#rCqgkoJJ">Header Information X-Forwarded-For</a></li>
+
+<li><a href="#ngUlyQEg">Insert Excel Header</a></li>
+
+<li><a href="#kAmEZkg5">Determine Header Size</a></li>
+
+<li><a href="#K9gcPwol">CDOSYS Email Header Injection</a></li>
+
+<li><a href="#tR816Bvg">Double Content-length Header?</a></li>
+
+<li><a href="#IpP4IsuY">Extract JPEG Header Information In ASP?</a></li>
+
+<li><a href="#wplLM5bb">Prevent Header And Footer On Print</a></li>
+
+<li><a href="#EvdrfAd5">Disable Header Info Printing</a></li>
+
+<li><a href="#HIXNnro7">VB6 Report Writer Page Header</a></li>
+</ul><div class="relcont">
+	<a name="eOk4DgNK"></a>
+	<a title="Add Http Header" class="trelated" href="http://www.bigresource.com/ASP-add-http-header-eOk4DgNK.html">Add Http Header</a>
+<br />
+	If I want to have a username/password dialog in my page,how can I add http header in ASP for username/password dialog? I want to hardcode the username/password in my page and check the authentication.<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-eOk4DgNK/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-add-http-header-eOk4DgNK.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="HbhyUeag"></a>
+	<a title="Custom HTTP Header" class="trelated" href="http://www.bigresource.com/ASP-custom-HTTP-header-HbhyUeag.html">Custom HTTP Header</a>
+<br />
+	I have added a http header on a virtual directory. (Content-Type text/html; Charset=utf-8). Is there any way of clearing this or override this in one asp page? In this page I will download a tab separated text file.<br /><br />I don't want to show this in the browser. I try to set this content type from my COM+ component which is invoked by this asp page. Response.clear will not clear header information (and I guess the added http header is added just before the result is sent to the browser).<br /><br />If IsNN6 Then<br />GetObjectContext(&quot;Response&quot;).contentType = &quot;application/octet-stream&quot;<br />Else<br />GetObjectContext(&quot;Response&quot;).contentType = &quot;application/save&quot;<br />End If<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-HbhyUeag/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-custom-HTTP-header-HbhyUeag.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="ShNSe39X"></a>
+	<a title="Session Cookie In HTTP Header" class="trelated" href="http://www.bigresource.com/ASP-Session-cookie-in-HTTP-header-ShNSe39X.html">Session Cookie In HTTP Header</a>
+<br />
+	I'm writing an application to authenticate a user using a challenge<br />response mechanism.  The client and server components of the<br />application talk over HTTP.<br /><br />I would like to use an ASP session object to hold a random number on<br />the server.  The code to store the number is written as part of a VB<br />web class.<br /><br />When I read the http header returned from my server, I can't see the<br />session cookie.  Why is this?  If I create a normal cookie as part of<br />my web class, it is returned correctly within the header.<br /><br />I am using HttpQueryInfo the read the header as follows:<br /><br />blnReturn = CBool(HttpQueryInfo(hOpenRequest, HTTP_QUERY_RAW_HEADERS,<br />ByVal strBuffer, Len(strBuffer), 0))<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-ShNSe39X/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-Session-cookie-in-HTTP-header-ShNSe39X.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="hiPo3rSz"></a>
+	<a title="Disabling Referer HTTP Header In IE / IIS 5 / ASP" class="trelated" href="http://www.bigresource.com/ASP-Disabling-Referer-HTTP-Header-in-IE-IIS-5-ASP-hiPo3rSz.html">Disabling Referer HTTP Header In IE / IIS 5 / ASP</a>
+<br />
+	Is there any way to prevent an IE 6 browser from sending up the REFERER HTTP header? (Either as an IIS Server setting, change to asp files, or even a setting in the IE browser).<br /><br />This is wasting WAN bandwidth in our Intranet application - we have fairly low network bandwidth. The referer is inevitably somewhere else in our own ASP application, and is usually has a really nasty long QString attached ... (and no, really dont want to run stats about how users navigate our app)..<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-hiPo3rSz/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-Disabling-Referer-HTTP-Header-in-IE-IIS-5-ASP-hiPo3rSz.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="RG65nr6N"></a>
+	<a title="HTTP Header Difference From Two Sites" class="trelated" href="http://www.bigresource.com/ASP-HTTP-Header-difference-from-two-sites-RG65nr6N.html">HTTP Header Difference From Two Sites</a>
+<br />
+	I have two sites on my computer.  If I display the header information from<br />site 1, it displays PATH_TRANSLATED as below.<br /><br />D:kbapplicationprogramuihttpClientPortalkba  rticleindex.asp<br /><br />If I display the header information from site 2, it display PATH_TRANSLATED<br />as below.<br /><br />D:kbapplicationprogramuihttpCustomerPortaldi  splay2search.asp, except<br />the  here is W with a line going across it.  For some reason, when I paste<br />it here, it changes to , but in IE, it&#039;s W with a horizontal line.<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-RG65nr6N/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-HTTP-Header-difference-from-two-sites-RG65nr6N.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="PT2o01em"></a>
+	<a title="HTTP Header Being Displayed At Top Of HTML" class="trelated" href="http://www.bigresource.com/ASP-HTTP-Header-being-displayed-at-top-of-HTML-PT2o01em.html">HTTP Header Being Displayed At Top Of HTML</a>
+<br />
+	After rebuilding our web server from NT 4.0 IIS 4.0 to Windows 2000<br />IIS 5.0, I'm constantly getting HTTP Headers posted to the top of the<br />HTML source (generated from ASP pages of course). This only seems to<br />happen upon hitting the browser's (IE 6.0) &quot;back&quot; button and not even<br />100% of the time when hitting the back button. Here's an example of<br />the source that is generated: Code:<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-PT2o01em/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-HTTP-Header-being-displayed-at-top-of-HTML-PT2o01em.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="43wPEhAY"></a>
+	<a title="HTTP Header Modifications Must Be Made Before Writing Page Content" class="trelated" href="http://www.bigresource.com/ASP-HTTP-header-modifications-must-be-made-before-writing-page-content-43wPEhAY.html">HTTP Header Modifications Must Be Made Before Writing Page Content</a>
+<br />
+	am using pws on win 98 and when i try to excute any asp page i got the following error<br /><br />Response object error &#039;ASP 0156 : 80004005&#039; The HTTP headers are already written to the client<br />browser. Any HTTP header modifications must be made before writing page content.<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-43wPEhAY/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-HTTP-header-modifications-must-be-made-before-writing-page-content-43wPEhAY.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="sS9zFXch"></a>
+	<a title="JPG Header And Flash Header" class="trelated" href="http://www.bigresource.com/ASP-JPG-Header-and-Flash-Header-sS9zFXch.html">JPG Header And Flash Header</a>
+<br />
+	A client wants a splash page with the option of going to his website with the flash header or the one with the .JPG header.<br /><br />Now it's only the header that will be different and all the content will be the same. I don't want to make two seperate websites, because I'll have to update it twice then. Is there a way to just have the header change, without using frames. Maybe SSI,<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-sS9zFXch/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-JPG-Header-and-Flash-Header-sS9zFXch.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="o7P0Emln"></a>
+	<a title="Error ASp .NET WEb Service : URL:'http://localhost/WebService1. HTTP/1.1 302 Found&quot;" class="trelated" href="http://www.bigresource.com/ASP-Error-ASp-NET-WEb-Service-URL-http-localhost-WebService1-HTTP-1-1-302-Found-o7P0Emln.html">Error ASp .NET WEb Service : URL:'http://localhost/WebService1. HTTP/1.1 302 Found&quot;</a>
+<br />
+	i'm using windows XP, IIS 5.1, Visual .NET 2003 and SQL Server 2000.<br /><br />When I open New Project - Visual C# Projects - ASP .NET Web Service -<br /><br />Location : http://localhost/WebService1<br /><br />After that i click OK, then it returns error<br /><br />&quot;The web server reported the following error when<br /><br />attempting to create or open the web project<br /><br />located at the following<br /><br />URL:'http://localhost/WebService1. HTTP/1.1 302 Found&quot;<br /><br />After that i try this : Code:<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-o7P0Emln/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-Error-ASp-NET-WEb-Service-URL-http-localhost-WebService1-HTTP-1-1-302-Found-o7P0Emln.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="jA9WWs5L"></a>
+	<a title="Header For ASP" class="trelated" href="http://www.bigresource.com/ASP-Header-for-ASP-jA9WWs5L.html">Header For ASP</a>
+<br />
+	I'm creating a bunch of ASP pages and want a commom header to be included in all. In this header, I want the name of the page included. Code:<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-jA9WWs5L/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-Header-for-ASP-jA9WWs5L.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="mTxFHZNA"></a>
+	<a title="CDO In Header?" class="trelated" href="http://www.bigresource.com/ASP-CDO-in-header--mTxFHZNA.html">CDO In Header?</a>
+<br />
+	I have multiple asp files which used CDONTS.  As we are switching over to CDOSYS these files need to be updated. Is there a way that the cdo commands can be called from one general area, rather then have to modify each file?<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-mTxFHZNA/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-CDO-in-header--mTxFHZNA.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="0P55fDlu"></a>
+	<a title="Remove Header" class="trelated" href="http://www.bigresource.com/ASP-Remove-Header-0P55fDlu.html">Remove Header</a>
+<br />
+	can anyone temme the script or style sheet to remove the hearder and footer url address of the web page when printing the pag<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-0P55fDlu/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-Remove-Header-0P55fDlu.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="VTHp4lhj"></a>
+	<a title="Static Header" class="trelated" href="http://www.bigresource.com/ASP-Static-header-VTHp4lhj.html">Static Header</a>
+<br />
+	i have  table which is generated from the database, and is beeing displayed on my website...How can i make the header row static???? so i can still see the header row while scrolling thru the data<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-VTHp4lhj/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-Static-header-VTHp4lhj.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="TPrdKjBz"></a>
+	<a title="Header Error" class="trelated" href="http://www.bigresource.com/ASP-header-error-TPrdKjBz.html">Header Error</a>
+<br />
+	my logout link is placed at the top right corner of the page to put it there i used the below code<br /> <br />&lt;p&gt;&lt;font face=&quot;Times New Roman&quot;&gt;&lt;a href=&quot;AdminMenu.asp&quot;&gt;Go Back to Main Menu&lt;/a&gt;&lt;/font&gt;&lt;/p&gt;<br /> <br />the thing is i am getting http header error coz i put this code above the asp code<br /> <br />now how to add some attributes to the code so that i can place it below the asp code but when i open the page i need it to be visible at the same place as before<br /> <br />if i use the: <br /><br />&lt;p&gt;&lt;font face=&quot;Times New Roman&quot;&gt;&lt;a href=&quot;AdminMenu.asp&quot;&gt;Go Back to Main Menu&lt;/a&gt;&lt;/font&gt;&lt;/p&gt;<br /><br />as it is and place it after the aspcode then i am seeing the login link after the response.write's strings.<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-TPrdKjBz/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-header-error-TPrdKjBz.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="RxypjPpf"></a>
+	<a title="X-Forwarded-For Header" class="trelated" href="http://www.bigresource.com/ASP-X-Forwarded-For-Header-RxypjPpf.html">X-Forwarded-For Header</a>
+<br />
+	how can i read &quot;X-Forwarded-For&quot; header information in ASP?<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-RxypjPpf/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-X-Forwarded-For-Header-RxypjPpf.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="e64AYoz8"></a>
+	<a title="Header Problems" class="trelated" href="http://www.bigresource.com/ASP-Header-Problems-e64AYoz8.html">Header Problems</a>
+<br />
+	I have a website, www.brainhead.com and everything loads fine in Safari but the top most image will not load in Netscape or Explorer? It is very odd?<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-e64AYoz8/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-Header-Problems-e64AYoz8.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="Q3QSmiVA"></a>
+	<a title="Adding Header" class="trelated" href="http://www.bigresource.com/ASP-Adding-header-Q3QSmiVA.html">Adding Header</a>
+<br />
+	I have a web page hosted by server1.  I need to add a link to a web page hosted by server2.  This part is simple.  However, I also need to give the linked web page the user id for the user that was validated in server1 (it's in a session variable).<br /><br />At first, I thought the following would work:<br />mywebpageonserver1.asp:<br />Response.AddHeader &quot;MYUSERID&quot;, &quot;whatever&quot;<br />Response.Redirect &quot;http://server2/mywebpageonserver2.asp&quot;<br /><br />On server2, mywebpageonserver2.asp:<br /><br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-Q3QSmiVA/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-Adding-header-Q3QSmiVA.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="QgCHWWia"></a>
+	<a title="Response.header" class="trelated" href="http://www.bigresource.com/ASP-Response-header-QgCHWWia.html">Response.header</a>
+<br />
+	I am trying to set the content type and header for the response object<br />but for some reason it doesnt set it. I tried it on dev and it worked<br />fine but didnot on production. The difference is that dev is http and<br />production is https. Is there any difference in setting the header and<br />content type when doing so a http and when on a https server.<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-QgCHWWia/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-Response-header-QgCHWWia.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="WejbB8RP"></a>
+	<a title="Including A Header" class="trelated" href="http://www.bigresource.com/ASP-including-a-header-WejbB8RP.html">Including A Header</a>
+<br />
+	I have the following file structure:<br /><br />/<br />header.asp<br />test.asp<br />/subDir<br />testpage.asp<br />/images<br /><br />I would like to have header.asp to be usable from all directories. Header.asp will have images and URLs. When I try to #include the file in test.asp, it works fine. However, if I #include it in testpage.asp, the images in header do not work - testpage.asp thinks the images are in subDir, when they are in the images directory. I have tried a variety of combinations of MapPath, Server.Execute, but I have not gotten the image to appear correctly. What is the correct syntax for what I am trying to accomplish?<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-WejbB8RP/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-including-a-header-WejbB8RP.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="kuillBMc"></a>
+	<a title="Header Error" class="trelated" href="http://www.bigresource.com/ASP-header-error-kuillBMc.html">Header Error</a>
+<br />
+	Response object error &#039;ASP 0156 : 80004005&#039; <br /><br />Header Error <br /><br />/OTsystem/ot/ijms/login/tslogin_check.asp, line 48 <br /><br />The HTTP headers are already written to the client browser. Any HTTP header modifications must be made before writing page content.<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-kuillBMc/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-header-error-kuillBMc.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="89LKduwC"></a>
+	<a title="Insert A Header" class="trelated" href="http://www.bigresource.com/ASP-insert-a-header-89LKduwC.html">Insert A Header</a>
+<br />
+	Anyone know how to insert a header and footer and page numbers into word when using<br /> <br />Response.ContentType = &quot;application/msword&quot;<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-89LKduwC/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-insert-a-header-89LKduwC.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="4t98zczu"></a>
+	<a title="Header Injection" class="trelated" href="http://www.bigresource.com/ASP-header-injection-4t98zczu.html">Header Injection</a>
+<br />
+	I believe someone is using my contact form and sending out spam. I'm getting thousands of undeliverable emails.<br /><br />I don't know anything about asp.  Someone who use to work here wrote the form processing script and it seems that all the forms on different domains are being processed by this script.  It seems like they didn't do any sort of validation or checks and on one website there are hundreds of pages with the contact form, i could do it in php but that is way too much work.....<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-4t98zczu/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-header-injection-4t98zczu.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="8vpFLq9s"></a>
+	<a title="Flash In Header" class="trelated" href="http://www.bigresource.com/ASP-flash-in-header-8vpFLq9s.html">Flash In Header</a>
+<br />
+	This is more of a flash recommendation question than ASP related, but I use this forum a lot, so wanted to see if anyone can answer.My page header is flash. One the header is flash. It's about 500KB.Do you recommend keeping flash in the header so it loads on each<br />page, or creating a second image to replace the header on all thesecondary pages.<br /><br />If someone views the flash header once, do they download it each time<br />for each page, or does it cache?My point is that I do not want to kill my bandwidth.<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-8vpFLq9s/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-flash-in-header-8vpFLq9s.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="B6CRnUv7"></a>
+	<a title="Header Footer" class="trelated" href="http://www.bigresource.com/ASP-Header-Footer-B6CRnUv7.html">Header Footer</a>
+<br />
+	How can I change the header footer attributes of browser using javascript/vbscript.<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-B6CRnUv7/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-Header-Footer-B6CRnUv7.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="5neM9bMl"></a>
+	<a title="Header Links" class="trelated" href="http://www.bigresource.com/ASP-header-Links-5neM9bMl.html">Header Links</a>
+<br />
+	I have created a header file that has some hyperlinks, I want to  enable the hyperlinks depending on the situation for eg: the header has link1, link2, link3 and they correspond to page1, page2, page3. suppose  I am on page1, I want to disable link1.... and so on.<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-5neM9bMl/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-header-Links-5neM9bMl.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="hYyjwMPZ"></a>
+	<a title="Locking Header Row" class="trelated" href="http://www.bigresource.com/ASP-locking-header-row-hYyjwMPZ.html">Locking Header Row</a>
+<br />
+	I know this is client side but this is coming from an asp page. Is there a way to lock two rows on a table so that when a user scrolls down a long table they always see the header row? Without using frames.<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-hYyjwMPZ/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-locking-header-row-hYyjwMPZ.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="WRs4w1lt"></a>
+	<a title="Header Error" class="trelated" href="http://www.bigresource.com/ASP-Header-Error-WRs4w1lt.html">Header Error</a>
+<br />
+	When I use response.redirect, my server send this error:<br /><br />Header Error The HTTP headers are already written to the client browser. Any HTTP header modifications must be made before writing page content<br /><br />what does it mean?<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-WRs4w1lt/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-Header-Error-WRs4w1lt.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="4dt0ke42"></a>
+	<a title="Repeat Header Row" class="trelated" href="http://www.bigresource.com/ASP-repeat-header-row-4dt0ke42.html">Repeat Header Row</a>
+<br />
+	How can I repeat a header every 'x' number of rows?<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-4dt0ke42/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-repeat-header-row-4dt0ke42.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="X5EYviBL"></a>
+	<a title="Add Header/Footer" class="trelated" href="http://www.bigresource.com/ASP-Add-Header-Footer-X5EYviBL.html">Add Header/Footer</a>
+<br />
+	I'm trying to generate an excel report from an ASP web page using<br /><br />&quot;response.ContentType = &quot;application/vnd.ms-excel&quot;<br /><br />I need to add a custom header &amp; footer to the excel report on generation. Is there a way to do this from the web without installing Excel on the webserver?<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-X5EYviBL/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-Add-Header-Footer-X5EYviBL.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="4vaPxbbz"></a>
+	<a title="Disable IE Header" class="trelated" href="http://www.bigresource.com/ASP-Disable-IE-Header-4vaPxbbz.html">Disable IE Header</a>
+<br />
+	I am trying to print HTML page from Internet explorer. In default IE prints header and footer when you print HTML page, I just want to disable those header and footer while printing my page...not permanently.<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-4vaPxbbz/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-Disable-IE-Header-4vaPxbbz.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="afWdMKqx"></a>
+	<a title="Report Header" class="trelated" href="http://www.bigresource.com/ASP-report-header-afWdMKqx.html">Report Header</a>
+<br />
+	I want to print report with header and footer on every page. When i print the report let say i have 3 pages, the header will be printed on the 1st page and the footer will be printed on 3rd page.<br /><br />This is the code,<br /><br />Code:<br /><br />&lt;html&gt;&lt;head&gt;&lt;/head&gt;<br />&lt;!-- #include file=&quot;header.asp&quot; --&gt;<br />&lt;body&gt;<br />................<br />&lt;/body&gt;<br />&lt;!-- #include file=&quot;footer.asp&quot; --&gt;<br />&lt;/html&gt; <br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-afWdMKqx/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-report-header-afWdMKqx.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="PJ4XlJ6g"></a>
+	<a title="Web Page Header" class="trelated" href="http://www.bigresource.com/ASP-web-page-header-PJ4XlJ6g.html">Web Page Header</a>
+<br />
+	How does one make a thingy on every webpage that links to other pages on your site? Almost every website uses them but i can't find a tutorial that shows me how it works.<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-PJ4XlJ6g/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-web-page-header-PJ4XlJ6g.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="eeLXhsuZ"></a>
+	<a title="Email Header Injection" class="trelated" href="http://www.bigresource.com/ASP-Email-header-injection-eeLXhsuZ.html">Email Header Injection</a>
+<br />
+	To sanitise the input from a form before it gets sent as an email, is it simply a matter of <br /><br />Replace(Request.Form(&quot;formName&quot;), &quot; ' &quot;, &quot; ' ' &quot;)<br /><br />or is there more to it than that?<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-eeLXhsuZ/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-Email-header-injection-eeLXhsuZ.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="57vbbVRA"></a>
+	<a title="Getting Header Post Values" class="trelated" href="http://www.bigresource.com/ASP-Getting-Header-Post-Values-57vbbVRA.html">Getting Header Post Values</a>
+<br />
+	Is there some thing in asp like print_r() in php? something that I can use and print out everything that has been selected in a form?<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-57vbbVRA/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-Getting-Header-Post-Values-57vbbVRA.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="HeVg72il"></a>
+	<a title="Header Reloading Every Page" class="trelated" href="http://www.bigresource.com/ASP-Header-reloading-every-page-HeVg72il.html">Header Reloading Every Page</a>
+<br />
+	I am creating a site with ASP.  I have a master page with a flash object before the runat server form and every time I click a link (asp:menuitem) to change a contentplaceholder, the flash object refreshes and does its start-up animation.  Is there anyway to stop this? Or is that more of a Flash question.<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-HeVg72il/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-Header-reloading-every-page-HeVg72il.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="1rZZ5RWn"></a>
+	<a title="Read TheResponse Header" class="trelated" href="http://www.bigresource.com/ASP-read-theResponse-Header-1rZZ5RWn.html">Read TheResponse Header</a>
+<br />
+	I try to extract the response header variables from a link with the Request.ServerVariables. Everything is working fine if i click on a normal link.<br /><br />But i am try to read the variables by a (bought) Link of google.com --it redirect to the adserver(www.adgooglserv.com or so) of google and loaded the content to the browser-- i still get the information of the redirection server (www.google.com) but if i use IE watch to compare, there is in the response header the adserver displayed. <br />Does sombody know how to handle it with ServerVariable?<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-1rZZ5RWn/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-read-theResponse-Header-1rZZ5RWn.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="xTxh2C9z"></a>
+	<a title="Asp To Put Header/footer In Excell" class="trelated" href="http://www.bigresource.com/ASP-asp-to-put-header-footer-in-excell-xTxh2C9z.html">Asp To Put Header/footer In Excell</a>
+<br />
+	Does anyone know how to add a header and footer into an excell spreadsheet from an asp page?<br /> <br />I'm using the FileSystemObject to create the file.  I need to know how to add a custom header and footer. I can't seem to find any reference to it online.<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-xTxh2C9z/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-asp-to-put-header-footer-in-excell-xTxh2C9z.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="sAz7hoU5"></a>
+	<a title="Header Sorting Direction" class="trelated" href="http://www.bigresource.com/ASP-header-sorting-direction-sAz7hoU5.html">Header Sorting Direction</a>
+<br />
+	I need direction on learning or what to even search for when it comes to having headers that sort. My code looks like so, and I want to have the Date and Supplier headers sort the table by those columns. Code:<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-sAz7hoU5/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-header-sorting-direction-sAz7hoU5.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="SDhoPmzr"></a>
+	<a title="Getting Rid Of The Header And Footer When Printing" class="trelated" href="http://www.bigresource.com/ASP-Getting-Rid-of-The-Header-and-Footer-When-Printing-SDhoPmzr.html">Getting Rid Of The Header And Footer When Printing</a>
+<br />
+	Does anyone know how to get rid of the header and footer that internet explorer adds to the page when printing a webpage. I know how to do it manually (File - Page Set Up) but i wondering if there is a way to maybe put some sort of tags into the page or an ASP script  so that when any user prints the page it just prints whats inbetween the tags ?<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-SDhoPmzr/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-Getting-Rid-of-The-Header-and-Footer-When-Printing-SDhoPmzr.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="DBrwsSvz"></a>
+	<a title="Problem In Header Sections" class="trelated" href="http://www.bigresource.com/ASP-Problem-in-header-sections-DBrwsSvz.html">Problem In Header Sections</a>
+<br />
+	i have a anal client that requires my excel pages to look exactly like this one. the only problem i see is going to be the header section. It&#039;s in the center top cell and is centered.<br /><br />I&#039;ve never done any type of exporting to excel yet, before i get to deep into it. Is it possible to format an excel doc from asp exactly like this ?<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-DBrwsSvz/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-Problem-in-header-sections-DBrwsSvz.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="2ArfQp8J"></a>
+	<a title="Authenticate Header Field." class="trelated" href="http://www.bigresource.com/ASP-Authenticate-header-field--2ArfQp8J.html">Authenticate Header Field.</a>
+<br />
+	when I turn off Anonymous in IIs I get this Error :<br />HTTP 401.2 - Unauthorized: Logon failed due to server configuration<br /><br />This is usually caused by a server-side script not sending the proper<br />WWW-Authenticate header field. Using Active Server Pages scripting this<br />is done by using the AddHeader method of the Response object to request<br />that the client use a certain authentication method to access the<br />resource.<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-2ArfQp8J/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-Authenticate-header-field--2ArfQp8J.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="RW2IgGTL"></a>
+	<a title="Authorization Request-header" class="trelated" href="http://www.bigresource.com/ASP-authorization-request-header-RW2IgGTL.html">Authorization Request-header</a>
+<br />
+	I am trying to integrate an application into our extranets.The extranet technology has its own authentication system requiring a domain user but uses anonymous authentication (from the perspective of IIS).I can get the username/password, but IIS is not aware of the user.<br /><br />The application I am trying to integrate (to get the features I want) relies on either basic or NTLM authentication. The sites use SSL, so basic authentication is fine. Both applications live on the same server.I want to automatically authenticate the user in the second app. Any ideas?I have a few, but I don't know how to implement them.<br /><br />One idea is to find a way to forward/redirect the basic authentication information to the secondary application.  This would be easier (and less secure) if IE6 still supported the &quot;http://user:pwd@server/&quot; syntax.I could construct the authorization request-header myself on the server, but how would I convince browsers to send it?It should work with recent IE and NS browsers.<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-RW2IgGTL/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-authorization-request-header-RW2IgGTL.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="m87XtWCm"></a>
+	<a title="Change The Header And Footer" class="trelated" href="http://www.bigresource.com/ASP-Change-the-header-and-footer-m87XtWCm.html">Change The Header And Footer</a>
+<br />
+	how can we remove or change the header and footer of the web page, when we print it from the browser.By default it prints the URL, date time.is any possiblities us to remove that things.No. I don't want to change that settings by the file menu in internet explorer.please give some ideas for to handle this bby Coding.<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-m87XtWCm/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-Change-the-header-and-footer-m87XtWCm.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="rCqgkoJJ"></a>
+	<a title="Header Information X-Forwarded-For" class="trelated" href="http://www.bigresource.com/ASP-Header-information-X-Forwarded-For-rCqgkoJJ.html">Header Information X-Forwarded-For</a>
+<br />
+	how can i read &quot;X-Forwarded-For&quot; header information?<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-rCqgkoJJ/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-Header-information-X-Forwarded-For-rCqgkoJJ.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="ngUlyQEg"></a>
+	<a title="Insert Excel Header" class="trelated" href="http://www.bigresource.com/ASP-Insert-Excel-Header-ngUlyQEg.html">Insert Excel Header</a>
+<br />
+	I am currently working with an Active Server Page (ASP) that is set to redirect its output to Excel using Response.ContentType = &quot;application/vnd.ms-excel&quot;.  It works great, but I need to find a way to insert a header and/or footer into the resulting worksheet. <br /><br /> Does Excel recognize any meta tags or CSS attributes that can be used to insert a header or footer?<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-ngUlyQEg/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-Insert-Excel-Header-ngUlyQEg.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="kAmEZkg5"></a>
+	<a title="Determine Header Size" class="trelated" href="http://www.bigresource.com/ASP-Determine-Header-Size-kAmEZkg5.html">Determine Header Size</a>
+<br />
+	Our central site has set up a VPN for us so we can access our network from home. Unfortunately, our Intranet won't come up. We've been told it is because the Intrusion Prevention System on the firewall is blocking it because the headers are too large. How can I determine how large the headers are?<br /><br />Would it be the total of all of the Request.ServerVariables? They tell me the default settings are 2000 bytes.  Which seems awfully small to me.<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-kAmEZkg5/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-Determine-Header-Size-kAmEZkg5.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="K9gcPwol"></a>
+	<a title="CDOSYS Email Header Injection" class="trelated" href="http://www.bigresource.com/ASP-CDOSYS-email-header-injection-K9gcPwol.html">CDOSYS Email Header Injection</a>
+<br />
+	Recently our contact forms on the website have been receiving messages with html links in the text entry fields. I'm assuming that a bot or something is using my mail script and bypassing the contact form.<br /><br />I have seen posts about most other mail scripts in PHP that say the bots are injecting their own header information and effectively writing the message to their own BCC list.<br /><br />Does someone have a thread out there about this and what can I do to keep people from sending html links through my forms to their own list. How do I check to see if they're successful or if I'm just getting a bunch of tests hitting the form and that the messages are only coming to me, the specified recipient.<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-K9gcPwol/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-CDOSYS-email-header-injection-K9gcPwol.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="tR816Bvg"></a>
+	<a title="Double Content-length Header?" class="trelated" href="http://www.bigresource.com/ASP-double-content-length-header--tR816Bvg.html">Double Content-length Header?</a>
+<br />
+	I just alanyzed the response of my ASP and discovered that the header<br />&quot;Content-Length&quot; was added twice. I've double checked my application , but<br />it only adds it once, so I think IIS has also added this header. Is there a<br />way to &quot;overwrite&quot; the header added by IIS or to tell IIS not to add this<br />header information?<br /><br />I have a huge amount of very small responses, so the header may be a<br />reasonable part of the whole response and I want it to be as small as<br />possible. I need to add this manually, because for some responses I use<br />Response.Flush - so IIS simply cannot be sure what amount of data will be<br />there.<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-tR816Bvg/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-double-content-length-header--tR816Bvg.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="IpP4IsuY"></a>
+	<a title="Extract JPEG Header Information In ASP?" class="trelated" href="http://www.bigresource.com/ASP-Extract-JPEG-header-information-in-ASP--IpP4IsuY.html">Extract JPEG Header Information In ASP?</a>
+<br />
+	Im currently making a photo album website which has an ASP page to look in an images folder for any available jpg images.<br /><br />What I would like is to extract the jpeg data such as width, height, title, bit-depth, comments etc.<br /><br />All the fields can be found in windows xp if you right-click the image and then click Properties.  Select the &quot;Summary&quot; tab and there is where all the jpeginformation is stored and can be edited.<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-IpP4IsuY/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-Extract-JPEG-header-information-in-ASP--IpP4IsuY.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="wplLM5bb"></a>
+	<a title="Prevent Header And Footer On Print" class="trelated" href="http://www.bigresource.com/ASP-prevent-header-and-footer-on-print-wplLM5bb.html">Prevent Header And Footer On Print</a>
+<br />
+	tell me the code to can prevent the header and footer being printed when i print an asp/html page.<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-wplLM5bb/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-prevent-header-and-footer-on-print-wplLM5bb.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="EvdrfAd5"></a>
+	<a title="Disable Header Info Printing" class="trelated" href="http://www.bigresource.com/ASP-Disable-header-info-printing-EvdrfAd5.html">Disable Header Info Printing</a>
+<br />
+	can anyone teach me that is it possible to disable the title, no. of page, web address and date info when I print the html page.<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-EvdrfAd5/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-Disable-header-info-printing-EvdrfAd5.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<div class="relcont">
+	<a name="HIXNnro7"></a>
+	<a title="VB6 Report Writer Page Header" class="trelated" href="http://www.bigresource.com/ASP-VB6-Report-Writer-Page-Header-HIXNnro7.html">VB6 Report Writer Page Header</a>
+<br />
+	How can I get the the 1st group header to print at the top of each page on my report. More or less I want to use it as the page header but it contains data from SQL.  The page header section does not allow you to place data fields in it.<br /><br />
+	
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/Tracker/Track-asp-HIXNnro7/">View Replies !</a>
+	&nbsp;
+	<a rel="nofollow" class="navbutton" href="http://www.bigresource.com/ASP-VB6-Report-Writer-Page-Header-HIXNnro7.html#related">View Related</a>
+	
+	<hr width="100%"></hr>
+</div>
+	<br />
+	</td>
+          </tr>
+        </table>
+
+        <!--End Right Side -->
+        
+        </td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+<table width="100" border="0" align="center" cellpadding="0" cellspacing="0">
+
+
+  <tr>
+    <td height="10"></td>
+  </tr>
+</table>
+<table style="border-collapse:collapse;" width="875" border="1" align="center" cellpadding="0" cellspacing="0" bordercolor="#6990b3">
+
+  <tr>
+    <td height="28" align="center" bgcolor="#cae1f6" class="footer"><script type="text/javascript" src="http://www.bigresource.com/js/footer.js"></script></td>
+  </tr>
+</table>
+<div align=center>
+<font face="Arial" size="2" color="#525252">Copyright � 2005-08 
+www.BigResource.com, All rights reserved</font>
+</div>
+
+</body>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-7855623-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</html>

@@ -1,0 +1,821 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>Information retrieval</title>
+<style type="text/css" media="all">@import "portal2.css";</style>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+</head>
+
+<body>
+<div id="Header">
+Combustion.eu : Information retrieval
+<p id="Head2">
+A European Informational Website<br />
+<a href="http://combustion.eu/about.pl?own=i" target="_blank">
+<small>
+learn more
+</small></a>
+</p>
+</div>
+
+<div id="Content">
+<h1>
+Information retrieval
+</h1>
+<br />
+<p>
+<strong>Information retrieval (IR)</strong>  is the science of searching for <a href="information_en.html" class="wlink">information</a> in documents, searching for documents themselves, searching for <!-- CLK metadata_computing_en.html -->metadata<!-- LC --> which describe documents, or searching within <!-- CLK database_en.html -->database<!-- LC -->s, whether <a href="relational_database_en.html" class="wlink">relational</a> stand-alone databases or <a href="hypertext_en.html" class="wlink">hypertextually</a>-networked databases such as the <a href="world_wide_web_en.html" class="wlink">World Wide Web</a>. There is a common confusion, however, between data retrieval, <a href="document_retrieval_en.html" class="wlink">document retrieval</a>, information retrieval, and <a href="text_retrieval_en.html" class="wlink">text retrieval</a>, and each of these has its own bodies of literature, theory, praxis and technologies.  IR is, like most nascent fields, <!-- CLK interdisciplinary_en.html -->interdisciplinary<!-- LC -->, based on <a href="computer_science_en.html" class="wlink">computer science</a>, <a href="mathematics_en.html" class="wlink">mathematics</a>, <a href="library_science_en.html" class="wlink">library science</a>, <a href="information_science_en.html" class="wlink">information science</a>, <a href="cognitive_psychology_en.html" class="wlink">cognitive psychology</a>, <a href="linguistics_en.html" class="wlink">linguistics</a>, <a href="statistics_en.html" class="wlink">statistics</a>, <a href="physics_en.html" class="wlink">physics</a>.
+</p>
+<div id="floatad">
+<script type="text/javascript"><!--
+google_ad_client = "pub-8398589250261057";
+google_ad_width = 300;
+google_ad_height = 250;
+google_ad_format = "300x250_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+google_color_border = "3D81EE";
+google_color_bg = "C3D9FF";
+google_color_link = "0000FF";
+google_color_text = "000000";
+google_color_url = "00FF80";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+
+<p>
+Automated IR systems are used to reduce <a href="information_overload_en.html" class="wlink">information overload</a>. Many universities and <a href="public_library_en.html" class="wlink">public libraries</a> use IR systems to provide access to books, journals, and other documents. IR systems are often related to object and query. Queries are formal statements of information needs that are put to an IR system by the user. An object is an entity which keeps or stores information in a database. User queries are matched to objects stored in the database. A document is, therefore, a data object. Often the documents themselves are not kept or stored directly in the IR system, but are instead represented in the system by document surrogates. 
+</p>
+
+<p>
+In 1992 the US Department of Defense, along with the <a href="national_institute_of_standards_and_technology_en.html" class="wlink">National Institute of Standards and Technology</a> (NIST), cosponsored the <a href="text_retrieval_conference_en.html" class="wlink">Text Retrieval Conference</a> <strong>(TREC)</strong> as part of the TIPSTER text program. The aim of this was to look into the information retrieval community by supplying the infrastructure that was needed for such a huge evaluation of text retrieval methodologies. 
+</p>
+
+<p>
+Web <!-- CLK search_engine_en.html -->search engine<!-- LC -->s such as <a href="google_en.html" class="wlink">Google</a>, <!-- CLK yahoo_search_en.html -->Yahoo search<!-- LC -->, or <a href="livecom_en.html" class="wlink">Live.com</a> are the most visible IR applications.
+</p>
+
+
+<a name="Performance_measures" id="Performance_measures"></a>
+<h2>Performance measures</h2>
+
+
+<p>
+There are several measures on the performance of an information retrieval system. The measures rely on a collection of documents and a query for which the relevancy of the documents is known. All common measures described here assume binary relevancy: the document is either relevant or completely non-relevant. In practice queries may be <a href="ill-posed_en.html" class="wlink">ill-posed</a> and there may be different shades of relevancy. The formulas for precision, recall and fall-out are translated from the German Wikipedia-article <a href="http://de.wikipedia.org/wiki/Recall_und_Precision" class="xlink">"Recall und Precision"</a>.
+</p>
+
+
+<a name="Precision" id="Precision"></a>
+<h3>Precision</h3>
+
+
+<p>
+The proportion of retrieved <i>and</i> <a href="relevance_information_retrieval_en.html" class="wlink">relevant</a> documents to all the documents retrieved:
+</p>
+
+
+
+<p>
+In <a href="binary_classification_en.html" class="wlink">binary classification</a>, precision is analogous to <a href="positive_predictive_value_en.html" class="wlink">positive predictive value</a>. Precision takes all retrieved documents into account. It can also be evaluated at a given cut-off rank, considering only the topmost results returned by the system. This measure is <i>called precision at n</i> or <i>P@n</i>.
+</p>
+
+<p>
+Note that the meaning and usage of "precision" in the field of Information Retrieval differs from the definition of <a href="accuracy_and_precision_en.html" class="wlink">accuracy and precision</a> within other branches of science and technology.
+</p>
+
+
+<a name="Recall" id="Recall"></a>
+<h3>Recall</h3>
+ 
+
+<p>
+The proportion of relevant documents that are retrieved, out of all relevant documents available:
+</p>
+
+
+
+<p>
+In binary classification, recall is called <a href="sensitivity_tests_en.html" class="wlink">sensitivity</a>.
+</p>
+
+<p>
+It is trivial to achieve recall of 100% by returning all documents in response to any query. Therefore recall alone is not enough but one needs to measure the number of non-relevant document also, for example by computing the precision.
+</p>
+
+
+<a name="F-measure" id="F-measure"></a>
+<h3>F-measure</h3>
+ 
+
+<p>
+The weighted <a href="harmonic_mean_en.html" class="wlink">harmonic mean</a> of precision and recall, the traditional F-measure or balanced F-score is:
+</p>
+
+
+
+<p>
+This is also known as the  measure, because recall and precision are evenly weighted.
+</p>
+
+<p>
+The general formula for non-negative real α is:
+
+</p>
+
+<p>
+Two other commonly used F measures are the  measure, which weights recall twice as much as precision, and the  measure, which weights precision twice as much as recall.
+</p>
+
+
+<a name="Average_precision" id="Average_precision"></a>
+<h3>Average precision</h3>
+
+
+<p>
+The precision and recall are based on the whole list of documents returned by the system. Average precision emphasizes returning more relevant documents earlier. It is average of precisions computed after truncating the list after each of the relevant documents in turn:
+</p>
+
+ 
+
+<p>
+where <i>r</i> is the rank, <i>N</i> the number retrieved, <i>rel()</i> a binary function on the relevance of a given rank, and <i>P()</i> precision at a given cut-off rank.
+</p>
+
+<p>
+If there are several queries with known relevancies available, the <i>mean average precision</i> is the mean value of the average precisions computed for each of the queries separately.
+</p>
+
+
+<a name="Model_types" id="Model_types"></a>
+<h2>Model types</h2>
+
+<p>
+
+For successful IR, it is necessary to represent the documents in some way.  There are a number of models for this purpose. They can be categorized according to two dimensions like shown in the figure on the right: the mathematical basis and the properties of the model. (translated from <a href="http://de.wikipedia.org/wiki/Informationsr%C3%BCckgewinnung#Klassifikation_von_Modellen_zur_Repr.C3.A4sentation_nat.C3.BCrlichsprachlicher_Dokumente" class="xlink">German entry</a>, original source <a href="http://www.logos-verlag.de/cgi-bin/engbuchmid?isbn=0514&amp;lng=eng&amp;id=" class="xlink">Dominik Kuropka</a>)
+</p>
+
+
+<a name="First_dimension_mathematical_basis" id="First_dimension_mathematical_basis"></a>
+<h3>First dimension: mathematical basis</h3>
+
+
+<ul>
+<li> <i>Set-theoretic Models</i> represent documents by sets. Similarities are usually derived from set-theoretic operations on those sets. Common models are:
+
+<ul>
+<li> <a href="standard_boolean_model_en.html" class="wlink">Standard Boolean model</a>
+</li>
+
+<li> <!-- CLK extended_boolean_model_en.html -->Extended Boolean model<!-- LC -->
+</li>
+
+<li> <!-- CLK fuzzy_retrieval_en.html -->fuzzy retrieval<!-- LC -->
+</li></li></ul></ul>
+
+
+
+<ul>
+<li> <i>Algebraic Models</i> represent documents and queries usually as vectors, matrices or tuples. Those vectors, matrices or tuples are transformed by the use of a finite number of algebraic operations to a one-dimensional similarity measurement.
+
+<ul>
+<li> <!-- CLK vector_space_model_en.html -->Vector space model<!-- LC -->
+</li>
+
+<li> <!-- CLK generalized_vector_space_model_en.html -->Generalized vector space model<!-- LC -->
+</li>
+
+<li> Topic-based vector space model (literature: <a href="http://www.kuropka.net/files/TVSM.pdf" class="xlink">[4]</a>, <a href="http://www.logos-verlag.de/cgi-bin/engbuchmid?isbn=0514&amp;lng=eng&amp;id=" class="xlink">[5]</a>) 
+</li>
+
+<li> <!-- CLK extended_boolean_model_en.html -->Extended Boolean model<!-- LC -->
+</li>
+
+<li> Enhanced topic-based vector space model (literature: <a href="http://www.kuropka.net/files/Topic-Sims.pdf" class="xlink">[6]</a>, <a href="http://www.logos-verlag.de/cgi-bin/engbuchmid?isbn=0514&amp;lng=eng&amp;id=" class="xlink">[7]</a>)
+</li>
+
+<li> Latent semantic indexing aka <a href="latent_semantic_analysis_en.html" class="wlink">latent semantic analysis</a>
+</li></li></ul></ul>
+
+
+
+<ul>
+<li> <i>Probabilistic Models</i> treat the process of document retrieval as a multistage random experiment. Similarities are thus represented as probabilities. Probabilistic theorems like the <a href="bayes_theorem_en.html" class="wlink">Bayes' theorem</a> are often used in these models.
+
+<ul>
+<li> <!-- CLK binary_independence_retrieval_en.html -->Binary independence retrieval<!-- LC -->
+</li>
+
+<li> <a href="probabilistic_relevance_model_bm25_en.html" class="wlink">Probabilistic relevance model (BM25)</a>
+</li>
+
+<li> Uncertain inference
+</li>
+
+<li> <a href="language_model_en.html" class="wlink">Language model</a>s
+</li>
+
+<li> <!-- CLK divergence_from_randomness_models_en.html -->Divergence from randomness models<!-- LC -->
+</li>
+
+<li> <!-- CLK latent_dirichlet_allocation_en.html -->Latent Dirichlet Allocation<!-- LC -->
+</li></li></ul></ul>
+
+
+
+<a name="Second_dimension_properties_of_the_model" id="Second_dimension_properties_of_the_model"></a>
+<h3>Second dimension: properties of the model</h3>
+
+
+<ul>
+<li> <i>Models without term-interdependencies</i> treat different terms/words as not interdependent. This fact is usually represented in vector space models by the <a href="orthogonality_en.html" class="wlink">orthogonality</a> assumption of term vectors or in <!-- CLK probabilistic_model_en.html -->probabilistic model<!-- LC -->s by an <a href="independency_en.html" class="wlink">independency</a> assumption for term variables.
+</li></ul>
+
+
+
+<ul>
+<li> <i>Models with immanent term interdependencies</i> allow a representation of interdependencies between terms. However the degree of the interdependency between two terms is defined by the model itself. It is usually directly or indirectly derived (e.g. by <!-- CLK dimensional_reduction_en.html -->dimensional reduction<!-- LC -->) from the <!-- CLK co-occurrence_en.html -->co-occurrence<!-- LC --> of those terms in the whole set of documents.
+</li></ul>
+
+
+
+<ul>
+<li> <i>Models with transcendent term interdependencies</i> allow a representation of interdependencies between terms, but they do not allege how the interdependency between two terms is defined. They relay an external source for the degree of interdependency between two terms. (For example a human or sophisticated algorithms.)
+</li></ul>
+
+
+
+<a name="Major_events_in_Information_Retrieval" id="Major_events_in_Information_Retrieval"></a>
+<h2>Major events in Information Retrieval</h2>
+
+
+<ul>
+<li>1890:  Hollerith tabulating machines were used to analyze the US census. (<a href="herman_hollerith_en.html" class="wlink">Herman Hollerith</a>). 
+</li>
+
+<li>1945: <a href="vannevar_bush_en.html" class="wlink">Vannevar Bush</a>'s <i><a href="as_we_may_think_en.html" class="wlink">As We May Think</a></i> appeared in <i><a href="atlantic_monthly_en.html" class="wlink">Atlantic Monthly</a></i>  
+</li>
+
+<li>Late 1940's: The U.S. military confronted problems of indexing and retrieval of wartime scientific research documents captured from Germans. 
+</li>
+
+<li>1947: <a href="hans_peter_luhn_en.html" class="wlink">Hans Peter Luhn</a> (research engineer at IBM since 1941) began work on a mechanized, punch card based system for searching chemical compounds. 
+</li>
+
+<li>1950: The term "information retrieval" may have been coined by <a href="calvin_mooers_en.html" class="wlink">Calvin Mooers</a>.  
+</li>
+
+<li>1950's: Growing concern in the US for a "science gap" with the Soviets motivated, encouraged funding, and provided a backdrop for mechanized literature searching systems (<!-- CLK allen_kent_en.html -->Allen Kent<!-- LC --> et al) and the invention of citation indexing (<a href="eugene_garfield_en.html" class="wlink">Eugene Garfield</a>).  
+</li>
+
+<li>1955: Allen Kent joined <a href="case_western_reserve_university_en.html" class="wlink">Case Western Reserve University</a>, and eventually becomes associate director of the Center for Documentation and Communications Research. 
+</li>
+
+<li>1958: International Conference on Scientific Information Washington DC included consideration of IR systems as a solution to problems identified. See: Proceedings of the International Conference on Scientific Information, 1958 (National Academy of Sciences, Washington, DC, 1959) 
+</li>
+
+<li>1959: Hans Peter Luhn published "Auto-encoding of documents for information retrieval."  
+</li>
+
+<li>1960: Melvin Earl (Bill) Maron and J. L. Kuhns published "On relevance, probabilistic indexing, and information retrieval" in Journal of the ACM 7(3):216-244, July 1960. 
+</li>
+
+<li>Early 1960's: <a href="gerard_salton_en.html" class="wlink">Gerard Salton</a> began work on IR at Harvard, later moved to Cornell. 
+</li>
+
+<li>1962: <!-- CLK cyril_w_cleverdon_en.html -->Cyril W. Cleverdon<!-- LC --> published early findings of the Cranfield studies, developing a model for IR system evaluation. See: Cyril W. Cleverdon, "Report on the Testing and Analysis of an Investigation into the Comparative Efficiency of Indexing Systems". Cranfield Coll. of Aeronautics, Cranfield, England, 1962. 
+</li>
+
+<li>1962: Kent published Information Analysis and Retrieval
+</li>
+
+<li>1963: Weinberg report "Science, Government and Information" gave a full articulation of the idea of a "crisis of scientific information."  The report was named after Dr. <a href="alvin_weinberg_en.html" class="wlink">Alvin Weinberg</a>. 
+</li>
+
+<li>1963: <!-- CLK joseph_becker_en.html -->Joseph Becker<!-- LC --> and <a href="robert_hayes_en.html" class="wlink">Robert Hayes</a> published text on information retrieval. Becker, Joseph; Hayes, Robert Mayo. Information storage and retrieval: tools, elements, theories. New York, Wiley (1963). 
+</li>
+
+<li>1964: <!-- CLK karen_spaumlrck_jones_en.html -->Karen Sp&auml;rck Jones<!-- LC --> finished her thesis at Cambridge, <i>Synonymy and Semantic Classification</i>, and continued work on <a href="computational_linguistics_en.html" class="wlink">computational linguistics</a> as it applies to IR 
+</li>
+
+<li>1964: The <a href="national_bureau_of_standards_en.html" class="wlink">National Bureau of Standards</a> sponsored a symposium titled "Statistical Association Methods for Mechanized Documentation." Several highly significant papers, including G. Salton's first published reference (we believe) to the SMART system. 
+</li>
+
+<li>Mid-1960's: National Library of Medicine developed <!-- CLK medlars_en.html -->MEDLARS<!-- LC --> Medical Literature Analysis and Retrieval System, the first major machine-readable database and batch retrieval system 
+</li>
+
+<li>Mid-1960's: Project Intrex at MIT 
+</li>
+
+<li>1965: <a href="j_c_r_licklider_en.html" class="wlink">J. C. R. Licklider</a> published <i>Libraries of the Future</i> 
+</li>
+
+<li>1966: <a href="don_swanson_en.html" class="wlink">Don Swanson</a> was involved in studies at University of Chicago on Requirements for Future Catalogs 
+</li>
+
+<li>1968: Gerard Salton published <i>Automatic Information Organization and Retrieval</i>. 
+</li>
+
+<li>1968: <!-- CLK j_w_sammon_en.html -->J. W. Sammon<!-- LC -->'s RADC Tech report "Some Mathematics of Information Storage and Retrieval..." outlined the vector model. 
+</li>
+
+<li>1969: Sammon's "A nonlinear mapping for data structure analysis" (IEEE Transactions on Computers) was the first proposal for visualization interface to an IR system. 
+</li>
+
+<li>Late 1960's: <!-- CLK f_w_lancaster_en.html -->F. W. Lancaster<!-- LC --> completed evaluation studies of the MEDLARS system and published the first edition of his text on information retrieval 
+</li>
+
+<li>Early 1970's: first online systems--NLM's AIM-TWX, MEDLINE; Lockheed's Dialog; SDC's ORBIT 
+</li>
+
+<li>Early 1970's: <a href="theodor_nelson_en.html" class="wlink">Theodor Nelson</a> promoting concept of <a href="hypertext_en.html" class="wlink">hypertext</a>, published Computer Lib/Dream Machines 
+</li>
+
+<li>1971: <!-- CLK n_jardine_en.html -->N. Jardine<!-- LC --> and <a href="c_j_van_rijsbergen_en.html" class="wlink">C. J. Van Rijsbergen</a> published "The use of hierarchic clustering in information retrieval", which articulated the "cluster hypothesis." (Information Storage and Retrieval, 7(5), pp. 217-240, Dec 1971)
+</li>
+
+<li>1975: Three highly influential publications by Salton fully articulated his &lt;strong&gt;vector processing framework&lt;/strong&gt; and &lt;strong&gt;term discrimination model&lt;/strong&gt;: 
+
+<ul>
+<li> A Theory of Indexing  (Society for Industrial and Applied Mathematics) 
+</li>
+
+<li> "A theory of term importance in automatic text analysis", (JASIS v. 26) 
+</li>
+
+<li> "A vector space model for automatic indexing", (CACM 18:11) 
+</li>
+</ul></li>
+<li>1978: The First <!-- CLK acm_en.html -->ACM<!-- LC --> <!-- CLK sigir_en.html -->SIGIR<!-- LC --> conference. 
+</li>
+
+<li>1979: C. J. Van Rijsbergen published <i>Information Retrieval</i> (Butterworths). Heavy emphasis on probabilistic models. 
+</li>
+
+<li>1980: First international ACM SIGIR conference, joint with British Computer Society IR group in Cambridge 
+</li>
+
+<li>1982: <a href="nicholas_j_belkin_en.html" class="wlink">Belkin</a>, Oddy, and Brooks proposed the ASK (Anomalous State of Knowledge) viewpoint for information retrieval. This was an important concept, though their automated analysis tool proved ultimately disappointing. 
+</li>
+
+<li>1983: Salton (and M. McGill) published Introduction to Modern Information Retrieval (McGraw-Hill), with heavy emphasis on vector models. 
+</li>
+
+<li>Mid-1980's: Efforts to develop end user versions of commercial IR systems. 
+</li>
+
+<li>1985-1993: Key papers on and experimental systems for visualization interfaces. 
+</li>
+
+<li>Work by <!-- CLK d_b_crouch_en.html -->D. B. Crouch<!-- LC -->, <!-- CLK robert_r_korfhage_en.html -->Robert R. Korfhage<!-- LC -->, <!-- CLK m_chalmers_en.html -->M. Chalmers<!-- LC -->, <!-- CLK a_spoerri_en.html -->A. Spoerri<!-- LC --> and others. 
+</li>
+
+<li>1989: First <a href="world_wide_web_en.html" class="wlink">World Wide Web</a> proposals by <a href="tim_berners-lee_en.html" class="wlink">Tim Berners-Lee</a> at <a href="cern_en.html" class="wlink">CERN</a>. 
+</li>
+
+<li>1992: First TREC conference. 
+</li>
+
+<li>1997: Publication of Korfhage's <i>Information Retrieval</i> with emphasis on visualization and multi-reference point systems. 
+</li>
+
+<li>Late 1990's: Web <!-- CLK search_engine_en.html -->search engine<!-- LC --> implementation of many features formerly found only in experimental IR systems
+</li></ul>
+
+
+
+<a name="Open_source_information_retrieval_systems" id="Open_source_information_retrieval_systems"></a>
+<h2>Open source information retrieval systems</h2>
+
+
+
+<ul>
+<li> <a href="dataparksearch_en.html" class="wlink">DataparkSearch</a>, <!-- CLK search_engine_en.html -->search engine<!-- LC --> written in <a href="c_programming_language_en.html" class="wlink">C</a>, <!-- CLK gpl_en.html -->GPL<!-- LC -->
+</li>
+
+<li> <a href="http://www.egothor.org/" class="xlink">Egothor</a> high-performance, full-featured text search engine written entirely in Java
+</li>
+
+<li> <a href="http://webglimpse.net/subfeatures/features.html" class="xlink">Glimpse and Webglimpse</a> advanced site search software
+</li>
+
+<li> <a href="http://www.htdig.org/" class="xlink">ht://dig</a> Open source web crawling software
+</li>
+
+<li> <a href="http://www.lemurproject.org/" class="xlink">Lemur</a> Language Modelling IR Toolkit
+</li>
+
+<li> <a href="lucene_en.html" class="wlink">Lucene</a> <a href="http://lucene.apache.org/java/docs/" class="xlink">[12]</a> Apache Jakarta project
+</li>
+
+<li> <a href="http://www.nzdl.org/html/mg.html" class="xlink">MG full-text retrieval system</a> Now maintained by the <a href="greenstone_digital_library_software_en.html" class="wlink">Greenstone Digital Library Software</a> Project
+</li>
+
+<li> [ftp://ftp.cs.cornell.edu/pub/smart/ Smart] Early IR engine from Cornell University
+</li>
+
+<li> <a href="http://ir.dcs.gla.ac.uk/terrier" class="xlink">Terrier</a> TERabyte RetrIEveR, Information Retrieval Platform, written in Java
+</li>
+
+<li> <a href="http://www.wumpus-search.org/" class="xlink">Wumpus</a> multi-user information retrieval system
+</li>
+
+<li> <a href="http://www.xapian.org/" class="xlink">Xapian</a> Open source IR platform based on Muscat
+</li>
+
+<li> <a href="http://www.indexdata.dk/zebra/" class="xlink">Zebra</a> GPL structured text/XML/MARC boolean search IR engine supporting Z39.50 and Web Services
+</li>
+
+<li> <a href="zettair_en.html" class="wlink">Zettair</a>, compact and fast search engine written in <a href="c_programming_language_en.html" class="wlink">C</a>, able to handle large amounts of text
+</li></ul>
+
+
+
+<a name="Other_retrieval_tools" id="Other_retrieval_tools"></a>
+<h2>Other retrieval tools</h2>
+
+
+<ul>
+<li> <a href="http://aspseek.org/" class="xlink">ASPseek</a>
+</li>
+
+<li> <a href="http://www.ihop-net.org/UniPub/iHOP/" class="xlink">iHOP</a> Information retrieval system for the biomedical domain
+</li>
+
+<li> <a href="http://www-tsujii.is.s.u-tokyo.ac.jp/medie/" class="xlink">MEDIE</a> An intelligent search engine, retrieving biomedical events from Medline.
+</li>
+
+<li> <a href="http://www.ebi.ac.uk/Rebholz-srv/ebimed/" class="xlink">EBIMed</a> Information retrieval (and extraction) system over Medline
+</li>
+
+<li> [https://www-tsujii.is.s.u-tokyo.ac.jp/info-pubmed/ Info-PubMed] Protein interaction database with 200,000 gene/protein names mined from Medline.
+</li>
+
+<li> <a href="http://xav.com/" class="xlink">Fluid Dynamics Search Engine (FDSE)</a> A search engine written in Perl, freeware and shareware versions are available
+</li>
+
+<li> <a href="http://www.galaxquery.com/galatex/" class="xlink">GalaTex</a> XQuery Full-Text Search (XML query text search)
+</li>
+
+<li> <a href="http://www.cs.uni.edu/~okane/source/ISR/isr.html" class="xlink">Information Storage and Retrieval Using Mumps</a> (Online GPL Text)
+</li>
+
+<li> <a href="http://mnogosearch.org/" class="xlink">mnoGoSearch</a> written in <a href="c_programming_language_en.html" class="wlink">C</a>, it can index web multilingual sites and many databases types.
+</li>
+
+<li> <a href="http://www.sphinxsearch.com/" class="xlink">Sphinx</a> Free SQL full-text search engine
+</li>
+
+<li> <a href="http://www.biospider.ca" class="xlink">BioSpider</a> Free metabolite/drug/protein information retrieval system (used in the annotation of DrugBank and the Human Metabolome Database)
+</li></ul>
+
+
+
+<a name="Major_Information_retrieval_research_groups" id="Major_Information_retrieval_research_groups"></a>
+<h2>Major Information retrieval research groups</h2>
+
+
+<ul>
+<li> <a href="http://ciir.cs.umass.edu/" class="xlink">Center for Intelligent Information Retrieval at UMASS</a>
+</li>
+
+<li> <a href="http://www.lti.cs.cmu.edu/Research/projects.html#ir" class="xlink">Information Retrieval at the Language Technologies Institute, Carnegie Mellon University</a>
+</li>
+
+<li> <a href="http://research.microsoft.com/ir/" class="xlink">Information Retrieval at Microsoft Research Cambridge</a>
+</li>
+
+<li> <a href="http://ir.dcs.gla.ac.uk" class="xlink">Glasgow Information Retrieval Group</a>
+</li>
+
+<li> <a href="http://www.dcs.vein.hu/CIR/" class="xlink">CIR Centre for Information Retrieval</a>
+</li>
+
+<li> <a href="http://www.soi.city.ac.uk/organisation/is/research/cisr/" class="xlink">Centre for Interactive Systems Research at City University, London</a>
+</li>
+
+<li> <a href="http://www.ir.iit.edu/" class="xlink">IIT Information Retrieval Lab</a>
+</li>
+
+<li> <a href="http://www2.unine.ch/iiun/page4246.html" class="xlink">Information Retrieval Group at Université de Neuchâtel</a>
+</li>
+
+<li> <a href="http://iis.ist.psu.edu/" class="xlink">PSU Intelligent Systems Research Laboratory</a>
+</li>
+
+<li> <a href="http://ilps.science.uva.nl" class="xlink">Information and Language Processing Systems at the University of Amsterdam</a>
+</li>
+
+<li> <a href="http://www.ir-lab.org/" class="xlink">Information Retrieval Laboratory, Harbin Institute of Technology</a> (mainly in Chinese)
+</li>
+
+<li> <a href="http://www.ir.uwaterloo.ca/" class="xlink">Information Retrieval Group at the University of Waterloo, Canada</a>
+</li>
+
+<li> <a href="http://www.dcs.qmul.ac.uk/researchgp/ir/" class="xlink">Information Retrieval Group at the Queen Mary University of London</a>
+</li>
+
+<li> <a href="http://www.dc.fi.udc.es/ir/" class="xlink">Information Retrieval Lab at the University of A Coruña</a>
+</li></ul>
+
+
+
+<a name="Major_figures_in_information_retrieval" id="Major_figures_in_information_retrieval"></a>
+<h2>Major figures in information retrieval</h2>
+
+
+
+<ul>
+<li> <a href="gerard_salton_en.html" class="wlink">Gerard Salton</a>
+</li>
+
+<li> <a href="hans_peter_luhn_en.html" class="wlink">Hans Peter Luhn</a>
+</li>
+
+<li> <!-- CLK w_bruce_croft_en.html -->W. Bruce Croft<!-- LC -->
+</li>
+
+<li> <a href="karen_sprck_jones_en.html" class="wlink">Karen Spärck Jones</a>
+</li>
+
+<li> <a href="c_j_van_rijsbergen_en.html" class="wlink">C. J. van Rijsbergen</a>
+</li>
+
+<li> <!-- CLK donald_kraft_en.html -->Donald Kraft<!-- LC -->
+</li>
+
+<li> <a href="http://www.soi.city.ac.uk/~ser/homepage.html" class="xlink">Stephen E. Robertson</a>
+</li>
+
+<li> <!-- CLK abraham_bookstein_en.html -->Abraham Bookstein<!-- LC -->
+</li>
+
+<li> <!-- CLK stephen_p_harter_en.html -->Stephen P Harter<!-- LC -->
+</li>
+
+<li> <!-- CLK david_blair_en.html -->David Blair<!-- LC -->
+</li></ul>
+
+
+
+<a name="Other_figures_associated_with_information_retrieval" id="Other_figures_associated_with_information_retrieval"></a>
+<h2>Other figures associated with information retrieval</h2>
+
+
+<ul>
+<li> <a href="vannevar_bush_en.html" class="wlink">Vannevar Bush</a>
+</li>
+
+<li> <a href="paul_demaine_en.html" class="wlink">Paul DeMaine</a>
+</li>
+
+<li> <a href="sandor_dominich_en.html" class="wlink">Sandor Dominich</a>
+</li>
+
+<li> <a href="douglas_engelbart_en.html" class="wlink">Douglas Engelbart</a>
+</li>
+
+<li> <a href="eugene_garfield_en.html" class="wlink">Eugene Garfield</a>
+</li>
+
+<li> <!-- CLK robert_r_korfhage_en.html -->Robert R. Korfhage<!-- LC -->
+</li>
+
+<li> <a href="calvin_mooers_en.html" class="wlink">Calvin Mooers</a>
+</li>
+
+<li> <a href="ted_nelson_en.html" class="wlink">Ted Nelson</a>
+</li>
+
+<li> <a href="don_swanson_en.html" class="wlink">Don Swanson</a>
+</li></ul>
+
+
+<p>
+Awards in this field: <a href="tony_kent_strix_award_en.html" class="wlink">Tony Kent Strix award</a>.
+</p>
+
+
+<a name="ACM_SIGIR_Gerard_Salton_Award" id="ACM_SIGIR_Gerard_Salton_Award"></a>
+<h2>ACM SIGIR Gerard Salton Award</h2>
+<p>
+
+<br /> 1983 - <a href="gerard_salton_en.html" class="wlink">Gerard Salton</a>, <a href="cornell_university_en.html" class="wlink">Cornell University</a> : "About the future of automatic information retrieval" 
+<br /> 1988 - <a href="karen_sprck_jones_en.html" class="wlink">Karen Spärck Jones</a>, <a href="university_of_cambridge_en.html" class="wlink">University of Cambridge</a> : "A look back and a look forward" 
+<br /> 1991 - <!-- CLK cyril_cleverdon_en.html -->Cyril Cleverdon<!-- LC -->, <a href="cranfield_institute_of_technology_en.html" class="wlink">Cranfield Institute of Technology</a> : "The significance of the Cranfield tests on index languages" 
+<br /> 1994 - <!-- CLK william_s_cooper_en.html -->William S. Cooper<!-- LC -->, <a href="university_of_california_berkeley_en.html" class="wlink">University of California, Berkeley</a> : "The formalism of probability theory in IR: a foundation or an encumbrance?" 
+<br /> 1997 - <!-- CLK tefko_saracevic_en.html -->Tefko Saracevic<!-- LC -->, <a href="rutgers_university_en.html" class="wlink">Rutgers University</a> : "Users lost: reflections on the past, future, and limits of information science"  
+<br /> 2000 - <a href="http://www.soi.city.ac.uk/~ser/homepage.html" class="xlink">Stephen E. Robertson</a>, <a href="city_university_london_en.html" class="wlink">City University, London</a> : "On theoretical argument in information retrieval" 
+<br /> 2003 - <!-- CLK w_bruce_croft_en.html -->W. Bruce Croft<!-- LC -->, <a href="university_of_massachusetts_amherst_en.html" class="wlink">University of Massachusetts, Amherst</a> : "Information retrieval and computer science: an evolving relationship" 
+<br /> 2006 - <a href="c_j_van_rijsbergen_en.html" class="wlink">C. J. van Rijsbergen</a>, <a href="university_of_glasgow_en.html" class="wlink">University of Glasgow</a>, UK : "Quantum haystacks" 
+</p>
+
+
+<a name="See_also" id="See_also"></a>
+<h2>See also</h2>
+
+
+<ul>
+<li> <a href="controlled_vocabulary_en.html" class="wlink">Controlled vocabulary</a>
+</li>
+
+<li> <!-- CLK cross_language_evaluation_forum_en.html -->Cross Language Evaluation Forum<!-- LC -->
+</li>
+
+<li> <a href="cross-language_information_retrieval_en.html" class="wlink">Cross-language information retrieval</a>
+</li>
+
+<li> <a href="digital_libraries_en.html" class="wlink">Digital libraries</a>
+</li>
+
+<li> <a href="document_classification_en.html" class="wlink">Document classification</a>
+</li>
+
+<li> <a href="educational_psychology_en.html" class="wlink">Educational psychology</a>
+</li>
+
+<li> <a href="free_text_search_en.html" class="wlink">Free text search</a>
+</li>
+
+<li> <!-- CLK geographic_information_system_en.html -->Geographic information system<!-- LC -->
+</li>
+
+<li> <a href="information_extraction_en.html" class="wlink">Information extraction</a>
+</li>
+
+<li> <a href="information_science_en.html" class="wlink">Information science</a>
+</li>
+
+<li> <a href="knowledge_visualization_en.html" class="wlink">Knowledge visualization</a>
+</li>
+
+<li> <a href="question_answering_en.html" class="wlink">Question answering</a>
+</li>
+
+<li> <!-- CLK search_engines_en.html -->Search engines<!-- LC -->
+</li>
+
+<li> <a href="index_search_engine_en.html" class="wlink">Search index</a>
+</li>
+
+<li> <!-- CLK spoken_document_retrieval_en.html -->Spoken document retrieval<!-- LC -->
+</li>
+
+<li> <a href="tf-idf_en.html" class="wlink">tf-idf</a>
+</li>
+
+<li> <!-- CLK sp_theory_en.html -->SP theory<!-- LC -->
+</li></ul>
+
+
+
+<a name="External_links" id="External_links"></a>
+<h2>External links</h2>
+
+
+<ul>
+<li> <a href="http://www.acm.org/sigir/" class="xlink">ACM SIGIR: Information Retrieval Special Interest Group</a>
+</li>
+
+<li> <a href="http://irsg.bcs.org/" class="xlink">BCS IRSG: British Computer Society - Information Retrieval Specialist Group</a> 
+</li>
+
+<li> <a href="http://trec.nist.gov" class="xlink">Text Retrieval Conference (TREC)</a>
+</li>
+
+<li> <a href="http://www.cwirf.org/" class="xlink">Chinese Web Information Retrieval Forum (CWIRF)</a>
+</li>
+
+<li> <a href="http://www.dcs.gla.ac.uk/Keith/Preface.html" class="xlink">Information Retrieval</a> (online book) by <a href="c_j_van_rijsbergen_en.html" class="wlink">C. J. van Rijsbergen</a>
+</li>
+
+<li> <a href="http://www.cs.technion.ac.il/~gabr/resources/resources.html" class="xlink">Resources for Text, Speech and Language Processing</a>
+</li>
+
+<li><a href="http://motoresrecuperacion.iespana.es/" class="xlink">Searching semantic information and XML/RDF documents</a>
+</li></ul>
+
+
+
+
+
+
+
+<!-- XSTATES ul:0   dis2:0   ref:0   math:0   table:0   em2:0   em:0   p:0   em3:0   ol:0   li:0   nowiki:0   dis1:0   box:0    -->
+
+<div id="lowad">
+<script type="text/javascript"><!--
+google_ad_client = "pub-8398589250261057";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+google_color_border = "0066CC";
+google_color_bg = "FFFFFF";
+google_color_link = "0000FF";
+google_color_text = "000000";
+google_color_url = "38B63C";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+<br /><div class="footer">
+<div class="foothead">
+<a href="copy1.pl?zlang=en&zart=Information_retrieval&zsite=http%3A%2F%2Fcombustion.eu%2Finformation_retrieval_en.html">Copyright Notice</a></div>
+The actual descriptive text portion of the article above (and its
+Contents menu) are licensed under the GNU Free Documentation License
+then in effect published by the Free Software Foundation.  The text
+article uses material from http://en&#46;wikipedia&#46;org&#47;wiki&#47;Information_retrieval (retrieval date: 2007-05-27) and is provided
+"as-is" and without warranty.
+Permission is granted to copy, distribute and/or modify only the
+actual descriptive text portion of the article above (and its
+Contents Box) under the GNU Free Documentation License.
+A copy of the license is available at:
+http://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License.
+Any advertisements (or active links not embedded in the actual article)
+and the layout or selection thereof are excluded from such license.
+<br />
+(c) Ovidio Limited 2006-2009.
+<br /><br />
+<div class = "foothead">Privacy Policy</div>
+This website may utlize cookies and web beacons to help improve user
+experience and to collect aggregate usage data; we do not collect
+or otherwise use any personally identifiable information.
+Additionally, third parties may utilize cookies and web beacons
+in the course of serving ads on this website.  Consult your web browser
+documentation for information about managing web cookies.
+</div>
+</div>
+
+<div id="Menu"><br />
+<div id="MenuAd">
+<script type="text/javascript"><!--
+google_ad_client = "pub-8398589250261057";
+google_ad_width = 180;
+google_ad_height = 90;
+google_ad_format = "180x90_0ads_al";
+google_ad_channel = "";
+google_color_border = "0066CC";
+google_color_bg = "FFFFCC";
+google_color_link = "0000FF";
+google_color_text = "000000";
+google_color_url = "00FF80";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<br />
+</div>
+<br />
+
+<br />
+<p id="ContentHead">Contents</p><ul>
+<li><a href="#Performance_measures">Performance measures</a></li>
+<li><a href="#Precision">Precision</a></li>
+<li><a href="#Recall">Recall</a></li>
+<li><a href="#F-measure">F-measure</a></li>
+<li><a href="#Average_precision">Average precision</a></li>
+<li><a href="#Model_types">Model types</a></li>
+<li><a href="#First_dimension_mathematical_basis">First dimension: mathematical basis</a></li>
+<li><a href="#Second_dimension_properties_of_the_model">Second dimension: properties of the model</a></li>
+<li><a href="#Major_events_in_Information_Retrieval">Major events in Information Retrieval</a></li>
+<li><a href="#Open_source_information_retrieval_systems">Open source information retrieval systems</a></li>
+<li><a href="#Other_retrieval_tools">Other retrieval tools</a></li>
+<li><a href="#Major_Information_retrieval_research_groups">Major Information retrieval research groups</a></li>
+<li><a href="#Major_figures_in_information_retrieval">Major figures in information retrieval</a></li>
+<li><a href="#Other_figures_associated_with_information_retrieval">Other figures associated with information retrieval</a></li>
+<li><a href="#ACM_SIGIR_Gerard_Salton_Award">ACM SIGIR Gerard Salton Award</a></li>
+<li><a href="#See_also">See also</a></li>
+<li><a href="#External_links">External links</a></li>
+
+</ul><br />
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-8398589250261057";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_type = "text_image";
+google_ad_channel ="";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "0000FF";
+google_color_url = "008000";
+google_color_text = "000000";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+</div>
+</body>
+</html>
+
+<!-- LANG:  OWN: i 83.149.110.73 6c combustion ip:  geo: Q4Q conf:  -->

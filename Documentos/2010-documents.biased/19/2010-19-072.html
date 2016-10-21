@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<title>HTML vs. XHTML - WHATWG Wiki</title>
+<meta http-equiv=Content-Type content="text/html; charset=UTF-8">
+<meta name=generator content="MediaWiki 1.16alpha">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel=search type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="WHATWG Wiki (en)">
+<link rel=copyright href="/wiki/WHATWG_Wiki:Copyrights">
+<link rel=alternate type="application/atom+xml" title="WHATWG Wiki Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom">
+<link rel=stylesheet href="/skins/common/shared.css?265" media=screen>
+<link rel=stylesheet href="/skins/common/commonPrint.css?265" media=print>
+<link rel=stylesheet href="/skins/monobook/main.css?265" media=screen>
+<!--[if IE 6]><link rel=stylesheet href="/skins/monobook/IE60Fixes.css?265" media=screen><![endif]-->
+<!--[if IE 7]><link rel=stylesheet href="/skins/monobook/IE70Fixes.css?265" media=screen><![endif]-->
+<link rel=stylesheet href="/index.php?title=MediaWiki:Common.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000">
+<link rel=stylesheet href="/index.php?title=MediaWiki:Print.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" media=print>
+<link rel=stylesheet href="/index.php?title=MediaWiki:Monobook.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000">
+<link rel=stylesheet href="/index.php?title=-&amp;action=raw&amp;maxage=18000&amp;gen=css">
+<script>
+var skin="monobook",
+stylepath="/skins",
+wgUrlProtocols="http\\:\\/\\/|https\\:\\/\\/|ftp\\:\\/\\/|irc\\:\\/\\/|gopher\\:\\/\\/|telnet\\:\\/\\/|nntp\\:\\/\\/|worldwind\\:\\/\\/|mailto\\:|news\\:|svn\\:\\/\\/",
+wgArticlePath="/wiki/$1",
+wgScriptPath="",
+wgScriptExtension=".php",
+wgScript="/index.php",
+wgVariantArticlePath=false,
+wgActionPaths={},
+wgServer="http://wiki.whatwg.org",
+wgCanonicalNamespace="",
+wgCanonicalSpecialPageName=false,
+wgNamespaceNumber=0,
+wgPageName="HTML_vs._XHTML",
+wgTitle="HTML vs. XHTML",
+wgAction="view",
+wgArticleId=1648,
+wgIsArticle=true,
+wgUserName=null,
+wgUserGroups=null,
+wgUserLanguage="en",
+wgContentLanguage="en",
+wgBreakFrames=false,
+wgCurRevisionId=4156,
+wgVersion="1.16alpha",
+wgEnableAPI=true,
+wgEnableWriteAPI=true,
+wgSeparatorTransformTable=["", ""],
+wgDigitTransformTable=["", ""],
+wgMainPageTitle="Main Page",
+wgFormattedNamespaces={"-2": "Media", "-1": "Special", "0": "", "1": "Talk", "2": "User", "3": "User talk", "4": "WHATWG Wiki", "5": "WHATWG Wiki talk", "6": "File", "7": "File talk", "8": "MediaWiki", "9": "MediaWiki talk", "10": "Template", "11": "Template talk", "12": "Help", "13": "Help talk", "14": "Category", "15": "Category talk"},
+wgNamespaceIds={"media": -2, "special": -1, "": 0, "talk": 1, "user": 2, "user_talk": 3, "whatwg_wiki": 4, "whatwg_wiki_talk": 5, "file": 6, "file_talk": 7, "mediawiki": 8, "mediawiki_talk": 9, "template": 10, "template_talk": 11, "help": 12, "help_talk": 13, "category": 14, "category_talk": 15, "image": 6, "image_talk": 7},
+wgSiteName="WHATWG Wiki",
+wgCategories=[],
+wgRestrictionEdit=[],
+wgRestrictionMove=[];
+</script><script src="/skins/common/wikibits.js?265"></script>
+<script src="/skins/common/ajax.js?265"></script>
+<script src="/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook&amp;265"></script>
+
+</head>
+<body class="mediawiki ltr ns-0 ns-subject page-HTML_vs_XHTML skin-monobook">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content" >
+		<a id="top"></a>
+				<h1 id="firstHeading" class="firstHeading">HTML vs. XHTML</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From WHATWG Wiki</h3>
+			<div id="contentSub" ></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<table id="toc" class="toc"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Differences_Between_HTML_and_XHTML"><span class="tocnumber">1</span> <span class="toctext">Differences Between HTML and XHTML</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Overlap_Language"><span class="tocnumber">1.1</span> <span class="toctext">Overlap Language</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#MIME_Types"><span class="tocnumber">1.2</span> <span class="toctext">MIME Types</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Syntax_and_Parsing"><span class="tocnumber">1.3</span> <span class="toctext">Syntax and Parsing</span></a>
+<ul>
+<li class="toclevel-3 tocsection-5"><a href="#HTML_Elements_with_Optional_Tags"><span class="tocnumber">1.3.1</span> <span class="toctext">HTML Elements with Optional Tags</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-6"><a href="#Markup"><span class="tocnumber">1.4</span> <span class="toctext">Markup</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Character_Encoding"><span class="tocnumber">1.5</span> <span class="toctext">Character Encoding</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Scripts"><span class="tocnumber">1.6</span> <span class="toctext">Scripts</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Stylesheets"><span class="tocnumber">1.7</span> <span class="toctext">Stylesheets</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="#Differences_Between_HTML4_and_HTML5"><span class="tocnumber">2</span> <span class="toctext">Differences Between HTML4 and HTML5</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="#Differences_Between_DOM_Level_2.0.2C_3.0_and_the_HTML_5_DOM_APIs"><span class="tocnumber">3</span> <span class="toctext">Differences Between DOM Level 2.0, 3.0 and the HTML 5 DOM APIs</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="#Translations"><span class="tocnumber">4</span> <span class="toctext">Translations</span></a></li>
+</ul>
+</td></tr></table><script>if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<h2> <span class="mw-headline" id="Differences_Between_HTML_and_XHTML"> Differences Between HTML and XHTML </span></h2>
+<p style="border: 1px dashed lightgray; background-color: #FFEEEE; padding: .5em 1em;"><strong>This page is currently being revised. Some information is incomplete or missing.</strong></p>
+<p style="border: 1px dashed lightgray; background-color: #FFF8E4; padding: .5em 1em;">Please note that the information in here is based upon the current spec for (X)HTML5.  Some of the issues technically do not apply to previous versions of HTML.</p>
+<p>Although HTML and XHTML appear to have similarities in their syntax, they are significantly different in many ways.
+</p>
+<dl><dd><b>Note</b>: As the current WHATWG document is a draft, this section will need to track to a moving target.
+</dd></dl>
+<h3> <span class="mw-headline" id="Overlap_Language"> Overlap Language </span></h3>
+<p>There is a community who find it valuable to be able to serve HTML5 documents which are also valid XML documents. They may, for example, use XML tools to generate the document, and they and others may process the document using XML tools.  These documents are served as text/html.
+</p><p>This language is sometimes called "polyglot".  It is the overlap language of documents which are both HTML5 documents and XML documents.
+</p><p>This wiki web page is an example of such a document.  You can parse it with an XML parser or an HTML parser.
+</p><p><br />
+</p>
+<h3> <span class="mw-headline" id="MIME_Types"> MIME Types </span></h3>
+<table class="wikitable" border="1">
+
+<tr>
+<th>  Feature
+</th><th>  HTML Requirement
+</th><th>  XHTML Requirement
+</th><th>  Notes
+</th></tr>
+<tr>
+<td>  Mime Type
+</td><td>  Must use <code>text/html</code>.
+</td><td>  Must use an XML MIME type, such as <code>application/xml</code> or <code>application/xhtml+xml</code>.
+</td><td>  It is the MIME type that determines what type of document you are using.  Any document, including a document authored with the intention of being XHTML, served as <code>text/html</code> is technically an HTML document.
+</td></tr></table>
+<p>Note that XHTML 1.0 previously defined that documents adhering to the compatibility guidelines were allowed to be served as <code>text/html</code>, but HTML 5 now defines that such documents are HTML, not XHTML.
+</p>
+<h3> <span class="mw-headline" id="Syntax_and_Parsing"> Syntax and Parsing </span></h3>
+<p>XHTML uses XML parsing requirements. HTML uses its own which are defined much more closely to the way browsers actually handle HTML today.  The following table describes the differences between how each is parsed.
+</p>
+<table class="wikitable" border="1">
+
+<tr>
+<th>  Feature
+</th><th>  HTML Requirement
+</th><th>  XHTML Requirement
+</th><th>  Notes
+</th></tr>
+<tr>
+<th>Parsing Modes
+</th><td>Three parsing modes are defined: <i>no quirks mode</i>, <i>quirks mode</i> and <i>limited quirks mode</i>.  The mode is only ever changed from the default by the HTML parser, based on the presence, absence, or value of the DOCTYPE string.
+</td><td>XML parsing rules are used.  There is only one mode.
+</td><td>The parsing modes in HTML also have an effect upon script and stylehsheet processing. XHTML is considered to be in <i>no quirks mode</i> for these purposes.
+</td></tr>
+<tr>
+<th>Error Handling
+</th><td>HTML does not have a well-formedness constraint, no errors are fatal. Graceful error handling and recovery procedures are thoroughly defined.
+</td><td>Well-formedness errors are fatal
+</td><td>
+</td></tr>
+<tr>
+<th>Namespaces
+</th><td>Elements and attributes for known vocabularies (HTML, SVG and MathML) are implicitly assigned to appropriate namespaces, according to the rules specified in the parsing algorithm.
+</td><td>The rules defined in the <a href="http://www.w3.org/TR/REC-xml-names/" class="external text" rel=nofollow>Namespaces in XML</a> specification apply.  Namespaces must be explicitly declared.
+</td><td>
+</td></tr>
+<tr>
+<th>Namespace attributes on HTML elements
+</th><td>Elements in the HTML namespace may have an <code>xmlns</code> attribute specified, if, and only if, it has the exact value <code>"<a href="http://www.w3.org/1999/xhtml" class="external free" rel=nofollow>http://www.w3.org/1999/xhtml</a>"</code>.  The attribute has absolutely no effect. It is basically a talisman. It is allowed merely to make migration to and from XHTML mildly easier. When parsed by an HTML parser, the attribute ends up in no namespace.
+<p>Attributes of the form <code>xmlns:<var>prefix</var></code> may not be used on HTML elements.
+</p>
+</td><td>The HTML namespace must be declared for HTML elements according to the rules defined by <i>Namespaces in XML</i>.  The <code>xmlns</code> and <code>xmlns:<var>prefix</var></code> attributes end up in the <code>"<a href="http://www.w3.org/2000/xmlns" class="external free" rel=nofollow>http://www.w3.org/2000/xmlns</a>"</code> namespace.
+</td><td>
+</td></tr>
+<tr>
+<th>Namespace attributes on foreign elements
+</th><td>
+<p>Elements in the SVG namespace may have an <code>xmlns</code> attribute specified, if, and only if, it has the exact value <code>"<a href="http://www.w3.org/2000/svg" class="external free" rel=nofollow>http://www.w3.org/2000/svg</a>"</code>.  The attribute is optional because the namespace is implied during parsing.
+</p><p>Elements in the MathML namespace may have an <code>xmlns</code> attribute specified, if, and only if, it has the exact value <code>"<a href="http://www.w3.org/1998/Math/MathML" class="external free" rel=nofollow>http://www.w3.org/1998/Math/MathML</a>"</code>.  The attribute is optional because the namespace is implied during parsing.
+</p><p>Foreign elements may also have an <code>xmlns:xlink</code> attribute specified, if, and only if, it has the exact value <code>"<a href="http://www.w3.org/1999/xlink" class="external free" rel=nofollow>http://www.w3.org/1999/xlink</a>"</code>.  This attribute is optional, even if XLink attributes are used, because the namespaces for XLink attributes is implied during parsing.
+</p><p>When parsed by an HTML parser, the <code>xmlns</code> and <code>xmlns:xlink</code> attributes end up in the <code>"<a href="http://www.w3.org/2000/xmlns" class="external free" rel=nofollow>http://www.w3.org/2000/xmlns</a>"</code> namespace.
+</p>
+</td><td>The SVG and MathML namespaces must be declared for SVG and MathML elements, respectively, according to the rules defined by <i>Namespaces in XML</i>.  The <code>xmlns</code> and <code>xmlns:<var>prefix</var></code> attributes end up in the <code>"<a href="http://www.w3.org/2000/xmlns" class="external free" rel=nofollow>http://www.w3.org/2000/xmlns</a>"</code> namespace.
+</td><td>
+</td></tr>
+<tr>
+<th>XLink attributes
+</th><td>Foreign elements may use the attributes <code>xlink:actuate</code>, <code>xlink:arcrole</code>, <code>xlink:href</code>, <code>xlink:role</code>, <code>xlink:show</code>, <code>xlink:title</code> and <code>xlink:type</code>.  These attributes are placed in the <code>"<a href="http://www.w3.org/1999/xlink" class="external free" rel=nofollow>http://www.w3.org/1999/xlink</a>"</code>.  The prefix used must be "<code>xlink</code>".
+</td><td>XLink attributes may be specified on foreign elements using any prefix, subject to the conformance rules defined by <i>Namespaces in XML</i>.  The XLink namespace must be declared according to the conformance rules defined by <i>Namespaces in XML</i> if XLink attributes are used within the document.
+</td><td>
+</td></tr>
+<tr>
+<th>XML attributes
+</th><td>
+<p>Foreign elements may use the attributes <code>xml:lang</code>, <code>xml:base</code> and <code>xml:space</code>.  These attributes are placed in the <code>"<a href="http://www.w3.org/XML/1998/namespace" class="external free" rel=nofollow>http://www.w3.org/XML/1998/namespace</a>"</code>.  The prefix used must be "<code>xml</code>".
+</p><p>HTML elements may use the <code>xml:lang</code> attribute. The attribute in no namespace with no prefix and with the literal localname "<code>xml:lang</code>" has no effect on language processing.  HTML elements must not use the <code>xml:base</code> or <code>xml:space</code> attributes.
+</p>
+</td><td> Any element, including HTML elements, may use the attributes <code>xml:lang</code>, <code>xml:base</code> and <code>xml:space</code>.  These attributes are placed in the <code>"<a href="http://www.w3.org/XML/1998/namespace" class="external free" rel=nofollow>http://www.w3.org/XML/1998/namespace</a>"</code>.  The prefix used must be "<code>xml</code>".
+</td><td>
+</td></tr>
+<tr>
+<th>Space characters
+</th><td>The space characters are defined as:
+<ul><li> U+0009 CHARACTER TABULATION
+</li><li> U+000A LINE FEED
+</li><li> U+000C FORM FEED
+</li><li> U+000D CARRIAGE RETURN
+</li><li> U+0020 SPACE
+</li></ul>
+</td><td>The space characters are defined as:
+<ul><li> U+0009 CHARACTER TABULATION
+</li><li> U+000A LINE FEED
+</li><li> U+000D CARRIAGE RETURN
+</li><li> U+0020 SPACE
+</li></ul>
+</td><td>The difference is the inclusion of Form Feed.
+</td></tr>
+<tr>
+<th>  The DOCTYPE
+</th><td>
+<p>A DOCTYPE is a mostly useless, but required, header. The DOCTYPE is used during parsing to determing the parsing mode.  The keywords "<code>DOCTYPE</code>", "<code>PUBLIC</code>" and "<code>SYSTEM</code>", and the name "<code>html</code>" are treated case insensitively.  The system identifier <code>"about:legacy-compat"</code> (and the public and system identifiers for previous versions of HTML) are case sensitive.
+</p><p>Conforming HTML documents are required to use <code>&lt;!DOCTYPE html&gt;</code> (case insensitively) or the legacy-compat version <code>&lt;!DOCTYPE html SYSTEM "about:legacy-compat"&gt;</code>.
+</p><p>When using the obsolete but conforming DOCTYPEs based on the HTML 4.0 and 4.01 Strict DTDs, the system identifier is optional.  The obsolete but conforming DOCTYPEs based on XHTML 1.0 Strict and XHTML 1.1 may also be specified.
+</p><p>Use of an internal subset is forbidden.  The system identifier is never de-referenced by HTML implementations.
+</p>
+</td><td>
+<p>The DOCTYPE is optional.  XML rules for case sensitivity apply (everything is case sensitive).
+</p><p>Either of the DOCTYPEs defined in HTML5 may be used, or any other custom DOCTYPE.  If the poublic identifier is specified, the system identifier must also be specified.  The obsolete status of the <i>obsolete permitted DOCTYPEs</i> defined for HTML does not apply to XHTML.  Any DOCTYPE may be used, subject to the conformance rules defined by XML.
+</p><p>Use of an internal subset is permitted according to the requirements of XML.  Some validating XML processors may dereference the system identifier, if used, but most browsers use non-validating processors.
+</p>
+</td><td>
+</td></tr>
+<tr>
+<th>  Void Elements
+</th><td>  Void elements only have a start tag; end tags must not be specified for void elements, and it is impossible for them to contain any content.  A trailing slash may optionally be inserted at the end of the element's tag, immediately before the closing greater-than sign.
+</td><td>  Void elements may use either the empty-element tag syntax (<i>EmptyElemTag</i>) or use a start tag immediately followed by an end tag, with no content in between.  While it is possible for the element to contain content, this is non-conforming.
+</td><td>
+</td></tr>
+<tr>
+<th>  Raw text elements
+</th><td>
+</td><td>
+</td><td>
+</td></tr>
+<tr>
+<th>  RCDATA elements
+</th><td>
+</td><td>
+</td><td>
+</td></tr>
+<tr>
+<th>  Foreign elements
+</th><td>
+</td><td>
+</td><td>
+</td></tr>
+<tr>
+<th>  Normal elements
+</th><td>
+</td><td>
+</td><td>
+</td></tr>
+<tr>
+<th>  Optional tags
+</th><td>
+<p>For <a href=#HTML_Elements_with_Optional_Tags>some elements</a>, the start and/or end tags are optional and are implied by certain specified conditions.  For example, the end tag for the <code>p</code> element is implied by a subsequent <code>p</code> element.
+</p><p>Omitting the end tag for other elements is a parse error and various error recovery procedures are applied appropriately.
+</p>
+</td><td>  End tags must be explicitly included for all elements, except empty elements using the <i>EmptyElemTag</i> syntax.
+</td><td>
+</td></tr>
+<tr>
+<th>  Unescaped Special Characters
+</th><td>
+<p>Unescaped ampersands (U+0026 AMPERSAND - <code>&amp;</code>, instead of <code>&amp;amp;</code>) are permitted within the content of <i>normal elements</i>, <i>RCDATA elements</i>, <i>foreign elements</i> and <i>attribute values</i> where they are not considered to be <i>ambiguous ampersands</i>, and within <i>Raw text elements</i>.
+</p><p>Unescaped less than signs (U+003C LESS-THAN SIGN - <code>&lt;</code>, instead of <code>&amp;lt;</code>) are permitted in <i>Raw text elements</i>, <i>RCDATA elements</i> and <i>attribute values</i>, excluding the <i>unquoted attribute value syntax</i>.
+</p>
+</td><td>  Unescaped ampersands and less-than signs may not appear within <i>CharData</i> or <i>AttValue</i> (basically, the normal text content of elements and attribute values.)  Violation of this constraint is a well-formedness error.
+</td><td>
+</td></tr>
+<tr>
+<th>  Comment syntax
+</th><td>  Comments must start with the four character sequence "<code>&lt;!--</code>" and must be ended by the three character sequence "<code>--&gt;</code>".  The content of comments must not start with a single U+003E GREATER-THAN SIGN ('&gt;') character, nor start with a U+002D HYPHEN-MINUS (-) character followed by a U+003E GREATER-THAN SIGN ('&gt;') character, nor contain two consecutive U+002D HYPHEN-MINUS (-) characters, nor end with a U+002D HYPHEN-MINUS (-) character.  Violating these constraints is a parse error and various error recovery procedures are applied appropriately.
+</td><td>  The content of comments must not contain two consecutive U+002D HYPHEN-MINUS (-) characters, nor end with a hypen. Violating this is a well-formedness error.
+</td><td>
+</td></tr>
+<tr>
+<th>CDATA sections
+</th><td>
+</td><td>
+</td><td>
+</td></tr>
+<tr>
+<th>Processing Instructions
+</th><td>
+</td><td>
+</td><td>
+</td></tr>
+<tr>
+<th>Character References
+</th><td>
+</td><td>
+</td><td>
+</td></tr>
+<tr>
+<th>Entity References
+</th><td>
+</td><td>
+</td><td>
+</td></tr></table>
+<p><b>THIS PAGE IS IN THE PROCESS OF BEING REVISED</b>
+</p>
+<ul><li> HTML Parse Errors with special handling:
+<ul><li> End tags with attributes. 
+</li><li> Unexpected end tags (in HTML, an unexpected <code>&lt;/br&gt;</code> or <code>&lt;/p&gt;</code> can cause the start tag to be implied before it).
+</li></ul>
+</li></ul>
+<ul><li> The sequence of characters &quot;<code>]]&gt;</code>&quot; in content when it does not mark the end of a <code>CDATA</code> section is a well-formedness error in XHTML, but valid in HTML.
+</li><li> In XHTML: <code>&lt;![CDATA[...]]&gt;</code> is a <code>CDATA</code> section. In HTML, it's a bogus comment.
+</li><li> In XHTML, <code>&lt;?foo ...?&gt;</code> is a processing instruction. In HTML, it's a bogus comment.
+</li><li> In HTML, the trailing slash used for the empty element syntax is a parse error for non-void elements (see below), but is ignored in all cases.
+</li><li> In HTML, the <code>script</code> and <code>style</code> elements are parsed as <code>CDATA</code> elements. (Note: the definition of <code>CDATA</code> differs from that in XML). In XML, they're parsed as normal elements (which means that things that look like comments are treated as <em>real</em> comments, and things that look like start tags actually are start tags).
+</li><li> In HTML, the <code>title</code> and <code>textarea</code> elements are parsed as <code>RCDATA</code> elements. (Note: The definition of <code>RCDATA</code> differs from that in SGML and there is no <code>RCDATA</code> in XML).
+</li><li> In HTML, if scripting is enabled, the <code>noscript</code> element is parsed as an <code>CDATA</code> element. If scripting is disabled, it's parsed as a normal element. In XHTML, the element is always parsed as a normal element, and can't really be used to stop content from being present when script is disabled.
+</li><li> In HTML, the <code>iframe</code>, <code>noembed</code> and <code>noframes</code> elements are parsed as <code>CDATA</code> elements. In XHTML, they are parsed as normal elements, and therefore do not stop content from being used.
+</li><li> White space characters in attribute values are <a href="http://www.w3.org/TR/REC-xml/#AVNormalize" class="external text" rel=nofollow>normalized</a> to spaces in XHTML.
+</li><li> In HTML, elements with optional tags are implied in certain conditions.
+</li><li> In HTML, tags for certain elements, which appear out of context, are ignored. This includes <code>caption</code>, <code>col</code>, <code>colgroup</code>, <code>frame</code>, <code>frameset</code>, <code>head</code>, <code>option</code>, <code>optgroup</code>, <code>tbody</code>, <code>td</code>, <code>tfoot</code>, <code>th</code>, <code>thead</code>, <code>tr</code>.
+</li><li> The <code>plaintext</code> element has a special parsing requirement in HTML. (It is, however, forbidden.)
+</li><li> In HTML, a line feed that immediately follows a <code>pre</code>, <code>listing</code> or <code>textarea</code> start tag is ignored.
+</li><li> <em>Many other special handling of edge cases and error conditions, not all of which are listed here, occur in HTML.</em>
+</li></ul>
+<p><br />
+</p>
+<ul><li> In HTML, <a href="http://wiki.whatwg.org/wiki/FAQ#What_will_the_DOCTYPE_be.3F" class="external text" rel=nofollow>the <code>doctype</code> is required</a>. In XHTML, it is optional.
+</li><li> In HTML, the DOCTYPE is case insensitive. (e.g. <code>&lt;!DOCTYPE HTML&gt;</code> or <code>&lt;!doctype html&gt;</code>, or any case variation of that is acceptable).  In XHTML, the DOCTYPE, if used, is case sensitive and must be well-formed XML.  i.e. <code>&lt;!DOCTYPE html&gt;</code>, with optional PUBLIC and/or SYSTEM identifiers.
+</li><li> In XHTML, tag names and attribute names are case sensitive. In HTML, they are case insensitive.
+</li><li> In XHTML, non-empty elements require both a start and an end tag. In HTML, certain elements allow the omission of either or both:
+</li></ul>
+<ul><li> In XHTML, empty elements may use either the empty element syntax (<code>&lt;br/&gt;</code>) or have an end tag immediately follow the start tag (<code>&lt;br&gt;&lt;/br&gt;</code>). In HTML, the empty element syntax (trailing slash) is allowed on void elements, but forbidden on other elements. However, it serves no purpose whatsoever and can be omitted. End tags for void elements are forbidden.
+<ul><li> <code>base</code>, <code>link</code>, <code>meta</code>, <code>hr</code>, <code>br</code>, <code>img</code>, <code>embed</code>, <code>param</code>, <code>area</code>, <code>col</code> and <code>input</code>
+</li></ul>
+</li><li> HTML allows attribute minimisation (i.e. omitting the equals sign and the value), XHTML does not.
+</li><li> HTML allows the use of unquoted attribute values, XHTML does not.
+</li><li> XHTML allows the use of <code>CDATA</code> sections, HTML does not.
+</li><li> XHTML allows the use of processing instructions, HTML does not.
+</li><li> In HTML, all entity references are predefined and do not require a DTD. But because there is no DTD for XHTML5, entity references cannot be used in XHTML. (excluding the 5 predefined entities: <code>&amp;amp;</code>, <code>&amp;lt;</code>, <code>&amp;gt;</code>, <code>&amp;quot;</code> and <code>&amp;apos;)</code>
+<ul><li> You can provide your own DTD for use with your own validating parser, but be aware that browsers do not use validating parsers and will not read the DTD.
+</li></ul>
+</li><li> The valid set of unicode characters in XML 1.0 is limited beyond that in HTML.
+</li><li> Namespace prefixes are permitted in XHTML. They are forbidden in HTML.
+</li></ul>
+<h4> <span class="mw-headline" id="HTML_Elements_with_Optional_Tags"> HTML Elements with Optional Tags </span></h4>
+<table class="wikitable" border="1">
+
+<tr>
+<th> Element
+</th><th> Start Tag
+</th><th> End Tag
+</th></tr>
+<tr>
+<th>html
+</th><td>optional
+</td><td>optional
+</td></tr>
+<tr>
+<th>head
+</th><td>optional
+</td><td>optional
+</td></tr>
+<tr>
+<th>body
+</th><td>optional
+</td><td>optional
+</td></tr>
+<tr>
+<th>li
+</th><td>required
+</td><td>optional
+</td></tr>
+<tr>
+<th>dt
+</th><td>required
+</td><td>optional
+</td></tr>
+<tr>
+<th>dt
+</th><td>required
+</td><td>optional
+</td></tr>
+<tr>
+<th>p
+</th><td>required
+</td><td>optional
+</td></tr>
+<tr>
+<th>colgroup
+</th><td>optional
+</td><td>optional
+</td></tr>
+<tr>
+<th>thead
+</th><td>required
+</td><td>optional
+</td></tr>
+<tr>
+<th>tbody
+</th><td>optional
+</td><td>optional
+</td></tr>
+<tr>
+<th>tfoot
+</th><td>required
+</td><td>optional
+</td></tr>
+<tr>
+<th>tr
+</th><td>required
+</td><td>optional
+</td></tr>
+<tr>
+<th>th
+</th><td>required
+</td><td>optional
+</td></tr>
+<tr>
+<th>td
+</th><td>required
+</td><td>optional
+</td></tr>
+<tr>
+<th>rt
+</th><td>required
+</td><td>optional
+</td></tr>
+<tr>
+<th>rp
+</th><td>required
+</td><td>optional
+</td></tr>
+<tr>
+<th>optgroup
+</th><td>required
+</td><td>optional
+</td></tr>
+<tr>
+<th>option
+</th><td>required
+</td><td>optional
+</td></tr></table>
+<h3> <span class="mw-headline" id="Markup"> Markup </span></h3>
+<ul><li> The <a href="http://wiki.whatwg.org/wiki/FAQ#What_is_the_namespace_declaration.3F" class="external text" rel=nofollow>namespace declaration</a> (<code>xmlns</code> attribute) is required in XHTML.  The xmlns attribute is also allowed to appear on any element in HTML on the condition that is has the value <code>&quot;http://www.w3.org/1999/xhtml&quot;</code>.
+<ul><li> <code>&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;</code>
+</li><li> In HTML, the xmlns attribute has absolutely no effect. It is basically a talisman. It is allowed merely to make migration to and from XHTML mildly easier.  When parsed by an HTML parser, the attribute ends up in the null namespace
+</li><li> In XML (with an <a href="http://www.w3.org/TR/xml-names/" class="external text" rel=nofollow>XML Namespaces</a>-aware parser), an xmlns attribute is part of the namespace declaration mechanism, and an element cannot actually have an xmlns attribute in the null namespace.  In DOM implementations, the attribute ends up in the "<code>http://www.w3.org/2000/xmlns/</code>" namespace.
+</li></ul>
+</li><li> XHTML allows non XHTML elements and attributes (in different namespaces) to be used, HTML does not.
+</li><li> XHTML uses the <code>xml:lang</code> attribute, HTML uses <code>lang</code> instead,
+</li><li> XML ID introduces <code>xml:id</code>, which could be used in XHTML. In HTML it has no effect.
+</li><li> In HTML, the <code>noscript</code> element may be used. In XHTML, it is forbidden.
+</li><li> XHTML can use <code>xml:base</code>, HTML cannot. 
+</li><li> In XHTML, <code>table</code> elements may contain child <code>tr</code> elements. In the HTML serialisation, due to backwards compatibility constraints, this is not possible (though it may be done through DOM manipulation).
+</li></ul>
+<h3> <span class="mw-headline" id="Character_Encoding"> Character Encoding </span></h3>
+<ul><li> In XHTML, the XML declaration may be used to <a href="http://wiki.whatwg.org/wiki/FAQ#How_do_I_specify_the_character_encoding.3F" class="external text" rel=nofollow>specify the character encoding</a>. In HTML, the XML declaration is forbidden
+</li><li> In HTML, the <code>meta</code> element with a <code>charset</code> attribute may be used instead. It is forbidden in XHTML unless it specifies 'UTF-8' (case insensitively) and is ignored if included.
+</li><li> The default character encoding for XHTML is, according to XML rules, <code>UTF-8</code> or <code>UTF-16</code>. If the encoding is unspecified in HTML, it should be determined through implementation specific heuristics or fallback to a default value (Note: this section of the spec is not yet finished).
+</li></ul>
+<h3> <span class="mw-headline" id="Scripts"> Scripts </span></h3>
+<ul><li> <code>document.write()</code> and <code>document.writeln()</code> cannot be used in XHTML, they can in HTML. 
+</li><li> In XHTML, the use of the <code>innerHTML</code> property requires that the string be a well-formed fragment of XML. 
+</li><li> DOM APIs are case sensitive in XHTML and some are case insensitive in HTML.  (This does not apply to elements which are not in the HTML namespace)
+<ul><li> Element.tagName and Node.nodeName return the value in uppercase.
+</li><li> Document.createElement() is case insensitive (the canonical form is lowercase).
+</li><li> Element.setAttributeNode() will change the attribute name to lowercase.
+</li><li> Element.setAttribute() is case insensitive (the canonical form is lowercase).
+</li><li> Document.getElementsByTagName() and Element.getElementsByTagName() are case insensitive.
+</li><li> Document.renameNode(). If the new namespace is the HTML namespace, then the new qualified name will be lowercased before the rename takes place.
+</li></ul>
+</li><li> In HTML, Document.createElement() will create an element in the HTML namespace.  In XML (including XHTML), the namespace is defined by both DOM2 and DOM3 to be null.
+<ul><li> In XHTML, browsers lack interoperability in this area.  In Firefox and Safari, the namespace is dependent upon the MIME type.  In Opera, it's dependent upon the root element.
+</li></ul>
+</li><li> XPath expressions targeted at pre-HTML5 browsers need to use the XHTML namespace for XHTML and null for HTML. (HTML5 browsers would use the XHTML namespace even in HTML.)
+</li></ul>
+<h3> <span class="mw-headline" id="Stylesheets"> Stylesheets </span></h3>
+<ul><li> Selectors, as used in CSS, match case sensitively in XHTML, but case insensitively in HTML.
+</li><li> CSS requires special handling of the body element in HTML for painting backgrounds on the canvas, which do not apply to XHTML.
+</li></ul>
+<h2> <span class="mw-headline" id="Differences_Between_HTML4_and_HTML5"> Differences Between HTML4 and HTML5 </span></h2>
+<p>See <a href="http://dev.w3.org/html5/html4-differences/" class="external text" rel=nofollow>HTML5 differences from HTML4</a>.
+</p>
+<h2> <span class="mw-headline" id="Differences_Between_DOM_Level_2.0.2C_3.0_and_the_HTML_5_DOM_APIs"> Differences Between DOM Level 2.0, 3.0 and the HTML 5 DOM APIs </span></h2>
+<p><b>This section might belong on a separate page.</b>
+</p>
+<ul><li> TODO (need to talk about the changes to the DOM API that HTML5 is making, compared with DOM2 and DOM3)
+</li></ul>
+<h2> <span class="mw-headline" id="Translations"> Translations </span></h2>
+<ul><li> <a href="http://meiert.com/de/publications/translations/whatwg.org/html-vs-xhtml/" class="external text" rel=nofollow>German translation: "HTML 5 und XHTML 5 im Vergleich (WHATWG)"</a>
+</li><li> <a href="http://dancewithnet.com/2007/10/28/differences-between-html-and-xhtml/" class="external text" rel=nofollow>Chinese translation: "HTML和XHTML的不同"</a>
+</li></ul>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 75/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key whatwikidb:pcache:idhash:1648-0!1!0!!en!2!edit=0 and timestamp 20100314091823 -->
+<div class="printfooter">
+Retrieved from "<a href="http://wiki.whatwg.org/wiki/HTML_vs._XHTML">http://wiki.whatwg.org/wiki/HTML_vs._XHTML</a>"</div>
+			<div id='catlinks' class='catlinks catlinks-allhidden'></div>			<!-- end content -->
+						<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one" >
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+	
+				 <li id="ca-nstab-main" class="selected"><a href="/wiki/HTML_vs._XHTML" title="View the content page [c]" accesskey="c">Page</a></li>
+				 <li id="ca-talk"><a href="/wiki/Talk:HTML_vs._XHTML" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+				 <li id="ca-viewsource"><a href="/index.php?title=HTML_vs._XHTML&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li>
+				 <li id="ca-history"><a href="/index.php?title=HTML_vs._XHTML&amp;action=history" title="Past revisions of this page [h]" accesskey="h">History</a></li>			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul >
+				<li id="pt-login"><a href="/index.php?title=Special:UserLogin&amp;returnto=HTML_vs._XHTML" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://whatwg.org/images/logo);" href="/wiki/Main_Page" title="Visit the main page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class='generated-sidebar portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main Page</a></li>
+				<li id="n-currentevents"><a href="/wiki/WHATWG_Wiki:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="The place to find out">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/index.php" id="searchform">
+				<input type='hidden' name="title" value="Special:Search"/>
+				<input id=searchInput title="Search WHATWG Wiki" accesskey=f type=search name=search>
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" title="Go to a page with this exact name if exists" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" title="Search the pages for this text" />
+			</form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/HTML_vs._XHTML" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/HTML_vs._XHTML" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/index.php?title=HTML_vs._XHTML&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/index.php?title=HTML_vs._XHTML&amp;oldid=4156" title="Permanent link to this revision of the page">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer" >
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins/common/images/poweredby_mediawiki_88x31.png" height="31" width="88" alt="Powered by MediaWiki" /></a></div>
+			<ul id="f-list">
+					<li id="lastmod"> This page was last modified on 4 October 2009, at 08:15.</li>
+					<li id="viewcount">This page has been accessed 93,237 times.</li>
+					<li id="copyright">Content is available under <a href="/wiki/WHATWG_Wiki:Copyrights" title="WHATWG Wiki:Copyrights">MIT Licence</a>.</li>
+					<li id="privacy"><a href="/wiki/WHATWG_Wiki:Privacy_policy" title="WHATWG Wiki:Privacy policy">Privacy policy</a></li>
+					<li id="about"><a href="/wiki/WHATWG_Wiki:About" title="WHATWG Wiki:About">About WHATWG Wiki</a></li>
+					<li id="disclaimer"><a href="/wiki/WHATWG_Wiki:General_disclaimer" title="WHATWG Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+</div>
+
+<script>if (window.runOnloadHook) runOnloadHook();</script>
+<!-- Served in 0.502 secs. --></body></html>

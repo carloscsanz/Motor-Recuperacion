@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <title>24 ways: Using Google App Engine as Your Own Content Delivery Network</title>
+    <meta name="description" content="The advent calendar for web geeks. Each day throughout December we publish a daily dose of web design and development goodness to bring you all a little Christmas cheer." />
+    <link rel="stylesheet" href="/css/master.css" media="screen" />
+    <link rel="stylesheet" href="/css/additions.css" media="screen" />
+    <link rel="stylesheet" href="/css/print.css" media="print" />
+	<!--[if IE 8]>
+			<link rel="stylesheet" href="/css/ie8.css" media="screen" />
+	<![endif]-->
+	<!--[if IE 7]>
+			<link rel="stylesheet" href="/css/ie7.css" media="screen" />
+	<![endif]-->
+	<!--[if IE 6]>
+			<link rel="stylesheet" href="/css/ie6.css" media="screen" />
+	<![endif]-->
+    <link rel="alternate" type="application/rss+xml" title="rss" href="http://feeds.feedburner.com/24ways" />  
+
+    <link rel="alternate shorter shorturl" href="http://24ways.org/200806" />
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript"></script>
+    <script src="http://media.24ways.org/js/all.js" type="text/javascript"></script>
+    <script src="http://stats.24ways.org/mint/?js" type="text/javascript"></script>
+</head> 
+
+
+
+    	<body class="article">
+	<p id="jump"><a href="#content">Jump to content</a></p>
+	<div id="year">
+	<h3>Year</h3>
+	<ul>
+		<li>1996</li>
+		<li>1997</li>
+		<li>1998</li>
+		<li>1999</li>
+		<li>2000</li>
+		<li>2001</li>
+		<li>2002</li>
+		<li>2003</li>
+		<li>2004</li>
+        <li><a href="/2005">2005</a></li>
+        <li><a href="/2006">2006</a></li>
+        <li><a href="/2007">2007</a></li>
+        <li class="current"><a href="/2008">2008</a></li>
+        <li><a href="/2009">2009</a></li>
+		<li>2010</li>
+		<li>2011</li>
+		<li>2012</li>
+		<li>2013</li>
+		<li>2014</li>
+		<li>2015</li>
+		<li>2016</li>
+		<li>2017</li>
+		<li>2018</li>
+		<li>2019</li>
+	</ul>
+</div><!-- year -->
+<div id="day">
+	<h3>Day</h3>
+	<ul>
+		<li><a href="/2008/recession-tips-for-web-designers">24</a></li>
+		<li><a href="/2008/contract-killer">23</a></li>
+		<li><a href="/2008/absolute-columns">22</a></li>
+		<li><a href="/2008/geotag-everywhere-with-fire-eagle">21</a></li>
+		<li><a href="/2008/ghosts-on-the-internet">20</a></li>
+		<li><a href="/2008/mooy-christmas">19</a></li>
+		<li><a href="/2008/shiny-happy-buttons">18</a></li>
+		<li><a href="/2008/a-festive-type-folly">17</a></li>
+		<li><a href="/2008/what-your-turkey-can-teach-you-about-project-management">16</a></li>
+		<li><a href="/2008/making-modular-layout-systems">15</a></li>
+		<li><a href="/2008/rocking-restrictions">14</a></li>
+		<li><a href="/2008/the-first-tool-you-reach-for">13</a></li>
+		<li><a href="/2008/checking-out-progress-meters">12</a></li>
+		<li><a href="/2008/easier-page-states-for-wireframes">11</a></li>
+		<li><a href="/2008/a-christmas-hcard-from-me-to-you">10</a></li>
+		<li><a href="/2008/charm-clients-win-pitches">09</a></li>
+		<li><a href="/2008/the-ie6-equation">08</a></li>
+		<li><a href="/2008/how-to-create-rockbandism">07</a></li>
+		<li class="current"><a href="/2008/using-google-app-engine-as-your-own-cdn">06</a></li>
+		<li><a href="/2008/art-directing-with-looking-room">05</a></li>
+		<li><a href="/2008/sitewide-search-on-a-shoestring">04</a></li>
+		<li><a href="/2008/user-styling">03</a></li>
+		<li><a href="/2008/geometric-background-patterns">02</a></li>
+		<li><a href="/2008/easing-the-path-from-design-to-development">01</a></li>
+	</ul>
+</div><!-- day -->
+	<h1><a href="/">24 Ways <em>to impress your friends</em></a></h1>
+<ul id="navigation">
+	<li id="nav-home"><a href="/">Home</a></li>
+	<li id="nav-archives"><a href="/2009">Archives</a></li>
+	<li id="nav-authors"><a href="/authors">Authors</a></li>
+	<li id="nav-twitter"><a href="http://twitter.com/24ways">Twitter</a></li>
+	<li id="nav-rss"><a href="http://feeds.feedburner.com/24ways">RSS</a></li>
+	<li id="search">
+		<form method="get" action="/search">
+		    <div>
+			    
+			        <input type="text" name="q" class="text switcheroo" value="Search&hellip;" />
+			    
+			    <input type="submit" class="submit" value="Go" />
+			    <input type="hidden" name="s" value="search" />
+			</div>
+		</form>
+	</li>
+</ul><!-- navigation -->
+	
+	<div id="content">
+		<div class="meta">
+			<h2><strong>6 <em>12/2008</em></strong> <a href="http://24ways.org/2008/using-google-app-engine-as-your-own-cdn" rel="bookmark">Using Google App Engine as Your Own Content Delivery Network</a></h2>
+			<p>by <a href="http://www.flother.com/">Matt Riggott</a></p>
+			<ul>
+				<li id="goto-article"><a href="#article">Article</a></li>
+				<li id="goto-comments"><a href="#comments"><strong>31</strong> comments</a></li>
+			</ul>
+		</div><!-- meta -->
+		<div id="article">
+            	<p>Do you remember, years ago, when hosting was expensive, domain names were the province of the rich, and you hosted your web pages on Geocities? It seems odd to me now that there was a time when each and every geek didn&#8217;t have his own top-level domain and super hosting setup. But as the parts became more and more affordable a man could become an outcast if he didn&#8217;t have his own slightly surreal-sounding <abbr title="Top-level domain"><span class="caps">TLD</span></abbr>.</p>
+
+	<p>And so it will be in the future when people realise with surprise there was a time before affordable content delivery networks.</p>
+
+	<p>A content delivery network, or <abbr title="Content delivery network"><span class="caps">CDN</span></abbr>, is a system of servers spread around the world, serving files from the nearest physical location. Instead of waiting for a file to find its way from a server farm in Silicon Valley 8,000 kilometres away, I can receive it from London, Dublin, or Paris, cutting down the time I wait. The big names — Google, Yahoo, Amazon, et al — use <abbr title="Content delivery networks"><span class="caps">CDN</span>s</abbr> for their sites, but they&#8217;ve always been far too expensive for us mere mortals. Until now.</p>
+
+	<p>There&#8217;s a service out there ready for you to use as your very own <abbr title="Content delivery network"><span class="caps">CDN</span></abbr>. You have the company&#8217;s blessing, you won&#8217;t need to write a line of code, and — best of all — it&#8217;s free. The name? <a href="http://appengine.google.com/" title="Google App Engine">Google App Engine</a>.</p>
+
+	<p>In this article you&#8217;ll find out how to set up a <abbr title="Content delivery network"><span class="caps">CDN</span></abbr> on Google App Engine. You&#8217;ll get the development software running on your own computer, tell App Engine what files to serve, upload them to a web site, and give everyone round the world access to them.</p>
+
+	<h3>Creating your first Google App Engine project</h3>
+
+	<p>Before we do anything else, you&#8217;ll need to <a href="http://code.google.com/appengine/downloads.html" title="Google's instructions on downloading the App Engine SDK">download the Google App Engine software development kit</a> (<abbr title="Software development kit"><span class="caps">SDK</span></abbr>). You&#8217;ll need Python 2.5 too — you won&#8217;t be writing any Python code but the App Engine <abbr title="Software development kit"><span class="caps">SDK</span></abbr> will need it to run on your computer. If you don&#8217;t have Python, App Engine will install it for you (if you use Mac OS X 10.5 or a Linux-based <abbr title="Operating system">OS</abbr> you&#8217;ll have Python; if you use Windows you won&#8217;t).</p>
+
+	<p>Done that? Excellent, because that&#8217;s the hardest step. The rest is plain sailing.</p>
+
+	<p>You&#8217;ll need to choose a unique &#8216;application id&#8217; — nothing more than a name — for your project. Make sure it consists only of lowercase letters and numbers. For this article I&#8217;ll use <code>24ways2008</code>, but you can choose anything you like.</p>
+
+	<p>On your computer, create a folder named after your application id. This folder can be anywhere you want: your desktop, your documents folder, or wherever you usually keep your web files. Within your new folder, create a folder called <code>assets</code>, and within that folder create three folders called <code>images</code>, <code>css</code>, and <code>javascript</code>. These three folders are the ones you&#8217;ll fill with files and serve from your content delivery network. You can have other folders too, if you like.</p>
+
+	<p>That will leave you with a folder structure like this:</p>
+
+ <ol class="code numberless">
+<li><code>24ways2008/</code></li>
+<li class="tab2"><code>assets/</code></li>
+<li class="tab3"><code>css/</code></li>
+<li class="tab3"><code>images/</code></li>
+<li class="tab3"><code>javascript/</code></li>
+
+</ol>
+
+
+	<p>Now you need to put a few files in these folders, so we can later see our <abbr title="Content delivery network"><span class="caps">CDN</span></abbr> in action. You can put anything you want in these folders, but for this example we&#8217;ll include an <abbr title="Hypertext Markup Language"><span class="caps">HTML</span></abbr> file, a style sheet, an image, and a Javascript library.</p>
+
+	<p>In the top-level folder (the one I&#8217;ve called <code>24ways2008</code>), create a file called <code>index.html</code>. Fill this with any content you want. In the <code>assets/css</code> folder, create a file named <code>core.css</code> and throw in a couple of <abbr title="Cascading Style Sheets"><span class="caps">CSS</span></abbr> rules for good measure. In the <code>assets/images</code> directory save any image that takes your fancy — I&#8217;ve used the <a href="http://code.google.com/appengine/images/appengine-silver-120x30.gif" title="'Powered by Google App Engine' image">silver badge from the App Engine download page</a>. Finally, to fill the JavaScript folder, add in this <a href="http://code.google.com/p/jqueryjs/downloads/detail?name=jquery-1.2.6.min.js" title="Instructions on downloading the jQuery javascript library">jQuery library file</a>. If you&#8217;ve got the time and the inclination, you can build a page that uses all these elements.</p>
+
+	<p>So now we should have a set of files and folders that look something like this:</p>
+
+ <ol class="code numberless">
+<li><code>24ways2008/</code></li>
+<li class="tab2"><code>assets/</code></li>
+<li class="tab4"><code>index.html</code></li>
+<li class="tab4"><code>css/</code></li>
+<li class="tab6"><code>core.css</code></li>
+<li class="tab4"><code>images/</code></li>
+<li class="tab6"><code>appengine-silver-120x30.gif</code></li>
+<li class="tab4"><code>javascript/</code></li>
+<li class="tab6"><code>jquery-1.2.6.min.js</code></li>
+
+</ol>
+
+
+	<p>Which leaves us with one last file to create. This is the important one: it tells App Engine what to do with your files. It&#8217;s named <code>app.yaml</code>, it sits at the top-level (inside the folder I&#8217;ve named <code>24ways2008</code>), and it needs to include these lines:</p>
+
+ <ol class="code">
+<li><code>application: 24ways2008</code></li>
+<li><code>version: 1</code></li>
+<li><code>runtime: python</code></li>
+<li><code>api_version: 1</code></li>
+<li>&nbsp;</li>
+<li><code>handlers:</code></li>
+<li><code>- url: /</code></li>
+<li class="tab1"><code>static_files: assets/index.html</code></li>
+<li class="tab1"><code>upload: assets/index.html</code></li>
+<li>&nbsp;</li>
+<li><code>- url: /</code></li>
+<li class="tab1"><code>static_dir: assets</code></li>
+<li class="source">Source:  <a href="/code/using-google-app-engine-as-your-own-cdn/3.txt" title="Download the above code as a textfile">/code/using-google-app-engine-as-your-own-cdn/3.txt</a></li>
+</ol>
+
+
+	<p>You need to make sure you change <code>24ways2008</code> on the first line to whatever you chose as your application id, but otherwise the content of your <code>app.yaml</code> file should be identical. And with that, you&#8217;ve created your first App Engine project. If you want it, you can <a href="http://24ways2008.appspot.com/project.zip" title="Zip file containing my App Engine project files">download a zip file containing my project</a>.</p>
+
+	<h3>Testing your project</h3>
+
+	<p>As it stands, your project is ready to be uploaded to App Engine. But we couldn&#8217;t call ourselves professionals if we didn&#8217;t test it, could we? So, let&#8217;s put that downloaded <abbr title="Software development kit"><span class="caps">SDK</span></abbr> to good use and run the project from your own computer.</p>
+
+	<p>One of the files you&#8217;ll find App Engine installed is named <code>dev_appserver.py</code>, a Python script used to simulate App Engine on your computer. You&#8217;ll find lots of information on how to do this in the <a href="http://code.google.com/appengine/docs/thedevwebserver.html" title="Google's documentation on the App Engine development web server">documentation on the development web server</a>, but it boils down to running the script like so (the space and the dot at the end are important):</p>
+
+ <ol class="code numberless">
+<li><code>dev_appserver.py .</code></li>
+
+</ol>
+
+
+	<p>You&#8217;ll need to run this from the command-line: Mac users can run the Terminal application, Linux users can run their favourite shell, and Windows users will need to run it via the Command Prompt (open the Start menu, choose &#8216;Run…&#8217;, type &#8216;<kbd>cmd</kbd>&#8216;, and click &#8216;OK&#8217;). Before you run the script you&#8217;ll need to make sure you&#8217;re in the project folder — in my case, as I saved it to my desktop I can go there by typing </p>
+
+ <ol class="code numberless">
+<li><code>cd ~/Desktop/24ways2008</code></li>
+
+</ol>
+
+
+	<p>in my Mac&#8217;s Terminal app; if you&#8217;re using Windows you can type </p>
+
+ <ol class="code numberless">
+<li><code>cd &quot;C:\Documents and Settings\username\Desktop\24ways2008&quot;</code></li>
+
+</ol>
+
+
+	<p>If that&#8217;s successful, you&#8217;ll see a few lines of output, the last looking something like this:</p>
+
+ <ol class="code numberless">
+<li><code>INFO     2008-11-22 14:35:00,830 dev_appserver_main.py] Running application 24ways2008 on port 8080: http://localhost:8080</code></li>
+
+</ol>
+
+
+	<p>Now you can power up your favourite browser, point it to <a href="http://localhost:8080/"><code>http://localhost:8080/</code></a>, and you&#8217;ll see the page you saved as <code>index.html</code>. You&#8217;ll also find your <abbr title="Cascading Style Sheets"><span class="caps">CSS</span></abbr> file at <a href="http://localhost:8080/css/core.css"><code>http://localhost:8080/css/core.css</code></a>. In fact, anything you put inside the assets folder in the project will be accessible from this domain. You&#8217;re running our own App Engine web server!</p>
+
+	<p>Note that no-one else will be able to see your files: <code>localhost</code> is a special domain that you can only see from your computer — and once you stop the development server (by pressing <kbd>Control–C</kbd>) you&#8217;ll not be able to see the files in your browser until you start it again.</p>
+
+	<p>You might notice a new file has turned up in your project: <code>index.yaml</code>. App Engine creates this file when you run the development server, and it&#8217;s for internal App Engine use only. If you delete it there are no ill effects, but it will reappear when you next run the development server. If you&#8217;re using version control (e.g. Subversion) there&#8217;s no need to keep a copy in your repository.</p>
+
+	<p>So you&#8217;ve tested your project and you&#8217;ve seen it working on your own machine; now all you need to do is upload your project and the world will be able to see your files too.</p>
+
+	<h3>Uploading your project</h3>
+
+	<p>If you don&#8217;t have a Google account, <a href="https://www.google.com/accounts/" title="Create a Google account">create one</a> and then <a href="http://appengine.google.com/" title="Sign in to Google App Engine">sign in to App Engine</a>. Tell Google about your new project by clicking on the &#8216;Create an Application&#8217; button. Enter your application id, give the application a name, and agree to the terms and conditions. That&#8217;s it. All we need do now is upload the files.</p>
+
+	<p>Open your Mac OS X Terminal, Windows Command Prompt, or Linux shell window again, move to the project folder, and type (again, the space and the dot at the end are important):</p>
+
+ <ol class="code numberless">
+<li><code>appcfg.py update .</code></li>
+
+</ol>
+
+
+	<p>Enter your email address and password when prompted, and let App Engine do it&#8217;s thing. It&#8217;ll take no more than a few seconds, but in that time App Engine will have done the equivalent of logging in to an <abbr title="File Transfer Protocol"><span class="caps">FTP</span></abbr> server and copying files across. It&#8217;s fairly understated, but you now have your own project up and running. You can see mine at <a href="http://24ways2008.appspot.com/">http://24ways2008.appspot.com/</a>, and everyone can see yours at <code>http://your-application-id.appspot.com/</code>. Your files are being served up over Google&#8217;s content delivery network, at no cost to you!</p>
+
+	<h3>Benefits of using Google App Engine</h3>
+
+	<p>The benefits of App Engine as a <abbr title="Content delivery network"><span class="caps">CDN</span></abbr> are obvious: your own server doesn&#8217;t suck up the bandwidth, while your visitors will appreciate a faster site. But there are also less obvious benefits.</p>
+
+	<p>First, once you&#8217;ve set up your site, updating it is an absolute breeze. Each time you update a file (or a batch of files) you need only run <code>appcfg.py</code> to see the changes appear on your site. To <a href="http://www.joelonsoftware.com/articles/fog0000000043.html" title="The Joel test: twelve steps to better code">paraphrase Joel Spolsky</a>, a good web site must be able to be updated in a single step. Many designers and developers can&#8217;t make that claim, but with App Engine, <em>you</em> can.</p>
+
+	<p>App Engine also allows multiple people to work on one application. If you want a friend to be able to upload files to your site you can let him do so without giving him usernames and passwords — all he needs is his own Google account. App Engine also gives you a log of all actions taken by collaborators, so you can <a href="http://googleappengine.blogspot.com/2008/10/new-admin-console-release.html" title="Google App Engine's admin logs">see who&#8217;s made updates</a>, and when.</p>
+
+	<p>Another bonus is the simple version control App Engine offers. Do you remember the file named <code>app.yaml</code> you created a while back? The second line looked like this:</p>
+
+ <ol class="code numberless">
+<li><code>version: 1</code></li>
+
+</ol>
+
+
+	<p>If you change the version number to 2 (or 3, or 4, etc), App Engine will keep a copy of the last version you uploaded. If anything goes wrong with your latest version, you can tell App Engine to revert back to that last saved version. It&#8217;s no proper version control system, but it could get you out of a sticky situation.</p>
+
+	<p>One last thing to note: if you&#8217;re not happy using <code>your-application-id.appspot.com</code> as your domain, <a href="http://code.google.com/appengine/articles/domains.html" title="Deploying your App Engine application on your own domain">App Engine will quite happily use any domain you own</a>.</p>
+
+	<h3>The weak points of Google App Engine</h3>
+
+	<p>In the right circumstances, App Engine can be a real boon. I run <a href="http://www.flother.com/">my own site</a> using the method I&#8217;ve discussed above, and I&#8217;m very happy with it. But App Engine does have its disadvantages, most notably those discussed by Aral Balkan in his post &#8216;<a href="http://aralbalkan.com/1504" title="Aral Balkan on the shortcomings of Google App Engine">Why Google App Engine is broken and what Google must do to fix it</a>&#8216;.</p>
+
+	<p>Aral found the biggest problems while using App Engine as a web application platform; I wouldn&#8217;t recommend using it as such either (at least for now) but for our purposes as a <abbr title="Content delivery network"><span class="caps">CDN</span></abbr> for static files, it&#8217;s much more worthy. Still, App Engine has two shortcomings you should be aware of.</p>
+
+	<p>The first is that you can&#8217;t host a file larger than one megabyte. If you want to use App Engine to host that 4.3<abbr title="Megabyte">MB</abbr> download for your latest-and-greatest desktop software, you&#8217;re out of luck. The only solution is to stick to smaller files.</p>
+
+	<p>The second problem is the quota system. <a href="http://code.google.com/appengine/articles/quotas.html" title="Understanding App Engine's application quotas">Google&#8217;s own documentation</a> says you&#8217;re allowed 650,000 requests a day and 10,000 megabytes of bandwidth in and out (20,000 megabytes in total), which should be plenty for most sites. But people have seen sites shut down temporarily for breaching quotas — in some cases after inexplicable jumps in Google&#8217;s server <abbr title="Central processing unit"><span class="caps">CPU</span></abbr> usage. Aral, who&#8217;s seen it happen to his own sites, seemed genuinely frustrated by this, and if you measure your hits in the hundreds of thousands and don&#8217;t want to worry about uptime, App Engine isn&#8217;t for you.</p>
+
+	<p>That said, for most of us, App Engine offers a fantastic resource: the ability to host files on Google&#8217;s own content delivery network, at no charge.</p>
+
+	<h3>Conclusion</h3>
+
+	<p>If you&#8217;ve come this far, you&#8217;ve seen how to create a Google App Engine project and host your own files on Google&#8217;s <abbr title="Content delivery network"><span class="caps">CDN</span></abbr>. You&#8217;ve seen the great advantages App Engine offers — an excellent content delivery network, the ability to update your site with a single command, multiple authors, simple version control, and the use of your own domain — and you&#8217;ve come across some of its weaknesses — most importantly the limit on file sizes and the quota system. All that&#8217;s left to do is upload those applications — but not before you&#8217;ve finished your Christmas shopping.</p>
+            <div class="domore">
+                <h3>Like what you read?</h3>
+                <ul>
+                    <li class="tweetthis"><a href="http://twitter.com/?status=Using+Google+App+Engine+as+Your+Own+Content+Delivery+Network+http://24ways.org/200806">Tweet this article</a></li>
+                    <li>or</li>
+                    <li id="goto-comments-alt" class="leavecomment"><a href="#comments">Leave a comment</a></li>
+                </ul>
+            </div>
+		</div><!-- article -->
+		<div id="comments">
+		    <h3>Comments</h3>
+
+
+<ul class="comments">
+	<li><div class="even">
+	<p class="permlink"><a href="http://24ways.org/2008/using-google-app-engine-as-your-own-cdn#c001734" id="c001734">06/12/2008</a></p>
+	<h4><a href="http://blendfu.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=c85eedfae4a84fd551c99b6c0dce7b50&amp;size=100&amp;default=http%3A%2F%2F24ways.org%2Fimg%2Fgravatar.png" class="gravatar" alt="" height="100" width="100" /> Freddywang <small>http://blendfu.com</small></a></h4>
+		<p>I have personally tried <span class="caps">GAE</span> myself. It is really a nice to decent <span class="caps">CDN</span> for small to medium sized websites. <span class="caps">GAE</span> even shrinks your JS and <span class="caps">CSS</span> files down a whole lot which other <span class="caps">CDN</span> providers don&#8217;t do.</p>
+
+	<p>Anyway <span class="caps">GAE</span> is free, so you should not expect as good latency compared to Amazon cloudFront which is expensive. I can only say it is as good as Amazon S3 latency if you really have to compare it.</p>
+
+	<p>Great article!</p>
+
+
+</div>
+</li>
+	<li><div class="odd">
+	<p class="permlink"><a href="http://24ways.org/2008/using-google-app-engine-as-your-own-cdn#c001735" id="c001735">06/12/2008</a></p>
+	<h4><a href="http://johnsbeharry.com/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=bc400ae7f42dd3678534ed9ed417af97&amp;size=100&amp;default=http%3A%2F%2F24ways.org%2Fimg%2Fgravatar.png" class="gravatar" alt="" height="100" width="100" /> Johns Beharry <small>http://johnsbeharry.com/</small></a></h4>
+		<p>This was a very interesting read, never knew Google provided a service like this. Gotta try this out sometime but for now I don&#8217;t have that many visitors and well&#8230; My own site isn&#8217;t even up yet lol</p>
+
+	<p>Thanks for the enlightenment</p>
+
+
+</div>
+</li>
+	<li><div class="even">
+	<p class="permlink"><a href="http://24ways.org/2008/using-google-app-engine-as-your-own-cdn#c001736" id="c001736">06/12/2008</a></p>
+	<h4><a href="www.oneiric-media.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=50422d4ec8897147d4d02b1bd18a5639&amp;size=100&amp;default=http%3A%2F%2F24ways.org%2Fimg%2Fgravatar.png" class="gravatar" alt="" height="100" width="100" /> Prem <small>www.oneiric-media.com</small></a></h4>
+		<p>Nice post, i never knew google had such as service. will dig in to it, thanks for the lovely article.<br />
+:)</p>
+
+
+</div>
+</li>
+	<li><div class="odd">
+	<p class="permlink"><a href="http://24ways.org/2008/using-google-app-engine-as-your-own-cdn#c001739" id="c001739">06/12/2008</a></p>
+	<h4><a href="http://robknight.net"><img src="http://www.gravatar.com/avatar.php?gravatar_id=b758be95ebffe037914b48adeae9861f&amp;size=100&amp;default=http%3A%2F%2F24ways.org%2Fimg%2Fgravatar.png" class="gravatar" alt="" height="100" width="100" /> Rob Knight <small>http://robknight.net</small></a></h4>
+		<p>Thank you for the intro to App Engine! I haven&#8217;t tried it yet but will surely give it a look now. Much appreciated.</p>
+
+
+</div>
+</li>
+	<li><div class="even">
+	<p class="permlink"><a href="http://24ways.org/2008/using-google-app-engine-as-your-own-cdn#c001741" id="c001741">06/12/2008</a></p>
+	<h4><a href="http://www.redroutecreative.co.uk"><img src="http://www.gravatar.com/avatar.php?gravatar_id=75dc2e64c98953685a5e25fbb98a1e75&amp;size=100&amp;default=http%3A%2F%2F24ways.org%2Fimg%2Fgravatar.png" class="gravatar" alt="" height="100" width="100" /> BW <small>http://www.redroutecreative.co.uk</small></a></h4>
+		<p>Great article and intro to App Engine, I wasn&#8217;t aware of this service at all! I shall definitely be having a play with this one as it could come in really handy for small sites.</p>
+
+	<p>Thanks for sharing Matt!</p>
+
+
+</div>
+</li>
+	<li><div class="odd">
+	<p class="permlink"><a href="http://24ways.org/2008/using-google-app-engine-as-your-own-cdn#c001742" id="c001742">06/12/2008</a></p>
+	<h4><a href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=a9f47f86e88c589944f97747e0fffff9&amp;size=100&amp;default=http%3A%2F%2F24ways.org%2Fimg%2Fgravatar.png" class="gravatar" alt="" height="100" width="100" /> Martijn van der Ven <small></small></a></h4>
+		<p>Nice one, I never thought about using this as <span class="caps">CDN</span>! It being called App Engine for some reason I would only have used it in case I wanted to publish a webapp.</p>
+
+
+</div>
+</li>
+	<li><div class="even">
+	<p class="permlink"><a href="http://24ways.org/2008/using-google-app-engine-as-your-own-cdn#c001744" id="c001744">06/12/2008</a></p>
+	<h4><a href="www.ginsoaked.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=4e7eaf4845189f163183bcc0566c441f&amp;size=100&amp;default=http%3A%2F%2F24ways.org%2Fimg%2Fgravatar.png" class="gravatar" alt="" height="100" width="100" /> Alan Wallace <small>www.ginsoaked.com</small></a></h4>
+		<p>Superb article Matt, never would have thought of using App Engine as a <span class="caps">CDN</span>. Thanks.</p>
+
+
+</div>
+</li>
+	<li><div class="odd">
+	<p class="permlink"><a href="http://24ways.org/2008/using-google-app-engine-as-your-own-cdn#c001748" id="c001748">07/12/2008</a></p>
+	<h4><a href="http://www.urff.at"><img src="http://www.gravatar.com/avatar.php?gravatar_id=9f49642369f21abdc336ce865f9f1f9f&amp;size=100&amp;default=http%3A%2F%2F24ways.org%2Fimg%2Fgravatar.png" class="gravatar" alt="" height="100" width="100" /> Tobias <small>http://www.urff.at</small></a></h4>
+		<p>Great article. I&#8217;ve kept an eye on this service for a while now but never bothered to try. Love the <span class="caps">CDN</span> idea, especially if one serves a global audience. At this point in time Google is still lacking some features &#8211; but hey, there&#8217;s always room for improvements with such a new service&#8230;</p>
+
+
+</div>
+</li>
+	<li><div class="even">
+	<p class="permlink"><a href="http://24ways.org/2008/using-google-app-engine-as-your-own-cdn#c001782" id="c001782">08/12/2008</a></p>
+	<h4><a href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=c7b4014a5286a9388ff3b75d0b6e0762&amp;size=100&amp;default=http%3A%2F%2F24ways.org%2Fimg%2Fgravatar.png" class="gravatar" alt="" height="100" width="100" /> goudvis <small></small></a></h4>
+		<p>&#8220;Aral found the biggest problems while using App Engine as a web application platform;&#8221; </p>
+
+	<p>You can run Django on it, but maybe that doesn&#8217;t fit everyone.</p>
+
+
+</div>
+</li>
+	<li><div class="odd">
+	<p class="permlink"><a href="http://24ways.org/2008/using-google-app-engine-as-your-own-cdn#c001811" id="c001811">09/12/2008</a></p>
+	<h4><a href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=273ddfceeca56794a8f2498a137d97b1&amp;size=100&amp;default=http%3A%2F%2F24ways.org%2Fimg%2Fgravatar.png" class="gravatar" alt="" height="100" width="100" /> Jared <small></small></a></h4>
+		<p>Let&#8217;s not be too naive: nothing&#8217;s free here. If you want to trade hosting costs to let Google keep in-depth stats on every visit and visitor to your website forever, as well as copies of everything you upload&#8212;then go for it. </p>
+
+	<p>But, before you do, here&#8217;s some highlights from the app engine terms of service:</p>
+
+	<p><strong>Google can censor you</strong><br />
+5.2. Google reserves the right (but shall have no obligation) to pre-screen, review, flag, filter, modify, refuse or remove any or all Content from the Service.</p>
+
+	<p><strong>Google can lose your data</strong><br />
+5.5. You agree that Google has no responsibility or liability for the deletion or failure to store any Content and other communications maintained or transmitted through use of the Service.</p>
+
+	<p><strong>Google can use your brand for free advertising forever</strong><br />
+8.2. You agree that Google, in its sole discretion, may use your trade names, trademarks, service marks, logos, domain names and other distinctive brand features in presentations, marketing materials, customer lists, financial reports and Web site listings (including links to your website) for the purpose of advertising or publicizing your use of the Service.</p>
+
+	<p><strong>Google can drop your account whenever</strong><br />
+10.2. &#8230; Google may terminate your use of the Service for any reason with ninety (90) days prior written notice.</p>
+
+
+
+</div>
+</li>
+	<li><div class="even">
+	<p class="permlink"><a href="http://24ways.org/2008/using-google-app-engine-as-your-own-cdn#c001864" id="c001864">11/12/2008</a></p>
+	<h4><a href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=ed3a369a5537920fe73684fb2f52e1c6&amp;size=100&amp;default=http%3A%2F%2F24ways.org%2Fimg%2Fgravatar.png" class="gravatar" alt="" height="100" width="100" /> Tegan <small></small></a></h4>
+		<p><b>Excellent</b> article &#8212; Thanks Matt Riggott for making this arcane material downright accessible for a mere user such as I.  As I read, I kept expecting to hit the part where the subject sailed away over my head, but that part never came &#8212; your text stayed grounded to my level of comprehension throughout.</p>
+
+	<p>Looks as if this is something I might-could even do!  Wow.</p>
+
+
+</div>
+</li>
+	<li><div class="odd">
+	<p class="permlink"><a href="http://24ways.org/2008/using-google-app-engine-as-your-own-cdn#c001910" id="c001910">13/12/2008</a></p>
+	<h4><a href="http://blog.kesor.net/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=35d78874c6ba5c64db3256f6868515dc&amp;size=100&amp;default=http%3A%2F%2F24ways.org%2Fimg%2Fgravatar.png" class="gravatar" alt="" height="100" width="100" /> Evgeny <small>http://blog.kesor.net/</small></a></h4>
+		<p>There is also Google Sites and Google Pages, I have been using Google Sites service as a <span class="caps">CDN</span> several years ago. It allows to upload files and content, similar to geocities I suppose. But there is nothing stopping you from using it as a <span class="caps">CDN</span>, it&#8217;s on Google&#8217;s servers too.</p>
+
+
+</div>
+</li>
+	<li><div class="even">
+	<p class="permlink"><a href="http://24ways.org/2008/using-google-app-engine-as-your-own-cdn#c002007" id="c002007">17/12/2008</a></p>
+	<h4><a href="http://www.ioncannon.net"><img src="http://www.gravatar.com/avatar.php?gravatar_id=de9214b530ec1880860eb3a4ac30fdc7&amp;size=100&amp;default=http%3A%2F%2F24ways.org%2Fimg%2Fgravatar.png" class="gravatar" alt="" height="100" width="100" /> Carson <small>http://www.ioncannon.net</small></a></h4>
+		<p>The use you are describing for <span class="caps">GAE</span> doesn&#8217;t actually make it anything like a <span class="caps">CDN</span> as you correctly define it initially. What you describe from <span class="caps">GAE</span> is just free file hosting. I would suggest if people are looking for a real <span class="caps">CDN</span> solution they look at Amazon&#8217;s CloudFront: http://aws.amazon.com/cloudfront/ CloudFront isn&#8217;t free but it is pretty cheap.</p>
+
+
+</div>
+</li>
+	<li><div class="odd">
+	<p class="permlink"><a href="http://24ways.org/2008/using-google-app-engine-as-your-own-cdn#c002021" id="c002021">17/12/2008</a></p>
+	<h4><a href="http://www.flother.com/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=dffadd89edba7d68d1aba5f129212859&amp;size=100&amp;default=http%3A%2F%2F24ways.org%2Fimg%2Fgravatar.png" class="gravatar" alt="" height="100" width="100" /> Matt Riggott <small>http://www.flother.com/</small></a></h4>
+		<p>Carson: your files will be served from a <span class="caps">CDN</span> if you host them on App Engine. In its <a href="http://code.google.com/appengine/docs/whatisgoogleappengine.html" rel="nofollow">description of App Engine</a>, Google notes that &#8220;Google App Engine lets you run your web applications on Google&#8217;s infrastructure&#8221;. Google&#8217;s infrastructure includes servers all over the world, and a <span class="caps">CDN</span>.</p>
+
+
+</div>
+</li>
+	<li><div class="even">
+	<p class="permlink"><a href="http://24ways.org/2008/using-google-app-engine-as-your-own-cdn#c002035" id="c002035">17/12/2008</a></p>
+	<h4><a href="http://www.ioncannon.net"><img src="http://www.gravatar.com/avatar.php?gravatar_id=de9214b530ec1880860eb3a4ac30fdc7&amp;size=100&amp;default=http%3A%2F%2F24ways.org%2Fimg%2Fgravatar.png" class="gravatar" alt="" height="100" width="100" /> Carson <small>http://www.ioncannon.net</small></a></h4>
+		<p>I&#8217;m not sure that it is technically correct to call it a <span class="caps">CDN</span> is all. You don&#8217;t have any indication that they are going to try to serve your files from anywhere in particular or even the closest location to the requesting origin.</p>
+
+
+</div>
+</li>
+	<li><div class="odd">
+	<p class="permlink"><a href="http://24ways.org/2008/using-google-app-engine-as-your-own-cdn#c002245" id="c002245">27/12/2008</a></p>
+	<h4><a href="http://www.andrewspittle.net"><img src="http://www.gravatar.com/avatar.php?gravatar_id=6f561d04c19afc58429dea6bacc2c4da&amp;size=100&amp;default=http%3A%2F%2F24ways.org%2Fimg%2Fgravatar.png" class="gravatar" alt="" height="100" width="100" /> Andrew Spittle <small>http://www.andrewspittle.net</small></a></h4>
+		<p>Thanks for the great article. It was really great to be able to read it and completely understand what you were writing about. It made it accessible enough that I&#8217;m considering moving my own site over to it once I finish it&#8217;s design.</p>
+
+
+</div>
+</li>
+	<li><div class="even">
+	<p class="permlink"><a href="http://24ways.org/2008/using-google-app-engine-as-your-own-cdn#c002253" id="c002253">28/12/2008</a></p>
+	<h4><a href="http://jeethurao.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=3494f116c7868a33601e14e75b4403bb&amp;size=100&amp;default=http%3A%2F%2F24ways.org%2Fimg%2Fgravatar.png" class="gravatar" alt="" height="100" width="100" /> Jeethu <small>http://jeethurao.com</small></a></h4>
+		<p>One thing I lose out on by using <span class="caps">GAE</span> for hosting my static files is the ability to fine tune the expires headers. I prefer to set far <a href="http://developer.yahoo.com/performance/rules.html#expires" rel="nofollow">futures expires headers</a> (set to 10 years). <span class="caps">GAE</span> seems to set the expires headers to 7 days, without the ability to tweak it.</p>
+
+
+</div>
+</li>
+	<li><div class="odd">
+	<p class="permlink"><a href="http://24ways.org/2008/using-google-app-engine-as-your-own-cdn#c002280" id="c002280">01/01/2009</a></p>
+	<h4><a href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=d300f44cb9daacfdf30223fb9f0ac1fe&amp;size=100&amp;default=http%3A%2F%2F24ways.org%2Fimg%2Fgravatar.png" class="gravatar" alt="" height="100" width="100" /> Gregg <small></small></a></h4>
+		<p>awesome! I will be using this to teach python and django to students using the google servers.  No need to figure out hosting!</p>
+
+
+</div>
+</li>
+	<li><div class="even">
+	<p class="permlink"><a href="http://24ways.org/2008/using-google-app-engine-as-your-own-cdn#c002375" id="c002375">31/01/2009</a></p>
+	<h4><a href="http://adamloving.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=97a8864118c40c014e3ec2b33a5d1d5f&amp;size=100&amp;default=http%3A%2F%2F24ways.org%2Fimg%2Fgravatar.png" class="gravatar" alt="" height="100" width="100" /> Adam Loving <small>http://adamloving.com</small></a></h4>
+		<p>Matt, great post. I found it while looking to see if anyone had written a tutorial for using App Engine to host static Web sites (I&#8217;m thinking of writing one). I really like app engine for <strong>apps</strong>, but I think it is a great free resource for serving content, as you&#8217;ve identified.</p>
+
+
+</div>
+</li>
+	<li><div class="odd">
+	<p class="permlink"><a href="http://24ways.org/2008/using-google-app-engine-as-your-own-cdn#c002399" id="c002399">12/02/2009</a></p>
+	<h4><a href="http://fotografie.jobst-von-heintze.de"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2e0dd30398d54f240bcbdc8d60536013&amp;size=100&amp;default=http%3A%2F%2F24ways.org%2Fimg%2Fgravatar.png" class="gravatar" alt="" height="100" width="100" /> Jobst von Heintze <small>http://fotografie.jobst-von-heintze.de</small></a></h4>
+		<p>Interesting idea, but some questions come to my mind. Being a photographer by myself and now working on a re-design of my webpage a global <span class="caps">CDN</span> sounds like an ideal solution to deliver high rez imagery to a worldwide audience. Looking at your site I ask myself now:</p>
+
+	<p>1. Did you measured any performance increase at all? You don&#8217;t have quite a lot of content on your site, but heard anything about a significantly increase in performance from other site owners using this technique?</p>
+
+	<p>2. Your Google PageRank is quite high for such a small and young site. Any ideas if this is due to your direct link from this post or has anything to do with using Google as <span class="caps">CDN</span>?</p>
+
+	<p>3. Somebody mentioned, that .js and .css get compressed by Google. Although this would be beneficial for my <span class="caps">AJAX</span>/.js heavy page (work in progress example http://fotografie.jobst-von-heintze.de/fineart.html) does the user has any control about the compression? For some reasons some compression methods I used before interfered with the functionality of the code. (Yes I know, it might be due to some bugs in the code, but this compression then would introduce a whole new debugging cycle of something that worked before&#8230;)</p>
+
+	<p>Anyway, thank you for this article &#8211; it made me thinking about things from another perspective!</p>
+
+
+</div>
+</li>
+	<li><div class="even">
+	<p class="permlink"><a href="http://24ways.org/2008/using-google-app-engine-as-your-own-cdn#c002404" id="c002404">14/02/2009</a></p>
+	<h4><a href="www.lilbil.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=37df213c479ed51761499831226e1eb2&amp;size=100&amp;default=http%3A%2F%2F24ways.org%2Fimg%2Fgravatar.png" class="gravatar" alt="" height="100" width="100" /> Will Chow <small>www.lilbil.com</small></a></h4>
+		<p>Nice writeup, quicker to the point than others on the same topic.</p>
+
+	<p><span class="caps">BTW</span>, <span class="caps">GAE</span> just increased their limits (e.g., 10MB file size):<br />
+http://googleappengine.blogspot.com/2009/02/skys-almost-limit-high-cpu-is-no-more.html</p>
+
+
+</div>
+</li>
+	<li><div class="odd">
+	<p class="permlink"><a href="http://24ways.org/2008/using-google-app-engine-as-your-own-cdn#c002408" id="c002408">18/02/2009</a></p>
+	<h4><a href="http://domderrien.blogspot.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=30777fec96b26e052c2f1d47f9339cd3&amp;size=100&amp;default=http%3A%2F%2F24ways.org%2Fimg%2Fgravatar.png" class="gravatar" alt="" height="100" width="100" /> Dom Derrien <small>http://domderrien.blogspot.com</small></a></h4>
+		<p>Hi Matt,</p>
+
+	<p>Thanks for the documented post. It found a place in my post describing <span class="caps">GAE</span> service possibilities: <a href="http://domderrien.blogspot.com/2009/02/google-app-engine-free-hosting-and.html" rel="nofollow">Google App Engine: Free Hosting and Powerful <span class="caps">SDK</span></a>.</p>
+
+	<p>A+, Dom</p>
+
+
+</div>
+</li>
+	<li><div class="even">
+	<p class="permlink"><a href="http://24ways.org/2008/using-google-app-engine-as-your-own-cdn#c002417" id="c002417">22/02/2009</a></p>
+	<h4><a href="http://www.bestwebproxy.net"><img src="http://www.gravatar.com/avatar.php?gravatar_id=a057f7186b0a141505636579e7d470f0&amp;size=100&amp;default=http%3A%2F%2F24ways.org%2Fimg%2Fgravatar.png" class="gravatar" alt="" height="100" width="100" /> Koui <small>http://www.bestwebproxy.net</small></a></h4>
+		<p>I built a free web proxy on Google App Engine</p>
+
+	<p>http://www.bestwebproxy.net</p>
+
+
+</div>
+</li>
+	<li><div class="odd">
+	<p class="permlink"><a href="http://24ways.org/2008/using-google-app-engine-as-your-own-cdn#c002430" id="c002430">26/02/2009</a></p>
+	<h4><a href="http://titel.ro"><img src="http://www.gravatar.com/avatar.php?gravatar_id=1374c563e8c0b44497f0346a51bc055f&amp;size=100&amp;default=http%3A%2F%2F24ways.org%2Fimg%2Fgravatar.png" class="gravatar" alt="" height="100" width="100" /> Constantin TOVISI <small>http://titel.ro</small></a></h4>
+		<p>Nice find!</p>
+
+	<p>However I&#8217;m not sure how is Google going to cope with this when people are going to start using this on a larger scale.</p>
+
+	<p>I&#8217;m afraid that they&#8217;ll find a way to restrict this, the same way they were restricting the use of Gmail to emulate an virtual drive, because this is not the purpose these applications were meant for in the first place.</p>
+
+	<p>titel</p>
+
+
+</div>
+</li>
+	<li><div class="even">
+	<p class="permlink"><a href="http://24ways.org/2008/using-google-app-engine-as-your-own-cdn#c002496" id="c002496">27/03/2009</a></p>
+	<h4><a href="http://www.moteurs-news.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=9f293e295cc3cda0a9252f1572eb1a19&amp;size=100&amp;default=http%3A%2F%2F24ways.org%2Fimg%2Fgravatar.png" class="gravatar" alt="" height="100" width="100" /> Sergi <small>http://www.moteurs-news.com</small></a></h4>
+		<p>Thanks for the tip. I was thinking using it to publish some python app but never thought about using it as a <span class="caps">CDN</span>. It&#8217; may not be as good as a dedicated <span class="caps">CDN</span> solution, but it&#8217; will do the trick for what I need.</p>
+
+
+</div>
+</li>
+	<li><div class="odd">
+	<p class="permlink"><a href="http://24ways.org/2008/using-google-app-engine-as-your-own-cdn#c002544" id="c002544">18/04/2009</a></p>
+	<h4><a href="http://www.mjcpk.co.uk/blog.html"><img src="http://www.gravatar.com/avatar.php?gravatar_id=1ec3ee01574c9ef2134b224a29326bef&amp;size=100&amp;default=http%3A%2F%2F24ways.org%2Fimg%2Fgravatar.png" class="gravatar" alt="" height="100" width="100" /> mjcpk <small>http://www.mjcpk.co.uk/blog.html</small></a></h4>
+		<p>Sounds interesting but I think I&#8217;d like to see some evidence that Google are serving up my files from the closest location. Potentially they could be making them further away than on my own server.</p>
+
+	<p>This, and a number of other free services, look like a good way of spreading the load of a popular site across a number of servers without the need for expensive hosting.</p>
+
+	<p>@Jared &#8211;  I see your point but that sounds more like Google covering its back. They&#8217;re only providing a free service so they don&#8217;t want to be financially responsible for any loss of data. Also, if I&#8217;m serving up static files to the whole world via the internet I&#8217;m not that worried about Google having access to them as anyone on the internet can access them.</p>
+
+
+</div>
+</li>
+	<li><div class="even">
+	<p class="permlink"><a href="http://24ways.org/2008/using-google-app-engine-as-your-own-cdn#c002624" id="c002624">06/05/2009</a></p>
+	<h4><a href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=eed725e178083546c2530ae194c8f5f7&amp;size=100&amp;default=http%3A%2F%2F24ways.org%2Fimg%2Fgravatar.png" class="gravatar" alt="" height="100" width="100" /> Sam <small></small></a></h4>
+		<p>Nice write up, also appengine now allows files up to 10MB.</p>
+
+
+</div>
+</li>
+	<li><div class="odd">
+	<p class="permlink"><a href="http://24ways.org/2008/using-google-app-engine-as-your-own-cdn#c002669" id="c002669">20/05/2009</a></p>
+	<h4><a href="http://nilsdevine.com/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=baae871236df2870a268d7fc4c97932c&amp;size=100&amp;default=http%3A%2F%2F24ways.org%2Fimg%2Fgravatar.png" class="gravatar" alt="" height="100" width="100" /> Nils T. Devine <small>http://nilsdevine.com/</small></a></h4>
+		<p>Just set this up following the instructions. Not hard at all. The only tip I&#8217;d have would be regarding the app.yaml file, copy it from the .zip, not the web page or the .txt to avoid tab characters that will prevent compiling.</p>
+
+
+</div>
+</li>
+	<li><div class="even">
+	<p class="permlink"><a href="http://24ways.org/2008/using-google-app-engine-as-your-own-cdn#c002973" id="c002973">30/07/2009</a></p>
+	<h4><a href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=03b1c7b6a63f4c150553e78d906a890b&amp;size=100&amp;default=http%3A%2F%2F24ways.org%2Fimg%2Fgravatar.png" class="gravatar" alt="" height="100" width="100" /> J D <small></small></a></h4>
+		<p>Do you get the same <span class="caps">CDN</span> and quotas for Google Sites?</p>
+
+
+</div>
+</li>
+	<li><div class="odd">
+	<p class="permlink"><a href="http://24ways.org/2008/using-google-app-engine-as-your-own-cdn#c002997" id="c002997">20/08/2009</a></p>
+	<h4><a href="http://www.hanggoro.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=df653c939fc5c421ce2f57b536a16fa8&amp;size=100&amp;default=http%3A%2F%2F24ways.org%2Fimg%2Fgravatar.png" class="gravatar" alt="" height="100" width="100" /> yosafat <small>http://www.hanggoro.com</small></a></h4>
+		<p>thank you so much for this guide. my friend recommends google app engine to me. and then i found this guide. </p>
+
+	<p>cheers&#8230;</p>
+
+
+</div>
+</li>
+	<li><div class="even">
+	<p class="permlink"><a href="http://24ways.org/2008/using-google-app-engine-as-your-own-cdn#c003008" id="c003008">27/08/2009</a></p>
+	<h4><a href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=044cb34514eb73c75052729fae6e5a17&amp;size=100&amp;default=http%3A%2F%2F24ways.org%2Fimg%2Fgravatar.png" class="gravatar" alt="" height="100" width="100" /> Col <small></small></a></h4>
+		<p>You say you use it for your site, but I don&#8217;t quite get how you use your own domain name. Can you give us a quick howto on that please.</p>
+
+
+</div>
+</li>
+</ul>
+
+<div id="newcomment">
+    
+    	<h3 id="cpreview">Impress us</h3>
+
+        
+    
+        <form id="txpCommentInputForm" method="post" action="/2008/using-google-app-engine-as-your-own-cdn#cpreview">
+<div class="comments-wrapper">
+
+
+
+
+	<p>
+		<label for="name">Name</label>
+		<input type="text" value="" name="name" size="25" class="comment_name_input" id="name" /> 
+	</p>
+	<p>
+		<label for="email">Email</label>
+		<input type="text" value="" name="email" size="25" class="comment_email_input" id="email" /> 
+	</p>
+	<p class="optional">
+		<label for="web">Website</label>
+		<input type="text" value="" name="web" size="25" class="comment_web_input" id="web" />
+	</p>
+	<p class="textarea">
+		<label for="message">Message</label>
+		<textarea id="message" name="message" cols="25" rows="5" class="txpCommentInputMessage"></textarea>
+	</p>
+	<p class="disclaimer">Be friendly / use <a href="http://www.textism.com/tools/textile/">Textile</a></p>
+	<p class="buttonbar">
+		<input type="submit" value="Preview" name="preview" class="button" id="txpCommentPreview" />
+		<input type="submit" value="Submit" name="submit" class="button disabled" id="txpCommentSubmit" disabled="disabled" />	
+	</p><!-- buttonbar -->
+
+<input type="hidden" value="126" name="parentid" />
+<input type="hidden" value="/2008/using-google-app-engine-as-your-own-cdn" name="backpage" />
+
+</div>
+</form>
+    
+    
+</div><!-- newcomment -->
+		</div><!-- comments -->
+		<!-- meta -->
+		<div id="author" class="vcard">
+			<h3>About the author</h3>
+			<p><a href="/authors/mattriggott" title="More information about Matt Riggott"><img src="http://media.24ways.org/authors/mattriggott160.jpg" width="160" height="160" alt="Matt Riggott" /></a></p>
+			<p><strong><a href="http://www.flother.com/" title="Flother: freelance web programming and development in Edinburgh, Scotland" class="fn n url">Matt Riggott</a></strong> is a web programmer and <a href="http://suda.co.uk/publications/informatician/" title="Definition of informatician" class="role">informatician</a> living in Edinburgh, Scotland. When in geek mode he enjoys using <a href="http://www.python.org/" title="Python programming language">Python</a> and <a href="http://www.djangoproject.com/" title="Django: the web framework for perfectionists with deadlines">Django</a> to help people do interesting things on the web. He volunteers as a technical advisor for the <a href="http://sandbag.org.uk/" title="Sandbag: preventing tonnes of greenhouse gases from entering the atmosphere">Sandbag Campaign</a> and is available for freelance work.</p>
+<p>When trying to fit in with normal people he enjoys taking <a href="http://www.flickr.com/photos/riggott/">photos</a>, <a href="http://www.flickr.com/photos/riggott/collections/72157600193200720/">travelling</a>, and following politics avidly.</p>
+			<p class="more"><a href="/authors/mattriggott">More information</a></p>
+		</div><!-- author -->
+		<div id="related">
+			<h3>Related articles</h3>	
+			<ul>
+			    <li>
+	<h4><a rel="bookmark" href="http://24ways.org/2007/performance-on-a-shoe-string">Performance On A Shoe String</a></h4>
+	<p>24/12/2007 by <a href="/authors/drewmclellan">Drew McLellan</a></p>
+</li><li>
+	<h4><a rel="bookmark" href="http://24ways.org/2007/minification-a-christmas-diet">Minification: A Christmas Diet</a></h4>
+	<p>06/12/2007 by <a href="/authors/garethrushgrove">Gareth Rushgrove</a></p>
+</li>
+            </ul>
+			<p><a href="/2008">Article archives&hellip;</a></p>
+		</div><!-- related -->
+<div class="ad">
+<p class="assoc">In association with:</p>
+<p><a href="http://grabaperch.com/"><img src="/img/promos/perch.gif" alt="Perch - a really little cms" /></a></p>
+</div>
+
+	</div><!-- content -->
+
+    		<ul id="footer">
+			<li><strong>24 ways</strong> is an <a href="http://edgeofmyseat.com/">edgeofmyseat.com</a> production.</li>
+			<li>Edited by <a href="http://allinthehead.com/">Drew McLellan</a> and <a href="http://suda.co.uk/">Brian Suda</a>.</li>
+			<li>Design delivered by <a href="http://madebyelephant.com/">Made by Elephant</a>.</li>
+			<li>Possible only with the help of <a href="/authors">our terrific authors</a>.</li>
+			<li>Grab our <a href="http://feeds.feedburner.com/24ways">RSS feed</a> and follow us on <a href="http://twitter.com/24ways">Twitter</a> for daily updates.</li>
+			<li>Hosted by <a href="http://www.memset.com/?source=mclelaa">Memset</a>.</li>
+		</ul><!-- footer -->
+		<ul id="unnecessary">
+			<li id="top"></li>
+			<li id="right"></li>
+			<li id="bottom"></li>
+			<li id="left"></li>
+		</ul><!-- unnecessary -->
+</body>
+
+
+
+
+
+</html>

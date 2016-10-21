@@ -1,0 +1,779 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Dr.Nikolai Bezroukov. Anti Virus Defense Secrets / The Value of RTF for
+Fighting Macro viruses and How to Convert MS Word Document to RTF</title>
+<link rel="stylesheet" type="text/css" href="../../../CSS/main.css">
+</head>
+
+<body>
+<basefont face="Times" size="3">
+<div align="center">
+<script type="text/javascript"><!--
+google_ad_client = "pub-4031247137266443";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_type = "text_image";
+//2007-01-25: top
+google_ad_channel = "0958472023";
+google_color_border = "CC0000";
+google_color_bg = "FFFF66";
+google_color_link = "CC0000";
+google_color_text = "6F3C1B";
+google_color_url = "6131BD";
+//--></script>
+	<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+	
+</script>
+</div>
+<table border="0" width="100%" id="table1">
+	<tr>
+		<td>
+
+		<p align="center">		<font face="Bernard MT Condensed" color="#FF0000" size="7"> <a target="_blank" href="http://www.softpanorama.org/index.shtml">
+		<font color="#FF0000">Softpanorama</font></a></font><b><br>
+		<font size="1" color="#0000FF">(slightly skeptical)
+Open Source Software Educational Society</font></b></td>
+		<td>
+<p align="right"><i><b><font size="2">May the
+source be with you,
+but remember the KISS principle ;-</font>)</b></i></p>
+
+<style type="text/css">
+@import url(http://www.google.com/cse/api/branding.css);
+</style>
+<div class="cse-branding-right" style="background-color:#999999;color:#000000">
+  <div class="cse-branding-form">
+    <form action="http://www.google.com/cse" id="cse-search-box">
+      <div>
+        <input type="hidden" name="cx" value="partner-pub-4031247137266443:ye0t3e-czf5" />
+        <input type="hidden" name="ie" value="ISO-8859-1" />
+        <input type="text" name="q" size="60" />
+        <input type="submit" name="sa" value="Search" />
+      </div>
+    </form>
+  </div>
+  <div class="cse-branding-logo">
+    <img src="http://www.google.com/images/poweredby_transparent/poweredby_999999.gif" alt="Google" />
+  </div>
+  <div class="cse-branding-text">
+    <font size="2"><b>Softpanorama Search
+	</font></b>
+  </div>
+</div>
+
+</td>
+</tr>
+</table>
+
+<hr width="100%" noshade size="5" color="#FF0000"></font>
+
+
+[an error occurred while processing this directive]
+
+<h1 align="center">The Value of RTF for Fighting Macro viruses and How to
+Convert MS Word Document to RTF</h1>
+<p align="center"><big><strong>Contents</strong></big></p>
+<p><a href="#Introduction_1">Introduction</a></p>
+<p><a href="#Structure of RTF file">Structure of RTF file</a></p>
+<p><a href="#How_to_check">How to check if the document is in RTF forma.
+Fighting the fake RTF problem</a></p>
+<p><a href="#How_to_convert">How to convert the document to Rich text format,
+WordPad as an antivirus tool</a></p>
+<p><a href="#Save_As">What to do if Save As does not work</a></p>
+<p><a href="#File_Open">What to do if saved in RTF format document is not seen
+in File/Open window</a></p>
+<p><a href="#Is_RTF">Is RTF really important</a>?</p>
+<p><a href="#RTF_and_protection">RTF and protection of documents with password</a></p>
+<p><a href="#RTF_and_imbedded">RTF and imbedded objects</a></p>
+<p><a href="#How_to_distinguish">How to distinguish corrupted Ms Word documents
+from infected</a></p>
+<p><a href="#Supplement">Supplement&nbsp;</a></p>
+<blockquote>
+   <p><a href="#What_to_do">What to do if you cannot open damaged document</a></p>
+   <p><a href="#Open_document">Open document in a draft mode</a></p>
+   <p><a href="#Insert_damaged_document">Insert damaged document as a file into
+   new document</a></p>
+   <p><a href="#Open_the_File">Open the File by Linking to It</a></p>
+   <p><a href="#&nbsp;Using_Paste_Special">Using Paste Special in MS Word 6.0</a></p>
+   <p><a href="#Open_damaged">How to open damaged Ms Word document in WordPad or
+   Microsoft Write</a></p>
+   <p><a href="#How_to_strip">How to strip out the File Header Information in MS
+   DOS mode</a></p>
+   <p><a href="#How_to_recover">How to recover text in MS Word 97</a></p>
+</blockquote>
+<hr>
+<h2 align="center"><a name="Introduction">Introduction</a></h2>
+<p>RTF format can be considered as a kind of proprietary text version somewhat
+similar to TeX and is a form of encoding of various text formatting properties,
+document structures, and document properties, using the printable ASCII
+character set. In this respect it is similar to HTML, but like TeX provides more
+formatting capabilities (see for example this <a target="_blank" href="http://premium.microsoft.com/msdn/library/specs/newrtf/paragraphtext.htm">fragment
+of RTF specification</a>). It was developed by Microsoft and used by many
+vendors (Lotus).</p>
+<div align="center">
+   <center>
+   <table border="1" width="100%" bgcolor="#FFFF00">
+      <tr>
+         <td width="100%">
+            <p align="center"><b>RTF format does not contains macros and as such
+            immune to macro viruses.</b></td>
+      </tr>
+   </table>
+   </center>
+</div>
+<p>RTF format does not contains macros and as such immune to macro viruses.
+Moreover if you need to translate MS Word document for HTML you will be better
+off converting it to RTF first and then using HTML editor <i>Inserting File</i>
+feature (for example <a target="_blank" href="http://www.microsoft.com/frontpage/tutorial/fptut_2d.htm">FrontPage 98
+Inserting Files</a> feature). HotMetal Pro also provide this
+functionality.&nbsp; It usually provide more reasonable translation than a
+straightforward conversion in MS Word 97 or Ms Word 2000 via Save to HTML item
+in the <strong><u>F</u>ile </strong>menu. In Ms Word 97 the latter is really
+unimpressive -- for example all headers are <em>not </em>translated to &lt;h&gt;
+counterparts. In Office 2000 it's pretty strange and very verbose with immense
+number of SPAN format each 100 character long.&nbsp; Actually it looks more like
+translation to XML. </p>
+<p>Due to absence of any decent built-in tools in MS Word that would list macros
+and integrity check the body it is recommended to use the Rich Text Format (
+.RTF)&nbsp; in e-mail attachments instead of native MS Word format whenever
+possible. It company adopts such a policy that it's easy to check such
+attachnments and block them on the e-mail gateway. that does not mean that
+documents in native MS Word format cannot be send by e-mail -- they just need to
+be packed by WinZip or similar archiver -- and this is a good think becuase the
+esiness of sending such attachments is the root of all evils.&nbsp; </p>
+<p>For text documents the size of the file in RTF format will be approximately
+the same as in native MS Word format (it will be much less,&nbsp; if&nbsp; Fast
+Save mode is used for saving documents in native MS Word format). At the same
+time MS Word 97 documents that contains pictures (especially large one) should
+not be converted to RTF format as it will substantially increase the size of the
+document.&nbsp;</p>
+<p>Small documents could also be included directly into the text of e-mail
+message using Copy(Ctrl-C) and Paste(Ctrl-V) operations available in Windows. MS
+Mail document format is essentially RTF format, so its immune to macro viruses.
+Netscape Mail use HTML -- also immune to viruses (you can lose formatting of the
+document in current version of Netscape Mail).</p>
+<p>RTF format has several&nbsp; important side benefits:
+<ul>
+   <li>It is the only format that is compatible with all previous and (lets
+      hope) future versions of MS Word.</li>
+   <li>It can be used to recover not only infected but corrupted documents as
+      well.</li>
+</ul>
+<p>&nbsp;</p>
+<div align="center">
+   <center>
+   <table border="1" width="100%" bgcolor="#FFFF00">
+      <tr>
+         <td width="100%">
+            <p align="center"><strong>Important: </strong>There are 2 different
+            things: file extension .RTF and text format RTF (Rich Text Format).</td>
+      </tr>
+   </table>
+   </center>
+</div>
+<p><strong>Important: </strong>There are 2 different things: file extension .RTF
+and text format RTF (Rich Text Format).</p>
+<p>In all five major MS operating systems (DOS, Windows 3.xx, Windows CE,
+Windows 9x and Windows NT)<em> file extension </em>and a <em>real file format</em>
+are quite independent. You can consider this a bug or a feature, but this how it
+is in Microsoft world. For a&nbsp;file you can have any extension you
+want.&nbsp; Document with .RTF extension is immune to macro viruses if and only
+if the file is really in RTF format. If the file is just renamed document in
+native MS Word format it can be infected like any other MS Word document (CAP.A
+virus fools the user into illusion of saving the document in RTF format, but
+save it in native MS Word format in a file with extension .RTF). So extension by
+itself does NOT guarantee absence of macro virus. Correct conversion to RTF
+format in clean MS Word environment does guarantee absence of macro viruses in
+the document.</p>
+<p>Reverse is also true: one can save document in RTF format with extension
+.DOC. In MS Word that have additional benefit --&nbsp; you do not need to change
+default format of open menu to see all documents that are present in the current
+directory (in fact this is difficult in MS Word versions before Word 97). In
+fact if user will try to save document in MS Word 97 (without Service Pack 1
+applied) using MS Word 6.0/95 compatibly format, the document will be saved as
+RTF document with extension .DOC.</p>
+<h2 align="center"><a name="Structure of RTF file">Structure of RTF file</a></h2>
+<p>RTF file has the following general syntax:</p>
+<blockquote>
+   <p>'{' &lt;header&gt; &lt;document&gt;'}'</p>
+</blockquote>
+<p>As one can see is should start with &quot;{&quot; and end with
+&quot;}&quot;&nbsp; that provide an easy method of checking the format of the
+file.</p>
+<p>Inside RTF file the are commands called <i>control word</i>s. A control word
+starts with delimiter &quot;\&quot; should contain only lowercase lowercase
+alphabetic characters(a-z) and cannot be longer than 32 characters:</p>
+<blockquote>
+   <p>\controlwords<i>&lt;</i>Delimiter<i>&gt;</i></p>
+</blockquote>
+<p>Note that a backslash should precede each control word for example<strong>
+\rtf1\ansi</strong> are two control words the usually start RTF file. The
+delimiter can be a space, a digit or a hyphen ( indicates that a numeric
+parameter follows. The subsequent digital sequence is then delimited by a space
+or any character other than a letter or a digit) or any character other than a
+letter or a digit. <i>Control symbols</i> consists of a backslash followed by a
+single, nonalphabetic character. For example, \<b>~</b> represents a nonbreaking
+space. They do not need any delimiters.</p>
+<p>A <i>group</i> consists of text and control words or control symbols enclosed
+in curve braces &quot;{&quot; and &quot;}&quot;. Each group specifies the text
+affected by the group and the different attributes of that text.</p>
+<p>Formatting specified within a group affects only the text within that group.
+Generally, text within a group inherits the formatting of the text in the
+preceding group with the exception of footnote, annotation, header, and footer
+groups&nbsp;</p>
+<p>The control properties of certain control words have only two states. When
+such a control word has no parameter or has a nonzero parameter, it is assumed
+that the control word turns on the property. When such a control word has a
+parameter of 0 , it is assumed that the control word turns off the property. For
+example, \<b>b</b> turns on bold, whereas \<b>b0</b> turns off bold.</p>
+<p>The control words, control symbols, and braces constitute control
+information. All other characters in the file are plain text.</p>
+<h2 align="center"><a name="How_to_check">How to check if the document is in RTF
+format</a>.<br>
+Fighting the fake RTF problem</h2>
+<p>As we can see from the discussion above any RTF document should start with
+sequence &quot;<font face="Fixedsys">{\</font>&quot;.&nbsp; These two symbols
+represent a typemark of RTF document in the same way as MZ(or ZM) represent
+typemark of the executables in EXE format. To test if the document is in RTF
+format open it in any plain-vanilla text editor (or viewer if you use <a
+href="../../../OFM/index.html">Orthodox File Manager</a>), for example in Notepad.
+The following 4 steps do the trick:
+<ol>
+   <li>Open Filemanager, find the document and select it with one click of the
+      mouse</li>
+   <li>Click on <strong><u>F</u>ile</strong> menu, go down to the <strong><u>R</u>un...</strong>
+      option and click on it.</li>
+   <li>You will see the windows under the title &quot;command line&quot; that
+      has the name of the file in it. Deselect it with one click of the mouse,
+      then position the mouse at the beginning of the line and type in the word
+      &quot;Notepad &quot; (space after the word Notepad is necessary to delimit
+      the word from the file name).</li>
+   <li>Click OK button. You will see internal representation of the file. If the
+      file will start with<br>
+      <br>
+      <font face="Fixedsys"><tt>{\rtf1\ansi\</tt></font><br>
+      <br>
+      then the file is in real RTF. Essentially the first two symbols are the
+      most important. A Microsoft Pocket Word 2.0 for Windows CE file has the
+      header &quot;<b>{\pwd2</b>&quot; to allow readers to identify it as a
+      Microsoft Pocket Word 2.0 file. BTW by changing a Microsoft Pocket Word
+      header to be the RTF header, the file can usually be read by any RTF
+      reader.</li>
+</ol>
+<p>If the document is really large (Notepad will NOT open large documents), then
+instead of using Notepad one can use Write. Please type the following command
+from the DOS prompt:</p>
+<p>&nbsp;<tt>&nbsp;&nbsp; <font face="Fixedsys">WRITE filename</font></tt></p>
+<p>It will prompt you about conversion, answer &quot;NO&quot;. Again, the check
+is the same. The &quot;real&quot; RTF looks like an ANSI text document and will
+start with:</p>
+<p><tt>&nbsp;&nbsp;&nbsp;<font face="Fixedsys"> {\rtf1\ansi\... ... ...</font></tt></p>
+<p>Native MS Word format is binary and will start with some bizarre symbols and
+will contain a lot of spaces(unprintable characters):</p>
+<p>&nbsp;&nbsp;&nbsp;<font face="Fixedsys"> ��&#17;ࡱ&#26;� ; &#03; ��
+&#06; &#01; &#16; &#03; &#01; ����</font></p>
+<p><strong>Note:</strong> This test should <em>always</em> performed if the
+document is send as an attachment to a large group of people.</p>
+<p>It's easy to write Perl Script that will check all documents with the
+extension .RTF for the standard beginning.</p>
+<h2 align="center"><a name="How_to_convert">How to convert the document to Rich
+Text Format</a>, WordPad as an antivirus tool</h2>
+<p>In order to save documents in MS Word in the .RTF format please open <b><u>F</u>ile
+</b>menu, select <b>Save<u>A</u>s</b> option and click the mouse on the arrow in
+right corner of the <b>Save as <u>t</u>ype</b> option. You will see the list of
+formats that MS Word &quot;understands&quot;. Scroll it down a little bit and
+select <b>Rich Text Format</b> (.RTF). Then click on <b><u>S</u>ave</b>
+button.&nbsp; Please make sure that <b><u>T</u>ools|<u>M</u>acro</b> menu
+produce list of macros. If not, than you may be infected with CAP.A or similar
+virus and should disinfect the document using<a
+href="ftp://ftp.Europe.DataFellows.com/anti-virus/tools/"> F-macro </a>or other
+available tool.</p>
+<p>Actually the best tool for conversion from the native MS Word format to RTF
+is WordPad. this utility can be called the best anti macro virus tool and it is
+more reliable that any AV program. WordPad does not interpret any macros and as
+such is much more suitable tool for conversion of infected documents than Ms
+Word.</p>
+<div align="right">
+   <table border="0" width="100%" bgcolor="lightcyan">
+      <tr>
+         <td width="100%">
+            <p align="center"><b>The best tool for conversion to RTF is WordPad</b></td>
+      </tr>
+   </table>
+</div>
+<p>&nbsp;</p>
+<p><strong>ATTENTION:</strong> If you will not select Rich Text Format (.RTF) in
+<strong>Save File As</strong> <strong><u>T</u>ype</strong> option, but just
+change extension to .RTF that you will save document in regular MS Word format
+(DOC format), but with extension .RTF. Document will remain infected and the
+fact that .RTF files are infected could produce a lot of confusion in
+troubleshooting the problem.&nbsp; This is a common mistake that often is done
+during conversion.</p>
+<p>You will be able to open attachment in .RTF format as a regular MS Word
+document but you will need to specify this format Files of type option of the
+File/Open menu.</p>
+<h2 align="center"><a name="Extension">Extension is not a format: the most
+common mistake in converting the document to Rich Text Format</a></h2>
+<p>The most common mistake is to rename the file by typing extension .RTF in <b>Save
+As</b> dialog, instead of converting it. For example if user forget to change
+type to <b>Rich Text Format</b> (.RTF) in <strong>Save File As</strong> <strong><u>T</u>ype</strong>
+menu, but just change extension to .RTF, document will be saved in regular MS
+Word format (DOC format), but with extension .RTF. Document will remain infected
+and the fact that .RTF files are infected could produce a lot of confusion in
+troubleshooting the problem. Some viruses, including CAP.A and NPad produce the
+same effect.</p>
+<h2 align="center">NORMAL.DOT Template</h2>
+<p align="left">In most cases if&nbsp; document was infected with macro virus
+the standard template normal. dot will be infected too. The best way to
+disinfect it is to restore it from some backup.&nbsp;</p>
+<div align="right">
+   <table border="0" width="100%" bgcolor="#E0FFFF">
+      <tr>
+         <td width="100%">The best way to disinfect normal.dot template is to
+            restore it from backup. That means that you should have a backup of
+            this file.</td>
+      </tr>
+   </table>
+</div>
+<p align="left">In case it does not contain any useful customarizations it can
+be simply deleted. Ms Word will recreate it automatically.&nbsp; This is a
+disinfect ion of the last resort ;-). It's also possible to delete macros from
+normal.dot template but it requires some experience in working with templates
+and will not be covered in this document.&nbsp;</p>
+<h2 align="center"><a name="Save_As">What to do if Save As do not work</a></h2>
+<p>If document is infected or is marked as &quot;template&quot;, then you will
+not be able to save it directly as .DOC or .RTF file via <b>Save <u>A</u>s</b>
+option of the <b><u>F</u>ile</b> menu.&nbsp; In this case open new document,
+then switch to previous windows via <b><u>W</u>indows</b> menu, select all
+document via <b><u>E</u>dit/Select A<u>l</u>l,</b> copy it with Ctrl-C(or <b><u>E</u>dit/<u>C</u>opy</b>),
+switch back to new document via Windows menu and paste content via Ctrl-V (or <b><u>E</u>dit/<u>P</u>aste</b>).
+Now you will be able to save the document as Rich Text Format.</p>
+<h2><a name="File_Open">What to do if saved in RTF format document is not seen
+in File|Open window</a></h2>
+<p>By default in Ms Word 6.0 and Ms Word 7.0 (Word 95) <b>File/Open</b> windows
+shows only documents in with extension .DOC. So one need to change <b>Files of <u>t</u>ype
+</b>menu to <font face="Courier">All files</font> or <font face="Courier">Rich
+Text Format </font>to see documents with extension .RTF.</p>
+<p>The second reason can be that directory in which document was saved is
+different from the current directory.</p>
+<h2 align="center"><a name="Is_RTF">Is RTF really important</a></h2>
+<p>The RTF format is not a panacea.&nbsp; It is good for text documents but
+documents with pictures substantially increase in size after conversion.&nbsp;
+In such cases it can be used as temporary format just for disinfection. after
+disinfection document can be converted back to native format.</p>
+<p>At the same time there is no anti-virus tool that is 100% proof against any
+possible form of macro virus. That simple fact underlines importance of RTF in
+corporate environment. So change of format is the only reliable alternative to
+complex &quot;on the fly&quot; macro virus protection software like Macro Virus
+Track that can create more problems than it solves. Of course RTF in not only
+format immune to macro viruses. There are other possibilities. Basically there
+are 2 alternatives to RTF format:
+<ul>
+   <li>To use different format that also does not contain macros;</li>
+   <li>To use different office suit.</li>
+</ul>
+<p>As for the first alternative, the most attractive is to use HTML instead of
+RTF. HTML is definitely the future. But currently HTML is limited and not all Ms
+Word documents could be converted to HTML without loss of formatting. HTML
+format can contain JavaScript macros, but currently there is no macro viruses,
+written in JavaScript.</p>
+<p>Second is to use Adobe Acrobat format. I am not sure that it is completely
+immune from macro viruses, but MS Word viruses will not survive the conversion.
+That&#8217;s for sure. This format is not supported by current versions of MS Word
+so one need third party conversion utilities to perform the conversion.</p>
+<p>Yet another alternative is to use different word processor (for example Word
+Perfect) in case it is installed on the particular PC. Theoretically for home
+users Corel Office with Word Perfect instead of Microsoft Office is much more
+cost effective solution than Ms Office. For heavy Lotus Notes users Lotus Smart
+Suite could be also an attractive choice. XML compliant, Office 97 compatible
+SmartSuite Millennium Edition is a $149 suit that competes in functionality (and
+at the same time has much better price) with MS Office (see <a
+href="../../../Bulletin/sp1998c.shtml">Softpanorama bulletin vol.10, No.3</a> for
+details)</p>
+<blockquote>
+   <p><small>SmartSuite Millennium Edition contains of five important
+   applications: WordPro, 1-2-3, Approach, Organizer and Freelance . Speech
+   recognition technology is supported for 1-2-3 and WordPro. It also includes
+   data sharing capabilities with eSuite Workplace -- Java&nbsp; minisuit from
+   Lotus</small></p>
+   <p><small>The most interesting is FastSite --&nbsp; a new Web publishing
+   application that allows end-users to take set of files created in Word,
+   spreadsheet, or other desktop applications, convert them all to HTML and
+   download to the WEB page</small></p>
+   <p><small>New capability In 1-2-3 includes the ability to access and present
+   Web data in a spreadsheet. For example, a user can take stock quotes, put
+   them in the spreadsheet and link them to a <a target="_blank" href="http://www.yahoo.com/">Yahoo</a>
+   business site.</small></p>
+   <p><small>SmartSuite Millennium Edition is compatible with <a target="_blank" href="http://www.microsoft.com/">Microsoft</a> Office 97 applications and is
+   XML, as well as HTML, compliant. It also features connection capabilities for
+   enterprise applications developed by <a target="_blank" href="http://www.sap.com/">SAP</a>
+   and <a target="_blank" href="http://www.peoplesoft.com/">PeopleSoft</a>.</small></p>
+   <p><small>Upgrades from previous versions, or from competitive products are
+   $149.&nbsp;&nbsp; There are chances that Smartsuite will be available for
+   Linux too.</small></p>
+</blockquote>
+<p>But Ms Word is dominant word processor now, and there are important
+advantages of using dominant software, even it cost more.</p>
+<h2 align="center"><a name="RTF_and_protection">RTF and protection of documents
+with password</a></h2>
+<p>MS Word protection is breakable and is not recommended for highly sensitive
+information. Also it works only for native MS Word format. So if user wand to
+use this feature he/she <em>needs</em> to use native MS Word format.</p>
+<p>But it is very easy to protect RTF document with PGP and/or PKZIP. Both
+(especially PGP) provide pretty decent level of protection (PGP provides
+military strength protection).</p>
+<p>PKZIP is simplest to use, but <em>does not</em> provide strong protection.
+The main advantage of using PKZIP is that it cuts transmission time via modem in
+half or more. So it could be recommended to field personnel that communicate via
+modems. U still use older version of pkzip (2.04g) but current version of
+command line PKZIP utility is 2.5x. It is available for DOS, and all flavors of
+Windows (3.11, 95, NT). You can download it from almost any file archive on the
+Internet including SimTel and its mirror sites, www.cdrom.com and its mirror
+sites. It is also available directly from <a target="_blank" href="http://www.pkware.com/pkzip_cli2.html">PKZIP� Command Line for Windows
+95NT</a> site.</p>
+<p>In this case to protect document using PKZIP one need to run command (option
+-s may be different in pkzip 2.5x)&nbsp;</p>
+<blockquote>
+   <p><font face="Fixedsys">pkzip -s &lt;name_of_ZIP_file&gt;&nbsp;&nbsp;&nbsp;
+   &lt;names_of_the_document(s)_in_RTF_format&gt;</font></p>
+</blockquote>
+<p>for example in order to create file confidential.zip from MS Word document
+web_abusers.doc one needs to execute a command line:</p>
+<blockquote>
+   <p><font face="Fixedsys">pkzip -s&nbsp; web_abusers.zip&nbsp; web_abusers.doc</font></p>
+</blockquote>
+<p>PKZIP also has advantage that you can protect as many documents as you wish
+in one archive. For example in order to store all documents from current
+directory in zip file confidential.zip one need to execute command line:</p>
+<blockquote>
+   <p><font face="Fixedsys">pkzip -s&nbsp; confidential.zip&nbsp; *.*</font></p>
+</blockquote>
+<h2 align="center"><a name="RTF_and_imbedded">RTF and imbedded objects</a></h2>
+<p>RTF preserve static imbedded objects like pictures, tables, etc. Dynamic
+imbedded objects like EXCEL spreadsheets are not preserved. In this case native
+MS Word format should be used.</p>
+<h2 align="center"><a name="How_to_distinguish">How to distinguish corrupted Ms
+Word documents from infected</a></h2>
+<p>Damaged documents can cause MS Word to exhibit unusual behavior. Such
+behavior occurs because the program attempts to make decisions based on
+incorrect information. Damaged documents often exhibit behavior like infinite
+repagination, incorrect document layout and formatting, unreadable characters on
+the screen, error messages during processing, system hangs or crashes when you
+load or view the file. In that sense behavior is close to behavior of infected
+documents.</p>
+<p><b>NOTE:</b> Often document is corrupted when it was saved in Word for
+Windows with the <i>Allow Fast Saves</i> check box selected. In this case the
+text is stored in noncontiguous blocks. The Fast Save feature keeps track of the
+changes that you make by appending the changes to the end of your document and
+remembering where these changes go. On slow computers this method is faster and
+takes less memory than saving the entire document, but it can lead to additional
+problems. It is strongly recommended to turn off this feature of MS Word via <b>Tools/Options/Save.</b></p>
+<p>To rule out macro virus infection, use the following steps:</p>
+<p>First try to save the file in RTF file format; this format preserves the
+formatting in your Microsoft Word for Windows document, but delete all macros.
+After you save the file in RTF format, re-open the document in Word for Windows,
+and convert it back to native DOC format. If this method succeeds, the file
+corruption is removed during conversion. If problem persists, please rename
+NORMAL.DOT and any templates associated with the document or stored in the
+STARTUP directory and repeat conversion (NORMAL.DOT could be infected). Then
+repeat conversion to RTF.</p>
+<p>If conversion to RTF fail to, but you can view at least the beginning of the
+document, you can try to copy part of the corrupted document to a new document.
+Then save the rest of the file in Text Only With Line Breaks format and recover
+the rest of the file from text document by reapplying formatting:
+<ol>
+   <li>Create new MS Word document.</li>
+   <li>Copy everything except the damaged portion to a new file.</li>
+   <li>Save document in Text Only With Line Breaks.</li>
+   <li>Open save text document in a second windows as a text file.</li>
+   <li>Reconstruct missing portions from the text version in a second window.</li>
+</ol>
+<p>Other things to try:
+<ul>
+   <li>Copy Everything Except the Last Paragraph Mark to a New Document. MS Word
+      for Windows associates a lot of formatting information with the last
+      paragraph mark(for example section and style formatting). You can select
+      everything except the last paragraph mark by pressing CTRL+END, and then
+      CTRL+SHIFT+HOME.</li>
+</ul>
+<ul>
+   <li>Check for similar behavior in other documents. If all of them have the
+      same problem, then the problem is probably connected with MS Word
+      configuration or installation or Windows configuration or installation.</li>
+   <li>Take the file in question to another computer and attempt to duplicate
+      the behavior.</li>
+   <li>Use a different printer driver and attempt to duplicate the behavior.</li>
+   <li>Change other system components (such as video drivers, print drivers or
+      fonts) and attempt to duplicate the behavior. For example, if you are
+      using an OEM version of a video driver, switch to a Microsoft Windows
+      video driver using the Windows Setup program.</li>
+   <li>In Windows 3.11 disable any third-party programs that are running (such
+      as terminate- and-stay-resident programs [TSRs], font managers, screen
+      savers, and system shells), and then attempt to duplicate the behavior.</li>
+</ul>
+<h2 align="right"><a name="Supplement">Supplement</a></h2>
+<h2 align="center"><a name="What_to_do">What to do if you cannot open damaged
+document</a></h2>
+<p>There are several techniques you can use to try to open a document that will
+not open. Which method you use depends on the nature and severity of the damage
+to your document and the nature of the behavior exhibited. Any MS Word document
+can be recovered with (sometimes total) loss of formatting and macros. In any
+case you will usually be able to recover most of text of the document.
+Formatting will usually be lost. You have several options:
+<ol>
+   <li>Open document in a draft mode</li>
+   <li>Insert damaged document as a file into new document</li>
+   <li>Open the File by Linking to It</li>
+   <li>&nbsp;Using Paste Special in MS Word 6.0</li>
+</ol>
+<p>MS Word 97 has a special text recovery tool &quot;Recover Text From Any File
+converter&quot; (see below). So it is recommended to use Ms Word 97 for recovery
+of documents in Word 6.0 format too.</p>
+<h3><a name="Open_document">Open document in a draft mode</a></h3>
+<p>Sometimes you can open a document successfully in draft mode when it will not
+open in other views. Once you open the file, you may be able to recover or
+repair the file. To do this please open View menu and click Normal. On the Tools
+menu, click Options, select the View tab, and select the Draft Font option.</p>
+<p>You can also use following macro to turn off screen updating, open your
+damaged document, switch to draft mode, and then reactivate screen updating:</p>
+<blockquote>
+   <p><font face="Fixedsys"><font size="-1">Sub Main</font></font></p>
+   <p><font face="Fixedsys"><font size="-1">ScreenUpdating 0</font></font></p>
+   <p><font face="Fixedsys"><font size="-1">FileOpen .Name = &quot;&lt;path&gt;\Filename.doc&quot;
+   ' path and name for damaged document</font></font></p>
+   <p><font face="Fixedsys"><font size="-1">ToolsOptionsView .DraftFont = 1</font></font></p>
+   <p><font face="Fixedsys"><font size="-1">ScreenUpdating</font></font></p>
+   <p><font face="Fixedsys"><font size="-1">End Sub</font></font></p>
+</blockquote>
+<p>Using this macro may enable you to open documents that you cannot otherwise
+open due to damage that affects printer setup, page layout, or screen updates in
+Word. For example, if a general protection (GP) fault occurs in Word before the
+document is opened, you may be able to avoid it using the above macro.</p>
+<h3 align="center"><a name="Insert_damaged_document">Insert damaged document as
+a file into new document</a></h3>
+<p>Second method is to insert the damaged document as a file into a New
+Document. As was mentioned above the final paragraph mark in a Word document
+contains information about the document. If the document is damaged, you may be
+able to retrieve the text of the document if you can omit this final paragraph
+mark. To access a document but leave its final paragraph mark behind, use the
+following steps:</p>
+<p>1. Create a new blank document.</p>
+<p>2. On the Insert menu, click File.</p>
+<p>3. In the Insert File dialog box, locate and select the damaged document, and
+click OK.</p>
+<p>4. Strip out the File Header Information in MS DOS mode</p>
+<p>You may need to reapply some section formatting to the last section of the
+document<font size="-1">.</font></p>
+<h3 align="center"><a name="Open_the_File">Open the File by Linking to It</a></h3>
+<p>This method works for Ms Word 7.0 (Word 95). It does not work for Ms Word
+6.0. When you create a link, part of the header information of the corrupted
+document is not read. So this method allows you to open the file if this part of
+the header or if the final paragraph mark is in the damaged area of the
+document.</p>
+<p>Use the following steps:
+<ol>
+   <li>Create a new document. In the new document, type &quot;This is a
+      Test.&quot; Save the document.</li>
+   <li>Select the text and click Copy on the Edit menu.</li>
+   <li>Click New on the File menu. In the new document, click Paste Special on
+      the Edit menu.</li>
+   <li>Select either Unformatted or Formatted text, and click Paste Link. Press
+      OK.</li>
+   <li>On the Edit menu, click Links. The Links dialog box is displayed.</li>
+   <li>Select the file name of the first linked document and click Change
+      Source. The Open dialog box appears and asks which document you want to
+      change the link to.</li>
+   <li>Select the document you can no longer open and click Open.</li>
+   <li>Click OK in the Links dialog box.</li>
+   <li>On the Edit menu, click Links, and click Break Links (Cancel Links in
+      Word 2.x).</li>
+</ol>
+<h3 align="center"><a name="&nbsp;Using_Paste_Special">&nbsp;Using Paste Special
+in MS Word 6.0</a></h3>
+<ol>
+   <li>Create a new document. In the new document, type &quot;This is a
+      test&quot; or other phrase. Save the document.</li>
+   <li>Select the text and click Copy on the Edit menu. Press the right arrow on
+      the keyboard to deselect the text. This will put your insertion point on
+      the next line.</li>
+   <li>On the Edit menu, click Paste Special. Select either Unformatted or
+      Formatted text, and click Paste Link. Click OK.</li>
+   <li>To display the field codes, press Alt+F9.</li>
+   <li>The field code will resemble the following: {LINK Word.Document.6
+      &quot;C:\\MYDOCS\\TEST.DOC&quot; &quot;DDE_LINK3&quot; \a \r \*MERGEFORMAT}</li>
+   <li>Modify the path to the document in the field code to be the path to the
+      corrupt document.</li>
+   <li>Delete the &quot;DDE_LINK#&quot; from the field code (include the
+      quotation marks).</li>
+   <li>Position insertion point inside the LINK field. Press F9 to update the
+      field.</li>
+   <li>Press ALT+F9 to view the results of the field.</li>
+   <li>To unlink the field and to convert the field to text, press
+      CTRL+SHIFT+F9.</li>
+</ol>
+<h3 align="center"><a name="Open_damaged">&nbsp;Open damaged document in WordPad
+or Microsoft Write</a></h3>
+<p>When you cannot open a damaged document in MS Word (usually because of
+corruption in the file header), you can strip out the file header and open the
+file in WordPad or Write. Formatting will be lost but you will be able to
+recover text.
+<ol>
+   <li>Start Microsoft WordPad or Write. (In Windows 95 click Run on the Start
+      menu, type &quot;WordPad&quot; [without the quotation marks], and click
+      OK; in Windows 3.x, from Microsoft Windows Program Manager, click Run on
+      the File menu, type &quot;write&quot; [without the quotation marks], and
+      click OK).</li>
+   <li>In WordPad or Write, open the corrupt document. A dialog box prompts you
+      to specify how you want to convert the file. Click the No Conversion
+      button.</li>
+   <li>The Word for Windows document is now open as a text file. You may see
+      binary (foreign) characters at the beginning and end of the document.
+      Delete these characters. NOTE: In Windows 95, the file may be opened
+      intact without further conversion or cleanup necessary. If this is the
+      case, save the file with an extension .TXT and open the file in Word 6.x
+      or later.</li>
+   <li>On the File menu, click Save As. In the File Name box, type a new name
+      with a .doc file name extension. Before you click the OK button, note the
+      directory where the file is being saved so you can easily find it when you
+      restart Word for Windows.</li>
+   <li>On the File menu, click Exit.</li>
+   <li>Restart Word for Windows and open the file you saved from WordPad or
+      Write (the file will have the name you gave it in step 4). (On the File
+      menu, click Open. In the File Name box, type the path and file name of the
+      newly created file, and click OK.)</li>
+   <li>In the Convert File dialog box, Text Only should be selected. Choose the
+      OK button to open the text file in Word for Windows.</li>
+   <li>On the File menu, click Save As, and save the file in Word format</li>
+   <li>In the File Name box, type a new name for the file, and click OK.</li>
+   <li>The file is now in Word for Windows format. You can reopen it and replace
+      any necessary graphics, fields, and formatting.</li>
+</ol>
+<h3 align="center"><a name="How_to_strip">How to strip out the File Header
+Information in MS DOS mode</a></h3>
+<p>To recover text from the corrupted document you can strip header information
+in MS DOS mode.
+<ol>
+   <li>Load the document into EDIT and replace first 12 characters of the
+      document with blanks. If document is too large, then type command</li>
+</ol>
+<p>copy con+FILENAME.DOC NEWNAME.DOC</p>
+<p>where &quot;FILENAME&quot; is the name of the damaged file, and &quot;NEWNAME&quot;
+is</p>
+<p>the name of the new file. (This causes the word &quot;CON&quot; to appear and
+the insertion point to blink on a blank line.). Then press the SPACEBAR twelve
+times. Press F6, and then press ENTER.
+<ul>
+   <li>Start MS Word for Windows and open the new file.</li>
+   <li>Delete the odd characters at the beginning and end of the file. The text
+      of the file is usually intact in the middle of the file.</li>
+   <li>Reformat the document and save it in Word for Windows format.</li>
+</ul>
+<h2 align="center"><a name="How_to_recover">How to recover text in MS Word 97</a></h2>
+<p>Word 97 have special Recover Text From Any File converter. It allows you to
+extract the text from any file. The file does not have to be a Word file. Using
+the Recover Text From Any File converter does have its limitations. Document
+formatting will be lost, along with anything that is not of a text nature.
+Graphics, fields, drawing objects, and so on, will not be converted. However,
+headers, footers, footnotes, endnotes, and field text, will be retained as
+simple text. To use the converter on a Word file:</p>
+<p>1. On the File menu, click Open, and select the document.</p>
+<p>2. In the Files of Type box, select Recover Text from Any File, and click
+Open.</p>
+<p>To use the converter on any non-Word file:
+<ol>
+   <li>On the Tools menu, click Options.</li>
+   <li>Select the General tab.</li>
+   <li>Select the &quot;Confirm conversion at open&quot; check box and click OK.</li>
+   <li>On the File menu, click Open.</li>
+   <li>Select the File you want to recover, and choose OK. You will be presented
+      with the Convert File dialog box.</li>
+   <li>In the Convert File dialog box, scroll the list of converters, select the
+      Recover Text From Any File entry, and click OK. Word will convert the
+      damaged document and recover any text from the document.</li>
+</ol>
+<p>MS Word 97 can automatically recover damaged file. Message will be displayed
+when the corrupted document will be opened. If you click No, Word will not
+attempt to recover the document. If you click Yes, Word will attempt to recover
+the document. If Word is successful in recovering the file, save the document as
+a normal Word document.</p>
+<p>If &quot;Recover Text from Any File&quot; Doesn't Appear in the Convert File
+dialog box then the Recover Text From Any File converter is not installed. You
+will need to re-run Setup to install this converter.
+<ol>
+   <li>Run Word Setup (it should automatically start in maintenance mode). Click
+      the Add/Remove button.</li>
+   <li>Select the Converters And Filters entry (do not clear the check box)
+      click Change Option.</li>
+   <li>Select the Text Converters entry (again do not clear the check box) and
+      click Change Option.</li>
+   <li>Select the Recover Text Converter check box, and click OK.</li>
+   <li>Click OK to exit the Converters And Filters dialog box.</li>
+   <li>Click Continue to proceed with the installation of Recover Text
+      converter. The Setup program will prompt you for the required disks as
+      needed.</li>
+</ol>
+<hr>
+<h2 align="center">Webliography</h2>
+<ul>
+   <li>
+      <p align="left"><a target="_blank" href="http://night.primate.wisc.edu/software/RTF/">RTF
+      software and documentation</a></p>
+   </li>
+   <li>
+      <p align="left"><a target="_blank" href="http://premium.microsoft.com/msdn/library/specs/f15/d11/s6cd3.htm">Rich
+      Text Format (RTF) Specification and Sample RTF Reader Program</a></p>
+   </li>
+   <li>
+      <p align="left"><a target="_blank" href="http://premium.microsoft.com/msdn/library/techart/msdn_msdn118.htm">Tip
+      118 Converting a Word for Windows Document to RTF Format</a></p>
+   </li>
+   <li>
+      <p align="left"><a target="_blank" href="http://premium.microsoft.com/msdn/library/officedev/word/d3/s3196.htm">FileSaveAs</a></p>
+   </li>
+   <li>
+      <p align="left"><a target="_blank" href="http://www.sunpack.com/RTF/">rtftohtml</a></p>
+   </li>
+</ul>
+<div aligh="center">
+<script type="text/javascript"><!--
+amazon_ad_tag = "nikolaibezroukov"; amazon_ad_width = "728"; amazon_ad_height = "90";//--></script>
+<script type="text/javascript" src="http://www.assoc-amazon.com/s/ads.js"></script>
+</div>
+<hr size="5" noshade color="#FF0000">
+<font face="Verdana" size="1">
+<p align="left">Copyright � 1996-2009 by Dr. Nikolai Bezroukov.
+<a target="_blank" href="http://www.softpanorama.org">www.softpanorama.org</a> was 
+created as a service to the UN Sustainable Development Networking Programme (<a target="_blank" href="http://www.un.org/Depts/dhl/sflib/">SDNP</a>) 
+in the author free time. <b>
+<a target="_blank" href="http://www.softpanorama.org/Links/comments.shtml">Submit 
+comments</a></b> This document is an industrial compilation designed and <b>created 
+exclusively for educational use</b> and is placed under the copyright of the
+<a target="_blank" href="http://www.opencontent.org/opl.shtml">Open Content License(OPL)</a>. 
+Site uses AdSense so you need to be aware of Google privacy policy. Original materials copyright belong to respective owners. <i><b>Quotes are made<font color="#FF0000"> 
+for educational purposes only</font> in compliance with the fair use doctrine.
+</b></i></p>
+<p align="left"><b>Disclaimer:</b> </p>
+<ul>
+	<li><i>The statements, views and opinions presented on 
+this web page are those of the author and are not endorsed by, nor do they necessarily 
+reflect, the opinions of the author present and former employers, SDNP or any other 
+organization the author may be associated with.<b> </b> </i></li>
+	<li><b>We do not warrant the correctness of the information provided or its 
+	fitness for any purpose</b></li>
+	<li>In no way this site is associated with or endorse <b>&nbsp;</b><a href="http://en.wikipedia.org/wiki/Cybersquatting">cybersquatters</a> 
+	using 
+	the term "softpanorama" with other main or country domains (e.g. softpanorama.com) with
+	<a title="Bad faith" href="http://en.wikipedia.org/wiki/Bad_faith">
+	bad faith</a> intent to profit from the goodwill belonging to 
+	someone else.</li>
+</ul>
+
+
+	<p><em>Last modified: 
+	<!--webbot bot="Timestamp" s-type="EDITED" 
+ s-format="%B %d, %Y" startspan -->February 28, 2008<!--webbot bot="Timestamp" i-checksum="41428" endspan --></em></p>
+</body>
+
+</html>

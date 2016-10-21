@@ -1,0 +1,271 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head><title>
+	Programmatically Working with User Controls - Part 1
+</title><meta name="author" content="No Box Solutions" /><link rel="stylesheet" type="text/css" href="nobox.css" /><meta name="description" content="Demonstrates how you can work with your custom user controls programmatically" /></head>
+<body>
+
+
+
+<div id="bannerTop"></div>
+<div id="bannerContainer">
+  <div id="bannerText">
+      <a href="/default.aspx"><img src="/images/banner.jpg" alt="No Box Solutions" /></a>
+  </div>
+</div>
+<div id="bannerBottom"></div>
+
+
+
+  
+  <div id="toolbar">
+    <div id="toolbarItems">
+    <a href="/default.aspx">Home</a> | <a href="/articles.aspx">Articles</a>
+    </div>
+  </div>
+  
+
+<div id="containerTop"></div>
+<div id="container">
+
+  <div id="contentBody">
+     
+<div class="content">
+<div id="googleSkyscraper">
+<script type="text/javascript"><!--
+google_ad_client = "pub-8936932972296526";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel ="";
+google_color_border = "7C9BC1";
+google_color_bg = "EBF5FD";
+google_color_link = "0000FF";
+google_color_url = "AD1731";
+google_color_text = "000000";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+
+<h3>Easing in to user controls</h3>
+<p>
+Denise Wynn
+<br />
+November 30, 2004
+</p>
+<p>
+Download the example code for this article. <a href="/BeginningUserControlsCode.zip">BeginningUserControlsCode.zip</a>
+</p>
+<p>
+We're going to start with 2 extremely simple controls that set the banner and footer of all web pages on a site.  The idea is to isolate those areas of a page that are shared and put that code in a user control.  That way when you need to update a link or some text or even just swap out your banner image you only have to modify and upload one file instead of every file in your site.
+</p>
+
+<h4>Template.aspx</h4>
+<p>
+We'll start with a simple template web page.  In Notepad or any other text editor create a file called template.aspx in your test directory and enter the following code.
+</p>
+
+<pre>
+&lt;%@ Page runat="server" language="c#"%&gt;
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;User Control Template&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+
+&lt;/body>
+&lt;/html>
+</pre>
+
+<p>
+There isn't really much to it and the only thing that makes it look different from any static html page is the @ Page declaration at the top.
+</p>
+<p>
+You can view your new page by opening a browser and going to http://localhost/test/template.aspx.
+</p>
+
+<h4>The Banner Control</h4>
+<p>
+Now we will create the first user control.  Create a text file named banner.ascx in the test directory and enter the following code.
+</p>
+
+<pre>
+&lt;%@ Control runat="server" language="c#" %&gt;
+&lt;img src="banner.jpg" alt="My Banner" /&gt;
+</pre>
+
+<p>
+The @ Control directive lets ASP.NET know that this file is a user control.  Beneath the directive is the actual html that we want to use for our banner that will be inserted into any page that implements the banner control.  This is really the simplest implementation of a user control since it contains only static html and no other code.
+</p>
+<p>
+Since the banner control has an image tag we'll need an image in our test directory or we'll just display a broken image on the page.  The sample download includes a banner image you can use or you can reference any other image that you have available.
+</p>
+<p>
+Now we want to add our banner to our template page.  Go back to the template.aspx file and add the following bold lines.
+</p>
+
+<pre>
+&lt;%@ Page runat="server" language="c#"%&gt;
+<b>&lt;%@ Register TagPrefix="nbs" TagName="banner" Src="banner.ascx" %&gt;</b>
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;User Control Template&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+<b>&lt;nbs:banner runat="server" /&gt;</b>
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<p>
+The @ Register directive allows the page to register a custom user control.  It lets the page know where to find the control as well as what tag prefix and name will be used within the page to instantiate the control.  The TagPrefix attributes value is set to "nbs" and the TagName attributes value to "banner".  So in the page we've created a tag using nbs:banner exactly where you want the banner code to be displayed.  We added a runat="server" to the nbs:banner tag so the page knows to render this on the server side before sending it to the client.  If we didn't add the runat="server" then the banner code would not be written into the page and nothing would be displayed in that space on the client.  Doing a view source would just show an &lt;nbs:banner /&gt; tag.
+</p>
+<p>
+The Src attributes value has been set to the banner.ascx file that is located in the same directory.  We could also put all of the controls in a directory called controls or templates and set the Src accordingly.  The path in the Src attribute can be either relative or absolute.
+</p>
+<p>
+If you were to view the template.aspx page in a browser you will see the banner image displayed across the top of the page.  Viewing the source would show the following:
+</p>
+
+<pre>
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;User Control Template&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;img src="banner.jpg" alt="My Banner" /&gt;
+
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h4>The Footer Control</h4>
+<p>
+We also want to add a footer to our page.  Create a text file named footer.ascx in the test direcroty and add the following code to it.
+</p>
+
+<pre>
+&lt;%@ Control runat="server" language="c#" %&gt;
+&lt;div&gt;
+Copyright &amp;copy;&amp;nbsp;2004 No Box Solutions, Inc.
+&lt;/div&gt;
+</pre>
+
+Go back to the template.aspx file and add the following bold lines.
+
+<pre>
+&lt;%@ Page runat="server" language="c#"%&gt;
+&lt;%@ Register TagPrefix="nbs" TagName="banner" Src="banner.ascx" %&gt;
+<b>&lt;%@ Register TagPrefix="nbs" TagName="footer" Src="footer.ascx" %&gt;</b>
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;User Control Template&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;nbs:banner runat="server" /&gt;
+
+<b>&lt;nbs:footer runat="server" /&gt;</b>
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<p>
+Notice how the TagPrefix is the same but the TagName is different as is the Src.  I've used nbs to signify that these are No Box Solutions custom controls.
+</p>
+<p>
+Viewing the template page now in your browser will display the banner and directly beneath it will appear the footer.  Viewing the page source will show the following:
+</p>
+
+<pre>
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;User Control Template&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;img src="banner.jpg" alt="My Banner" /&gt;
+
+
+
+&lt;div&gt;
+Copyright &amp;copy;&amp;nbsp;2004 No Box Solutions, Inc.
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h4>Putting it to work</h4>
+<p>
+Now that we have our template we can start to do something useful with it.
+</p>
+<p>
+Save a copy of your template.aspx file as firstpage.aspx in your test directory.  Open firstpage.aspx in a text editor and add the following bold line.
+</p>
+
+<pre>
+&lt;%@ Page runat="server" language="c#"%&gt;
+&lt;%@ Register TagPrefix="nbs" TagName="banner" Src="banner.ascx" %&gt;
+&lt;%@ Register TagPrefix="nbs" TagName="footer" Src="footer.ascx" %&gt;
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;User Control Template&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;nbs:banner runat="server" /&gt;
+&lt;p&gt;This is the first page made from my new template.&lt;/p&gt;
+&lt;nbs:footer runat="server" /&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<p>
+Save firstpage.aspx and in your browser go to http://localhost/test/firstpage.aspx.
+</p>
+<p>
+You have just created a page using your template file and all you had to enter was the static text/html for that page. You can create additional pages from the same template in the same way.
+</p>
+<p>
+The advantage is that no matter how many pages you create from the same template, if you want to change your banner or footer you only have to change one file that you have to upload to your site instead of changing all of the pages.
+</p>
+
+<h4>In Conclusion</h4>
+<p>
+You now have a template file that you can use as a base for creating numerous web pages.  If you need to make a change to either the banner or the footer you only have to change a single file.
+</p>
+</div>
+
+  </div>  
+
+</div>
+<div id="containerBottom"></div>
+
+
+<div id="footerTop"></div>
+<div id="footerContainer">
+  <div id="footerText">
+    Copyright &copy;&nbsp;2008 No Box Solutions <br />
+  </div>
+</div>
+<div id="footerBottom"></div>
+
+</body>
+</html>
